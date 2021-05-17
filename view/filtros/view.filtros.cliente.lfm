@@ -1,0 +1,371 @@
+object frmFiltroCliente: TfrmFiltroCliente
+  Left = 1600
+  Height = 553
+  Top = 250
+  Width = 1016
+  BorderStyle = bsDialog
+  Caption = 'frmFiltroCliente'
+  ClientHeight = 553
+  ClientWidth = 1016
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poMainFormCenter
+  LCLVersion = '2.0.12.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 29
+    Top = 0
+    Width = 1016
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 29
+    ClientWidth = 1016
+    Color = 12282669
+    ParentColor = False
+    TabOrder = 0
+    object ckCliente: TCheckBox
+      Left = 4
+      Height = 23
+      Top = 3
+      Width = 67
+      Caption = 'Cliente'
+      Checked = True
+      Font.Color = clWhite
+      Font.Height = -13
+      ParentFont = False
+      State = cbChecked
+      TabOrder = 2
+      TabStop = False
+    end
+    object ckColaborador: TCheckBox
+      Left = 87
+      Height = 23
+      Top = 3
+      Width = 102
+      Caption = 'Colaborador'
+      Font.Color = clWhite
+      Font.Height = -13
+      ParentFont = False
+      TabOrder = 1
+      TabStop = False
+    end
+    object ckFornecedor: TCheckBox
+      Left = 198
+      Height = 23
+      Top = 3
+      Width = 94
+      Caption = 'Fornecedor'
+      Font.Color = clWhite
+      Font.Height = -13
+      ParentFont = False
+      TabOrder = 0
+      TabStop = False
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 25
+    Top = 528
+    Width = 1016
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 25
+    ClientWidth = 1016
+    Color = 12282669
+    ParentColor = False
+    TabOrder = 1
+    object lblTempoBusca: TLabel
+      Left = 886
+      Height = 25
+      Top = 0
+      Width = 120
+      Align = alRight
+      BorderSpacing.Right = 10
+      Caption = 'Tempo de Busca '
+      Font.Color = clWhite
+      Font.Name = 'Tlwg Typist'
+      Layout = tlCenter
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblRegistroEncontrados: TLabel
+      Left = 0
+      Height = 25
+      Top = 0
+      Width = 275
+      Align = alLeft
+      Caption = 'Registro Encontrado(s) 20'
+      Font.Color = clWhite
+      Font.Height = -19
+      Font.Name = 'Tlwg Typewriter'
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 8
+    Height = 434
+    Top = 88
+    Width = 1006
+    AlternateColor = 11794409
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoAdvance = aaNone
+    AutoEdit = False
+    BorderSpacing.Left = 5
+    BorderSpacing.Top = 5
+    BorderSpacing.Right = 5
+    BorderSpacing.Bottom = 5
+    Color = clWindow
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Caption = 'ID'
+        FieldName = 'id'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'NOME'
+        Width = 200
+        FieldName = 'nome'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'FANTASIA'
+        Width = 200
+        FieldName = 'fantasia'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'DOCUMENTO'
+        Width = 150
+        FieldName = 'cpf_cnpj'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'TIPO PESSOA'
+        Width = 120
+        FieldName = 'TIPOPESSOA'
+      end    
+      item
+        ReadOnly = True
+        Title.Caption = 'TELEFONE'
+        Width = 100
+        FieldName = 'CELULAR'
+      end    
+      item
+        Title.Caption = 'nome'
+        FieldName = 'nome'
+      end>
+    DataSource = dsCliente
+    DefaultRowHeight = 32
+    FixedColor = 12282669
+    Flat = True
+    HeaderHotZones = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgDisplayMemoText]
+    ReadOnly = True
+    TabAdvance = aaRightUp
+    TabOrder = 6
+    TitleFont.Color = clWhite
+    TitleFont.Height = -13
+    UseXORFeatures = True
+    OnDblClick = DBGrid1DblClick
+    OnKeyDown = DBGrid1KeyDown
+  end
+  object pnlFiltro: TPanel
+    Left = 5
+    Height = 28
+    Top = 52
+    Width = 433
+    Anchors = [akTop, akLeft, akRight]
+    BevelColor = 16752640
+    BevelInner = bvRaised
+    BevelOuter = bvNone
+    ClientHeight = 28
+    ClientWidth = 433
+    Color = clWhite
+    ParentColor = False
+    TabOrder = 5
+    object edt_razao: TEdit
+      Left = 3
+      Height = 22
+      Top = 3
+      Width = 427
+      Align = alClient
+      BorderSpacing.Left = 2
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 2
+      BorderSpacing.Bottom = 2
+      BorderStyle = bsNone
+      OnChange = edt_razaoChange
+      OnKeyDown = edt_razaoKeyDown
+      TabOrder = 0
+    end
+  end
+  object Label2: TLabel
+    Left = 0
+    Height = 15
+    Top = 0
+    Width = 109
+    Caption = 'Razão / Fantasia'
+    ParentColor = False
+  end
+  object pnlFiltro1: TPanel
+    Left = 446
+    Height = 28
+    Top = 52
+    Width = 138
+    Anchors = [akTop, akRight]
+    BevelColor = 16752640
+    BevelInner = bvRaised
+    BevelOuter = bvNone
+    ClientHeight = 28
+    ClientWidth = 138
+    Color = clWhite
+    ParentColor = False
+    TabOrder = 2
+    object edt_telefone: TEdit
+      Left = 3
+      Height = 22
+      Top = 3
+      Width = 132
+      Align = alClient
+      BorderSpacing.Left = 2
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 2
+      BorderSpacing.Bottom = 2
+      BorderStyle = bsNone
+      OnChange = edt_razaoChange
+      OnKeyDown = edt_telefoneKeyDown
+      TabOrder = 0
+    end
+  end
+  object Label3: TLabel
+    Left = 448
+    Height = 15
+    Top = 31
+    Width = 58
+    Anchors = [akTop, akRight]
+    Caption = 'Telefone'
+    ParentColor = False
+  end
+  object pnlFiltro2: TPanel
+    Left = 591
+    Height = 28
+    Top = 52
+    Width = 138
+    Anchors = [akTop, akRight]
+    BevelColor = 16752640
+    BevelInner = bvRaised
+    BevelOuter = bvNone
+    ClientHeight = 28
+    ClientWidth = 138
+    Color = clWhite
+    ParentColor = False
+    TabOrder = 3
+    object edt_CNPJ: TEdit
+      Left = 3
+      Height = 22
+      Top = 3
+      Width = 132
+      Align = alClient
+      BorderSpacing.Left = 2
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 2
+      BorderSpacing.Bottom = 2
+      BorderStyle = bsNone
+      OnChange = edt_razaoChange
+      OnKeyDown = edt_CNPJKeyDown
+      TabOrder = 0
+    end
+  end
+  object Label5: TLabel
+    Left = 591
+    Height = 15
+    Top = 31
+    Width = 73
+    Anchors = [akTop, akRight]
+    Caption = 'CNPJ / CPF'
+    ParentColor = False
+  end
+  object Panel6: TPanel
+    Left = 735
+    Height = 39
+    Top = 40
+    Width = 120
+    Anchors = [akTop, akRight]
+    BevelOuter = bvNone
+    ClientHeight = 39
+    ClientWidth = 120
+    Color = 12282669
+    ParentColor = False
+    TabOrder = 4
+    object sped_filtrar: TSpeedButton
+      Left = 0
+      Height = 39
+      Top = 0
+      Width = 120
+      Action = ac_filtrar
+      Align = alClient
+      Color = 12282669
+      Flat = True
+      Font.Color = clWhite
+      Font.Height = -11
+      ParentFont = False
+    end
+  end
+  object Label4: TLabel
+    Left = 5
+    Height = 15
+    Top = 32
+    Width = 109
+    Anchors = [akTop]
+    Caption = 'Razão / Fantasia'
+    ParentColor = False
+  end
+  object ActionList1: TActionList
+    Left = 184
+    Top = 304
+    object Action1: TAction
+      Caption = 'Fechar'
+      OnExecute = Action1Execute
+      ShortCut = 27
+    end
+    object Action2: TAction
+      Caption = 'Action2'
+      OnExecute = Action2Execute
+      ShortCut = 32883
+    end
+    object ac_filtrar: TAction
+      Caption = 'Filtrar (F4)'
+      OnExecute = ac_filtrarExecute
+      ShortCut = 115
+    end
+  end
+  object dsCliente: TDataSource
+    Left = 568
+    Top = 296
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 500
+    OnTimer = Timer1Timer
+    Left = 232
+    Top = 184
+  end
+  object ZQuery1: TZQuery
+    Params = <>
+    Left = 104
+    Top = 192
+    object ZQuery1nome: TStringField
+      FieldKind = fkData
+      FieldName = 'nome'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+  end
+end

@@ -1,0 +1,93 @@
+object frmCondicionalCriar: TfrmCondicionalCriar
+  Left = 1600
+  Height = 223
+  Top = 250
+  Width = 521
+  BorderIcons = [biSystemMenu]
+  Caption = 'Cluster Sistemas : Condicional Criar'
+  ClientHeight = 223
+  ClientWidth = 521
+  KeyPreview = True
+  OnShow = FormShow
+  Position = poMainFormCenter
+  inline Frame1_1: TFrame1
+    Left = 3
+    inherited Label1: TLabel
+      Left = 1
+    end
+    inherited cb_empresa: TComboBox
+      Left = 1
+      TabStop = False
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 173
+    Width = 521
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 50
+    ClientWidth = 521
+    TabOrder = 3
+    object BGRASpeedButton1: TBGRASpeedButton
+      Left = 432
+      Height = 45
+      Top = 0
+      Width = 84
+      Action = ac_iniciar
+      Align = alRight
+      BorderSpacing.Right = 5
+      BorderSpacing.Bottom = 5
+      Color = clWindowText
+    end
+  end
+  inline frame_vendedor: TframePessoaGet
+    Left = 3
+    Top = 56
+    TabOrder = 1
+    inherited Panel1: TPanel
+      inherited EditID: TEdit
+        OnEnter = EditIDEnter
+        OnExit = EditIDExit
+        OnKeyPress = EditIDVENDEDORKeyPress
+      end
+    end
+    inherited Label1: TLabel
+      Width = 66
+      Caption = 'Vendedor'
+    end
+  end
+  inline frame_cliente: TframePessoaGet
+    Left = 3
+    Top = 120
+    TabOrder = 2
+    inherited Panel1: TPanel
+      inherited EditID: TEdit
+        OnEnter = EditIDEnter
+        OnExit = EditIDExit
+        OnKeyPress = EditIDKeyPress
+      end
+    end
+  end
+  object ACBrEnterTab1: TACBrEnterTab
+    EnterAsTab = True
+    Left = 432
+    Top = 8
+  end
+  object ActionList1: TActionList
+    Left = 328
+    Top = 16
+    object Action1: TAction
+      Caption = 'fechar'
+      Enabled = False
+      OnExecute = Action1Execute
+      ShortCut = 27
+    end
+    object ac_iniciar: TAction
+      Caption = 'Iniciar (F6)'
+      OnExecute = ac_iniciarExecute
+      ShortCut = 117
+    end
+  end
+end

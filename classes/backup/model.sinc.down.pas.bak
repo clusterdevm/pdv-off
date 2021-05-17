@@ -1,0 +1,194 @@
+unit model.sinc.down;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, ExtCtrls, model.request.http,clipbrd,
+
+  model.produtos,
+  model.estoques, model.tabelas.precos, model.produtos.generos,
+  model.produtos.colecoes, model.marcas, model.produtos.precos,
+  model.bandeiras.cartoes, model.series.fiscais, fpjson, crt, jsonparser;
+
+Type
+
+{ TSincDownload }
+
+TSincDownload = class(TThread)
+ private
+      FMsg : String;
+      FErro : String;
+      FProcessosCount : Integer;
+      FProcessoAtual : Integer;
+      FItensCount : Integer;
+      FItensAtual : Integer;
+      FPrimeira_Insert  : Boolean ;
+      FTokenPDV : String;
+      FPanel : TPanel;
+ protected
+   procedure Execute; override;
+   Procedure AtualizaLog;
+ public
+   Constructor Create(CreateSuspended : boolean; value : TPanel; _tokenpdv:string; _FisrtSync : Boolean);
+   destructor Destroy; override;
+ end;
+
+implementation
+
+{ TSincDownload }
+
+
+procedure TSincDownload.Execute;
+var
+    _api : TRequisicao;
+     _json : TJSONObject;
+     _JsonArray : TJSONArray;
+     _jsonObjeto : TJSONObject;
+      j,i : Integer;
+      _name : String;
+begin
+try
+  try
+      FMsg:= 'Conectando ao Servidor';
+      Synchronize(@AtualizaLog);
+
+      _api := TRequisicao.Create;
+      _api.token_pdv:= FTokenPDV;
+      _api.rota:='pdv';
+      _api.endpoint:='sync_db';
+      _api.Execute;
+
+
+      if _api.ResponseCode in [200..207] then
+      Begin
+          _json := _api.Return.Elements['itens'] as TJSONObject;
+          FProcessosCount := _json.Count ;
+          FProcessoAtual:= 0;
+
+          for I := 0 to _json.Count - 1 do
+          begin
+             FProcessoAtual:= i+1;
+             FItensAtual:= 0;
+             FItensCount := -1;
+
+             _name := TJSONObject(_json).Names[i];
+             FMsg:= _name;
+             Synchronize(@AtualizaLog);
+
+             _JsonArray := _json.Elements[TJSONObject(_json).Names[i]] as TJSONArray;
+             FItensCount:= +_JsonArray.Count;
+
+             for j := 0 to _JsonArray.Count-1 do
+             Begin
+                  FItensAtual:= j + 1;
+                  FMsg:= _name;
+                  Synchronize(@AtualizaLog);
+
+                  try
+                      if TJSONObject(_json).Names[i] = 'produtos' then
+                          produtos_processa(FPrimeira_Insert,_JsonArray.Items[j].AsJSON)
+                      else
+                      if TJSONObject(_json).Names[i] = 'estoques' then
+                          estoque_processa(FPrimeira_Insert,_JsonArray.Items[j].AsJSON)
+                      else
+                      if TJSONObject(_json).Names[i] = 'marcas' then
+                          marcas(FPrimeira_Insert,_JsonArray.Items[j].AsJSON)
+                      else
+                      if TJSONObject(_json).Names[i] = 'produtos_precos' then
+                          produtos_preco(FPrimeira_Insert,_JsonArray.Items[j].AsJSON)
+                      else
+                      if TJSONObject(_json).Names[i] = 'produtos_colecoes' then
+                          produtos_colecoes(FPrimeira_Insert,_JsonArray.Items[j].AsJSON)
+                      else
+                      if TJSONObject(_json).Names[i] = 'tabelas_precos' then
+                          tabelas_precos(FPrimeira_Insert,_JsonArray.Items[j].AsJSON)
+                      else
+                      if TJSONObject(_json).Names[i] = 'produtos_genero' then
+                          produtos_genero(FPrimeira_Insert,_JsonArray.Items[j].AsJSON)
+                      else
+                      if TJSONObject(_json).Names[i] = 'produtos_imagem' then
+                          //produtos_processa(FPrimeira_Insert,_JsonArray.Items[j].AsJSON)
+                      else
+                      if TJSONObject(_json).Names[i] = 'serie_fiscal' then
+                         series_fiscais(FPrimeira_Insert,_JsonArray.Items[j].AsJSON)
+                      else
+                      if TJSONObject(_json).Names[i] = 'usuario_niveis' then
+                          //produtos_processa(FPrimeira_Insert,_JsonArray.Items[j].AsJSON)
+                      else
+                      if TJSONObject(_json).Names[i] = 'bandeira_cartoes' then
+                          bandeira_cartoes(FPrimeira_Insert,_JsonArray.Items[j].AsJSON);
+
+                  except
+                  on e:exception do
+                  Begin
+                       FErro:= TJSONObject(_json).Names[i]+': '+e.message;
+                       Synchronize(@AtualizaLog);
+                  end;
+              end;
+            end;
+          end;
+      end;
+  finally
+      FreeAndnil(_api);
+  end;
+
+except
+  on e:Exception
+  do
+  Begin
+     FMsg:= Self.Classname+' Erro: '+ e.Message ;
+     Synchronize(@AtualizaLog);
+  end;
+end;
+end;
+
+procedure TSincDownload.AtualizaLog;
+var _aux : string;
+begin
+  _aux := '';
+
+  if FProcessosCount > -1 then
+    _aux := ' Processo ('+IntToStr(FProcessoAtual)+'/'+IntToStr(FProcessosCount)+')';
+
+  if FItensCount > -1 then
+    FMsg:= _aux +'  '+FMsg + ': ('+IntToStr(FItensAtual)+'/'+IntToStr(FItensCount)+')'
+  else
+  if _aux <> '' then
+    FMsg:= _aux + ' '+FMsg;
+
+
+  FPanel.Caption:= FMsg;
+  FPanel.Repaint;
+  fpanel.enabled := true;
+
+  if not FPanel.Visible then
+     FPanel.Visible:= true;
+
+  if FErro <> '' then
+  Begin
+     Clipboard.AsText:= ferro;
+     FErro:= '';
+  end;
+end;
+
+constructor TSincDownload.Create(CreateSuspended: boolean; value: TPanel; _tokenpdv:string; _FisrtSync : Boolean);
+begin
+  FProcessosCount:= -1;
+  FItensCount := -1;
+
+  FPanel := value;
+  FTokenPDV := _tokenpdv;
+  FPrimeira_Insert:= _FisrtSync;
+  FreeOnTerminate := true;
+  inherited Create(CreateSuspended);
+end;
+
+destructor TSincDownload.Destroy;
+begin
+  inherited Destroy;
+end;
+
+end.
+

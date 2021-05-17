@@ -1,0 +1,10 @@
+delete from bandeira_cartoes;
+delete from estoques;
+delete from marcas;
+delete from produtos;
+delete from produtos_colecoes;
+delete from produtos_genero;
+delete from produtos_preco;
+delete from serie_fiscal;
+delete from tabela_precos;
+commit;

@@ -1,0 +1,260 @@
+inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
+  Height = 600
+  Width = 1200
+  Caption = 'Cluster Sistemas : Condicional '
+  ClientHeight = 600
+  ClientWidth = 1200
+  OnCreate = FormCreate
+  OnShow = FormShow
+  inherited StatusBar1: TStatusBar
+    Top = 582
+    Width = 1200
+  end
+  inherited Panel1: TPanel
+    Width = 1200
+    ClientWidth = 1200
+    inherited btBuscar: TSpeedButton
+      Action = acBuscar
+    end
+  end
+  object DBGrid1: TDBGrid[2]
+    Left = 0
+    Height = 476
+    Top = 106
+    Width = 1200
+    Align = alClient
+    AlternateColor = 11794409
+    AutoEdit = False
+    BorderStyle = bsNone
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'id'
+        Width = 70
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'Emissão'
+        Width = 125
+        FieldName = 'data_emissao'
+      end    
+      item
+        Title.Caption = 'Conclusão'
+        Width = 125
+        FieldName = 'data_conclusao'
+      end    
+      item
+        Title.Caption = 'Cliente'
+        Width = 400
+        FieldName = 'cli_nome'
+      end    
+      item
+        Alignment = taRightJustify
+        Title.Caption = 'Status'
+        Width = 85
+        FieldName = 'status'
+      end    
+      item
+        Title.Caption = 'Total Pendente'
+        Width = 120
+        FieldName = 'total_pendente'
+      end    
+      item
+        Title.Caption = 'Total Vendido'
+        Width = 120
+        FieldName = 'total_vendido'
+      end    
+      item
+        Title.Caption = 'Vendedor'
+        Width = 0
+        Visible = False
+        FieldName = 'vend_nome'
+      end    
+      item
+        Title.Caption = 'Empresa'
+        Width = 0
+        Visible = False
+        FieldName = 'nomeresumido'
+      end>
+    DataSource = ds_condicional
+    FixedColor = clDefault
+    Flat = True
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    TabOrder = 3
+    TitleFont.Height = -13
+    OnKeyUp = DBGrid1KeyUp
+  end
+  object anel2: TPanel[3]
+    Left = 0
+    Height = 56
+    Top = 50
+    Width = 1200
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 56
+    ClientWidth = 1200
+    TabOrder = 2
+    OnClick = ac_buscarExecute
+    object Label1: TLabel
+      Left = 5
+      Height = 15
+      Top = 0
+      Width = 47
+      Caption = 'Cliente'
+      ParentColor = False
+    end
+    object edt_nome: TEdit
+      Left = 5
+      Height = 33
+      Top = 18
+      Width = 268
+      OnKeyDown = edt_nomeKeyDown
+      TabOrder = 2
+    end
+    inline Frame2_1: TFrame2
+      Left = 280
+      Height = 49
+      Width = 181
+      ClientHeight = 49
+      ClientWidth = 181
+      inherited cb_status: TComboBox
+        Width = 180
+        OnChange = ac_buscarExecute
+      end
+    end
+    inline Frame1_1: TFrame1
+      Left = 467
+      TabOrder = 1
+      inherited cb_empresa: TComboBox
+        OnClick = ac_buscarExecute
+      end
+    end
+  end
+  object ds_condicional: TDataSource[4]
+    DataSet = cds_condicional
+    Left = 372
+    Top = 236
+  end
+  object cds_condicional: TBufDataset[5]
+    FieldDefs = <>
+    Left = 500
+    Top = 244
+    object cds_condicionalnomeresumido: TStringField
+      FieldKind = fkData
+      FieldName = 'nomeresumido'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object cds_condicionalid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_condicionalstatus: TStringField
+      FieldKind = fkData
+      FieldName = 'status'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object cds_condicionaltotal_pendente: TCurrencyField
+      FieldKind = fkData
+      FieldName = 'total_pendente'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_condicionaltotal_vendido: TCurrencyField
+      FieldKind = fkData
+      FieldName = 'total_vendido'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_condicionalcli_nome: TStringField
+      FieldKind = fkData
+      FieldName = 'cli_nome'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object cds_condicionalvend_nome: TStringField
+      FieldKind = fkData
+      FieldName = 'vend_nome'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object cds_condicionaldata_emissao: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'data_emissao'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy hh:mm'
+    end
+    object cds_condicionaldata_conclusao: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'data_conclusao'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayFormat = 'dd/mm/yyyy hh:mm'
+    end
+  end
+  object ActionList1: TActionList[6]
+    Left = 216
+    Top = 184
+    object acBuscar: TAction
+      Caption = 'Buscar'
+      OnExecute = ac_buscarExecute
+      ShortCut = 115
+    end
+    object acNovo: TAction
+      Caption = 'Novo'
+      OnExecute = acNovoExecute
+      ShortCut = 116
+    end
+    object ac_editar: TAction
+      Caption = 'Editar'
+      OnExecute = ac_editarExecute
+      ShortCut = 113
+    end
+    object Action1: TAction
+      Caption = 'Action1'
+      OnExecute = Action1Execute
+      ShortCut = 27
+    end
+  end
+  object ACBrEnterTab1: TACBrEnterTab[7]
+    EnterAsTab = True
+    Left = 112
+    Top = 216
+  end
+end

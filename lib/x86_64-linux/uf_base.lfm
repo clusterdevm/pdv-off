@@ -1,0 +1,65 @@
+object Form1: TForm1
+  Left = 1600
+  Height = 500
+  Top = 250
+  Width = 1000
+  Caption = 'Form1'
+  ClientHeight = 500
+  ClientWidth = 1000
+  Position = poMainFormCenter
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 18
+    Top = 482
+    Width = 1000
+    Panels = <    
+      item
+        Text = 'Registro(s) Encontrado(s):'
+        Width = 250
+      end>
+    SimplePanel = False
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 1000
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 50
+    ClientWidth = 1000
+    TabOrder = 1
+    object btNovo: TSpeedButton
+      Left = 0
+      Height = 50
+      Top = 0
+      Width = 72
+      Align = alLeft
+      Caption = 'Novo'
+    end
+    object btEditar: TSpeedButton
+      Left = 72
+      Height = 50
+      Top = 0
+      Width = 72
+      Align = alLeft
+      Caption = 'Editar'
+    end
+    object btInativar: TSpeedButton
+      Left = 144
+      Height = 50
+      Top = 0
+      Width = 72
+      Align = alLeft
+      Caption = 'Inativar'
+    end
+    object btBuscar: TSpeedButton
+      Left = 216
+      Height = 50
+      Top = 0
+      Width = 72
+      Align = alLeft
+      Caption = 'Buscar'
+    end
+  end
+end

@@ -1,0 +1,54 @@
+object frameBotoes: TframeBotoes
+  Left = 0
+  Height = 78
+  Top = 0
+  Width = 874
+  ClientHeight = 78
+  ClientWidth = 874
+  TabOrder = 0
+  DesignLeft = 1596
+  DesignTop = 23
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 874
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 50
+    ClientWidth = 874
+    TabOrder = 0
+    object btNovo: TSpeedButton
+      Left = 0
+      Height = 50
+      Top = 0
+      Width = 72
+      Align = alLeft
+      Caption = 'Novo'
+    end
+    object btEditar: TSpeedButton
+      Left = 72
+      Height = 50
+      Top = 0
+      Width = 72
+      Align = alLeft
+      Caption = 'Editar'
+    end
+    object btInativar: TSpeedButton
+      Left = 144
+      Height = 50
+      Top = 0
+      Width = 72
+      Align = alLeft
+      Caption = 'Inativar'
+    end
+    object btBuscar: TSpeedButton
+      Left = 216
+      Height = 50
+      Top = 0
+      Width = 72
+      Align = alLeft
+      Caption = 'Buscar'
+    end
+  end
+end

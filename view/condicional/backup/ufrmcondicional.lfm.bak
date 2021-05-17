@@ -1,0 +1,38 @@
+object frmCondicionalFiltro: TfrmCondicionalFiltro
+  Left = 1440
+  Height = 381
+  Top = 250
+  Width = 834
+  Caption = 'frmCondicionalFiltro'
+  ClientHeight = 381
+  ClientWidth = 834
+  object DBGrid1: TDBGrid
+    Left = 16
+    Height = 256
+    Top = 120
+    Width = 808
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 360
+    Height = 25
+    Top = 32
+    Width = 75
+    Caption = 'Button1'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object BufDataset1: TBufDataset
+    FieldDefs = <>
+    Left = 192
+    Top = 16
+  end
+  object DataSource1: TDataSource
+    DataSet = BufDataset1
+    Left = 80
+    Top = 24
+  end
+end
