@@ -19,6 +19,7 @@ TCondicional = Class
     femissao: TDateTime;
     fempresa_id: integer;
     fid: Integer;
+    fmotivo: string;
     fnome: string;
     foperador_id: integer;
     fstatus: string;
@@ -33,6 +34,7 @@ TCondicional = Class
       property vendedor_id : integer read fvendedor_id write fvendedor_id;
       property cliente_id : integer read fcliente_id write fcliente_id;
       property operador_id : integer read foperador_id write foperador_id;
+      Property motivo : string read fmotivo write fmotivo;
 
       property emissao : TDateTime read femissao write femissao;
       property conclusao : TDateTime read fconclusao write fconclusao;
@@ -41,7 +43,7 @@ TCondicional = Class
                         _conclusaoInicial, _conclusaoFinal: string);
 
       function Iniciar : boolean;
-      Procedure editar;
+      Procedure get;
       function estorna(_itemID:Integer) : Boolean;
 end;
 
@@ -157,7 +159,7 @@ begin
   end;
 end;
 
-procedure TCondicional.editar;
+procedure TCondicional.get;
 var _api : TRequisicao;
 begin
   try
@@ -190,23 +192,30 @@ begin
   end;
 end;
 
-Function TCondicional.estorna(_itemID:Integer): Boolean;
+function TCondicional.estorna(_itemID: Integer): Boolean;
 var _api : TRequisicao;
+    _aux : String;
 begin
+  result := false;
+
+  if not InputQuery('Cluster Sistemas', 'Motivo Removação',_aux) then
+      exit;
+
+  self.motivo := _aux;
+
   try
     WCursor.SetWait;
     _Api := TRequisicao.Create;
-    result := false;
+
     with _api do
     Begin
         Metodo:='delete';
         tokenBearer := GetBearerEMS;
         webservice := getEMS_Webservice(mCondicional);
+        AddHeader('motivo',self.motivo);
         rota:='condicional';
         endpoint:=IntTostr(self.id)+'/item/'+IntTostr(_itemID);
         Execute();
-
-        RegistraLogErro('delete '+ _api.response);
 
         result := ResponseCode in [200..207];
 

@@ -6,8 +6,11 @@ inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
   ClientWidth = 1200
   OnCreate = FormCreate
   OnShow = FormShow
+  Position = poScreenCenter
+  Scaled = False
   inherited StatusBar1: TStatusBar
-    Top = 582
+    Height = 17
+    Top = 583
     Width = 1200
   end
   inherited Panel1: TPanel
@@ -19,7 +22,7 @@ inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
   end
   object DBGrid1: TDBGrid[2]
     Left = 0
-    Height = 476
+    Height = 477
     Top = 106
     Width = 1200
     Align = alClient
@@ -98,15 +101,15 @@ inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
     OnClick = ac_buscarExecute
     object Label1: TLabel
       Left = 5
-      Height = 15
+      Height = 14
       Top = 0
-      Width = 47
+      Width = 42
       Caption = 'Cliente'
       ParentColor = False
     end
     object edt_nome: TEdit
       Left = 5
-      Height = 33
+      Height = 32
       Top = 18
       Width = 268
       OnKeyDown = edt_nomeKeyDown
@@ -114,19 +117,27 @@ inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
     end
     inline Frame2_1: TFrame2
       Left = 280
-      Height = 49
       Width = 181
-      ClientHeight = 49
       ClientWidth = 181
       inherited cb_status: TComboBox
+        Height = 32
         Width = 180
         OnChange = ac_buscarExecute
+      end
+      inherited Label1: TLabel
+        Height = 14
+        Width = 38
       end
     end
     inline Frame1_1: TFrame1
       Left = 467
       TabOrder = 1
+      inherited Label1: TLabel
+        Height = 14
+        Width = 52
+      end
       inherited cb_empresa: TComboBox
+        Height = 32
         OnClick = ac_buscarExecute
       end
     end

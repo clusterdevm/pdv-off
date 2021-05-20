@@ -5,7 +5,7 @@ unit model.request.http;
 interface
 
 uses sysutils, classes, clipbrd, openssl, jsons,db,   zstream,
-     Dialogs, fphttpclient, opensslsockets, classe.utils, DataSet.Serialize ;
+     Dialogs, fphttpclient, opensslsockets, classe.utils, DataSet.Serialize;
 
 type
 

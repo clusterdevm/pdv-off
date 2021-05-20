@@ -81,7 +81,7 @@ begin
    try
       condicional := TCondicional.Create;
       condicional.id := cds_condicionalid.AsInteger;
-      Condicional.Editar;
+      Condicional.Get;
    finally
      FreeAndNil(condicional);
    end;

@@ -122,7 +122,8 @@ begin
         Begin
               try
                  _condicional:= TCondicional.Create;
-                 _condicional.id := StrToInt(edt_IDCondicional.Text);
+
+                  _condicional.id := StrToInt(edt_IDCondicional.Text);
                  if _condicional.estorna(cds_itensid.AsInteger) then
                  Begin
                      cds_cancelado.Append;
@@ -157,7 +158,7 @@ begin
 
   PageControl1.ActivePage := TabSheet1;
 
-  EdtDataEmissao.Text := FormatDateTime('dd/mm/yyyy hh:mm',GetData(dadosJson['data_emissao'].AsString));
+  EdtDataEmissao.Text := FormatDateTime('dd/mm/yyyy hh:mm',getDataBanco(dadosJson['data_emissao'].AsString));
   edt_vendedor.Text:= FormatFloat('000000',dadosJson['vendedor_id'].AsInteger)+' ' +
                        dadosjson['n_vendedor'].AsString;
   edt_Cliente.Text:= FormatFloat('000000',dadosJson['cliente_id'].AsInteger) + ' '+
@@ -183,8 +184,8 @@ begin
            cds_canceladoquantidade.Value:= _item['quantidade'].AsNumber;
            cds_canceladostatus.Value:= _item['status'].AsString;
            cds_canceladovalor.Value:= _item['valor'].AsNumber;
-           cds_canceladodata_registro.AsDateTime:= GetData(_item['data_inclusao'].AsString);
-           cds_canceladodata_estorno.AsDateTime:= GetData(_item['data_estorno'].AsString);
+           cds_canceladodata_registro.AsDateTime:= getDataBanco(_item['data_inclusao'].AsString);
+           cds_canceladodata_estorno.AsDateTime:= getDataBanco(_item['data_estorno'].AsString);
            cds_cancelado.Post;
        end else
        if (_item['status'].AsString = 'rascunho') or
@@ -197,7 +198,7 @@ begin
            cds_itensquantidade.Value:= _item['quantidade'].AsNumber;
            cds_itensstatus.Value:= _item['status'].AsString;
            cds_itensvalor.Value:= _item['valor'].AsNumber;
-           cds_itensdata_registro.AsDateTime:= GetData(_item['data_inclusao'].AsString);
+           cds_itensdata_registro.AsDateTime:= getDataBanco(_item['data_inclusao'].AsString);
            cds_itens.Post;
        end else
        Begin
