@@ -101,7 +101,7 @@ begin
 
        _saveDebug(_api.Return.Stringify,'token');
 
-       if _api.ResponseCode in [200..207] then
+       if (_api.ResponseCode in [200..207]) then
            sessao.bearerems:= _api.Return['token'].AsString;
   end;
    Result := sessao.bearerems;
@@ -112,12 +112,10 @@ function GetData(value: string): TdateTime;
 var
    aux : String;
 begin
-  showmessage(value);
    aux := copy(value,9,2);
    aux := aux + '/'+copy(value,6,2)+'/';
    aux := aux + copy(value,1,4);
    aux := aux + copy(value,11,8);
-   showmessage(aux);
    result := StrToDateTime(aux);
 end;
 
@@ -128,7 +126,17 @@ end;
 
 function getDataTimeZone(value: string): String;
 begin
-   result := getDataTimeZone(ISO8601ToDate(value));
+    if value = '' then
+    Begin
+        Result := '';
+        exit
+    end;
+
+    try
+       result := getDataTimeZone(ISO8601ToDate(value));
+    except
+        Result := '';
+    end;
 end;
 
 function getDataBanco(value: string): TDateTime;

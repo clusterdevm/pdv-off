@@ -6,8 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Buttons, DBGrids, ActnList, db, Grids, LCLType, ZDataset, classe.utils,
-  model.conexao, model.pessoa;
+  Buttons, DBGrids, ActnList, db, Grids, LCLType, ComCtrls, ZDataset,
+  classe.utils, model.conexao, model.pessoa;
 
 type
 
@@ -18,27 +18,21 @@ type
     Action2: TAction;
     ac_filtrar: TAction;
     ActionList1: TActionList;
-    ckCliente: TCheckBox;
-    ckColaborador: TCheckBox;
-    ckFornecedor: TCheckBox;
+    Button1: TButton;
     dsCliente: TDataSource;
     DBGrid1: TDBGrid;
     edt_razao: TEdit;
     edt_telefone: TEdit;
     edt_CNPJ: TEdit;
-    Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
-    lblRegistroEncontrados: TLabel;
     lblTempoBusca: TLabel;
-    Panel1: TPanel;
     Panel2: TPanel;
-    Panel6: TPanel;
     pnlFiltro: TPanel;
     pnlFiltro1: TPanel;
     pnlFiltro2: TPanel;
-    sped_filtrar: TSpeedButton;
+    StatusBar1: TStatusBar;
     Timer1: TTimer;
     ZQuery1: TZQuery;
     ZQuery1nome: TStringField;
@@ -64,6 +58,7 @@ type
         _db : TConexao;
   public
     _FiltroID : Boolean;
+    _OnlyCustomer : Boolean;
   end;
 
 var
@@ -95,11 +90,11 @@ begin
           razao:= edt_razao.Text;
           telefone:= edt_telefone.Text;
           documento:= edt_CNPJ.Text;
-          cliente:= ckCliente.Checked;
-          fornecedor:= ckFornecedor.Checked;
-          colaborador:= ckColaborador.Checked;
+          onlyColaborador:= self._OnlyCustomer;
       end;
       _objeto.Listar(_db);
+
+      StatusBar1.Panels[0].Text:= 'Registro(s) Encontrado(s):' +IntToStr(_db.Query.RecordCount);
    finally
         FreeAndNil(_objeto);
    end;
@@ -201,6 +196,7 @@ procedure TfrmFiltroCliente.FormCloseQuery(Sender: TObject;
   var CanClose: boolean);
 begin
     FreeAndNil(_db);
+    _OnlyCustomer:= false;
     frmFiltroCliente.Release;
     frmFiltroCliente := nil;
 end;
@@ -210,7 +206,6 @@ begin
    Caption := 'Store :: Filtro de Clientes';
 
    lblTempoBusca.Caption := '';
-   lblRegistroEncontrados.Caption := '';
 
    a := 1;
    b := 0;

@@ -14,11 +14,9 @@ type
   TPessoa  = Class
     private
       fativo: boolean;
-      fcliente: boolean;
-      fcolaborador: boolean;
       fdocumento: string;
       ffantasia: string;
-      ffornecedor: boolean;
+      FOnlyColaborador: boolean;
       frazao: string;
       ftelefone: string;
     public
@@ -27,9 +25,7 @@ type
        property razao : string read frazao write frazao;
        property documento : string read fdocumento write fdocumento;
        property ativo : boolean read fativo write fativo;
-       property cliente : boolean read fcliente write fcliente;
-       property colaborador : boolean read fcolaborador write fcolaborador;
-       property fornecedor : boolean read ffornecedor write ffornecedor;
+       Property onlyColaborador : boolean read FOnlyColaborador write fOnlyColaborador;
        Procedure Listar(_db:TConexao);
 
        function get(value:string):boolean;
@@ -64,6 +60,9 @@ begin
             Sql.Add(' and p.ativo ='+QuotedStr('true'))
         else
             Sql.Add(' and p.ativo ='+QuotedStr('false'));
+
+        if _OnlyCustomer then
+           Sql.Add(' and p.colaborador = '+QuotedStr('true'));
 
         Sql.Add(' order by p.nome');
         open;
@@ -100,6 +99,7 @@ end;
 constructor TPessoa.create;
 begin
   self.ativo := true;
+  self.onlyColaborador:= false;
 end;
 
 end.

@@ -40,19 +40,21 @@ type
     dsItens: TDataSource;
     DBGrid1: TDBGrid;
     dCancelado: TDataSource;
+    ed_ProdutoID: TEdit;
+    ed_ProdutoDescricao: TEdit;
     edt_IDCondicional: TEdit;
     EdtDataEmissao: TEdit;
     edt_Cliente: TEdit;
     edt_status: TEdit;
     edt_vendedor: TEdit;
     edt_unidade: TEdit;
-    frameProdutoGet1: TframeProdutoGet;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
     Label7: TLabel;
+    Label8: TLabel;
     PageControl1: TPageControl;
     Panel1: TPanel;
     Panel2: TPanel;
@@ -69,11 +71,17 @@ type
     procedure Action2Execute(Sender: TObject);
     procedure ac_cancelarExecute(Sender: TObject);
     procedure ac_sairExecute(Sender: TObject);
+    procedure EditIDKeyPress(Sender: TObject; var Key: char);
+    procedure ed_ProdutoIDKeyPress(Sender: TObject; var Key: char);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure frameProdutoGet1Click(Sender: TObject);
+    procedure Panel5Click(Sender: TObject);
   private
-
+        Procedure SetLayout;
   public
       dadosJson : TJsonObject;
   end;
@@ -111,6 +119,48 @@ begin
      self.Close;
 end;
 
+procedure Tf_condicional.EditIDKeyPress(Sender: TObject; var Key: char);
+begin
+
+end;
+
+procedure Tf_condicional.ed_ProdutoIDKeyPress(Sender: TObject; var Key: char);
+var _Object : TCondicional;
+begin
+  if key = #13 then
+  Begin
+      key := #0;
+
+      try
+         _Object := TCondicional.Create;
+         if _Object.FindProduto(ed_ProdutoID.Text) then
+         Begin
+             dadosJson.Parse(_Object._ResponseContent);
+             SetLayout;
+             ed_ProdutoID.Clear;
+             ed_ProdutoDescricao.Clear;
+         end;
+
+         ed_ProdutoID.SetFocus;
+      finally
+          FreeAndNil(_Object);
+      end;
+  end;
+end;
+
+procedure Tf_condicional.FormClose(Sender: TObject;
+  var CloseAction: TCloseAction);
+begin
+
+end;
+
+procedure Tf_condicional.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+begin
+   FreeAndNIl(dadosJson);
+   f_condicional.Release;
+   f_condicional := nil;
+end;
+
 procedure Tf_condicional.Action2Execute(Sender: TObject);
 var _condicional : TCondicional;
 begin
@@ -122,7 +172,6 @@ begin
         Begin
               try
                  _condicional:= TCondicional.Create;
-
                   _condicional.id := StrToInt(edt_IDCondicional.Text);
                  if _condicional.estorna(cds_itensid.AsInteger) then
                  Begin
@@ -151,12 +200,27 @@ begin
 end;
 
 procedure Tf_condicional.FormShow(Sender: TObject);
+begin
+  Caption := 'Cluster Sistemas : Condicional';
+  PageControl1.ActivePage := TabSheet1;
+  SetLayout;
+  SpeedButton4.Action := ac_cancelar;
+end;
+
+procedure Tf_condicional.frameProdutoGet1Click(Sender: TObject);
+begin
+
+end;
+
+procedure Tf_condicional.Panel5Click(Sender: TObject);
+begin
+
+end;
+
+procedure Tf_condicional.SetLayout;
 var i : Integer;
   _item : TJsonObject;
 begin
-  Caption := 'Cluster Sistemas : Condicional';
-
-  PageControl1.ActivePage := TabSheet1;
 
   EdtDataEmissao.Text := FormatDateTime('dd/mm/yyyy hh:mm',getDataBanco(dadosJson['data_emissao'].AsString));
   edt_vendedor.Text:= FormatFloat('000000',dadosJson['vendedor_id'].AsInteger)+' ' +
@@ -168,13 +232,19 @@ begin
   edt_unidade.Text:= FormatFloat('000000',dadosJson['empresa_id'].AsInteger)+' '+
                       dadosJson['nomeunidade'].AsString;
 
+  cds_itens.Fields.Clear;
+  cds_itens.CreateDataset;
+  cds_itens.Open;
 
+  cds_cancelado.Fields.Clear;
+  cds_cancelado.CreateDataset;
+  cds_cancelado.Open;
 
   for i := 0 to dadosJson['itens'].AsArray.Count-1 do
   Begin
        _item := dadosJson['itens'].AsArray.Items[i].AsObject;
 
-       if (_item['status'].AsString = 'cancelado') or
+       if (_item['status'].AsString = 'cancelada') or
           (_item['status'].AsString = 'devolvido')
        then
        Begin
@@ -207,11 +277,8 @@ begin
 
        cds_itens.First;
        cds_cancelado.First;
-
-       frameProdutoGet1.EditID.SetFocus;
+       ed_ProdutoID.SetFocus;
   end;
-   SpeedButton4.Action := ac_cancelar;
-
 end;
 
 end.

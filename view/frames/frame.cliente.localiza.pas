@@ -24,7 +24,7 @@ type
   public
     var
        _avancar : Boolean;
-
+      onlyColaborador : boolean;
        function getID : Integer;
   end;
 
@@ -49,6 +49,7 @@ begin
 
           Sessao.getID:='';
           frmFiltroCliente._FiltroID := true;
+          frmFiltroCliente._OnlyCustomer:= self.onlyColaborador;
           frmFiltroCliente.ShowModal;
 
           if Sessao.getID <> '' then
@@ -79,8 +80,7 @@ end;
 
 function TframePessoaGet.getID: Integer;
 begin
-//  showmessage(EditID.text);
-  StrToIntDef(EditID.text,0);
+ Result :=  StrToIntDef(EditID.text,0);
 end;
 
 end.

@@ -225,7 +225,7 @@ try
        else
           _Requisicao.Get(getHost,_response);
 
-       result := _Requisicao.ResponseStatusCode in [200..207] ;
+       result := (_Requisicao.ResponseStatusCode in [200..207]);
        self.ResponseCode:= _Requisicao.ResponseStatusCode;
 
 
@@ -244,9 +244,6 @@ try
             fresponse:= inflate(_response)
         else
            fresponse:= _response.DataString;
-
-
-        RegistraLogErro('retorno: '+fresponse);
 
        if trim(copy(fresponse,1,1)) = '{' then
           Return.Parse(fresponse)

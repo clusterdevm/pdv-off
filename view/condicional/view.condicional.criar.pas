@@ -69,13 +69,12 @@ begin
    try
      _condicional:= Tcondicional.Create;
      _condicional.empresa_id:= StrToInt(Frame1_1.GetItem);
-     _condicional.vendedor_id := frame_vendedor.getID;
+
+     _condicional.vendedor_id :=frame_vendedor.getID;
      _condicional.cliente_id := frame_cliente.getID;
      _condicional.operador_id := Sessao.usuario_id;
      if _condicional.Iniciar then
-     Begin
-
-     end;
+        self.Close;
    finally
      FreeAndNil(_condicional);
    end;
@@ -105,6 +104,7 @@ procedure TfrmCondicionalCriar.EditIDVENDEDORKeyPress(Sender: TObject;
 begin
   if key= #13 then
   Begin
+      frame_vendedor.onlyColaborador:= true;
       frame_vendedor.EditIDKeyPress(sender, key);
       key := #0;
       if frame_vendedor._avancar then

@@ -37,9 +37,8 @@ uses classe.utils;
 { TframeProdutoGet }
 
 procedure TframeProdutoGet.EditIDKeyPress(Sender: TObject; var Key: char);
-var _pessoa : TPessoa;
 begin
-////
+
 end;
 
 function TframeProdutoGet.getID: Integer;

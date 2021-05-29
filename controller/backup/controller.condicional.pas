@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, BufDataset, db, jsons, model.request.http,
-   Dialogs,crt,wcursos;
+   Dialogs,crt,wcursos, Clipbrd;
 
 type
 
@@ -24,8 +24,7 @@ TCondicional = Class
     foperador_id: integer;
     fstatus: string;
     fvendedor_id: integer;
-    procedure carrega(value:TJsonObject);
-
+    F_ProdutoJson: String;
   public
       property id : Integer read fid write fid;
       property nome : string read fnome write fnome;
@@ -35,16 +34,22 @@ TCondicional = Class
       property cliente_id : integer read fcliente_id write fcliente_id;
       property operador_id : integer read foperador_id write foperador_id;
       Property motivo : string read fmotivo write fmotivo;
-
       property emissao : TDateTime read femissao write femissao;
       property conclusao : TDateTime read fconclusao write fconclusao;
+
+      Property _ResponseContent : String Read F_ProdutoJson Write F_ProdutoJson;
 
       Procedure Filtrar(_query : TDataSet;  _status,_empresa,_emissaoInicial, emissaoFinal,
                         _conclusaoInicial, _conclusaoFinal: string);
 
+      Function FindProduto(_produto : String) : Boolean;
+
+      Function registraItem(_produto : String) : Boolean;
+
       function Iniciar : boolean;
       Procedure get;
       function estorna(_itemID:Integer) : Boolean;
+      Procedure Cancelar;
 end;
 
 
@@ -56,11 +61,6 @@ uses classe.utils, view.condicional;
 
 { TCondicional }
 
-procedure TCondicional.carrega(value: TJsonObject);
-begin
-  self.id := value['id'].AsInteger;
-  self.emissao:= GetData(value['data_emissao'].AsString);
-end;
 
 procedure TCondicional.Filtrar(_query: TDataSet; _status,_empresa,_emissaoInicial, emissaoFinal,
   _conclusaoInicial, _conclusaoFinal: string);
@@ -106,7 +106,7 @@ begin
 
        Execute;
 
-       if ResponseCode in [200..207] then
+       if (ResponseCode in [200..207]) then
           JsonToDataSet(_query)
        else
           Showmessage('#150 Contate suporte: '+_Api.response);
@@ -120,20 +120,76 @@ begin
 
 end;
 
+function TCondicional.FindProduto(_produto: String): Boolean;
+var _api : TRequisicao;
+begin
+  try
+    WCursor.SetWait;
+    _Api := TRequisicao.Create;
+    with _api do
+    Begin
+        Metodo:='get';
+        tokenBearer := GetBearerEMS;
+        webservice := getEMS_Webservice(mCondicional);
+        rota:='condicional';
+        endpoint:=IntTostr(self.id)+'/find/'+_produto;
+        Execute();
+
+        result :=  (ResponseCode in [200..207]) ;
+
+        if not result then
+           Showmessage(_api.Return['msg'].AsString)
+        else
+           _ResponseContent := _api.Return['resultado'].AsString;
+    end;
+  finally
+     WCursor.SetNormal;
+     FreeAndNil(_api);
+  end;
+end;
+
+function TCondicional.registraItem(_produto: String): Boolean;
+var _api : TRequisicao;
+begin
+  try
+    WCursor.SetWait;
+    _Api := TRequisicao.Create;
+    with _api do
+    Begin
+        Metodo:='post';
+        tokenBearer := GetBearerEMS;
+        webservice := getEMS_Webservice(mCondicional);
+        rota:='condicional';
+        endpoint:=IntTostr(self.id)/'item/'+_produto;
+        Execute();
+
+        result :=  (ResponseCode in [200..207]) ;
+
+        if not result then
+           Showmessage(_api.Return['msg'].AsString)
+        else
+           _ResponseContent := _api.Return['resultado'].AsString;
+    end;
+  finally
+     WCursor.SetNormal;
+     FreeAndNil(_api);
+  end;
+end;
+
 function TCondicional.Iniciar: boolean;
 var _api : TRequisicao;
    _body : TjsonObject;
 begin
   try
+    WCursor.SetWait;
     _api := TRequisicao.Create;
     _body := TJsonObject.Create;
     _body['empresa_id'].AsInteger:= Self.empresa_id;
     _body['vendedor_id'].AsInteger:= Self.vendedor_id;
     _body['cliente_id'].AsInteger:= Self.cliente_id;
-    _body['operador_id'].AsInteger:= Self.operador_id;
+    //_body['operador_id'].AsInteger:= Self.operador_id;
     _body['tabela_preco_id'].AsInteger:= Sessao.tabela_preco_id;
     _body['estoque_id'].AsInteger:= Sessao.estoque_id;
-
 
     with _api do
     Begin
@@ -149,13 +205,17 @@ begin
 
         if Result then
         Begin
-              Carrega(_api.Return);
+              f_condicional := Tf_condicional.Create(nil);
+              f_condicional.dadosJson.Assign(_api.Return['resultado'].AsObject);
+              WCursor.SetNormal;
+              f_condicional.ShowModal;
         end else
            Showmessage(_api.response);
     end;
 
   finally
     FreeAndNil(_api);
+    WCursor.SetNormal;
   end;
 end;
 
@@ -201,7 +261,7 @@ begin
   if not InputQuery('Cluster Sistemas', 'Motivo Removação',_aux) then
       exit;
 
-  self.motivo = _aux;
+  self.motivo := _aux;
 
   try
     WCursor.SetWait;
@@ -217,10 +277,42 @@ begin
         endpoint:=IntTostr(self.id)+'/item/'+IntTostr(_itemID);
         Execute();
 
-        result := ResponseCode in [200..207];
+        result := (ResponseCode in [200..207]);
 
         if not Result  then
            Showmessage(_api.Return['msg'].AsString);
+    end;
+  finally
+     WCursor.SetNormal;
+  end;
+end;
+
+procedure TCondicional.Cancelar;
+var _api : TRequisicao;
+    _aux : String;
+begin
+
+  if not InputQuery('Cluster Sistemas', 'Motivo Cancelamento',_aux) then
+      exit;
+
+  self.motivo := _aux;
+
+  try
+    WCursor.SetWait;
+    _Api := TRequisicao.Create;
+    with _api do
+    Begin
+        Metodo:='delete';
+        tokenBearer := GetBearerEMS;
+        webservice := getEMS_Webservice(mCondicional);
+        AddHeader('motivo',self.motivo);
+        rota:='condicional';
+        endpoint:=IntTostr(self.id);
+        Execute();
+
+        if not (ResponseCode in [200..207])  then
+           Showmessage(_api.Return['msg'].AsString);
+
     end;
   finally
      WCursor.SetNormal;

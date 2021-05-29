@@ -13,11 +13,12 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    btBuscar: TSpeedButton;
-    btEditar: TSpeedButton;
-    btInativar: TSpeedButton;
-    btNovo: TSpeedButton;
+    b_editar: TSpeedButton;
+    b_localizar: TSpeedButton;
+    b_Inativar: TSpeedButton;
+    img_32: TImageList;
     Panel1: TPanel;
+    b_novo: TSpeedButton;
     StatusBar1: TStatusBar;
   private
 

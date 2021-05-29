@@ -7,6 +7,8 @@ object f_condicional: Tf_condicional
   ClientHeight = 600
   ClientWidth = 897
   Color = clWhite
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnResize = FormResize
   OnShow = FormShow
@@ -1088,8 +1090,8 @@ object f_condicional: Tf_condicional
   end
   object PageControl1: TPageControl
     Left = 0
-    Height = 326
-    Top = 186
+    Height = 342
+    Top = 170
     Width = 897
     ActivePage = TabSheet1
     Align = alClient
@@ -1097,26 +1099,26 @@ object f_condicional: Tf_condicional
     TabOrder = 1
     object TabSheet1: TTabSheet
       Caption = 'Novos / Pendentes'
-      ClientHeight = 296
+      ClientHeight = 312
       ClientWidth = 887
       object Panel3: TPanel
         Left = 0
-        Height = 296
+        Height = 312
         Top = 0
         Width = 887
         Align = alClient
         BevelOuter = bvNone
-        ClientHeight = 296
+        ClientHeight = 312
         ClientWidth = 887
         TabOrder = 0
         object DBGrid1: TDBGrid
           Left = 0
-          Height = 296
+          Height = 312
           Top = 0
           Width = 887
           Align = alClient
           AlternateColor = 11794409
-          Color = clWindow
+          Color = clWhite
           Columns = <          
             item
               Title.Caption = 'ID'
@@ -1157,7 +1159,7 @@ object f_condicional: Tf_condicional
     end
     object TabSheet2: TTabSheet
       Caption = 'Estornado/Devolvido'
-      ClientHeight = 296
+      ClientHeight = 312
       ClientWidth = 887
       object Panel2: TPanel
         Left = 0
@@ -1222,7 +1224,7 @@ object f_condicional: Tf_condicional
     end
     object TabSheet3: TTabSheet
       Caption = 'Faturados'
-      ClientHeight = 296
+      ClientHeight = 312
       ClientWidth = 887
       object Panel1: TPanel
         Left = 0
@@ -1274,34 +1276,17 @@ object f_condicional: Tf_condicional
       end
     end
   end
-  object Panel4: TPanel
-    Left = 0
-    Height = 56
-    Top = 130
-    Width = 897
-    Align = alTop
-    ClientHeight = 56
-    ClientWidth = 897
-    TabOrder = 2
-    inline frameProdutoGet1: TframeProdutoGet
-      Left = 9
-      inherited Label1: TLabel
-        Height = 14
-        Width = 176
-        Caption = 'Quantidade * ID Produto (F3)'
-      end
-    end
-  end
   object Panel5: TPanel
     Left = 0
-    Height = 130
+    Height = 170
     Top = 0
     Width = 897
     Align = alTop
     BevelOuter = bvNone
-    ClientHeight = 130
+    ClientHeight = 170
     ClientWidth = 897
-    TabOrder = 3
+    TabOrder = 2
+    OnClick = Panel5Click
     object Label2: TLabel
       Left = 7
       Height = 14
@@ -1347,7 +1332,7 @@ object f_condicional: Tf_condicional
     object Label4: TLabel
       Left = 9
       Height = 14
-      Top = 64
+      Top = 67
       Width = 81
       Caption = 'Nome Cliente'
       ParentColor = False
@@ -1402,6 +1387,45 @@ object f_condicional: Tf_condicional
       ReadOnly = True
       TabStop = False
       TabOrder = 5
+    end
+    object Label8: TLabel
+      Left = 11
+      Height = 14
+      Top = 119
+      Width = 95
+      Caption = 'Filtrar Produtos'
+      ParentColor = False
+    end
+  end
+  object Panel4: TPanel
+    Left = 8
+    Height = 31
+    Top = 135
+    Width = 546
+    BevelInner = bvLowered
+    ClientHeight = 31
+    ClientWidth = 546
+    TabOrder = 3
+    object ed_ProdutoID: TEdit
+      Left = 2
+      Height = 27
+      Top = 2
+      Width = 126
+      Align = alLeft
+      BorderStyle = bsNone
+      OnKeyPress = ed_ProdutoIDKeyPress
+      TabOrder = 1
+    end
+    object ed_ProdutoDescricao: TEdit
+      Left = 128
+      Height = 27
+      Top = 2
+      Width = 416
+      Align = alClient
+      BorderStyle = bsNone
+      ReadOnly = True
+      TabStop = False
+      TabOrder = 0
     end
   end
   object cds_itens: TBufDataset

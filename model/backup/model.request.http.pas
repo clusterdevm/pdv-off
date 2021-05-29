@@ -128,49 +128,6 @@ finally
 end;
 end;
 
-//function DecompressStream(var Input: TStream; var Output: TStream): boolean;
-//var
-//  Decompressor: TDecompressionStream;
-//  Buffer: array[$01..$400] of byte;
-//  SwapStream: TStream;
-//  x: Int64=$00;
-//begin
-//  result:=False;
-//  if Assigned(Input) and Assigned(Output)
-//    then begin
-//      Input.Rewind;
-//      SwapStream:=TEnhancedStream.Create;
-//      SwapStream.CopyFrom(Input,Input.Size);
-//      SwapStream.Rewind;
-//      Decompressor:=TDecompressionStream.Create(SwapStream);
-//      Output.Clear;
-//      repeat
-//        x:=Decompressor.Read(Buffer{%H-},Length(Buffer));
-//        if x>$00
-//          then Output.Write(Buffer,x);
-//      until x<=$00;
-//      Decompressor.Free;
-//      SwapStream.Free;
-//      result:=True;
-//    end;
-//end;
-
-
-//function DeCompressGZip(Stream : TStream): TMemoryStream;
-//var
-//  UnZipper : TAbUnZipper;
-//begin
-//  UnZipper := TAbUnZipper.Create(nil);
-//  try
-//    UnZipper.ForceType := True;
-//    UnZipper.ArchiveType := atGzip;
-//    UnZipper.Stream := Stream;
-//    Result := TMemoryStream.Create;
-//    UnZipper.ExtractToStream('', Result);
-//  finally
-//    FreeAndNil(UnZipper);
-//  end;
-//end;
 
 function THeader.GetItem(Index: Integer): THeaderItens;
 begin
@@ -287,9 +244,6 @@ try
             fresponse:= inflate(_response)
         else
            fresponse:= _response.DataString;
-
-
-        RegistraLogErro('retorno: '+fresponse);
 
        if trim(copy(fresponse,1,1)) = '{' then
           Return.Parse(fresponse)

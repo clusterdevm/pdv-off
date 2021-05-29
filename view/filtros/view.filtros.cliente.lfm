@@ -1,83 +1,30 @@
 object frmFiltroCliente: TfrmFiltroCliente
   Left = 1600
-  Height = 553
+  Height = 488
   Top = 250
-  Width = 1016
+  Width = 936
   BorderStyle = bsDialog
   Caption = 'frmFiltroCliente'
-  ClientHeight = 553
-  ClientWidth = 1016
+  ClientHeight = 488
+  ClientWidth = 936
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
-  LCLVersion = '2.0.12.0'
-  object Panel1: TPanel
-    Left = 0
-    Height = 29
-    Top = 0
-    Width = 1016
-    Align = alTop
-    BevelOuter = bvNone
-    ClientHeight = 29
-    ClientWidth = 1016
-    Color = 12282669
-    ParentColor = False
-    TabOrder = 0
-    object ckCliente: TCheckBox
-      Left = 4
-      Height = 23
-      Top = 3
-      Width = 67
-      Caption = 'Cliente'
-      Checked = True
-      Font.Color = clWhite
-      Font.Height = -13
-      ParentFont = False
-      State = cbChecked
-      TabOrder = 2
-      TabStop = False
-    end
-    object ckColaborador: TCheckBox
-      Left = 87
-      Height = 23
-      Top = 3
-      Width = 102
-      Caption = 'Colaborador'
-      Font.Color = clWhite
-      Font.Height = -13
-      ParentFont = False
-      TabOrder = 1
-      TabStop = False
-    end
-    object ckFornecedor: TCheckBox
-      Left = 198
-      Height = 23
-      Top = 3
-      Width = 94
-      Caption = 'Fornecedor'
-      Font.Color = clWhite
-      Font.Height = -13
-      ParentFont = False
-      TabOrder = 0
-      TabStop = False
-    end
-  end
   object Panel2: TPanel
     Left = 0
     Height = 25
-    Top = 528
-    Width = 1016
+    Top = 463
+    Width = 936
     Align = alBottom
     BevelOuter = bvNone
     ClientHeight = 25
-    ClientWidth = 1016
-    Color = 12282669
+    ClientWidth = 936
     ParentColor = False
-    TabOrder = 1
+    TabOrder = 0
     object lblTempoBusca: TLabel
-      Left = 886
-      Height = 25
+      Left = 806
+      Height = 8
       Top = 0
       Width = 120
       Align = alRight
@@ -89,26 +36,24 @@ object frmFiltroCliente: TfrmFiltroCliente
       ParentColor = False
       ParentFont = False
     end
-    object lblRegistroEncontrados: TLabel
+    object StatusBar1: TStatusBar
       Left = 0
-      Height = 25
-      Top = 0
-      Width = 275
-      Align = alLeft
-      Caption = 'Registro Encontrado(s) 20'
-      Font.Color = clWhite
-      Font.Height = -19
-      Font.Name = 'Tlwg Typewriter'
-      ParentColor = False
-      ParentFont = False
+      Height = 17
+      Top = 8
+      Width = 936
+      Panels = <      
+        item
+          Width = 50
+        end>
+      SimplePanel = False
     end
   end
   object DBGrid1: TDBGrid
     Left = 8
-    Height = 434
-    Top = 88
-    Width = 1006
-    AlternateColor = 11794409
+    Height = 401
+    Top = 56
+    Width = 926
+    AlternateColor = 15393754
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoAdvance = aaNone
     AutoEdit = False
@@ -126,7 +71,7 @@ object frmFiltroCliente: TfrmFiltroCliente
       item
         ReadOnly = True
         Title.Caption = 'NOME'
-        Width = 200
+        Width = 300
         FieldName = 'nome'
       end    
       item
@@ -143,31 +88,22 @@ object frmFiltroCliente: TfrmFiltroCliente
       end    
       item
         ReadOnly = True
-        Title.Caption = 'TIPO PESSOA'
-        Width = 120
-        FieldName = 'TIPOPESSOA'
-      end    
-      item
-        ReadOnly = True
         Title.Caption = 'TELEFONE'
         Width = 100
         FieldName = 'CELULAR'
-      end    
-      item
-        Title.Caption = 'nome'
-        FieldName = 'nome'
       end>
     DataSource = dsCliente
-    DefaultRowHeight = 32
-    FixedColor = 12282669
+    DefaultRowHeight = 22
+    FixedColor = clDefault
     Flat = True
     HeaderHotZones = []
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgDisplayMemoText]
     ReadOnly = True
     TabAdvance = aaRightUp
-    TabOrder = 6
-    TitleFont.Color = clWhite
-    TitleFont.Height = -13
+    TabOrder = 4
+    TitleFont.Color = clBlack
+    TitleFont.Height = -11
+    TitleStyle = tsStandard
     UseXORFeatures = True
     OnDblClick = DBGrid1DblClick
     OnKeyDown = DBGrid1KeyDown
@@ -175,22 +111,22 @@ object frmFiltroCliente: TfrmFiltroCliente
   object pnlFiltro: TPanel
     Left = 5
     Height = 28
-    Top = 52
-    Width = 433
+    Top = 23
+    Width = 353
     Anchors = [akTop, akLeft, akRight]
     BevelColor = 16752640
     BevelInner = bvRaised
     BevelOuter = bvNone
     ClientHeight = 28
-    ClientWidth = 433
+    ClientWidth = 353
     Color = clWhite
     ParentColor = False
-    TabOrder = 5
+    TabOrder = 3
     object edt_razao: TEdit
       Left = 3
       Height = 22
       Top = 3
-      Width = 427
+      Width = 347
       Align = alClient
       BorderSpacing.Left = 2
       BorderSpacing.Top = 2
@@ -202,18 +138,10 @@ object frmFiltroCliente: TfrmFiltroCliente
       TabOrder = 0
     end
   end
-  object Label2: TLabel
-    Left = 0
-    Height = 15
-    Top = 0
-    Width = 109
-    Caption = 'Razão / Fantasia'
-    ParentColor = False
-  end
   object pnlFiltro1: TPanel
-    Left = 446
+    Left = 366
     Height = 28
-    Top = 52
+    Top = 23
     Width = 138
     Anchors = [akTop, akRight]
     BevelColor = 16752640
@@ -223,7 +151,7 @@ object frmFiltroCliente: TfrmFiltroCliente
     ClientWidth = 138
     Color = clWhite
     ParentColor = False
-    TabOrder = 2
+    TabOrder = 1
     object edt_telefone: TEdit
       Left = 3
       Height = 22
@@ -241,18 +169,18 @@ object frmFiltroCliente: TfrmFiltroCliente
     end
   end
   object Label3: TLabel
-    Left = 448
-    Height = 15
-    Top = 31
-    Width = 58
+    Left = 373
+    Height = 14
+    Top = 2
+    Width = 53
     Anchors = [akTop, akRight]
     Caption = 'Telefone'
     ParentColor = False
   end
   object pnlFiltro2: TPanel
-    Left = 591
+    Left = 511
     Height = 28
-    Top = 52
+    Top = 23
     Width = 138
     Anchors = [akTop, akRight]
     BevelColor = 16752640
@@ -262,7 +190,7 @@ object frmFiltroCliente: TfrmFiltroCliente
     ClientWidth = 138
     Color = clWhite
     ParentColor = False
-    TabOrder = 3
+    TabOrder = 2
     object edt_CNPJ: TEdit
       Left = 3
       Height = 22
@@ -280,48 +208,30 @@ object frmFiltroCliente: TfrmFiltroCliente
     end
   end
   object Label5: TLabel
-    Left = 591
-    Height = 15
-    Top = 31
-    Width = 73
+    Left = 518
+    Height = 14
+    Top = 2
+    Width = 66
     Anchors = [akTop, akRight]
     Caption = 'CNPJ / CPF'
     ParentColor = False
   end
-  object Panel6: TPanel
-    Left = 735
-    Height = 39
-    Top = 40
-    Width = 120
-    Anchors = [akTop, akRight]
-    BevelOuter = bvNone
-    ClientHeight = 39
-    ClientWidth = 120
-    Color = 12282669
-    ParentColor = False
-    TabOrder = 4
-    object sped_filtrar: TSpeedButton
-      Left = 0
-      Height = 39
-      Top = 0
-      Width = 120
-      Action = ac_filtrar
-      Align = alClient
-      Color = 12282669
-      Flat = True
-      Font.Color = clWhite
-      Font.Height = -11
-      ParentFont = False
-    end
-  end
   object Label4: TLabel
-    Left = 5
-    Height = 15
-    Top = 32
-    Width = 109
+    Left = 6
+    Height = 14
+    Top = 3
+    Width = 96
     Anchors = [akTop]
     Caption = 'Razão / Fantasia'
     ParentColor = False
+  end
+  object Button1: TButton
+    Left = 661
+    Height = 28
+    Top = 23
+    Width = 104
+    Action = ac_filtrar
+    TabOrder = 5
   end
   object ActionList1: TActionList
     Left = 184
