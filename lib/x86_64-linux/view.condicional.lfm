@@ -1099,21 +1099,21 @@ object f_condicional: Tf_condicional
     TabOrder = 1
     object TabSheet1: TTabSheet
       Caption = 'Novos / Pendentes'
-      ClientHeight = 312
+      ClientHeight = 311
       ClientWidth = 887
       object Panel3: TPanel
         Left = 0
-        Height = 312
+        Height = 311
         Top = 0
         Width = 887
         Align = alClient
         BevelOuter = bvNone
-        ClientHeight = 312
+        ClientHeight = 311
         ClientWidth = 887
         TabOrder = 0
         object DBGrid1: TDBGrid
           Left = 0
-          Height = 312
+          Height = 311
           Top = 0
           Width = 887
           Align = alClient
@@ -1123,7 +1123,7 @@ object f_condicional: Tf_condicional
             item
               Title.Caption = 'ID'
               Width = 80
-              FieldName = 'id'
+              FieldName = 'produto_id'
             end          
             item
               Title.Caption = 'Qtde'
@@ -1149,6 +1149,10 @@ object f_condicional: Tf_condicional
               Title.Caption = 'Status'
               Width = 80
               FieldName = 'status'
+            end          
+            item
+              Title.Caption = 'id'
+              FieldName = 'id'
             end>
           DataSource = dsItens
           Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
@@ -1159,7 +1163,7 @@ object f_condicional: Tf_condicional
     end
     object TabSheet2: TTabSheet
       Caption = 'Estornado/Devolvido'
-      ClientHeight = 312
+      ClientHeight = 311
       ClientWidth = 887
       object Panel2: TPanel
         Left = 0
@@ -1224,7 +1228,7 @@ object f_condicional: Tf_condicional
     end
     object TabSheet3: TTabSheet
       Caption = 'Faturados'
-      ClientHeight = 312
+      ClientHeight = 311
       ClientWidth = 887
       object Panel1: TPanel
         Left = 0
@@ -1289,15 +1293,15 @@ object f_condicional: Tf_condicional
     OnClick = Panel5Click
     object Label2: TLabel
       Left = 7
-      Height = 14
+      Height = 15
       Top = 6
-      Width = 88
+      Width = 96
       Caption = 'ID Condicional'
       ParentColor = False
     end
     object edt_IDCondicional: TEdit
       Left = 8
-      Height = 32
+      Height = 33
       Top = 24
       Width = 104
       ReadOnly = True
@@ -1306,7 +1310,7 @@ object f_condicional: Tf_condicional
     end
     object EdtDataEmissao: TEdit
       Left = 120
-      Height = 32
+      Height = 33
       Top = 24
       Width = 200
       ReadOnly = True
@@ -1315,15 +1319,15 @@ object f_condicional: Tf_condicional
     end
     object Label3: TLabel
       Left = 120
-      Height = 14
+      Height = 15
       Top = 6
-      Width = 80
+      Width = 91
       Caption = 'Data Emissão'
       ParentColor = False
     end
     object edt_Cliente: TEdit
       Left = 7
-      Height = 32
+      Height = 33
       Top = 82
       Width = 549
       TabStop = False
@@ -1331,23 +1335,23 @@ object f_condicional: Tf_condicional
     end
     object Label4: TLabel
       Left = 9
-      Height = 14
+      Height = 15
       Top = 67
-      Width = 81
+      Width = 91
       Caption = 'Nome Cliente'
       ParentColor = False
     end
     object Label5: TLabel
       Left = 330
-      Height = 14
+      Height = 15
       Top = 6
-      Width = 59
+      Width = 66
       Caption = 'Vendedor'
       ParentColor = False
     end
     object edt_vendedor: TEdit
       Left = 328
-      Height = 32
+      Height = 33
       Top = 24
       Width = 228
       ReadOnly = True
@@ -1356,7 +1360,7 @@ object f_condicional: Tf_condicional
     end
     object edt_unidade: TEdit
       Left = 560
-      Height = 32
+      Height = 33
       Top = 24
       Width = 228
       ReadOnly = True
@@ -1365,23 +1369,23 @@ object f_condicional: Tf_condicional
     end
     object Label6: TLabel
       Left = 562
-      Height = 14
+      Height = 15
       Top = 6
-      Width = 50
+      Width = 56
       Caption = 'Unidade'
       ParentColor = False
     end
     object Label7: TLabel
       Left = 794
-      Height = 14
+      Height = 15
       Top = 5
-      Width = 38
+      Width = 43
       Caption = 'Status'
       ParentColor = False
     end
     object edt_status: TEdit
       Left = 792
-      Height = 32
+      Height = 33
       Top = 23
       Width = 96
       ReadOnly = True
@@ -1390,9 +1394,9 @@ object f_condicional: Tf_condicional
     end
     object Label8: TLabel
       Left = 11
-      Height = 14
+      Height = 15
       Top = 119
-      Width = 95
+      Width = 108
       Caption = 'Filtrar Produtos'
       ParentColor = False
     end
@@ -1487,6 +1491,25 @@ object f_condicional: Tf_condicional
       ReadOnly = False
       Required = False
       Size = 30
+    end
+    object cds_itensproduto_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'produto_id'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itensgradeamento_id: TStringField
+      FieldKind = fkData
+      FieldName = 'gradeamento_id'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
     end
   end
   object dsItens: TDataSource

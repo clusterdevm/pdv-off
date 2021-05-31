@@ -245,7 +245,7 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="27">
+    <Exceptions Count="28">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -327,6 +327,9 @@
       <Item27>
         <Name Value="Edecompressionerror"/>
       </Item27>
+      <Item28>
+        <Name Value="EJsonException"/>
+      </Item28>
     </Exceptions>
   </Debugging>
 </CONFIG>

@@ -42,7 +42,7 @@ TCondicional = Class
       Procedure Filtrar(_query : TDataSet;  _status,_empresa,_emissaoInicial, emissaoFinal,
                         _conclusaoInicial, _conclusaoFinal: string);
 
-      Function FindProduto(_produto : String) : Boolean;
+      Function FindProduto(_produto : String; _gradeamento : String = '') : Boolean;
 
       Function registraItem(_produto : String) : Boolean;
 
@@ -120,7 +120,7 @@ begin
 
 end;
 
-function TCondicional.FindProduto(_produto: String): Boolean;
+function TCondicional.FindProduto(_produto: String; _gradeamento : String = ''): Boolean;
 var _api : TRequisicao;
 begin
   try
@@ -128,11 +128,15 @@ begin
     _Api := TRequisicao.Create;
     with _api do
     Begin
-        Metodo:='get';
+        Metodo:='post';
         tokenBearer := GetBearerEMS;
         webservice := getEMS_Webservice(mCondicional);
         rota:='condicional';
-        endpoint:=IntTostr(self.id)+'/find/'+_produto;
+
+        if trim(_gradeamento) <> '' then
+           _gradeamento:= '/'+_gradeamento;
+
+        endpoint:=IntTostr(self.id)+'/item/'+_produto+'/search'+_gradeamento;
         Execute();
 
         result :=  (ResponseCode in [200..207]) ;
@@ -140,7 +144,9 @@ begin
         if not result then
            Showmessage(_api.Return['msg'].AsString)
         else
-           _ResponseContent := _api.Return['resultado'].AsString;
+           _ResponseContent := _api.Return['resultado'].Stringify;
+
+
     end;
   finally
      WCursor.SetNormal;

@@ -212,6 +212,7 @@ try
        _Requisicao.Password  := self.AutUserPass;
     end;
 
+
     for i := 0 to Header.Count-1  do
       _Requisicao.AddHeader(Header.Item[i].Campo, Header.Item[i].Valor);
 
@@ -244,6 +245,9 @@ try
             fresponse:= inflate(_response)
         else
            fresponse:= _response.DataString;
+
+
+        registra
 
        if trim(copy(fresponse,1,1)) = '{' then
           Return.Parse(fresponse)

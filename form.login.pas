@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Buttons, LazHelpHTML, ACBrEnterTab, BCSVGButton, BCMDButton, BCButton,
+  Buttons, LazHelpHTML,  BCSVGButton, BCMDButton, BCButton,
   BCImageButton, classe.utils, model.sinc.down, model.login,
   form.principal, TypInfo, SQLDBWebData, wcursos, LCLIntf, Menus;
 

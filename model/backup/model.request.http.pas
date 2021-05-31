@@ -212,6 +212,7 @@ try
        _Requisicao.Password  := self.AutUserPass;
     end;
 
+
     for i := 0 to Header.Count-1  do
       _Requisicao.AddHeader(Header.Item[i].Campo, Header.Item[i].Valor);
 
@@ -225,7 +226,7 @@ try
        else
           _Requisicao.Get(getHost,_response);
 
-       result := _Requisicao.ResponseStatusCode in [200..207] ;
+       result := (_Requisicao.ResponseStatusCode in [200..207]);
        self.ResponseCode:= _Requisicao.ResponseStatusCode;
 
 

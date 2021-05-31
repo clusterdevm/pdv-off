@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
   ComCtrls, DBGrids, StdCtrls, ActnList, frame.produto.localiza,
-  classe.utils, jsons, BufDataset, DB;
+  classe.utils, jsons, BufDataset, DB, clipbrd;
 
 type
 
@@ -27,8 +27,10 @@ type
     cds_canceladodata_registro: TDateTimeField;
     cds_itensdescricao: TStringField;
     cds_canceladodescricao: TStringField;
+    cds_itensgradeamento_id: TStringField;
     cds_itensid: TLongintField;
     cds_canceladoid: TLongintField;
+    cds_itensproduto_id: TLongintField;
     cds_itensquantidade: TCurrencyField;
     cds_canceladoquantidade: TCurrencyField;
     cds_itensstatus: TStringField;
@@ -133,6 +135,7 @@ begin
 
       try
          _Object := TCondicional.Create;
+         _Object.id := StrToInt(edt_IDCondicional.text);
          if _Object.FindProduto(ed_ProdutoID.Text) then
          Begin
              dadosJson.Parse(_Object._ResponseContent);
@@ -232,13 +235,12 @@ begin
   edt_unidade.Text:= FormatFloat('000000',dadosJson['empresa_id'].AsInteger)+' '+
                       dadosJson['nomeunidade'].AsString;
 
-  cds_itens.Fields.Clear;
-  cds_itens.CreateDataset;
-  cds_itens.Open;
+  cds_itens.edit;
+  cds_itens.ClearFields;
 
-  cds_cancelado.Fields.Clear;
-  cds_cancelado.CreateDataset;
-  cds_cancelado.Open;
+  cds_cancelado.Edit;
+  cds_cancelado.ClearFields;
+
 
   for i := 0 to dadosJson['itens'].AsArray.Count-1 do
   Begin
@@ -263,11 +265,13 @@ begin
        then
        Begin
            cds_itens.Append;
-           cds_itensid.Value:= _item['id'].AsInteger;
+           cds_itensid.AsString:= _item['id'].AsString;
+           cds_itensproduto_id.AsString:= _item['produto_id'].AsString;
            cds_itensdescricao.Value:= _item['descricao'].AsString;
            cds_itensquantidade.Value:= _item['quantidade'].AsNumber;
+           cds_itensgradeamento_id.Value:= _item['gradeamento_id'].AsString;
            cds_itensstatus.Value:= _item['status'].AsString;
-           cds_itensvalor.Value:= _item['valor'].AsNumber;
+           cds_itensvalor.Value:= _item['valor_final'].AsNumber;
            cds_itensdata_registro.AsDateTime:= getDataBanco(_item['data_inclusao'].AsString);
            cds_itens.Post;
        end else
