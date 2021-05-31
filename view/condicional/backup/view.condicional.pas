@@ -21,6 +21,8 @@ type
     ac_sair: TAction;
     ActionList1: TActionList;
     cds_canceladodata_estorno: TDateTimeField;
+    cds_canceladogradeamento_id: TStringField;
+    cds_canceladoproduto_id: TLongintField;
     cds_itens: TBufDataset;
     cds_cancelado: TBufDataset;
     cds_itensdata_registro: TDateTimeField;
@@ -42,6 +44,8 @@ type
     dsItens: TDataSource;
     DBGrid1: TDBGrid;
     dCancelado: TDataSource;
+    ed_totalPecas: TEdit;
+    edt_valor: TEdit;
     ed_ProdutoID: TEdit;
     ed_ProdutoDescricao: TEdit;
     edt_IDCondicional: TEdit;
@@ -50,6 +54,7 @@ type
     edt_status: TEdit;
     edt_vendedor: TEdit;
     edt_unidade: TEdit;
+    Label10: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -57,6 +62,7 @@ type
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
+    Label9: TLabel;
     PageControl1: TPageControl;
     Panel1: TPanel;
     Panel2: TPanel;
@@ -72,6 +78,7 @@ type
     TabSheet3: TTabSheet;
     procedure Action2Execute(Sender: TObject);
     procedure ac_cancelarExecute(Sender: TObject);
+    procedure ac_gravarExecute(Sender: TObject);
     procedure ac_sairExecute(Sender: TObject);
     procedure EditIDKeyPress(Sender: TObject; var Key: char);
     procedure ed_ProdutoIDKeyPress(Sender: TObject; var Key: char);
@@ -178,16 +185,8 @@ begin
                   _condicional.id := StrToInt(edt_IDCondicional.Text);
                  if _condicional.estorna(cds_itensid.AsInteger) then
                  Begin
-                     cds_cancelado.Append;
-                     cds_canceladoid.Value:= cds_itensid.value;
-                     cds_canceladodescricao.Value:= cds_itensdescricao.Value;
-                     cds_canceladoquantidade.Value:= 1;
-                     cds_canceladostatus.Value:= cds_itensstatus.value;
-                     cds_canceladovalor.Value:= cds_itensvalor.Value;
-                     cds_canceladodata_registro.AsDateTime:= cds_itensdata_registro.Value;
-                     cds_canceladodata_estorno.AsDateTime:= Now;
-                     cds_cancelado.Post;
-                     cds_itens.Delete;
+                    dadosJson.Parse(_condicional._ResponseContent);
+                    SetLayout;
                  end;
               finally
                  FreeAndNil(_condicional);
@@ -200,6 +199,19 @@ end;
 procedure Tf_condicional.ac_cancelarExecute(Sender: TObject);
 begin
   f_condicional.close;
+end;
+
+procedure Tf_condicional.ac_gravarExecute(Sender: TObject);
+var _condicional : TCondicional;
+begin
+   try
+        _condicional := TCondicional.Create;
+        _condicional.id:= StrToInt(edt_IDCondicional.text);
+        if _condicional.Gravar then
+           f_condicional.Close;
+   finally
+       FreeAndNil(_condicional);
+   end;
 end;
 
 procedure Tf_condicional.FormShow(Sender: TObject);
@@ -223,6 +235,17 @@ end;
 procedure Tf_condicional.SetLayout;
 var i : Integer;
   _item : TJsonObject;
+  Procedure Limpa(aDataSet:TBufDataset);
+  Begin
+     try
+         aDataSet.DisableControls;
+         while not aDataSet.eof do
+             aDataSet.Delete;
+     finally
+        aDataSet.EnableControls;
+     end;
+  end;
+
 begin
 
   EdtDataEmissao.Text := FormatDateTime('dd/mm/yyyy hh:mm',getDataBanco(dadosJson['data_emissao'].AsString));
@@ -235,22 +258,30 @@ begin
   edt_unidade.Text:= FormatFloat('000000',dadosJson['empresa_id'].AsInteger)+' '+
                       dadosJson['nomeunidade'].AsString;
 
-  cds_itens.edit;
-  cds_itens.ClearFields;
+  //cds_itens.edit;
+  //cds_itens.ClearFields;
+  //cds_cancelado.Edit;
+  //cds_cancelado.ClearFields;
 
-  cds_cancelado.Edit;
-  cds_cancelado.ClearFields;
+  Limpa(cds_itens);
+  Limpa(cds_cancelado);
 
-
+ try
+  cds_itens.DisableControls;
+  cds_cancelado.DisableControls;
   for i := 0 to dadosJson['itens'].AsArray.Count-1 do
   Begin
        _item := dadosJson['itens'].AsArray.Items[i].AsObject;
 
-       if (_item['status'].AsString = 'cancelada') or
+       if (_item['status'].AsString = 'cancelado') or
           (_item['status'].AsString = 'devolvido')
        then
        Begin
            cds_cancelado.Append;
+
+           cds_canceladoproduto_id.AsString:= _item['produto_id'].AsString;
+           cds_canceladogradeamento_id.Value:= _item['gradeamento_id'].AsString;
+
            cds_canceladoid.Value:= _item['id'].AsInteger;
            cds_canceladodescricao.Value:= _item['descricao'].AsString;
            cds_canceladoquantidade.Value:= _item['quantidade'].AsNumber;
@@ -266,23 +297,28 @@ begin
        Begin
            cds_itens.Append;
            cds_itensid.AsString:= _item['id'].AsString;
+
            cds_itensproduto_id.AsString:= _item['produto_id'].AsString;
+           cds_itensgradeamento_id.Value:= _item['gradeamento_id'].AsString;
+
            cds_itensdescricao.Value:= _item['descricao'].AsString;
            cds_itensquantidade.Value:= _item['quantidade'].AsNumber;
-           cds_itensgradeamento_id.Value:= _item['gradeamento_id'].AsString;
            cds_itensstatus.Value:= _item['status'].AsString;
            cds_itensvalor.Value:= _item['valor_final'].AsNumber;
            cds_itensdata_registro.AsDateTime:= getDataBanco(_item['data_inclusao'].AsString);
            cds_itens.Post;
-       end else
-       Begin
-
-       end;
-
+       end ;
        cds_itens.First;
        cds_cancelado.First;
-       ed_ProdutoID.SetFocus;
+
   end;
+ finally
+    cds_itens.EnableControls;
+    cds_cancelado.EnableControls;
+    ed_totalPecas.Text:= IntToStr(cds_itens.RecordCount);
+    edt_valor.Text:= FormatFloat(Sessao.formatsubtotal,dadosJson['total_pendente'].AsNumber);
+    ed_ProdutoID.SetFocus;
+ end;
 end;
 
 end.

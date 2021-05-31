@@ -221,6 +221,11 @@ try
           _Requisicao.RequestBody := TStringStream.Create( UTF8Encode(self.Body.Text) );
           _Requisicao.Post(getHost, _response);
        end else
+       if self.Metodo = 'put' then
+       Begin
+          _Requisicao.RequestBody := TStringStream.Create( UTF8Encode(self.Body.Text) );
+          _Requisicao.Put(getHost, _response);
+       end else
        if self.Metodo = 'delete' then
            _Requisicao.Delete(getHost,_response)
        else
@@ -247,10 +252,14 @@ try
            fresponse:= _response.DataString;
 
 
-        registra
-
+       RegistraLogErro(getHost);
+       RegistraLogErro(fresponse);
        if trim(copy(fresponse,1,1)) = '{' then
-          Return.Parse(fresponse)
+         try
+            Return.Parse(fresponse);
+         except
+             ShowMessage(fresponse);
+         end
        else
           Return.Put('json_error',fresponse);
 

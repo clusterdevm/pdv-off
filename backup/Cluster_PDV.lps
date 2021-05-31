@@ -38,10 +38,11 @@
       <Unit3>
         <Filename Value="model/model.request.http.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="241"/>
-        <CursorPos Y="192"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="211"/>
+        <CursorPos X="26" Y="227"/>
         <UsageCount Value="207"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit3>
       <Unit4>
@@ -149,12 +150,12 @@
       <Unit14>
         <Filename Value="controller/controller.condicional.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="138"/>
-        <CursorPos X="37" Y="143"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="42"/>
+        <CursorPos X="16" Y="53"/>
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
-          <Item0 X="12" Y="177" ID="2"/>
+          <Item0 X="47" Y="291" ID="2"/>
         </Bookmarks>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -175,7 +176,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="63" Y="11"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit16>
       <Unit17>
@@ -184,10 +185,13 @@
         <ComponentName Value="frm_CondicionalFIltrar"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="10"/>
-        <CursorPos X="15" Y="10"/>
-        <UsageCount Value="199"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="51"/>
+        <CursorPos X="41" Y="57"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit17>
       <Unit18>
@@ -199,7 +203,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="26"/>
         <CursorPos X="44" Y="32"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit18>
       <Unit19>
@@ -211,7 +215,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="14"/>
         <CursorPos X="64" Y="25"/>
-        <UsageCount Value="194"/>
+        <UsageCount Value="195"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit19>
       <Unit20>
@@ -223,7 +227,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="65"/>
         <CursorPos X="70" Y="77"/>
-        <UsageCount Value="193"/>
+        <UsageCount Value="194"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit20>
       <Unit21>
@@ -235,7 +239,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="22"/>
         <CursorPos X="51" Y="25"/>
-        <UsageCount Value="191"/>
+        <UsageCount Value="192"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit21>
       <Unit22>
@@ -244,7 +248,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="49"/>
         <CursorPos X="52" Y="64"/>
-        <UsageCount Value="160"/>
+        <UsageCount Value="161"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit22>
       <Unit23>
@@ -253,7 +257,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="26"/>
         <CursorPos X="73" Y="34"/>
-        <UsageCount Value="154"/>
+        <UsageCount Value="155"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit23>
       <Unit24>
@@ -265,7 +269,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="5"/>
         <CursorPos X="3" Y="26"/>
-        <UsageCount Value="100"/>
+        <UsageCount Value="101"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit24>
       <Unit25>
@@ -274,7 +278,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="75"/>
         <CursorPos X="47" Y="89"/>
-        <UsageCount Value="100"/>
+        <UsageCount Value="101"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit25>
       <Unit26>
@@ -283,7 +287,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="63"/>
         <CursorPos X="47" Y="72"/>
-        <UsageCount Value="99"/>
+        <UsageCount Value="100"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit26>
       <Unit27>
@@ -292,11 +296,10 @@
         <ComponentName Value="f_condicional"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="128"/>
-        <CursorPos X="41" Y="144"/>
-        <UsageCount Value="83"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="286"/>
+        <CursorPos X="72" Y="296"/>
+        <UsageCount Value="84"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -310,7 +313,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="54"/>
         <CursorPos X="49" Y="70"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit28>
       <Unit29>
@@ -687,112 +690,133 @@
       </Unit76>
       <Unit77>
         <Filename Value="../../componentes/acbr/Pacotes/Lazarus/ACBrSerial/ACBrSerial.pas"/>
-        <CursorPos X="65" Y="16"/>
-        <UsageCount Value="10"/>
+        <CursorPos X="42" Y="7"/>
+        <UsageCount Value="11"/>
         <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit77>
     </Units>
-    <JumpHistory Count="25" HistoryIndex="24">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="view/condicional/view.condicional.pas"/>
-        <Caret Line="134" Column="20" TopLine="128"/>
+        <Filename Value="controller/controller.condicional.pas"/>
+        <Caret Line="53" Column="24" TopLine="32"/>
       </Position1>
       <Position2>
         <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="45" Column="16" TopLine="27"/>
+        <Caret Line="303" Column="3" TopLine="299"/>
       </Position2>
       <Position3>
         <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="131" Column="22" TopLine="122"/>
+        <Caret Line="51" Column="17" TopLine="42"/>
       </Position3>
       <Position4>
-        <Filename Value="view/condicional/view.condicional.pas"/>
-        <Caret Line="138" TopLine="128"/>
+        <Filename Value="controller/controller.condicional.pas"/>
+        <Caret Line="265" TopLine="263"/>
       </Position4>
       <Position5>
         <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="127" TopLine="120"/>
+        <Caret Line="53" Column="16" TopLine="40"/>
       </Position5>
       <Position6>
         <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="128" TopLine="120"/>
+        <Caret Line="305" TopLine="300"/>
       </Position6>
       <Position7>
         <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="131" TopLine="120"/>
+        <Caret Line="54" Column="33" TopLine="42"/>
       </Position7>
       <Position8>
         <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="132" TopLine="120"/>
+        <Caret Line="336" Column="3" TopLine="332"/>
       </Position8>
       <Position9>
         <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="133" TopLine="120"/>
+        <Caret Line="54" Column="16" TopLine="43"/>
       </Position9>
       <Position10>
         <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="134" TopLine="120"/>
+        <Caret Line="336" Column="3" TopLine="332"/>
       </Position10>
       <Position11>
         <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="136" TopLine="120"/>
+        <Caret Line="53" Column="16" TopLine="43"/>
       </Position11>
       <Position12>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="139" TopLine="120"/>
+        <Filename Value="view/condicional/view.condicional.pas"/>
+        <Caret Line="96" Column="44" TopLine="79"/>
       </Position12>
       <Position13>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="140" TopLine="120"/>
+        <Filename Value="view/condicional/view.condicional.pas"/>
+        <Caret Line="212" Column="39" TopLine="203"/>
       </Position13>
       <Position14>
         <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="142" TopLine="120"/>
+        <Caret Line="53" Column="16" TopLine="42"/>
       </Position14>
       <Position15>
         <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="144" TopLine="120"/>
+        <Caret Line="317" Column="13" TopLine="300"/>
       </Position15>
       <Position16>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="131" Column="23" TopLine="120"/>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="72" Column="19" TopLine="60"/>
       </Position16>
       <Position17>
         <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="131" Column="23" TopLine="120"/>
+        <Caret Line="312" Column="49" TopLine="300"/>
       </Position17>
       <Position18>
         <Filename Value="view/condicional/view.condicional.pas"/>
-        <Caret Line="136" Column="20" TopLine="128"/>
+        <Caret Line="211" Column="44" TopLine="203"/>
       </Position18>
       <Position19>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="45" Column="16" TopLine="28"/>
+        <Filename Value="view/condicional/view.condicional.pas"/>
+        <Caret Line="93" Column="23" TopLine="78"/>
       </Position19>
       <Position20>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="126" Column="3" TopLine="122"/>
+        <Filename Value="view/condicional/view.condicional.filtrar.pas"/>
+        <Caret Line="60" Column="41" TopLine="56"/>
       </Position20>
       <Position21>
-        <Filename Value="view/condicional/view.condicional.pas"/>
-        <Caret Line="141" Column="25" TopLine="128"/>
+        <Filename Value="view/condicional/view.condicional.filtrar.pas"/>
+        <Caret Line="59" Column="41" TopLine="56"/>
       </Position21>
       <Position22>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="45" Column="16" TopLine="28"/>
+        <Filename Value="view/condicional/view.condicional.filtrar.pas"/>
+        <Caret Line="58" Column="41" TopLine="55"/>
       </Position22>
       <Position23>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="149" TopLine="129"/>
+        <Filename Value="view/condicional/view.condicional.filtrar.pas"/>
+        <Caret Line="57" Column="41" TopLine="54"/>
       </Position23>
       <Position24>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="149" TopLine="129"/>
+        <Filename Value="view/condicional/view.condicional.filtrar.pas"/>
+        <Caret Line="56" Column="41" TopLine="53"/>
       </Position24>
       <Position25>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="149" Column="60" TopLine="138"/>
+        <Filename Value="view/condicional/view.condicional.filtrar.pas"/>
+        <Caret Line="55" Column="41" TopLine="52"/>
       </Position25>
+      <Position26>
+        <Filename Value="view/condicional/view.condicional.filtrar.pas"/>
+        <Caret Line="54" Column="41" TopLine="51"/>
+      </Position26>
+      <Position27>
+        <Filename Value="view/condicional/view.condicional.filtrar.pas"/>
+        <Caret Line="55" Column="41" TopLine="51"/>
+      </Position27>
+      <Position28>
+        <Filename Value="view/condicional/view.condicional.filtrar.pas"/>
+        <Caret Line="56" Column="41" TopLine="51"/>
+      </Position28>
+      <Position29>
+        <Filename Value="view/condicional/view.condicional.filtrar.pas"/>
+        <Caret Line="57" Column="41" TopLine="51"/>
+      </Position29>
+      <Position30>
+        <Filename Value="view/condicional/view.condicional.filtrar.pas"/>
+        <Caret Line="56" Column="41" TopLine="51"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

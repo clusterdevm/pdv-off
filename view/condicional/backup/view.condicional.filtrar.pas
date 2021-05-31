@@ -51,7 +51,6 @@ type
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
-    MenuItem4: TMenuItem;
     PopupMenu1: TPopupMenu;
     procedure acInativarExecute(Sender: TObject);
     procedure acNovoExecute(Sender: TObject);
@@ -114,6 +113,7 @@ begin
       condicional := TCondicional.Create;
       condicional.id := cds_condicionalid.AsInteger;
       Condicional.Get;
+      ac_buscarExecute(Self);
    finally
      FreeAndNil(condicional);
    end;
@@ -215,7 +215,7 @@ begin
   with Frame2_1.cb_status.Items do
   Begin
      Add('Rascunho');
-     Add('Cancelada');
+     Add('Cancelado');
      Add('Faturada');
      Add('Pendente');
   end;

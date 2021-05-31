@@ -49,6 +49,10 @@ TCondicional = Class
       function Iniciar : boolean;
       Procedure get;
       function estorna(_itemID:Integer) : Boolean;
+
+      Function Gravar :  Boolean;
+      Function Report : Boolean;
+
       Procedure Cancelar;
 end;
 
@@ -139,8 +143,6 @@ begin
         endpoint:=IntTostr(self.id)+'/item/'+_produto+'/search'+_gradeamento;
         Execute();
 
-        RegistraLogErro('aqui');
-
         result :=  (ResponseCode in [200..207]) ;
 
         if not result then
@@ -176,7 +178,7 @@ begin
         if not result then
            Showmessage(_api.Return['msg'].AsString)
         else
-           _ResponseContent := _api.Return['resultado'].AsString;
+           _ResponseContent := _api.Return['resultado'].Stringify;
     end;
   finally
      WCursor.SetNormal;
@@ -288,11 +290,46 @@ begin
         result := (ResponseCode in [200..207]);
 
         if not Result  then
-           Showmessage(_api.Return['msg'].AsString);
+           Showmessage(_api.Return['msg'].AsString)
+        else
+           _ResponseContent := _api.Return['resultado'].Stringify;
     end;
   finally
      WCursor.SetNormal;
   end;
+end;
+
+function TCondicional.Gravar: Boolean;
+var _api : TRequisicao;
+begin
+  try
+      WCursor.SetWait;
+      _Api := TRequisicao.Create;
+
+      with _api do
+      Begin
+          Metodo:='put';
+          tokenBearer := GetBearerEMS;
+          webservice := getEMS_Webservice(mCondicional);
+          rota:='condicional';
+          endpoint:=IntTostr(self.id);
+          Execute();
+
+          result := (ResponseCode in [200..207]);
+
+          if not Result  then
+             Showmessage(_api.Return['msg'].AsString)
+          else
+
+      end;
+  finally
+     WCursor.SetNormal;
+  end;
+end;
+
+function TCondicional.Report: Boolean;
+begin
+
 end;
 
 procedure TCondicional.Cancelar;
