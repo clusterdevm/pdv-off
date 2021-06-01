@@ -21,6 +21,7 @@ type
     Action1: TAction;
     acEditar: TAction;
     acInativar: TAction;
+    acImprimir: TAction;
     ActionList1: TActionList;
     cds_condicional: TBufDataset;
     cds_condicionalcli_nome: TStringField;
@@ -52,7 +53,9 @@ type
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
     PopupMenu1: TPopupMenu;
+    procedure acImprimirExecute(Sender: TObject);
     procedure acInativarExecute(Sender: TObject);
     procedure acNovoExecute(Sender: TObject);
     procedure Action1Execute(Sender: TObject);
@@ -200,6 +203,18 @@ begin
    finally
      FreeAndNil(condicional);
    end;
+end;
+
+procedure Tfrm_CondicionalFIltrar.acImprimirExecute(Sender: TObject);
+var _condicional : TCondicional;
+begin
+  try
+     _condicional := TCondicional.Create;
+     _condicional.id:= cds_condicionalid.AsInteger;
+     _condicional.Report;
+  finally
+      FreeAndNil(_condicional);
+  end;
 end;
 
 procedure Tfrm_CondicionalFIltrar.Action1Execute(Sender: TObject);

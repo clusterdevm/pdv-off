@@ -5,7 +5,8 @@ unit model.request.http;
 interface
 
 uses sysutils, classes, clipbrd, openssl, jsons,db,   zstream,
-     Dialogs, fphttpclient, opensslsockets, classe.utils, DataSet.Serialize;
+     Dialogs, fphttpclient, opensslsockets, classe.utils, DataSet.Serialize,
+     httpsend,ssl_openssl;
 
 type
 
@@ -70,6 +71,7 @@ TRequisicao = Class
          Property MSG_Erro : String read fMSg_Erro write Fmsg_erro;
 
          Function Execute: Boolean;
+         Function ExecuteSynapse: Boolean;
 
          procedure JsonToDataSet(aDataSet:TDataSet);
          Procedure AddHeader(campo,value:string);
@@ -103,18 +105,23 @@ Begin
    end;
 end;
 
-function inflate(gzipfile:TStringStream):string;
+function inflate(gzipfile:TStream):string;
 var _fileName,_name: string;
     ss : TStringStream;
      gzf : TGZFileStream;
+
+     gzip : TStringStream;
 begin
-   _name := md5Text(gzipfile.DataString)+formatdatetime('hhmmssddmmyyyy',now);
+    gzip := TStringStream.Create('');
+    gzip.CopyFrom(gzipfile,0);
+
+   _name := md5Text(gzip.DataString)+formatdatetime('hhmmssddmmyyyy',now);
   _fileName:='./temp/'+_name+'.gzip';
 
   if not DirectoryExists('./temp/') then
      ForceDirectories('./temp/');
 
-   gzipfile.SaveToFile(_fileName);
+   gzip.SaveToFile(_fileName);
 
    gzf := TGZFileStream.create(_fileName, gzopenread);
    ss := TStringStream.Create('');
@@ -182,18 +189,98 @@ begin
 
 end;
 
+function TRequisicao.ExecuteSynapse: Boolean;
+var
+    HTTPSender: THTTPSend;
+    _temp : TStringList;
+    i : Integer;
+    _contentEnconding : String;
+Begin
+try
+  try
+    HTTPSender := THTTPSend.Create;
+    _contentEnconding := '';
+    _temp  := TStringList.Create;
+
+    if trim(self.FtokenBearer) <> '' then
+       HTTPSender.Headers.Add('Authorization: Bearer '+trim(Self.tokenBearer));
+
+    HTTPSender.Sock.CreateWithSSL(TSSLOpenSSL);
+    HTTPSender.Sock.SSLDoConnect;
+    HTTPSender.Headers.Add('Accept: */*');
+    HTTPSender.Headers.Add('Content-Type: application/json');
+    HTTPSender.Headers.Add('Accept-Encoding: gzip');
+
+    for i := 0 to Header.Count-1  do
+       HTTPSender.Headers.Add(Header.Item[i].Campo+': '+ Header.Item[i].Valor);
+
+    HTTPSender.HTTPMethod(self.Metodo,getHost);
+
+    self.ResponseCode:= HTTPSender.ResultCode;
+
+    result := self.ResponseCode in [200..207];
+
+    for i := 0 to HTTPSender.Headers.Count-1 do
+    Begin
+        if LowerCase(copy(HTTPSender.Headers[i],1,16))='content-encoding' then
+        Begin
+           _contentEnconding := trim(copy(HTTPSender.Headers[i],18,
+                                 Length(HTTPSender.Headers[i])));
+            break;
+        end;
+    end;
+
+
+        if _contentEnconding <> '' then
+            fresponse:= inflate(HTTPSender.Document)
+        else
+        Begin
+           _temp.LoadFromStream(HTTPSender.Document);
+           fresponse:= _temp.Text;
+        end;
+
+       RegistraLogErro(getHost);
+       RegistraLogErro('response : '+fresponse);
+
+       if trim(copy(fresponse,1,1)) = '{' then
+         try
+            Return.Parse(fresponse);
+         except
+             ShowMessage(fresponse);
+         end
+       else
+          Return.Put('json_error',fresponse);
+
+except
+     on e:Exception do
+     Begin
+       RegistraLogErro('====================================');
+       RegistraLogErro('host '+ getHost);
+       //RegistraLogErro('response : '+_response.DataString);
+       RegistraLogErro('Error Request : '+e.message);
+       RegistraLogErro('teste 2: '+fresponse);
+     end;
+end;
+
+finally
+    //FreeAndNil( _Requisicao ) ;
+    //FreeAndNil( _response ) ;
+end;
+end;
+
 function TRequisicao.Execute: Boolean;
 var
 _Requisicao :  TFPHttpClient;
   _response : TStringStream;
       i : Integer;
       _contentEnconding:string;
+
+      _aux : TStringList;
 Begin
 try
   try
-     InitSSLInterface();
      _contentEnconding := '';
-
+     InitSSLInterface();
     _Requisicao := TFPHttpClient.Create(nil);
     _Requisicao.AllowRedirect := true;
 
@@ -202,6 +289,7 @@ try
 
     _Requisicao.AddHeader('Accept', '*/*');
     _Requisicao.AddHeader('Content-Type', 'application/json');
+
     _Requisicao.AddHeader('Accept-Encoding','gzip');
 
     _response := TStringStream.Create('');
@@ -211,7 +299,6 @@ try
        _Requisicao.UserName  := self.AutUserName;
        _Requisicao.Password  := self.AutUserPass;
     end;
-
 
     for i := 0 to Header.Count-1  do
       _Requisicao.AddHeader(Header.Item[i].Campo, Header.Item[i].Valor);
@@ -224,12 +311,16 @@ try
        if self.Metodo = 'put' then
        Begin
           _Requisicao.RequestBody := TStringStream.Create( UTF8Encode(self.Body.Text) );
-          _Requisicao.Post(getHost, _response);
+          _Requisicao.Put(getHost, _response);
        end else
        if self.Metodo = 'delete' then
+       Begin
            _Requisicao.Delete(getHost,_response)
+       end
        else
-          _Requisicao.Get(getHost,_response);
+       Begin
+           _Requisicao.Get(getHost,_response);
+       end;
 
        result := (_Requisicao.ResponseStatusCode in [200..207]);
        self.ResponseCode:= _Requisicao.ResponseStatusCode;
@@ -253,7 +344,8 @@ try
 
 
        RegistraLogErro(getHost);
-       RegistraLogErro(fresponse);
+       RegistraLogErro('response : '+fresponse);
+
        if trim(copy(fresponse,1,1)) = '{' then
          try
             Return.Parse(fresponse);
@@ -276,7 +368,7 @@ end;
 
 finally
     FreeAndNil( _Requisicao ) ;
-    //FreeAndNil( _response ) ;
+    FreeAndNil( _response ) ;
 end;
 end;
 

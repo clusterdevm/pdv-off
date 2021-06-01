@@ -128,7 +128,8 @@ function getDataTimeZone(value: string): String;
 begin
     if value = '' then
     Begin
-
+        Result := '';
+        exit
     end;
 
     try

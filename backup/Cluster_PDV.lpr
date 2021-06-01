@@ -13,7 +13,7 @@ uses
   model.request.jsons, view.condicional.filtrar,
 
   view.condicional.criar, model.pessoa, cluster_pdv.sessao, uf_aguarde,
-  thread.wait, wcursos, view.condicional, unit1;
+  thread.wait, wcursos, view.condicional;
 
 {$R *.res}
 

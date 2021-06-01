@@ -28,31 +28,34 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <RequiredPackages Count="8">
+    <RequiredPackages Count="9">
       <Item1>
-        <PackageName Value="bgracontrols"/>
+        <PackageName Value="frce"/>
       </Item1>
       <Item2>
-        <PackageName Value="TurboPowerIPro"/>
+        <PackageName Value="bgracontrols"/>
       </Item2>
       <Item3>
-        <PackageName Value="RunTimeTypeInfoControls"/>
+        <PackageName Value="TurboPowerIPro"/>
       </Item3>
       <Item4>
-        <PackageName Value="weblaz"/>
+        <PackageName Value="RunTimeTypeInfoControls"/>
       </Item4>
       <Item5>
-        <PackageName Value="ACBrDiversos"/>
+        <PackageName Value="weblaz"/>
       </Item5>
       <Item6>
-        <PackageName Value="FCL"/>
+        <PackageName Value="ACBrDiversos"/>
       </Item6>
       <Item7>
-        <PackageName Value="zcomponent"/>
+        <PackageName Value="FCL"/>
       </Item7>
       <Item8>
-        <PackageName Value="LCL"/>
+        <PackageName Value="zcomponent"/>
       </Item8>
+      <Item9>
+        <PackageName Value="LCL"/>
+      </Item9>
     </RequiredPackages>
     <Units Count="30">
       <Unit0>
@@ -223,6 +226,7 @@
         <Filename Value="report/report.condicional.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="report_condicional"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit29>
     </Units>

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, BufDataset, db, jsons, model.request.http,
-   Dialogs,crt,wcursos, Clipbrd;
+   Dialogs,crt,wcursos, report.condicional, Clipbrd;
 
 type
 
@@ -301,11 +301,11 @@ end;
 
 function TCondicional.Gravar: Boolean;
 var _api : TRequisicao;
+    f_report : Treport_condicional;
 begin
   try
       WCursor.SetWait;
       _Api := TRequisicao.Create;
-
       with _api do
       Begin
           Metodo:='put';
@@ -320,6 +320,9 @@ begin
           if not Result  then
              Showmessage(_api.Return['msg'].AsString)
           else
+          Begin
+
+          end;
 
       end;
   finally
@@ -328,8 +331,40 @@ begin
 end;
 
 function TCondicional.Report: Boolean;
+var _api : TRequisicao;
+    f_report : Treport_condicional;
 begin
+  try
+      WCursor.SetWait;
+      _Api := TRequisicao.Create;
+      with _api do
+      Begin
+          Metodo:='get';
+          tokenBearer := GetBearerEMS;
+          webservice := getEMS_Webservice(mCondicional);
+          AddHeader('kind-report','json');
+          rota:='condicional';
+          endpoint:='report/'+IntTostr(self.id);
+          ExecuteSynapse();
 
+          result := (ResponseCode in [200..207]);
+
+          if not Result  then
+             Showmessage(_api.response)
+          else
+          Begin
+              try
+                 f_report := Treport_condicional.Create(nil);
+                 f_report.GetCondicionalReport(_Api.Return.Stringify);
+              finally
+                 FreeAndNIl(f_report);
+              end;
+          end;
+      end;
+  finally
+     WCursor.SetNormal;
+     FreeAndNil(_Api);
+  end;
 end;
 
 procedure TCondicional.Cancelar;
