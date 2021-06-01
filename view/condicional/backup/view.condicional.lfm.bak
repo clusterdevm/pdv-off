@@ -13,6 +13,7 @@ object f_condicional: Tf_condicional
   OnResize = FormResize
   OnShow = FormShow
   Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
   object pnlBotoes: TPanel
     Left = 0
     Height = 88
@@ -1099,7 +1100,7 @@ object f_condicional: Tf_condicional
     TabOrder = 1
     object TabSheet1: TTabSheet
       Caption = 'Novos / Pendentes'
-      ClientHeight = 312
+      ClientHeight = 309
       ClientWidth = 887
       object Panel3: TPanel
         Left = 0
@@ -1159,7 +1160,7 @@ object f_condicional: Tf_condicional
     end
     object TabSheet2: TTabSheet
       Caption = 'Estornado/Devolvido'
-      ClientHeight = 312
+      ClientHeight = 309
       ClientWidth = 887
       object Panel2: TPanel
         Left = 0
@@ -1219,7 +1220,7 @@ object f_condicional: Tf_condicional
     end
     object TabSheet3: TTabSheet
       Caption = 'Faturados'
-      ClientHeight = 312
+      ClientHeight = 309
       ClientWidth = 887
       object Panel1: TPanel
         Left = 0

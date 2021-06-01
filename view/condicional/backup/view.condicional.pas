@@ -269,49 +269,46 @@ begin
  try
   cds_itens.DisableControls;
   cds_cancelado.DisableControls;
+
   for i := 0 to dadosJson['itens'].AsArray.Count-1 do
   Begin
        _item := dadosJson['itens'].AsArray.Items[i].AsObject;
+       cds_itens.Append;
+       cds_itensid.AsString:= _item['id'].AsString;
 
-       if (_item['status'].AsString = 'cancelado') or
-          (_item['status'].AsString = 'devolvido')
-       then
-       Begin
-           cds_cancelado.Append;
+       cds_itensproduto_id.AsString:= _item['produto_id'].AsString;
+       cds_itensgradeamento_id.Value:= _item['gradeamento_id'].AsString;
 
-           cds_canceladoproduto_id.AsString:= _item['produto_id'].AsString;
-           cds_canceladogradeamento_id.Value:= _item['gradeamento_id'].AsString;
-
-           cds_canceladoid.Value:= _item['id'].AsInteger;
-           cds_canceladodescricao.Value:= _item['descricao'].AsString;
-           cds_canceladoquantidade.Value:= _item['quantidade'].AsNumber;
-           cds_canceladostatus.Value:= _item['status'].AsString;
-           cds_canceladovalor.Value:= _item['valor'].AsNumber;
-           cds_canceladodata_registro.AsDateTime:= getDataBanco(_item['data_inclusao'].AsString);
-           cds_canceladodata_estorno.AsDateTime:= getDataBanco(_item['data_estorno'].AsString);
-           cds_cancelado.Post;
-       end else
-       if (_item['status'].AsString = 'rascunho') or
-          (_item['status'].AsString = 'pendente')
-       then
-       Begin
-           cds_itens.Append;
-           cds_itensid.AsString:= _item['id'].AsString;
-
-           cds_itensproduto_id.AsString:= _item['produto_id'].AsString;
-           cds_itensgradeamento_id.Value:= _item['gradeamento_id'].AsString;
-
-           cds_itensdescricao.Value:= _item['descricao'].AsString;
-           cds_itensquantidade.Value:= _item['quantidade'].AsNumber;
-           cds_itensstatus.Value:= _item['status'].AsString;
-           cds_itensvalor.Value:= _item['valor_final'].AsNumber;
-           cds_itensdata_registro.AsDateTime:= getDataBanco(_item['data_inclusao'].AsString);
-           cds_itens.Post;
-       end ;
-       cds_itens.First;
-       cds_cancelado.First;
-
+       cds_itensdescricao.Value:= _item['descricao'].AsString;
+       cds_itensquantidade.Value:= _item['quantidade'].AsNumber;
+       cds_itensstatus.Value:= _item['status'].AsString;
+       cds_itensvalor.Value:= _item['valor_final'].AsNumber;
+       cds_itensdata_registro.AsDateTime:= getDataBanco(_item['data_inclusao'].AsString);
+       cds_itens.Post;
   end;
+
+  for i := 0 to dadosJson['devolvido'].AsArray.Count-1 do
+  Begin
+       _item := dadosJson['devolvido'].AsArray.Items[i].AsObject;
+       cds_cancelado.Append;
+
+       cds_canceladoproduto_id.AsString:= _item['produto_id'].AsString;
+       cds_canceladogradeamento_id.Value:= _item['gradeamento_id'].AsString;
+
+       cds_canceladoid.Value:= _item['id'].AsInteger;
+       cds_canceladodescricao.Value:= _item['descricao'].AsString;
+       cds_canceladoquantidade.Value:= _item['quantidade'].AsNumber;
+       cds_canceladostatus.Value:= _item['status'].AsString;
+       cds_canceladovalor.Value:= _item['valor'].AsNumber;
+       cds_canceladodata_registro.AsDateTime:= getDataBanco(_item['data_inclusao'].AsString);
+       cds_canceladodata_estorno.AsDateTime:= getDataBanco(_item['data_estorno'].AsString);
+       cds_cancelado.Post;
+  end;
+
+
+
+
+
  finally
     cds_itens.EnableControls;
     cds_cancelado.EnableControls;
