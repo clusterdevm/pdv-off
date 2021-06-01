@@ -5,15 +5,15 @@ program Cluster_PDV;
 uses
   cthreads,cmem,   SysUtils,
   Interfaces, // this includes the LCL widgetset
-  Forms, runtimetypeinfocontrols, virtualdbgrid_package, form.login,
-  view.filtros.cliente, view.venda, model.request.http, model.conexao,
-  classe.utils, model.sinc.down, model.login, model.usuarios, dateutils,
-  controller.condicional,
+  Forms, runtimetypeinfocontrols,
+  form.login, view.filtros.cliente, view.venda, model.request.http,
+  model.conexao, classe.utils, model.sinc.down, model.login, model.usuarios,
+  dateutils, controller.condicional,
 
   model.request.jsons, view.condicional.filtrar,
 
   view.condicional.criar, model.pessoa, cluster_pdv.sessao, uf_aguarde,
-  thread.wait, wcursos, view.condicional;
+  thread.wait, wcursos, view.condicional, unit1;
 
 {$R *.res}
 
@@ -29,6 +29,7 @@ begin
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(Tfrm_login, frm_login);
+  Application.CreateForm(Treport_condicional, report_condicional);
   Application.Run;
 
 end.
