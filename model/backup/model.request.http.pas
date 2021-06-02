@@ -263,7 +263,7 @@ except
 end;
 
 finally
-    //FreeAndNil( _Requisicao ) ;
+    FreeAndNil( HTTPSender ) ;
     //FreeAndNil( _response ) ;
 end;
 end;

@@ -219,3 +219,723 @@
 01-06-2021 18:23:17 https://api-dev.clustererp.com.br/api/v1/condicional/listar
 01-06-2021 18:23:17 response : {"resultado":[{"nomeresumido":"CLUSTER GESTOR","id":88,"status":"pendente","data_emissao":"2021-05-31T16:33:53.978Z","data_conclusao":null,"total_pendente":1000,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T16:33:54.019Z"},{"nomeresumido":"CLUSTER GESTOR","id":72,"status":"pendente","data_emissao":"2021-05-29T12:39:28.325Z","data_conclusao":null,"total_pendente":40,"total_vendido":0,"cli_nome":"A DUQUEZA RIO PRETO COM. DE CONFECCOES LTDA ME","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-05-29T12:39:28.356Z"}],"totais":{"total_registros":2,"total_valor":1040,"total_vendido":0}}
 
+02-06-2021 11:49:29 ====================================
+02-06-2021 11:49:29 host https://api-dev.clustererp.com.br/api/v1/get_status/
+02-06-2021 11:49:29 Error Request : Unexpected response status code: 404
+02-06-2021 11:49:29 teste 2: 
+02-06-2021 11:49:33 ====================================
+02-06-2021 11:49:33 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:49:33 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:49:33 teste 2: 
+02-06-2021 11:49:35 https://api-dev.clustererp.com.br/api/v1/autenticacao/token/
+02-06-2021 11:49:35 response : {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlYmVyQDYiLCJzdWIiOiIxODkxIiwiaWF0IjoxNjIyNjM0NTc1LCJuYmYiOjE2MjI2MzQ1NzUsImV4cCI6MTYyMjgwNzM3NSwibml2ZWxfaWQiOiIiLCJlbXByZXNhIjpbeyJlbXByZXNhIjoiQ0xVU1RFUiBHRVNUT1IiLCJzY2hlbWFfbmFtZSI6ImVtc182IiwibWF0cml6X2lkIjo2LCJ0aW1lem9uZSI6IkFtZXJpY2EvU2FvX1BhdWxvIiwidGFiZWxhX3ByZWNvX2lkIjoxLCJhcm1hemVuYW1lbnRvX2lkIjozLCJlbXByZXNhX2lkIjo2LCJzY2hlbWFfaW5mb19pZCI6MSwicmF6YW8iOiJNQVRSSVoiLCJmYW50YXNpYSI6IkNMVVNURVIgU09GVFdBUkUiLCJjbnBqIjoiMDg0MDYyNjIwMDAxNjIiLCJlbmRlcmVjbyI6IlJVQSBQQVNURVVSIiwiY2lkYWRlIjoiQ1VSSVRJQkEiLCJjb21wbGVtZW50byI6IjEzwrogRURGLiBKQVRPQkEiLCJudW1lcm8iOiI0NjMiLCJiYWlycm8iOiJCQVRFTCIsImNlcCI6Ijg1ODUxMTkwIiwidWYiOiJQUiIsInBhaXMiOiJCUkFTSUwiLCJpZSI6IjkwNTQ5MjUwMDciLCJ0ZWxlZm9uZSI6IjQ1LTQwNTMtOTEwMSIsInNpdGUiOiIiLCJlbWFpbCI6IiIsImxvZ2FkbyI6dHJ1ZSwiZGVjaW1hbF91bml0YXJpbyI6MiwiZGVjaW1hbF90b3RhbGl6YWRvciI6MiwiZGVjaW1hbF9xdWFudGlkYWRlIjoyLCJtb2VkYV9wYWRyYW9faWQiOjEsIm1vZWRhX3NpbWJvbG8iOiJSJCIsIm5fdW5pZGFkZSI6IkNMVVNURVIgR0VTVE9SIn0seyJlbXByZXNhIjoiVEVTVEUiLCJzY2hlbWFfbmFtZSI6ImVtc182IiwibWF0cml6X2lkIjo2LCJ0aW1lem9uZSI6IkFtZXJpY2EvU2FvX1BhdWxvIiwidGFiZWxhX3ByZWNvX2lkIjoxLCJhcm1hemVuYW1lbnRvX2lkIjoxLCJlbXByZXNhX2lkIjoyMywic2NoZW1hX2luZm9faWQiOjEsInJhemFvIjoiRklMSUFMIiwiZmFudGFzaWEiOiJWUyBGRVJSQUdFTlMiLCJjbnBqIjoiMDIzNjAxOTQwMDAxNjEiLCJlbmRlcmVjbyI6IkFWIEJSQVNJTCIsImNpZGFkZSI6IkZPWiBETyBJR1VBw4dVIiwiY29tcGxlbWVudG8iOiIiLCJudW1lcm8iOiIxMjAyIiwiYmFpcnJvIjoiQ0VOVFJPIiwiY2VwIjoiODU4NTEwMDAiLCJ1ZiI6IlBSIiwicGFpcyI6IkJSQVNJTCIsImllIjoiOTA1MzYyNTUtMDYiLCJ0ZWxlZm9uZSI6IjEyMzQ1Njc4Iiwic2l0ZSI6IiIsImVtYWlsIjoidGVzdGUiLCJsb2dhZG8iOmZhbHNlLCJkZWNpbWFsX3VuaXRhcmlvIjoyLCJkZWNpbWFsX3RvdGFsaXphZG9yIjoyLCJkZWNpbWFsX3F1YW50aWRhZGUiOjAsIm1vZWRhX3BhZHJhb19pZCI6MSwibW9lZGFfc2ltYm9sbyI6IlIkIiwibl91bmlkYWRlIjoiVEVTVEUifV0sIm1pY3Jvc2VydmljbyI6dHJ1ZX0.bdXkvRwJ5RDOekk7jGyfcBttgpK70g4cnIRuKFIgoNc"}
+
+02-06-2021 11:49:35 https://api-dev.clustererp.com.br/api/v1/condicional/listar
+02-06-2021 11:49:35 response : {"resultado":[{"nomeresumido":"CLUSTER GESTOR","id":75,"status":"rascunho","data_emissao":"2021-05-29T14:30:37.657Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-05-29T14:30:37.725Z"},{"nomeresumido":"CLUSTER GESTOR","id":81,"status":"rascunho","data_emissao":"2021-05-31T14:08:30.245Z","data_conclusao":null,"total_pendente":2,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ANA CRISTINA GALLI DE CAMPOS - ME","dataatualizacao":"2021-05-31T14:08:30.279Z"},{"nomeresumido":"CLUSTER GESTOR","id":87,"status":"rascunho","data_emissao":"2021-05-31T16:30:01.421Z","data_conclusao":null,"total_pendente":11520,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:30:01.536Z"},{"nomeresumido":"CLUSTER GESTOR","id":76,"status":"rascunho","data_emissao":"2021-05-29T15:05:03.697Z","data_conclusao":null,"total_pendente":900,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"CARLOS ALBERTO PEREIRA DE OLIVEIRA","dataatualizacao":"2021-05-29T15:05:03.732Z"},{"nomeresumido":"CLUSTER GESTOR","id":86,"status":"rascunho","data_emissao":"2021-05-31T16:21:09.782Z","data_conclusao":null,"total_pendente":9,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:21:09.824Z"},{"nomeresumido":"CLUSTER GESTOR","id":93,"status":"rascunho","data_emissao":"2021-05-31T17:20:52.598Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T17:20:52.641Z"},{"nomeresumido":"CLUSTER GESTOR","id":92,"status":"rascunho","data_emissao":"2021-05-31T16:47:36.879Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T16:47:36.917Z"},{"nomeresumido":"CLUSTER GESTOR","id":83,"status":"rascunho","data_emissao":"2021-05-31T14:17:07.852Z","data_conclusao":null,"total_pendente":4,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"COLABORADOR - ROBSON","dataatualizacao":"2021-05-31T14:17:07.882Z"},{"nomeresumido":"CLUSTER GESTOR","id":91,"status":"rascunho","data_emissao":"2021-05-31T16:39:55.836Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"CARLOS ALBERTO P OLIVEIRA","dataatualizacao":"2021-05-31T16:39:55.879Z"},{"nomeresumido":"CLUSTER GESTOR","id":89,"status":"rascunho","data_emissao":"2021-05-31T16:36:06.327Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:36:06.358Z"},{"nomeresumido":"CLUSTER GESTOR","id":85,"status":"rascunho","data_emissao":"2021-05-31T14:59:05.817Z","data_conclusao":null,"total_pendente":310,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"BETO NINJA","dataatualizacao":"2021-05-31T14:59:05.849Z"},{"nomeresumido":"CLUSTER GESTOR","id":94,"status":"rascunho","data_emissao":"2021-06-01T00:23:39.311Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-06-01T00:23:39.358Z"},{"nomeresumido":"CLUSTER GESTOR","id":84,"status":"rascunho","data_emissao":"2021-05-31T14:23:02.292Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T14:23:02.322Z"},{"nomeresumido":"CLUSTER GESTOR","id":88,"status":"rascunho","data_emissao":"2021-05-31T16:33:53.978Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T16:33:54.019Z"},{"nomeresumido":"CLUSTER GESTOR","id":82,"status":"rascunho","data_emissao":"2021-05-31T14:11:02.936Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T14:11:02.985Z"},{"nomeresumido":"CLUSTER GESTOR","id":98,"status":"rascunho","data_emissao":"2021-06-01T19:22:01.738Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-06-01T19:22:01.786Z"},{"nomeresumido":"CLUSTER GESTOR","id":80,"status":"rascunho","data_emissao":"2021-05-31T13:45:57.203Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADERE PRODUTOS AUTO-ADESIVOS LTDA","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T13:45:57.249Z"},{"nomeresumido":"CLUSTER GESTOR","id":72,"status":"rascunho","data_emissao":"2021-05-29T12:39:28.325Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"A DUQUEZA RIO PRETO COM. DE CONFECCOES LTDA ME","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-05-29T12:39:28.356Z"},{"nomeresumido":"CLUSTER GESTOR","id":73,"status":"rascunho","data_emissao":"2021-05-29T14:26:09.139Z","data_conclusao":null,"total_pendente":40,"total_vendido":0,"cli_nome":"GUARANY INDUSTRIA E COMERCIO LTDA","vend_nome":"VIA DO ACO INDUSTRIA E COMERCIO LTDA - M","dataatualizacao":"2021-05-31T10:01:51.232Z"},{"nomeresumido":"CLUSTER GESTOR","id":74,"status":"rascunho","data_emissao":"2021-05-29T14:26:14.286Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"GUARANY INDUSTRIA E COMERCIO LTDA","vend_nome":"VIA DO ACO INDUSTRIA E COMERCIO LTDA - M","dataatualizacao":"2021-05-29T14:26:14.330Z"},{"nomeresumido":"CLUSTER GESTOR","id":90,"status":"rascunho","data_emissao":"2021-05-31T16:36:49.582Z","data_conclusao":null,"total_pendente":1000,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"CARLOS ALBERTO PEREIRA DE OLIVEIRA","dataatualizacao":"2021-05-31T16:36:49.625Z"},{"nomeresumido":"CLUSTER GESTOR","id":96,"status":"rascunho","data_emissao":"2021-06-01T18:54:21.832Z","data_conclusao":null,"total_pendente":2,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:54:21.876Z"},{"nomeresumido":"CLUSTER GESTOR","id":95,"status":"rascunho","data_emissao":"2021-06-01T18:38:59.826Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:38:59.870Z"},{"nomeresumido":"CLUSTER GESTOR","id":97,"status":"rascunho","data_emissao":"2021-06-01T18:56:24.649Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:56:24.685Z"},{"nomeresumido":"CLUSTER GESTOR","id":78,"status":"rascunho","data_emissao":"2021-05-29T17:35:52.623Z","data_conclusao":null,"total_pendente":30,"total_vendido":0,"cli_nome":"SANGGYH","vend_nome":"SANGGYH","dataatualizacao":"2021-05-31T10:13:02.341Z"},{"nomeresumido":"CLUSTER GESTOR","id":79,"status":"rascunho","data_emissao":"2021-05-29T17:46:56.353Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"SANGGYH","vend_nome":"SANGGYH","dataatualizacao":"2021-05-29T17:46:56.384Z"}],"totais":{"total_registros":26,"total_valor":13817,"total_vendido":0}}
+
+02-06-2021 11:49:38 https://api-dev.clustererp.com.br/api/v1/condicional/76/
+02-06-2021 11:49:38 response : {"resultado":{"id":76,"empresa_id":6,"data_emissao":"2021-05-29T15:05:03.697Z","data_conclusao":null,"status":"rascunho","vendedor_id":230,"operador_id":1891,"cliente_id":251,"total":6172,"total_pendente":900,"total_devolvido":5272,"total_vendido":0,"observacao":"","datacriacao":"2021-05-29T15:05:03.732Z","dataatualizacao":"2021-05-29T15:05:03.732Z","estoque_id":1,"tabela_preco_id":2,"n_vendedor":"CARLOS ALBERTO PEREIRA DE OLIVEIRA","n_cliente":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","n_operador":"eber@6","n_estoque":"LOJA FISICA aaaaa","n_tabela_preco":"VAREJO","n_empresa":"CLUSTER GESTOR","devolvido":[{"id":235,"condicional_id":76,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":8,"vl_desconto":0,"aliq_desconto":0,"valor_final":8,"subtotal":8,"status":"cancelado","data_inclusao":"2021-06-01T16:42:16.937Z","data_estorno":"2021-06-01T17:09:00.620Z","pdv_id":null,"venda_id":null,"status_temp":"","rascunho":false,"gtin":""},{"id":271,"condicional_id":76,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":8,"vl_desconto":0,"aliq_desconto":0,"valor_final":8,"subtotal":8,"status":"cancelado","data_inclusao":"2021-06-01T20:12:07.031Z","data_estorno":"2021-06-01T20:12:20.441Z","pdv_id":null,"venda_id":null,"status_temp":"","rascunho":false,"gtin":""},{"id":272,"condicional_id":76,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":8,"vl_desconto":0,"aliq_desconto":0,"valor_final":8,"subtotal":8,"status":"cancelado","data_inclusao":"2021-06-01T20:12:14.305Z","data_estorno":"2021-06-02T11:52:57.695Z","pdv_id":null,"venda_id":null,"status_temp":"","rascunho":false,"gtin":""},{"id":281,"condicional_id":76,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":8,"vl_desconto":0,"aliq_desconto":0,"valor_final":8,"subtotal":8,"status":"cancelado","data_inclusao":"2021-06-02T11:51:42.326Z","data_estorno":"2021-06-02T11:52:46.584Z","pdv_id":null,"venda_id":null,"status_temp":"","rascunho":false,"gtin":""},{"id":282,"condicional_id":76,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":8,"vl_desconto":0,"aliq_desconto":0,"valor_final":8,"subtotal":8,"status":"cancelado","data_inclusao":"2021-06-02T11:53:08.628Z","data_estorno":"2021-06-02T11:53:15.758Z","pdv_id":null,"venda_id":null,"status_temp":"","rascunho":false,"gtin":""},{"id":283,"condicional_id":76,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":8,"vl_desconto":0,"aliq_desconto":0,"valor_final":8,"subtotal":8,"status":"cancelado","data_inclusao":"2021-06-02T11:53:39.527Z","data_estorno":"2021-06-02T11:55:15.537Z","pdv_id":null,"venda_id":null,"status_temp":"","rascunho":false,"gtin":""},{"id":284,"condicional_id":76,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":8,"vl_desconto":0,"aliq_desconto":0,"valor_final":8,"subtotal":8,"status":"cancelado","data_inclusao":"2021-06-02T11:55:49.678Z","data_estorno":"2021-06-02T11:55:55.092Z","pdv_id":null,"venda_id":null,"status_temp":"","rascunho":false,"gtin":""},{"id":292,"condicional_id":76,"produto_id":87182,"grade_id":null,"lote_id":null,"descricao":"teste preço final","quantidade":1,"valor_unitario":450,"vl_desconto":0,"aliq_desconto":0,"valor_final":450,"subtotal":450,"status":"devolvido","data_inclusao":"2021-06-02T13:39:24.119Z","data_estorno":"2021-06-02T14:17:55.854Z","pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":293,"condicional_id":76,"produto_id":87182,"grade_id":null,"lote_id":null,"descricao":"teste preço final","quantidade":1,"valor_unitario":450,"vl_desconto":0,"aliq_desconto":0,"valor_final":450,"subtotal":450,"status":"devolvido","data_inclusao":"2021-06-02T13:39:27.478Z","data_estorno":"2021-06-02T14:17:55.854Z","pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":294,"condicional_id":76,"produto_id":87182,"grade_id":null,"lote_id":null,"descricao":"teste preço final","quantidade":1,"valor_unitario":450,"vl_desconto":0,"aliq_desconto":0,"valor_final":450,"subtotal":450,"status":"devolvido","data_inclusao":"2021-06-02T13:39:33.375Z","data_estorno":"2021-06-02T14:17:55.854Z","pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":295,"condicional_id":76,"produto_id":87180,"grade_id":null,"lote_id":null,"descricao":"MATERIA PRIMA","quantidade":1,"valor_unitario":1475,"vl_desconto":0,"aliq_desconto":0,"valor_final":1475,"subtotal":1475,"status":"devolvido","data_inclusao":"2021-06-02T13:45:36.027Z","data_estorno":"2021-06-02T14:17:55.854Z","pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":296,"condicional_id":76,"produto_id":87180,"grade_id":null,"lote_id":null,"descricao":"MATERIA PRIMA","quantidade":1,"valor_unitario":1475,"vl_desconto":0,"aliq_desconto":0,"valor_final":1475,"subtotal":1475,"status":"devolvido","data_inclusao":"2021-06-02T13:45:40.717Z","data_estorno":"2021-06-02T14:17:55.854Z","pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":314,"condicional_id":76,"produto_id":87182,"grade_id":null,"lote_id":null,"descricao":"teste preço final","quantidade":1,"valor_unitario":450,"vl_desconto":0,"aliq_desconto":0,"valor_final":450,"subtotal":450,"status":"devolvido","data_inclusao":"2021-06-02T14:15:42.231Z","data_estorno":"2021-06-02T14:17:55.854Z","pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":315,"condicional_id":76,"produto_id":87182,"grade_id":null,"lote_id":null,"descricao":"teste preço final","quantidade":1,"valor_unitario":450,"vl_desconto":0,"aliq_desconto":0,"valor_final":450,"subtotal":450,"status":"devolvido","data_inclusao":"2021-06-02T14:15:42.681Z","data_estorno":"2021-06-02T14:17:55.854Z","pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":316,"condicional_id":76,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":8,"vl_desconto":0,"aliq_desconto":0,"valor_final":8,"subtotal":8,"status":"devolvido","data_inclusao":"2021-06-02T14:15:47.266Z","data_estorno":"2021-06-02T14:17:55.854Z","pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":317,"condicional_id":76,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":8,"vl_desconto":0,"aliq_desconto":0,"valor_final":8,"subtotal":8,"status":"devolvido","data_inclusao":"2021-06-02T14:15:47.765Z","data_estorno":"2021-06-02T14:17:55.854Z","pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":318,"condicional_id":76,"produto_id":87140,"grade_id":null,"lote_id":null,"descricao":"","quantidade":1,"valor_unitario":0,"vl_desconto":0,"aliq_desconto":0,"valor_final":0,"subtotal":0,"status":"devolvido","data_inclusao":"2021-06-02T14:16:29.778Z","data_estorno":"2021-06-02T14:17:55.854Z","pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":319,"condicional_id":76,"produto_id":87140,"grade_id":null,"lote_id":null,"descricao":"","quantidade":1,"valor_unitario":0,"vl_desconto":0,"aliq_desconto":0,"valor_final":0,"subtotal":0,"status":"devolvido","data_inclusao":"2021-06-02T14:16:30.434Z","data_estorno":"2021-06-02T14:17:55.854Z","pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":320,"condicional_id":76,"produto_id":87140,"grade_id":null,"lote_id":null,"descricao":"","quantidade":1,"valor_unitario":0,"vl_desconto":0,"aliq_desconto":0,"valor_final":0,"subtotal":0,"status":"devolvido","data_inclusao":"2021-06-02T14:16:58.631Z","data_estorno":"2021-06-02T14:17:55.854Z","pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":321,"condicional_id":76,"produto_id":87140,"grade_id":null,"lote_id":null,"descricao":"","quantidade":1,"valor_unitario":0,"vl_desconto":0,"aliq_desconto":0,"valor_final":0,"subtotal":0,"status":"devolvido","data_inclusao":"2021-06-02T14:16:59.273Z","data_estorno":"2021-06-02T14:17:55.854Z","pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":326,"condicional_id":76,"produto_id":87140,"grade_id":null,"lote_id":null,"descricao":"","quantidade":1,"valor_unitario":0,"vl_desconto":0,"aliq_desconto":0,"valor_final":0,"subtotal":0,"status":"cancelado","data_inclusao":"2021-06-02T14:26:18.127Z","data_estorno":"2021-06-02T14:26:37.824Z","pdv_id":null,"venda_id":null,"status_temp":"","rascunho":false,"gtin":""},{"id":327,"condicional_id":76,"produto_id":87140,"grade_id":null,"lote_id":null,"descricao":"","quantidade":1,"valor_unitario":0,"vl_desconto":0,"aliq_desconto":0,"valor_final":0,"subtotal":0,"status":"cancelado","data_inclusao":"2021-06-02T14:26:18.587Z","data_estorno":"2021-06-02T14:26:30.289Z","pdv_id":null,"venda_id":null,"status_temp":"","rascunho":false,"gtin":""}],"itens":[{"id":322,"condicional_id":76,"produto_id":87132,"grade_id":null,"lote_id":null,"descricao":"","quantidade":1,"valor_unitario":0,"vl_desconto":0,"aliq_desconto":0,"valor_final":0,"subtotal":0,"status":"rascunho","data_inclusao":"2021-06-02T14:18:16.449Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":323,"condicional_id":76,"produto_id":87132,"grade_id":null,"lote_id":null,"descricao":"","quantidade":1,"valor_unitario":0,"vl_desconto":0,"aliq_desconto":0,"valor_final":0,"subtotal":0,"status":"rascunho","data_inclusao":"2021-06-02T14:18:16.970Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":324,"condicional_id":76,"produto_id":87132,"grade_id":null,"lote_id":null,"descricao":"","quantidade":1,"valor_unitario":0,"vl_desconto":0,"aliq_desconto":0,"valor_final":0,"subtotal":0,"status":"rascunho","data_inclusao":"2021-06-02T14:18:24.684Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":325,"condicional_id":76,"produto_id":87132,"grade_id":null,"lote_id":null,"descricao":"","quantidade":1,"valor_unitario":0,"vl_desconto":0,"aliq_desconto":0,"valor_final":0,"subtotal":0,"status":"rascunho","data_inclusao":"2021-06-02T14:18:25.256Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":328,"condicional_id":76,"produto_id":87140,"grade_id":null,"lote_id":null,"descricao":"","quantidade":1,"valor_unitario":0,"vl_desconto":0,"aliq_desconto":0,"valor_final":0,"subtotal":0,"status":"rascunho","data_inclusao":"2021-06-02T14:28:58.827Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":329,"condicional_id":76,"produto_id":87140,"grade_id":null,"lote_id":null,"descricao":"","quantidade":1,"valor_unitario":0,"vl_desconto":0,"aliq_desconto":0,"valor_final":0,"subtotal":0,"status":"rascunho","data_inclusao":"2021-06-02T14:28:59.332Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":330,"condicional_id":76,"produto_id":87140,"grade_id":null,"lote_id":null,"descricao":"","quantidade":1,"valor_unitario":0,"vl_desconto":0,"aliq_desconto":0,"valor_final":0,"subtotal":0,"status":"rascunho","data_inclusao":"2021-06-02T14:29:10.423Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":331,"condicional_id":76,"produto_id":87140,"grade_id":null,"lote_id":null,"descricao":"","quantidade":1,"valor_unitario":0,"vl_desconto":0,"aliq_desconto":0,"valor_final":0,"subtotal":0,"status":"rascunho","data_inclusao":"2021-06-02T14:29:10.962Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":332,"condicional_id":76,"produto_id":87182,"grade_id":null,"lote_id":null,"descricao":"teste preço final","quantidade":1,"valor_unitario":450,"vl_desconto":0,"aliq_desconto":0,"valor_final":450,"subtotal":450,"status":"rascunho","data_inclusao":"2021-06-02T14:29:59.882Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":333,"condicional_id":76,"produto_id":87182,"grade_id":null,"lote_id":null,"descricao":"teste preço final","quantidade":1,"valor_unitario":450,"vl_desconto":0,"aliq_desconto":0,"valor_final":450,"subtotal":450,"status":"rascunho","data_inclusao":"2021-06-02T14:30:01.018Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""}]}}
+
+02-06-2021 11:49:38 ====================================
+02-06-2021 11:49:38 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:49:38 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:49:38 teste 2: 
+02-06-2021 11:49:42 https://api-dev.clustererp.com.br/api/v1/condicional/76
+02-06-2021 11:49:42 response : {"resultado":{}}
+
+02-06-2021 11:49:43 https://api-dev.clustererp.com.br/api/v1/condicional/listar
+02-06-2021 11:49:43 response : {"resultado":[{"nomeresumido":"CLUSTER GESTOR","id":81,"status":"rascunho","data_emissao":"2021-05-31T14:08:30.245Z","data_conclusao":null,"total_pendente":2,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ANA CRISTINA GALLI DE CAMPOS - ME","dataatualizacao":"2021-05-31T14:08:30.279Z"},{"nomeresumido":"CLUSTER GESTOR","id":86,"status":"rascunho","data_emissao":"2021-05-31T16:21:09.782Z","data_conclusao":null,"total_pendente":9,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:21:09.824Z"},{"nomeresumido":"CLUSTER GESTOR","id":87,"status":"rascunho","data_emissao":"2021-05-31T16:30:01.421Z","data_conclusao":null,"total_pendente":11520,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:30:01.536Z"},{"nomeresumido":"CLUSTER GESTOR","id":75,"status":"rascunho","data_emissao":"2021-05-29T14:30:37.657Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-05-29T14:30:37.725Z"},{"nomeresumido":"CLUSTER GESTOR","id":93,"status":"rascunho","data_emissao":"2021-05-31T17:20:52.598Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T17:20:52.641Z"},{"nomeresumido":"CLUSTER GESTOR","id":89,"status":"rascunho","data_emissao":"2021-05-31T16:36:06.327Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:36:06.358Z"},{"nomeresumido":"CLUSTER GESTOR","id":92,"status":"rascunho","data_emissao":"2021-05-31T16:47:36.879Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T16:47:36.917Z"},{"nomeresumido":"CLUSTER GESTOR","id":83,"status":"rascunho","data_emissao":"2021-05-31T14:17:07.852Z","data_conclusao":null,"total_pendente":4,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"COLABORADOR - ROBSON","dataatualizacao":"2021-05-31T14:17:07.882Z"},{"nomeresumido":"CLUSTER GESTOR","id":91,"status":"rascunho","data_emissao":"2021-05-31T16:39:55.836Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"CARLOS ALBERTO P OLIVEIRA","dataatualizacao":"2021-05-31T16:39:55.879Z"},{"nomeresumido":"CLUSTER GESTOR","id":85,"status":"rascunho","data_emissao":"2021-05-31T14:59:05.817Z","data_conclusao":null,"total_pendente":310,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"BETO NINJA","dataatualizacao":"2021-05-31T14:59:05.849Z"},{"nomeresumido":"CLUSTER GESTOR","id":94,"status":"rascunho","data_emissao":"2021-06-01T00:23:39.311Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-06-01T00:23:39.358Z"},{"nomeresumido":"CLUSTER GESTOR","id":84,"status":"rascunho","data_emissao":"2021-05-31T14:23:02.292Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T14:23:02.322Z"},{"nomeresumido":"CLUSTER GESTOR","id":88,"status":"rascunho","data_emissao":"2021-05-31T16:33:53.978Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T16:33:54.019Z"},{"nomeresumido":"CLUSTER GESTOR","id":82,"status":"rascunho","data_emissao":"2021-05-31T14:11:02.936Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T14:11:02.985Z"},{"nomeresumido":"CLUSTER GESTOR","id":98,"status":"rascunho","data_emissao":"2021-06-01T19:22:01.738Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-06-01T19:22:01.786Z"},{"nomeresumido":"CLUSTER GESTOR","id":80,"status":"rascunho","data_emissao":"2021-05-31T13:45:57.203Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADERE PRODUTOS AUTO-ADESIVOS LTDA","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T13:45:57.249Z"},{"nomeresumido":"CLUSTER GESTOR","id":72,"status":"rascunho","data_emissao":"2021-05-29T12:39:28.325Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"A DUQUEZA RIO PRETO COM. DE CONFECCOES LTDA ME","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-05-29T12:39:28.356Z"},{"nomeresumido":"CLUSTER GESTOR","id":73,"status":"rascunho","data_emissao":"2021-05-29T14:26:09.139Z","data_conclusao":null,"total_pendente":40,"total_vendido":0,"cli_nome":"GUARANY INDUSTRIA E COMERCIO LTDA","vend_nome":"VIA DO ACO INDUSTRIA E COMERCIO LTDA - M","dataatualizacao":"2021-05-31T10:01:51.232Z"},{"nomeresumido":"CLUSTER GESTOR","id":74,"status":"rascunho","data_emissao":"2021-05-29T14:26:14.286Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"GUARANY INDUSTRIA E COMERCIO LTDA","vend_nome":"VIA DO ACO INDUSTRIA E COMERCIO LTDA - M","dataatualizacao":"2021-05-29T14:26:14.330Z"},{"nomeresumido":"CLUSTER GESTOR","id":95,"status":"rascunho","data_emissao":"2021-06-01T18:38:59.826Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:38:59.870Z"},{"nomeresumido":"CLUSTER GESTOR","id":97,"status":"rascunho","data_emissao":"2021-06-01T18:56:24.649Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:56:24.685Z"},{"nomeresumido":"CLUSTER GESTOR","id":96,"status":"rascunho","data_emissao":"2021-06-01T18:54:21.832Z","data_conclusao":null,"total_pendente":2,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:54:21.876Z"},{"nomeresumido":"CLUSTER GESTOR","id":90,"status":"rascunho","data_emissao":"2021-05-31T16:36:49.582Z","data_conclusao":null,"total_pendente":1000,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"CARLOS ALBERTO PEREIRA DE OLIVEIRA","dataatualizacao":"2021-05-31T16:36:49.625Z"},{"nomeresumido":"CLUSTER GESTOR","id":78,"status":"rascunho","data_emissao":"2021-05-29T17:35:52.623Z","data_conclusao":null,"total_pendente":30,"total_vendido":0,"cli_nome":"SANGGYH","vend_nome":"SANGGYH","dataatualizacao":"2021-05-31T10:13:02.341Z"},{"nomeresumido":"CLUSTER GESTOR","id":79,"status":"rascunho","data_emissao":"2021-05-29T17:46:56.353Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"SANGGYH","vend_nome":"SANGGYH","dataatualizacao":"2021-05-29T17:46:56.384Z"}],"totais":{"total_registros":25,"total_valor":12917,"total_vendido":0}}
+
+02-06-2021 11:49:43 ====================================
+02-06-2021 11:49:43 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:49:43 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:49:44 teste 2: 
+02-06-2021 11:49:45 https://api-dev.clustererp.com.br/api/v1/condicional/92/
+02-06-2021 11:49:45 response : {"resultado":{"id":92,"empresa_id":6,"data_emissao":"2021-05-31T16:47:36.879Z","data_conclusao":null,"status":"rascunho","vendedor_id":3599,"operador_id":1769,"cliente_id":246,"total":2,"total_pendente":0,"total_devolvido":2,"total_vendido":0,"observacao":"","datacriacao":"2021-05-31T16:47:36.917Z","dataatualizacao":"2021-05-31T16:47:36.917Z","estoque_id":4,"tabela_preco_id":1,"n_vendedor":"ASTOLFO FONCECA CAMARGO","n_cliente":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","n_operador":"JOAO@6","n_estoque":"Deposito 3 teste","n_tabela_preco":"ATACADO 1","n_empresa":"CLUSTER GESTOR","devolvido":[{"id":276,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"cancelado","data_inclusao":"2021-06-01T20:19:35.254Z","data_estorno":"2021-06-01T20:19:44.315Z","pdv_id":null,"venda_id":null,"status_temp":"","rascunho":false,"gtin":""}]}}
+
+02-06-2021 11:49:49 https://api-dev.clustererp.com.br/api/v1/condicional/92/item/5*87142/search
+02-06-2021 11:49:49 response : {"resultado":{"id":92,"empresa_id":6,"data_emissao":"2021-05-31T16:47:36.879Z","data_conclusao":null,"status":"rascunho","vendedor_id":3599,"operador_id":1769,"cliente_id":246,"total":12,"total_pendente":10,"total_devolvido":2,"total_vendido":0,"observacao":"","datacriacao":"2021-05-31T16:47:36.917Z","dataatualizacao":"2021-05-31T16:47:36.917Z","estoque_id":4,"tabela_preco_id":1,"n_vendedor":"ASTOLFO FONCECA CAMARGO","n_cliente":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","n_operador":"JOAO@6","n_estoque":"Deposito 3 teste","n_tabela_preco":"ATACADO 1","n_empresa":"CLUSTER GESTOR","devolvido":[{"id":276,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"cancelado","data_inclusao":"2021-06-01T20:19:35.254Z","data_estorno":"2021-06-01T20:19:44.315Z","pdv_id":null,"venda_id":null,"status_temp":"","rascunho":false,"gtin":""}],"itens":[{"id":354,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:49.171Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":355,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:49.171Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":356,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:49.171Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":357,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:49.171Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":358,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:49.171Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""}]}}
+
+02-06-2021 11:49:49 ====================================
+02-06-2021 11:49:49 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:49:49 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:49:49 teste 2: 
+02-06-2021 11:49:54 ====================================
+02-06-2021 11:49:54 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:49:54 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:49:54 teste 2: 
+02-06-2021 11:49:56 https://api-dev.clustererp.com.br/api/v1/condicional/92/item/2*87142/search
+02-06-2021 11:49:56 response : {"resultado":{"id":92,"empresa_id":6,"data_emissao":"2021-05-31T16:47:36.879Z","data_conclusao":null,"status":"rascunho","vendedor_id":3599,"operador_id":1769,"cliente_id":246,"total":16,"total_pendente":14,"total_devolvido":2,"total_vendido":0,"observacao":"","datacriacao":"2021-05-31T16:47:36.917Z","dataatualizacao":"2021-05-31T16:47:36.917Z","estoque_id":4,"tabela_preco_id":1,"n_vendedor":"ASTOLFO FONCECA CAMARGO","n_cliente":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","n_operador":"JOAO@6","n_estoque":"Deposito 3 teste","n_tabela_preco":"ATACADO 1","n_empresa":"CLUSTER GESTOR","devolvido":[{"id":276,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"cancelado","data_inclusao":"2021-06-01T20:19:35.254Z","data_estorno":"2021-06-01T20:19:44.315Z","pdv_id":null,"venda_id":null,"status_temp":"","rascunho":false,"gtin":""}],"itens":[{"id":354,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:49.171Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":355,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:49.171Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":356,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:49.171Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":357,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:49.171Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":358,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:49.171Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":359,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:56.210Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":360,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:56.210Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""}]}}
+
+02-06-2021 11:50:00 ====================================
+02-06-2021 11:50:00 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:50:00 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:50:00 teste 2: 
+02-06-2021 11:50:05 ====================================
+02-06-2021 11:50:05 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:50:05 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:50:05 teste 2: 
+02-06-2021 11:50:08 https://api-dev.clustererp.com.br/api/v1/condicional/listar
+02-06-2021 11:50:08 response : {"resultado":[{"nomeresumido":"CLUSTER GESTOR","id":81,"status":"rascunho","data_emissao":"2021-05-31T14:08:30.245Z","data_conclusao":null,"total_pendente":2,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ANA CRISTINA GALLI DE CAMPOS - ME","dataatualizacao":"2021-05-31T14:08:30.279Z"},{"nomeresumido":"CLUSTER GESTOR","id":86,"status":"rascunho","data_emissao":"2021-05-31T16:21:09.782Z","data_conclusao":null,"total_pendente":9,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:21:09.824Z"},{"nomeresumido":"CLUSTER GESTOR","id":87,"status":"rascunho","data_emissao":"2021-05-31T16:30:01.421Z","data_conclusao":null,"total_pendente":11520,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:30:01.536Z"},{"nomeresumido":"CLUSTER GESTOR","id":75,"status":"rascunho","data_emissao":"2021-05-29T14:30:37.657Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-05-29T14:30:37.725Z"},{"nomeresumido":"CLUSTER GESTOR","id":93,"status":"rascunho","data_emissao":"2021-05-31T17:20:52.598Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T17:20:52.641Z"},{"nomeresumido":"CLUSTER GESTOR","id":89,"status":"rascunho","data_emissao":"2021-05-31T16:36:06.327Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:36:06.358Z"},{"nomeresumido":"CLUSTER GESTOR","id":92,"status":"rascunho","data_emissao":"2021-05-31T16:47:36.879Z","data_conclusao":null,"total_pendente":14,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T16:47:36.917Z"},{"nomeresumido":"CLUSTER GESTOR","id":83,"status":"rascunho","data_emissao":"2021-05-31T14:17:07.852Z","data_conclusao":null,"total_pendente":4,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"COLABORADOR - ROBSON","dataatualizacao":"2021-05-31T14:17:07.882Z"},{"nomeresumido":"CLUSTER GESTOR","id":91,"status":"rascunho","data_emissao":"2021-05-31T16:39:55.836Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"CARLOS ALBERTO P OLIVEIRA","dataatualizacao":"2021-05-31T16:39:55.879Z"},{"nomeresumido":"CLUSTER GESTOR","id":85,"status":"rascunho","data_emissao":"2021-05-31T14:59:05.817Z","data_conclusao":null,"total_pendente":310,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"BETO NINJA","dataatualizacao":"2021-05-31T14:59:05.849Z"},{"nomeresumido":"CLUSTER GESTOR","id":94,"status":"rascunho","data_emissao":"2021-06-01T00:23:39.311Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-06-01T00:23:39.358Z"},{"nomeresumido":"CLUSTER GESTOR","id":84,"status":"rascunho","data_emissao":"2021-05-31T14:23:02.292Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T14:23:02.322Z"},{"nomeresumido":"CLUSTER GESTOR","id":88,"status":"rascunho","data_emissao":"2021-05-31T16:33:53.978Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T16:33:54.019Z"},{"nomeresumido":"CLUSTER GESTOR","id":82,"status":"rascunho","data_emissao":"2021-05-31T14:11:02.936Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T14:11:02.985Z"},{"nomeresumido":"CLUSTER GESTOR","id":98,"status":"rascunho","data_emissao":"2021-06-01T19:22:01.738Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-06-01T19:22:01.786Z"},{"nomeresumido":"CLUSTER GESTOR","id":80,"status":"rascunho","data_emissao":"2021-05-31T13:45:57.203Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADERE PRODUTOS AUTO-ADESIVOS LTDA","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T13:45:57.249Z"},{"nomeresumido":"CLUSTER GESTOR","id":72,"status":"rascunho","data_emissao":"2021-05-29T12:39:28.325Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"A DUQUEZA RIO PRETO COM. DE CONFECCOES LTDA ME","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-05-29T12:39:28.356Z"},{"nomeresumido":"CLUSTER GESTOR","id":73,"status":"rascunho","data_emissao":"2021-05-29T14:26:09.139Z","data_conclusao":null,"total_pendente":40,"total_vendido":0,"cli_nome":"GUARANY INDUSTRIA E COMERCIO LTDA","vend_nome":"VIA DO ACO INDUSTRIA E COMERCIO LTDA - M","dataatualizacao":"2021-05-31T10:01:51.232Z"},{"nomeresumido":"CLUSTER GESTOR","id":74,"status":"rascunho","data_emissao":"2021-05-29T14:26:14.286Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"GUARANY INDUSTRIA E COMERCIO LTDA","vend_nome":"VIA DO ACO INDUSTRIA E COMERCIO LTDA - M","dataatualizacao":"2021-05-29T14:26:14.330Z"},{"nomeresumido":"CLUSTER GESTOR","id":95,"status":"rascunho","data_emissao":"2021-06-01T18:38:59.826Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:38:59.870Z"},{"nomeresumido":"CLUSTER GESTOR","id":97,"status":"rascunho","data_emissao":"2021-06-01T18:56:24.649Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:56:24.685Z"},{"nomeresumido":"CLUSTER GESTOR","id":96,"status":"rascunho","data_emissao":"2021-06-01T18:54:21.832Z","data_conclusao":null,"total_pendente":2,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:54:21.876Z"},{"nomeresumido":"CLUSTER GESTOR","id":90,"status":"rascunho","data_emissao":"2021-05-31T16:36:49.582Z","data_conclusao":null,"total_pendente":1000,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"CARLOS ALBERTO PEREIRA DE OLIVEIRA","dataatualizacao":"2021-05-31T16:36:49.625Z"},{"nomeresumido":"CLUSTER GESTOR","id":78,"status":"rascunho","data_emissao":"2021-05-29T17:35:52.623Z","data_conclusao":null,"total_pendente":30,"total_vendido":0,"cli_nome":"SANGGYH","vend_nome":"SANGGYH","dataatualizacao":"2021-05-31T10:13:02.341Z"},{"nomeresumido":"CLUSTER GESTOR","id":79,"status":"rascunho","data_emissao":"2021-05-29T17:46:56.353Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"SANGGYH","vend_nome":"SANGGYH","dataatualizacao":"2021-05-29T17:46:56.384Z"}],"totais":{"total_registros":25,"total_valor":12931,"total_vendido":0}}
+
+02-06-2021 11:50:10 https://api-dev.clustererp.com.br/api/v1/condicional/92/
+02-06-2021 11:50:10 response : {"resultado":{"id":92,"empresa_id":6,"data_emissao":"2021-05-31T16:47:36.879Z","data_conclusao":null,"status":"rascunho","vendedor_id":3599,"operador_id":1769,"cliente_id":246,"total":16,"total_pendente":14,"total_devolvido":2,"total_vendido":0,"observacao":"","datacriacao":"2021-05-31T16:47:36.917Z","dataatualizacao":"2021-05-31T16:47:36.917Z","estoque_id":4,"tabela_preco_id":1,"n_vendedor":"ASTOLFO FONCECA CAMARGO","n_cliente":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","n_operador":"JOAO@6","n_estoque":"Deposito 3 teste","n_tabela_preco":"ATACADO 1","n_empresa":"CLUSTER GESTOR","devolvido":[{"id":276,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"cancelado","data_inclusao":"2021-06-01T20:19:35.254Z","data_estorno":"2021-06-01T20:19:44.315Z","pdv_id":null,"venda_id":null,"status_temp":"","rascunho":false,"gtin":""}],"itens":[{"id":354,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:49.171Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":355,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:49.171Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":356,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:49.171Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":357,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:49.171Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":358,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:49.171Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":359,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:56.210Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":360,"condicional_id":92,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:49:56.210Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""}]}}
+
+02-06-2021 11:50:10 ====================================
+02-06-2021 11:50:10 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:50:10 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:50:10 teste 2: 
+02-06-2021 11:50:12 https://api-dev.clustererp.com.br/api/v1/condicional/listar
+02-06-2021 11:50:12 response : {"resultado":[{"nomeresumido":"CLUSTER GESTOR","id":81,"status":"rascunho","data_emissao":"2021-05-31T14:08:30.245Z","data_conclusao":null,"total_pendente":2,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ANA CRISTINA GALLI DE CAMPOS - ME","dataatualizacao":"2021-05-31T14:08:30.279Z"},{"nomeresumido":"CLUSTER GESTOR","id":86,"status":"rascunho","data_emissao":"2021-05-31T16:21:09.782Z","data_conclusao":null,"total_pendente":9,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:21:09.824Z"},{"nomeresumido":"CLUSTER GESTOR","id":87,"status":"rascunho","data_emissao":"2021-05-31T16:30:01.421Z","data_conclusao":null,"total_pendente":11520,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:30:01.536Z"},{"nomeresumido":"CLUSTER GESTOR","id":75,"status":"rascunho","data_emissao":"2021-05-29T14:30:37.657Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-05-29T14:30:37.725Z"},{"nomeresumido":"CLUSTER GESTOR","id":93,"status":"rascunho","data_emissao":"2021-05-31T17:20:52.598Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T17:20:52.641Z"},{"nomeresumido":"CLUSTER GESTOR","id":89,"status":"rascunho","data_emissao":"2021-05-31T16:36:06.327Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:36:06.358Z"},{"nomeresumido":"CLUSTER GESTOR","id":92,"status":"rascunho","data_emissao":"2021-05-31T16:47:36.879Z","data_conclusao":null,"total_pendente":14,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T16:47:36.917Z"},{"nomeresumido":"CLUSTER GESTOR","id":83,"status":"rascunho","data_emissao":"2021-05-31T14:17:07.852Z","data_conclusao":null,"total_pendente":4,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"COLABORADOR - ROBSON","dataatualizacao":"2021-05-31T14:17:07.882Z"},{"nomeresumido":"CLUSTER GESTOR","id":91,"status":"rascunho","data_emissao":"2021-05-31T16:39:55.836Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"CARLOS ALBERTO P OLIVEIRA","dataatualizacao":"2021-05-31T16:39:55.879Z"},{"nomeresumido":"CLUSTER GESTOR","id":85,"status":"rascunho","data_emissao":"2021-05-31T14:59:05.817Z","data_conclusao":null,"total_pendente":310,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"BETO NINJA","dataatualizacao":"2021-05-31T14:59:05.849Z"},{"nomeresumido":"CLUSTER GESTOR","id":94,"status":"rascunho","data_emissao":"2021-06-01T00:23:39.311Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-06-01T00:23:39.358Z"},{"nomeresumido":"CLUSTER GESTOR","id":84,"status":"rascunho","data_emissao":"2021-05-31T14:23:02.292Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T14:23:02.322Z"},{"nomeresumido":"CLUSTER GESTOR","id":88,"status":"rascunho","data_emissao":"2021-05-31T16:33:53.978Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T16:33:54.019Z"},{"nomeresumido":"CLUSTER GESTOR","id":82,"status":"rascunho","data_emissao":"2021-05-31T14:11:02.936Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T14:11:02.985Z"},{"nomeresumido":"CLUSTER GESTOR","id":98,"status":"rascunho","data_emissao":"2021-06-01T19:22:01.738Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-06-01T19:22:01.786Z"},{"nomeresumido":"CLUSTER GESTOR","id":80,"status":"rascunho","data_emissao":"2021-05-31T13:45:57.203Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADERE PRODUTOS AUTO-ADESIVOS LTDA","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T13:45:57.249Z"},{"nomeresumido":"CLUSTER GESTOR","id":72,"status":"rascunho","data_emissao":"2021-05-29T12:39:28.325Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"A DUQUEZA RIO PRETO COM. DE CONFECCOES LTDA ME","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-05-29T12:39:28.356Z"},{"nomeresumido":"CLUSTER GESTOR","id":73,"status":"rascunho","data_emissao":"2021-05-29T14:26:09.139Z","data_conclusao":null,"total_pendente":40,"total_vendido":0,"cli_nome":"GUARANY INDUSTRIA E COMERCIO LTDA","vend_nome":"VIA DO ACO INDUSTRIA E COMERCIO LTDA - M","dataatualizacao":"2021-05-31T10:01:51.232Z"},{"nomeresumido":"CLUSTER GESTOR","id":74,"status":"rascunho","data_emissao":"2021-05-29T14:26:14.286Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"GUARANY INDUSTRIA E COMERCIO LTDA","vend_nome":"VIA DO ACO INDUSTRIA E COMERCIO LTDA - M","dataatualizacao":"2021-05-29T14:26:14.330Z"},{"nomeresumido":"CLUSTER GESTOR","id":95,"status":"rascunho","data_emissao":"2021-06-01T18:38:59.826Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:38:59.870Z"},{"nomeresumido":"CLUSTER GESTOR","id":97,"status":"rascunho","data_emissao":"2021-06-01T18:56:24.649Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:56:24.685Z"},{"nomeresumido":"CLUSTER GESTOR","id":96,"status":"rascunho","data_emissao":"2021-06-01T18:54:21.832Z","data_conclusao":null,"total_pendente":2,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:54:21.876Z"},{"nomeresumido":"CLUSTER GESTOR","id":90,"status":"rascunho","data_emissao":"2021-05-31T16:36:49.582Z","data_conclusao":null,"total_pendente":1000,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"CARLOS ALBERTO PEREIRA DE OLIVEIRA","dataatualizacao":"2021-05-31T16:36:49.625Z"},{"nomeresumido":"CLUSTER GESTOR","id":78,"status":"rascunho","data_emissao":"2021-05-29T17:35:52.623Z","data_conclusao":null,"total_pendente":30,"total_vendido":0,"cli_nome":"SANGGYH","vend_nome":"SANGGYH","dataatualizacao":"2021-05-31T10:13:02.341Z"},{"nomeresumido":"CLUSTER GESTOR","id":79,"status":"rascunho","data_emissao":"2021-05-29T17:46:56.353Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"SANGGYH","vend_nome":"SANGGYH","dataatualizacao":"2021-05-29T17:46:56.384Z"}],"totais":{"total_registros":25,"total_valor":12931,"total_vendido":0}}
+
+02-06-2021 11:50:15 ====================================
+02-06-2021 11:50:15 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:50:15 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:50:15 teste 2: 
+02-06-2021 11:50:21 ====================================
+02-06-2021 11:50:21 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:50:21 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:50:21 teste 2: 
+02-06-2021 11:50:21 https://api-dev.clustererp.com.br/api/v1/condicional/93/
+02-06-2021 11:50:21 response : {"resultado":{"id":93,"empresa_id":6,"data_emissao":"2021-05-31T17:20:52.598Z","data_conclusao":null,"status":"rascunho","vendedor_id":151,"operador_id":1769,"cliente_id":246,"total":4,"total_pendente":0,"total_devolvido":4,"total_vendido":0,"observacao":"","datacriacao":"2021-05-31T17:20:52.641Z","dataatualizacao":"2021-05-31T17:20:52.641Z","estoque_id":3,"tabela_preco_id":1,"n_vendedor":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","n_cliente":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","n_operador":"JOAO@6","n_estoque":"deposito 2","n_tabela_preco":"ATACADO 1","n_empresa":"CLUSTER GESTOR","devolvido":[{"id":237,"condicional_id":93,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"cancelado","data_inclusao":"2021-06-01T16:46:39.691Z","data_estorno":"2021-06-01T16:46:51.031Z","pdv_id":null,"venda_id":null,"status_temp":"","rascunho":false,"gtin":""},{"id":250,"condicional_id":93,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"cancelado","data_inclusao":"2021-06-01T17:37:43.029Z","data_estorno":"2021-06-01T17:37:54.309Z","pdv_id":null,"venda_id":null,"status_temp":"","rascunho":false,"gtin":""}]}}
+
+02-06-2021 11:50:26 ====================================
+02-06-2021 11:50:26 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:50:26 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:50:26 teste 2: 
+02-06-2021 11:50:27 https://api-dev.clustererp.com.br/api/v1/condicional/listar
+02-06-2021 11:50:27 response : {"resultado":[{"nomeresumido":"CLUSTER GESTOR","id":81,"status":"rascunho","data_emissao":"2021-05-31T14:08:30.245Z","data_conclusao":null,"total_pendente":2,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ANA CRISTINA GALLI DE CAMPOS - ME","dataatualizacao":"2021-05-31T14:08:30.279Z"},{"nomeresumido":"CLUSTER GESTOR","id":86,"status":"rascunho","data_emissao":"2021-05-31T16:21:09.782Z","data_conclusao":null,"total_pendente":9,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:21:09.824Z"},{"nomeresumido":"CLUSTER GESTOR","id":87,"status":"rascunho","data_emissao":"2021-05-31T16:30:01.421Z","data_conclusao":null,"total_pendente":11520,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:30:01.536Z"},{"nomeresumido":"CLUSTER GESTOR","id":75,"status":"rascunho","data_emissao":"2021-05-29T14:30:37.657Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-05-29T14:30:37.725Z"},{"nomeresumido":"CLUSTER GESTOR","id":93,"status":"rascunho","data_emissao":"2021-05-31T17:20:52.598Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T17:20:52.641Z"},{"nomeresumido":"CLUSTER GESTOR","id":89,"status":"rascunho","data_emissao":"2021-05-31T16:36:06.327Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:36:06.358Z"},{"nomeresumido":"CLUSTER GESTOR","id":92,"status":"rascunho","data_emissao":"2021-05-31T16:47:36.879Z","data_conclusao":null,"total_pendente":14,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T16:47:36.917Z"},{"nomeresumido":"CLUSTER GESTOR","id":83,"status":"rascunho","data_emissao":"2021-05-31T14:17:07.852Z","data_conclusao":null,"total_pendente":4,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"COLABORADOR - ROBSON","dataatualizacao":"2021-05-31T14:17:07.882Z"},{"nomeresumido":"CLUSTER GESTOR","id":91,"status":"rascunho","data_emissao":"2021-05-31T16:39:55.836Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"CARLOS ALBERTO P OLIVEIRA","dataatualizacao":"2021-05-31T16:39:55.879Z"},{"nomeresumido":"CLUSTER GESTOR","id":85,"status":"rascunho","data_emissao":"2021-05-31T14:59:05.817Z","data_conclusao":null,"total_pendente":310,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"BETO NINJA","dataatualizacao":"2021-05-31T14:59:05.849Z"},{"nomeresumido":"CLUSTER GESTOR","id":94,"status":"rascunho","data_emissao":"2021-06-01T00:23:39.311Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-06-01T00:23:39.358Z"},{"nomeresumido":"CLUSTER GESTOR","id":84,"status":"rascunho","data_emissao":"2021-05-31T14:23:02.292Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T14:23:02.322Z"},{"nomeresumido":"CLUSTER GESTOR","id":88,"status":"rascunho","data_emissao":"2021-05-31T16:33:53.978Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T16:33:54.019Z"},{"nomeresumido":"CLUSTER GESTOR","id":82,"status":"rascunho","data_emissao":"2021-05-31T14:11:02.936Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T14:11:02.985Z"},{"nomeresumido":"CLUSTER GESTOR","id":98,"status":"rascunho","data_emissao":"2021-06-01T19:22:01.738Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-06-01T19:22:01.786Z"},{"nomeresumido":"CLUSTER GESTOR","id":80,"status":"rascunho","data_emissao":"2021-05-31T13:45:57.203Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADERE PRODUTOS AUTO-ADESIVOS LTDA","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T13:45:57.249Z"},{"nomeresumido":"CLUSTER GESTOR","id":72,"status":"rascunho","data_emissao":"2021-05-29T12:39:28.325Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"A DUQUEZA RIO PRETO COM. DE CONFECCOES LTDA ME","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-05-29T12:39:28.356Z"},{"nomeresumido":"CLUSTER GESTOR","id":73,"status":"rascunho","data_emissao":"2021-05-29T14:26:09.139Z","data_conclusao":null,"total_pendente":40,"total_vendido":0,"cli_nome":"GUARANY INDUSTRIA E COMERCIO LTDA","vend_nome":"VIA DO ACO INDUSTRIA E COMERCIO LTDA - M","dataatualizacao":"2021-05-31T10:01:51.232Z"},{"nomeresumido":"CLUSTER GESTOR","id":74,"status":"rascunho","data_emissao":"2021-05-29T14:26:14.286Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"GUARANY INDUSTRIA E COMERCIO LTDA","vend_nome":"VIA DO ACO INDUSTRIA E COMERCIO LTDA - M","dataatualizacao":"2021-05-29T14:26:14.330Z"},{"nomeresumido":"CLUSTER GESTOR","id":95,"status":"rascunho","data_emissao":"2021-06-01T18:38:59.826Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:38:59.870Z"},{"nomeresumido":"CLUSTER GESTOR","id":97,"status":"rascunho","data_emissao":"2021-06-01T18:56:24.649Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:56:24.685Z"},{"nomeresumido":"CLUSTER GESTOR","id":96,"status":"rascunho","data_emissao":"2021-06-01T18:54:21.832Z","data_conclusao":null,"total_pendente":2,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:54:21.876Z"},{"nomeresumido":"CLUSTER GESTOR","id":90,"status":"rascunho","data_emissao":"2021-05-31T16:36:49.582Z","data_conclusao":null,"total_pendente":1000,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"CARLOS ALBERTO PEREIRA DE OLIVEIRA","dataatualizacao":"2021-05-31T16:36:49.625Z"},{"nomeresumido":"CLUSTER GESTOR","id":78,"status":"rascunho","data_emissao":"2021-05-29T17:35:52.623Z","data_conclusao":null,"total_pendente":30,"total_vendido":0,"cli_nome":"SANGGYH","vend_nome":"SANGGYH","dataatualizacao":"2021-05-31T10:13:02.341Z"},{"nomeresumido":"CLUSTER GESTOR","id":79,"status":"rascunho","data_emissao":"2021-05-29T17:46:56.353Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"SANGGYH","vend_nome":"SANGGYH","dataatualizacao":"2021-05-29T17:46:56.384Z"}],"totais":{"total_registros":25,"total_valor":12931,"total_vendido":0}}
+
+02-06-2021 11:50:31 ====================================
+02-06-2021 11:50:31 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:50:31 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:50:31 teste 2: 
+02-06-2021 11:50:36 ====================================
+02-06-2021 11:50:36 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:50:36 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:50:36 teste 2: 
+02-06-2021 11:50:37 https://api-dev.clustererp.com.br/api/v1/condicional/83/
+02-06-2021 11:50:37 response : {"resultado":{"id":83,"empresa_id":6,"data_emissao":"2021-05-31T14:17:07.852Z","data_conclusao":null,"status":"rascunho","vendedor_id":3637,"operador_id":1769,"cliente_id":246,"total":4,"total_pendente":4,"total_devolvido":0,"total_vendido":0,"observacao":"","datacriacao":"2021-05-31T14:17:07.882Z","dataatualizacao":"2021-05-31T14:17:07.882Z","estoque_id":3,"tabela_preco_id":1,"n_vendedor":"COLABORADOR - ROBSON","n_cliente":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","n_operador":"JOAO@6","n_estoque":"deposito 2","n_tabela_preco":"ATACADO 1","n_empresa":"CLUSTER GESTOR","itens":[{"id":277,"condicional_id":83,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-01T20:57:05.787Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":278,"condicional_id":83,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-01T20:57:33.360Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""}]}}
+
+02-06-2021 11:50:41 ====================================
+02-06-2021 11:50:41 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:50:41 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:50:41 teste 2: 
+02-06-2021 11:50:46 ====================================
+02-06-2021 11:50:46 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:50:46 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:50:46 teste 2: 
+02-06-2021 11:50:51 ====================================
+02-06-2021 11:50:51 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:50:51 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:50:51 teste 2: 
+02-06-2021 11:50:54 https://api-dev.clustererp.com.br/api/v1/condicional/listar
+02-06-2021 11:50:54 response : {"resultado":[{"nomeresumido":"CLUSTER GESTOR","id":81,"status":"rascunho","data_emissao":"2021-05-31T14:08:30.245Z","data_conclusao":null,"total_pendente":2,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ANA CRISTINA GALLI DE CAMPOS - ME","dataatualizacao":"2021-05-31T14:08:30.279Z"},{"nomeresumido":"CLUSTER GESTOR","id":86,"status":"rascunho","data_emissao":"2021-05-31T16:21:09.782Z","data_conclusao":null,"total_pendente":9,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:21:09.824Z"},{"nomeresumido":"CLUSTER GESTOR","id":87,"status":"rascunho","data_emissao":"2021-05-31T16:30:01.421Z","data_conclusao":null,"total_pendente":11520,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:30:01.536Z"},{"nomeresumido":"CLUSTER GESTOR","id":75,"status":"rascunho","data_emissao":"2021-05-29T14:30:37.657Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABDALLAH E ABDALLA COMERCIO DE DOCES LTDA - ME","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-05-29T14:30:37.725Z"},{"nomeresumido":"CLUSTER GESTOR","id":93,"status":"rascunho","data_emissao":"2021-05-31T17:20:52.598Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T17:20:52.641Z"},{"nomeresumido":"CLUSTER GESTOR","id":89,"status":"rascunho","data_emissao":"2021-05-31T16:36:06.327Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T16:36:06.358Z"},{"nomeresumido":"CLUSTER GESTOR","id":92,"status":"rascunho","data_emissao":"2021-05-31T16:47:36.879Z","data_conclusao":null,"total_pendente":14,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T16:47:36.917Z"},{"nomeresumido":"CLUSTER GESTOR","id":83,"status":"rascunho","data_emissao":"2021-05-31T14:17:07.852Z","data_conclusao":null,"total_pendente":24,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"COLABORADOR - ROBSON","dataatualizacao":"2021-05-31T14:17:07.882Z"},{"nomeresumido":"CLUSTER GESTOR","id":91,"status":"rascunho","data_emissao":"2021-05-31T16:39:55.836Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","vend_nome":"CARLOS ALBERTO P OLIVEIRA","dataatualizacao":"2021-05-31T16:39:55.879Z"},{"nomeresumido":"CLUSTER GESTOR","id":85,"status":"rascunho","data_emissao":"2021-05-31T14:59:05.817Z","data_conclusao":null,"total_pendente":310,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"BETO NINJA","dataatualizacao":"2021-05-31T14:59:05.849Z"},{"nomeresumido":"CLUSTER GESTOR","id":94,"status":"rascunho","data_emissao":"2021-06-01T00:23:39.311Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-06-01T00:23:39.358Z"},{"nomeresumido":"CLUSTER GESTOR","id":84,"status":"rascunho","data_emissao":"2021-05-31T14:23:02.292Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASIVEL INDUSTRIA E COMERCIO DE DESCARTAVEIS EIRELI - EPP","dataatualizacao":"2021-05-31T14:23:02.322Z"},{"nomeresumido":"CLUSTER GESTOR","id":88,"status":"rascunho","data_emissao":"2021-05-31T16:33:53.978Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T16:33:54.019Z"},{"nomeresumido":"CLUSTER GESTOR","id":82,"status":"rascunho","data_emissao":"2021-05-31T14:11:02.936Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T14:11:02.985Z"},{"nomeresumido":"CLUSTER GESTOR","id":98,"status":"rascunho","data_emissao":"2021-06-01T19:22:01.738Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADEMAQ INDUSTRIA E COMERCIO DE MAQUINAS LTDA. - EPP","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-06-01T19:22:01.786Z"},{"nomeresumido":"CLUSTER GESTOR","id":80,"status":"rascunho","data_emissao":"2021-05-31T13:45:57.203Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"ADERE PRODUTOS AUTO-ADESIVOS LTDA","vend_nome":"ASTOLFO FONCECA CAMARGO","dataatualizacao":"2021-05-31T13:45:57.249Z"},{"nomeresumido":"CLUSTER GESTOR","id":72,"status":"rascunho","data_emissao":"2021-05-29T12:39:28.325Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"A DUQUEZA RIO PRETO COM. DE CONFECCOES LTDA ME","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-05-29T12:39:28.356Z"},{"nomeresumido":"CLUSTER GESTOR","id":73,"status":"rascunho","data_emissao":"2021-05-29T14:26:09.139Z","data_conclusao":null,"total_pendente":40,"total_vendido":0,"cli_nome":"GUARANY INDUSTRIA E COMERCIO LTDA","vend_nome":"VIA DO ACO INDUSTRIA E COMERCIO LTDA - M","dataatualizacao":"2021-05-31T10:01:51.232Z"},{"nomeresumido":"CLUSTER GESTOR","id":74,"status":"rascunho","data_emissao":"2021-05-29T14:26:14.286Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"GUARANY INDUSTRIA E COMERCIO LTDA","vend_nome":"VIA DO ACO INDUSTRIA E COMERCIO LTDA - M","dataatualizacao":"2021-05-29T14:26:14.330Z"},{"nomeresumido":"CLUSTER GESTOR","id":95,"status":"rascunho","data_emissao":"2021-06-01T18:38:59.826Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:38:59.870Z"},{"nomeresumido":"CLUSTER GESTOR","id":97,"status":"rascunho","data_emissao":"2021-06-01T18:56:24.649Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:56:24.685Z"},{"nomeresumido":"CLUSTER GESTOR","id":96,"status":"rascunho","data_emissao":"2021-06-01T18:54:21.832Z","data_conclusao":null,"total_pendente":2,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"EBER ALVES DA SILVA","dataatualizacao":"2021-06-01T18:54:21.876Z"},{"nomeresumido":"CLUSTER GESTOR","id":90,"status":"rascunho","data_emissao":"2021-05-31T16:36:49.582Z","data_conclusao":null,"total_pendente":1000,"total_vendido":0,"cli_nome":"JOSE CLAUDIO SEHNEN PINHEIRO","vend_nome":"CARLOS ALBERTO PEREIRA DE OLIVEIRA","dataatualizacao":"2021-05-31T16:36:49.625Z"},{"nomeresumido":"CLUSTER GESTOR","id":78,"status":"rascunho","data_emissao":"2021-05-29T17:35:52.623Z","data_conclusao":null,"total_pendente":30,"total_vendido":0,"cli_nome":"SANGGYH","vend_nome":"SANGGYH","dataatualizacao":"2021-05-31T10:13:02.341Z"},{"nomeresumido":"CLUSTER GESTOR","id":79,"status":"rascunho","data_emissao":"2021-05-29T17:46:56.353Z","data_conclusao":null,"total_pendente":0,"total_vendido":0,"cli_nome":"SANGGYH","vend_nome":"SANGGYH","dataatualizacao":"2021-05-29T17:46:56.384Z"}],"totais":{"total_registros":25,"total_valor":12951,"total_vendido":0}}
+
+02-06-2021 11:50:56 ====================================
+02-06-2021 11:50:56 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:50:56 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:50:56 teste 2: 
+02-06-2021 11:51:02 ====================================
+02-06-2021 11:51:02 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:51:02 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:51:02 teste 2: 
+02-06-2021 11:51:04 https://api-dev.clustererp.com.br/api/v1/condicional/83/
+02-06-2021 11:51:04 response : {"resultado":{"id":83,"empresa_id":6,"data_emissao":"2021-05-31T14:17:07.852Z","data_conclusao":null,"status":"rascunho","vendedor_id":3637,"operador_id":1769,"cliente_id":246,"total":24,"total_pendente":24,"total_devolvido":0,"total_vendido":0,"observacao":"","datacriacao":"2021-05-31T14:17:07.882Z","dataatualizacao":"2021-05-31T14:17:07.882Z","estoque_id":3,"tabela_preco_id":1,"n_vendedor":"COLABORADOR - ROBSON","n_cliente":"ABRANGE INDUSTRIA E COMERCIO DE CONFECCOES LTDA","n_operador":"JOAO@6","n_estoque":"deposito 2","n_tabela_preco":"ATACADO 1","n_empresa":"CLUSTER GESTOR","itens":[{"id":277,"condicional_id":83,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-01T20:57:05.787Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":278,"condicional_id":83,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-01T20:57:33.360Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":361,"condicional_id":83,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:50:48.079Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":362,"condicional_id":83,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:50:48.079Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":363,"condicional_id":83,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:50:48.079Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":364,"condicional_id":83,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:50:48.079Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":365,"condicional_id":83,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:50:48.079Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":366,"condicional_id":83,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:50:48.722Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":367,"condicional_id":83,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:50:48.722Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":368,"condicional_id":83,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:50:48.722Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":369,"condicional_id":83,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:50:48.722Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""},{"id":370,"condicional_id":83,"produto_id":87142,"grade_id":null,"lote_id":null,"descricao":"teste rodrigo lote rrrr","quantidade":1,"valor_unitario":2,"vl_desconto":0,"aliq_desconto":0,"valor_final":2,"subtotal":2,"status":"rascunho","data_inclusao":"2021-06-02T14:50:48.722Z","data_estorno":null,"pdv_id":null,"venda_id":null,"status_temp":"pendente","rascunho":true,"gtin":""}]}}
+
+02-06-2021 11:51:07 ====================================
+02-06-2021 11:51:07 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:51:07 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:51:07 teste 2: 
+02-06-2021 11:51:12 ====================================
+02-06-2021 11:51:12 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:51:12 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:51:12 teste 2: 
+02-06-2021 11:51:17 ====================================
+02-06-2021 11:51:17 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:51:17 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:51:17 teste 2: 
+02-06-2021 11:51:22 ====================================
+02-06-2021 11:51:22 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:51:22 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:51:22 teste 2: 
+02-06-2021 11:51:27 ====================================
+02-06-2021 11:51:27 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:51:27 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:51:27 teste 2: 
+02-06-2021 11:51:32 ====================================
+02-06-2021 11:51:32 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:51:32 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:51:32 teste 2: 
+02-06-2021 11:51:38 ====================================
+02-06-2021 11:51:38 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:51:38 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:51:38 teste 2: 
+02-06-2021 11:51:43 ====================================
+02-06-2021 11:51:43 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:51:43 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:51:43 teste 2: 
+02-06-2021 11:51:48 ====================================
+02-06-2021 11:51:48 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:51:48 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:51:48 teste 2: 
+02-06-2021 11:51:53 ====================================
+02-06-2021 11:51:53 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:51:53 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:51:53 teste 2: 
+02-06-2021 11:51:58 ====================================
+02-06-2021 11:51:58 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:51:58 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:51:58 teste 2: 
+02-06-2021 11:52:03 ====================================
+02-06-2021 11:52:03 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:52:03 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:52:03 teste 2: 
+02-06-2021 11:52:08 ====================================
+02-06-2021 11:52:08 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:52:08 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:52:09 teste 2: 
+02-06-2021 11:52:14 ====================================
+02-06-2021 11:52:14 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:52:14 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:52:14 teste 2: 
+02-06-2021 11:52:19 ====================================
+02-06-2021 11:52:19 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:52:19 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:52:19 teste 2: 
+02-06-2021 11:52:24 ====================================
+02-06-2021 11:52:24 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:52:24 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:52:24 teste 2: 
+02-06-2021 11:52:29 ====================================
+02-06-2021 11:52:29 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:52:29 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:52:29 teste 2: 
+02-06-2021 11:52:34 ====================================
+02-06-2021 11:52:34 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:52:34 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:52:34 teste 2: 
+02-06-2021 11:52:39 ====================================
+02-06-2021 11:52:39 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:52:39 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:52:39 teste 2: 
+02-06-2021 11:52:44 ====================================
+02-06-2021 11:52:44 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:52:44 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:52:44 teste 2: 
+02-06-2021 11:52:50 ====================================
+02-06-2021 11:52:50 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:52:50 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:52:50 teste 2: 
+02-06-2021 11:52:55 ====================================
+02-06-2021 11:52:55 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:52:55 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:52:55 teste 2: 
+02-06-2021 11:53:00 ====================================
+02-06-2021 11:53:00 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:53:00 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:53:00 teste 2: 
+02-06-2021 11:53:05 ====================================
+02-06-2021 11:53:05 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:53:05 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:53:05 teste 2: 
+02-06-2021 11:53:10 ====================================
+02-06-2021 11:53:10 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:53:10 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:53:10 teste 2: 
+02-06-2021 11:53:20 ====================================
+02-06-2021 11:53:20 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:53:20 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:53:20 teste 2: 
+02-06-2021 11:53:25 ====================================
+02-06-2021 11:53:25 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:53:25 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:53:25 teste 2: 
+02-06-2021 11:53:30 ====================================
+02-06-2021 11:53:30 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:53:30 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:53:30 teste 2: 
+02-06-2021 11:53:36 ====================================
+02-06-2021 11:53:36 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:53:36 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:53:36 teste 2: 
+02-06-2021 11:53:41 ====================================
+02-06-2021 11:53:41 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:53:41 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:53:41 teste 2: 
+02-06-2021 11:53:46 ====================================
+02-06-2021 11:53:46 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:53:46 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:53:46 teste 2: 
+02-06-2021 11:53:51 ====================================
+02-06-2021 11:53:51 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:53:51 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:53:51 teste 2: 
+02-06-2021 11:53:56 ====================================
+02-06-2021 11:53:56 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:53:56 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:53:56 teste 2: 
+02-06-2021 11:54:01 ====================================
+02-06-2021 11:54:01 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:54:01 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:54:01 teste 2: 
+02-06-2021 11:54:06 ====================================
+02-06-2021 11:54:06 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:54:06 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:54:06 teste 2: 
+02-06-2021 11:54:11 ====================================
+02-06-2021 11:54:11 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:54:11 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:54:11 teste 2: 
+02-06-2021 11:54:16 ====================================
+02-06-2021 11:54:16 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:54:16 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:54:16 teste 2: 
+02-06-2021 11:54:21 ====================================
+02-06-2021 11:54:21 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:54:21 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:54:21 teste 2: 
+02-06-2021 11:54:26 ====================================
+02-06-2021 11:54:26 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:54:26 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:54:26 teste 2: 
+02-06-2021 11:54:31 ====================================
+02-06-2021 11:54:31 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:54:31 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:54:31 teste 2: 
+02-06-2021 11:54:36 ====================================
+02-06-2021 11:54:36 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:54:36 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:54:36 teste 2: 
+02-06-2021 11:54:42 ====================================
+02-06-2021 11:54:42 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:54:42 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:54:42 teste 2: 
+02-06-2021 11:54:47 ====================================
+02-06-2021 11:54:47 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:54:47 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:54:47 teste 2: 
+02-06-2021 11:54:52 ====================================
+02-06-2021 11:54:52 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:54:52 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:54:52 teste 2: 
+02-06-2021 11:54:57 ====================================
+02-06-2021 11:54:57 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:54:57 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:54:57 teste 2: 
+02-06-2021 11:55:02 ====================================
+02-06-2021 11:55:02 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:55:02 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:55:02 teste 2: 
+02-06-2021 11:55:07 ====================================
+02-06-2021 11:55:07 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:55:07 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:55:07 teste 2: 
+02-06-2021 11:55:12 ====================================
+02-06-2021 11:55:12 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:55:12 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:55:12 teste 2: 
+02-06-2021 11:55:17 ====================================
+02-06-2021 11:55:17 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:55:17 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:55:17 teste 2: 
+02-06-2021 11:55:22 ====================================
+02-06-2021 11:55:22 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:55:22 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:55:22 teste 2: 
+02-06-2021 11:55:27 ====================================
+02-06-2021 11:55:27 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:55:27 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:55:27 teste 2: 
+02-06-2021 11:55:32 ====================================
+02-06-2021 11:55:32 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:55:32 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:55:32 teste 2: 
+02-06-2021 11:55:37 ====================================
+02-06-2021 11:55:37 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:55:37 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:55:37 teste 2: 
+02-06-2021 11:55:43 ====================================
+02-06-2021 11:55:43 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:55:43 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:55:43 teste 2: 
+02-06-2021 11:55:48 ====================================
+02-06-2021 11:55:48 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:55:48 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:55:48 teste 2: 
+02-06-2021 11:55:53 ====================================
+02-06-2021 11:55:53 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:55:53 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:55:53 teste 2: 
+02-06-2021 11:55:58 ====================================
+02-06-2021 11:55:58 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:55:58 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:55:58 teste 2: 
+02-06-2021 11:56:03 ====================================
+02-06-2021 11:56:03 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:56:03 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:56:03 teste 2: 
+02-06-2021 11:56:08 ====================================
+02-06-2021 11:56:08 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:56:08 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:56:08 teste 2: 
+02-06-2021 11:56:13 ====================================
+02-06-2021 11:56:13 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:56:13 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:56:13 teste 2: 
+02-06-2021 11:56:18 ====================================
+02-06-2021 11:56:18 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:56:18 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:56:18 teste 2: 
+02-06-2021 11:56:23 ====================================
+02-06-2021 11:56:23 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:56:23 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:56:23 teste 2: 
+02-06-2021 11:56:28 ====================================
+02-06-2021 11:56:28 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:56:28 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:56:28 teste 2: 
+02-06-2021 11:56:33 ====================================
+02-06-2021 11:56:33 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:56:33 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:56:33 teste 2: 
+02-06-2021 11:56:39 ====================================
+02-06-2021 11:56:39 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:56:39 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:56:39 teste 2: 
+02-06-2021 11:56:44 ====================================
+02-06-2021 11:56:44 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:56:44 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:56:44 teste 2: 
+02-06-2021 11:56:49 ====================================
+02-06-2021 11:56:49 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:56:49 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:56:49 teste 2: 
+02-06-2021 11:56:54 ====================================
+02-06-2021 11:56:54 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:56:54 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:56:54 teste 2: 
+02-06-2021 11:56:59 ====================================
+02-06-2021 11:56:59 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:56:59 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:56:59 teste 2: 
+02-06-2021 11:57:04 ====================================
+02-06-2021 11:57:04 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:57:04 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:57:04 teste 2: 
+02-06-2021 11:57:09 ====================================
+02-06-2021 11:57:09 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:57:09 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:57:09 teste 2: 
+02-06-2021 11:57:14 ====================================
+02-06-2021 11:57:14 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:57:14 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:57:14 teste 2: 
+02-06-2021 11:57:19 ====================================
+02-06-2021 11:57:19 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:57:19 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:57:19 teste 2: 
+02-06-2021 11:57:24 ====================================
+02-06-2021 11:57:24 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:57:24 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:57:24 teste 2: 
+02-06-2021 11:57:29 ====================================
+02-06-2021 11:57:29 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:57:29 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:57:29 teste 2: 
+02-06-2021 11:57:34 ====================================
+02-06-2021 11:57:34 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:57:34 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:57:34 teste 2: 
+02-06-2021 11:57:39 ====================================
+02-06-2021 11:57:39 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:57:40 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:57:40 teste 2: 
+02-06-2021 11:57:45 ====================================
+02-06-2021 11:57:45 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:57:45 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:57:45 teste 2: 
+02-06-2021 11:57:50 ====================================
+02-06-2021 11:57:50 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:57:50 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:57:50 teste 2: 
+02-06-2021 11:57:55 ====================================
+02-06-2021 11:57:55 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:57:55 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:57:55 teste 2: 
+02-06-2021 11:58:00 ====================================
+02-06-2021 11:58:00 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:58:00 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:58:00 teste 2: 
+02-06-2021 11:58:05 ====================================
+02-06-2021 11:58:05 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:58:05 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:58:05 teste 2: 
+02-06-2021 11:58:10 ====================================
+02-06-2021 11:58:10 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:58:10 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:58:10 teste 2: 
+02-06-2021 11:58:15 ====================================
+02-06-2021 11:58:15 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:58:15 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:58:15 teste 2: 
+02-06-2021 11:58:20 ====================================
+02-06-2021 11:58:20 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:58:20 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:58:20 teste 2: 
+02-06-2021 11:58:25 ====================================
+02-06-2021 11:58:25 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:58:25 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:58:25 teste 2: 
+02-06-2021 11:58:30 ====================================
+02-06-2021 11:58:30 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:58:30 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:58:30 teste 2: 
+02-06-2021 11:58:35 ====================================
+02-06-2021 11:58:35 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:58:35 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:58:35 teste 2: 
+02-06-2021 11:58:40 ====================================
+02-06-2021 11:58:40 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:58:40 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:58:40 teste 2: 
+02-06-2021 11:58:46 ====================================
+02-06-2021 11:58:46 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:58:46 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:58:46 teste 2: 
+02-06-2021 11:58:51 ====================================
+02-06-2021 11:58:51 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:58:51 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:58:51 teste 2: 
+02-06-2021 11:58:56 ====================================
+02-06-2021 11:58:56 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:58:56 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:58:56 teste 2: 
+02-06-2021 11:59:01 ====================================
+02-06-2021 11:59:01 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:59:01 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:59:01 teste 2: 
+02-06-2021 11:59:06 ====================================
+02-06-2021 11:59:06 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:59:06 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:59:06 teste 2: 
+02-06-2021 11:59:11 ====================================
+02-06-2021 11:59:11 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:59:11 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:59:11 teste 2: 
+02-06-2021 11:59:16 ====================================
+02-06-2021 11:59:16 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:59:16 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:59:16 teste 2: 
+02-06-2021 11:59:21 ====================================
+02-06-2021 11:59:21 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:59:21 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:59:21 teste 2: 
+02-06-2021 11:59:26 ====================================
+02-06-2021 11:59:26 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:59:26 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:59:26 teste 2: 
+02-06-2021 11:59:31 ====================================
+02-06-2021 11:59:31 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:59:31 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:59:31 teste 2: 
+02-06-2021 11:59:36 ====================================
+02-06-2021 11:59:36 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:59:36 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:59:36 teste 2: 
+02-06-2021 11:59:42 ====================================
+02-06-2021 11:59:42 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:59:42 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:59:42 teste 2: 
+02-06-2021 11:59:47 ====================================
+02-06-2021 11:59:47 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:59:47 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:59:47 teste 2: 
+02-06-2021 11:59:52 ====================================
+02-06-2021 11:59:52 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:59:52 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:59:52 teste 2: 
+02-06-2021 11:59:57 ====================================
+02-06-2021 11:59:57 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 11:59:57 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 11:59:57 teste 2: 
+02-06-2021 12:00:02 ====================================
+02-06-2021 12:00:02 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:00:02 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:00:02 teste 2: 
+02-06-2021 12:00:07 ====================================
+02-06-2021 12:00:07 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:00:07 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:00:07 teste 2: 
+02-06-2021 12:00:12 ====================================
+02-06-2021 12:00:12 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:00:12 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:00:12 teste 2: 
+02-06-2021 12:00:17 ====================================
+02-06-2021 12:00:17 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:00:17 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:00:17 teste 2: 
+02-06-2021 12:00:22 ====================================
+02-06-2021 12:00:22 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:00:22 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:00:22 teste 2: 
+02-06-2021 12:00:27 ====================================
+02-06-2021 12:00:27 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:00:27 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:00:27 teste 2: 
+02-06-2021 12:00:32 ====================================
+02-06-2021 12:00:32 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:00:32 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:00:32 teste 2: 
+02-06-2021 12:00:37 ====================================
+02-06-2021 12:00:37 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:00:37 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:00:37 teste 2: 
+02-06-2021 12:00:43 ====================================
+02-06-2021 12:00:43 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:00:43 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:00:43 teste 2: 
+02-06-2021 12:00:48 ====================================
+02-06-2021 12:00:48 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:00:48 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:00:48 teste 2: 
+02-06-2021 12:00:53 ====================================
+02-06-2021 12:00:53 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:00:53 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:00:53 teste 2: 
+02-06-2021 12:00:58 ====================================
+02-06-2021 12:00:58 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:00:58 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:00:58 teste 2: 
+02-06-2021 12:01:03 ====================================
+02-06-2021 12:01:03 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:01:03 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:01:03 teste 2: 
+02-06-2021 12:01:08 ====================================
+02-06-2021 12:01:08 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:01:08 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:01:08 teste 2: 
+02-06-2021 12:01:13 ====================================
+02-06-2021 12:01:13 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:01:13 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:01:13 teste 2: 
+02-06-2021 12:01:18 ====================================
+02-06-2021 12:01:18 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:01:18 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:01:18 teste 2: 
+02-06-2021 12:01:23 ====================================
+02-06-2021 12:01:23 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:01:23 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:01:23 teste 2: 
+02-06-2021 12:01:28 ====================================
+02-06-2021 12:01:28 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:01:28 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:01:28 teste 2: 
+02-06-2021 12:01:33 ====================================
+02-06-2021 12:01:33 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:01:33 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:01:33 teste 2: 
+02-06-2021 12:01:39 ====================================
+02-06-2021 12:01:39 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:01:39 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:01:39 teste 2: 
+02-06-2021 12:01:44 ====================================
+02-06-2021 12:01:44 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:01:44 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:01:44 teste 2: 
+02-06-2021 12:01:49 ====================================
+02-06-2021 12:01:49 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:01:49 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:01:49 teste 2: 
+02-06-2021 12:01:54 ====================================
+02-06-2021 12:01:54 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:01:54 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:01:54 teste 2: 
+02-06-2021 12:01:59 ====================================
+02-06-2021 12:01:59 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:01:59 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:01:59 teste 2: 
+02-06-2021 12:02:04 ====================================
+02-06-2021 12:02:04 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:02:04 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:02:04 teste 2: 
+02-06-2021 12:02:09 ====================================
+02-06-2021 12:02:09 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:02:09 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:02:09 teste 2: 
+02-06-2021 12:02:14 ====================================
+02-06-2021 12:02:14 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:02:14 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:02:14 teste 2: 
+02-06-2021 12:02:19 ====================================
+02-06-2021 12:02:19 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:02:19 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:02:19 teste 2: 
+02-06-2021 12:02:24 ====================================
+02-06-2021 12:02:24 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:02:24 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:02:24 teste 2: 
+02-06-2021 12:02:29 ====================================
+02-06-2021 12:02:29 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:02:29 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:02:29 teste 2: 
+02-06-2021 12:02:34 ====================================
+02-06-2021 12:02:34 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:02:34 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:02:34 teste 2: 
+02-06-2021 12:02:40 ====================================
+02-06-2021 12:02:40 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:02:40 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:02:40 teste 2: 
+02-06-2021 12:02:45 ====================================
+02-06-2021 12:02:45 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:02:45 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:02:45 teste 2: 
+02-06-2021 12:02:50 ====================================
+02-06-2021 12:02:50 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:02:50 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:02:50 teste 2: 
+02-06-2021 12:02:55 ====================================
+02-06-2021 12:02:55 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:02:55 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:02:55 teste 2: 
+02-06-2021 12:03:00 ====================================
+02-06-2021 12:03:00 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:03:00 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:03:00 teste 2: 
+02-06-2021 12:03:05 ====================================
+02-06-2021 12:03:05 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:03:05 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:03:05 teste 2: 
+02-06-2021 12:03:10 ====================================
+02-06-2021 12:03:10 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:03:10 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:03:10 teste 2: 
+02-06-2021 12:03:15 ====================================
+02-06-2021 12:03:15 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:03:15 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:03:15 teste 2: 
+02-06-2021 12:03:20 ====================================
+02-06-2021 12:03:20 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:03:20 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:03:20 teste 2: 
+02-06-2021 12:03:25 ====================================
+02-06-2021 12:03:25 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:03:25 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:03:25 teste 2: 
+02-06-2021 12:03:30 ====================================
+02-06-2021 12:03:30 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:03:30 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:03:30 teste 2: 
+02-06-2021 12:03:35 ====================================
+02-06-2021 12:03:35 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:03:35 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:03:36 teste 2: 
+02-06-2021 12:03:41 ====================================
+02-06-2021 12:03:41 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:03:41 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:03:41 teste 2: 
+02-06-2021 12:03:46 ====================================
+02-06-2021 12:03:46 host https://api-pdv-dev.clustererp.com.br/sincronizar/sync_db/
+02-06-2021 12:03:46 Error Request : Host name resolution for "api-pdv-dev.clustererp.com.br" failed.
+02-06-2021 12:03:46 teste 2: 

@@ -230,7 +230,6 @@ try
         end;
     end;
 
-
         if _contentEnconding <> '' then
             fresponse:= inflate(HTTPSender.Document)
         else
