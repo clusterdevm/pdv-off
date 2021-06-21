@@ -99,7 +99,7 @@ Begin
       StringStream.CopyFrom(_descompacta, aSource.Size);
 
       Result := StringStream.DataString;
-      RegistraLogErro('documento '+result);
+      //RegistraLogErro('documento '+result);
    finally
        FreeAndNil(_descompacta);
    end;
@@ -238,8 +238,8 @@ try
            fresponse:= _temp.Text;
         end;
 
-       RegistraLogErro(getHost);
-       RegistraLogErro('response : '+fresponse);
+       //RegistraLogErro(getHost);
+       //RegistraLogErro('response : '+fresponse);
 
        if trim(copy(fresponse,1,1)) = '{' then
          try
@@ -342,10 +342,11 @@ try
            fresponse:= _response.DataString;
 
 
-       RegistraLogErro(getHost);
-       RegistraLogErro('response : '+fresponse);
+       //RegistraLogErro(getHost);
+       //RegistraLogErro('response : '+fresponse);
 
-       if trim(copy(fresponse,1,1)) = '{' then
+
+       if copy(trim(fresponse),1,1) = '{' then
          try
             Return.Parse(fresponse);
          except

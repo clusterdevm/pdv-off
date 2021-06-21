@@ -108,6 +108,8 @@ begin
        rota:='condicional';
        endpoint:='listar';
 
+
+       Clipboard.AsText := GetBearerEMS;
        Execute;
 
        if (ResponseCode in [200..207]) then

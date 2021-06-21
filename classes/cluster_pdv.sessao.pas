@@ -5,7 +5,7 @@ unit cluster_pdv.sessao;
 interface
 
 uses
-  Classes, SysUtils;
+  Classes, SysUtils ,jsons, Dialogs, forms, controls;
 
 type
 
@@ -14,6 +14,8 @@ type
 TSessao = Class
 private
   fbearerems: String;
+  FCaixa_Id: Integer;
+  fcidade: string;
   fcnpj: string;
   fdatetimeformat: string;
   fempresalogada: integer;
@@ -30,6 +32,7 @@ private
   fusuario: String;
   FusuarioName: String;
   fusuario_id: integer;
+      Property caixa_id : Integer Read FCaixa_Id Write FCaixa_id;
     public
       property bearerems : String read fbearerems write fbearerems;
       property usuario : String read fusuario write fusuario;
@@ -47,16 +50,86 @@ private
       property razao : string read frazao write frazao;
       property cnpj : string read fcnpj write fcnpj;
       property nomeFantasia : string read fnomeFantasia write fnomeFantasia;
-      property nomeResumido : string read fnomeResumido write fnomeResumido;
+      property n_unidade : string read fnomeResumido write fnomeResumido;
+      property cidade : string read fcidade write fcidade;
 
       Property usuarioName : String Read FusuarioName Write FusuarioName;
+
+
+
+      Function GetCaixa : string;
+      Procedure AbreCaixa ;
+      Procedure ShowForm(TFormulario: TComponentClass; var Formulario);
 
       Constructor create;
 end;
 
 implementation
 
-{ TSessao }
+uses model.conexao, classe.utils;
+
+function TSessao.GetCaixa: string;
+var _db : TConexao;
+begin
+  try
+      _db := TConexao.Create;
+      result := '';
+
+      With _db.Query do
+      Begin
+         Close;
+         Sql.Clear;
+         Sql.Add('select * from financeiro_caixa ');
+         Sql.Add(' where operador_id = '+QuotedStr(IntToStr(sessao.usuario_id)));
+         Open;
+
+         if not IsEmpty then
+            Result := FieldByName('uuid').AsString;
+      end;
+  finally
+    FreeAndNil(_db);
+  end;
+end;
+
+procedure TSessao.AbreCaixa;
+var aux : string;
+  _db : TConexao;
+  _objeto : TjsonObject;
+
+begin
+   if not inputQuery('Cluster Sistemas','Informe Saldo Abertura',aux) then
+       exit;
+
+   try
+        _db := TConexao.Create;
+        _objeto := TJsonObject.Create();
+        _objeto['saldo_abertura'].AsNumber:= StrToFloatDef(aux,0);
+        _objeto['data_abertura'].AsString:= getDataUTC;
+        _objeto['operador_id'].AsInteger:= self.usuario_id;
+        _objeto['uuid'].AsString:= GetUUID;
+        _objeto['sinc_pendente'].AsString:= 'S';
+        _objeto['empresa_id'].AsInteger:= sessao.empresalogada;
+        _objeto['status'].AsString:= 'A';
+
+        _db.InserirDados('financeiro_caixa',_objeto);
+
+   finally
+     FreeAndNil(_db);
+     FreeAndNil(_objeto);
+   end;
+end;
+
+procedure TSessao.ShowForm(TFormulario: TComponentClass; var Formulario);
+begin
+  Application.CreateForm(TFormulario, Formulario);
+  with TForm(Formulario) do
+  Begin
+      BorderStyle := bsSizeable;
+      BorderIcons:= BorderIcons - [biMinimize];
+      ShowModal;
+      release
+  End;
+end;
 
 constructor TSessao.create;
 begin

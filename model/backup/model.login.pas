@@ -49,9 +49,9 @@ begin
      _api := TRequisicao.Create;
       _api.Metodo:='get';
       _api.webservice:= getEMS_Webservice(mPDV);
-      _api.tokenBearer := self.token_remoto;
-      _api.rota:='';
-      _api.endpoint:='get_status';
+      _api.AddHeader('token-pdv',self.token_remoto);
+      _api.rota:='hibrido';
+      _api.endpoint:='status/';
       _api.Execute;
 
       if _api.ResponseCode in [200..207] then
@@ -226,7 +226,8 @@ try
            sessao.cnpj := FieldByName('cnpj').AsString;
            sessao.razao := FieldByName('empresa').AsString;
            sessao.nomeFantasia := FieldByName('fantasia').AsString;
-           sessao.nomeResumido := FieldByName('nomeresumido').AsString;
+           sessao.n_unidade := FieldByName('nomeresumido').AsString;
+           sessao.cidade := FieldByName('cidade').AsString;
 
        end;
      finally

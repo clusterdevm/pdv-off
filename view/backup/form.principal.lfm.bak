@@ -13,6 +13,7 @@ object frmPrincipal: TfrmPrincipal
   OnResize = FormResize
   OnShow = FormShow
   Position = poMainFormCenter
+  LCLVersion = '2.0.12.0'
   WindowState = wsMaximized
   object pnlRodape: TPanel
     Left = 0
@@ -48,8 +49,8 @@ object frmPrincipal: TfrmPrincipal
     Top = 298
     Width = 170
     Anchors = [akRight, akBottom]
-    ClientHeight = 178
-    ClientWidth = 170
+    ClientHeight = 174
+    ClientWidth = 166
     TabOrder = 1
     Visible = False
     object DTAnalogClock1: TDTAnalogClock

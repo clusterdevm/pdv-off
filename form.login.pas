@@ -168,11 +168,7 @@ end;
 procedure Tfrm_login.Timer1Timer(Sender: TObject);
 begin
    Dec(_cronometro);
-
    pnlRegistro.Caption:= _statusGlobal + ' ('+Inttostr(_cronometro)+')';
-
-  // if _cronometro = 0 then
-//     checaStatus;
 end;
 
 procedure Tfrm_login.checaStatus;

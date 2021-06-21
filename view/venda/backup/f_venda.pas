@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Buttons, Menus, ComCtrls, DBGrids, ActnList, Grids, BGRAShape,
+  Buttons, Menus, ComCtrls, DBGrids, ActnList, Grids, VTHeaderPopup, BGRAShape,
   atshapelinebgra, BGRAResizeSpeedButton, BCButton, ColorSpeedButton;
 
 type
@@ -14,35 +14,47 @@ type
   { Tform_venda }
 
   Tform_venda = class(TForm)
+    ac_abreCaixa: TAction;
     ac_sair: TAction;
     ActionList1: TActionList;
     BCButton1: TBCButton;
+    BCButton10: TBCButton;
+    BCButton11: TBCButton;
+    BCButton2: TBCButton;
+    BCButton3: TBCButton;
+    BCButton4: TBCButton;
+    BCButton5: TBCButton;
+    BCButton6: TBCButton;
+    BCButton7: TBCButton;
+    BCButton8: TBCButton;
+    BCButton9: TBCButton;
     gridItens: TDBGrid;
     Image1: TImage;
     Image2: TImage;
     ImageList1: TImageList;
-    Label1: TLabel;
+    lblUsuario: TLabel;
     Label2: TLabel;
-    Label3: TLabel;
+    lblCodigo: TLabel;
     Label4: TLabel;
     Label5: TLabel;
-    LabeledEdit1: TLabeledEdit;
-    LabeledEdit2: TLabeledEdit;
-    LabeledEdit3: TLabeledEdit;
-    lblnome: TLabel;
+    ed_cliente: TLabeledEdit;
+    ed_vendedor: TLabeledEdit;
+    ed_cpf: TLabeledEdit;
+    lblDadosEmpresa: TLabel;
     MenuItem1: TMenuItem;
-    MenuItem10: TMenuItem;
+    MenuItem11: TMenuItem;
+    MenuItem12: TMenuItem;
+    MenuItem13: TMenuItem;
+    MenuItem14: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
-    MenuItem8: TMenuItem;
-    MenuItem9: TMenuItem;
-    Panel1: TPanel;
+    pnlBase: TPanel;
     Panel11: TPanel;
-    Panel2: TPanel;
+    pnlBotoes: TPanel;
     pnlTitle: TPanel;
     pnlGrid: TPanel;
     pnlColCodigo: TPanel;
@@ -65,10 +77,17 @@ type
     Shape3: TShape;
     Shape4: TShape;
     Shape5: TShape;
+    SpeedButton1: TSpeedButton;
     TabControl1: TTabControl;
+    VTHeaderPopupMenu1: TVTHeaderPopupMenu;
+    procedure ac_abreCaixaExecute(Sender: TObject);
     procedure ac_sairExecute(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: char);
     procedure FormResize(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure Panel11Click(Sender: TObject);
+    procedure pnlBotoesClick(Sender: TObject);
     procedure pnlDireitoClick(Sender: TObject);
     procedure pnlGridClick(Sender: TObject);
     procedure pnlGridVendasClick(Sender: TObject);
@@ -77,7 +96,8 @@ type
     procedure Shape3Resize(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
   private
-
+        Procedure LimpaTela;
+        Procedure GetVendasAndamento;
   public
          Procedure ShowCliente;
          Procedure ShowCondicional;
@@ -93,6 +113,9 @@ type
          Procedure ShowRecebimento;
          Procedure ShowPrevenda;
          Procedure ShowDelivery;
+
+         Procedure SetVendaLayout(_venda : Integer);
+
   end;
 
 var
@@ -102,11 +125,30 @@ implementation
 
 {$R *.lfm}
 
-{ Tform_venda }
+uses classe.utils;
 
 procedure Tform_venda.SpeedButton1Click(Sender: TObject);
 begin
+  PopupMenu1.PopUp(mouse.CursorPos.X-120, mouse.CursorPos.y-20);
+end;
 
+procedure Tform_venda.LimpaTela;
+begin
+    pnlTotal.Caption:= FormatFloat(sessao.formatsubtotal,0);
+    ed_cliente.Text:=  'Consumidor';
+    ed_vendedor.Text:=  'Não Definido';
+    ed_cpf.Text:= '';
+    lblCodigo.Caption:= '';
+    pnlBase.Visible:= sessao.GetCaixa <> '';
+
+    pnlCodigo.Visible:= false;
+    pnlImagem.Visible:= false;
+    pnlDireito.Visible:= false;
+end;
+
+procedure Tform_venda.GetVendasAndamento;
+begin
+   LimpaTela;
 end;
 
 procedure Tform_venda.pnlLateralClick(Sender: TObject);
@@ -155,6 +197,8 @@ begin
     pnlLateral.Width:= trunc((pnlVendas.Width * 0.35));
 
     pnlImagem.Height:= trunc((pnlLateral.Height * 0.80));
+    pnlCodigo.Height:= pnlLateral.Height - pnlImagem.Height;
+
     pnlGridVendas.Height:= trunc((pnlDireito.Height * 0.80));
 
     pnlTotal.Width:= trunc((pnlTotalizador.Width * 0.35));
@@ -170,12 +214,85 @@ begin
     //                                               );
 end;
 
+procedure Tform_venda.FormShow(Sender: TObject);
+begin
+  TabControl1.Tabs.Clear;
+  lblUsuario.Caption:= 'Usuario: '+ Sessao.usuarioName;
+  lblDadosEmpresa.Caption:= sessao.cidade+'  '+FormatDateTime('dddd "de" mmmm "de" yyyy',Now) +'   ('+
+                             sessao.n_unidade+')';
+  GetVendasAndamento;
+end;
+
 procedure Tform_venda.ac_sairExecute(Sender: TObject);
 begin
     form_venda.Close;
 end;
 
+procedure Tform_venda.ac_abreCaixaExecute(Sender: TObject);
+begin
+    if pnlBase.Visible  = false then
+    Begin
+        sessao.AbreCaixa;
+        GetVendasAndamento;
+    end else
+    Begin
+         Showmessage('Ja Existe um caixa aberto em andamento');
+    end;
+end;
+
+procedure Tform_venda.FormCreate(Sender: TObject);
+begin
+
+end;
+
+procedure Tform_venda.FormKeyPress(Sender: TObject; var Key: char);
+begin
+
+  if pnlBase.Visible = false then
+
+      exit;
+
+  if Key = '.' then
+    Key := ',';
+
+  if Key = #13 then
+  Begin
+      Key := #0;
+      if Length(lblCodigo.Caption) > 0 then
+        // RegistraItem;
+
+  end
+  else if Key = #08 then
+  begin
+    Key := #0;
+    lblCodigo.Caption := Copy(lblCodigo.Caption, 0, Length(lblCodigo.Caption) - 1);
+  end
+  else if Key = #27 then
+  begin
+    Key := #0;
+    if trim(lblCodigo.Caption) <> '' then
+      lblCodigo.Caption := ''
+  end
+  else
+  Begin
+    if not(Key in ['0' .. '9', Chr(8), 'A'..'Z','a'..'z', '*', ',']) then
+      Key := #0
+    else
+      lblCodigo.Caption := lblCodigo.Caption + Key;
+
+    Key := #0;
+  End;
+
+  if TabControl1.Tabs.Count = 0  then
+     pnlCodigo.Visible := trim(lblCodigo.Caption) <> '';
+end;
+
 procedure Tform_venda.Panel11Click(Sender: TObject);
+begin
+
+end;
+
+procedure Tform_venda.pnlBotoesClick(Sender: TObject);
 begin
 
 end;
@@ -263,6 +380,12 @@ end;
 procedure Tform_venda.ShowDelivery;
 begin
 
+end;
+
+procedure Tform_venda.SetVendaLayout(_venda: Integer);
+begin
+   if _venda = 0 then
+     LimpaTela;
 end;
 
 end.

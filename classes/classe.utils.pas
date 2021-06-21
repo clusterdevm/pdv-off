@@ -12,6 +12,7 @@ uses
 type
   TPathServicos = (mAutenticacao, mCondicional, mGeral, mPDV);
 
+const canal_token = '9b1b6b2dfcb8d4c13d4d7fcacd9aed78';
 
 var Sessao : TSessao;
     //f_wait : TWaitProcess;
@@ -47,6 +48,8 @@ var Sessao : TSessao;
   function FormataCNPJ(CNPJ: string): string;
   function RemoveIfens(value: string): String;
 
+  Function GetUUID : String;
+
 implementation
 
 uses model.request.http;
@@ -58,6 +61,14 @@ begin
    Result := SubsString(Result,'.','');
    Result := SubsString(Result,',','');
    Result := SubsString(Result,'/','');
+end;
+
+function GetUUID: String;
+var _out : TGuid;
+    res : Integer;
+begin
+  res := CreateGUID(_out);
+  Result := (GUIDToString(_out))
 end;
 
 
@@ -93,14 +104,16 @@ begin
        _api.AutUserName := sessao.usuario;
        _api.AutUserPass := sessao.senha;
        _api.AddHeader('empresa-id',IntToStr(sessao.empresalogada));
-       _api.AddHeader('canal-token','9b1b6b2dfcb8d4c13d4d7fcacd9aed78');
+       _api.AddHeader('canal-token',canal_token);
        _api.Metodo:= 'get';
        _api.rota := 'autenticacao';
        _api.endpoint := 'token/';
        _api.Execute();
 
        if (_api.ResponseCode in [200..207]) then
-           sessao.bearerems:= _api.Return['token'].AsString;
+           sessao.bearerems:= _api.Return['token'].AsString
+       else
+           Showmessage(_api.response);
   end;
    Result := sessao.bearerems;
 
@@ -256,15 +269,16 @@ end;
 
 function getEMS_Webservice(value:TPathServicos): string;
 begin
+
     case value of
       mGeral :
          result := 'https://api-dev.clustererp.com.br/api/v1/';
       mCondicional :
          result := 'https://api-dev.clustererp.com.br/api/v1/';
       mAutenticacao :
-         result := 'https://api-dev.clustererp.com.br/api/v1/';
+         result := 'http://localhost/api/v1/';//'https://api-dev.clustererp.com.br/api/v1/';
       mPDV :
-         result := 'https://api-dev.clustererp.com.br/api/v1/';
+         result := 'http://localhost/api/v1/cadastro/'; //;'https://api-dev.clustererp.com.br/api/v1/cadastro/';
     end;
 
 end;

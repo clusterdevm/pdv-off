@@ -93,6 +93,7 @@ end;
 
 procedure TfrmPrincipal.ac_condicionalExecute(Sender: TObject);
 begin
+  sessao.ShowForm(Tfrm_CondicionalFIltrar,frm_CondicionalFIltrar);
   frm_CondicionalFIltrar := Tfrm_CondicionalFIltrar.Create(frmPrincipal);
   frm_CondicionalFIltrar.Showmodal;
 end;
@@ -104,22 +105,20 @@ end;
 
 procedure TfrmPrincipal.ac_vendaExecute(Sender: TObject);
 begin
-  form_venda := Tform_venda.Create(frmPrincipal);
-  form_venda.Showmodal;
+  sessao.ShowForm(Tform_venda, form_venda);
 end;
 
 procedure TfrmPrincipal.FormActivate(Sender: TObject);
 begin
     pnlLoja.Caption:= '    '+sessao.nomeFantasia;
     lblCNPJ.Caption:= (FormataCNPJ(sessao.cnpj));
-    lblUnidade.Caption:= Sessao.nomeResumido;
+    lblUnidade.Caption:= Sessao.n_unidade;
 
     lblUsuario.Caption:= ' Usuario: '+ sessao.usuarioName ;
 end;
 
 procedure TfrmPrincipal.FormShow(Sender: TObject);
 begin
-
   AtivaBusca;
 end;
 

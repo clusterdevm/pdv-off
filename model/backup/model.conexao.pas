@@ -35,6 +35,7 @@ Type
 
          procedure updateSQl(_tabela:String;_Json, _jsonOlD:TJsonObject);
          procedure updateSQlArray(_tabela:String;_JsonArray:TJsonArray);
+         Procedure ProcessaSinc(_name : String ; _jArray  : TJsonArray);
 
 
          Procedure ChecaItensArrayToSQl(_tabela:String;_JsonArray:TJsonArray);
@@ -45,8 +46,6 @@ Type
 
          Constructor Create;
          Destructor Destroy;override;
-
-         Procedure setConf;
 
   end;
 
@@ -534,6 +533,33 @@ end;
 
 end;
 
+procedure TConexao.ProcessaSinc(_name: String; _jArray: TJsonArray);
+var i : integer;
+    iSql : TZSQLProcessor;
+begin
+  try
+    iSql:= TZSQLProcessor.Create(nil);
+    iSql.Connection := Conector;
+    for i := 0 to _jArray.Count-1 do
+    Begin
+         if _jArray.Items[i].AsObject['remove'].AsBoolean  then
+            isql.Script.Add('delete from '+_name+' where uuid = '+QuotedStr(_jArray.Items[i].AsObject['uuid'].AsString)+';')
+         else
+            with isql.Script do
+            Begin
+                Add('update '+_name+' set sinc_pendente = ''N'' ');
+                    ' where uuid = '+QuotedStr(_jArray.Items[i].AsObject['uuid'].AsString)+
+                    ' and (sinc_pendente <> ''N'' or sinc_pendente is null); ');
+            end;
+    end;
+
+    if isql.Script.Count > 0 then
+      isql.Execute;
+  finally
+      FreeAndnil(isql);
+  end;
+end;
+
 procedure TConexao.ChecaItensArrayToSQl(_tabela: String; _JsonArray:TJsonArray);
 var _item : TJsonObject;
   _delimiter, s_listaID : string;
@@ -593,8 +619,13 @@ end;
 procedure TConexao.InserirDados(_tabela:String;_Json:TJsonObject; _returnID:Boolean = false);
 begin
     InsertObjectToSQl(_tabela,_Json,_returnID);
-    query.Open;
-    _Json['id'].AsInteger:=Query.FieldByName('id').AsInteger;
+
+    if _returnID = true then
+    Begin
+        query.Open;
+        _Json['id'].AsInteger:=Query.FieldByName('id').AsInteger;
+    end else
+        query.ExecSQL;
 end;
 
 end.

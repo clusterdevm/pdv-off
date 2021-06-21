@@ -13,6 +13,7 @@ object frmPrincipal: TfrmPrincipal
   OnResize = FormResize
   OnShow = FormShow
   Position = poMainFormCenter
+  LCLVersion = '2.0.12.0'
   WindowState = wsMaximized
   object pnlRodape: TPanel
     Left = 0
@@ -23,8 +24,8 @@ object frmPrincipal: TfrmPrincipal
     Alignment = taRightJustify
     BevelOuter = bvNone
     Caption = '000'
-    ClientHeight = 25
-    ClientWidth = 962
+    ClientHeight = 29
+    ClientWidth = 966
     Color = 9199360
     Font.Color = clWhite
     ParentColor = False
@@ -134,8 +135,8 @@ object frmPrincipal: TfrmPrincipal
     Alignment = taLeftJustify
     BevelOuter = bvNone
     Caption = '   ROSA CHICLE'
-    ClientHeight = 46
-    ClientWidth = 962
+    ClientHeight = 50
+    ClientWidth = 966
     Color = 9199360
     Font.Color = clWhite
     Font.Height = -24
@@ -149,8 +150,8 @@ object frmPrincipal: TfrmPrincipal
       Width = 246
       Align = alRight
       BevelOuter = bvNone
-      ClientHeight = 46
-      ClientWidth = 242
+      ClientHeight = 50
+      ClientWidth = 246
       TabOrder = 0
       object lblCNPJ2: TLabel
         Left = 1
@@ -206,8 +207,8 @@ object frmPrincipal: TfrmPrincipal
     Top = 184
     Width = 362
     BevelOuter = bvNone
-    ClientHeight = 180
-    ClientWidth = 358
+    ClientHeight = 184
+    ClientWidth = 362
     TabOrder = 4
     object Image2: TImage
       Left = 10
@@ -6490,8 +6491,8 @@ object frmPrincipal: TfrmPrincipal
     Width = 966
     Align = alTop
     BevelOuter = bvNone
-    ClientHeight = 90
-    ClientWidth = 962
+    ClientHeight = 94
+    ClientWidth = 966
     TabOrder = 5
     object pnlButtonCenter: TPanel
       Left = 392
@@ -6500,8 +6501,8 @@ object frmPrincipal: TfrmPrincipal
       Width = 392
       AutoSize = True
       BevelOuter = bvNone
-      ClientHeight = 83
-      ClientWidth = 388
+      ClientHeight = 87
+      ClientWidth = 392
       TabOrder = 0
       object SpeedButton1: TSpeedButton
         Left = 10
