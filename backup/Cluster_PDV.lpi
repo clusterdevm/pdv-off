@@ -28,31 +28,34 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <RequiredPackages Count="8">
+    <RequiredPackages Count="9">
       <Item1>
-        <PackageName Value="bgracontrols"/>
+        <PackageName Value="frce"/>
       </Item1>
       <Item2>
-        <PackageName Value="TurboPowerIPro"/>
+        <PackageName Value="bgracontrols"/>
       </Item2>
       <Item3>
-        <PackageName Value="RunTimeTypeInfoControls"/>
+        <PackageName Value="TurboPowerIPro"/>
       </Item3>
       <Item4>
-        <PackageName Value="weblaz"/>
+        <PackageName Value="RunTimeTypeInfoControls"/>
       </Item4>
       <Item5>
-        <PackageName Value="ACBrDiversos"/>
+        <PackageName Value="weblaz"/>
       </Item5>
       <Item6>
-        <PackageName Value="FCL"/>
+        <PackageName Value="ACBrDiversos"/>
       </Item6>
       <Item7>
-        <PackageName Value="zcomponent"/>
+        <PackageName Value="FCL"/>
       </Item7>
       <Item8>
-        <PackageName Value="LCL"/>
+        <PackageName Value="zcomponent"/>
       </Item8>
+      <Item9>
+        <PackageName Value="LCL"/>
+      </Item9>
     </RequiredPackages>
     <Units Count="30">
       <Unit0>
@@ -111,118 +114,119 @@
         <ResourceBaseClass Value="Form"/>
       </Unit9>
       <Unit10>
-        <Filename Value="view/venda/view.pdv.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frame_pdv"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Frame"/>
-      </Unit10>
-      <Unit11>
         <Filename Value="view/venda/view.balcao.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frm_balcao"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="model/model.usuarios.pas"/>
+        <IsPartOfProject Value="True"/>
       </Unit11>
       <Unit12>
-        <Filename Value="model/model.usuarios.pas"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit12>
       <Unit13>
-        <Filename Value="classes/model.sinc.down.pas"/>
+        <Filename Value="controller/controller.condicional.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit13>
       <Unit14>
-        <Filename Value="controller/controller.condicional.pas"/>
+        <Filename Value="classes/model.request.jsons.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit14>
       <Unit15>
-        <Filename Value="classes/model.request.jsons.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit15>
-      <Unit16>
         <Filename Value="view/uf_base.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit16>
-      <Unit17>
+      </Unit15>
+      <Unit16>
         <Filename Value="view/condicional/view.condicional.filtrar.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frm_CondicionalFIltrar"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit17>
-      <Unit18>
+      </Unit16>
+      <Unit17>
         <Filename Value="view/frames/frame.empresa.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Frame1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-      </Unit18>
-      <Unit19>
+      </Unit17>
+      <Unit18>
         <Filename Value="view/frames/frame.status.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Frame2"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-      </Unit19>
-      <Unit20>
+      </Unit18>
+      <Unit19>
         <Filename Value="view/condicional/view.condicional.criar.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmCondicionalCriar"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit20>
-      <Unit21>
+      </Unit19>
+      <Unit20>
         <Filename Value="view/frames/frame.produto.localiza.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frameProdutoGet"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="model/model.pessoa.pas"/>
+        <IsPartOfProject Value="True"/>
       </Unit21>
       <Unit22>
-        <Filename Value="model/model.pessoa.pas"/>
+        <Filename Value="classes/cluster_pdv.sessao.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit22>
       <Unit23>
-        <Filename Value="classes/cluster_pdv.sessao.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit23>
-      <Unit24>
         <Filename Value="view/uf_aguarde.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="f_aguarde"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="classes/thread.wait.pas"/>
+        <IsPartOfProject Value="True"/>
       </Unit24>
       <Unit25>
-        <Filename Value="classes/thread.wait.pas"/>
+        <Filename Value="classes/wcursos.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit25>
       <Unit26>
-        <Filename Value="classes/wcursos.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit26>
-      <Unit27>
         <Filename Value="view/condicional/view.condicional.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="f_condicional"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit27>
-      <Unit28>
+      </Unit26>
+      <Unit27>
         <Filename Value="view/frames/frame.cliente.localiza.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="framePessoaGet"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-      </Unit28>
-      <Unit29>
+      </Unit27>
+      <Unit28>
         <Filename Value="report/report.condicional.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="report_condicional"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="form_venda"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit29>
     </Units>
@@ -234,7 +238,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="model;classes;view;view/venda;view/filtros;controller;view/condicional;view/frames;../../componentes/ems/json4delphi;../../componentes/ems/dataset-serialize-master/src;report"/>
+      <OtherUnitFiles Value="model;classes;view;view/venda;view/filtros;controller;view/condicional;view/frames;../../componentes/ems/json4delphi;../../componentes/ems/dataset-serialize-master/src;../../componentes/ems/JsonTools-master----;report"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Parsing>

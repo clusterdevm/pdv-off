@@ -13,7 +13,7 @@ uses
   model.request.jsons, view.condicional.filtrar,
 
   view.condicional.criar, model.pessoa, cluster_pdv.sessao, uf_aguarde,
-  thread.wait, wcursos, view.condicional, unit1;
+  thread.wait, wcursos, view.condicional;
 
 {$R *.res}
 
@@ -29,7 +29,7 @@ begin
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(Tfrm_login, frm_login);
-  Application.CreateForm(Treport_condicional, report_condicional);
+  Application.CreateForm(Tf_pdv, f_pdv);
   Application.Run;
 
 end.

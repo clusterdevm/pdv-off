@@ -23,13 +23,9 @@ type
     ac_novo: TAction;
     ActionList1: TActionList;
     DataSource1: TDataSource;
-    Image1: TImage;
     Image2: TImage;
-    ImageList1: TImageList;
-    Label1: TLabel;
     Label4: TLabel;
     Label5: TLabel;
-    lblnome: TLabel;
     MenuItem1: TMenuItem;
     MenuItem10: TMenuItem;
     MenuItem2: TMenuItem;
@@ -60,15 +56,12 @@ type
     Panel7: TPanel;
     Panel8: TPanel;
     Panel9: TPanel;
-    Panel11: TPanel;
     pnlcaixa: TPanel;
     PopupMenu1: TPopupMenu;
     SpeedButton10: TSpeedButton;
     SpeedButton11: TSpeedButton;
     SpeedButton12: TSpeedButton;
     SpeedButton13: TSpeedButton;
-    SpeedButton14: TSpeedButton;
-    sped_telacheia: TSpeedButton;
     SpeedButton3: TSpeedButton;
     SpeedButton4: TSpeedButton;
     SpeedButton5: TSpeedButton;
@@ -336,18 +329,7 @@ end;
 
 procedure Tfrmvendabalcao.sped_telacheiaClick(Sender: TObject);
 begin
-   case sped_telacheia.ImageIndex of
-       2 : Begin
-           frmvendabalcao.WindowState := wsFullScreen;
-           sped_telacheia.ImageIndex  := 3;
-       end;
 
-       3:Begin
-           frmvendabalcao.WindowState := wsMaximized;
-           sped_telacheia.ImageIndex  := 2;
-       end;
-
-   end;
 end;
 
 procedure Tfrmvendabalcao.SpeedButton14Click(Sender: TObject);
@@ -414,7 +396,6 @@ begin
 //       Requisicao := TRequisicao.Create;
 //       Requisicao.Metodo := rPost;
 //       Requisicao.Body.Add(objBody.AsJSON);
-//       Requisicao.URL := 'venda';
 //       Requisicao.Funcao := 'vendadel';
 //       Requisicao.Execute;
 //
@@ -459,7 +440,6 @@ begin
     //
     //   Servidor        := TRequisicao.Create;
     //   Servidor.Metodo := rPost;
-    //   Servidor.URL    := 'venda';
     //   Servidor.Funcao := 'vendalist';
     //   Servidor.Body.Add(objBody.AsJSON);
     //   Servidor.Execute;

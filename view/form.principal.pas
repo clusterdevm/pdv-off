@@ -6,14 +6,15 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
-  ActnList, StdCtrls, DTAnalogClock, view.venda, view.condicional.filtrar,
-  model.sinc.down, classe.utils;
+  ActnList, StdCtrls, DTAnalogClock,
+  view.condicional.filtrar, f_venda, model.sinc.down, classe.utils;
 
 type
 
   { TfrmPrincipal }
 
   TfrmPrincipal = class(TForm)
+    ac_venda: TAction;
     ac_sair: TAction;
     ac_condicional: TAction;
     ActionList1: TActionList;
@@ -41,6 +42,7 @@ type
     SpeedButton4: TSpeedButton;
     procedure ac_condicionalExecute(Sender: TObject);
     procedure ac_sairExecute(Sender: TObject);
+    procedure ac_vendaExecute(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormResize(Sender: TObject);
@@ -100,6 +102,12 @@ begin
   frmPrincipal.Close;
 end;
 
+procedure TfrmPrincipal.ac_vendaExecute(Sender: TObject);
+begin
+  form_venda := Tform_venda.Create(nil);
+  form_venda.Showmodal;
+end;
+
 procedure TfrmPrincipal.FormActivate(Sender: TObject);
 begin
     pnlLoja.Caption:= '    '+sessao.nomeFantasia;
@@ -146,9 +154,7 @@ end;
 
 procedure TfrmPrincipal.SpeedButton4Click(Sender: TObject);
 begin
-  if not Assigned(frmvendabalcao) then
-     frmvendabalcao := Tfrmvendabalcao.Create(frmPrincipal);
-  frmvendabalcao.ShowModal;
+
 end;
 
 procedure TfrmPrincipal.AtivaBusca;

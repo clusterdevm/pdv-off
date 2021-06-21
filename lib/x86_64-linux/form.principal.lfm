@@ -23,8 +23,8 @@ object frmPrincipal: TfrmPrincipal
     Alignment = taRightJustify
     BevelOuter = bvNone
     Caption = '000'
-    ClientHeight = 29
-    ClientWidth = 966
+    ClientHeight = 25
+    ClientWidth = 962
     Color = 9199360
     Font.Color = clWhite
     ParentColor = False
@@ -34,7 +34,7 @@ object frmPrincipal: TfrmPrincipal
       Left = 0
       Height = 29
       Top = 0
-      Width = 46
+      Width = 52
       Align = alLeft
       Alignment = taCenter
       Caption = 'Usuario'
@@ -48,8 +48,8 @@ object frmPrincipal: TfrmPrincipal
     Top = 298
     Width = 170
     Anchors = [akRight, akBottom]
-    ClientHeight = 178
-    ClientWidth = 170
+    ClientHeight = 174
+    ClientWidth = 166
     TabOrder = 1
     Visible = False
     object DTAnalogClock1: TDTAnalogClock
@@ -134,8 +134,8 @@ object frmPrincipal: TfrmPrincipal
     Alignment = taLeftJustify
     BevelOuter = bvNone
     Caption = '   ROSA CHICLE'
-    ClientHeight = 50
-    ClientWidth = 966
+    ClientHeight = 46
+    ClientWidth = 962
     Color = 9199360
     Font.Color = clWhite
     Font.Height = -24
@@ -149,8 +149,8 @@ object frmPrincipal: TfrmPrincipal
       Width = 246
       Align = alRight
       BevelOuter = bvNone
-      ClientHeight = 50
-      ClientWidth = 246
+      ClientHeight = 46
+      ClientWidth = 242
       TabOrder = 0
       object lblCNPJ2: TLabel
         Left = 1
@@ -206,8 +206,8 @@ object frmPrincipal: TfrmPrincipal
     Top = 184
     Width = 362
     BevelOuter = bvNone
-    ClientHeight = 184
-    ClientWidth = 362
+    ClientHeight = 180
+    ClientWidth = 358
     TabOrder = 4
     object Image2: TImage
       Left = 10
@@ -6490,27 +6490,27 @@ object frmPrincipal: TfrmPrincipal
     Width = 966
     Align = alTop
     BevelOuter = bvNone
-    ClientHeight = 94
-    ClientWidth = 966
+    ClientHeight = 90
+    ClientWidth = 962
     TabOrder = 5
     object pnlButtonCenter: TPanel
       Left = 392
-      Height = 86
+      Height = 87
       Top = 0
       Width = 392
       AutoSize = True
       BevelOuter = bvNone
-      ClientHeight = 86
-      ClientWidth = 392
+      ClientHeight = 83
+      ClientWidth = 388
       TabOrder = 0
       object SpeedButton1: TSpeedButton
         Left = 10
-        Height = 86
+        Height = 87
         Top = 0
         Width = 88
+        Action = ac_venda
         Align = alLeft
         BorderSpacing.Left = 10
-        Caption = 'Vendas'
         Flat = True
         Glyph.Data = {
           36400000424D3640000000000000360000002800000040000000400000000100
@@ -7032,7 +7032,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object SpeedButton2: TSpeedButton
         Left = 206
-        Height = 86
+        Height = 87
         Top = 0
         Width = 88
         Align = alLeft
@@ -7559,7 +7559,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object SpeedButton3: TSpeedButton
         Left = 108
-        Height = 86
+        Height = 87
         Top = 0
         Width = 88
         Action = ac_condicional
@@ -8086,7 +8086,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object SpeedButton4: TSpeedButton
         Left = 304
-        Height = 86
+        Height = 87
         Top = 0
         Width = 88
         Action = ac_sair
@@ -8624,6 +8624,10 @@ object frmPrincipal: TfrmPrincipal
       Caption = 'Sair'
       OnExecute = ac_sairExecute
       ShortCut = 123
+    end
+    object ac_venda: TAction
+      Caption = 'Vendas'
+      OnExecute = ac_vendaExecute
     end
   end
 end
