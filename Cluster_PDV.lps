@@ -3,6 +3,7 @@
   <ProjectSession>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
+<<<<<<< HEAD
     <Units Count="80">
       <Unit0>
         <Filename Value="Cluster_PDV.lpr"/>
@@ -10,6 +11,15 @@
         <EditorIndex Value="2"/>
         <TopLine Value="2"/>
         <CursorPos X="61" Y="8"/>
+=======
+    <Units Count="82">
+      <Unit0>
+        <Filename Value="Cluster_PDV.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="8"/>
+        <CursorPos X="27" Y="18"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <UsageCount Value="210"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -39,9 +49,15 @@
       <Unit3>
         <Filename Value="model/model.request.http.pas"/>
         <IsPartOfProject Value="True"/>
+<<<<<<< HEAD
         <EditorIndex Value="-1"/>
         <TopLine Value="211"/>
         <CursorPos X="26" Y="227"/>
+=======
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="227"/>
+        <CursorPos X="39" Y="232"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <UsageCount Value="207"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit3>
@@ -58,8 +74,13 @@
         <Filename Value="classes/classe.utils.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
+<<<<<<< HEAD
         <TopLine Value="86"/>
         <CursorPos X="4" Y="89"/>
+=======
+        <TopLine Value="90"/>
+        <CursorPos Y="101"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <UsageCount Value="201"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
@@ -141,9 +162,15 @@
       <Unit13>
         <Filename Value="controller/controller.condicional.pas"/>
         <IsPartOfProject Value="True"/>
+<<<<<<< HEAD
         <EditorIndex Value="-1"/>
         <TopLine Value="88"/>
         <CursorPos X="2" Y="74"/>
+=======
+        <EditorIndex Value="2"/>
+        <TopLine Value="341"/>
+        <CursorPos X="38" Y="355"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
           <Item0 X="47" Y="291" ID="2"/>
@@ -176,8 +203,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
+<<<<<<< HEAD
         <TopLine Value="89"/>
         <CursorPos X="53" Y="55"/>
+=======
+        <TopLine Value="55"/>
+        <CursorPos X="66" Y="61"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit16>
@@ -202,7 +234,11 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="14"/>
         <CursorPos X="64" Y="25"/>
+<<<<<<< HEAD
         <UsageCount Value="211"/>
+=======
+        <UsageCount Value="200"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit18>
       <Unit19>
@@ -214,7 +250,11 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="65"/>
         <CursorPos X="70" Y="77"/>
+<<<<<<< HEAD
         <UsageCount Value="210"/>
+=======
+        <UsageCount Value="200"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit19>
       <Unit20>
@@ -226,7 +266,11 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="22"/>
         <CursorPos X="51" Y="25"/>
+<<<<<<< HEAD
         <UsageCount Value="208"/>
+=======
+        <UsageCount Value="200"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit20>
       <Unit21>
@@ -235,7 +279,11 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="49"/>
         <CursorPos X="52" Y="64"/>
+<<<<<<< HEAD
         <UsageCount Value="180"/>
+=======
+        <UsageCount Value="170"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit21>
       <Unit22>
@@ -244,7 +292,11 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="26"/>
         <CursorPos X="73" Y="34"/>
+<<<<<<< HEAD
         <UsageCount Value="174"/>
+=======
+        <UsageCount Value="164"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit22>
       <Unit23>
@@ -256,7 +308,11 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="5"/>
         <CursorPos X="3" Y="26"/>
+<<<<<<< HEAD
         <UsageCount Value="120"/>
+=======
+        <UsageCount Value="110"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit23>
       <Unit24>
@@ -265,7 +321,11 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="75"/>
         <CursorPos X="47" Y="89"/>
+<<<<<<< HEAD
         <UsageCount Value="120"/>
+=======
+        <UsageCount Value="110"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit24>
       <Unit25>
@@ -274,7 +334,11 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="63"/>
         <CursorPos X="47" Y="72"/>
+<<<<<<< HEAD
         <UsageCount Value="119"/>
+=======
+        <UsageCount Value="109"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit25>
       <Unit26>
@@ -286,7 +350,11 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="267"/>
         <CursorPos X="69" Y="274"/>
+<<<<<<< HEAD
         <UsageCount Value="103"/>
+=======
+        <UsageCount Value="93"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit26>
       <Unit27>
@@ -298,7 +366,11 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="54"/>
         <CursorPos X="49" Y="70"/>
+<<<<<<< HEAD
         <UsageCount Value="102"/>
+=======
+        <UsageCount Value="92"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit27>
       <Unit28>
@@ -308,6 +380,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
+<<<<<<< HEAD
         <TopLine Value="209"/>
         <CursorPos X="55" Y="212"/>
         <UsageCount Value="39"/>
@@ -326,6 +399,11 @@
         <UsageCount Value="38"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
+=======
+        <TopLine Value="290"/>
+        <CursorPos X="46" Y="308"/>
+        <UsageCount Value="29"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit29>
       <Unit30>
@@ -616,10 +694,18 @@
       <Unit66>
         <Filename Value="/usr/share/fpcsrc/3.2.0/packages/fcl-web/src/base/fphttpclient.pp"/>
         <EditorIndex Value="-1"/>
+<<<<<<< HEAD
         <CursorPos X="18" Y="15"/>
         <UsageCount Value="14"/>
       </Unit66>
       <Unit67>
+=======
+        <TopLine Value="1392"/>
+        <CursorPos X="3" Y="1391"/>
+        <UsageCount Value="17"/>
+      </Unit67>
+      <Unit68>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
         <Filename Value="/usr/share/fpcsrc/3.2.0/packages/rtl-console/src/inc/crth.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="78"/>
@@ -700,6 +786,7 @@
       </Unit76>
       <Unit77>
         <Filename Value="../../componentes/acbr/Pacotes/Lazarus/ACBrSerial/ACBrSerial.pas"/>
+<<<<<<< HEAD
         <CursorPos X="24" Y="8"/>
         <UsageCount Value="22"/>
         <Loaded Value="True"/>
@@ -840,6 +927,158 @@
       <Position30>
         <Filename Value="view/venda/f_venda.pas"/>
         <Caret Line="122" Column="64" TopLine="118"/>
+=======
+        <EditorIndex Value="-1"/>
+        <CursorPos X="61" Y="7"/>
+        <UsageCount Value="12"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit78>
+      <Unit79>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2994"/>
+        <CursorPos X="41" Y="3015"/>
+        <UsageCount Value="10"/>
+      </Unit79>
+      <Unit80>
+        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLReport.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1181"/>
+        <CursorPos X="37" Y="1185"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit80>
+      <Unit81>
+        <Filename Value="../../componentes/acbr/Fontes/Terceiros/synalist/httpsend.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="307"/>
+        <CursorPos X="39" Y="316"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit81>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="../../componentes/acbr/Fontes/Terceiros/synalist/httpsend.pas"/>
+        <Caret Line="272" Column="30" TopLine="259"/>
+      </Position1>
+      <Position2>
+        <Filename Value="../../componentes/acbr/Fontes/Terceiros/synalist/httpsend.pas"/>
+        <Caret Line="97" Column="12" TopLine="84"/>
+      </Position2>
+      <Position3>
+        <Filename Value="../../componentes/acbr/Fontes/Terceiros/synalist/httpsend.pas"/>
+        <Caret Line="121" Column="27" TopLine="101"/>
+      </Position3>
+      <Position4>
+        <Filename Value="../../componentes/acbr/Fontes/Terceiros/synalist/httpsend.pas"/>
+        <Caret Line="128" Column="19" TopLine="108"/>
+      </Position4>
+      <Position5>
+        <Filename Value="../../componentes/acbr/Fontes/Terceiros/synalist/httpsend.pas"/>
+        <Caret Line="136" Column="56" TopLine="116"/>
+      </Position5>
+      <Position6>
+        <Filename Value="../../componentes/acbr/Fontes/Terceiros/synalist/httpsend.pas"/>
+        <Caret Line="151" Column="67" TopLine="131"/>
+      </Position6>
+      <Position7>
+        <Filename Value="../../componentes/acbr/Fontes/Terceiros/synalist/httpsend.pas"/>
+        <Caret Line="152" Column="76" TopLine="133"/>
+      </Position7>
+      <Position8>
+        <Filename Value="../../componentes/acbr/Fontes/Terceiros/synalist/httpsend.pas"/>
+        <Caret Line="153" Column="76" TopLine="134"/>
+      </Position8>
+      <Position9>
+        <Filename Value="../../componentes/acbr/Fontes/Terceiros/synalist/httpsend.pas"/>
+        <Caret Line="154" Column="51" TopLine="134"/>
+      </Position9>
+      <Position10>
+        <Filename Value="../../componentes/acbr/Fontes/Terceiros/synalist/httpsend.pas"/>
+        <Caret Line="155" Column="47" TopLine="135"/>
+      </Position10>
+      <Position11>
+        <Filename Value="../../componentes/acbr/Fontes/Terceiros/synalist/httpsend.pas"/>
+        <Caret Line="231" Column="62" TopLine="211"/>
+      </Position11>
+      <Position12>
+        <Filename Value="../../componentes/acbr/Fontes/Terceiros/synalist/httpsend.pas"/>
+        <Caret Line="232" Column="69" TopLine="212"/>
+      </Position12>
+      <Position13>
+        <Filename Value="../../componentes/acbr/Fontes/Terceiros/synalist/httpsend.pas"/>
+        <Caret Line="239" Column="43" TopLine="218"/>
+      </Position13>
+      <Position14>
+        <Filename Value="controller/controller.condicional.pas"/>
+        <Caret Line="355" Column="38" TopLine="341"/>
+      </Position14>
+      <Position15>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="74" Column="19" TopLine="64"/>
+      </Position15>
+      <Position16>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="220" Column="43" TopLine="213"/>
+      </Position16>
+      <Position17>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="221" Column="27" TopLine="208"/>
+      </Position17>
+      <Position18>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="197" Column="29" TopLine="172"/>
+      </Position18>
+      <Position19>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="227" Column="47" TopLine="214"/>
+      </Position19>
+      <Position20>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="233" Column="34" TopLine="222"/>
+      </Position20>
+      <Position21>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="108" Column="34" TopLine="95"/>
+      </Position21>
+      <Position22>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="116" Column="29" TopLine="103"/>
+      </Position22>
+      <Position23>
+        <Filename Value="controller/controller.condicional.pas"/>
+        <Caret Line="355" Column="38" TopLine="341"/>
+      </Position23>
+      <Position24>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="74" Column="19" TopLine="64"/>
+      </Position24>
+      <Position25>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="221" Column="38" TopLine="212"/>
+      </Position25>
+      <Position26>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="225" TopLine="212"/>
+      </Position26>
+      <Position27>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="227" TopLine="212"/>
+      </Position27>
+      <Position28>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="229" TopLine="212"/>
+      </Position28>
+      <Position29>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="225" TopLine="212"/>
+      </Position29>
+      <Position30>
+        <Filename Value="model/model.request.http.pas"/>
+        <Caret Line="230" Column="2" TopLine="212"/>
+>>>>>>> 39cfced87995dee14d4acaedac7ba203a15de812
       </Position30>
     </JumpHistory>
     <RunParams>

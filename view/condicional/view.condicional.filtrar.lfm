@@ -394,6 +394,10 @@ inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
       Caption = 'Inativar'
       OnExecute = acInativarExecute
     end
+    object acImprimir: TAction
+      Caption = 'Imprimir'
+      OnExecute = acImprimirExecute
+    end
   end
   object ACBrEnterTab1: TACBrEnterTab[9]
     EnterAsTab = True
@@ -423,6 +427,10 @@ inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
       Caption = 'Buscar'
       ImageIndex = 2
       OnClick = ac_buscarExecute
+    end
+    object MenuItem5: TMenuItem
+      Caption = 'Imprimir'
+      OnClick = acImprimirExecute
     end
   end
 end

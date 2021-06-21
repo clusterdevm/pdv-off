@@ -99,8 +99,6 @@ begin
        _api.endpoint := 'token/';
        _api.Execute();
 
-       _saveDebug(_api.Return.Stringify,'token');
-
        if (_api.ResponseCode in [200..207]) then
            sessao.bearerems:= _api.Return['token'].AsString;
   end;
