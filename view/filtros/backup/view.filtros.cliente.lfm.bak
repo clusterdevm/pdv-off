@@ -71,7 +71,7 @@ object frmFiltroCliente: TfrmFiltroCliente
       item
         ReadOnly = True
         Title.Caption = 'NOME'
-        Width = 200
+        Width = 300
         FieldName = 'nome'
       end    
       item
@@ -85,12 +85,6 @@ object frmFiltroCliente: TfrmFiltroCliente
         Title.Caption = 'DOCUMENTO'
         Width = 150
         FieldName = 'cpf_cnpj'
-      end    
-      item
-        ReadOnly = True
-        Title.Caption = 'TIPO PESSOA'
-        Width = 120
-        FieldName = 'TIPOPESSOA'
       end    
       item
         ReadOnly = True

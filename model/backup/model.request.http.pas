@@ -342,18 +342,19 @@ try
            fresponse:= _response.DataString;
 
 
-       //RegistraLogErro(getHost);
-       //RegistraLogErro('response : '+fresponse);
-       Return.Parse(fresponse);
+       RegistraLogErro(getHost);
+       RegistraLogErro('response : '+fresponse);
+       RegistraLogErro('request : '+FBody.Text);
 
-       //if copy(trim(fresponse),1,1) = '{' then
-       //  try
-       //  Return.Parse(fresponse);
-       //  except
-       //      ShowMessage(fresponse);
-       //  end
-       //else
-       //   Return.Put('json_error',fresponse);
+
+       if copy(trim(fresponse),1,1) = '{' then
+         try
+            Return.Parse(fresponse);
+         except
+             ShowMessage(fresponse);
+         end
+       else
+          Return.Put('json_error',fresponse);
 
 except
      on e:Exception do

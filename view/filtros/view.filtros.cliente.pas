@@ -224,16 +224,19 @@ end;
 
 procedure TfrmFiltroCliente.FormShow(Sender: TObject);
 begin
-    edt_razao.SetFocus;
+   a := 0; b:= 0;
+   timer1.Enabled:= true;
+   edt_razao.SetFocus;
 end;
 
 procedure TfrmFiltroCliente.Timer1Timer(Sender: TObject);
 begin
     if a = b then
+    Begin
         Timer1.Enabled:= false;
-
-    b:= a;
-
+        ac_filtrarExecute(self);
+    end else
+       b:=Length(edt_razao.Text)+Length(edt_telefone.Text)+Length(edt_CNPJ.text);
 end;
 
 end.

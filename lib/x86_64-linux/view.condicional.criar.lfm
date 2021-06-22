@@ -58,7 +58,6 @@ object frmCondicionalCriar: TfrmCondicionalCriar
         Top = 2
         OnEnter = EditIDEnter
         OnExit = EditIDExit
-        OnKeyPress = EditIDVENDEDORKeyPress
       end
       inherited edt_name: TEdit
         Left = 82
@@ -83,8 +82,7 @@ object frmCondicionalCriar: TfrmCondicionalCriar
         Height = 29
         Top = 2
         OnEnter = EditIDEnter
-        OnExit = EditIDExit
-        OnKeyPress = EditIDKeyPress
+        OnExit = ac_clienteExecute
       end
       inherited edt_name: TEdit
         Left = 82
@@ -115,6 +113,13 @@ object frmCondicionalCriar: TfrmCondicionalCriar
       Caption = 'Iniciar (F6)'
       OnExecute = ac_iniciarExecute
       ShortCut = 117
+    end
+    object Action2: TAction
+      Caption = 'Action2'
+    end
+    object ac_cliente: TAction
+      Caption = 'GetPessoa'
+      OnExecute = ac_clienteExecute
     end
   end
 end

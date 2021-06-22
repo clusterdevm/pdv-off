@@ -80,15 +80,21 @@ begin
      Begin
          Close;
          Sql.Clear;
-         Sql.Add('select nome from pessoas where id = '+QuotedStr(value));
+         Sql.Add('select nome, ativo from pessoas where id = '+QuotedStr(value));
+         Sql.add(' and trim(nome) <> '''' ');
          open;
          if IsEmpty then
          Begin
-              Showmessage('Codigo invalido');
+              messagedlg('Registro invalido',mtError,[mbok],0);
          end else
          Begin
-             result := true;
-             self.razao := fieldbyName('nome').AsString;
+             if lowercase(FieldByName('ativo').AsString)='false' then
+                messagedlg('Cadastro esta Inativado',mtError,[mbok],0)
+             else
+             Begin
+                 result := true;
+                 self.razao := fieldbyName('nome').AsString;
+             end;
          end;
      end;
    finally

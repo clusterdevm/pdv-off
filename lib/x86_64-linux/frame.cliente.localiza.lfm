@@ -27,7 +27,6 @@ object framePessoaGet: TframePessoaGet
       Width = 80
       Align = alLeft
       BorderStyle = bsNone
-      OnKeyPress = EditIDKeyPress
       TabOrder = 1
       TextHint = 'Informe ID'
     end

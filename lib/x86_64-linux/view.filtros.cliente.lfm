@@ -258,7 +258,7 @@ object frmFiltroCliente: TfrmFiltroCliente
   end
   object Timer1: TTimer
     Enabled = False
-    Interval = 500
+    Interval = 350
     OnTimer = Timer1Timer
     Left = 232
     Top = 184

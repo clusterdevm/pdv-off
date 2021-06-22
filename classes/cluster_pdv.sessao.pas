@@ -5,7 +5,7 @@ unit cluster_pdv.sessao;
 interface
 
 uses
-  Classes, SysUtils ,jsons, Dialogs, forms, controls;
+  Classes, SysUtils ,jsons, Dialogs, forms, controls, uf_fechamentoCaixa;
 
 type
 
@@ -33,6 +33,8 @@ private
   FusuarioName: String;
   fusuario_id: integer;
       Property caixa_id : Integer Read FCaixa_Id Write FCaixa_id;
+      Function getCaixID : String;
+      Function GetPDVID : Integer;
     public
       property bearerems : String read fbearerems write fbearerems;
       property usuario : String read fusuario write fusuario;
@@ -59,6 +61,9 @@ private
 
       Function GetCaixa : string;
       Procedure AbreCaixa ;
+      Procedure FechaCaixa;
+      Procedure Suprimento;
+      Procedure Sangria;
       Procedure ShowForm(TFormulario: TComponentClass; var Formulario);
 
       Constructor create;
@@ -66,7 +71,47 @@ end;
 
 implementation
 
-uses model.conexao, classe.utils;
+uses model.conexao, classe.utils, uf_saidaCaixa, form.principal;
+
+function TSessao.getCaixID: String;
+var _db : TConexao;
+begin
+   try
+        _db := TConexao.Create;
+        Result := '0';
+
+        with _db.Query do
+        Begin
+            Close;
+            Sql.Clear;
+            Sql.Add('select * from financeiro_caixa ');
+            Sql.Add(' where operador_id = '+QuotedStr(IntToStr(sessao.usuario_id)));
+            Sql.Add(' and trim(status) <> ''F'' ');
+            Open;
+            Result := IntToStr(FieldByName('id').AsInteger);
+        end;
+   finally
+       FreeAndNIl(_db);
+   end;
+end;
+
+function TSessao.GetPDVID: Integer;
+var _db :TConexao;
+begin
+  try
+     _db := TConexao.Create;
+     with _db.Query do
+     Begin
+         Close;
+         Sql.Add('select id from ems_pdv ');
+         open;
+
+         result := FieldByName('id').AsInteger;
+     end;
+  finally
+      FreeAndNil(_db);
+  end;
+end;
 
 function TSessao.GetCaixa: string;
 var _db : TConexao;
@@ -81,6 +126,7 @@ begin
          Sql.Clear;
          Sql.Add('select * from financeiro_caixa ');
          Sql.Add(' where operador_id = '+QuotedStr(IntToStr(sessao.usuario_id)));
+         Sql.Add(' and trim(status) <> ''F'' ');
          Open;
 
          if not IsEmpty then
@@ -106,6 +152,7 @@ begin
         _objeto['saldo_abertura'].AsNumber:= StrToFloatDef(aux,0);
         _objeto['data_abertura'].AsString:= getDataUTC;
         _objeto['operador_id'].AsInteger:= self.usuario_id;
+        _objeto['pdv_id'].AsInteger:= GetPDVID;
         _objeto['uuid'].AsString:= GetUUID;
         _objeto['sinc_pendente'].AsString:= 'S';
         _objeto['empresa_id'].AsInteger:= sessao.empresalogada;
@@ -117,6 +164,33 @@ begin
      FreeAndNil(_db);
      FreeAndNil(_objeto);
    end;
+end;
+
+procedure TSessao.FechaCaixa;
+begin
+  sessao.ShowForm(Tf_fechamentoCaixa, f_fechamentoCaixa);
+end;
+
+procedure TSessao.Suprimento;
+begin
+    f_saidaCaixa := Tf_saidaCaixa.Create(frmPrincipal);
+    f_saidaCaixa._endpoint:= 'suprimento';
+    f_saidaCaixa._caixaID:= getCaixID;
+    f_saidaCaixa.Caption:= 'Suprimento de Caixa';
+    f_saidaCaixa.ShowModal;
+    f_saidaCaixa.Release;
+    f_saidaCaixa := nil;
+end;
+
+procedure TSessao.Sangria;
+begin
+  f_saidaCaixa := Tf_saidaCaixa.Create(frmPrincipal);
+  f_saidaCaixa._endpoint:= 'sangria';
+  f_saidaCaixa._caixaID:= getCaixID;
+  f_saidaCaixa.Caption:= 'Sangria de Caixa';
+  f_saidaCaixa.ShowModal;
+  f_saidaCaixa.Release;
+  f_saidaCaixa := nil;
 end;
 
 procedure TSessao.ShowForm(TFormulario: TComponentClass; var Formulario);

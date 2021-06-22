@@ -29,7 +29,7 @@ implementation
 
 function TFrame2.GetArray: String;
 begin
-    Result := LowerCase(cb_status.Text);
+    result := LowerCase(cb_status.Text);
 end;
 
 function TFrame2.GetString: String;

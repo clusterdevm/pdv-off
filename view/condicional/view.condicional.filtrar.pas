@@ -8,7 +8,7 @@ uses
   Classes, SysUtils, DB, BufDataset, Forms, Controls, Graphics, Dialogs,
   ComCtrls, ExtCtrls, Buttons, ActnList, DBGrids, StdCtrls, ComboEx,
   ACBrEnterTab, uf_base, view.condicional.criar, controller.condicional,
-  classe.utils, frame.empresa, frame.status, LCLType, Menus, EditBtn;
+  classe.utils, frame.empresa, frame.status, LCLType, Menus, EditBtn, Grids;
 
 type
 
@@ -55,6 +55,7 @@ type
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
     PopupMenu1: TPopupMenu;
+    Timer1: TTimer;
     procedure acImprimirExecute(Sender: TObject);
     procedure acInativarExecute(Sender: TObject);
     procedure acNovoExecute(Sender: TObject);
@@ -62,7 +63,10 @@ type
     procedure ac_buscarExecute(Sender: TObject);
     procedure acEditarExecute(Sender: TObject);
     procedure cb_statusChange(Sender: TObject);
+    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure DBGrid1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edt_nomeChange(Sender: TObject);
     procedure edt_nomeKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
     procedure ed_conclusao_inicialChange(Sender: TObject);
@@ -70,8 +74,10 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Label4Click(Sender: TObject);
+    procedure Timer1StartTimer(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
-
+     var  a , b : Integer;
   public
 
   end;
@@ -153,6 +159,25 @@ begin
   ac_buscarExecute(self);
 end;
 
+procedure Tfrm_CondicionalFIltrar.DBGrid1DrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+
+  if (Column.Field.FieldName = 'status') and (cds_condicional.RecordCount > 0) then // Aqui o campo a colorir
+  begin
+       if trim(Column.Field.Value) <> '' then
+       Begin
+        if trim(Column.Field.Value) = 'rascunho' then // coloque aqui sua condição de quando colorir
+           DBGrid1.Canvas.Font.Color:= clRed
+        else
+           DBGrid1.Canvas.Font.Color:= clBlack;
+
+        DBGrid1.Canvas.FillRect(Rect);
+        DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+       end;
+  end;
+end;
+
 procedure Tfrm_CondicionalFIltrar.DBGrid1KeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
@@ -164,6 +189,12 @@ begin
               edt_nome.SetFocus;
       end;
   end;
+end;
+
+procedure Tfrm_CondicionalFIltrar.edt_nomeChange(Sender: TObject);
+begin
+  a := Length(edt_nome.Text) ;
+  Timer1.Enabled:=true;
 end;
 
 procedure Tfrm_CondicionalFIltrar.edt_nomeKeyDown(Sender: TObject;
@@ -230,10 +261,9 @@ begin
   Frame2_1.cb_status.Clear;
   with Frame2_1.cb_status.Items do
   Begin
-     Add('Rascunho');
+     Add('Pendente');
      Add('Cancelado');
      Add('Faturada');
-     Add('Pendente');
   end;
   Frame2_1.cb_status.ItemIndex:=0;
 
@@ -257,12 +287,28 @@ begin
     b_Inativar.Action := acInativar;
     b_localizar.Action := acBuscar;
     edt_nome.SetFocus;
-    ac_buscarExecute(self);
+    a:= 0; b:= 0;
+    Timer1.Enabled:=true;
 end;
 
 procedure Tfrm_CondicionalFIltrar.Label4Click(Sender: TObject);
 begin
 
+end;
+
+procedure Tfrm_CondicionalFIltrar.Timer1StartTimer(Sender: TObject);
+begin
+
+end;
+
+procedure Tfrm_CondicionalFIltrar.Timer1Timer(Sender: TObject);
+begin
+  if a = b then
+  Begin
+      Timer1.Enabled:= false;
+      ac_buscarExecute(self);
+  end else
+     b:=Length(edt_nome.Text);
 end;
 
 end.

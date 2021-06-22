@@ -51,18 +51,48 @@ implementation
 
 
 procedure TSincDownload.Processa(_tabela: string; _jsonValue: TJsonArray);
+var  i : integer;
+    _remove : TConexao;
 begin
+   _tabela := trim(_tabela);
+
    FMsg:='Checando Itens:'+_tabela;
    Synchronize(AtualizaLog);
-   _db.ChecaItensArrayToSQl(_tabela,_jsonvalue);
+   if _tabela <> 'financeiro_caixa' then
+      _db.ChecaItensArrayToSQl(_tabela,_jsonvalue);
 
    FMsg:='Inserindo Itens:'+_tabela;
    Synchronize(AtualizaLog);
-   _db.InsertArrayToSQl(_tabela,_jsonvalue);
+
+   if _tabela <> 'financeiro_caixa' then
+      _db.InsertArrayToSQl(_tabela,_jsonvalue);
 
    FMsg:='Atualizando Itens :'+_tabela;
    Synchronize(AtualizaLog);
-   _db.updateSQlArray(_tabela,_jsonvalue);
+   _db.updateSQlArray(_tabela,_jsonvalue, _tabela = 'financeiro_caixa');
+
+   if _tabela = 'financeiro_caixa' then
+   Begin
+       for i := 0 to _jsonValue.Count-1 do
+       Begin
+             if trim(_jsonValue.Items[i].AsObject['status'].AsString) = 'F' then
+             Begin
+                 try
+                    _remove := TConexao.Create;
+                      with _remove.Query do
+                      Begin
+                          Close;
+                          Sql.Clear;
+                          Sql.Add('delete from financeiro_caixa where id = '+QuotedStr(_jsonValue.Items[i].AsObject['id'].AsString));
+                          RegistraLogErro('caixa: ' +sql.text);
+                          ExecSQL;
+                      end;
+                 finally
+                       FreeAndNil(_remove);
+                 end;
+             end;
+       end;
+   end;
 
    FMsg:='finalizado :'+_tabela;
    Synchronize(AtualizaLog);
@@ -252,7 +282,6 @@ except
      on e:exception do
      Begin
            RegistraLogErro('Criar Tabela '+_tabelaName+' ' +e.message);
-           RegistraLogErro(_sql.Text);
      end;
 end;
 end;
@@ -279,8 +308,9 @@ begin
                ProcessarUpdate(_api.Return);
          end else
            FFalhou:= true;
+
     finally
-         FreeAndnil(_api);
+       //  FreeAndnil(_api);
     end;
   except
        on e: exception do
@@ -304,26 +334,31 @@ begin
          Close;
          Sql.Clear;
          Sql.Add('select * from financeiro_caixa ');
-         Sql.Add(' where sinc_pendente <> ''N'' ');
+         Sql.Add(' where (trim(sinc_pendente) = ''S'' or sinc_pendente is null) ');
          open;
-         _upload['itens'].AsObject.Put('financeiro_caixa',_db.ToArrayString);
+
+         if not IsEmpty then
+            _upload['itens'].AsObject.Put('financeiro_caixa',_db.ToArrayString);
     end;
 end;
 
 procedure TSincDownload.ProcessarUpdate(Return: TJsonObject);
 var i : Integer;
    _name : String;
+   _return : TJsonObject;
 begin
    FMsg:= 'Iniciando Confirmação de Updates';
    Synchronize(AtualizaLog);
 
-   for i:= 0 to return['itens'].AsObject.Count-1 do
+   _return := return['resultado'].AsObject;
+
+   for i:= 0 to _return['itens'].AsObject.Count-1 do
    Begin
-      _name := return['itens'].AsObject.Items[i].Name;
+      _name := _return['itens'].AsObject.Items[i].Name;
       FMsg:= _name;
       Synchronize(AtualizaLog);
 
-      _db.ProcessaSinc(_name, Return['itens'].AsObject[_name].AsArray);
+      _db.ProcessaSinc(_name, _return['itens'].AsObject[_name].AsArray);
    end;
 
 end;
@@ -377,7 +412,6 @@ var
     j,i : Integer;
     _name : String;
     _ok : Boolean;
-    _time: Integer;
 begin
 
   while Fprocessando do
@@ -386,16 +420,14 @@ begin
             FMsg:= 'Conectando ao Servidor';
             Synchronize(AtualizaLog);
             Consulta_Api(_ok);
-            _time := 0;
 
             FProtocolo:= FResponse['resultado'].AsObject['protocolo'].AsString;
             FResponse['resultado'].AsObject.Delete('protocolo');
             FResponse['resultado'].AsObject.Delete('registros');
 
-            RegistraLogErro('response: '+FResponse.Stringify);
-
            if (_ok) and (FResponse.Stringify <> '{}') then
            Begin
+
                _itensJson := FResponse['resultado'].AsObject;
                FErro_Processamento:= false;
                for I := 0 to _itensJson.Count - 1 do
@@ -421,26 +453,18 @@ begin
 
            end;
 
+
            if (i >= 0 ) and (_ok) then
            Begin
-               if FResponse.Stringify= '{}' then
-               Begin
-                   FMsg:= 'Ultima Sicronização '+ FormatDateTime('dd/mm/yyyy hh:mm:ss',now);
-                  _time:= 30000;
-               end
-               else
+               if FResponse.Stringify <> '{}' then
                Begin
                   if NOT Fprocessando then
                   Begin
-                       FMsg:= 'Ultima Sicronização '+ FormatDateTime('dd/mm/yyyy hh:mm:ss',now);
-                      _time:= 30000;
-
                       if (not FErro_Processamento) and (_itensJson.Count> 0) then
                          Concluir;
 
                       FFalhou:= FErro_Processamento;
-                  end else
-                    _time:= 5000;
+                  end;
                end;
                Fprocessando := not FResponse['finalizado'].AsBoolean;
                Synchronize(AtualizaLog);
@@ -448,7 +472,7 @@ begin
            else
               Fprocessando:= false;
 
-            FResponse.Clear;
+             FResponse.Clear;
             _itensJson := TJsonObject.Create();
             PreparaUpload(_itensJson);
 
@@ -456,18 +480,18 @@ begin
                SendUpload(_itensJson);
             FreeAndNil(_itensJson);
 
-
             if (Sessao.segundoplano) then
             Begin
+                 FMsg:= 'Ultima Sicronização '+ FormatDateTime('dd/mm/yyyy hh:mm:ss',now);
+                 Synchronize(AtualizaLog);
                  Fprocessando:= true;
-                 Delay(_time);
+                 Delay(5000);
             end;
       except
             Fprocessando:= true;
             FMsg:= 'Erro ao Processar';
             Synchronize(AtualizaLog);
-           _time := 1000;
-           Delay(_time);
+            Delay(1000);
       end;
   end;
 end;

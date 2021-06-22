@@ -28,39 +28,42 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <RequiredPackages Count="10">
+    <RequiredPackages Count="11">
       <Item1>
-        <PackageName Value="virtualtreeview_package"/>
+        <PackageName Value="LazControls"/>
       </Item1>
       <Item2>
-        <PackageName Value="frce"/>
+        <PackageName Value="virtualtreeview_package"/>
       </Item2>
       <Item3>
-        <PackageName Value="bgracontrols"/>
+        <PackageName Value="frce"/>
       </Item3>
       <Item4>
-        <PackageName Value="TurboPowerIPro"/>
+        <PackageName Value="bgracontrols"/>
       </Item4>
       <Item5>
-        <PackageName Value="RunTimeTypeInfoControls"/>
+        <PackageName Value="TurboPowerIPro"/>
       </Item5>
       <Item6>
-        <PackageName Value="weblaz"/>
+        <PackageName Value="RunTimeTypeInfoControls"/>
       </Item6>
       <Item7>
-        <PackageName Value="ACBrDiversos"/>
+        <PackageName Value="weblaz"/>
       </Item7>
       <Item8>
-        <PackageName Value="FCL"/>
+        <PackageName Value="ACBrDiversos"/>
       </Item8>
       <Item9>
-        <PackageName Value="zcomponent"/>
+        <PackageName Value="FCL"/>
       </Item9>
       <Item10>
-        <PackageName Value="LCL"/>
+        <PackageName Value="zcomponent"/>
       </Item10>
+      <Item11>
+        <PackageName Value="LCL"/>
+      </Item11>
     </RequiredPackages>
-    <Units Count="31">
+    <Units Count="33">
       <Unit0>
         <Filename Value="Cluster_PDV.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -236,6 +239,22 @@
         <Filename Value="controller/controller.venda.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit30>
+      <Unit31>
+        <Filename Value="view/caixa/uf_fechamentocaixa.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="f_fechamentoCaixa"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uf_fechamentoCaixa"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="view/caixa/uf_saidacaixa.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="f_saidaCaixa"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uf_saidaCaixa"/>
+      </Unit32>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -245,7 +264,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="model;classes;view;view/venda;view/filtros;controller;view/condicional;view/frames;../../componentes/ems/json4delphi;../../componentes/ems/dataset-serialize-master/src;../../componentes/ems/JsonTools-master----;report"/>
+      <OtherUnitFiles Value="model;classes;view;view/venda;view/filtros;controller;view/condicional;view/frames;../../componentes/ems/json4delphi;../../componentes/ems/dataset-serialize-master/src;../../componentes/ems/JsonTools-master----;report;view/caixa"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Parsing>
@@ -262,7 +281,7 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="28">
+    <Exceptions Count="29">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -347,6 +366,9 @@
       <Item28>
         <Name Value="EJsonException"/>
       </Item28>
+      <Item29>
+        <Name Value="EVariantError"/>
+      </Item29>
     </Exceptions>
   </Debugging>
 </CONFIG>

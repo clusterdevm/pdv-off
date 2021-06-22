@@ -10,7 +10,7 @@ uses
   wcursos;
 
 type
-  TPathServicos = (mAutenticacao, mCondicional, mGeral, mPDV);
+  TPathServicos = (mAutenticacao, mCondicional, mGeral, mPDV, mFinanceiro);
 
 const canal_token = '9b1b6b2dfcb8d4c13d4d7fcacd9aed78';
 
@@ -49,6 +49,7 @@ var Sessao : TSessao;
   function RemoveIfens(value: string): String;
 
   Function GetUUID : String;
+  Function GetFloat(value:string) : Extended;
 
 implementation
 
@@ -69,6 +70,14 @@ var _out : TGuid;
 begin
   res := CreateGUID(_out);
   Result := (GUIDToString(_out))
+end;
+
+function GetFloat(value: string): Extended;
+begin
+ showmessage(value);
+  value := SubsString(value,',','.');
+  showmessage(value);
+  result := StrToFloatDef(value,0);
 end;
 
 
@@ -104,8 +113,6 @@ begin
        _api.AutUserName := sessao.usuario;
        _api.AutUserPass := sessao.senha;
        _api.AddHeader('empresa-id',IntToStr(sessao.empresalogada));
-
-        showmessage(intTostr(sessao.empresalogada));
        _api.AddHeader('canal-token',canal_token);
        _api.Metodo:= 'get';
        _api.rota := 'autenticacao';
@@ -281,6 +288,8 @@ begin
          result := 'http://localhost/api/v1/';//'https://api-dev.clustererp.com.br/api/v1/';
       mPDV :
          result := 'http://localhost/api/v1/cadastro/'; //;'https://api-dev.clustererp.com.br/api/v1/cadastro/';
+      mFinanceiro :
+         result := 'https://api-dev.clustererp.com.br/api/v1/';
     end;
 
 end;

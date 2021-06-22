@@ -6,14 +6,19 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Buttons, Menus, ComCtrls, DBGrids, ActnList, Grids, VTHeaderPopup, BGRAShape,
-  atshapelinebgra, BGRAResizeSpeedButton, BCButton, ColorSpeedButton;
+  Buttons, Menus, ComCtrls, DBGrids, ActnList, Grids, view.condicional.filtrar,
+  VTHeaderPopup, BGRAShape, atshapelinebgra, BGRAResizeSpeedButton, BCButton,
+  ColorSpeedButton;
 
 type
 
   { Tform_venda }
 
   Tform_venda = class(TForm)
+    ac_condicional: TAction;
+    ac_suprimento: TAction;
+    ac_sangria: TAction;
+    ac_fechaCaixa: TAction;
     ac_abreCaixa: TAction;
     ac_sair: TAction;
     ActionList1: TActionList;
@@ -81,7 +86,11 @@ type
     TabControl1: TTabControl;
     VTHeaderPopupMenu1: TVTHeaderPopupMenu;
     procedure ac_abreCaixaExecute(Sender: TObject);
+    procedure ac_condicionalExecute(Sender: TObject);
+    procedure ac_fechaCaixaExecute(Sender: TObject);
     procedure ac_sairExecute(Sender: TObject);
+    procedure ac_sangriaExecute(Sender: TObject);
+    procedure ac_suprimentoExecute(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: char);
     procedure FormResize(Sender: TObject);
@@ -228,6 +237,17 @@ begin
     form_venda.Close;
 end;
 
+procedure Tform_venda.ac_sangriaExecute(Sender: TObject);
+begin
+    sessao.Sangria;
+end;
+
+procedure Tform_venda.ac_suprimentoExecute(Sender: TObject);
+begin
+  //
+  sessao.suprimento;
+end;
+
 procedure Tform_venda.ac_abreCaixaExecute(Sender: TObject);
 begin
     if pnlBase.Visible  = false then
@@ -238,6 +258,24 @@ begin
     Begin
          messagedlg('Ja Existe um caixa aberto em andamento',mtWarning,[mbok],0);
     end;
+end;
+
+procedure Tform_venda.ac_condicionalExecute(Sender: TObject);
+begin
+  sessao.ShowForm(Tfrm_CondicionalFIltrar,frm_CondicionalFIltrar);
+end;
+
+procedure Tform_venda.ac_fechaCaixaExecute(Sender: TObject);
+begin
+    if pnlBase.Visible  = false then
+        messagedlg('Este Checkout não possui caixa em aberto',mtWarning,[mbok],0)
+    else
+    Begin
+        sessao.FechaCaixa;
+        GetVendasAndamento;
+    end;
+
+
 end;
 
 procedure Tform_venda.FormCreate(Sender: TObject);

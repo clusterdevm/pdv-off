@@ -79,7 +79,11 @@ begin
    _body.Put('nome_cliente', self.nome);
 
    with _body['status'].AsArray do
+   Begin
        Put(_status);
+       if LowerCase(_status) = 'pendente' then
+         Put('rascunho');
+   end;
 
    with _body['empresa'].AsArray do
        Put(_empresa);
@@ -107,9 +111,6 @@ begin
        webservice := getEMS_Webservice(mCondicional);
        rota:='condicional';
        endpoint:='listar';
-
-
-       Clipboard.AsText := GetBearerEMS;
        Execute;
 
        if (ResponseCode in [200..207]) then

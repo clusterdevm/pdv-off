@@ -51,7 +51,7 @@ begin
       _api.webservice:= getEMS_Webservice(mPDV);
       _api.AddHeader('token-pdv',self.token_remoto);
       _api.rota:='hibrido';
-      _api.endpoint:='status/';
+      _api.endpoint:='status';
       _api.Execute;
 
       if _api.ResponseCode in [200..207] then
@@ -60,7 +60,8 @@ begin
               _data := TConexao.Create;
               with _data.query do
               Begin
-                  SQL.Add('update ems_pdv set status = '+QuotedStr(_api.Return['status'].AsString));
+                  SQL.Add('update ems_pdv set status = '+QuotedStr(_api.Return['resultado'].AsObject['status'].AsString));
+                  SQL.Add(', id = '+QuotedStr(_api.Return['id'].AsString));
                   sql.add(' where token_remoto = '+QuotedStr(self.token_remoto));
                   ExecSQL;
               end;

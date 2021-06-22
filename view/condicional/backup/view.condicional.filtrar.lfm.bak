@@ -36,7 +36,7 @@ inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
     Top = 104
     Width = 1200
     Align = alClient
-    AlternateColor = 11794409
+    AlternateColor = 15393754
     AutoEdit = False
     Color = clWindow
     Columns = <    
@@ -97,13 +97,17 @@ inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
     DataSource = ds_condicional
     FixedColor = clWhite
     Flat = True
+    Font.Color = 3815997
+    Font.Height = -11
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ParentFont = False
     PopupMenu = PopupMenu1
     ReadOnly = True
     Scrollbars = ssAutoBoth
     TabOrder = 3
     TitleFont.Color = clNavy
     TitleFont.Height = -13
+    OnDrawColumnCell = DBGrid1DrawColumnCell
     OnKeyUp = DBGrid1KeyUp
   end
   object anel2: TPanel[3]
@@ -130,6 +134,7 @@ inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
       Height = 32
       Top = 18
       Width = 212
+      OnChange = edt_nomeChange
       OnKeyDown = edt_nomeKeyDown
       TabOrder = 2
     end
@@ -138,13 +143,8 @@ inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
       Width = 181
       ClientWidth = 181
       inherited cb_status: TComboBox
-        Height = 32
         Width = 180
         OnChange = cb_statusChange
-      end
-      inherited Label1: TLabel
-        Height = 14
-        Width = 38
       end
     end
     inline Frame1_1: TFrame1
@@ -430,6 +430,15 @@ inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
     end
     object MenuItem5: TMenuItem
       Caption = 'Imprimir'
+      OnClick = acImprimirExecute
     end
+  end
+  object Timer1: TTimer[11]
+    Enabled = False
+    Interval = 50
+    OnTimer = Timer1Timer
+    OnStartTimer = Timer1StartTimer
+    Left = 64
+    Top = 296
   end
 end

@@ -17,6 +17,8 @@ type
   TfrmCondicionalCriar = class(TForm)
     ACBrEnterTab1: TACBrEnterTab;
     Action1: TAction;
+    Action2: TAction;
+    ac_cliente: TAction;
     ac_iniciar: TAction;
     ActionList1: TActionList;
     BGRASpeedButton1: TBGRASpeedButton;
@@ -25,6 +27,7 @@ type
     frame_vendedor: TframePessoaGet;
     Panel1: TPanel;
     procedure Action1Execute(Sender: TObject);
+    procedure ac_clienteExecute(Sender: TObject);
     procedure ac_iniciarExecute(Sender: TObject);
     procedure EditIDEnter(Sender: TObject);
     procedure EditIDExit(Sender: TObject);
@@ -34,6 +37,7 @@ type
   private
 
   public
+      _temp : string;
 
   end;
 
@@ -54,12 +58,24 @@ end;
 
 procedure TfrmCondicionalCriar.EditIDEnter(Sender: TObject);
 begin
-   Self.ACBrEnterTab1.EnterAsTab:= false;
+  _temp := (sender as TEdit).Text;
 end;
 
 procedure TfrmCondicionalCriar.Action1Execute(Sender: TObject);
 begin
     frmCondicionalCriar.Close;
+end;
+
+procedure TfrmCondicionalCriar.ac_clienteExecute(Sender: TObject);
+begin
+  if (_temp <> (Sender as TEdit).Text) or (trim(_temp) = '') then
+  Begin
+       if not frame_cliente.Localiza then
+       Begin
+          (Sender as TEdit).SetFocus;
+           Abort;
+       end;
+  end;
 end;
 
 procedure TfrmCondicionalCriar.ac_iniciarExecute(Sender: TObject);
@@ -82,35 +98,29 @@ end;
 
 procedure TfrmCondicionalCriar.EditIDExit(Sender: TObject);
 begin
-  self.ACBrEnterTab1.EnterAsTab:= true;
+  if (_temp <> (Sender as TEdit).Text) or (trim(_temp) = '') then
+  Begin
+       if not frame_vendedor.Localiza then
+       Begin
+          (Sender as TEdit).SetFocus;
+           Abort;
+       end;
+  end;
 end;
 
 procedure TfrmCondicionalCriar.EditIDKeyPress(Sender: TObject; var Key: char);
 begin
-
-  if key= #13 then
-  Begin
-     frame_cliente.EditIDKeyPress(sender, key);
-     key := #0;
-
-     if frame_cliente._avancar then
-        PerformTab(true)//Perform(WM_NEXTDLGCTL,0,0);
-  end;
 
 end;
 
 procedure TfrmCondicionalCriar.EditIDVENDEDORKeyPress(Sender: TObject;
   var Key: char);
 begin
-  if key= #13 then
-  Begin
-      frame_vendedor.onlyColaborador:= true;
-      frame_vendedor.EditIDKeyPress(sender, key);
-      key := #0;
-      if frame_vendedor._avancar then
-          frame_cliente.EditID.SetFocus;//PerformTab(true)
-  end;
+
 end;
+
+
+
 
 end.
 

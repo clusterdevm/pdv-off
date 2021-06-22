@@ -3377,6 +3377,7 @@ object form_venda: Tform_venda
           Height = 46
           Top = 2
           Width = 96
+          Action = ac_sangria
           Align = alLeft
           StateClicked.Background.Gradient1.StartColor = 8404992
           StateClicked.Background.Gradient1.EndColor = 4194304
@@ -3455,7 +3456,6 @@ object form_venda: Tform_venda
           BorderSpacing.Left = 5
           BorderSpacing.Top = 2
           BorderSpacing.Bottom = 2
-          Caption = 'Sangria'
           Color = clNone
           DropDownWidth = 16
           DropDownArrowSize = 8
@@ -3473,6 +3473,7 @@ object form_venda: Tform_venda
           Height = 46
           Top = 2
           Width = 96
+          Action = ac_suprimento
           Align = alLeft
           StateClicked.Background.Gradient1.StartColor = 8404992
           StateClicked.Background.Gradient1.EndColor = 4194304
@@ -3551,7 +3552,6 @@ object form_venda: Tform_venda
           BorderSpacing.Left = 5
           BorderSpacing.Top = 2
           BorderSpacing.Bottom = 2
-          Caption = 'Suprimento'
           Color = clNone
           DropDownWidth = 16
           DropDownArrowSize = 8
@@ -3753,6 +3753,7 @@ object form_venda: Tform_venda
           RoundingDropDown.RoundX = 1
           RoundingDropDown.RoundY = 1
           TextApplyGlobalOpacity = False
+          Visible = False
           MemoryUsage = bmuHigh
         end
         object BCButton8: TBCButton
@@ -3760,6 +3761,7 @@ object form_venda: Tform_venda
           Height = 46
           Top = 2
           Width = 96
+          Action = ac_condicional
           Align = alLeft
           StateClicked.Background.Gradient1.StartColor = 8404992
           StateClicked.Background.Gradient1.EndColor = 4194304
@@ -3837,7 +3839,6 @@ object form_venda: Tform_venda
           BorderSpacing.Left = 5
           BorderSpacing.Top = 2
           BorderSpacing.Bottom = 2
-          Caption = 'Condicional'
           Color = clNone
           DropDownWidth = 16
           DropDownArrowSize = 8
@@ -5710,7 +5711,8 @@ object form_venda: Tform_venda
       OnClick = ac_abreCaixaExecute
     end
     object MenuItem2: TMenuItem
-      Caption = 'Fechar Caixa'
+      Action = ac_fechaCaixa
+      Caption = 'Fecha Caixa'
     end
     object MenuItem3: TMenuItem
       Caption = 'Importar Condicional'
@@ -5740,6 +5742,23 @@ object form_venda: Tform_venda
       Caption = 'Abre Caixa'
       OnExecute = ac_abreCaixaExecute
       ShortCut = 112
+    end
+    object ac_fechaCaixa: TAction
+      Caption = 'Fecha Caixa (F12)'
+      OnExecute = ac_fechaCaixaExecute
+      ShortCut = 123
+    end
+    object ac_sangria: TAction
+      Caption = 'Sangria'
+      OnExecute = ac_sangriaExecute
+    end
+    object ac_suprimento: TAction
+      Caption = 'Suprimento'
+      OnExecute = ac_suprimentoExecute
+    end
+    object ac_condicional: TAction
+      Caption = 'Condicional'
+      OnExecute = ac_condicionalExecute
     end
   end
   object VTHeaderPopupMenu1: TVTHeaderPopupMenu

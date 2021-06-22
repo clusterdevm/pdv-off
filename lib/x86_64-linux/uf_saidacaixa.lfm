@@ -1,0 +1,109 @@
+object f_saidaCaixa: Tf_saidaCaixa
+  Left = 1366
+  Height = 268
+  Top = 250
+  Width = 530
+  Caption = 'f_saidaCaixa'
+  ClientHeight = 268
+  ClientWidth = 530
+  KeyPreview = True
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poMainFormCenter
+  inline framePessoa: TframePessoaGet
+    Left = 8
+    Top = 8
+    inherited Panel1: TPanel
+      BevelWidth = 1
+      inherited EditID: TEdit
+        Left = 2
+        Height = 29
+        Top = 2
+        OnEnter = EditIDEnter
+        OnExit = EditIDExit
+      end
+      inherited edt_name: TEdit
+        Left = 82
+        Height = 29
+        Top = 2
+      end
+    end
+    inherited Label1: TLabel
+      Height = 14
+      Width = 74
+      Caption = 'Relacionado'
+    end
+  end
+  object Label1: TLabel
+    Left = 8
+    Height = 14
+    Top = 64
+    Width = 32
+    Caption = 'Valor'
+    ParentColor = False
+  end
+  object ed_valor: TFloatSpinEditEx
+    Left = 8
+    Height = 32
+    Top = 82
+    Width = 162
+    BorderSpacing.Right = 10
+    MaxLength = 0
+    TabOrder = 1
+    MaxValue = 999999999999
+    UpDownVisible = False
+  end
+  object Label2: TLabel
+    Left = 8
+    Height = 14
+    Top = 119
+    Width = 71
+    Caption = 'Observação'
+    ParentColor = False
+  end
+  object m_obs: TMemo
+    Left = 8
+    Height = 90
+    Top = 136
+    Width = 510
+    Lines.Strings = (
+      'm_obs'
+    )
+    TabOrder = 2
+  end
+  object Button2: TButton
+    Left = 363
+    Height = 25
+    Top = 232
+    Width = 75
+    Action = ac_cancelar
+    TabOrder = 3
+  end
+  object Button1: TButton
+    Left = 443
+    Height = 25
+    Top = 232
+    Width = 75
+    Action = ac_confirma
+    TabOrder = 4
+  end
+  object ActionList1: TActionList
+    Left = 336
+    Top = 152
+    object ac_cancelar: TAction
+      Caption = 'Cancelar'
+      OnExecute = ac_cancelarExecute
+      ShortCut = 27
+    end
+    object ac_confirma: TAction
+      Caption = 'Confirma'
+      OnExecute = ac_confirmaExecute
+      ShortCut = 117
+    end
+  end
+  object ACBrEnterTab1: TACBrEnterTab
+    EnterAsTab = True
+    Left = 208
+    Top = 160
+  end
+end

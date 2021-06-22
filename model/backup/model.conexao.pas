@@ -34,7 +34,7 @@ Type
          function ToObjectString(_nomeObjeto:String ;_first : Boolean = false):TJsonObject;
 
          procedure updateSQl(_tabela:String;_Json, _jsonOlD:TJsonObject);
-         procedure updateSQlArray(_tabela:String;_JsonArray:TJsonArray);
+         procedure updateSQlArray(_tabela:String;_JsonArray:TJsonArray; _forceUpdate : Boolean = false);
          Procedure ProcessaSinc(_name : String ; _jArray  : TJsonArray);
 
 
@@ -452,7 +452,7 @@ begin
 
 end;
 
-procedure TConexao.updateSQlArray(_tabela: String; _JsonArray:TJsonArray);
+procedure TConexao.updateSQlArray(_tabela: String; _JsonArray:TJsonArray; _forceUpdate : Boolean = false);
 var i ,j: Integer;
    _value, _script: TStringlist;
   _delimiter : String;
@@ -476,7 +476,7 @@ begin
    Begin
          _item := _JsonArray.Items[j].AsObject;
 
-         if _item['update'].AsBoolean then
+         if (_item['update'].AsBoolean then
          Begin
                for i :=0 to _item.Count-1 do
                Begin
@@ -537,19 +537,21 @@ procedure TConexao.ProcessaSinc(_name: String; _jArray: TJsonArray);
 var i : integer;
     iSql : TZSQLProcessor;
 begin
+try
   try
     iSql:= TZSQLProcessor.Create(nil);
     iSql.Connection := Conector;
     for i := 0 to _jArray.Count-1 do
     Begin
-         if _jArray.Items[i].AsObject['remove'].AsBoolean  then
+         if _jArray.Items[i].AsObject['remover'].AsBoolean  then
             isql.Script.Add('delete from '+_name+' where uuid = '+QuotedStr(_jArray.Items[i].AsObject['uuid'].AsString)+';')
          else
             with isql.Script do
             Begin
-                Add('update '+_name+' set sinc_pendente = ''N'' ');
+                Add('update '+_name+' set sinc_pendente = ''N'' '+
+                    ', id = '+QuotedStr(_jArray.Items[i].AsObject['id'].AsString)+
                     ' where uuid = '+QuotedStr(_jArray.Items[i].AsObject['uuid'].AsString)+
-                    ' and (sinc_pendente <> ''N'' or sinc_pendente is null); ');
+                    ' and (sinc_pendente =''S'' or sinc_pendente is null); ');
             end;
     end;
 
@@ -558,6 +560,13 @@ begin
   finally
       FreeAndnil(isql);
   end;
+
+except
+    on e:exception do
+    Begin
+        RegistraLogErro('Erro Comando Sql '+e.Message);
+    end;
+end;
 end;
 
 procedure TConexao.ChecaItensArrayToSQl(_tabela: String; _JsonArray:TJsonArray);

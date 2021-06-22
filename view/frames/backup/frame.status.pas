@@ -29,12 +29,13 @@ implementation
 
 function TFrame2.GetArray: String;
 begin
-    Result := IntTostr(StrToInt(copy(cb_status.Text,6)));
+    result := LowerCase(cb_status.Text);
+
 end;
 
 function TFrame2.GetString: String;
 begin
-    Result := IntTostr(StrToInt(copy(cb_status.Text,6)));
+    Result := LowerCase(cb_status.Text);
 end;
 
 end.
