@@ -448,13 +448,13 @@ begin
            else
               Fprocessando:= false;
 
-            FResponse.Clear;
-            _itensJson := TJsonObject.Create();
-            PreparaUpload(_itensJson);
-
-            if _itensJson['itens'].AsObject.Count > 0 then
-               SendUpload(_itensJson);
-            FreeAndNil(_itensJson);
+            //FResponse.Clear;
+            //_itensJson := TJsonObject.Create();
+            //PreparaUpload(_itensJson);
+            //
+            //if _itensJson['itens'].AsObject.Count > 0 then
+            //   SendUpload(_itensJson);
+            //FreeAndNil(_itensJson);
 
 
             if (Sessao.segundoplano) then
