@@ -7,14 +7,15 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
   Buttons, Menus, ComCtrls, DBGrids, ActnList, Grids, view.condicional.filtrar,
-  VTHeaderPopup, BGRAShape, atshapelinebgra, BGRAResizeSpeedButton, BCButton,
-  ColorSpeedButton;
+  view.devolucao.filtrar, VTHeaderPopup, BGRAShape, atshapelinebgra,
+  BGRAResizeSpeedButton, BCButton, ColorSpeedButton;
 
 type
 
   { Tform_venda }
 
   Tform_venda = class(TForm)
+    ac_devolucao: TAction;
     ac_condicional: TAction;
     ac_suprimento: TAction;
     ac_sangria: TAction;
@@ -30,7 +31,6 @@ type
     BCButton4: TBCButton;
     BCButton5: TBCButton;
     BCButton6: TBCButton;
-    BCButton7: TBCButton;
     BCButton8: TBCButton;
     BCButton9: TBCButton;
     gridItens: TDBGrid;
@@ -87,6 +87,7 @@ type
     VTHeaderPopupMenu1: TVTHeaderPopupMenu;
     procedure ac_abreCaixaExecute(Sender: TObject);
     procedure ac_condicionalExecute(Sender: TObject);
+    procedure ac_devolucaoExecute(Sender: TObject);
     procedure ac_fechaCaixaExecute(Sender: TObject);
     procedure ac_sairExecute(Sender: TObject);
     procedure ac_sangriaExecute(Sender: TObject);
@@ -263,6 +264,11 @@ end;
 procedure Tform_venda.ac_condicionalExecute(Sender: TObject);
 begin
   sessao.ShowForm(Tfrm_CondicionalFIltrar,frm_CondicionalFIltrar);
+end;
+
+procedure Tform_venda.ac_devolucaoExecute(Sender: TObject);
+begin
+  sessao.ShowForm(Tf_devolucaoFiltrar,f_devolucaoFiltrar);
 end;
 
 procedure Tform_venda.ac_fechaCaixaExecute(Sender: TObject);

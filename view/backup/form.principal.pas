@@ -6,14 +6,15 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
-  ActnList, StdCtrls, DTAnalogClock,
-  view.condicional.filtrar, f_venda, model.sinc.down, classe.utils;
+  ActnList, StdCtrls, DTAnalogClock, view.condicional.filtrar, f_venda,
+  view.devolucao.filtrar, model.sinc.down, classe.utils;
 
 type
 
   { TfrmPrincipal }
 
   TfrmPrincipal = class(TForm)
+    ac_devolucao: TAction;
     ac_venda: TAction;
     ac_sair: TAction;
     ac_condicional: TAction;
@@ -41,6 +42,7 @@ type
     SpeedButton3: TSpeedButton;
     SpeedButton4: TSpeedButton;
     procedure ac_condicionalExecute(Sender: TObject);
+    procedure ac_devolucaoExecute(Sender: TObject);
     procedure ac_sairExecute(Sender: TObject);
     procedure ac_vendaExecute(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -94,8 +96,11 @@ end;
 procedure TfrmPrincipal.ac_condicionalExecute(Sender: TObject);
 begin
   sessao.ShowForm(Tfrm_CondicionalFIltrar,frm_CondicionalFIltrar);
-  frm_CondicionalFIltrar := Tfrm_CondicionalFIltrar.Create(frmPrincipal);
-  frm_CondicionalFIltrar.Showmodal;
+end;
+
+procedure TfrmPrincipal.ac_devolucaoExecute(Sender: TObject);
+begin
+  sessao.ShowForm(Tf_devolucaoFiltrar,f_devolucaoFiltrar);
 end;
 
 procedure TfrmPrincipal.ac_sairExecute(Sender: TObject);

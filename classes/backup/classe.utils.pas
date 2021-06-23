@@ -10,7 +10,7 @@ uses
   wcursos;
 
 type
-  TPathServicos = (mAutenticacao, mCondicional, mGeral, mPDV, mFinanceiro);
+  TPathServicos = (mAutenticacao, mCondicional, mGeral, mPDV, mFinanceiro, mvenda);
 
 const canal_token = '9b1b6b2dfcb8d4c13d4d7fcacd9aed78';
 
@@ -74,9 +74,7 @@ end;
 
 function GetFloat(value: string): Extended;
 begin
- showmessage(value);
   value := SubsString(value,',','.');
-  showmessage(value);
   result := StrToFloatDef(value,0);
 end;
 
@@ -278,22 +276,21 @@ end;
 
 function getEMS_Webservice(value:TPathServicos): string;
 begin
-
     case value of
       mGeral :
          result := 'https://api-dev.clustererp.com.br/api/v1/';
       mCondicional :
          result := 'https://api-dev.clustererp.com.br/api/v1/';
       mAutenticacao :
-         result := 'http://localhost/api/v1/';//'https://api-dev.clustererp.com.br/api/v1/';
+         result := 'https://api-dev.clustererp.com.br/api/v1/';
       mPDV :
-         result := 'http://localhost/api/v1/cadastro/'; //;'https://api-dev.clustererp.com.br/api/v1/cadastro/';
+         result := 'https://api-dev.clustererp.com.br/api/v1/cadastro/';
+      mFinanceiro :
+         result := 'https://api-dev.clustererp.com.br/api/v1/';
       mFinanceiro :
          result := 'https://api-dev.clustererp.com.br/api/v1/';
     end;
-
 end;
-
 
 
 function bioswindows : String;

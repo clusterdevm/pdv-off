@@ -63,7 +63,7 @@
         <PackageName Value="LCL"/>
       </Item11>
     </RequiredPackages>
-    <Units Count="33">
+    <Units Count="36">
       <Unit0>
         <Filename Value="Cluster_PDV.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -255,6 +255,24 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uf_saidaCaixa"/>
       </Unit32>
+      <Unit33>
+        <Filename Value="view/devolucao/view.devolucao.filtrar.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="f_devolucaoFiltrar"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="controller/controller.devolucao.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="view/devolucao/view.devolucao.criar.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="f_devolucaoCriar"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit35>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -264,7 +282,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="model;classes;view;view/venda;view/filtros;controller;view/condicional;view/frames;../../componentes/ems/json4delphi;../../componentes/ems/dataset-serialize-master/src;../../componentes/ems/JsonTools-master----;report;view/caixa"/>
+      <OtherUnitFiles Value="model;classes;view;view/venda;view/filtros;controller;view/condicional;view/frames;../../componentes/ems/json4delphi;../../componentes/ems/dataset-serialize-master/src;../../componentes/ems/JsonTools-master----;report;view/caixa;view/devolucao"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Parsing>

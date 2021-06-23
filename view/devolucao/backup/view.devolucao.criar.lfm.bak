@@ -1,0 +1,483 @@
+object f_devolucaoCriar: Tf_devolucaoCriar
+  Left = 1600
+  Height = 618
+  Top = 250
+  Width = 1156
+  BorderIcons = [biSystemMenu, biMaximize]
+  Caption = 'Cluster Sistemas : Condicional Criar'
+  ClientHeight = 618
+  ClientWidth = 1156
+  Color = clWhite
+  KeyPreview = True
+  OnResize = FormResize
+  Position = poMainFormCenter
+  object pnlBotao: TPanel
+    Left = 0
+    Height = 50
+    Top = 566
+    Width = 1156
+    Align = alBottom
+    BorderSpacing.Bottom = 2
+    BevelOuter = bvNone
+    ClientHeight = 50
+    ClientWidth = 1156
+    TabOrder = 0
+    object BGRASpeedButton1: TBGRASpeedButton
+      Left = 892
+      Height = 45
+      Top = 0
+      Width = 127
+      Action = ac_sair
+      Align = alRight
+      BorderSpacing.Right = 5
+      BorderSpacing.Bottom = 5
+      Color = clWindowText
+    end
+    object BGRASpeedButton2: TBGRASpeedButton
+      Left = 1024
+      Height = 45
+      Top = 0
+      Width = 127
+      Action = ac_confirmar
+      Align = alRight
+      BorderSpacing.Right = 5
+      BorderSpacing.Bottom = 5
+      Color = clWindowText
+    end
+  end
+  object pnlTitle: TPanel
+    Left = 0
+    Height = 74
+    Top = 0
+    Width = 1156
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 74
+    ClientWidth = 1156
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 8
+      Height = 15
+      Top = 8
+      Width = 113
+      Caption = 'Protocolo Venda'
+      ParentColor = False
+    end
+    object ed_protocolo: TEdit
+      Left = 8
+      Height = 33
+      Top = 27
+      Width = 152
+      TabOrder = 0
+      Text = 'ed_protocolo'
+    end
+    object SpeedButton1: TSpeedButton
+      Left = 161
+      Height = 33
+      Top = 27
+      Width = 38
+    end
+    object ed_produtoID: TEdit
+      Left = 216
+      Height = 33
+      Top = 27
+      Width = 152
+      TabOrder = 1
+      Text = 'ed_produtoID'
+    end
+    object SpeedButton2: TSpeedButton
+      Left = 369
+      Height = 33
+      Top = 27
+      Width = 38
+    end
+    object Label2: TLabel
+      Left = 216
+      Height = 15
+      Top = 22
+      Width = 113
+      Caption = 'Protocolo Venda'
+      ParentColor = False
+    end
+    object Label3: TLabel
+      Left = 216
+      Height = 15
+      Top = 8
+      Width = 73
+      Caption = 'Produto ID'
+      ParentColor = False
+    end
+  end
+  object pnlBanner: TPanel
+    Left = 0
+    Height = 30
+    Top = 74
+    Width = 1156
+    Align = alTop
+    BorderSpacing.Bottom = 3
+    BevelOuter = bvNone
+    Caption = 'Dados da Venda'
+    Color = 9199360
+    Font.Color = clWhite
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 2
+  end
+  object pnlDadosCliente: TPanel
+    Left = 0
+    Height = 128
+    Top = 107
+    Width = 1156
+    Align = alTop
+    ClientHeight = 128
+    ClientWidth = 1156
+    TabOrder = 3
+    object pnlLinha1: TPanel
+      Left = 1
+      Height = 50
+      Top = 1
+      Width = 1154
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 50
+      ClientWidth = 1154
+      TabOrder = 0
+      object ed_dataEmissao: TLabeledEdit
+        Left = 8
+        Height = 33
+        Top = 17
+        Width = 170
+        AutoSize = False
+        EditLabel.Height = 15
+        EditLabel.Width = 170
+        EditLabel.Caption = 'Data Emissão'
+        EditLabel.ParentColor = False
+        Font.Height = -13
+        ParentFont = False
+        TabOrder = 0
+        Text = 'ed_dataEmissao'
+      end
+      object ed_documento: TLabeledEdit
+        Left = 184
+        Height = 33
+        Top = 17
+        Width = 170
+        AutoSize = False
+        EditLabel.Height = 15
+        EditLabel.Width = 170
+        EditLabel.Caption = 'Documento'
+        EditLabel.ParentColor = False
+        TabOrder = 1
+        Text = 'ed_documento'
+      end
+      object ed_tipoDocumento: TLabeledEdit
+        Left = 360
+        Height = 33
+        Top = 17
+        Width = 170
+        AutoSize = False
+        EditLabel.Height = 15
+        EditLabel.Width = 170
+        EditLabel.Caption = 'Tipo Documento'
+        EditLabel.ParentColor = False
+        TabOrder = 2
+        Text = 'ed_tipoDocumento'
+      end
+      object ed_prazoPagamento: TLabeledEdit
+        Left = 536
+        Height = 33
+        Top = 17
+        Width = 170
+        AutoSize = False
+        EditLabel.Height = 15
+        EditLabel.Width = 170
+        EditLabel.Caption = 'Prazo Pagamento'
+        EditLabel.ParentColor = False
+        TabOrder = 3
+        Text = 'ed_prazoPagamento'
+      end
+      object ed_meioPagamento: TLabeledEdit
+        Left = 712
+        Height = 33
+        Top = 17
+        Width = 170
+        AutoSize = False
+        EditLabel.Height = 15
+        EditLabel.Width = 170
+        EditLabel.Caption = 'Meio Pagamento'
+        EditLabel.ParentColor = False
+        TabOrder = 4
+        Text = 'ed_meioPagamento'
+      end
+      object ed_ValorVenda: TLabeledEdit
+        Left = 888
+        Height = 33
+        Top = 17
+        Width = 170
+        AutoSize = False
+        EditLabel.Height = 15
+        EditLabel.Width = 170
+        EditLabel.Caption = 'Valor'
+        EditLabel.ParentColor = False
+        TabOrder = 5
+        Text = 'ed_ValorVenda'
+      end
+    end
+    object pnlLinha2: TPanel
+      Left = 1
+      Height = 50
+      Top = 58
+      Width = 1154
+      Align = alTop
+      BorderSpacing.Top = 7
+      BevelOuter = bvNone
+      ClientHeight = 50
+      ClientWidth = 1154
+      Color = clWhite
+      ParentColor = False
+      TabOrder = 1
+      object ed_nomeCliente: TLabeledEdit
+        Left = 6
+        Height = 33
+        Top = 15
+        Width = 418
+        AutoSize = False
+        Constraints.MaxHeight = 200
+        Constraints.MinHeight = 33
+        EditLabel.Height = 15
+        EditLabel.Width = 418
+        EditLabel.Caption = 'Cliente'
+        EditLabel.ParentColor = False
+        Font.Height = -16
+        ParentFont = False
+        TabOrder = 0
+        Text = 'ed_nomeCliente'
+      end
+      object ed_vendedor: TLabeledEdit
+        Left = 432
+        Height = 33
+        Top = 15
+        Width = 350
+        AutoSize = False
+        Constraints.MaxHeight = 200
+        Constraints.MinHeight = 33
+        EditLabel.Height = 15
+        EditLabel.Width = 350
+        EditLabel.Caption = 'Vendedor'
+        EditLabel.ParentColor = False
+        TabOrder = 1
+        Text = 'ed_vendedor'
+      end
+      object ed_loja: TLabeledEdit
+        Left = 790
+        Height = 33
+        Top = 15
+        Width = 350
+        AutoSize = False
+        Constraints.MaxHeight = 200
+        Constraints.MinHeight = 33
+        EditLabel.Height = 15
+        EditLabel.Width = 350
+        EditLabel.Caption = 'Loja'
+        EditLabel.ParentColor = False
+        TabOrder = 2
+        Text = 'ed_loja'
+      end
+    end
+  end
+  object Panel4: TPanel
+    Left = 0
+    Height = 331
+    Top = 235
+    Width = 1156
+    Align = alClient
+    Anchors = [akTop, akLeft, akRight]
+    BevelOuter = bvNone
+    ClientHeight = 331
+    ClientWidth = 1156
+    TabOrder = 4
+    object DBGrid1: TDBGrid
+      Left = 0
+      Height = 274
+      Top = 0
+      Width = 1156
+      Align = alClient
+      Color = clWindow
+      Columns = <>
+      DataSource = ds_itens
+      TabOrder = 0
+    end
+    object pnlTotal: TPanel
+      Left = 0
+      Height = 57
+      Top = 274
+      Width = 1156
+      Align = alBottom
+      BevelOuter = bvNone
+      ClientHeight = 57
+      ClientWidth = 1156
+      TabOrder = 1
+      object edt_totalDevolucao: TLabeledEdit
+        Left = 970
+        Height = 33
+        Top = 16
+        Width = 176
+        Alignment = taRightJustify
+        Anchors = [akTop, akRight]
+        EditLabel.Height = 15
+        EditLabel.Width = 176
+        EditLabel.Caption = 'Total Devolução'
+        EditLabel.ParentColor = False
+        TabOrder = 0
+        Text = 'edt_totalDevolucao'
+      end
+      object ed_totaPecas: TLabeledEdit
+        Left = 786
+        Height = 33
+        Top = 17
+        Width = 176
+        Alignment = taRightJustify
+        Anchors = [akTop, akRight]
+        EditLabel.Height = 15
+        EditLabel.Width = 176
+        EditLabel.Caption = 'Total Itens'
+        EditLabel.ParentColor = False
+        TabOrder = 1
+        Text = 'ed_totaPecas'
+      end
+    end
+  end
+  object ACBrEnterTab1: TACBrEnterTab
+    EnterAsTab = True
+    Left = 1008
+    Top = 448
+  end
+  object ActionList1: TActionList
+    Left = 688
+    Top = 480
+    object ac_sair: TAction
+      Caption = 'Cancelar'
+      Enabled = False
+      OnExecute = ac_sairExecute
+      ShortCut = 27
+    end
+    object ac_confirmar: TAction
+      Caption = 'Confirmar'
+      OnExecute = ac_confirmarExecute
+      ShortCut = 117
+    end
+  end
+  object cds_itens: TBufDataset
+    FieldDefs = <>
+    Left = 500
+    Top = 340
+    object cds_itensproduto_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'produto_id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itensid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itensn_marca: TStringField
+      FieldKind = fkData
+      FieldName = 'n_marca'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object cds_itensn_unidade: TStringField
+      FieldKind = fkData
+      FieldName = 'n_unidade'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object cds_itensquantidade: TFloatField
+      FieldKind = fkData
+      FieldName = 'quantidade'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itensvalor_unitario: TFloatField
+      FieldKind = fkData
+      FieldName = 'valor_unitario'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itensvalor_final: TFloatField
+      FieldKind = fkData
+      FieldName = 'valor_final'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itensaliq_desconto: TFloatField
+      FieldKind = fkData
+      FieldName = 'aliq_desconto'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itensvl_desconto: TFloatField
+      FieldKind = fkData
+      FieldName = 'vl_desconto'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itenssub_total: TFloatField
+      FieldKind = fkData
+      FieldName = 'sub_total'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itensdescricao: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object ds_itens: TDataSource
+    DataSet = cds_itens
+    Left = 368
+    Top = 328
+  end
+end

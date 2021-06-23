@@ -13,17 +13,16 @@ uses
   model.request.jsons, view.condicional.filtrar,
 
   view.condicional.criar, model.pessoa, cluster_pdv.sessao, uf_aguarde,
-  thread.wait, wcursos, view.condicional;
+  view.devolucao.filtrar, thread.wait, wcursos, view.condicional;
 
 {$R *.res}
 
 begin
-
   FormatSettings.DateSeparator := '/';
   FormatSettings.ShortDateFormat := 'dd/mm/yyyy';
   FormatSettings.CurrencyString := '';
-  FormatSettings.DecimalSeparator := ',';
-  FormatSettings.ThousandSeparator := '.';
+  FormatSettings.DecimalSeparator := '.';
+  FormatSettings.ThousandSeparator := ',';
 
   RequireDerivedFormResource:=True;
   Application.Scaled:=True;
