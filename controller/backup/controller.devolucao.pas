@@ -5,7 +5,8 @@ unit controller.devolucao;
 interface
 
 uses
-  Classes, SysUtils, jsons, BufDataset, db, Controls, wcursos, Dialogs;
+  Classes, SysUtils, jsons, BufDataset, db, Controls, wcursos,
+  Dialogs, clipbrd;
 
   type
 
@@ -27,6 +28,7 @@ uses
         fn_vendedor: string;
         fproduto_id: string;
         Ftotal_devolucao: currency;
+        Fvenda: TJsonObject;
       public
           Property id : Integer read FId  Write Fid;
           Property emissao_inicial : String  Read FEmissao_inicial  write FEmissao_inicial;
@@ -42,14 +44,23 @@ uses
           property n_marca : string read fn_marca write fn_marca;
           property n_produto : string read fn_produto write fn_produto;
           property total_devolucao : currency  read Ftotal_devolucao write fTotal_devolucao;
-
+          Property venda : TJsonObject Read Fvenda Write FVenda;
           Procedure Filtrar(_query : TDataSet);
           Procedure Cancelar;
+          Procedure Report;
+
+          Function GetVendaDevolucao(_vendaID: string) : Boolean;
+          Procedure devolve(_devolve : TJsonObject);
+          Procedure Seleciona;
+
+          Constructor Create;
+          Destructor Destroy; override;
     end;
 
 implementation
 
-uses model.request.http, classe.utils;
+uses model.request.http, classe.utils, view.condicional.criar,
+  view.devolucao.selecao;
 
 
 procedure TDevolucao.Filtrar(_query: TDataSet);
@@ -61,10 +72,6 @@ begin
 
    _body := TJsonObject.Create;
    _Api := TRequisicao.Create;
-
-   //if self.id > 0 then
-   //   _body.Put('id', self.id);
-
    _body.Put('ativo', self.ativo);
 
    if StrToIntDef(self.credito_id,0) > 0 then
@@ -93,7 +100,7 @@ begin
        Metodo:='post';
        Body.Text:= _body.Stringify;
        tokenBearer := GetBearerEMS;
-       webservice := getEMS_Webservice(mCondicional);
+       webservice := getEMS_Webservice(mvenda);
        rota:='vendas/devolucao';
        endpoint:='listar';
        Execute;
@@ -104,7 +111,12 @@ begin
           self.total_devolucao := _api.Return['total'].AsObject['total_devolucao'].AsNumber;
        end
        else
-          messagedlg('#150 Contate suporte: '+_Api.response,mterror,[mbok],0);
+       Begin
+           if _Api.Return.Find('msg') > -1 then
+              messagedlg(_Api.Return['msg'].AsString,mterror,[mbok],0)
+           else
+              messagedlg('#149 Contate suporte: '+_Api.response,mterror,[mbok],0)
+       end;
    end;
 
  finally
@@ -117,6 +129,108 @@ end;
 procedure TDevolucao.Cancelar;
 begin
 
+end;
+
+procedure TDevolucao.Report;
+begin
+
+end;
+
+function TDevolucao.GetVendaDevolucao(_vendaID: string): Boolean;
+var _Api : TRequisicao;
+begin
+ if trim(_vendaID) = '' then
+    exit;
+ try
+    WCursor.SetWait;
+   _Api := TRequisicao.Create;
+
+   with _Api do
+   Begin
+       Metodo:='get';
+       Result :=false;
+       tokenBearer := GetBearerEMS;
+       webservice := getEMS_Webservice(mvenda);
+       AddHeader('protocolo',self.venda['protocolo'].AsString);
+       rota:='vendas/devolucao';
+       endpoint:='venda/'+_vendaID;
+       ExecuteSynapse;
+
+       if (ResponseCode in [200..207]) then
+       Begin
+          result := true;
+          self.venda.Parse(_api.Return['resultado'].AsObject.Stringify);
+       end
+       else
+       Begin
+           if _Api.Return.Find('msg') > -1 then
+              messagedlg(_Api.Return['msg'].AsString,mterror,[mbok],0)
+           else
+              messagedlg('#150 Contate suporte: '+_Api.response,mterror,[mbok],0)
+       end;
+   end;
+
+ finally
+   FreeAndNil(_Api);
+   WCursor.SetNormal;
+ end;
+end;
+
+procedure TDevolucao.devolve(_devolve: TJsonObject);
+var _Api : TRequisicao;
+begin
+
+ try
+    WCursor.SetWait;
+   _Api := TRequisicao.Create;
+
+   _devolve['protocolo'].AsString:= self.venda['protocolo'].AsString;
+   _devolve['venda_id'].AsInteger:= self.venda['id'].AsInteger;
+
+   with _Api do
+   Begin
+       Metodo:='post';
+       tokenBearer := GetBearerEMS;
+       Body.Text:= _devolve.Stringify;
+       webservice := getEMS_Webservice(mvenda);
+       rota:='vendas/devolucao';
+       endpoint:='item';
+       Execute;
+
+       if (ResponseCode in [200..207]) then
+          self.venda.Parse(_api.Return['resultado'].AsObject.Stringify)
+       else
+       Begin
+           if _Api.Return.Find('msg') > -1 then
+              messagedlg(_Api.Return['msg'].AsString,mterror,[mbok],0)
+           else
+              messagedlg('#150 Contate suporte: '+_Api.response,mterror,[mbok],0)
+       end;
+   end;
+ finally
+   FreeAndNil(_Api);
+   WCursor.SetNormal;
+ end;
+end;
+
+procedure TDevolucao.Seleciona;
+begin
+   f_devolucaoSeleciona := Tf_devolucaoSeleciona.Create(nil);
+   f_devolucaoSeleciona.SetLayout(Self);
+   f_devolucaoSeleciona.ShowModal;
+   f_devolucaoSeleciona.Release;
+   f_devolucaoSeleciona := nil;
+end;
+
+constructor TDevolucao.Create;
+begin
+   Fvenda := TJsonObject.Create();
+end;
+
+destructor TDevolucao.Destroy;
+begin
+ FreeAndNil(Fvenda);
+  inherited Destroy;
 end;
 
 end.

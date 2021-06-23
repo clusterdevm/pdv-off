@@ -15,6 +15,7 @@ object form_venda: Tform_venda
   OnResize = FormResize
   OnShow = FormShow
   Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
   WindowState = wsFullScreen
   object Panel11: TPanel
     Left = 0

@@ -435,7 +435,7 @@ inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
   end
   object Timer1: TTimer[11]
     Enabled = False
-    Interval = 50
+    Interval = 350
     OnTimer = Timer1Timer
     OnStartTimer = Timer1StartTimer
     Left = 64

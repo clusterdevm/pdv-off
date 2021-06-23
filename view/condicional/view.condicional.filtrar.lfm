@@ -96,7 +96,6 @@ inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
       end>
     DataSource = ds_condicional
     FixedColor = clWhite
-    Flat = True
     Font.Color = 3815997
     Font.Height = -11
     Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
@@ -107,6 +106,7 @@ inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
     TabOrder = 3
     TitleFont.Color = clNavy
     TitleFont.Height = -13
+    TitleStyle = tsNative
     OnDrawColumnCell = DBGrid1DrawColumnCell
     OnKeyUp = DBGrid1KeyUp
   end

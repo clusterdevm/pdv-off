@@ -20,7 +20,9 @@ private
   fdatetimeformat: string;
   fempresalogada: integer;
   festoque_id: integer;
+  fformatquantidade: string;
   fformatsubtotal: string;
+  fformatunitario: string;
   fgetID: String;
   fnomeFantasia: string;
   fnomeResumido: string;
@@ -48,6 +50,9 @@ private
       property estoque_id : integer read festoque_id write festoque_id;
       property datetimeformat : string read fdatetimeformat write fdatetimeformat;
       property formatsubtotal : string read fformatsubtotal write fformatsubtotal;
+      property formatquantidade : string read fformatquantidade write fformatquantidade;
+      property formatunitario : string read fformatunitario write fformatunitario;
+      property formatAliquota : string read fformatAliquota write fformatAliquota;
 
       property razao : string read frazao write frazao;
       property cnpj : string read fcnpj write fcnpj;
@@ -152,6 +157,7 @@ begin
         _objeto['saldo_abertura'].AsNumber:= StrToFloatDef(aux,0);
         _objeto['data_abertura'].AsString:= getDataUTC;
         _objeto['operador_id'].AsInteger:= self.usuario_id;
+        _objeto['pdv_id'].AsInteger:= GetPDVID;
         _objeto['uuid'].AsString:= GetUUID;
         _objeto['sinc_pendente'].AsString:= 'S';
         _objeto['empresa_id'].AsInteger:= sessao.empresalogada;
@@ -209,6 +215,9 @@ begin
   self.datetimeformat := 'dd/mm/yyyy hh:mm';
 
   self.formatsubtotal := 'R$ #0.00,';
+  self.formatunitario := 'R$ #0.0000,';
+  self.formatAliquota := '% #0.00,';
+  self.formatquantidade := '#0.,';
 end;
 
 end.

@@ -181,7 +181,7 @@ end;
 
 procedure Tf_devolucaoFiltrar.acNovoExecute(Sender: TObject);
 begin
-  sessao.ShowForm(Tf_devolucaoCriar,frm_CondicionalFIltrar);
+  sessao.ShowForm(Tf_devolucaoCriar,f_devolucaoCriar);
    edt_nome.SetFocus;
    ac_buscarExecute(self);
 end;

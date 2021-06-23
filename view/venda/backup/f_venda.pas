@@ -31,7 +31,6 @@ type
     BCButton4: TBCButton;
     BCButton5: TBCButton;
     BCButton6: TBCButton;
-    BCButton7: TBCButton;
     BCButton8: TBCButton;
     BCButton9: TBCButton;
     gridItens: TDBGrid;
@@ -154,7 +153,7 @@ begin
 
     pnlCodigo.Visible:= false;
     pnlImagem.Visible:= false;
-    pnlDireito.Visible:= false;
+    pnlDireito.Visible:= true;
 end;
 
 procedure Tform_venda.GetVendasAndamento;

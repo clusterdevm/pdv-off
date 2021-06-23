@@ -342,9 +342,9 @@ try
            fresponse:= _response.DataString;
 
 
-       RegistraLogErro(getHost);
-       RegistraLogErro('response : '+fresponse);
-       RegistraLogErro('request : '+FBody.Text);
+       //RegistraLogErro(getHost);
+       //RegistraLogErro('response : '+fresponse);
+       //RegistraLogErro('request : '+FBody.Text);
 
 
        if copy(trim(fresponse),1,1) = '{' then

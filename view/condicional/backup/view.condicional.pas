@@ -305,10 +305,6 @@ begin
        cds_cancelado.Post;
   end;
 
-
-
-
-
  finally
     cds_itens.EnableControls;
     cds_cancelado.EnableControls;

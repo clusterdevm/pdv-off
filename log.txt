@@ -66,3 +66,79 @@
 
 22-06-2021 13:12:33 caixa: delete from financeiro_caixa where id = '2504'
 
+23-06-2021 09:31:57 ====================================
+23-06-2021 09:31:57 host http://localhost/api/v1/vendas/devolucao/venda/001005136488
+23-06-2021 09:31:57 Error Request : Unexpected response status code: 500
+23-06-2021 09:31:57 teste 2: 
+23-06-2021 09:32:02 ====================================
+23-06-2021 09:32:02 host http://localhost/api/v1/vendas/devolucao/venda/5136488
+23-06-2021 09:32:02 Error Request : Unexpected response status code: 500
+23-06-2021 09:32:02 teste 2: 
+23-06-2021 09:32:14 ====================================
+23-06-2021 09:32:14 host http://localhost/api/v1/vendas/devolucao/venda/
+23-06-2021 09:32:14 Error Request : Unexpected response status code: 404
+23-06-2021 09:32:14 teste 2: 
+23-06-2021 09:32:25 ====================================
+23-06-2021 09:32:25 host http://localhost/api/v1/vendas/devolucao/venda/5136488
+23-06-2021 09:32:25 Error Request : Unexpected response status code: 500
+23-06-2021 09:32:25 teste 2: 
+23-06-2021 15:17:14 caixa: delete from financeiro_caixa where id = '2505'
+
+23-06-2021 15:18:31 ====================================
+23-06-2021 15:18:31 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+23-06-2021 15:18:31 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+23-06-2021 15:18:31 teste 2: 
+23-06-2021 15:18:36 ====================================
+23-06-2021 15:18:36 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+23-06-2021 15:18:36 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+23-06-2021 15:18:36 teste 2: 
+23-06-2021 15:18:41 ====================================
+23-06-2021 15:18:41 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+23-06-2021 15:18:41 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+23-06-2021 15:18:41 teste 2: 
+23-06-2021 15:18:41 ====================================
+23-06-2021 15:18:41 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/upload
+23-06-2021 15:18:41 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+23-06-2021 15:18:41 teste 2: 
+23-06-2021 15:18:46 ====================================
+23-06-2021 15:18:46 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+23-06-2021 15:18:46 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+23-06-2021 15:18:46 teste 2: 
+23-06-2021 15:18:46 ====================================
+23-06-2021 15:18:46 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/upload
+23-06-2021 15:18:46 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+23-06-2021 15:18:46 teste 2: 
+23-06-2021 15:18:51 ====================================
+23-06-2021 15:18:51 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+23-06-2021 15:18:51 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+23-06-2021 15:18:51 teste 2: 
+23-06-2021 15:18:51 ====================================
+23-06-2021 15:18:51 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/upload
+23-06-2021 15:18:51 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+23-06-2021 15:18:51 teste 2: 
+23-06-2021 15:21:57 ====================================
+23-06-2021 15:21:57 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+23-06-2021 15:21:57 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+23-06-2021 15:21:57 teste 2: 
+23-06-2021 15:22:00 ====================================
+23-06-2021 15:22:00 host https://api-dev.clustererp.com.br/api/v1/financeiro/checkout/2507/sangria
+23-06-2021 15:22:00 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+23-06-2021 15:22:00 teste 2: 
+23-06-2021 15:22:02 ====================================
+23-06-2021 15:22:02 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+23-06-2021 15:22:02 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+23-06-2021 15:22:02 teste 2: 
+23-06-2021 15:22:03 ====================================
+23-06-2021 15:22:03 host https://api-dev.clustererp.com.br/api/v1/financeiro/checkout/2507/sangria
+23-06-2021 15:22:03 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+23-06-2021 15:22:03 teste 2: 
+23-06-2021 15:22:07 ====================================
+23-06-2021 15:22:07 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+23-06-2021 15:22:07 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+23-06-2021 15:22:07 teste 2: 
+23-06-2021 15:22:12 ====================================
+23-06-2021 15:22:12 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+23-06-2021 15:22:12 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+23-06-2021 15:22:12 teste 2: 
+23-06-2021 15:30:32 caixa: delete from financeiro_caixa where id = '2507'
+

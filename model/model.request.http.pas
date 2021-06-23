@@ -238,9 +238,6 @@ try
            fresponse:= _temp.Text;
         end;
 
-       //RegistraLogErro(getHost);
-       //RegistraLogErro('response : '+fresponse);
-
        if trim(copy(fresponse,1,1)) = '{' then
          try
             Return.Parse(fresponse);

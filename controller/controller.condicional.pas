@@ -116,7 +116,12 @@ begin
        if (ResponseCode in [200..207]) then
           JsonToDataSet(_query)
        else
-          Showmessage('#150 Contate suporte: '+_Api.response);
+       Begin
+           if _Api.Return.Find('msg') > -1 then
+              messagedlg(_Api.Return['msg'].AsString,mterror,[mbok],0)
+           else
+              messagedlg('#148 Contate suporte: '+_Api.response,mterror,[mbok],0)
+       end;
    end;
 
  finally

@@ -1,0 +1,336 @@
+object f_devolucaoSeleciona: Tf_devolucaoSeleciona
+  Left = 1366
+  Height = 421
+  Top = 250
+  Width = 862
+  Caption = 'Cluster Sistemas :: Seleciona Itens'
+  ClientHeight = 421
+  ClientWidth = 862
+  Color = clWhite
+  OnCreate = FormCreate
+  OnResize = FormResize
+  OnShow = FormShow
+  Position = poMainFormCenter
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 371
+    Top = 0
+    Width = 862
+    ActivePage = TabSheet1
+    Align = alClient
+    TabIndex = 0
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Seleção'
+      ClientHeight = 341
+      ClientWidth = 852
+      object DBGrid1: TDBGrid
+        Left = 0
+        Height = 341
+        Top = 0
+        Width = 852
+        Align = alClient
+        AlternateColor = 15393754
+        BorderStyle = bsNone
+        Color = clWindow
+        Columns = <        
+          item
+            ButtonStyle = cbsCheckboxColumn
+            Title.Caption = ''
+            Width = 35
+            FieldName = 'check'
+          end        
+          item
+            Title.Caption = 'Cod. Produto'
+            Width = 100
+            FieldName = 'produto_id'
+          end        
+          item
+            Title.Caption = 'Devolver'
+            Width = 80
+            FieldName = 'devolver'
+          end        
+          item
+            Title.Caption = 'Qtde'
+            Width = 80
+            FieldName = 'quantidade'
+          end        
+          item
+            Title.Caption = 'UN'
+            Width = 50
+            FieldName = 'n_unidade'
+          end        
+          item
+            Title.Caption = 'Descrição'
+            Width = 250
+            FieldName = 'descricao'
+          end        
+          item
+            Title.Caption = 'Preço Unit.'
+            Width = 120
+            FieldName = 'valor_unitario'
+          end>
+        DataSource = ds_selecao
+        FixedHotColor = clForm
+        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+        Scrollbars = ssAutoVertical
+        TabOrder = 0
+        TitleFont.Color = clBtnText
+        TitleStyle = tsNative
+        OnCellClick = DBGrid1CellClick
+        OnDrawColumnCell = DBGrid1DrawColumnCell
+        OnEditingDone = DBGrid1EditingDone
+        OnKeyPress = DBGrid1KeyPress
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Devolvidos'
+      ClientHeight = 341
+      ClientWidth = 852
+      object gridDevolvidos: TDBGrid
+        Left = 0
+        Height = 341
+        Top = 0
+        Width = 852
+        Align = alClient
+        AlternateColor = 15393754
+        BorderStyle = bsNone
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'Data Devolução'
+            Width = 120
+            FieldName = 'data_devolucao'
+          end        
+          item
+            Title.Caption = 'Cod. Produto'
+            Width = 100
+            FieldName = 'produto_id'
+          end        
+          item
+            Title.Caption = 'Qtde'
+            Width = 80
+            FieldName = 'quantidade'
+          end        
+          item
+            Title.Caption = 'UN'
+            Width = 50
+            FieldName = 'n_unidade'
+          end        
+          item
+            Title.Caption = 'Descrição'
+            Width = 250
+            FieldName = 'descricao'
+          end        
+          item
+            Title.Caption = 'Preço Unit.'
+            Width = 120
+            FieldName = 'valor_unitario'
+          end        
+          item
+            Title.Caption = 'Title'
+            FieldName = 'devolucao_id'
+          end>
+        DataSource = ds_devolvidos
+        FixedHotColor = clForm
+        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+        Scrollbars = ssAutoVertical
+        TabOrder = 0
+        TitleFont.Color = clBtnText
+        TitleStyle = tsNative
+        OnCellClick = DBGrid1CellClick
+        OnDrawColumnCell = DBGrid1DrawColumnCell
+        OnEditingDone = DBGrid1EditingDone
+        OnKeyPress = DBGrid1KeyPress
+      end
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 371
+    Width = 862
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 50
+    ClientWidth = 862
+    TabOrder = 1
+    object Button1: TButton
+      Left = 736
+      Height = 41
+      Top = 8
+      Width = 115
+      Action = ac_confirma
+      Anchors = [akRight, akBottom]
+      TabOrder = 0
+    end
+  end
+  object ds_selecao: TDataSource
+    DataSet = cds_selecao
+    Left = 528
+    Top = 224
+  end
+  object cds_selecao: TBufDataset
+    FieldDefs = <>
+    BeforePost = cds_selecaoBeforePost
+    Left = 528
+    Top = 276
+    object cds_selecaoproduto_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'produto_id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_selecaodevolver: TFloatField
+      FieldKind = fkData
+      FieldName = 'devolver'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_selecaoquantidade: TFloatField
+      FieldKind = fkData
+      FieldName = 'quantidade'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_selecaodescricao: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object cds_selecaon_unidade: TStringField
+      FieldKind = fkData
+      FieldName = 'n_unidade'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object cds_selecaovalor_unitario: TFloatField
+      FieldKind = fkData
+      FieldName = 'valor_unitario'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_selecaocheck: TBooleanField
+      FieldKind = fkData
+      FieldName = 'check'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayValues = 'True;False'
+    end
+  end
+  object ActionList1: TActionList
+    Left = 160
+    Top = 168
+    object ac_confirma: TAction
+      Caption = 'Confirmar'
+      OnExecute = ac_confirmaExecute
+      ShortCut = 117
+    end
+    object Action1: TAction
+      Caption = 'Sair'
+      OnExecute = Action1Execute
+      ShortCut = 27
+    end
+  end
+  object cds_devolvidos: TBufDataset
+    FieldDefs = <>
+    BeforePost = cds_selecaoBeforePost
+    Left = 344
+    Top = 188
+    object cds_selecaoproduto_id1: TLongintField
+      FieldKind = fkData
+      FieldName = 'produto_id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_selecaoquantidade1: TFloatField
+      FieldKind = fkData
+      FieldName = 'quantidade'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_selecaodescricao1: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object cds_selecaon_unidade1: TStringField
+      FieldKind = fkData
+      FieldName = 'n_unidade'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object cds_selecaocheck1: TBooleanField
+      FieldKind = fkData
+      FieldName = 'check'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayValues = 'True;False'
+    end
+    object cds_devolvidosdevolucao_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'devolucao_id'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_devolvidosdata_devolucao: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'data_devolucao'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object ds_devolvidos: TDataSource
+    DataSet = cds_devolvidos
+    Left = 344
+    Top = 136
+  end
+end

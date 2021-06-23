@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, model.conexao, Dialogs, md5, process, Graphics,
   controls, StdCtrls, Forms, TypInfo, DateUtils, db, cluster_pdv.sessao,
-  wcursos;
+  wcursos,BufDataset;
 
 type
   TPathServicos = (mAutenticacao, mCondicional, mGeral, mPDV, mFinanceiro, mvenda);
@@ -50,6 +50,7 @@ var Sessao : TSessao;
 
   Function GetUUID : String;
   Function GetFloat(value:string) : Extended;
+  Procedure Limpa(aDataSet:TBufDataset);
 
 implementation
 
@@ -292,6 +293,16 @@ begin
     end;
 end;
 
+Procedure Limpa(aDataSet:TBufDataset);
+Begin
+   try
+       aDataSet.DisableControls;
+       while not aDataSet.eof do
+           aDataSet.Delete;
+   finally
+      aDataSet.EnableControls;
+   end;
+end;
 
 function bioswindows : String;
 var
