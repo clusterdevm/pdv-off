@@ -14,7 +14,7 @@ uses
 
   view.condicional.criar, model.pessoa, cluster_pdv.sessao, uf_aguarde,
   view.devolucao.filtrar, view.devolucao.criar, thread.wait, wcursos,
-  view.condicional, unit1;
+  view.condicional;
 
 {$R *.res}
 
@@ -23,7 +23,7 @@ begin
   FormatSettings.ShortDateFormat := 'dd/mm/yyyy';
   FormatSettings.CurrencyString := '';
   FormatSettings.DecimalSeparator := '.';
-  FormatSettings.ThousandSeparator := ',';
+ // FormatSettings.ThousandSeparator := ',';
 
   RequireDerivedFormResource:=True;
   Application.Scaled:=True;

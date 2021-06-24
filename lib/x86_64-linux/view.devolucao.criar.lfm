@@ -495,6 +495,22 @@ object f_devolucaoCriar: Tf_devolucaoCriar
         TextApplyGlobalOpacity = False
         MemoryUsage = bmuHigh
       end
+      object mObs: TMemo
+        Left = 240
+        Height = 50
+        Top = 2
+        Width = 318
+        Color = 9040369
+        TabOrder = 2
+      end
+      object Label2: TLabel
+        Left = 164
+        Height = 14
+        Top = 1
+        Width = 71
+        Caption = 'Observação'
+        ParentColor = False
+      end
     end
   end
   object ACBrEnterTab1: TACBrEnterTab

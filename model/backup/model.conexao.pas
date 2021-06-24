@@ -3,7 +3,7 @@ unit model.conexao;
 interface
 
 uses SysUtils, Variants, Classes, ZConnection, ZDataset,
-     jsons, db, BufDataset, typinfo, dialogs,ZSqlProcessor  ;
+     Jsons, db, BufDataset, typinfo, dialogs,ZSqlProcessor  ;
 
 Type
 
@@ -476,7 +476,7 @@ begin
    Begin
          _item := _JsonArray.Items[j].AsObject;
 
-         if (_item['update'].AsBoolean then
+         if (_item['update'].AsBoolean) or (_forceUpdate) then
          Begin
                for i :=0 to _item.Count-1 do
                Begin

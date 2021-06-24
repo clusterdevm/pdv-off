@@ -26,6 +26,7 @@ uses
         fn_operador: string;
         fn_produto: string;
         fn_vendedor: string;
+        fObservacao: String;
         fproduto_id: string;
         Ftotal_devolucao: currency;
         Fvenda: TJsonObject;
@@ -45,6 +46,8 @@ uses
           property n_produto : string read fn_produto write fn_produto;
           property total_devolucao : currency  read Ftotal_devolucao write fTotal_devolucao;
           Property venda : TJsonObject Read Fvenda Write FVenda;
+          Property Observacao : String read fObservacao write FObservacao;
+
           Procedure Filtrar(_query : TDataSet);
           Procedure Cancelar;
           Procedure Report;
@@ -52,6 +55,7 @@ uses
           Function GetVendaDevolucao(_vendaID: string) : Boolean;
           Procedure devolve(_devolve : TJsonObject);
           Procedure Seleciona;
+          function Concluir : boolean;
 
           Constructor Create;
           Destructor Destroy; override;
@@ -69,9 +73,9 @@ var _body : TJsonObject;
 begin
  try
    WCursor.SetWait;
-
    _body := TJsonObject.Create;
    _Api := TRequisicao.Create;
+
    _body.Put('ativo', self.ativo);
 
    if StrToIntDef(self.credito_id,0) > 0 then
@@ -127,8 +131,40 @@ begin
 end;
 
 procedure TDevolucao.Cancelar;
+var _Api : TRequisicao;
+  _aux : string;
 begin
 
+ if not InputQuery('Cluster Sistemas', 'Motivo Devolução',_aux) then
+    exit;
+
+ try
+    WCursor.SetWait;
+   _Api := TRequisicao.Create;
+
+   with _Api do
+   Begin
+       Metodo:='delete';
+       tokenBearer := GetBearerEMS;
+       webservice := getEMS_Webservice(mvenda);
+       rota:='vendas/devolucao/'+IntToStr(self.id);
+       AddHeader('motivo',_aux);
+       Execute;
+
+       if (ResponseCode in [200..207]) then
+          Messagedlg('Cancelamento Efetuado com sucesso',mtInformation,[mbok],0)
+       else
+       Begin
+           if _Api.Return.Find('msg') > -1 then
+              messagedlg(_Api.Return['msg'].AsString,mterror,[mbok],0)
+           else
+              messagedlg('#150 Contate suporte: '+_Api.response,mterror,[mbok],0)
+       end;
+   end;
+ finally
+   FreeAndNil(_Api);
+   WCursor.SetNormal;
+ end;
 end;
 
 procedure TDevolucao.Report;
@@ -179,7 +215,6 @@ end;
 procedure TDevolucao.devolve(_devolve: TJsonObject);
 var _Api : TRequisicao;
 begin
-
  try
     WCursor.SetWait;
    _Api := TRequisicao.Create;
@@ -220,6 +255,51 @@ begin
    f_devolucaoSeleciona.ShowModal;
    f_devolucaoSeleciona.Release;
    f_devolucaoSeleciona := nil;
+end;
+
+function TDevolucao.Concluir : boolean;
+var _Api : TRequisicao;
+     _content : TJsonObject;
+begin
+
+ try
+    WCursor.SetWait;
+    result := false;
+   _Api := TRequisicao.Create;
+   _content := TJsonObject.Create();
+   _content.Put('protocolo',self.venda['protocolo'].AsString);
+   _content.Put('venda_id',self.venda['id'].AsString);
+   _content.put('obs',self.Observacao);
+
+   with _Api do
+   Begin
+       Metodo:='post';
+       Result :=false;
+       tokenBearer := GetBearerEMS;
+       body.Text:= _content.Stringify;
+       webservice := getEMS_Webservice(mvenda);
+       rota:='vendas/devolucao';
+       Execute;
+
+       if (ResponseCode in [200..207]) then
+       Begin
+          result := true;
+          self.venda.Parse(_api.Return['resultado'].AsObject.Stringify);
+       end
+       else
+       Begin
+           if _Api.Return.Find('msg') > -1 then
+              messagedlg(_Api.Return['msg'].AsString,mterror,[mbok],0)
+           else
+              messagedlg('#150 Contate suporte: '+_Api.response,mterror,[mbok],0)
+       end;
+   end;
+
+ finally
+   FreeAndNil(_Api);
+   FreeAndNil(_content);
+   WCursor.SetNormal;
+ end;
 end;
 
 constructor TDevolucao.Create;

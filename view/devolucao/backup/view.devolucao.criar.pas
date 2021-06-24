@@ -52,9 +52,11 @@ type
     ed_vendedor: TLabeledEdit;
     img_16: TImageList;
     Label1: TLabel;
+    Label2: TLabel;
     Label3: TLabel;
     edt_totalDevolucao: TLabeledEdit;
     ed_totaPecas: TLabeledEdit;
+    mObs: TMemo;
     pnlBotao: TPanel;
     pnlTitle: TPanel;
     pnlBanner: TPanel;
@@ -150,7 +152,9 @@ end;
 
 procedure Tf_devolucaoCriar.ac_confirmarExecute(Sender: TObject);
 begin
-   // Confirmar
+   _objeto.Observacao:= mObs.Text;
+   if _objeto.Concluir then
+      self.Close;;
 end;
 
 procedure Tf_devolucaoCriar.FormResize(Sender: TObject);

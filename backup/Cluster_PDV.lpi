@@ -63,7 +63,7 @@
         <PackageName Value="LCL"/>
       </Item11>
     </RequiredPackages>
-    <Units Count="38">
+    <Units Count="37">
       <Unit0>
         <Filename Value="Cluster_PDV.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -276,15 +276,10 @@
       <Unit36>
         <Filename Value="view/devolucao/view.devolucao.selecao.pas"/>
         <IsPartOfProject Value="True"/>
-        <HasResources Value="True"/>
-      </Unit36>
-      <Unit37>
-        <Filename Value="view/devolucao/view.devolucao.selecao.pas"/>
-        <IsPartOfProject Value="True"/>
         <ComponentName Value="f_devolucaoSeleciona"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit37>
+      </Unit36>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

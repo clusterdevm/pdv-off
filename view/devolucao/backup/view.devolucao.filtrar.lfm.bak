@@ -31,6 +31,7 @@ inherited f_devolucaoFiltrar: Tf_devolucaoFiltrar
     end
     inherited b_editar: TSpeedButton
       Height = 49
+      Visible = False
     end
     inherited b_localizar: TSpeedButton
       Height = 49
@@ -62,7 +63,7 @@ inherited f_devolucaoFiltrar: Tf_devolucaoFiltrar
       item
         Title.MultiLine = True
         Title.Caption = 'Cliente'
-        Width = 380
+        Width = 350
         FieldName = 'n_cliente'
       end    
       item
@@ -327,11 +328,6 @@ inherited f_devolucaoFiltrar: Tf_devolucaoFiltrar
       Caption = 'Novo'
       OnExecute = acNovoExecute
       ShortCut = 116
-    end
-    object acEditar: TAction
-      Caption = 'Editar'
-      OnExecute = acEditarExecute
-      ShortCut = 113
     end
     object Action1: TAction
       Caption = 'Action1'

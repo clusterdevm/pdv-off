@@ -22,8 +22,8 @@ begin
   FormatSettings.DateSeparator := '/';
   FormatSettings.ShortDateFormat := 'dd/mm/yyyy';
   FormatSettings.CurrencyString := '';
-  FormatSettings.DecimalSeparator := '.';
-  FormatSettings.ThousandSeparator := ',';
+  //FormatSettings.DecimalSeparator := '.';
+ // FormatSettings.ThousandSeparator := ',';
 
   RequireDerivedFormResource:=True;
   Application.Scaled:=True;

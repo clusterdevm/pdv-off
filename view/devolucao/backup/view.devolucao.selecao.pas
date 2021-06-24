@@ -17,21 +17,25 @@ type
     ac_confirma: TAction;
     ActionList1: TActionList;
     Button1: TButton;
+    cds_devolvidosaliq_desconto: TFloatField;
     cds_devolvidosdata_devolucao: TDateTimeField;
+    cds_devolvidosdescricao: TStringField;
     cds_devolvidosdevolucao_id: TLongintField;
+    cds_devolvidosn_marca: TStringField;
+    cds_devolvidosn_unidade: TStringField;
+    cds_devolvidosproduto_id: TLongintField;
+    cds_devolvidosquantidade: TFloatField;
+    cds_devolvidossub_total: TFloatField;
+    cds_devolvidosvalor_final: TFloatField;
+    cds_devolvidosvalor_unitario: TFloatField;
     cds_selecao: TBufDataset;
     cds_devolvidos: TBufDataset;
     cds_selecaocheck: TBooleanField;
-    cds_selecaocheck1: TBooleanField;
     cds_selecaodescricao: TStringField;
-    cds_selecaodescricao1: TStringField;
     cds_selecaodevolver: TFloatField;
     cds_selecaon_unidade: TStringField;
-    cds_selecaon_unidade1: TStringField;
     cds_selecaoproduto_id: TLongintField;
-    cds_selecaoproduto_id1: TLongintField;
     cds_selecaoquantidade: TFloatField;
-    cds_selecaoquantidade1: TFloatField;
     cds_selecaovalor_unitario: TFloatField;
     DBGrid1: TDBGrid;
     ds_devolvidos: TDataSource;
@@ -45,6 +49,7 @@ type
     procedure ac_confirmaExecute(Sender: TObject);
     procedure cds_selecaoBeforePost(DataSet: TDataSet);
     procedure DBGrid1CellClick(Column: TColumn);
+    procedure DBGrid1ColExit(Sender: TObject);
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure DBGrid1EditingDone(Sender: TObject);
@@ -70,7 +75,6 @@ uses classe.utils;
 
 procedure Tf_devolucaoSeleciona.FormCreate(Sender: TObject);
 begin
-    //cds_devolucao.create;
     cds_selecao.CreateDataset;
     cds_selecao.Open;
 
@@ -81,7 +85,7 @@ begin
     DBGrid1.Columns[3].DisplayFormat:=Sessao.formatquantidade;
     DBGrid1.Columns[6].DisplayFormat:= Sessao.formatunitario;
 
-    gridDevolvidos.Columns[1].DisplayFormat:= Sessao.datetimeformat;
+    gridDevolvidos.Columns[0].DisplayFormat:= Sessao.datetimeformat;
     gridDevolvidos.Columns[2].DisplayFormat:=Sessao.formatquantidade;
     gridDevolvidos.Columns[5].DisplayFormat:= Sessao.formatunitario;
 
@@ -158,6 +162,12 @@ begin
   end;
 end;
 
+procedure Tf_devolucaoSeleciona.DBGrid1ColExit(Sender: TObject);
+begin
+          if DBGrid1.DataSource.State in [dsInsert, dsEdit] then
+           DBGrid1.DataSource.DataSet.Post;
+end;
+
 procedure Tf_devolucaoSeleciona.DBGrid1DrawColumnCell(Sender: TObject;
   const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
 begin
@@ -192,7 +202,6 @@ begin
     for i := 0 to _object.venda['disponivel'].AsArray.Count-1 do
     Begin
         _item := _object.venda['disponivel'].AsArray.Items[i].AsObject;
-
         cds_selecao.Append;
         cds_selecaocheck.AsBoolean:= false;
         cds_selecaodescricao.Value:= _item['descricao'].AsString;
@@ -210,17 +219,21 @@ begin
     Begin
         _item := _object.venda['devolvidos'].AsArray.Items[i].AsObject;
 
-        cds_selecao.Append;
-        cds_selecaocheck.AsBoolean:= false;
-        cds_selecaodescricao.Value:= _item['descricao'].AsString;
-        cds_selecaodevolver.Value:= 0;
-        cds_selecaon_unidade.value := _item['medida_descricao'].AsString;
-        cds_selecaoproduto_id.value := _item['produto_id'].AsInteger;
-        cds_selecaoquantidade.Value:= _item['quantidade'].AsNumber;
-        cds_selecaovalor_unitario.Value:= _item['valor_final'].AsNumber;
-        cds_selecao.Post;
+        cds_devolvidos.Append;
+        cds_devolvidosdevolucao_id.Value:= _item['devolucao_id'].AsInteger;
+        cds_devolvidosdata_devolucao.AsDateTime:= getDataBanco(_item['data_emissao'].AsString);
+        cds_devolvidosproduto_id.Value := _item['produto_id'].AsInteger;
+        cds_devolvidosn_marca.Value:= _item['n_marca'].AsString;
+        cds_devolvidosn_unidade.Value:= _item['n_unidade'].AsString;
+        cds_devolvidosquantidade.Value:= _item['quantidade'].AsNumber;
+        cds_devolvidosvalor_unitario.Value:= _item['valor_unitario'].AsNumber;
+        cds_devolvidosaliq_desconto.Value:= _item['aliq_desconto'].AsNumber;
+        cds_devolvidosvalor_final.Value:= _item['valor_final'].AsNumber;
+        cds_devolvidossub_total.Value:= _item['sub_total'].AsNumber;
+        cds_devolvidosdescricao.Value:= _item['descricao'].AsString;
+        cds_devolvidos.Post;
     end;
-    cds_selecao.First;
+    cds_devolvidos.First;
 end;
 
 end.

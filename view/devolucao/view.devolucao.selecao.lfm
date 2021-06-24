@@ -13,7 +13,7 @@ object f_devolucaoSeleciona: Tf_devolucaoSeleciona
   Position = poMainFormCenter
   object PageControl1: TPageControl
     Left = 0
-    Height = 371
+    Height = 421
     Top = 0
     Width = 862
     ActivePage = TabSheet1
@@ -22,7 +22,7 @@ object f_devolucaoSeleciona: Tf_devolucaoSeleciona
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Seleção'
-      ClientHeight = 341
+      ClientHeight = 391
       ClientWidth = 852
       object DBGrid1: TDBGrid
         Left = 0
@@ -78,18 +78,39 @@ object f_devolucaoSeleciona: Tf_devolucaoSeleciona
         TitleFont.Color = clBtnText
         TitleStyle = tsNative
         OnCellClick = DBGrid1CellClick
+        OnColExit = DBGrid1ColExit
         OnDrawColumnCell = DBGrid1DrawColumnCell
         OnEditingDone = DBGrid1EditingDone
         OnKeyPress = DBGrid1KeyPress
       end
+      object Panel1: TPanel
+        Left = 0
+        Height = 50
+        Top = 341
+        Width = 852
+        Align = alBottom
+        BevelOuter = bvNone
+        ClientHeight = 50
+        ClientWidth = 852
+        TabOrder = 1
+        object Button1: TButton
+          Left = 726
+          Height = 41
+          Top = 8
+          Width = 115
+          Action = ac_confirma
+          Anchors = [akRight, akBottom]
+          TabOrder = 0
+        end
+      end
     end
     object TabSheet2: TTabSheet
       Caption = 'Devolvidos'
-      ClientHeight = 341
+      ClientHeight = 391
       ClientWidth = 852
       object gridDevolvidos: TDBGrid
         Left = 0
-        Height = 341
+        Height = 391
         Top = 0
         Width = 852
         Align = alClient
@@ -128,7 +149,8 @@ object f_devolucaoSeleciona: Tf_devolucaoSeleciona
             FieldName = 'valor_unitario'
           end        
           item
-            Title.Caption = 'Title'
+            Title.Caption = 'N. Devolução'
+            Width = 100
             FieldName = 'devolucao_id'
           end>
         DataSource = ds_devolvidos
@@ -143,26 +165,6 @@ object f_devolucaoSeleciona: Tf_devolucaoSeleciona
         OnEditingDone = DBGrid1EditingDone
         OnKeyPress = DBGrid1KeyPress
       end
-    end
-  end
-  object Panel1: TPanel
-    Left = 0
-    Height = 50
-    Top = 371
-    Width = 862
-    Align = alBottom
-    BevelOuter = bvNone
-    ClientHeight = 50
-    ClientWidth = 862
-    TabOrder = 1
-    object Button1: TButton
-      Left = 736
-      Height = 41
-      Top = 8
-      Width = 115
-      Action = ac_confirma
-      Anchors = [akRight, akBottom]
-      TabOrder = 0
     end
   end
   object ds_selecao: TDataSource
@@ -258,61 +260,12 @@ object f_devolucaoSeleciona: Tf_devolucaoSeleciona
   end
   object cds_devolvidos: TBufDataset
     FieldDefs = <>
-    BeforePost = cds_selecaoBeforePost
     Left = 344
     Top = 188
-    object cds_selecaoproduto_id1: TLongintField
-      FieldKind = fkData
-      FieldName = 'produto_id'
-      Index = 0
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object cds_selecaoquantidade1: TFloatField
-      FieldKind = fkData
-      FieldName = 'quantidade'
-      Index = 1
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-    end
-    object cds_selecaodescricao1: TStringField
-      FieldKind = fkData
-      FieldName = 'descricao'
-      Index = 2
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 255
-    end
-    object cds_selecaon_unidade1: TStringField
-      FieldKind = fkData
-      FieldName = 'n_unidade'
-      Index = 3
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 10
-    end
-    object cds_selecaocheck1: TBooleanField
-      FieldKind = fkData
-      FieldName = 'check'
-      Index = 4
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      DisplayValues = 'True;False'
-    end
     object cds_devolvidosdevolucao_id: TLongintField
       FieldKind = fkData
       FieldName = 'devolucao_id'
-      Index = 5
+      Index = 0
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -321,11 +274,95 @@ object f_devolucaoSeleciona: Tf_devolucaoSeleciona
     object cds_devolvidosdata_devolucao: TDateTimeField
       FieldKind = fkData
       FieldName = 'data_devolucao'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_devolvidosproduto_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'produto_id'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_devolvidosn_marca: TStringField
+      FieldKind = fkData
+      FieldName = 'n_marca'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object cds_devolvidosn_unidade: TStringField
+      FieldKind = fkData
+      FieldName = 'n_unidade'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 10
+    end
+    object cds_devolvidosquantidade: TFloatField
+      FieldKind = fkData
+      FieldName = 'quantidade'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_devolvidosvalor_unitario: TFloatField
+      FieldKind = fkData
+      FieldName = 'valor_unitario'
       Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+    end
+    object cds_devolvidosaliq_desconto: TFloatField
+      FieldKind = fkData
+      FieldName = 'aliq_desconto'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_devolvidosvalor_final: TFloatField
+      FieldKind = fkData
+      FieldName = 'valor_final'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_devolvidossub_total: TFloatField
+      FieldKind = fkData
+      FieldName = 'sub_total'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_devolvidosdescricao: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
     end
   end
   object ds_devolvidos: TDataSource

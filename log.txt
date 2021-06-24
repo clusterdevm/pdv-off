@@ -142,3 +142,39 @@
 23-06-2021 15:22:12 teste 2: 
 23-06-2021 15:30:32 caixa: delete from financeiro_caixa where id = '2507'
 
+24-06-2021 08:34:09 ====================================
+24-06-2021 08:34:09 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+24-06-2021 08:34:09 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+24-06-2021 08:34:09 teste 2: 
+24-06-2021 08:48:51 ====================================
+24-06-2021 08:48:51 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+24-06-2021 08:48:51 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+24-06-2021 08:48:51 teste 2: 
+24-06-2021 08:49:34 ====================================
+24-06-2021 08:49:34 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+24-06-2021 08:49:34 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+24-06-2021 08:49:34 teste 2: 
+24-06-2021 08:49:44 ====================================
+24-06-2021 08:49:44 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+24-06-2021 08:49:44 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+24-06-2021 08:49:44 teste 2: 
+24-06-2021 09:01:22 ====================================
+24-06-2021 09:01:22 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+24-06-2021 09:01:22 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+24-06-2021 09:01:22 teste 2: 
+24-06-2021 09:01:44 ====================================
+24-06-2021 09:01:44 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+24-06-2021 09:01:44 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+24-06-2021 09:01:44 teste 2: 
+24-06-2021 09:01:54 ====================================
+24-06-2021 09:01:54 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+24-06-2021 09:01:54 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+24-06-2021 09:01:54 teste 2: 
+24-06-2021 09:02:04 ====================================
+24-06-2021 09:02:04 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+24-06-2021 09:02:04 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+24-06-2021 09:02:04 teste 2: 
+24-06-2021 09:08:33 ====================================
+24-06-2021 09:08:33 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
+24-06-2021 09:08:33 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
+24-06-2021 09:08:33 teste 2: 

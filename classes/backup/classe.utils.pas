@@ -289,7 +289,8 @@ begin
       mFinanceiro :
          result := 'https://api-dev.clustererp.com.br/api/v1/';
       mVenda :
-         result := 'http://localhost/api/v1/';//'https://api-dev.clustererp.com.br/api/v1/';
+         //result := 'http://localhost/api/v1/';
+         //result := 'https://api-dev.clustererp.com.br/api/v1/';
     end;
 end;
 

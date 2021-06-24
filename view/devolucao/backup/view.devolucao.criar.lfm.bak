@@ -4,7 +4,7 @@ object f_devolucaoCriar: Tf_devolucaoCriar
   Top = 250
   Width = 1156
   BorderIcons = [biSystemMenu, biMaximize]
-  Caption = 'Cluster Sistemas : Condicional Criar'
+  Caption = 'Cluster Sistemas : Devolução'
   ClientHeight = 618
   ClientWidth = 1156
   Color = clWhite
@@ -494,6 +494,22 @@ object f_devolucaoCriar: Tf_devolucaoCriar
         RoundingDropDown.RoundY = 1
         TextApplyGlobalOpacity = False
         MemoryUsage = bmuHigh
+      end
+      object mObs: TMemo
+        Left = 240
+        Height = 50
+        Top = 2
+        Width = 318
+        Color = 9040369
+        TabOrder = 2
+      end
+      object Label2: TLabel
+        Left = 164
+        Height = 14
+        Top = 1
+        Width = 71
+        Caption = 'Observação'
+        ParentColor = False
       end
     end
   end

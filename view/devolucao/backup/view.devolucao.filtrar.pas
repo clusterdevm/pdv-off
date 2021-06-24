@@ -19,7 +19,6 @@ type
     acBuscar: TAction;
     acNovo: TAction;
     Action1: TAction;
-    acEditar: TAction;
     acInativar: TAction;
     acImprimir: TAction;
     ActionList1: TActionList;
@@ -74,6 +73,7 @@ type
     procedure Timer1Timer(Sender: TObject);
   private
      var  a , b : Integer;
+      _Load : boolean ;
   public
 
   end;
@@ -90,6 +90,9 @@ uses controller.devolucao;
 procedure Tf_devolucaoFiltrar.ac_buscarExecute(Sender: TObject);
 var devolucao : TDevolucao;
 begin
+  if not _Load then
+     exit;
+
   try
      devolucao := TDevolucao.Create;
      devolucao.n_cliente:= edt_nome.text;
@@ -222,6 +225,8 @@ begin
   cds_devolucao.CreateDataset;
   cds_devolucao.Open;
 
+  _Load:= false;
+
   Frame2_1.cb_status.Clear;
   with Frame2_1.cb_status.Items do
   Begin
@@ -241,7 +246,6 @@ begin
     b_novo.Visible := true;
     b_novo.Action := acNovo;
     b_editar.Visible := true;
-    b_editar.Action := acEditar;
     b_Inativar.Visible:= true;
     b_Inativar.Action := acInativar;
     b_localizar.Action := acBuscar;
@@ -269,6 +273,7 @@ begin
   if a = b then
   Begin
       Timer1.Enabled:= false;
+      _Load:= true;
       ac_buscarExecute(self);
   end else
      b:=Length(edt_nome.Text);
