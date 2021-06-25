@@ -1,6 +1,6 @@
 unit model.request.http;
 
-{$mode delphi}{$H+}
+{$mode delphi}
 
 interface
 
@@ -42,6 +42,7 @@ TRequisicao = Class
        fAutUserPass: String;
           FBody: TStringList;
           fendpoint: String;
+          Ffphttpclient: TFPHttpClient;
           fgetID: String;
           FHeader: THeader;
           FMetodo: string;
@@ -55,6 +56,7 @@ TRequisicao = Class
 
           function getHost : String;
      Public
+         Property fphttpclient :  TFPHttpClient  Read Ffphttpclient write ffphttpclient;
          Property webservice : string read fwebservice write fwebservice;
          Property ResponseCode : Integer read fresponsecode write fresponsecode;
          Property Body     : TStringList Read FBody        Write FBody;
@@ -152,6 +154,7 @@ end;
 
 constructor TRequisicao.Create;
 begin
+    fphttpclient := tfphttpclient.Create(nil);
     FMetodo:= 'post';
     FBody     := TStringList.Create;
     FHeader   := THeader.Create(THeaderItens);
@@ -164,6 +167,8 @@ begin
 
   if Assigned(Return) then
      FreeAndNil(FReturn);
+
+  FreeAndnil(Ffphttpclient);
 
   inherited;
 end;
@@ -238,14 +243,14 @@ try
            fresponse:= _temp.Text;
         end;
 
-       //RegistraLogErro(getHost);
-       //RegistraLogErro('response : '+fresponse);
-
        if trim(copy(fresponse,1,1)) = '{' then
          try
             Return.Parse(fresponse);
          except
-             ShowMessage(fresponse);
+            on e:exception do
+            Begin
+                RegistraLogErro('Parse ao fazer parse: '+ e.message);
+            end;
          end
        else
           Return.Put('json_error',fresponse);
@@ -269,7 +274,6 @@ end;
 
 function TRequisicao.Execute: Boolean;
 var
-_Requisicao :  TFPHttpClient;
   _response : TStringStream;
       i : Integer;
       _contentEnconding:string;
@@ -280,62 +284,61 @@ try
   try
      _contentEnconding := '';
      InitSSLInterface();
-    _Requisicao := TFPHttpClient.Create(nil);
-    _Requisicao.AllowRedirect := true;
+    fphttpclient.AllowRedirect := true;
 
     if trim(self.FtokenBearer) <> '' then
-       _Requisicao.AddHeader('Authorization', 'Bearer '+trim(Self.tokenBearer));
+       fphttpclient.AddHeader('Authorization', 'Bearer '+trim(Self.tokenBearer));
 
-    _Requisicao.AddHeader('Accept', '*/*');
-    _Requisicao.AddHeader('Content-Type', 'application/json');
+    fphttpclient.AddHeader('Accept', '*/*');
+    fphttpclient.AddHeader('Content-Type', 'application/json');
 
-    _Requisicao.AddHeader('Accept-Encoding','gzip');
+    fphttpclient.AddHeader('Accept-Encoding','gzip');
 
     _response := TStringStream.Create('');
 
     if (AutUserPass <>'') and (AutUserName <>'') then
     Begin
-       _Requisicao.UserName  := self.AutUserName;
-       _Requisicao.Password  := self.AutUserPass;
+       fphttpclient.UserName  := self.AutUserName;
+       fphttpclient.Password  := self.AutUserPass;
     end;
 
     for i := 0 to Header.Count-1  do
-      _Requisicao.AddHeader(Header.Item[i].Campo, Header.Item[i].Valor);
+      fphttpclient.AddHeader(Header.Item[i].Campo, Header.Item[i].Valor);
 
        if self.Metodo = 'post' then
        Begin
-          _Requisicao.RequestBody := TStringStream.Create( UTF8Encode(self.Body.Text) );
-          _Requisicao.Post(getHost, _response);
+          fphttpclient.RequestBody := TStringStream.Create( UTF8Encode(self.Body.Text) );
+          fphttpclient.Post(getHost, _response);
        end else
        if self.Metodo = 'put' then
        Begin
-          _Requisicao.RequestBody := TStringStream.Create( UTF8Encode(self.Body.Text) );
-          _Requisicao.Put(getHost, _response);
+          fphttpclient.RequestBody := TStringStream.Create( UTF8Encode(self.Body.Text) );
+          fphttpclient.Put(getHost, _response);
        end else
        if self.Metodo = 'delete' then
        Begin
-           _Requisicao.Delete(getHost,_response)
+           fphttpclient.Delete(getHost,_response)
        end
        else
        Begin
-           _Requisicao.Get(getHost,_response);
+           fphttpclient.Get(getHost,_response);
        end;
 
-       result := (_Requisicao.ResponseStatusCode in [200..207]);
-       self.ResponseCode:= _Requisicao.ResponseStatusCode;
+       result := (fphttpclient.ResponseStatusCode in [200..207]);
+       self.ResponseCode:= fphttpclient.ResponseStatusCode;
 
 
-       for i := 0 to _requisicao.ResponseHeaders.Count-1 do
+       for i := 0 to fphttpclient.ResponseHeaders.Count-1 do
        Begin
-            if LowerCase(copy(_Requisicao.ResponseHeaders[i],1,16))='content-encoding' then
+            if LowerCase(copy(fphttpclient.ResponseHeaders[i],1,16))='content-encoding' then
             Begin
-               _contentEnconding := trim(copy(_Requisicao.ResponseHeaders[i],18,
-                                     Length(_Requisicao.ResponseHeaders[i])));
+               _contentEnconding := trim(copy(fphttpclient.ResponseHeaders[i],18,
+                                     Length(fphttpclient.ResponseHeaders[i])));
                 break;
             end;
        end;
 
-
+        RegistraLogErro('download: '+IntToStr(_response.Size));
         if _contentEnconding <> '' then
             fresponse:= inflate(_response)
         else
@@ -350,9 +353,10 @@ try
        if copy(trim(fresponse),1,1) = '{' then
          try
             Return.Parse(fresponse);
-         except
-             ShowMessage(fresponse);
-         end
+            on e:exception do
+            Begin
+                RegistraLogErro('Parse ao fazer parse: '+ e.message);
+            end;
        else
           Return.Put('json_error',fresponse);
 
@@ -368,7 +372,6 @@ except
 end;
 
 finally
-    FreeAndNil( _Requisicao ) ;
     FreeAndNil( _response ) ;
 end;
 end;

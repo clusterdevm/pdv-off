@@ -42,6 +42,7 @@ TSincDownload = class(TThread)
  protected
    procedure Execute; override;
    Procedure AtualizaLog ;
+   Procedure ControleDown(Sender: TObject; const ContentLength, CurrentPos: Int64);
  public
    Constructor Create(CreateSuspended : boolean; value : TPanel; _tokenpdv:string);
    destructor Destroy; override;
@@ -72,6 +73,11 @@ begin
    FMsg:='Atualizando Itens :'+_tabela;
    Synchronize(AtualizaLog);
    _db.updateSQlArray(_tabela,_jsonvalue, _tabela = 'financeiro_caixa');
+
+   if (_tabela='parametros_venda') or  (_tabela='parametros_produto') or
+      (_tabela='parametros_fiscal') or (_tabela='parametros_geral') then
+      sessao.InicializaConfigPadrao;
+
 
    if _tabela = 'financeiro_caixa' then
    Begin
@@ -114,7 +120,11 @@ try
         _api.AddHeader('token-pdv',FTokenPDV);
         _api.rota:='hibrido';
         _api.endpoint:= 'download';
+
+        //_api.fphttpclient.OnDataReceived:= ControleDown;
         _api.Execute;
+
+        RegistraLogErro('Requisicao: '_api.response);
 
 
         if not (_api.ResponseCode in [200..207]) then
@@ -266,12 +276,14 @@ try
            Close;
            Sql.Clear;
            Sql.Text:=_sql.Text;
-           ExecSQL;
+           if _strutucre.Count > 0 then
+              ExecSQL;
 
            Close;
            Sql.Clear;
            Sql.Add(_index);
-           ExecSQL;
+           if _index <> '' then
+             if _strutucre.Count > 0 then ExecSQL;
        end;
        Result := true;
        FreeAndNil(_sql);
@@ -284,6 +296,7 @@ except
      on e:exception do
      Begin
            RegistraLogErro('Criar Tabela '+_tabelaName+' ' +e.message);
+           RegistraLogErro('empresa: '  +_db.query.SQL.Text );
      end;
 end;
 end;
@@ -333,6 +346,7 @@ procedure TSincDownload.PreparaUpload(_upload: TJsonObject);
 begin
     with _db.Query do
     Begin
+         _db.ChecaEstrutura('financeiro_caixa');
          Close;
          Sql.Clear;
          Sql.Add('select * from financeiro_caixa ');
@@ -446,7 +460,7 @@ begin
 
                    _tProcessado := _tProcessado + _itensJson[_name].AsArray.Count;
 
-                   FMsg:= _name + ' Registros: '+IntToStr(_Registros)+'/'+IntToStr((_tProcessado);
+                   FMsg:= _name + ' Registros: '+IntToStr(_Registros)+'/'+IntToStr(_tProcessado);
                    Synchronize(AtualizaLog);
 
                    if valida_table(_name) then
@@ -479,22 +493,22 @@ begin
                       FFalhou:= FErro_Processamento;
                   end;
                end;
-               Fprocessando := not FResponse['finalizado'].AsBoolean;
                Synchronize(AtualizaLog);
            end
            else
               Fprocessando:= false;
 
              FResponse.Clear;
-            _itensJson := TJsonObject.Create();
-            PreparaUpload(_itensJson);
-
-            if _itensJson['itens'].AsObject.Count > 0 then
-               SendUpload(_itensJson);
-            FreeAndNil(_itensJson);
 
             if (Sessao.segundoplano) then
             Begin
+                 _itensJson := TJsonObject.Create();
+                 PreparaUpload(_itensJson);
+
+                 if _itensJson['itens'].AsObject.Count > 0 then
+                    SendUpload(_itensJson);
+                 FreeAndNil(_itensJson);
+
                  FMsg:= 'Ultima Sicronização '+ FormatDateTime('dd/mm/yyyy hh:mm:ss',now);
                  Synchronize(AtualizaLog);
                  Fprocessando:= true;
@@ -532,6 +546,14 @@ begin
   end;
 
   FFalhou:= false;
+end;
+
+procedure TSincDownload.ControleDown(Sender: TObject; const ContentLength,
+  CurrentPos: Int64);
+begin
+      Fmsg:='Fazendo Download ' +InttoStr(SizeOf(ContentLength))+'/'+
+              InttoStr(SizeOf(CurrentPos)) ;
+      Synchronize(AtualizaLog);
 end;
 
 constructor TSincDownload.Create(CreateSuspended: boolean; value: TPanel; _tokenpdv:string);

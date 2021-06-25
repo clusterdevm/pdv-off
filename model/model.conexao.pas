@@ -20,7 +20,11 @@ Type
           Procedure InsertObjectToSQl(_tabela:String;_Json:TJsonObject; _returnID:Boolean = false );
 
           Procedure CriaBaseDefault;
+
+          Procedure ExecutaSQL(isql : string; _aux:string = '');
+          //Procedure ExecutaUpdateSQL(isql : string);
       Public
+         Procedure ChecaEstrutura(_tabela:string);
 
          Property Query : TZQuery      Read FQuery      Write FQuery;
 
@@ -111,20 +115,38 @@ end;
 
 constructor TConexao.Create;
 var CriarBase : boolean;
+    _PathDataBase : String;
 begin
   try
-     CriarBase:= not (fileexists('./tabela/ems.db'));
+
+
+
+    {$IFDEF MSWINDOWS}
+        _PathDataBase := '.\tabela\ems.db';
+        if not DirectoryExists('.\tabela\') then
+            ForceDirectories('.\tabela\');
+    {$else}
+        _PathDataBase := './tabela/ems.db';
+        if not DirectoryExists('./tabela/') then
+            ForceDirectories('./tabela/');
+    {$ENDIF}
+
+     CriarBase:= not (fileexists(_PathDataBase));
 
      Conector               := TZConnection.Create(nil);
      Conector.loginprompt   := false;
-     Conector.Database      := './tabela/ems.db';
+     Conector.Database      := _PathDataBase;
      Conector.HostName      := '';
      Conector.Password      := '';
      Conector.User          := '';
      Conector.Protocol      := 'sqlite-3';
+     Conector.AutoCommit:= true;
      Conector.ClientCodepage:='UTF-8';
-     Conector.LibraryLocation:='';
-
+     {$IFDEF MSWINDOWS}
+        Conector.LibraryLocation:='sqlite3.dll';
+     {$else}
+        Conector.LibraryLocation:='';
+     {$ENDIF}
      FQuery := TZQuery.Create(nil);
      FQuery.Connection := Conector;
 
@@ -169,10 +191,13 @@ begin
         Sql.Add('JOIN');
         Sql.Add('  pragma_table_info(m.name) AS p');
         Sql.Add('  where m.name = '+QuotedStr(_tabela));
+
         open;
 
         if IsEmpty then
            raise Exception.Create('Tabela Invalida '+_tabela);
+
+
 
         _estruturaDB := DataSetToJsonArray(_dbEstrutura);
     end;
@@ -350,6 +375,77 @@ begin
    end;
 end;
 
+procedure TConexao.ExecutaSQL(isql: string; _aux:string = '');
+var iCommand :  TZSQLProcessor;
+begin
+  try
+      iCommand:= TZSQLProcessor.Create(nil);
+      iCommand.Connection := Conector;
+      with iCommand do
+      Begin
+          Script.Clear;
+          Script.Add(iSql);
+          Script.text := UTF8Encode(Script.text);
+          try
+              iCommand.Execute;
+          except
+              on e:Exception do
+              Begin
+                  RegistraLogErro(' Command sql : '+_aux+' '+e.Message);
+                  RegistraLogErro(Script.Text);
+              end;
+          end;
+      end;
+  finally
+    FreeAndNil(iCommand);
+  end;
+end;
+
+procedure TConexao.ChecaEstrutura(_tabela: string);
+var qryCheca : TZQuery;
+    _find : boolean;
+begin
+   try
+       qryCheca := TZQuery.Create(nil);
+       qryCheca.Connection := Conector;
+
+       with qryCheca do
+       Begin
+          Close;
+          Sql.Clear;
+          Sql.Add('SELECT');
+          Sql.Add('  p.name as column_name');
+          Sql.Add('FROM');
+          Sql.Add('  sqlite_master AS m');
+          Sql.Add('JOIN');
+          Sql.Add('  pragma_table_info(m.name) AS p');
+          Sql.Add('  where m.name = '+QuotedStr(_tabela));
+          open;
+
+          _find := false;
+          while not eof do
+          Begin
+              if _tabela = 'financeiro_caixa' then
+              Begin
+                   if FieldByName('column_name').AsString = 'sinc_pendente' then
+                   Begin
+                       _find := true;
+                       Break;
+                   end;
+              end;
+              Next;
+          end;
+
+          if not _find then
+             ExecutaSQL('alter table '+_tabela+' add sinc_pendente text;');
+       end;
+   finally
+     FreeAndNil(qryCheca);
+   end;
+end;
+
+
+
 procedure TConexao.InsertArrayToSQl(_tabela: String; _jsonArray: TJsonArray;
      _foreignKey : String = ''; _foreingValue:integer = 0);
 var i,j : Integer;
@@ -357,7 +453,8 @@ var i,j : Integer;
   _value : TStringList;
   _delimiter : String;
   _item : TJsonObject;
-  iSql : TZSQLProcessor;
+  _processado : boolean ;
+  _count : Integer;
 begin
    _sql := EmptyStr;
    _cabecalho:= '';
@@ -367,17 +464,15 @@ begin
 
    GetEstrutura(_tabela);
 
+   _count:= 0;
+   _processado:= false;
+
    for j :=0 to _jsonArray.Count-1 do
    Begin
        _item := _jsonArray.Items[j].AsObject;
 
        if not _item['update'].AsBoolean then
        Begin
-            //if _item['id'].AsInteger = 0 then
-            //Begin
-            //   _item['datacriacao'].AsString:= getDataUTC;
-            //   _item['dataatualizacao'].AsString:= getDataUTC;
-            //end;
 
             if _foreignKey <> '' then
                _item.put(_foreignKey,_foreingValue);
@@ -414,35 +509,36 @@ begin
              _cabecalho:=_sql;
        end;
 
+
+        if (_count >=1000 ) then
+        Begin
+            if _value.Count > 0 then
+            Begin
+               ExecutaSql('insert into '+_tabela+' ('+_cabecalho+')'+
+                          ' values '+
+                          _value.Text);
+            end;
+
+            _processado := true;
+            _count := 0;
+            _value.Clear;
+        end else
+        Begin
+           Inc(_count);
+           _processado:= false;
+        end;
    end;
 
-   try
-       iSql:= TZSQLProcessor.Create(nil);
-       iSql.Connection := Conector;
-       with iSql do
+   if (_count > 0) and (_processado = false) then
+   Begin
+       if _value.Count > 0 then
        Begin
-           Script.Clear;
-           Script.Add('insert into '+_tabela+' ('+_cabecalho+')' );
-           Script.Add(' values ');
-           Script.add(_value.Text);
-
-           Script.text := UTF8Encode(Script.text);
-           if _value.Count > 0 then
-           Begin
-               try
-                 iSql.Execute;
-               except
-                  on e:Exception do
-                  Begin
-                     RegistraLogErro(' insert sql : '+_tabela+' '+e.Message);
-                     RegistraLogErro(Script.Text);
-                  end;
-               end;
-           end;
+          ExecutaSql('insert into '+_tabela+' ('+_cabecalho+')'+
+                     ' values '+
+                     _value.Text);
        end;
-   finally
-     FreeAndNil(iSql);
    end;
+
 end;
 
 procedure TConexao.updateSQl(_tabela:String;_Json, _jsonOlD:TJsonObject);
@@ -492,19 +588,19 @@ var i ,j: Integer;
   _delimiter : String;
   _item : TJsonObject;
   _insert : boolean;
-  iSql : TZSQLProcessor;
+  _count : Integer;
+  _processado : Boolean;
 begin
  try
    _value := TStringList.Create;
    _script := TStringList.Create;
-   iSql:= TZSQLProcessor.Create(nil);
-   iSql.Connection := Conector;
 
    _delimiter := EmptyStr;
    _insert := false;
 
    GetEstrutura(_tabela);
-
+   _count := 0 ;
+   _processado := false;
 
    for j := 0 to _JsonArray.Count-1 do
    Begin
@@ -529,40 +625,40 @@ begin
                    end;
                end;
 
-               with iSql do
+               if _delimiter <> '' then
                Begin
-                   if _delimiter <> '' then
-                   Begin
-                       _script.Add('update '+_tabela+ ' set ');
-                       _script.Add(_value.text);
-                       _script.add(' where id = '+QuotedStr(_item['id'].AsString)+';');
-                       _script.Add('');
-                   end;
+                   _script.Add('update '+_tabela+ ' set ');
+                   _script.Add(_value.text);
+                   _script.add(' where id = '+QuotedStr(_item['id'].AsString)+';');
+                   _script.Add('');
                end;
                _value.Clear;
                _delimiter:='';
          end;
 
-   end;
 
-   with iSql do
-   Begin
-       Script.text := UTF8Encode(_script.text);
-       if _script.Count > 0 then
+       if (_count >=1000 ) then
        Begin
-           try
-              iSql.Execute;
-           except
-              on e:Exception do
-              Begin
-                  RegistraLogErro(' update sql : '+_tabela+' '+e.Message);
-                  RegistraLogErro(Script.Text);
-              end;
-           end;
+           if _script.Count > 0 then
+              ExecutaSql(_script.Text);
+
+           _processado := true;
+           _count := 0;
+           _script.Clear;
+       end else
+       Begin
+          Inc(_count);
+          _processado:= false;
        end;
    end;
+
+    if (_count > 0) and (_processado = false) then
+        if _script.Count > 0 then
+           ExecutaSql(_script.Text);
+
 finally
-   FreeAndNil(iSql);
+   FreeAndNil(_value);
+   FreeAndNil(_script);
 end;
 
 end;

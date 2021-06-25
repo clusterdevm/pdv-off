@@ -11,7 +11,7 @@ object frm_login: Tfrm_login
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
-  Position = poMainFormCenter
+  Position = poScreenCenter
   object Panel1: TPanel
     Left = 650
     Height = 640
@@ -21,6 +21,7 @@ object frm_login: Tfrm_login
     ClientHeight = 640
     ClientWidth = 355
     TabOrder = 0
+    OnClick = Panel1Click
     object Image2: TImage
       Left = 40
       Height = 98
@@ -1178,7 +1179,7 @@ object frm_login: Tfrm_login
       Width = 353
       Align = alBottom
       Alignment = taCenter
-      Caption = 'Versão 1.10.1'
+      Caption = 'Versão 1.0.1'
       Font.Height = -11
       Font.Name = 'Sans'
       ParentColor = False
@@ -1195,8 +1196,8 @@ object frm_login: Tfrm_login
       TabOrder = 0
       object edtEmail: TEdit
         Left = 0
-        Height = 33
-        Top = 20
+        Height = 32
+        Top = 19
         Width = 277
         Align = alTop
         BorderSpacing.Top = 5
@@ -1204,7 +1205,7 @@ object frm_login: Tfrm_login
       end
       object Label1: TLabel
         Left = 0
-        Height = 15
+        Height = 14
         Top = 0
         Width = 277
         Align = alTop
@@ -1213,8 +1214,8 @@ object frm_login: Tfrm_login
       end
       object Label2: TLabel
         Left = 0
-        Height = 15
-        Top = 63
+        Height = 14
+        Top = 61
         Width = 277
         Align = alTop
         BorderSpacing.Top = 10
@@ -1223,8 +1224,8 @@ object frm_login: Tfrm_login
       end
       object edtSenha: TEdit
         Left = 0
-        Height = 33
-        Top = 78
+        Height = 32
+        Top = 75
         Width = 277
         Align = alTop
         EchoMode = emPassword
@@ -1234,8 +1235,8 @@ object frm_login: Tfrm_login
       end
       object lblApelido: TLabel
         Left = 0
-        Height = 15
-        Top = 121
+        Height = 14
+        Top = 117
         Width = 277
         Align = alTop
         BorderSpacing.Top = 10
@@ -1244,8 +1245,8 @@ object frm_login: Tfrm_login
       end
       object edtApelido: TEdit
         Left = 0
-        Height = 33
-        Top = 136
+        Height = 32
+        Top = 131
         Width = 277
         Align = alTop
         TabOrder = 2
@@ -1259,7 +1260,6 @@ object frm_login: Tfrm_login
       Align = alBottom
       BorderSpacing.Top = 40
       BorderSpacing.Bottom = 60
-      BevelColor = clBlue
       BevelOuter = bvNone
       Caption = 'Não Registrado'
       Font.Color = 5921482
@@ -11570,5 +11570,18 @@ object frm_login: Tfrm_login
     OnException = ApplicationProperties1Exception
     Left = 752
     Top = 32
+  end
+  object FPHTTPClient1: TFPHTTPClient
+    KeepConnection = False
+    IOTimeout = 0
+    ConnectTimeout = 3000
+    HTTPversion = '1.1'
+    AllowRedirect = False
+    OnRedirect = FPHTTPClient1Redirect
+    OnDataReceived = FPHTTPClient1DataReceived
+    OnHeaders = FPHTTPClient1Headers
+    OnGetSocketHandler = FPHTTPClient1GetSocketHandler
+    Left = 512
+    Top = 56
   end
 end

@@ -164,6 +164,8 @@ end;
 procedure TfrmPrincipal.AtivaBusca;
 var _sincronizar : TSincDownload;
 begin
+
+  exit;
   _sincronizar := TSincDownload.Create(true,
                                  pnlRodape ,
                                  sessao.token

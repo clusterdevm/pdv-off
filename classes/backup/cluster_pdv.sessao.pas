@@ -19,26 +19,27 @@ private
   fcnpj: string;
   fdatetimeformat: string;
   fempresalogada: integer;
-  festoque_id: integer;
-  fformatAliquota: string;
-  fformatquantidade: string;
-  fformatsubtotal: string;
-  fformatunitario: string;
   fgetID: String;
   fnomeFantasia: string;
   fnomeResumido: string;
   frazao: string;
   fsegundoplano: boolean;
   fsenha: String;
-  ftabela_preco_id: integer;
   ftoken: String;
   fusuario: String;
   FusuarioName: String;
   fusuario_id: integer;
+
+      _simbolo : string;
+      DecimalTotal : Integer;
+      DecimalUnitario : Integer;
+      DecimalQuantidade : Integer;
+
       Property caixa_id : Integer Read FCaixa_Id Write FCaixa_id;
       Function getCaixID : String;
       Function GetPDVID : Integer;
     public
+
       property bearerems : String read fbearerems write fbearerems;
       property usuario : String read fusuario write fusuario;
       property senha : String read fsenha write fsenha;
@@ -47,16 +48,19 @@ private
       property segundoplano : boolean read fsegundoplano write fsegundoplano;
       property token : String read ftoken write ftoken;
       property usuario_id : integer read fusuario_id write fusuario_id;
-      property tabela_preco_id : integer read ftabela_preco_id write ftabela_preco_id;
-      property estoque_id : integer read festoque_id write festoque_id;
 
 
+      Procedure InicializaConfigPadrao;
+
+      function tabela_preco_id : integer;
+      function estoque_id : integer ;
 
       function datetimeformat : string;
-      function formatsubtotal(_simbolo:boolean = true ): string;
-      function formatunitario(_simbolo:boolean = true): string;
+      function formatsubtotal(_loadSimbolo:boolean = true ): string;
+      function formatunitario(_loadSimbolo:boolean = true): string;
       function formatquantidade : string;
-      function formatAliquota(_simbolo : boolean = false):string;
+      function formatAliquota(_loadSimbolo : boolean = false):string;
+      function Getsimbolo : string;
 
       property razao : string read frazao write frazao;
       property cnpj : string read fcnpj write fcnpj;
@@ -122,32 +126,167 @@ begin
   end;
 end;
 
+procedure TSessao.InicializaConfigPadrao;
+begin
+  _simbolo := '';
+  DecimalQuantidade:= -1;
+  DecimalTotal:= -1;
+  DecimalUnitario:= -1;
+end;
+
+function TSessao.tabela_preco_id: integer;
+begin
+
+end;
+
+function TSessao.estoque_id: integer;
+begin
+
+end;
+
 function TSessao.datetimeformat: string;
 begin
      Result :=  'dd/mm/yyyy hh:mm';
 end;
 
-function TSessao.formatsubtotal(_simbolo: boolean): string;
+function TSessao.formatsubtotal(_loadSimbolo: boolean): string;
+var _db : TConexao;
+   i : integer;
 begin
-   Result := 'R$ #0.00,';
+
+  if DecimalTotal = -1 then
+  Begin
+      try
+          _db := TConexao.Create;
+          with _db.Query do
+          Begin
+              Close;
+              Sql.Clear;
+              Sql.Add('select pv.casadecimal_totalizador from empresa e inner join parametros_venda pv ');
+              Sql.Add('           on pv.id = e.parametros_venda_id');
+              open;
+
+              DecimalTotal := FieldByName('casadecimal_totalizador').AsInteger;
+          end;
+      finally
+          FreeAndNil(_db);
+      end;
+  end;
+
+
+  Result := '';
+  for i := 1 to DecimalTotal do
+     Result := Result + '0';
+
+  result := '#0.'+Result+',';
+
+  if _loadSimbolo then
+     result := Getsimbolo+' '+Result;
+
 end;
 
-function TSessao.formatunitario(_simbolo: boolean): string;
+function TSessao.formatunitario(_loadSimbolo: boolean): string;
+var _db : TConexao;
+   i : integer;
 begin
-  Result :=  'R$ #0.0000,';
+
+  if DecimalUnitario = -1 then
+  Begin
+      try
+          _db := TConexao.Create;
+          with _db.Query do
+          Begin
+              Close;
+              Sql.Clear;
+              Sql.Add('select pv.casadecimal_unitario from empresa e inner join parametros_venda pv ');
+              Sql.Add('           on pv.id = e.parametros_venda_id');
+              open;
+
+              DecimalUnitario := FieldByName('casadecimal_unitario').AsInteger;
+          end;
+      finally
+          FreeAndNil(_db);
+      end;
+  end;
+  Result := '';
+  for i := 1 to DecimalUnitario do
+     Result := Result + '0';
+
+  result := '#0.'+Result+',';
+
+  if _loadSimbolo then
+     result := Getsimbolo+' '+Result;
+
 end;
 
 function TSessao.formatquantidade: string;
+var _db : TConexao;
+   i : integer;
 begin
-  Result :=  '#0.,';
+
+  if DecimalQuantidade = -1 then
+  Begin
+      try
+          _db := TConexao.Create;
+          with _db.Query do
+          Begin
+              Close;
+              Sql.Clear;
+              Sql.Add('select pv.casadecimal_quantidade from empresa e inner join parametros_venda pv ');
+              Sql.Add('           on pv.id = e.parametros_venda_id');
+              open;
+
+              DecimalQuantidade := FieldByName('casadecimal_quantidade').AsInteger;
+          end;
+      finally
+          FreeAndNil(_db);
+      end;
+  end;
+
+  Result := '';
+  for i := 1 to DecimalQuantidade do
+     Result := Result + '0';
+
+  result := '#0.'+Result+',';
+
 end;
 
-function TSessao.formatAliquota(_simbolo: boolean): string;
+function TSessao.formatAliquota(_loadSimbolo: boolean): string;
 begin
-  if _simbolo then
-      Result := self.formatAliquota := '% #0.00,'
+  if _loadSimbolo then
+      Result :=  '% #0.00,'
   else
-      Result := self.formatAliquota := '#0.00,'
+      Result := '#0.00,'
+end;
+
+function TSessao.Getsimbolo: string;
+var _db : TConexao;
+begin
+
+  if _simbolo <> '' then
+  Begin
+     Result := _simbolo;
+     exit;
+  end;
+
+  try
+      _db := TConexao.Create;
+      with _db.Query do
+      Begin
+          Close;
+          Sql.Clear;
+          Sql.Add('select m.simbolo from empresa e inner join parametros_geral pg ');
+          Sql.Add('           on pg.id = e.parametros_geral_id');
+          Sql.Add('           inner join moeda m');
+          Sql.Add('           on pg.moeda_padrao_id = m.id');
+          open;
+
+          result := trim(FieldByName('simbolo').AsString);
+      end;
+
+  finally
+      FreeAndNil(_db);
+  end;
 end;
 
 function TSessao.GetCaixa: string;
@@ -244,7 +383,7 @@ end;
 
 constructor TSessao.create;
 begin
-
+  InicializaConfigPadrao
 end;
 
 end.

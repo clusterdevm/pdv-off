@@ -34,7 +34,7 @@ object frmPrincipal: TfrmPrincipal
       Left = 0
       Height = 29
       Top = 0
-      Width = 52
+      Width = 46
       Align = alLeft
       Alignment = taCenter
       Caption = 'Usuario'
@@ -6495,17 +6495,17 @@ object frmPrincipal: TfrmPrincipal
     TabOrder = 5
     object pnlButtonCenter: TPanel
       Left = 392
-      Height = 87
+      Height = 86
       Top = 0
       Width = 392
       AutoSize = True
       BevelOuter = bvNone
-      ClientHeight = 87
+      ClientHeight = 86
       ClientWidth = 392
       TabOrder = 0
       object SpeedButton1: TSpeedButton
         Left = 10
-        Height = 87
+        Height = 86
         Top = 0
         Width = 88
         Action = ac_venda
@@ -7032,12 +7032,12 @@ object frmPrincipal: TfrmPrincipal
       end
       object SpeedButton2: TSpeedButton
         Left = 206
-        Height = 87
+        Height = 86
         Top = 0
         Width = 88
+        Action = ac_devolucao
         Align = alLeft
         BorderSpacing.Left = 10
-        Caption = 'Devolução'
         Flat = True
         Glyph.Data = {
           36400000424D3640000000000000360000002800000040000000400000000100
@@ -7559,7 +7559,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object SpeedButton3: TSpeedButton
         Left = 108
-        Height = 87
+        Height = 86
         Top = 0
         Width = 88
         Action = ac_condicional
@@ -8086,7 +8086,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object SpeedButton4: TSpeedButton
         Left = 304
-        Height = 87
+        Height = 86
         Top = 0
         Width = 88
         Action = ac_sair

@@ -6,9 +6,9 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Buttons, LazHelpHTML,  BCSVGButton, BCMDButton, BCButton,
+  Buttons, LazHelpHTML,  BCSVGButton, BCMDButton, BCButton,  inifiles,
   BCImageButton, classe.utils, model.sinc.down, model.login,
-  form.principal, TypInfo, SQLDBWebData, wcursos, LCLIntf, Menus;
+  form.principal, TypInfo, SQLDBWebData, fphttpclient, wcursos, LCLIntf, Menus, ssockets;
 
 type
 
@@ -20,6 +20,7 @@ type
     edtSenha: TEdit;
     edtEmail: TEdit;
     edtApelido: TEdit;
+    FPHTTPClient1: TFPHTTPClient;
     Image1: TImage;
     Image2: TImage;
     Label1: TLabel;
@@ -38,7 +39,15 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FPHTTPClient1DataReceived(Sender: TObject; const ContentLength,
+      CurrentPos: Int64);
+    procedure FPHTTPClient1GetSocketHandler(Sender: TObject;
+      const UseSSL: Boolean; out AHandler: TSocketHandler);
+    procedure FPHTTPClient1Headers(Sender: TObject);
+    procedure FPHTTPClient1Redirect(Sender: TObject; const ASrc: String;
+      var ADest: String);
     procedure lblRecuperaSenhaClick(Sender: TObject);
+    procedure Panel1Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
      _statusGlobal : String;
@@ -62,21 +71,98 @@ uses cluster_pdv.sessao, thread.wait;
 { Tfrm_login }
 
 procedure Tfrm_login.FormCreate(Sender: TObject);
+//var _conf : TIniFile;
+//    _file : String;
 Begin
+   //try
+   //  {$IFDEF MSWINDOWS}
+   //     _file := extractfiledir(paramstr(0))+'\conf.ini';
+   //  {$else}
+   //     _file := extractfiledir(paramstr(0))+'/conf.ini';
+   //  {$ENDIF}
+   //
+   //   _conf := TIniFile.Create(_file);
+   //   appVersao := _conf.ReadString('geral','versao','');
+   //   appProducao := not (LowerCase(_conf.ReadString('geral','teste',''))='true');
+   //
+   //  if DownloadAtualizacao(appVersao) then
+   //  Begin
+   //      _conf.WriteString('geral','versao',appVersao);
+   //
+   //      MessageDlg('Feche a Aplicação e Abra novamente',mtInformation,[mbok],0);
+   //      Application.Terminate;
+   //  end;
+   //
+   //finally
+   //  FreeAndnil(_conf);
+   //end;
+   //
    Screen.OnActiveControlChange := ControlChange;
-   ChecaStatus;
+   //ChecaStatus;
 
    Sessao := TSessao.Create;
    Sessao.segundoplano:= false;
 
-   WCursor := TWaitCursor.Create;
+   //WCursor := TWaitCursor.Create;
 end;
 
 procedure Tfrm_login.FormShow(Sender: TObject);
-begin
+var _conf : TIniFile;
+    _file : String;
+Begin
+   try
+     {$IFDEF MSWINDOWS}
+        _file := extractfiledir(paramstr(0))+'\conf.ini';
+     {$else}
+        _file := extractfiledir(paramstr(0))+'/conf.ini';
+     {$ENDIF}
+
+      _conf := TIniFile.Create(_file);
+      appVersao := _conf.ReadString('geral','versao','');
+      appProducao := not (LowerCase(_conf.ReadString('geral','teste',''))='true');
+
+     if DownloadAtualizacao(appVersao) then
+     Begin
+         _conf.WriteString('geral','versao',appVersao);
+
+         MessageDlg('Feche a Aplicação e Abra novamente',mtInformation,[mbok],0);
+         Application.Terminate;
+     end;
+
+   finally
+     FreeAndnil(_conf);
+   end;
+
+   Screen.OnActiveControlChange := ControlChange;
+   ChecaStatus;
+
+   WCursor := TWaitCursor.Create;
+
    btLogar.color := clblack;
 
-   //OpenURL('http://www.lazarus.freepascal.org');
+end;
+
+procedure Tfrm_login.FPHTTPClient1DataReceived(Sender: TObject;
+  const ContentLength, CurrentPos: Int64);
+begin
+
+end;
+
+procedure Tfrm_login.FPHTTPClient1GetSocketHandler(Sender: TObject;
+  const UseSSL: Boolean; out AHandler: TSocketHandler);
+begin
+
+end;
+
+procedure Tfrm_login.FPHTTPClient1Headers(Sender: TObject);
+begin
+
+end;
+
+procedure Tfrm_login.FPHTTPClient1Redirect(Sender: TObject; const ASrc: String;
+  var ADest: String);
+begin
+
 end;
 
 procedure Tfrm_login.lblRecuperaSenhaClick(Sender: TObject);
@@ -84,6 +170,11 @@ begin
     frmPrincipal := TfrmPrincipal.Create(nil);
     frm_login.hide;
     frmPrincipal.ShowModal;
+end;
+
+procedure Tfrm_login.Panel1Click(Sender: TObject);
+begin
+
 end;
 
 procedure Tfrm_login.btLogarClick(Sender: TObject);
@@ -136,8 +227,8 @@ begin
                  while not _sincronizar.Finished do
                      Application.ProcessMessages;
 
-                 if Assigned(_sincronizar.FatalException) then
-                   raise _sincronizar.FatalException;
+                 //if Assigned(_sincronizar.FatalException) then
+                 //  raise _sincronizar.FatalException;
 
                  objeto.SetPrimeiroLogFalse;
               finally
@@ -153,7 +244,14 @@ begin
                 frmPrincipal := TfrmPrincipal.Create(frm_login);
                 frm_login.Hide;
                 Sessao.segundoplano := true;
-                frmPrincipal.ShowModal;
+                try
+                   frmPrincipal.ShowModal;
+                except
+                  on e:exception do
+                  Begin
+                       RegistraLogErro('erro Principal: '+e.message);
+                  end;
+                end;
            end;
        end;
 

@@ -1,0 +1,791 @@
+object f_devolucaoCriar: Tf_devolucaoCriar
+  Left = 1600
+  Height = 618
+  Top = 250
+  Width = 1156
+  BorderIcons = [biSystemMenu, biMaximize]
+  Caption = 'Cluster Sistemas : Devolução'
+  ClientHeight = 618
+  ClientWidth = 1156
+  Color = clWhite
+  KeyPreview = True
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnResize = FormResize
+  Position = poMainFormCenter
+  object pnlBotao: TPanel
+    Left = 0
+    Height = 50
+    Top = 566
+    Width = 1156
+    Align = alBottom
+    BorderSpacing.Bottom = 2
+    BevelOuter = bvNone
+    ClientHeight = 50
+    ClientWidth = 1156
+    TabOrder = 0
+    object BGRASpeedButton1: TBGRASpeedButton
+      Left = 892
+      Height = 45
+      Top = 0
+      Width = 127
+      Action = ac_sair
+      Align = alRight
+      BorderSpacing.Right = 5
+      BorderSpacing.Bottom = 5
+      Color = clWindowText
+    end
+    object BGRASpeedButton2: TBGRASpeedButton
+      Left = 1024
+      Height = 45
+      Top = 0
+      Width = 127
+      Action = ac_confirmar
+      Align = alRight
+      BorderSpacing.Right = 5
+      BorderSpacing.Bottom = 5
+      Color = clWindowText
+    end
+  end
+  object pnlTitle: TPanel
+    Left = 0
+    Height = 74
+    Top = 0
+    Width = 1156
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 74
+    ClientWidth = 1156
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 8
+      Height = 14
+      Top = 8
+      Width = 101
+      Caption = 'Protocolo Venda'
+      ParentColor = False
+    end
+    object ed_protocolo: TEdit
+      Left = 8
+      Height = 32
+      Top = 27
+      Width = 152
+      OnEnter = ed_protocoloEnter
+      OnExit = ac_buscaExecute
+      TabOrder = 0
+    end
+    object ed_produtoID: TEdit
+      Left = 176
+      Height = 32
+      Top = 27
+      Width = 152
+      TabOrder = 1
+    end
+    object SpeedButton2: TSpeedButton
+      Left = 330
+      Height = 33
+      Top = 26
+      Width = 38
+      Images = img_16
+      ImageIndex = 2
+    end
+    object Label3: TLabel
+      Left = 179
+      Height = 14
+      Top = 8
+      Width = 67
+      Caption = 'Produto ID'
+      ParentColor = False
+    end
+  end
+  object pnlBanner: TPanel
+    Left = 0
+    Height = 30
+    Top = 74
+    Width = 1156
+    Align = alTop
+    BorderSpacing.Bottom = 3
+    BevelOuter = bvNone
+    Caption = 'Dados da Venda'
+    Color = 9199360
+    Font.Color = clWhite
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 2
+    Visible = False
+  end
+  object pnlDadosCliente: TPanel
+    Left = 0
+    Height = 128
+    Top = 107
+    Width = 1156
+    Align = alTop
+    ClientHeight = 128
+    ClientWidth = 1156
+    TabOrder = 3
+    Visible = False
+    object pnlLinha1: TPanel
+      Left = 1
+      Height = 50
+      Top = 1
+      Width = 1154
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 50
+      ClientWidth = 1154
+      TabOrder = 0
+      object ed_dataEmissao: TLabeledEdit
+        Left = 8
+        Height = 33
+        Top = 17
+        Width = 170
+        AutoSize = False
+        EditLabel.Height = 14
+        EditLabel.Width = 170
+        EditLabel.Caption = 'Data Emissão'
+        EditLabel.ParentColor = False
+        Font.Height = -13
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 0
+        TabStop = False
+      end
+      object ed_documento: TLabeledEdit
+        Left = 184
+        Height = 33
+        Top = 17
+        Width = 170
+        AutoSize = False
+        EditLabel.Height = 14
+        EditLabel.Width = 170
+        EditLabel.Caption = 'Documento'
+        EditLabel.ParentColor = False
+        ReadOnly = True
+        TabOrder = 1
+        TabStop = False
+      end
+      object ed_tipoDocumento: TLabeledEdit
+        Left = 360
+        Height = 33
+        Top = 17
+        Width = 170
+        AutoSize = False
+        EditLabel.Height = 14
+        EditLabel.Width = 170
+        EditLabel.Caption = 'Tipo Documento'
+        EditLabel.ParentColor = False
+        ReadOnly = True
+        TabOrder = 2
+        TabStop = False
+      end
+      object ed_prazoPagamento: TLabeledEdit
+        Left = 536
+        Height = 33
+        Top = 17
+        Width = 170
+        AutoSize = False
+        EditLabel.Height = 14
+        EditLabel.Width = 170
+        EditLabel.Caption = 'Prazo Pagamento'
+        EditLabel.ParentColor = False
+        ReadOnly = True
+        TabOrder = 3
+        TabStop = False
+      end
+      object ed_meioPagamento: TLabeledEdit
+        Left = 712
+        Height = 33
+        Top = 17
+        Width = 170
+        AutoSize = False
+        EditLabel.Height = 14
+        EditLabel.Width = 170
+        EditLabel.Caption = 'Meio Pagamento'
+        EditLabel.ParentColor = False
+        ReadOnly = True
+        TabOrder = 4
+        TabStop = False
+      end
+      object ed_ValorVenda: TLabeledEdit
+        Left = 888
+        Height = 33
+        Top = 17
+        Width = 170
+        Alignment = taRightJustify
+        AutoSize = False
+        Color = 13684948
+        EditLabel.Height = 14
+        EditLabel.Width = 170
+        EditLabel.Caption = 'Valor'
+        EditLabel.ParentColor = False
+        ReadOnly = True
+        TabOrder = 5
+        TabStop = False
+      end
+    end
+    object pnlLinha2: TPanel
+      Left = 1
+      Height = 50
+      Top = 58
+      Width = 1154
+      Align = alTop
+      BorderSpacing.Top = 7
+      BevelOuter = bvNone
+      ClientHeight = 50
+      ClientWidth = 1154
+      Color = clWhite
+      ParentColor = False
+      TabOrder = 1
+      object ed_nomeCliente: TLabeledEdit
+        Left = 6
+        Height = 33
+        Top = 15
+        Width = 418
+        AutoSize = False
+        Constraints.MaxHeight = 200
+        Constraints.MinHeight = 33
+        EditLabel.Height = 14
+        EditLabel.Width = 418
+        EditLabel.Caption = 'Cliente'
+        EditLabel.ParentColor = False
+        Font.Height = -16
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 0
+        TabStop = False
+      end
+      object ed_vendedor: TLabeledEdit
+        Left = 432
+        Height = 33
+        Top = 15
+        Width = 350
+        AutoSize = False
+        Constraints.MaxHeight = 200
+        Constraints.MinHeight = 33
+        EditLabel.Height = 14
+        EditLabel.Width = 350
+        EditLabel.Caption = 'Vendedor'
+        EditLabel.ParentColor = False
+        ReadOnly = True
+        TabOrder = 1
+        TabStop = False
+      end
+      object ed_loja: TLabeledEdit
+        Left = 790
+        Height = 33
+        Top = 15
+        Width = 350
+        AutoSize = False
+        Constraints.MaxHeight = 200
+        Constraints.MinHeight = 33
+        EditLabel.Height = 14
+        EditLabel.Width = 350
+        EditLabel.Caption = 'Loja'
+        EditLabel.ParentColor = False
+        ReadOnly = True
+        TabOrder = 2
+        TabStop = False
+      end
+    end
+  end
+  object Panel4: TPanel
+    Left = 0
+    Height = 331
+    Top = 235
+    Width = 1156
+    Align = alClient
+    Anchors = [akTop, akLeft, akRight]
+    BevelOuter = bvNone
+    ClientHeight = 331
+    ClientWidth = 1156
+    TabOrder = 4
+    Visible = False
+    object DBGrid1: TDBGrid
+      Left = 0
+      Height = 274
+      Top = 0
+      Width = 1156
+      Align = alClient
+      AlternateColor = 15393754
+      Color = clWindow
+      Columns = <      
+        item
+          Title.Caption = 'Cod. Produto'
+          Width = 100
+          FieldName = 'produto_id'
+        end      
+        item
+          Title.Caption = 'Qtde'
+          Width = 80
+          FieldName = 'quantidade'
+        end      
+        item
+          Title.Caption = 'UN'
+          Width = 60
+          FieldName = 'n_unidade'
+        end      
+        item
+          Title.Caption = 'Descrição'
+          Width = 250
+          FieldName = 'descricao'
+        end      
+        item
+          Title.Caption = 'Marca'
+          Width = 120
+          FieldName = 'n_marca'
+        end      
+        item
+          Title.Caption = 'Preço Unit.'
+          Width = 100
+          FieldName = 'valor_unitario'
+        end      
+        item
+          Title.Caption = 'Desc. %'
+          FieldName = 'aliq_desconto'
+        end      
+        item
+          Title.Caption = 'Valor Final'
+          Width = 100
+          FieldName = 'valor_final'
+        end      
+        item
+          Title.Caption = 'Sub Total'
+          Width = 100
+          FieldName = 'sub_total'
+        end>
+      DataSource = ds_itens
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete]
+      Scrollbars = ssAutoVertical
+      TabAdvance = aaRightUp
+      TabOrder = 0
+      TitleStyle = tsNative
+    end
+    object pnlTotal: TPanel
+      Left = 0
+      Height = 57
+      Top = 274
+      Width = 1156
+      Align = alBottom
+      BevelOuter = bvNone
+      ClientHeight = 57
+      ClientWidth = 1156
+      TabOrder = 1
+      object edt_totalDevolucao: TLabeledEdit
+        Left = 970
+        Height = 32
+        Top = 16
+        Width = 176
+        Alignment = taRightJustify
+        Anchors = [akTop, akRight]
+        EditLabel.Height = 14
+        EditLabel.Width = 176
+        EditLabel.Caption = 'Total Devolução'
+        EditLabel.ParentColor = False
+        ReadOnly = True
+        TabOrder = 0
+        TabStop = False
+      end
+      object ed_totaPecas: TLabeledEdit
+        Left = 786
+        Height = 32
+        Top = 17
+        Width = 176
+        Alignment = taRightJustify
+        Anchors = [akTop, akRight]
+        EditLabel.Height = 14
+        EditLabel.Width = 176
+        EditLabel.Caption = 'Total Itens'
+        EditLabel.ParentColor = False
+        ReadOnly = True
+        TabOrder = 1
+        TabStop = False
+      end
+      object BCButton2: TBCButton
+        Left = 12
+        Height = 35
+        Top = 4
+        Width = 99
+        Action = ac_incluir
+        StateClicked.Background.Gradient1.StartColor = 8404992
+        StateClicked.Background.Gradient1.EndColor = 4194304
+        StateClicked.Background.Gradient1.GradientType = gtRadial
+        StateClicked.Background.Gradient1.Point1XPercent = 50
+        StateClicked.Background.Gradient1.Point1YPercent = 100
+        StateClicked.Background.Gradient1.Point2XPercent = 0
+        StateClicked.Background.Gradient1.Point2YPercent = 0
+        StateClicked.Background.Gradient2.StartColor = clWhite
+        StateClicked.Background.Gradient2.EndColor = clBlack
+        StateClicked.Background.Gradient2.GradientType = gtLinear
+        StateClicked.Background.Gradient2.Point1XPercent = 0
+        StateClicked.Background.Gradient2.Point1YPercent = 0
+        StateClicked.Background.Gradient2.Point2XPercent = 0
+        StateClicked.Background.Gradient2.Point2YPercent = 100
+        StateClicked.Background.Gradient1EndPercent = 100
+        StateClicked.Background.Style = bbsGradient
+        StateClicked.Border.Style = bboNone
+        StateClicked.FontEx.Color = 16770790
+        StateClicked.FontEx.FontQuality = fqFineAntialiasing
+        StateClicked.FontEx.Shadow = True
+        StateClicked.FontEx.ShadowRadius = 2
+        StateClicked.FontEx.ShadowOffsetX = 1
+        StateClicked.FontEx.ShadowOffsetY = 1
+        StateClicked.FontEx.Style = [fsBold]
+        StateHover.Background.Gradient1.StartColor = 16744448
+        StateHover.Background.Gradient1.EndColor = 8404992
+        StateHover.Background.Gradient1.GradientType = gtRadial
+        StateHover.Background.Gradient1.Point1XPercent = 50
+        StateHover.Background.Gradient1.Point1YPercent = 100
+        StateHover.Background.Gradient1.Point2XPercent = 0
+        StateHover.Background.Gradient1.Point2YPercent = 0
+        StateHover.Background.Gradient2.StartColor = clWhite
+        StateHover.Background.Gradient2.EndColor = clBlack
+        StateHover.Background.Gradient2.GradientType = gtLinear
+        StateHover.Background.Gradient2.Point1XPercent = 0
+        StateHover.Background.Gradient2.Point1YPercent = 0
+        StateHover.Background.Gradient2.Point2XPercent = 0
+        StateHover.Background.Gradient2.Point2YPercent = 100
+        StateHover.Background.Gradient1EndPercent = 100
+        StateHover.Background.Style = bbsGradient
+        StateHover.Border.Style = bboNone
+        StateHover.FontEx.Color = clWhite
+        StateHover.FontEx.FontQuality = fqFineAntialiasing
+        StateHover.FontEx.Shadow = True
+        StateHover.FontEx.ShadowRadius = 2
+        StateHover.FontEx.ShadowOffsetX = 1
+        StateHover.FontEx.ShadowOffsetY = 1
+        StateHover.FontEx.Style = [fsBold]
+        StateNormal.Background.Color = clHighlight
+        StateNormal.Background.Gradient1.StartColor = 7990374
+        StateNormal.Background.Gradient1.EndColor = 7990374
+        StateNormal.Background.Gradient1.GradientType = gtLinear
+        StateNormal.Background.Gradient1.Point1XPercent = 0
+        StateNormal.Background.Gradient1.Point1YPercent = 0
+        StateNormal.Background.Gradient1.Point2XPercent = 0
+        StateNormal.Background.Gradient1.Point2YPercent = 100
+        StateNormal.Background.Gradient2.StartColor = 7990374
+        StateNormal.Background.Gradient2.EndColor = 7990374
+        StateNormal.Background.Gradient2.GradientType = gtRadial
+        StateNormal.Background.Gradient2.Point1XPercent = 50
+        StateNormal.Background.Gradient2.Point1YPercent = 100
+        StateNormal.Background.Gradient2.Point2XPercent = 0
+        StateNormal.Background.Gradient2.Point2YPercent = 0
+        StateNormal.Background.Gradient1EndPercent = 60
+        StateNormal.Background.Style = bbsGradient
+        StateNormal.Border.Style = bboNone
+        StateNormal.FontEx.Color = 16770790
+        StateNormal.FontEx.FontQuality = fqFineAntialiasing
+        StateNormal.FontEx.Shadow = True
+        StateNormal.FontEx.ShadowRadius = 2
+        StateNormal.FontEx.ShadowOffsetX = 1
+        StateNormal.FontEx.ShadowOffsetY = 1
+        StateNormal.FontEx.Style = [fsBold]
+        BorderSpacing.Left = 15
+        BorderSpacing.Top = 2
+        BorderSpacing.Bottom = 2
+        Color = clNone
+        DropDownWidth = 16
+        DropDownArrowSize = 8
+        GlobalOpacity = 255
+        ParentColor = False
+        Rounding.RoundX = 12
+        Rounding.RoundY = 12
+        RoundingDropDown.RoundX = 1
+        RoundingDropDown.RoundY = 1
+        TextApplyGlobalOpacity = False
+        MemoryUsage = bmuHigh
+      end
+      object mObs: TMemo
+        Left = 240
+        Height = 50
+        Top = 2
+        Width = 318
+        Color = 9040369
+        TabOrder = 2
+      end
+      object Label2: TLabel
+        Left = 164
+        Height = 14
+        Top = 1
+        Width = 71
+        Caption = 'Observação'
+        ParentColor = False
+      end
+    end
+  end
+  object ACBrEnterTab1: TACBrEnterTab
+    EnterAsTab = True
+    Left = 704
+    Top = 232
+  end
+  object ActionList1: TActionList
+    Left = 464
+    Top = 272
+    object ac_sair: TAction
+      Caption = 'Cancelar'
+      OnExecute = ac_sairExecute
+      ShortCut = 27
+    end
+    object ac_confirmar: TAction
+      Caption = 'Confirmar'
+      Enabled = False
+      OnExecute = ac_confirmarExecute
+      ShortCut = 117
+    end
+    object ac_busca: TAction
+      Caption = 'Get Venda'
+      OnExecute = ac_buscaExecute
+    end
+    object ac_incluir: TAction
+      Caption = 'Incluir'
+      OnExecute = ac_incluirExecute
+    end
+  end
+  object cds_itens: TBufDataset
+    FieldDefs = <>
+    Left = 500
+    Top = 340
+    object cds_itensproduto_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'produto_id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itensid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itensn_marca: TStringField
+      FieldKind = fkData
+      FieldName = 'n_marca'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object cds_itensn_unidade: TStringField
+      FieldKind = fkData
+      FieldName = 'n_unidade'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object cds_itensquantidade: TFloatField
+      FieldKind = fkData
+      FieldName = 'quantidade'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itensvalor_unitario: TFloatField
+      FieldKind = fkData
+      FieldName = 'valor_unitario'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itensvalor_final: TFloatField
+      FieldKind = fkData
+      FieldName = 'valor_final'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itensaliq_desconto: TFloatField
+      FieldKind = fkData
+      FieldName = 'aliq_desconto'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itensvl_desconto: TFloatField
+      FieldKind = fkData
+      FieldName = 'vl_desconto'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itenssub_total: TFloatField
+      FieldKind = fkData
+      FieldName = 'sub_total'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_itensdescricao: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+  end
+  object ds_itens: TDataSource
+    DataSet = cds_itens
+    Left = 368
+    Top = 328
+  end
+  object img_16: TImageList
+    Left = 188
+    Top = 188
+    Bitmap = {
+      4C690400000010000000100000000000000000000000040302020A0805080A08
+      05080A0805080A0805080A0805080A0805080908050805050301000000000000
+      000000000000000000000000000000000000000000006E593F52F9CA90F6F9CA
+      90F6F9CA90F6F9CA90F6F9CA90F6F9CA90F6FACF99F4D3B778801A1A0D020000
+      000000000000000000000000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFFBD9ABFFFDE6C4FDD1B677801B1A
+      0E0300000000000000000000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFFBD9ABFFFEF5E1FFFDE6C4FCD1B6
+      77801B1A0E03000000000000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFFBD4A2FFFDE7C7FFFDE7C7FFFBD8
+      ABFC6E5C3E47000000000000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA
+      90FF6D593F55000000000000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA
+      90FF6D593F55000000000000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA
+      90FF6D593F55000000000000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA
+      90FF6D593F55000000000000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF0C88CFFADB86FFF88AF
+      5FFF588E45A9173517260000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF0C88CFF71AA55FF4CA348FF7FBE
+      7DFF5BAB58FF47A043EF1E441C3700000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFADB86FFF4CA348FF63AF60FFF2F9
+      F2FF8EC58CFF51A54DFF42963EC200000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FF88B05FFF7FBE7DFFF2F9F2FFFEFF
+      FEFFF6FAF5FFB8DBB7FF47A043F700000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FF9AB467FF5BAB58FF8EC58CFFF6FA
+      F5FFAED5ACFF70B56DFF47A043DD00000000000000006E593F52F9CA90F6F9CA
+      90F6F9CA90F6F9CA90F6F9CA90F6F9CA90F6DFC485F652A348FE51A54DFFB8DB
+      B7FF70B56DFF47A043FF2B6229690000000000000000040302020A0805080A08
+      05080A0805080A0805080A0805080A080508090805081F441D3843963FC147A0
+      43F747A043DD2B622969010401020000000000000000040302020A0805080A08
+      05080A0805080A0805080A0805080A0805080908050805050301000000000000
+      000000000000000000000000000000000000000000006E593F52F9CA90F6F9CA
+      90F6F9CA90F6F9CA90F6F9CA90F6F9CA90F6FACF99F4D3B778801A1A0D020000
+      000000000000000000000000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFFBD9ABFFFDE6C4FDD1B677801B1A
+      0E0300000000000000000000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFFBD9ABFFFEF5E1FFFDE6C4FCD1B6
+      77801B1A0E03000000000000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFFBD4A2FFFDE7C7FFFDE7C7FFFBD8
+      ABFC6E5C3E47000000000000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA
+      90FF6D593F55000000000000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA
+      90FF6D593F55000000000000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA
+      90FF6D593F55000000000000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA
+      90FF6F5A415526264C300F0F210600000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA
+      90FFC2AF97A3908DD3E86868D2A600000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFA7BA
+      B5FF40A5E5F4B7BAB6F57573AE9300000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFA6BAB5FF0B9A
+      FBFF0098FFFF3185BC9310100E0600000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFA7BAB5FF0B9AFAFF0098
+      FFFF0C7ECAA4000D16070000000000000000000000006D593F55F9CA90FFF9CA
+      90FFF9CA90FFF9CA90FFF9CA90FFF9CA90FFA7BAB5FF0A9AFBFF0098FFFF63AC
+      D3FF65574356000000000000000000000000000000006E593F52F9CA90F6F9CA
+      90F6F9CA90F6F9CA90F6F9CA90F6F1CA94F625B4F0FF039AFEFF61ACD4F8F2C9
+      93F66E593F5200000000000000000000000000000000040302020A0805080A08
+      05080A0805080A0805080A0805081C2E2F4B1E94B8D5026EA4730711170C0A08
+      0508040302020000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000003417123248201956482019564820
+      195648201956482019564820195648201956482019564820195525110C160000
+      000000000000000000000000000000000000823A2DAAB5513FFFB5513FFFB551
+      3FFFB5513FFFB5513FFFB5513FFFB5513FFFB5513FFFB5513FFF5E2A20550000
+      000000000000000000000000000000000000A27B66B2E4B092FFE4B092FFE4B0
+      92FFE4B092FFE4B092FFE4B092FFE4B092FFE4B092FFE4B092FF725142620000
+      000000000000000000000000000000000000B39C83B1FBDEBAFFFAD9B4FFF9D9
+      B3FFF8D6AEFFF8D6AEFFF8D6AEFFF8D6AEFFF9D9B3FFFBDEBBFF7E6B595F0000
+      000000000000000000000000000000000000B5A086AAFADAB4FFEDB981FFEBB4
+      7AFFE39F59FFE39F59FFE39F59FFE39F59FFEBB57AFFFBDEBBFF827361550000
+      000000000000000000000000000000000000B5A086AAFADAB4FFECB87FFFEAB3
+      77FFE29D56FFE29D56FFE29D56FFE29D56FFEAB377FFFBDEBBFF827361550000
+      000000000000000000000000000000000000B5A086AAFADBB7FFF2C797FFF1C4
+      93FFECB77EFFECB77EFFEDBB84FFF9D9B4FFD8C0A3FFCFBAA1FF766A5A580000
+      000000000000000000000000000000000000B5A086AAFADBB7FFF2C797FFF1C4
+      93FFECB77EFFECB77FFFEEC598FF958B7FFFB2A390FFBFAD98FF817A73E12F2F
+      2F3900000000000000000000000000000000B5A086AAFADAB4FFECB87FFFEAB3
+      77FFE29D56FFE5A663FFB7A692FFCDB9A0FFFBDEBBFFFBDEBBFFF0D5B5F96C68
+      65BF08080805000000000000000000000000B5A086AAFADAB4FFEDB981FFEBB4
+      7AFFE39F59FFEBB478FF9C9083FFF4D8B7FFFBDEBBFFFBDEBBFFFBDEBBFF8A82
+      79D60B0B0B12000000000000000000000000B5A086AAFBDEBAFFFAD9B4FFF9D9
+      B3FFF8D6AEFFF9D8B2FFB8A894FFCCB8A0FFFBDEBBFFFBDEBBFFEED3B3F86865
+      61BE06060605000000000000000000000000B5A0869CFCDEBBEBFCDEBBEBFCDE
+      BBEBFCDEBBEBFCDEBBEBF6D9B8EB978D81EFB2A390FFBFAD98FF827C74E15757
+      56A90B0A0A0B0000000000000000000000001513100C1E1A16121E1A16121E1A
+      16121E1A16121E1A16121E1A16121A1814152A2A2A392A2A2A49121212153532
+      2E5A464136A80A09080B00000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000101
+      01002D2A24580F0E0C2200000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000040200010000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000006030002944E1079331B
+      0521000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000004825092DA65712AEC06515F7B760
+      14DF623208330000000000000000000000000000000000000000000000000903
+      0600000000000000000000000000562D093DC06514EFC06515F9C06515F9BA62
+      14DE3F210634000000000000000000000000000000000000000010070902A448
+      69A17C375070000000000C060101B66013D5AE5910AA4023082A9D520F7C4021
+      07220000000000000000000000000000000000000000000000002D151E1BC257
+      7EF2B46780997A58645394635E69CA794DEB9B68665B7A5864538B6165557A58
+      64537A58644B09070804000000000000000000000000000000005D2A3C4FC359
+      7FFFD894ACFFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9D
+      B3FFDC9DB3D1110C0E0500000000000000000000000039212925B55678BFC763
+      87FFDB9BB2FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9D
+      B3FFA9798AA6000000000000000000000000000000009E597292C45D82FFC668
+      8AD1DB9DB3F9DB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9D
+      B3FF8D65737500000000000000000000000010090B06CC7092D4C3587FFF8649
+      6071D99CB2E7DB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9D
+      B3FF60454F4400000000000000000000000009050604B45E7DC7C3587FFA2E16
+      1F26C18A9EC3DB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9D
+      B3F72B1F231B000000000000000000000000030000009E4461A1B45376D81008
+      0B05BA8C9C94DB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDC9D
+      B3DA1A13150800000000000000000000000010050806C55479D59946649B0000
+      00007B586464DB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFB883
+      95B2040303000000000000000000000000004C232E1DC2577EFB672D42510000
+      0000543D4333DB9DB3FBDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FFDB9DB3FF9F72
+      837C00000000000000000000000000000000240F150A8C3E5A7E210E15160000
+      0000120C12029B6977719E7181A79E7181A79E7181A79E7181A79D7181923426
+      2C14000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000
+    }
+  end
+end

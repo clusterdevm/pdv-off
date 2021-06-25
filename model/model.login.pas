@@ -124,7 +124,6 @@ begin
             try
                f_selecionaEmpresa := Tf_selecionaEmpresa.Create(nil);
 
-               //showmessage(_api.Return.Stringify);
                for i := 0 to _api.Return['resultado'].AsArray.Count-1 do
                Begin
                     f_selecionaEmpresa.cbEmpresa.Items.Add(FormatFloat('000000',
@@ -280,7 +279,7 @@ try
 
             Close;
             Sql.Clear;
-            Sql.Add('select * from usuarios where usuario = '+QuotedStr(femail));
+            Sql.Add('select * from usuarios where lower(usuario) = '+QuotedStr(LowerCase(femail)));
             Open;
             if IsEmpty then
             Begin
@@ -289,7 +288,8 @@ try
             Begin
                  Sessao.usuario_id:=FieldByName('id').AsInteger;
                  sessao.usuarioName:= FieldByName('nome_completo').AsString;
-                 if LowerCase(FieldbyName('senha').AsString) = lowercase(fsenha) then
+
+                 if LowerCase(trim(FieldbyName('senha').AsString)) = lowercase(md5Text(fsenha)) then
                     Result := true
                  else
                     SHowmessage('Senha Invalida');
@@ -335,11 +335,7 @@ begin
           open;
 
           Result := not (FieldByName('primeira_sinc').AsString = 'N');
-          self.token_remoto := FieldByName('token_remoto').AsString;;
-
-          sessao.estoque_id:= fieldByName('estoque_id').AsInteger;
-          sessao.tabela_preco_id:= fieldByName('tabela_preco_id').AsInteger;
-
+          self.token_remoto := FieldByName('token_remoto').AsString;
      end;
   finally
        FreeAndNil(_data);

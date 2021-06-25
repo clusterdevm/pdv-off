@@ -28,42 +28,48 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <RequiredPackages Count="11">
+    <RequiredPackages Count="13">
       <Item1>
-        <PackageName Value="LazControls"/>
+        <PackageName Value="indylaz"/>
       </Item1>
       <Item2>
-        <PackageName Value="virtualtreeview_package"/>
+        <PackageName Value="ACBrTCP"/>
       </Item2>
       <Item3>
-        <PackageName Value="frce"/>
+        <PackageName Value="LazControls"/>
       </Item3>
       <Item4>
-        <PackageName Value="bgracontrols"/>
+        <PackageName Value="virtualtreeview_package"/>
       </Item4>
       <Item5>
-        <PackageName Value="TurboPowerIPro"/>
+        <PackageName Value="frce"/>
       </Item5>
       <Item6>
-        <PackageName Value="RunTimeTypeInfoControls"/>
+        <PackageName Value="bgracontrols"/>
       </Item6>
       <Item7>
-        <PackageName Value="weblaz"/>
+        <PackageName Value="TurboPowerIPro"/>
       </Item7>
       <Item8>
-        <PackageName Value="ACBrDiversos"/>
+        <PackageName Value="RunTimeTypeInfoControls"/>
       </Item8>
       <Item9>
-        <PackageName Value="FCL"/>
+        <PackageName Value="weblaz"/>
       </Item9>
       <Item10>
-        <PackageName Value="zcomponent"/>
+        <PackageName Value="ACBrDiversos"/>
       </Item10>
       <Item11>
-        <PackageName Value="LCL"/>
+        <PackageName Value="FCL"/>
       </Item11>
+      <Item12>
+        <PackageName Value="zcomponent"/>
+      </Item12>
+      <Item13>
+        <PackageName Value="LCL"/>
+      </Item13>
     </RequiredPackages>
-    <Units Count="38">
+    <Units Count="39">
       <Unit0>
         <Filename Value="Cluster_PDV.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -288,6 +294,13 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uf_selecionaEmpresa"/>
       </Unit37>
+      <Unit38>
+        <Filename Value="uf_download.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="f_download"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit38>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -314,7 +327,7 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="29">
+    <Exceptions Count="30">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -402,6 +415,9 @@
       <Item29>
         <Name Value="EVariantError"/>
       </Item29>
+      <Item30>
+        <Name Value="EInvalidOperation"/>
+      </Item30>
     </Exceptions>
   </Debugging>
 </CONFIG>

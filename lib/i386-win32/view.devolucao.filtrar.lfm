@@ -1,0 +1,388 @@
+inherited f_devolucaoFiltrar: Tf_devolucaoFiltrar
+  Height = 600
+  Width = 1200
+  Caption = 'Cluster Sistemas : Devolução'
+  ClientHeight = 600
+  ClientWidth = 1200
+  OnCreate = FormCreate
+  OnShow = FormShow
+  Position = poScreenCenter
+  Scaled = False
+  inherited StatusBar1: TStatusBar
+    Top = 583
+    Width = 1200
+    Panels = <    
+      item
+        Text = 'Registro(s) Encontrado(s):'
+        Width = 250
+      end    
+      item
+        Text = 'Total Devolução :'
+        Width = 300
+      end>
+  end
+  inherited Panel1: TPanel
+    Height = 49
+    Width = 1200
+    ClientHeight = 49
+    ClientWidth = 1200
+    inherited b_novo: TSpeedButton
+      Height = 49
+    end
+    inherited b_editar: TSpeedButton
+      Height = 49
+      Visible = False
+    end
+    inherited b_localizar: TSpeedButton
+      Height = 49
+    end
+    inherited b_Inativar: TSpeedButton
+      Height = 49
+    end
+  end
+  object DBGrid1: TDBGrid[2]
+    Left = 0
+    Height = 479
+    Top = 104
+    Width = 1200
+    Align = alClient
+    AlternateColor = 15393754
+    AutoEdit = False
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'Documento'
+        Width = 80
+        FieldName = 'id'
+      end    
+      item
+        Title.Caption = 'Emissão'
+        Width = 135
+        FieldName = 'data_emissao'
+      end    
+      item
+        Title.MultiLine = True
+        Title.Caption = 'Cliente'
+        Width = 350
+        FieldName = 'n_cliente'
+      end    
+      item
+        Title.Caption = 'Empresa Devolução'
+        Width = 160
+        FieldName = 'n_empresa_devolucao'
+      end    
+      item
+        Title.Caption = 'Empresa Venda'
+        Width = 160
+        FieldName = 'n_empresa_venda'
+      end    
+      item
+        Title.Caption = 'Vendedor'
+        Width = 160
+        FieldName = 'n_vendedor'
+      end    
+      item
+        Title.Caption = 'Valor'
+        Width = 120
+        FieldName = 'total_devolucao'
+      end>
+    DataSource = ds_devolucao
+    FixedColor = clWhite
+    Font.Color = 3815997
+    Font.Height = -11
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    ParentFont = False
+    PopupMenu = PopupMenu1
+    ReadOnly = True
+    Scrollbars = ssAutoVertical
+    TabOrder = 3
+    TitleFont.Color = clNavy
+    TitleFont.Height = -13
+    TitleStyle = tsNative
+    OnDrawColumnCell = DBGrid1DrawColumnCell
+    OnKeyUp = DBGrid1KeyUp
+  end
+  object anel2: TPanel[3]
+    Left = 0
+    Height = 55
+    Top = 49
+    Width = 1200
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 55
+    ClientWidth = 1200
+    TabOrder = 2
+    OnClick = ac_buscarExecute
+    object Label1: TLabel
+      Left = 5
+      Height = 14
+      Top = 0
+      Width = 42
+      Caption = 'Cliente'
+      ParentColor = False
+    end
+    object edt_nome: TEdit
+      Left = 5
+      Height = 32
+      Top = 18
+      Width = 212
+      OnChange = edt_nomeChange
+      OnKeyDown = edt_nomeKeyDown
+      TabOrder = 2
+    end
+    inline Frame2_1: TFrame2
+      Left = 384
+      Width = 140
+      ClientWidth = 140
+      inherited cb_status: TComboBox
+        Left = 0
+        Width = 140
+        OnChange = cb_statusChange
+      end
+    end
+    inline Frame1_1: TFrame1
+      Left = 928
+      Width = 267
+      ClientWidth = 267
+      TabOrder = 1
+      inherited Label1: TLabel
+        Height = 14
+        Top = -4
+        Width = 120
+        Caption = 'Empresa Devolução'
+      end
+      inherited cb_empresa: TComboBox
+        Height = 32
+        Width = 266
+        OnChange = ac_buscarExecute
+        OnClick = ac_buscarExecute
+      end
+    end
+    object ed_emissao_inicial: TDateEdit
+      Left = 536
+      Height = 32
+      Top = 16
+      Width = 184
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames, dsNoMonthChange]
+      DateOrder = doNone
+      ButtonWidth = 23
+      NumGlyphs = 1
+      Flat = True
+      MaxLength = 0
+      OnChange = ac_buscarExecute
+      TabOrder = 3
+      TextHint = 'Inicial'
+    end
+    object ed_emissao_final: TDateEdit
+      Left = 736
+      Height = 32
+      Top = 16
+      Width = 184
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      DateOrder = doNone
+      ButtonWidth = 23
+      NumGlyphs = 1
+      MaxLength = 0
+      OnChange = ac_buscarExecute
+      TabOrder = 4
+      TextHint = 'Final'
+    end
+    object Label2: TLabel
+      Left = 536
+      Height = 14
+      Top = 0
+      Width = 87
+      Caption = 'Emissão Inicial'
+      ParentColor = False
+    end
+    object Label3: TLabel
+      Left = 736
+      Height = 14
+      Top = -3
+      Width = 81
+      Caption = 'Emissão Final'
+      ParentColor = False
+    end
+    object edt_credito: TEdit
+      Left = 224
+      Height = 32
+      Top = 16
+      Width = 148
+      OnChange = edt_nomeChange
+      OnKeyDown = edt_nomeKeyDown
+      TabOrder = 5
+    end
+    object Label4: TLabel
+      Left = 224
+      Height = 14
+      Top = -2
+      Width = 57
+      Caption = 'N Credito'
+      ParentColor = False
+    end
+  end
+  inherited img_32: TImageList[4]
+    Left = 88
+    Top = 224
+  end
+  inherited img_16: TImageList[5]
+    Left = 160
+    Top = 160
+  end
+  object ds_devolucao: TDataSource[6]
+    DataSet = cds_devolucao
+    Left = 368
+    Top = 236
+  end
+  object cds_devolucao: TBufDataset[7]
+    FieldDefs = <>
+    Left = 500
+    Top = 248
+    object cds_devolucaodata_emissao: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'data_emissao'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_devolucaoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_devolucaon_cliente: TStringField
+      FieldKind = fkData
+      FieldName = 'n_cliente'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object cds_devolucaon_empresa_venda: TStringField
+      FieldKind = fkData
+      FieldName = 'n_empresa_venda'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object cds_devolucaon_empresa_devolucao: TStringField
+      FieldKind = fkData
+      FieldName = 'n_empresa_devolucao'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object cds_devolucaototal_devolucao: TCurrencyField
+      FieldKind = fkData
+      FieldName = 'total_devolucao'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object cds_devolucaon_vendedor: TStringField
+      FieldKind = fkData
+      FieldName = 'n_vendedor'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object cds_devolucaon_operador: TStringField
+      FieldKind = fkData
+      FieldName = 'n_operador'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+  end
+  object ActionList1: TActionList[8]
+    Left = 216
+    Top = 184
+    object acBuscar: TAction
+      Caption = 'Buscar'
+      OnExecute = ac_buscarExecute
+      ShortCut = 115
+    end
+    object acNovo: TAction
+      Caption = 'Novo'
+      OnExecute = acNovoExecute
+      ShortCut = 116
+    end
+    object Action1: TAction
+      Caption = 'Action1'
+      OnExecute = Action1Execute
+      ShortCut = 27
+    end
+    object acInativar: TAction
+      Caption = 'Inativar'
+      OnExecute = acInativarExecute
+    end
+    object acImprimir: TAction
+      Caption = 'Imprimir'
+      OnExecute = acImprimirExecute
+    end
+  end
+  object ACBrEnterTab1: TACBrEnterTab[9]
+    EnterAsTab = True
+    Left = 48
+    Top = 144
+  end
+  object PopupMenu1: TPopupMenu[10]
+    Images = img_16
+    Left = 200
+    Top = 320
+    object MenuItem1: TMenuItem
+      Caption = 'Novo'
+      ImageIndex = 0
+      OnClick = acNovoExecute
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Editar'
+      ImageIndex = 1
+      OnClick = acEditarExecute
+    end
+    object MenuItem3: TMenuItem
+      Caption = 'Inativar'
+      ImageIndex = 3
+      OnClick = acInativarExecute
+    end
+    object MenuItem4: TMenuItem
+      Caption = 'Buscar'
+      ImageIndex = 2
+      OnClick = ac_buscarExecute
+    end
+    object MenuItem5: TMenuItem
+      Caption = 'Imprimir'
+      OnClick = acImprimirExecute
+    end
+  end
+  object Timer1: TTimer[11]
+    Enabled = False
+    Interval = 350
+    OnTimer = Timer1Timer
+    OnStartTimer = Timer1StartTimer
+    Left = 64
+    Top = 296
+  end
+end

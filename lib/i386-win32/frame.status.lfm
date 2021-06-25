@@ -1,0 +1,29 @@
+object Frame2: TFrame2
+  Left = 0
+  Height = 48
+  Top = 0
+  Width = 239
+  AutoSize = True
+  ClientHeight = 48
+  ClientWidth = 239
+  TabOrder = 0
+  DesignLeft = 1593
+  DesignTop = 20
+  object cb_status: TComboBox
+    Left = 1
+    Height = 32
+    Top = 16
+    Width = 240
+    ItemHeight = 0
+    TabOrder = 0
+    Text = 'cb_status'
+  end
+  object Label1: TLabel
+    Left = 0
+    Height = 14
+    Top = 0
+    Width = 38
+    Caption = 'Status'
+    ParentColor = False
+  end
+end

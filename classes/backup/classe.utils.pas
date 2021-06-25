@@ -17,6 +17,8 @@ const canal_token = '9b1b6b2dfcb8d4c13d4d7fcacd9aed78';
 var Sessao : TSessao;
     //f_wait : TWaitProcess;
     WCursor : TWaitCursor;
+    appVersao : string;
+    appProducao : boolean;
 
   function md5Text(value:string):String;
   function bioswindows : String;
@@ -26,6 +28,8 @@ var Sessao : TSessao;
   procedure OnSair(Sender: TObject);
   Function FlagBoolean(value:string):String;
   Procedure RegistraLogErro(value:string);
+
+  function DownloadAtualizacao(var versao:string) :  boolean;
 
 
   Function getDataUTC : String;
@@ -54,7 +58,7 @@ var Sessao : TSessao;
 
 implementation
 
-uses model.request.http;
+uses model.request.http, uf_download;
 
 function RemoveIfens(value: string): String;
 begin
@@ -121,7 +125,10 @@ begin
        if (_api.ResponseCode in [200..207]) then
            sessao.bearerems:= _api.Return['token'].AsString
        else
-           Showmessage(_api.response);
+       Begin
+           RegistraLogErro('Erro: Linha 129 '+_api.response);
+           Showmessage('Erro Checar Arquivo de Log');
+       end;
   end;
    Result := sessao.bearerems;
 
@@ -193,20 +200,59 @@ end;
 
 procedure RegistraLogErro(value: string);
 var _text : TStringList;
-    _diretorio : String;
+    _diretorio,_file : String;
 begin
   try
      _text := TStringList.Create;
      _diretorio := extractfiledir(paramstr(0));// ExtractFileDir(ApplicationName);
 
-     if FileExists(_diretorio+'/log.txt') then
-        _text.LoadFromFile(_diretorio+'/log.txt');
+     {$IFDEF MSWINDOWS}
+        _file := _diretorio+'\log.txt';
+     {$else}
+        _file := _diretorio+'/log.txt';
+     {$ENDIF}
+
+     if FileExists(_file) then
+        _text.LoadFromFile(_file);
 
      _text.Add(formatdatetime('dd-mm-yyyy hh:mm:ss',now)+' '+value);
 
-     _text.SaveToFile(_diretorio+'/log.txt');
+     _text.SaveToFile(_file);
   finally
      FreeAndNil(_text);
+  end;
+end;
+
+function DownloadAtualizacao(var versao: string): boolean;
+var _api : TRequisicao;
+begin
+  try
+     _api := TRequisicao.Create;
+     _api.AddHeader('canal-token',canal_token);
+     _api.webservice:= getEMS_Webservice(mAutenticacao);
+     _api.Metodo:='get';
+     _api.rota:='autenticacao/versao';
+     _api.ExecuteSynapse;
+
+     Result := false;
+
+       if _api.ResponseCode in [200..207] then
+       Begin
+            if versao <> _api.Return['resultado'].AsObject['versao'].AsString then
+            Begin
+               f_download := Tf_download.Create(nil);
+               f_download.Sucesso:= false;
+               f_download.ShowModal;
+               Result := f_download.Sucesso;
+               f_download.release;
+               f_download.Free;
+            end;
+
+            if result then
+               versao := _api.Return['resultado'].AsObject['versao'].AsString;
+       end;
+  finally
+      FreeAndNil(_api);
   end;
 end;
 
@@ -277,22 +323,62 @@ end;
 
 function getEMS_Webservice(value:TPathServicos): string;
 begin
+      case value of
+       mGeral :
+          result := 'https://api-dev.clustererp.com.br/api/v1/';
+       mCondicional :
+          result := 'https://api-dev.clustererp.com.br/api/v1/';
+       mAutenticacao :
+          result := 'https://api-dev.clustererp.com.br/api/v1/';
+       mPDV :
+          result := 'https://api-dev.clustererp.com.br/api/v1/cadastro/';
+          //result := 'http://localhost/api/v1/cadastro/';
+       mFinanceiro :
+          result := 'https://api-dev.clustererp.com.br/api/v1/';
+       mVenda :
+          //result := 'http://localhost/api/v1/';
+          result := 'https://api-dev.clustererp.com.br/api/v1/';
+     end;
+
+      exit;
+
+
+
+   if appProducao then
+   Begin
     case value of
       mGeral :
-         result := 'https://api-dev.clustererp.com.br/api/v1/';
+         result := 'https://api.clustererp.com.br/api/v1/';
       mCondicional :
-         result := 'https://api-dev.clustererp.com.br/api/v1/';
+         result := 'https://api.clustererp.com.br/api/v1/';
       mAutenticacao :
-         result := 'https://api-dev.clustererp.com.br/api/v1/';
+         result := 'https://api.clustererp.com.br/api/v1/';
       mPDV :
-         //result := 'https://api-dev.clustererp.com.br/api/v1/cadastro/';
-         result := 'http://localhost/api/v1/cadastro/';
+         result := 'https://api.clustererp.com.br/api/v1/cadastro/';
       mFinanceiro :
-         result := 'https://api-dev.clustererp.com.br/api/v1/';
+         result := 'https://api.clustererp.com.br/api/v1/';
       mVenda :
-         //result := 'http://localhost/api/v1/';
-         result := 'https://api-dev.clustererp.com.br/api/v1/';
+         result := 'https://api.clustererp.com.br/api/v1/';
     end;
+   end else
+   Begin
+     case value of
+       mGeral :
+          result := 'https://api-dev.clustererp.com.br/api/v1/';
+       mCondicional :
+          result := 'https://api-dev.clustererp.com.br/api/v1/';
+       mAutenticacao :
+          result := 'https://api-dev.clustererp.com.br/api/v1/';
+       mPDV :
+          result := 'https://api-dev.clustererp.com.br/api/v1/cadastro/';
+          //result := 'http://localhost/api/v1/cadastro/';
+       mFinanceiro :
+          result := 'https://api-dev.clustererp.com.br/api/v1/';
+       mVenda :
+          //result := 'http://localhost/api/v1/';
+          result := 'https://api-dev.clustererp.com.br/api/v1/';
+     end;
+   end;
 end;
 
 Procedure Limpa(aDataSet:TBufDataset);

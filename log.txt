@@ -1,114 +1,166 @@
-25-06-2021 00:13:46 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 00:13:46 Tabela inexistente empresa
-25-06-2021 00:20:21 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 00:20:21 Tabela inexistente empresa
-25-06-2021 00:27:04 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 00:27:04 Tabela inexistente empresa
-25-06-2021 00:34:23 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 00:34:23 Tabela inexistente empresa
-25-06-2021 00:41:34 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 00:41:34 Tabela inexistente empresa
-25-06-2021 00:48:56 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 00:48:56 Tabela inexistente empresa
-25-06-2021 00:56:14 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 00:56:14 Tabela inexistente empresa
-25-06-2021 01:02:56 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 01:02:56 Tabela inexistente empresa
-25-06-2021 01:09:36 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 01:09:36 Tabela inexistente empresa
-25-06-2021 01:16:14 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 01:16:14 Tabela inexistente empresa
-25-06-2021 01:23:04 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 01:23:04 Tabela inexistente empresa
-25-06-2021 01:29:44 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 01:29:44 Tabela inexistente empresa
-25-06-2021 01:36:21 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 01:36:21 Tabela inexistente empresa
-25-06-2021 01:43:02 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 01:43:02 Tabela inexistente empresa
-25-06-2021 01:49:41 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 01:49:41 Tabela inexistente empresa
-25-06-2021 01:56:19 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 01:56:19 Tabela inexistente empresa
-25-06-2021 02:02:56 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 02:02:56 Tabela inexistente empresa
-25-06-2021 02:10:14 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 02:10:14 Tabela inexistente empresa
-25-06-2021 02:17:33 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 02:17:33 Tabela inexistente empresa
-25-06-2021 02:25:46 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 02:25:46 Tabela inexistente empresa
-25-06-2021 02:32:32 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 02:32:32 Tabela inexistente empresa
-25-06-2021 02:39:16 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 02:39:16 Tabela inexistente empresa
-25-06-2021 02:46:24 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 02:46:24 Tabela inexistente empresa
-25-06-2021 02:53:01 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 02:53:01 Tabela inexistente empresa
-25-06-2021 02:59:40 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 02:59:40 Tabela inexistente empresa
-25-06-2021 03:06:23 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 03:06:23 Tabela inexistente empresa
-25-06-2021 03:13:01 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 03:13:01 Tabela inexistente empresa
-25-06-2021 03:19:43 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 03:19:43 Tabela inexistente empresa
-25-06-2021 03:26:22 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 03:26:22 Tabela inexistente empresa
-25-06-2021 03:33:35 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 03:33:35 Tabela inexistente empresa
-25-06-2021 03:40:50 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 03:40:50 Tabela inexistente empresa
-25-06-2021 03:47:29 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 03:47:29 Tabela inexistente empresa
-25-06-2021 03:54:12 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 03:54:12 Tabela inexistente empresa
-25-06-2021 04:00:54 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 04:00:54 Tabela inexistente empresa
-25-06-2021 04:08:21 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 04:08:21 Tabela inexistente empresa
-25-06-2021 04:15:06 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 04:15:06 Tabela inexistente empresa
-25-06-2021 04:21:53 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 04:21:53 Tabela inexistente empresa
-25-06-2021 04:28:36 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 04:28:36 Tabela inexistente empresa
-25-06-2021 04:35:55 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 04:35:55 Tabela inexistente empresa
-25-06-2021 04:43:23 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 04:43:23 Tabela inexistente empresa
-25-06-2021 04:50:34 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 04:50:34 Tabela inexistente empresa
-25-06-2021 04:57:19 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 04:57:19 Tabela inexistente empresa
-25-06-2021 05:03:54 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 05:03:54 Tabela inexistente empresa
-25-06-2021 05:10:28 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 05:10:28 Tabela inexistente empresa
-25-06-2021 05:17:53 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 05:17:53 Tabela inexistente empresa
-25-06-2021 05:25:23 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 05:25:23 Tabela inexistente empresa
-25-06-2021 05:32:48 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 05:32:48 Tabela inexistente empresa
-25-06-2021 05:39:25 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 05:39:25 Tabela inexistente empresa
-25-06-2021 05:46:05 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 05:46:05 Tabela inexistente empresa
-25-06-2021 05:52:47 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 05:52:47 Tabela inexistente empresa
-25-06-2021 05:59:24 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 05:59:24 Tabela inexistente empresa
-25-06-2021 06:06:05 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 06:06:05 Tabela inexistente empresa
-25-06-2021 06:12:44 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 06:12:44 Tabela inexistente empresa
-25-06-2021 06:19:56 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 06:19:56 Tabela inexistente empresa
-25-06-2021 06:27:14 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 06:27:14 Tabela inexistente empresa
-25-06-2021 06:33:53 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 06:33:53 Tabela inexistente empresa
-25-06-2021 06:40:38 Criar Tabela empresa SQL Error: SQL logic error
-25-06-2021 06:40:38 Tabela inexistente empresa
+25-06-2021 18:38:53 download: 0
+25-06-2021 18:38:53 Requisicao: 
+25-06-2021 18:38:58 download: 0
+25-06-2021 18:38:58 Requisicao: 
+25-06-2021 18:39:33 download: 463
+25-06-2021 18:39:39 download: 0
+25-06-2021 18:39:39 Requisicao: 
+25-06-2021 18:39:45 download: 0
+25-06-2021 18:39:45 Requisicao: 
+25-06-2021 18:39:50 download: 0
+25-06-2021 18:39:50 Requisicao: 
+25-06-2021 18:39:56 download: 0
+25-06-2021 18:39:56 Requisicao: 
+25-06-2021 18:41:34 download: 463
+25-06-2021 18:41:52 download: 0
+25-06-2021 18:41:53 Requisicao: 
+25-06-2021 18:42:10 download: 0
+25-06-2021 18:42:12 Requisicao: 
+25-06-2021 18:42:21 download: 382
+25-06-2021 18:42:22 Requisicao: {"resultado":{"registros":1,"protocolo":"5635003c460aa46df82fad6b300ff6df","parametros_venda":[{"id":14,"casadecimal_unitario":4,"casadecimal_totalizador":3,"casadecimal_quantidade":1,"cliente_padrao_id":0,"venda_sem_estoque":false,"filtro_com_estoque":false,"mensagem_1":null,"mensagem_2":null,"duplicar_itens_venda":false,"promissoria_automatica":false,"modelo_relatorio_pedido":"0","gerar_txt_shopping":true,"ordernar_itens":"","datacomissao":null,"datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-25T21:42:16.365Z","balanca_modelo":3,"modelo_relatorio_dav":null,"default_armazenamento_id":3,"default_tabela_preco_id":2}]}}
+
+25-06-2021 18:44:49 download: 469
+25-06-2021 18:45:07 download: 469
+25-06-2021 18:45:15 download: 379
+25-06-2021 18:45:15 Requisicao: {"resultado":{"registros":1,"protocolo":"ac35e8d75f27cdffaf911e4741c42839","parametros_venda":[{"id":14,"casadecimal_unitario":4,"casadecimal_totalizador":3,"casadecimal_quantidade":1,"cliente_padrao_id":0,"venda_sem_estoque":false,"filtro_com_estoque":false,"mensagem_1":null,"mensagem_2":null,"duplicar_itens_venda":false,"promissoria_automatica":false,"modelo_relatorio_pedido":"0","gerar_txt_shopping":true,"ordernar_itens":"","datacomissao":null,"datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-25T21:42:16.365Z","balanca_modelo":3,"modelo_relatorio_dav":null,"default_armazenamento_id":3,"default_tabela_preco_id":2}]}}
+
+25-06-2021 18:45:21 download: 0
+25-06-2021 18:45:27 download: 0
+25-06-2021 18:45:27 Requisicao: 
+25-06-2021 18:45:33 download: 381
+25-06-2021 18:45:33 Requisicao: {"resultado":{"registros":1,"protocolo":"f05c5041fd7b2a0cea2427ed719da202","parametros_venda":[{"id":14,"casadecimal_unitario":4,"casadecimal_totalizador":3,"casadecimal_quantidade":1,"cliente_padrao_id":0,"venda_sem_estoque":false,"filtro_com_estoque":false,"mensagem_1":null,"mensagem_2":null,"duplicar_itens_venda":false,"promissoria_automatica":false,"modelo_relatorio_pedido":"0","gerar_txt_shopping":true,"ordernar_itens":"","datacomissao":null,"datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-25T21:45:29.710Z","balanca_modelo":3,"modelo_relatorio_dav":null,"default_armazenamento_id":3,"default_tabela_preco_id":2}]}}
+
+25-06-2021 18:45:33 download: 0
+25-06-2021 18:45:36 download: 1324
+25-06-2021 18:45:36 download: 452
+25-06-2021 18:45:38 download: 0
+25-06-2021 18:45:38 Requisicao: 
+25-06-2021 18:45:44 download: 0
+25-06-2021 18:45:44 Requisicao: 
+25-06-2021 18:45:49 download: 0
+25-06-2021 18:45:49 Requisicao: 
+25-06-2021 18:45:55 download: 381
+25-06-2021 18:45:55 Requisicao: {"resultado":{"registros":1,"protocolo":"3f12c22b72f195c467c6878a95840824","parametros_venda":[{"id":14,"casadecimal_unitario":4,"casadecimal_totalizador":2,"casadecimal_quantidade":1,"cliente_padrao_id":0,"venda_sem_estoque":false,"filtro_com_estoque":false,"mensagem_1":null,"mensagem_2":null,"duplicar_itens_venda":false,"promissoria_automatica":false,"modelo_relatorio_pedido":"0","gerar_txt_shopping":true,"ordernar_itens":"","datacomissao":null,"datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-25T21:45:54.482Z","balanca_modelo":3,"modelo_relatorio_dav":null,"default_armazenamento_id":3,"default_tabela_preco_id":2}]}}
+
+25-06-2021 18:45:55 download: 0
+25-06-2021 18:46:00 download: 452
+25-06-2021 18:46:01 download: 0
+25-06-2021 18:46:01 Requisicao: 
+25-06-2021 18:46:02 download: 452
+25-06-2021 18:46:04 download: 452
+25-06-2021 18:46:07 download: 452
+25-06-2021 18:46:07 download: 0
+25-06-2021 18:46:07 Requisicao: 
+25-06-2021 18:46:13 download: 0
+25-06-2021 18:46:13 Requisicao: 
+25-06-2021 18:46:19 download: 0
+25-06-2021 18:46:19 Requisicao: 
+25-06-2021 18:46:24 download: 0
+25-06-2021 18:46:24 Requisicao: 
+25-06-2021 18:46:25 download: 452
+25-06-2021 18:46:30 download: 0
+25-06-2021 18:46:30 Requisicao: 
+25-06-2021 18:46:36 download: 0
+25-06-2021 18:46:36 Requisicao: 
+25-06-2021 18:46:41 download: 381
+25-06-2021 18:46:41 Requisicao: {"resultado":{"registros":1,"protocolo":"a1555d027f7e4f2e26dd18789663bc19","parametros_venda":[{"id":14,"casadecimal_unitario":4,"casadecimal_totalizador":2,"casadecimal_quantidade":1,"cliente_padrao_id":0,"venda_sem_estoque":false,"filtro_com_estoque":false,"mensagem_1":null,"mensagem_2":null,"duplicar_itens_venda":false,"promissoria_automatica":false,"modelo_relatorio_pedido":"0","gerar_txt_shopping":true,"ordernar_itens":"","datacomissao":null,"datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-25T21:46:38.741Z","balanca_modelo":3,"modelo_relatorio_dav":null,"default_armazenamento_id":3,"default_tabela_preco_id":2}]}}
+
+25-06-2021 18:47:02 download: 0
+25-06-2021 18:47:08 download: 0
+25-06-2021 18:47:08 Requisicao: 
+25-06-2021 18:47:09 download: 452
+25-06-2021 18:47:14 download: 0
+25-06-2021 18:47:14 Requisicao: 
+25-06-2021 18:47:23 download: 462
+25-06-2021 18:47:27 download: 0
+25-06-2021 18:47:27 Requisicao: 
+25-06-2021 18:47:28 download: 1551
+25-06-2021 18:47:29 download: 452
+25-06-2021 18:47:32 download: 0
+25-06-2021 18:47:32 Requisicao: 
+25-06-2021 18:47:38 download: 0
+25-06-2021 18:47:38 Requisicao: 
+25-06-2021 18:47:44 download: 0
+25-06-2021 18:47:44 Requisicao: 
+25-06-2021 18:47:49 download: 0
+25-06-2021 18:47:49 Requisicao: 
+25-06-2021 18:47:55 download: 0
+25-06-2021 18:47:55 Requisicao: 
+25-06-2021 18:48:01 download: 0
+25-06-2021 18:48:01 Requisicao: 
+25-06-2021 18:48:07 download: 0
+25-06-2021 18:48:07 Requisicao: 
+25-06-2021 18:48:12 download: 0
+25-06-2021 18:48:12 Requisicao: 
+25-06-2021 18:48:18 download: 0
+25-06-2021 18:48:18 Requisicao: 
+25-06-2021 18:48:23 download: 0
+25-06-2021 18:48:23 Requisicao: 
+25-06-2021 18:48:29 download: 0
+25-06-2021 18:48:29 Requisicao: 
+25-06-2021 18:48:40 download: 462
+25-06-2021 18:48:46 download: 0
+25-06-2021 18:48:46 Requisicao: 
+25-06-2021 18:48:48 download: 1538
+25-06-2021 18:48:48 download: 452
+25-06-2021 18:48:52 download: 0
+25-06-2021 18:48:52 Requisicao: 
+25-06-2021 18:48:57 download: 379
+25-06-2021 18:48:57 Requisicao: {"resultado":{"registros":1,"protocolo":"cd1dce74398e11e8eca09ae76ebaec5a","parametros_venda":[{"id":14,"casadecimal_unitario":4,"casadecimal_totalizador":3,"casadecimal_quantidade":1,"cliente_padrao_id":0,"venda_sem_estoque":false,"filtro_com_estoque":false,"mensagem_1":null,"mensagem_2":null,"duplicar_itens_venda":false,"promissoria_automatica":false,"modelo_relatorio_pedido":"0","gerar_txt_shopping":true,"ordernar_itens":"","datacomissao":null,"datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-25T21:48:55.867Z","balanca_modelo":3,"modelo_relatorio_dav":null,"default_armazenamento_id":3,"default_tabela_preco_id":2}]}}
+
+25-06-2021 18:49:13 download: 0
+25-06-2021 18:49:17 download: 452
+25-06-2021 18:49:42 download: 0
+25-06-2021 18:49:42 Requisicao: 
+25-06-2021 18:51:03 download: 460
+25-06-2021 18:51:06 download: 0
+25-06-2021 18:51:06 Requisicao: 
+25-06-2021 18:51:11 download: 1541
+25-06-2021 18:51:12 download: 452
+25-06-2021 18:51:15 download: 0
+25-06-2021 18:51:15 Requisicao: 
+25-06-2021 18:51:21 download: 0
+25-06-2021 18:51:21 Requisicao: 
+25-06-2021 18:51:26 download: 381
+25-06-2021 18:51:26 Requisicao: {"resultado":{"registros":1,"protocolo":"35438397563dd21ee1ca34a7d865d200","parametros_venda":[{"id":14,"casadecimal_unitario":4,"casadecimal_totalizador":2,"casadecimal_quantidade":1,"cliente_padrao_id":0,"venda_sem_estoque":false,"filtro_com_estoque":false,"mensagem_1":null,"mensagem_2":null,"duplicar_itens_venda":false,"promissoria_automatica":false,"modelo_relatorio_pedido":"0","gerar_txt_shopping":true,"ordernar_itens":"","datacomissao":null,"datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-25T21:51:21.878Z","balanca_modelo":3,"modelo_relatorio_dav":null,"default_armazenamento_id":3,"default_tabela_preco_id":2}]}}
+
+25-06-2021 18:54:11 download: 470
+25-06-2021 18:54:16 download: 383
+25-06-2021 18:54:16 Requisicao: {"resultado":{"registros":1,"protocolo":"43f6ab0cfee678070d6925367e677849","parametros_venda":[{"id":14,"casadecimal_unitario":4,"casadecimal_totalizador":2,"casadecimal_quantidade":1,"cliente_padrao_id":0,"venda_sem_estoque":false,"filtro_com_estoque":false,"mensagem_1":null,"mensagem_2":null,"duplicar_itens_venda":false,"promissoria_automatica":false,"modelo_relatorio_pedido":"0","gerar_txt_shopping":true,"ordernar_itens":"","datacomissao":null,"datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-25T21:51:21.878Z","balanca_modelo":3,"modelo_relatorio_dav":null,"default_armazenamento_id":3,"default_tabela_preco_id":2}]}}
+
+25-06-2021 18:54:50 download: 0
+25-06-2021 18:54:56 download: 0
+25-06-2021 18:54:56 Requisicao: 
+25-06-2021 18:55:00 download: 1531
+25-06-2021 18:55:01 download: 452
+25-06-2021 18:55:04 download: 0
+25-06-2021 18:55:04 Requisicao: 
+25-06-2021 18:55:10 download: 382
+25-06-2021 18:55:10 Requisicao: {"resultado":{"registros":1,"protocolo":"a9005b39e82c4b301d6105d397b915d0","parametros_venda":[{"id":14,"casadecimal_unitario":4,"casadecimal_totalizador":3,"casadecimal_quantidade":1,"cliente_padrao_id":0,"venda_sem_estoque":false,"filtro_com_estoque":false,"mensagem_1":null,"mensagem_2":null,"duplicar_itens_venda":false,"promissoria_automatica":false,"modelo_relatorio_pedido":"0","gerar_txt_shopping":true,"ordernar_itens":"","datacomissao":null,"datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-25T21:55:09.034Z","balanca_modelo":3,"modelo_relatorio_dav":null,"default_armazenamento_id":3,"default_tabela_preco_id":2}]}}
+
+25-06-2021 18:55:10 download: 0
+25-06-2021 18:55:12 download: 452
+25-06-2021 18:55:13 download: 452
+25-06-2021 18:55:16 download: 0
+25-06-2021 18:55:16 Requisicao: 
+25-06-2021 18:55:22 download: 381
+25-06-2021 18:55:22 Requisicao: {"resultado":{"registros":1,"protocolo":"60b2cd35811f9c664dd3ae1f8fa8b0f6","parametros_venda":[{"id":14,"casadecimal_unitario":4,"casadecimal_totalizador":2,"casadecimal_quantidade":1,"cliente_padrao_id":0,"venda_sem_estoque":false,"filtro_com_estoque":false,"mensagem_1":null,"mensagem_2":null,"duplicar_itens_venda":false,"promissoria_automatica":false,"modelo_relatorio_pedido":"0","gerar_txt_shopping":true,"ordernar_itens":"","datacomissao":null,"datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-25T21:55:19.869Z","balanca_modelo":3,"modelo_relatorio_dav":null,"default_armazenamento_id":3,"default_tabela_preco_id":2}]}}
+
+25-06-2021 18:55:22 download: 0
+25-06-2021 18:55:23 download: 452
+25-06-2021 18:55:25 download: 452
+25-06-2021 18:55:28 download: 0
+25-06-2021 18:55:28 Requisicao: 
+25-06-2021 18:55:33 download: 0
+25-06-2021 18:55:33 Requisicao: 
+25-06-2021 18:55:39 download: 0
+25-06-2021 18:55:39 Requisicao: 
+25-06-2021 18:55:45 download: 0
+25-06-2021 18:55:45 Requisicao: 
+25-06-2021 18:55:51 download: 380
+25-06-2021 18:55:51 Requisicao: {"resultado":{"registros":1,"protocolo":"e0dccf92018620487f8d0dddf22dae3c","parametros_venda":[{"id":14,"casadecimal_unitario":2,"casadecimal_totalizador":2,"casadecimal_quantidade":0,"cliente_padrao_id":0,"venda_sem_estoque":false,"filtro_com_estoque":false,"mensagem_1":null,"mensagem_2":null,"duplicar_itens_venda":false,"promissoria_automatica":false,"modelo_relatorio_pedido":"0","gerar_txt_shopping":true,"ordernar_itens":"","datacomissao":null,"datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-25T21:55:48.519Z","balanca_modelo":3,"modelo_relatorio_dav":null,"default_armazenamento_id":3,"default_tabela_preco_id":2}]}}
+
+25-06-2021 18:55:51 download: 0
+25-06-2021 18:55:56 download: 452
+25-06-2021 18:55:57 download: 0
+25-06-2021 18:55:57 Requisicao: 

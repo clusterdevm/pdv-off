@@ -94,6 +94,9 @@ begin
      exit;
 
   try
+
+     DBGrid1.Columns[1].DisplayFormat:= Sessao.datetimeformat;
+     DBGrid1.Columns[6].DisplayFormat:=Sessao.formatsubtotal;
      devolucao := TDevolucao.Create;
      devolucao.n_cliente:= edt_nome.text;
      devolucao.ativo := Frame2_1.cb_status.ItemIndex = 0 ;
@@ -236,16 +239,13 @@ begin
   Frame2_1.cb_status.ItemIndex:=0;
 
   Frame1_1.carregaEmpresa;
-
-  DBGrid1.Columns[1].DisplayFormat:= Sessao.datetimeformat;
-  DBGrid1.Columns[6].DisplayFormat:=Sessao.formatsubtotal;
 end;
 
 procedure Tf_devolucaoFiltrar.FormShow(Sender: TObject);
 begin
     b_novo.Visible := true;
     b_novo.Action := acNovo;
-    b_editar.Visible := true;
+    b_editar.Visible := false;
     b_Inativar.Visible:= true;
     b_Inativar.Action := acInativar;
     b_localizar.Action := acBuscar;
