@@ -20,7 +20,7 @@ var Sessao : TSessao;
 
   function md5Text(value:string):String;
   function bioswindows : String;
-  procedure limpabase;
+
   Procedure setOnEnter(form:TForm);
   procedure OnEntrar(Sender: TObject);
   procedure OnSair(Sender: TObject);
@@ -286,11 +286,12 @@ begin
          result := 'https://api-dev.clustererp.com.br/api/v1/';
       mPDV :
          result := 'https://api-dev.clustererp.com.br/api/v1/cadastro/';
+         //result := 'http://localhost/api/v1/cadastro/';
       mFinanceiro :
          result := 'https://api-dev.clustererp.com.br/api/v1/';
       mVenda :
-         result := 'http://localhost/api/v1/';
-         //result := 'https://api-dev.clustererp.com.br/api/v1/';
+         //result := 'http://localhost/api/v1/';
+         result := 'https://api-dev.clustererp.com.br/api/v1/';
     end;
 end;
 
@@ -328,23 +329,6 @@ begin
   end;
 end;
 
-procedure limpabase;
-var _data : TConexao;
-begin
-   try
-      _data := TConexao.Create;
-
-      with _data.Query do
-      begin
-          Close;
-          Sql.clear;
-          Sql.add('delete from pdv');
-          ExecSQL;
-      end;
-   finally
-      FreeAndNil(_data);
-   end;
-end;
 
 procedure setOnEnter(form: TForm);
 var

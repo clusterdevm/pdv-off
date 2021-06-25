@@ -195,7 +195,6 @@ begin
        if (ResponseCode in [200..207]) then
        Begin
           result := true;
-          _saveDebug(_Api.response, 'origiginal');
           self.venda.Parse(_api.Return['resultado'].AsObject.Stringify);
        end
        else

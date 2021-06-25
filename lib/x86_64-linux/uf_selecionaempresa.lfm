@@ -1,0 +1,36 @@
+object f_selecionaEmpresa: Tf_selecionaEmpresa
+  Left = 1920
+  Height = 112
+  Top = 250
+  Width = 502
+  Caption = 'f_selecionaEmpresa'
+  ClientHeight = 112
+  ClientWidth = 502
+  Position = poScreenCenter
+  object Label1: TLabel
+    Left = 8
+    Height = 15
+    Top = 8
+    Width = 148
+    Caption = 'Escolha uma Empresa '
+    ParentColor = False
+  end
+  object cbEmpresa: TComboBox
+    Left = 8
+    Height = 33
+    Top = 24
+    Width = 488
+    ItemHeight = 0
+    TabOrder = 0
+    Text = 'cbEmpresa'
+  end
+  object Button1: TButton
+    Left = 336
+    Height = 40
+    Top = 64
+    Width = 160
+    Caption = 'Confirmar'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+end

@@ -3,13 +3,13 @@
   <ProjectSession>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="57">
+    <Units Count="59">
       <Unit0>
         <Filename Value="Cluster_PDV.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="80" Y="5"/>
-        <UsageCount Value="78"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="105" Y="18"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
       <Unit1>
@@ -18,10 +18,11 @@
         <ComponentName Value="frm_login"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="178"/>
-        <CursorPos Y="178"/>
-        <UsageCount Value="78"/>
+        <TopLine Value="114"/>
+        <CursorPos X="50" Y="145"/>
+        <UsageCount Value="83"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit1>
       <Unit2>
@@ -33,43 +34,47 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="8"/>
         <CursorPos X="39" Y="8"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit2>
       <Unit3>
         <Filename Value="model/model.request.http.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="222"/>
-        <CursorPos X="21" Y="231"/>
-        <UsageCount Value="78"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="274"/>
+        <CursorPos X="43" Y="282"/>
+        <UsageCount Value="83"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit3>
       <Unit4>
         <Filename Value="model/model.conexao.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="44" Y="14"/>
-        <UsageCount Value="78"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="536"/>
+        <CursorPos X="63" Y="551"/>
+        <UsageCount Value="83"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit4>
       <Unit5>
         <Filename Value="classes/classe.utils.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="278"/>
-        <CursorPos X="57" Y="283"/>
-        <UsageCount Value="78"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="269"/>
+        <CursorPos X="84" Y="280"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
       <Unit6>
         <Filename Value="model/model.login.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="48"/>
-        <CursorPos X="57" Y="58"/>
-        <UsageCount Value="78"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="23"/>
+        <CursorPos X="18" Y="39"/>
+        <UsageCount Value="83"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit6>
       <Unit7>
@@ -81,7 +86,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="89"/>
         <CursorPos X="37" Y="97"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit7>
       <Unit8>
@@ -90,7 +95,10 @@
         <ComponentName Value="frmvendabalcao"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UsageCount Value="78"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1009"/>
+        <CursorPos X="19" Y="1022"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit8>
       <Unit9>
@@ -102,7 +110,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="149"/>
         <CursorPos X="35" Y="157"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit9>
       <Unit10>
@@ -111,22 +119,26 @@
         <ComponentName Value="frm_balcao"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit10>
       <Unit11>
         <Filename Value="model/model.usuarios.pas"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit11>
       <Unit12>
         <Filename Value="classes/model.sinc.down.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="412"/>
-        <CursorPos X="29" Y="469"/>
-        <UsageCount Value="78"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="465"/>
+        <CursorPos X="66" Y="480"/>
+        <UsageCount Value="83"/>
+        <Bookmarks Count="1">
+          <Item0 X="48" Y="451" ID="2"/>
+        </Bookmarks>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit12>
       <Unit13>
@@ -135,13 +147,13 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="103"/>
         <CursorPos X="44" Y="121"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit13>
       <Unit14>
         <Filename Value="classes/model.request.jsons.pas"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit14>
       <Unit15>
@@ -150,7 +162,7 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit15>
       <Unit16>
@@ -162,7 +174,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="268"/>
         <CursorPos Y="272"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit16>
       <Unit17>
@@ -174,7 +186,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="15"/>
         <CursorPos X="3" Y="42"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit17>
       <Unit18>
@@ -186,7 +198,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="17"/>
         <CursorPos X="41" Y="32"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit18>
       <Unit19>
@@ -198,7 +210,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="60"/>
         <CursorPos X="51" Y="68"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit19>
       <Unit20>
@@ -207,7 +219,7 @@
         <ComponentName Value="frameProdutoGet"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit20>
       <Unit21>
@@ -216,16 +228,19 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="79"/>
         <CursorPos X="65" Y="89"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit21>
       <Unit22>
         <Filename Value="classes/cluster_pdv.sessao.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="200"/>
-        <CursorPos X="35" Y="206"/>
-        <UsageCount Value="78"/>
+        <TopLine Value="188"/>
+        <CursorPos X="65" Y="191"/>
+        <UsageCount Value="83"/>
+        <Bookmarks Count="1">
+          <Item0 X="16" Y="55" ID="2"/>
+        </Bookmarks>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit22>
       <Unit23>
@@ -234,13 +249,13 @@
         <ComponentName Value="f_aguarde"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit23>
       <Unit24>
         <Filename Value="classes/thread.wait.pas"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit24>
       <Unit25>
@@ -248,7 +263,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="13"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit25>
       <Unit26>
@@ -259,7 +274,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="34" Y="10"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit26>
       <Unit27>
@@ -271,7 +286,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="46"/>
         <CursorPos X="31" Y="56"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit27>
       <Unit28>
@@ -280,7 +295,7 @@
         <ComponentName Value="report_condicional"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit28>
       <Unit29>
@@ -292,7 +307,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="139"/>
         <CursorPos X="42" Y="148"/>
-        <UsageCount Value="78"/>
+        <UsageCount Value="83"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit29>
       <Unit30>
@@ -300,7 +315,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="14"/>
-        <UsageCount Value="76"/>
+        <UsageCount Value="81"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit30>
       <Unit31>
@@ -313,7 +328,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="77"/>
         <CursorPos X="73" Y="89"/>
-        <UsageCount Value="66"/>
+        <UsageCount Value="71"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit31>
       <Unit32>
@@ -326,7 +341,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="109"/>
         <CursorPos X="33" Y="119"/>
-        <UsageCount Value="65"/>
+        <UsageCount Value="70"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit32>
       <Unit33>
@@ -338,16 +353,16 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="82"/>
         <CursorPos X="40" Y="95"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="62"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit33>
       <Unit34>
         <Filename Value="controller/controller.devolucao.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="179"/>
-        <CursorPos X="30" Y="195"/>
-        <UsageCount Value="57"/>
+        <TopLine Value="127"/>
+        <CursorPos Y="142"/>
+        <UsageCount Value="62"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit34>
@@ -360,7 +375,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="248"/>
         <CursorPos X="76" Y="251"/>
-        <UsageCount Value="55"/>
+        <UsageCount Value="60"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit35>
       <Unit36>
@@ -372,111 +387,121 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="139"/>
         <CursorPos X="56" Y="147"/>
-        <UsageCount Value="34"/>
+        <UsageCount Value="39"/>
         <Bookmarks Count="1">
           <Item0 X="25" Y="219" ID="1"/>
         </Bookmarks>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit36>
       <Unit37>
+        <Filename Value="view/uf_selecionaempresa.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="f_selecionaEmpresa"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uf_selecionaEmpresa"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="6"/>
+        <CursorPos X="14" Y="36"/>
+        <UsageCount Value="22"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit37>
+      <Unit38>
         <Filename Value="/usr/share/lazarus/2.0.12/lcl/lclmessageglue.pas"/>
         <UnitName Value="LCLMessageGlue"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="103"/>
         <CursorPos Y="114"/>
         <UsageCount Value="7"/>
-      </Unit37>
-      <Unit38>
+      </Unit38>
+      <Unit39>
         <Filename Value="/usr/share/fpcsrc/3.2.0/rtl/objpas/classes/classesh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1796"/>
-        <CursorPos X="21" Y="1805"/>
-        <UsageCount Value="7"/>
-      </Unit38>
-      <Unit39>
-        <Filename Value="/usr/share/fpcsrc/3.2.0/rtl/objpas/classes/classes.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="385"/>
-        <CursorPos Y="390"/>
-        <UsageCount Value="7"/>
+        <CursorPos X="15" Y="1826"/>
+        <UsageCount Value="10"/>
       </Unit39>
       <Unit40>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="980"/>
-        <CursorPos X="43" Y="987"/>
+        <Filename Value="/usr/share/fpcsrc/3.2.0/rtl/objpas/classes/classes.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="263"/>
+        <CursorPos X="52" Y="269"/>
         <UsageCount Value="10"/>
-        <Bookmarks Count="2">
-          <Item0 X="8" Y="373" ID="3"/>
-          <Item1 X="46" Y="874" ID="2"/>
-        </Bookmarks>
-        <Loaded Value="True"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit40>
       <Unit41>
+        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="354"/>
+        <CursorPos X="59" Y="367"/>
+        <UsageCount Value="10"/>
+        <Bookmarks Count="1">
+          <Item0 X="8" Y="373" ID="3"/>
+        </Bookmarks>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit41>
+      <Unit42>
         <Filename Value="../api/microservicos/autenticacao/provider/autenticacao.providers.authorization.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="7"/>
         <CursorPos X="51" Y="19"/>
         <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit41>
-      <Unit42>
+      </Unit42>
+      <Unit43>
         <Filename Value="../api/microservicos/autenticacao/model/autenticacao.usuario.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="440"/>
         <CursorPos X="46" Y="474"/>
         <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit42>
-      <Unit43>
+      </Unit43>
+      <Unit44>
         <Filename Value="../api/source/classes/ems.request.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="26"/>
         <CursorPos X="31" Y="33"/>
         <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit43>
-      <Unit44>
+      </Unit44>
+      <Unit45>
         <Filename Value="/usr/share/lazarus/2.0.12/lcl/controls.pp"/>
         <UnitName Value="Controls"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="163"/>
         <CursorPos X="41" Y="174"/>
         <UsageCount Value="7"/>
-      </Unit44>
-      <Unit45>
+      </Unit45>
+      <Unit46>
         <Filename Value="../../componentes/acbr/Pacotes/Lazarus/ACBrDiversos/ACBrDiversos.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="6"/>
         <CursorPos X="5" Y="14"/>
         <UsageCount Value="7"/>
-      </Unit45>
-      <Unit46>
+      </Unit46>
+      <Unit47>
         <Filename Value="../../../dev-ems/.lazarus/onlinepackagemanager/packages/zeosdbo/src/component/ZDatasetUtils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="754"/>
         <CursorPos X="42" Y="758"/>
         <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit46>
-      <Unit47>
+      </Unit47>
+      <Unit48>
         <Filename Value="/usr/share/lazarus/2.0.12/lcl/include/wincontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="6657"/>
         <CursorPos X="44" Y="6668"/>
         <UsageCount Value="7"/>
-      </Unit47>
-      <Unit48>
+      </Unit48>
+      <Unit49>
         <Filename Value="/usr/share/lazarus/2.0.12/lcl/dbgrids.pas"/>
         <UnitName Value="DBGrids"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="3291"/>
         <CursorPos Y="3303"/>
         <UsageCount Value="7"/>
-      </Unit48>
-      <Unit49>
+      </Unit49>
+      <Unit50>
         <Filename Value="view/devolucao/view.devolucao.pas"/>
         <ComponentName Value="f_devolucao"/>
         <HasResources Value="True"/>
@@ -485,152 +510,204 @@
         <CursorPos X="74" Y="13"/>
         <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit49>
-      <Unit50>
+      </Unit50>
+      <Unit51>
         <Filename Value="/usr/share/lazarus/2.0.12/lcl/extctrls.pp"/>
         <UnitName Value="ExtCtrls"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1405"/>
         <CursorPos X="19" Y="1430"/>
         <UsageCount Value="9"/>
-      </Unit50>
-      <Unit51>
+      </Unit51>
+      <Unit52>
         <Filename Value="/usr/share/fpcsrc/3.2.0/packages/fcl-db/src/base/db.pas"/>
         <UnitName Value="DB"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="37"/>
         <CursorPos X="48" Y="49"/>
         <UsageCount Value="10"/>
-      </Unit51>
-      <Unit52>
+      </Unit52>
+      <Unit53>
         <Filename Value="../../componentes/ems/json4delphi/json.import.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="26" Y="10"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit52>
-      <Unit53>
+      </Unit53>
+      <Unit54>
         <Filename Value="../../../dev-ems/Documentos/json4delphi-master/src/Jsons.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="316"/>
         <CursorPos X="3" Y="323"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit53>
-      <Unit54>
+      </Unit54>
+      <Unit55>
         <Filename Value="../../../dev-ems/Documentos/json4delphi-master/src/JsonsUtilsEx.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="223"/>
         <CursorPos X="47" Y="270"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit54>
-      <Unit55>
+      </Unit55>
+      <Unit56>
         <Filename Value="/usr/share/fpcsrc/3.2.0/rtl/unix/sysutils.pp"/>
         <EditorIndex Value="-1"/>
         <UsageCount Value="10"/>
-      </Unit55>
-      <Unit56>
+      </Unit56>
+      <Unit57>
         <Filename Value="../../componentes/ems/json4delphi/JsonsUtilsEx.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="55" Y="14"/>
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit56>
+      </Unit57>
+      <Unit58>
+        <Filename Value="../../../eber/.lazarus/onlinepackagemanager/packages/zeosdbo/src/dbc/ZDbcSqLiteUtils.pas"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="223"/>
+        <CursorPos Y="241"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit58>
     </Units>
-    <JumpHistory Count="22" HistoryIndex="21">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="Cluster_PDV.lpr"/>
-        <Caret Line="14" Column="55" TopLine="7"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="445" TopLine="417"/>
       </Position1>
       <Position2>
-        <Filename Value="controller/controller.devolucao.pas"/>
-        <Caret Line="201" Column="12" TopLine="188"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="447" TopLine="419"/>
       </Position2>
       <Position3>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="292" Column="25" TopLine="276"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="449" TopLine="421"/>
       </Position3>
       <Position4>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="402" Column="38" TopLine="393"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="450" TopLine="422"/>
       </Position4>
       <Position5>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="72" Column="26" TopLine="59"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="452" TopLine="424"/>
       </Position5>
       <Position6>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="791" Column="48" TopLine="783"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="455" TopLine="427"/>
       </Position6>
       <Position7>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="63" Column="18" TopLine="50"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="456" TopLine="428"/>
       </Position7>
       <Position8>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="698" Column="52" TopLine="678"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="454" TopLine="428"/>
       </Position8>
       <Position9>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="721" Column="29" TopLine="700"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="443" TopLine="428"/>
       </Position9>
       <Position10>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="743" Column="16" TopLine="722"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="445" TopLine="428"/>
       </Position10>
       <Position11>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="775" Column="40" TopLine="754"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="447" TopLine="428"/>
       </Position11>
       <Position12>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="789" Column="40" TopLine="768"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="449" TopLine="428"/>
       </Position12>
       <Position13>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="803" Column="39" TopLine="782"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="450" TopLine="428"/>
       </Position13>
       <Position14>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="817" Column="39" TopLine="796"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="452" TopLine="428"/>
       </Position14>
       <Position15>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="844" Column="48" TopLine="823"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="455" TopLine="428"/>
       </Position15>
       <Position16>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="845" Column="52" TopLine="824"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="456" TopLine="428"/>
       </Position16>
       <Position17>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="872" Column="41" TopLine="851"/>
+        <Filename Value="form.login.pas"/>
+        <Caret Line="145" Column="50" TopLine="114"/>
       </Position17>
       <Position18>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <Caret Line="927" Column="16" TopLine="906"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="469" TopLine="453"/>
       </Position18>
       <Position19>
-        <Filename Value="controller/controller.devolucao.pas"/>
-        <Caret Line="195" Column="30" TopLine="179"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="472" TopLine="453"/>
       </Position19>
       <Position20>
-        <Filename Value="classes/classe.utils.pas"/>
-        <Caret Line="39" Column="12" TopLine="22"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="474" TopLine="453"/>
       </Position20>
       <Position21>
-        <Filename Value="classes/classe.utils.pas"/>
-        <Caret Line="108" Column="4" TopLine="105"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="476" TopLine="453"/>
       </Position21>
       <Position22>
-        <Filename Value="classes/classe.utils.pas"/>
-        <Caret Line="37" Column="12" TopLine="24"/>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="479" TopLine="453"/>
       </Position22>
+      <Position23>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="482" TopLine="454"/>
+      </Position23>
+      <Position24>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="483" TopLine="455"/>
+      </Position24>
+      <Position25>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="488" TopLine="460"/>
+      </Position25>
+      <Position26>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="489" TopLine="461"/>
+      </Position26>
+      <Position27>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="490" TopLine="462"/>
+      </Position27>
+      <Position28>
+        <Filename Value="model/model.conexao.pas"/>
+        <Caret Line="445" Column="62" TopLine="439"/>
+      </Position28>
+      <Position29>
+        <Filename Value="model/model.conexao.pas"/>
+        <Caret Line="437" Column="54" TopLine="421"/>
+      </Position29>
+      <Position30>
+        <Filename Value="model/model.conexao.pas"/>
+        <Caret Line="438" Column="32" TopLine="421"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes Count="0" ActiveMode=""/>
     </RunParams>
   </ProjectSession>
+  <Debugging>
+    <BreakPoints Count="1">
+      <Item1>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="model/model.login.pas"/>
+        <Line Value="244"/>
+      </Item1>
+    </BreakPoints>
+  </Debugging>
 </CONFIG>

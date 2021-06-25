@@ -27,7 +27,9 @@ TSincDownload = class(TThread)
       FErro_Processamento : boolean;
       _db : TConexao;
       FFalhou : boolean;
-
+      _name : String;
+      _Registros : integer;
+      _tProcessado : integer;
       Procedure Processa(_tabela:string; _jsonValue : TJsonArray);
       Procedure Consulta_Api(var _ok : Boolean) ;
       function valida_table(_tabelaName:string):boolean;
@@ -373,7 +375,6 @@ try
         _api.Metodo:= 'post';
         _api.webservice:= getEMS_Webservice(mPDV);
         _api.AddHeader('protocolo',FProtocolo);
-        _saveDebug(FProtocolo,'prototoclo');
         _api.rota:='hibrido';
         _api.endpoint:= 'confirmadownload';
         _api.Execute;
@@ -410,7 +411,6 @@ procedure TSincDownload.Execute;
 var
    _itensJson : TJsonObject;
     j,i : Integer;
-    _name : String;
     _ok : Boolean;
 begin
 
@@ -430,10 +430,23 @@ begin
 
                _itensJson := FResponse['resultado'].AsObject;
                FErro_Processamento:= false;
+
+               _Registros := 0;
+               _tProcessado := 0;
+               for I := 0 to _itensJson.Count - 1 do
+               Begin
+                   _name := _itensJson.Items[i].Name;
+                   _Registros := _Registros + _itensJson[_name].AsArray.count;
+               end;
+
+
                for I := 0 to _itensJson.Count - 1 do
                begin
-                   _name := _itensJson.Items[i].Name;
-                   FMsg:= _name;
+                   _name := _itensJson.Items[i].Name ;
+
+                   _tProcessado := _tProcessado + _itensJson[_name].AsArray.Count;
+
+                   FMsg:= _name + ' Registros: '+IntToStr(_Registros)+'/'+IntToStr(_tProcessado);
                    Synchronize(AtualizaLog);
 
                    if valida_table(_name) then
@@ -523,8 +536,8 @@ end;
 
 constructor TSincDownload.Create(CreateSuspended: boolean; value: TPanel; _tokenpdv:string);
 begin
-FFalhou:= false;
-FHistorico := TStringList.Create;
+  FFalhou:= false;
+  FHistorico := TStringList.Create;
   FProcessando := true;
   FProtocolo:= '';
   FPanel := value;
@@ -534,6 +547,8 @@ FHistorico := TStringList.Create;
   FResponse := TJsonObject.Create;
 
   _db := TConexao.Create;
+
+  valida_table('financeiro_caixa');
 
   inherited Create(CreateSuspended);
 end;

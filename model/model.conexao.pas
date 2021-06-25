@@ -18,6 +18,8 @@ Type
           Procedure GetEstrutura(_tabela:string);
           function campoValido(value:string):Boolean;
           Procedure InsertObjectToSQl(_tabela:String;_Json:TJsonObject; _returnID:Boolean = false );
+
+          Procedure CriaBaseDefault;
       Public
 
          Property Query : TZQuery      Read FQuery      Write FQuery;
@@ -108,8 +110,11 @@ end;
 
 
 constructor TConexao.Create;
+var CriarBase : boolean;
 begin
   try
+     CriarBase:= not (fileexists('./tabela/ems.db'));
+
      Conector               := TZConnection.Create(nil);
      Conector.loginprompt   := false;
      Conector.Database      := './tabela/ems.db';
@@ -122,6 +127,8 @@ begin
 
      FQuery := TZQuery.Create(nil);
      FQuery.Connection := Conector;
+
+     if CriarBase then criaBaseDefault;
 
   except
      on e:Exception do
@@ -313,6 +320,33 @@ begin
           Sql.Add('returning id ');
 
        sql.text := UTF8Encode(sql.text);
+   end;
+end;
+
+procedure TConexao.CriaBaseDefault;
+var _qryDefault : TZQuery;
+begin
+   try
+       _qryDefault := TZQuery.Create(nil);
+       _qryDefault.Connection := Conector;
+
+       with _qryDefault do
+       Begin
+            Close;
+            Sql.Clear;
+            Sql.Add(' CREATE TABLE ems_pdv( ');
+            Sql.Add('token_local text, ');
+            Sql.Add('token_remoto text,');
+            Sql.Add('apelido text,');
+            Sql.Add('status text,');
+            Sql.Add('primeira_sinc text,');
+            Sql.Add('tabela_preco_id integer,');
+            Sql.Add('estoque_id integer,');
+            Sql.Add('id integer);');
+            ExecSQL;
+       end;
+   finally
+       FreeAndNil(_qryDefault);
    end;
 end;
 

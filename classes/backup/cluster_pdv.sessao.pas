@@ -20,6 +20,7 @@ private
   fdatetimeformat: string;
   fempresalogada: integer;
   festoque_id: integer;
+  fformatAliquota: string;
   fformatquantidade: string;
   fformatsubtotal: string;
   fformatunitario: string;
@@ -48,11 +49,14 @@ private
       property usuario_id : integer read fusuario_id write fusuario_id;
       property tabela_preco_id : integer read ftabela_preco_id write ftabela_preco_id;
       property estoque_id : integer read festoque_id write festoque_id;
-      property datetimeformat : string read fdatetimeformat write fdatetimeformat;
-      property formatsubtotal : string read fformatsubtotal write fformatsubtotal;
-      property formatquantidade : string read fformatquantidade write fformatquantidade;
-      property formatunitario : string read fformatunitario write fformatunitario;
-      property formatAliquota : string read fformatAliquota write fformatAliquota;
+
+
+
+      function datetimeformat : string;
+      function formatsubtotal(_simbolo:boolean = true ): string;
+      function formatunitario(_simbolo:boolean = true): string;
+      function formatquantidade : string;
+      function formatAliquota(_simbolo : boolean = false):string;
 
       property razao : string read frazao write frazao;
       property cnpj : string read fcnpj write fcnpj;
@@ -116,6 +120,34 @@ begin
   finally
       FreeAndNil(_db);
   end;
+end;
+
+function TSessao.datetimeformat: string;
+begin
+     Result :=  'dd/mm/yyyy hh:mm';
+end;
+
+function TSessao.formatsubtotal(_simbolo: boolean): string;
+begin
+   Result := 'R$ #0.00,';
+end;
+
+function TSessao.formatunitario(_simbolo: boolean): string;
+begin
+  Result :=  'R$ #0.0000,';
+end;
+
+function TSessao.formatquantidade: string;
+begin
+  Result :=  '#0.,';
+end;
+
+function TSessao.formatAliquota(_simbolo: boolean): string;
+begin
+  if _simbolo then
+      Result := self.formatAliquota := '% #0.00,'
+  else
+      Result := self.formatAliquota := '#0.00,'
 end;
 
 function TSessao.GetCaixa: string;
@@ -212,12 +244,7 @@ end;
 
 constructor TSessao.create;
 begin
-  self.datetimeformat := 'dd/mm/yyyy hh:mm';
 
-  self.formatsubtotal := 'R$ #0.00,';
-  self.formatunitario := 'R$ #0.0000,';
-  self.formatAliquota := '% #0.00,';
-  self.formatquantidade := '#0.,';
 end;
 
 end.

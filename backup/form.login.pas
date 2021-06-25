@@ -93,7 +93,7 @@ begin
      try
        objeto := TClassLogin.Create;
        objeto.email := edtEmail.text;
-       objeto.senha := md5Text(edtSenha.text);
+       objeto.senha := edtSenha.text;
        objeto.apelido := edtApelido.text;
 
        Sessao.usuario := edtEmail.Text;
@@ -101,6 +101,13 @@ begin
 
        if edtApelido.visible then
        Begin
+            if trim(edtApelido.Text) = '' then
+            Begin
+                 Messagedlg('Informe um apelido para este equipamento',mtError,[mbok],0);
+                 exit;
+            end;
+
+
             objeto.enviarRegistro;
             checaStatus;
        end else
@@ -108,8 +115,16 @@ begin
 
            if objeto.Primeiro_log then
            Begin
+              try
+                 WCursor.SetWait;
+                 pnlRegistro.color := clblue;
                  pnlRegistro.Font.Size:= 10;
-                 pnlRegistro.Enabled:= false;
+                 pnlRegistro.Enabled:= true;
+                 pnlRegistro.visible:= true;
+                 pnlRegistro.Caption:='Iniciando Download';
+                 pnlRegistro.Repaint;
+                 Sessao.segundoplano := false;
+
                  btLogar.Enabled:=false;
 
                  _sincronizar := TSincDownload.Create(true,
@@ -125,6 +140,10 @@ begin
                    raise _sincronizar.FatalException;
 
                  objeto.SetPrimeiroLogFalse;
+              finally
+                   WCursor.SetNormal;
+                   pnlRegistro.color := clDefault;
+              end;
            end;
 
            Sessao.token  := objeto.token_remoto;
@@ -140,7 +159,7 @@ begin
 
      finally
        FreeAndNil(Objeto);
-       pnlRegistro.visible:= false;
+       //pnlRegistro.visible:= false;
        pnlRegistro.Font.Size:= 20;
        btLogar.Enabled:=true;
      end;
@@ -168,7 +187,6 @@ end;
 procedure Tfrm_login.Timer1Timer(Sender: TObject);
 begin
    Dec(_cronometro);
-
    pnlRegistro.Caption:= _statusGlobal + ' ('+Inttostr(_cronometro)+')';
 end;
 
@@ -180,8 +198,8 @@ try
    objeto := TClassLogin.Create;
   timer1.enabled := false;
   _cronometro:= 5;
-  lblApelido.Visible:= false;
   edtApelido.Visible:=false;
+  lblApelido.Visible:= false;
   pnlRegistro.Visible:= false;
 
   Panel2.Height := 120;

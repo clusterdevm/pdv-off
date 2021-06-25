@@ -12,7 +12,6 @@ object frm_login: Tfrm_login
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
-  LCLVersion = '2.0.12.0'
   object Panel1: TPanel
     Left = 650
     Height = 640
@@ -1260,11 +1259,13 @@ object frm_login: Tfrm_login
       Align = alBottom
       BorderSpacing.Top = 40
       BorderSpacing.Bottom = 60
+      BevelColor = clBlue
       BevelOuter = bvNone
       Caption = 'Não Registrado'
       Font.Color = 5921482
       Font.Height = -27
       Font.Style = [fsBold]
+      ParentColor = False
       ParentFont = False
       TabOrder = 1
       Visible = False

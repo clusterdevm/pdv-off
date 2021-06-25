@@ -1,180 +1,114 @@
-22-06-2021 11:36:46 https://api-dev.clustererp.com.br/api/v1/financeiro/checkout/2500/sangria
-22-06-2021 11:36:46 response : {
-  "msg" : "Nenhum valor informado",
-  "app" : "financeiro",
-  "metodo" : "DBSetRegistro"
-}
-
-22-06-2021 11:36:46 request : {"pessoa_id":35,"valor":0,"obs":"aaa","empresa_id":6}
-
-22-06-2021 11:36:52 https://api-dev.clustererp.com.br/api/v1/financeiro/checkout/2500/sangria
-22-06-2021 11:36:52 response : {
-  "msg" : "Nenhum valor informado",
-  "app" : "financeiro",
-  "metodo" : "DBSetRegistro"
-}
-
-22-06-2021 11:36:52 request : {"pessoa_id":35,"valor":0,"obs":"aaa","empresa_id":6}
-
-22-06-2021 11:36:59 https://api-dev.clustererp.com.br/api/v1/financeiro/checkout/2500/sangria
-22-06-2021 11:36:59 response : {
-  "msg" : "Nenhum valor informado",
-  "app" : "financeiro",
-  "metodo" : "DBSetRegistro"
-}
-
-22-06-2021 11:36:59 request : {"pessoa_id":35,"valor":0,"obs":"aaa","empresa_id":6}
-
-22-06-2021 11:37:05 http://localhost/api/v1/cadastro/hibrido/download
-22-06-2021 11:37:05 response : 
-22-06-2021 11:37:05 request : 
-22-06-2021 11:37:07 https://api-dev.clustererp.com.br/api/v1/financeiro/checkout/2500/sangria
-22-06-2021 11:37:07 response : {
-  "msg" : "Nenhum valor informado",
-  "app" : "financeiro",
-  "metodo" : "DBSetRegistro"
-}
-
-22-06-2021 11:37:07 request : {"pessoa_id":35,"valor":0,"obs":"aaa","empresa_id":6}
-
-22-06-2021 11:38:02 http://localhost/api/v1/cadastro/hibrido/status
-22-06-2021 11:38:02 response : {"resultado":{"id":48,"apelido":"gui app","origem":"M","token":"c778b2c87054101fe5193336ef0cdb80","status":"C","datacriacao":"2021-02-19T17:45:50.749Z","dataatualizacao":null,"schema_info_id":1,"usuario_registro_id":1495,"produtos_armazenamento_id":1,"tabela_preco_id":null,"empresa_id":6,"canal_venda_id":null,"layout":null,"operar_caixa":null,"ultimo_download":"2021-06-21T20:46:43.117Z","ultimo_download_temp":"2021-06-21T20:46:43.117Z","ultimo_protocolo":"1e2624fca39e1bbcd754bf927d5a7627","schema_name":"ems_6","documentos":[{"modelo_documento_id":3,"n_modelo":"DAV ( Documento Auxiliar de Venda)","n_modelo_abreviacao":"DAV","serie_id":null},{"modelo_documento_id":4,"n_modelo":"Orçamento","n_modelo_abreviacao":"ORC","serie_id":null},{"modelo_documento_id":2,"n_modelo":"NFC-e","n_modelo_abreviacao":"NFC","serie_id":null},{"modelo_documento_id":1,"n_modelo":"NF-e","n_modelo_abreviacao":"NFE","serie_id":null}]}}
-
-22-06-2021 11:38:02 request : 
-22-06-2021 11:38:13 http://localhost/api/v1/cadastro/hibrido/download
-22-06-2021 11:38:13 response : 
-22-06-2021 11:38:13 request : 
-22-06-2021 11:38:20 http://localhost/api/v1/autenticacao/token/
-22-06-2021 11:38:20 response : {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlYmVyQDYiLCJzdWIiOiIxODkxIiwiaWF0IjoxNjI0MzYxOTAwLCJuYmYiOjE2MjQzNjE5MDAsImV4cCI6MTYyNDUzNDcwMCwibml2ZWxfaWQiOiIiLCJlbXByZXNhIjpbeyJlbXByZXNhIjoiQ0xVU1RFUiBHRVNUT1IiLCJzY2hlbWFfbmFtZSI6ImVtc182IiwibWF0cml6X2lkIjo2LCJ0aW1lem9uZSI6IkFtZXJpY2EvU2FvX1BhdWxvIiwidGFiZWxhX3ByZWNvX2lkIjoyLCJhcm1hemVuYW1lbnRvX2lkIjozLCJlbXByZXNhX2lkIjo2LCJzY2hlbWFfaW5mb19pZCI6MSwicmF6YW8iOiJNQVRSSVoiLCJmYW50YXNpYSI6IkNMVVNURVIgU09GVFdBUkUiLCJjbnBqIjoiMTMyNjcyMjkwMDAxMzkiLCJlbmRlcmVjbyI6IlJVQSBQQVNURVVSIiwiY2lkYWRlIjoiQ1VSSVRJQkEiLCJjb21wbGVtZW50byI6IjEzwrogRURGLiBKQVRPQkEiLCJudW1lcm8iOiI0NjMiLCJiYWlycm8iOiJCQVRFTCIsImNlcCI6Ijg1ODUxMTkwIiwidWYiOiJQUiIsInBhaXMiOiJCUkFTSUwiLCJpZSI6IjkwNTQ5MjUwMDciLCJ0ZWxlZm9uZSI6IjQ1LTQwNTMtOTEwMSIsInNpdGUiOiJXV1cuQ0xVU1RFUlNJU1RFTUFTLkNPTS5CUiIsImVtYWlsIjoiIiwibG9nYWRvIjp0cnVlLCJkZWNpbWFsX3VuaXRhcmlvIjoyLCJkZWNpbWFsX3RvdGFsaXphZG9yIjoyLCJkZWNpbWFsX3F1YW50aWRhZGUiOjAsIm1vZWRhX3BhZHJhb19pZCI6MSwibW9lZGFfc2ltYm9sbyI6IlIkIiwibl91bmlkYWRlIjoiQ0xVU1RFUiBHRVNUT1IiLCJsb2dvX2ZpbGUiOiJkMmQ4NjVkODNkOTRhMThiYmZmM2YyOGUwYTE1MTUzYi5wbmciLCJsb2dvX3VybCI6Imh0dHBzOi8vZW1zdGVjbm9sb2dpYS5zMy5hbWF6b25hd3MuY29tL2QyZDg2NWQ4M2Q5NGExOGJiZmYzZjI4ZTBhMTUxNTNiLnBuZz9BV1NBY2Nlc3NLZXlJZD1BS0lBMjVSRkdRNUg2UUZNV1BHNyZTaWduYXR1cmU9JTJCUVlRSkRTZjZRbGdPQVhLSzAySlVlWlBacm8lM0QmRXhwaXJlcz0xNjI0Mzg1MzAwIn0seyJlbXByZXNhIjoiVEVTVEUiLCJzY2hlbWFfbmFtZSI6ImVtc182IiwibWF0cml6X2lkIjo2LCJ0aW1lem9uZSI6IkFtZXJpY2EvU2FvX1BhdWxvIiwidGFiZWxhX3ByZWNvX2lkIjoyLCJhcm1hemVuYW1lbnRvX2lkIjoyLCJlbXByZXNhX2lkIjoyMywic2NoZW1hX2luZm9faWQiOjEsInJhemFvIjoiRklMSUFMIiwiZmFudGFzaWEiOiJWUyBGRVJSQUdFTlMiLCJjbnBqIjoiMDIzNjAxOTQwMDAxNjEiLCJlbmRlcmVjbyI6IkFWIEJSQVNJTCIsImNpZGFkZSI6IkZPWiBETyBJR1VBw4dVIiwiY29tcGxlbWVudG8iOiIiLCJudW1lcm8iOiIxMjAyIiwiYmFpcnJvIjoiQ0VOVFJPIiwiY2VwIjoiODU4NTEwMDAiLCJ1ZiI6IlBSIiwicGFpcyI6IkJSQVNJTCIsImllIjoiOTA1MzYyNTUtMDYiLCJ0ZWxlZm9uZSI6IjEyMzQ1Njc4Iiwic2l0ZSI6IiIsImVtYWlsIjoidGVzdGUiLCJsb2dhZG8iOmZhbHNlLCJkZWNpbWFsX3VuaXRhcmlvIjoyLCJkZWNpbWFsX3RvdGFsaXphZG9yIjoyLCJkZWNpbWFsX3F1YW50aWRhZGUiOjAsIm1vZWRhX3BhZHJhb19pZCI6MSwibW9lZGFfc2ltYm9sbyI6IlIkIiwibl91bmlkYWRlIjoiVEVTVEUiLCJsb2dvX2ZpbGUiOiJkMTEwNjQyMDRlZTcxZjZhNDc1MDExNjQwODExYWYzMi5qcGciLCJsb2dvX3VybCI6Imh0dHBzOi8vZW1zdGVjbm9sb2dpYS5zMy5hbWF6b25hd3MuY29tL2QxMTA2NDIwNGVlNzFmNmE0NzUwMTE2NDA4MTFhZjMyLmpwZz9BV1NBY2Nlc3NLZXlJZD1BS0lBMjVSRkdRNUg2UUZNV1BHNyZTaWduYXR1cmU9b1ZIbTRZalVKQUxKdGgxcDB4ZjhOWjdOcEpnJTNEJkV4cGlyZXM9MTYyNDM4NTMwMCJ9XSwibWljcm9zZXJ2aWNvIjp0cnVlfQ.1YM3D46okRZjRFlaeC5U96inwvuxGQSE3SRfean-Fzk"}
-
-22-06-2021 11:38:20 request : 
-22-06-2021 11:38:20 https://api-dev.clustererp.com.br/api/v1/financeiro/checkout/2500/sangria
-22-06-2021 11:38:20 response : {"resultado":{"id":"15415"}}
-
-22-06-2021 11:38:20 request : {"pessoa_id":35,"valor":35.32,"obs":"","empresa_id":6}
-
-22-06-2021 11:38:29 https://api-dev.clustererp.com.br/api/v1/financeiro/checkout/2500/sangria
-22-06-2021 11:38:29 response : {"resultado":{"id":"15416"}}
-
-22-06-2021 11:38:29 request : {"pessoa_id":35,"valor":35.33,"obs":"","empresa_id":6}
-
-22-06-2021 12:47:56 caixa: delete from financeiro_caixa where id = '2496'
-
-22-06-2021 12:48:00 caixa: delete from financeiro_caixa where id = '2498'
-
-22-06-2021 12:48:02 caixa: delete from financeiro_caixa where id = '2500'
-
-22-06-2021 13:12:33 caixa: delete from financeiro_caixa where id = '2504'
-
-23-06-2021 09:31:57 ====================================
-23-06-2021 09:31:57 host http://localhost/api/v1/vendas/devolucao/venda/001005136488
-23-06-2021 09:31:57 Error Request : Unexpected response status code: 500
-23-06-2021 09:31:57 teste 2: 
-23-06-2021 09:32:02 ====================================
-23-06-2021 09:32:02 host http://localhost/api/v1/vendas/devolucao/venda/5136488
-23-06-2021 09:32:02 Error Request : Unexpected response status code: 500
-23-06-2021 09:32:02 teste 2: 
-23-06-2021 09:32:14 ====================================
-23-06-2021 09:32:14 host http://localhost/api/v1/vendas/devolucao/venda/
-23-06-2021 09:32:14 Error Request : Unexpected response status code: 404
-23-06-2021 09:32:14 teste 2: 
-23-06-2021 09:32:25 ====================================
-23-06-2021 09:32:25 host http://localhost/api/v1/vendas/devolucao/venda/5136488
-23-06-2021 09:32:25 Error Request : Unexpected response status code: 500
-23-06-2021 09:32:25 teste 2: 
-23-06-2021 15:17:14 caixa: delete from financeiro_caixa where id = '2505'
-
-23-06-2021 15:18:31 ====================================
-23-06-2021 15:18:31 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-23-06-2021 15:18:31 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-23-06-2021 15:18:31 teste 2: 
-23-06-2021 15:18:36 ====================================
-23-06-2021 15:18:36 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-23-06-2021 15:18:36 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-23-06-2021 15:18:36 teste 2: 
-23-06-2021 15:18:41 ====================================
-23-06-2021 15:18:41 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-23-06-2021 15:18:41 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-23-06-2021 15:18:41 teste 2: 
-23-06-2021 15:18:41 ====================================
-23-06-2021 15:18:41 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/upload
-23-06-2021 15:18:41 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-23-06-2021 15:18:41 teste 2: 
-23-06-2021 15:18:46 ====================================
-23-06-2021 15:18:46 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-23-06-2021 15:18:46 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-23-06-2021 15:18:46 teste 2: 
-23-06-2021 15:18:46 ====================================
-23-06-2021 15:18:46 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/upload
-23-06-2021 15:18:46 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-23-06-2021 15:18:46 teste 2: 
-23-06-2021 15:18:51 ====================================
-23-06-2021 15:18:51 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-23-06-2021 15:18:51 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-23-06-2021 15:18:51 teste 2: 
-23-06-2021 15:18:51 ====================================
-23-06-2021 15:18:51 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/upload
-23-06-2021 15:18:51 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-23-06-2021 15:18:51 teste 2: 
-23-06-2021 15:21:57 ====================================
-23-06-2021 15:21:57 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-23-06-2021 15:21:57 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-23-06-2021 15:21:57 teste 2: 
-23-06-2021 15:22:00 ====================================
-23-06-2021 15:22:00 host https://api-dev.clustererp.com.br/api/v1/financeiro/checkout/2507/sangria
-23-06-2021 15:22:00 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-23-06-2021 15:22:00 teste 2: 
-23-06-2021 15:22:02 ====================================
-23-06-2021 15:22:02 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-23-06-2021 15:22:02 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-23-06-2021 15:22:02 teste 2: 
-23-06-2021 15:22:03 ====================================
-23-06-2021 15:22:03 host https://api-dev.clustererp.com.br/api/v1/financeiro/checkout/2507/sangria
-23-06-2021 15:22:03 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-23-06-2021 15:22:03 teste 2: 
-23-06-2021 15:22:07 ====================================
-23-06-2021 15:22:07 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-23-06-2021 15:22:07 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-23-06-2021 15:22:07 teste 2: 
-23-06-2021 15:22:12 ====================================
-23-06-2021 15:22:12 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-23-06-2021 15:22:12 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-23-06-2021 15:22:12 teste 2: 
-23-06-2021 15:30:32 caixa: delete from financeiro_caixa where id = '2507'
-
-24-06-2021 08:34:09 ====================================
-24-06-2021 08:34:09 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-24-06-2021 08:34:09 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-24-06-2021 08:34:09 teste 2: 
-24-06-2021 08:48:51 ====================================
-24-06-2021 08:48:51 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-24-06-2021 08:48:51 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-24-06-2021 08:48:51 teste 2: 
-24-06-2021 08:49:34 ====================================
-24-06-2021 08:49:34 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-24-06-2021 08:49:34 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-24-06-2021 08:49:34 teste 2: 
-24-06-2021 08:49:44 ====================================
-24-06-2021 08:49:44 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-24-06-2021 08:49:44 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-24-06-2021 08:49:44 teste 2: 
-24-06-2021 09:01:22 ====================================
-24-06-2021 09:01:22 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-24-06-2021 09:01:22 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-24-06-2021 09:01:22 teste 2: 
-24-06-2021 09:01:44 ====================================
-24-06-2021 09:01:44 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-24-06-2021 09:01:44 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-24-06-2021 09:01:44 teste 2: 
-24-06-2021 09:01:54 ====================================
-24-06-2021 09:01:54 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-24-06-2021 09:01:54 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-24-06-2021 09:01:54 teste 2: 
-24-06-2021 09:02:04 ====================================
-24-06-2021 09:02:04 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-24-06-2021 09:02:04 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-24-06-2021 09:02:04 teste 2: 
-24-06-2021 09:08:33 ====================================
-24-06-2021 09:08:33 host https://api-dev.clustererp.com.br/api/v1/cadastro/hibrido/download
-24-06-2021 09:08:33 Error Request : Host name resolution for "api-dev.clustererp.com.br" failed.
-24-06-2021 09:08:33 teste 2: 
+25-06-2021 00:13:46 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 00:13:46 Tabela inexistente empresa
+25-06-2021 00:20:21 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 00:20:21 Tabela inexistente empresa
+25-06-2021 00:27:04 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 00:27:04 Tabela inexistente empresa
+25-06-2021 00:34:23 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 00:34:23 Tabela inexistente empresa
+25-06-2021 00:41:34 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 00:41:34 Tabela inexistente empresa
+25-06-2021 00:48:56 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 00:48:56 Tabela inexistente empresa
+25-06-2021 00:56:14 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 00:56:14 Tabela inexistente empresa
+25-06-2021 01:02:56 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 01:02:56 Tabela inexistente empresa
+25-06-2021 01:09:36 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 01:09:36 Tabela inexistente empresa
+25-06-2021 01:16:14 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 01:16:14 Tabela inexistente empresa
+25-06-2021 01:23:04 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 01:23:04 Tabela inexistente empresa
+25-06-2021 01:29:44 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 01:29:44 Tabela inexistente empresa
+25-06-2021 01:36:21 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 01:36:21 Tabela inexistente empresa
+25-06-2021 01:43:02 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 01:43:02 Tabela inexistente empresa
+25-06-2021 01:49:41 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 01:49:41 Tabela inexistente empresa
+25-06-2021 01:56:19 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 01:56:19 Tabela inexistente empresa
+25-06-2021 02:02:56 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 02:02:56 Tabela inexistente empresa
+25-06-2021 02:10:14 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 02:10:14 Tabela inexistente empresa
+25-06-2021 02:17:33 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 02:17:33 Tabela inexistente empresa
+25-06-2021 02:25:46 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 02:25:46 Tabela inexistente empresa
+25-06-2021 02:32:32 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 02:32:32 Tabela inexistente empresa
+25-06-2021 02:39:16 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 02:39:16 Tabela inexistente empresa
+25-06-2021 02:46:24 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 02:46:24 Tabela inexistente empresa
+25-06-2021 02:53:01 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 02:53:01 Tabela inexistente empresa
+25-06-2021 02:59:40 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 02:59:40 Tabela inexistente empresa
+25-06-2021 03:06:23 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 03:06:23 Tabela inexistente empresa
+25-06-2021 03:13:01 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 03:13:01 Tabela inexistente empresa
+25-06-2021 03:19:43 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 03:19:43 Tabela inexistente empresa
+25-06-2021 03:26:22 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 03:26:22 Tabela inexistente empresa
+25-06-2021 03:33:35 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 03:33:35 Tabela inexistente empresa
+25-06-2021 03:40:50 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 03:40:50 Tabela inexistente empresa
+25-06-2021 03:47:29 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 03:47:29 Tabela inexistente empresa
+25-06-2021 03:54:12 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 03:54:12 Tabela inexistente empresa
+25-06-2021 04:00:54 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 04:00:54 Tabela inexistente empresa
+25-06-2021 04:08:21 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 04:08:21 Tabela inexistente empresa
+25-06-2021 04:15:06 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 04:15:06 Tabela inexistente empresa
+25-06-2021 04:21:53 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 04:21:53 Tabela inexistente empresa
+25-06-2021 04:28:36 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 04:28:36 Tabela inexistente empresa
+25-06-2021 04:35:55 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 04:35:55 Tabela inexistente empresa
+25-06-2021 04:43:23 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 04:43:23 Tabela inexistente empresa
+25-06-2021 04:50:34 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 04:50:34 Tabela inexistente empresa
+25-06-2021 04:57:19 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 04:57:19 Tabela inexistente empresa
+25-06-2021 05:03:54 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 05:03:54 Tabela inexistente empresa
+25-06-2021 05:10:28 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 05:10:28 Tabela inexistente empresa
+25-06-2021 05:17:53 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 05:17:53 Tabela inexistente empresa
+25-06-2021 05:25:23 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 05:25:23 Tabela inexistente empresa
+25-06-2021 05:32:48 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 05:32:48 Tabela inexistente empresa
+25-06-2021 05:39:25 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 05:39:25 Tabela inexistente empresa
+25-06-2021 05:46:05 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 05:46:05 Tabela inexistente empresa
+25-06-2021 05:52:47 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 05:52:47 Tabela inexistente empresa
+25-06-2021 05:59:24 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 05:59:24 Tabela inexistente empresa
+25-06-2021 06:06:05 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 06:06:05 Tabela inexistente empresa
+25-06-2021 06:12:44 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 06:12:44 Tabela inexistente empresa
+25-06-2021 06:19:56 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 06:19:56 Tabela inexistente empresa
+25-06-2021 06:27:14 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 06:27:14 Tabela inexistente empresa
+25-06-2021 06:33:53 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 06:33:53 Tabela inexistente empresa
+25-06-2021 06:40:38 Criar Tabela empresa SQL Error: SQL logic error
+25-06-2021 06:40:38 Tabela inexistente empresa

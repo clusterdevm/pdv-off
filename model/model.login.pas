@@ -5,7 +5,8 @@ unit model.login;
 interface
 
 uses
-  Classes, SysUtils, model.conexao, model.request.http, classe.utils,Dialogs, jsons;
+  Classes, SysUtils, model.conexao, model.request.http, classe.utils,
+  uf_selecionaEmpresa, Dialogs, jsons;
 
 type
 
@@ -92,9 +93,10 @@ var _jsonBody : TjsonObject;
   _api : TRequisicao;
   _data :  TConexao;
   _item : TJsonObject;
+  i : Integer;
 begin
   try
-    LimpaBase;
+
     _api := TRequisicao.Create;
 
     {$IFDEF MSWINDOWS}
@@ -104,41 +106,81 @@ begin
     {$ENDIF}
 
     _jsonBody := TJSONObject.Create;
-    _jsonBody.Put('usuario',self.email);
-    _jsonBody.Put('senha',self.senha);
     _jsonBody.Put('origem','D');
     _jsonBody.Put('apelido',self.apelido);
-
+    _api.AddHeader('canal-token',canal_token);
     _api.Body.Text:= _jsonBody.Stringify;
+    _api.webservice:= getEMS_Webservice(mPDV);
+    _api.AutUserName:= self.email;
+    _api.AutUserPass:= self.senha;
     _api.Metodo:='post';
-    _api.rota:='pdv';
-    _api.endpoint:='registra_pdv';
-
+    _api.rota:='hibrido';
     _api.Execute;
 
     if _api.ResponseCode in [200..207] then
     Begin
-        try
-           _item := _api.Return['resultado'].AsObject;
-           self.token_remoto:= _item['token'].AsString;
+        if _api.ResponseCode = 202 then
+        Begin
+            try
+               f_selecionaEmpresa := Tf_selecionaEmpresa.Create(nil);
 
-          _data := TConexao.Create;
-          with _data.Query do
-          Begin
-              Close;
-              Sql.Clear;
-              Sql.Add('insert into ems_pdv (token_local, token_remoto, apelido,status) values ('+
-                      QuotedStr(self.token_local)+','+
-                      QuotedStr(self.token_remoto)+','+
-                      QuotedStr(self.apelido)+','+
-                      QuotedStr('P')+
-                      ')');
-              ExecSQL;
-          end;
-        finally
-          FreeAndnil(_data);
+               //showmessage(_api.Return.Stringify);
+               for i := 0 to _api.Return['resultado'].AsArray.Count-1 do
+               Begin
+                    f_selecionaEmpresa.cbEmpresa.Items.Add(FormatFloat('000000',
+                               _api.Return['resultado'].AsArray.Items[i].AsObject['empresa_id'].AsInteger)+' '+
+                               _api.Return['resultado'].AsArray.Items[i].AsObject['razao'].AsString+'('+
+                               _api.Return['resultado'].AsArray.Items[i].AsObject['empresa'].AsString+')');
+               end;
+
+               f_selecionaEmpresa.cbEmpresa.Text:= 'Selecione uma Empresa';
+               f_selecionaEmpresa.ShowModal;
+
+               if StrToIntDef(Copy(f_selecionaEmpresa.cbEmpresa.Text,1,6),0) = 0 then
+               Begin
+                    Messagedlg('Nenhuma Empresa Selecionada',mtError,[mbok],0);
+                    Exit;
+               end;
+
+               _api.AddHeader('empresa-id',Copy(f_selecionaEmpresa.cbEmpresa.Text,1,6));
+               _api.Execute;
+            finally
+                FreeAndNil(f_selecionaEmpresa);
+            end;
         end;
 
+        if _api.ResponseCode in [200..207] then
+        Begin
+
+              try
+
+                 _data := TConexao.Create;
+                 _item := _api.Return['resultado'].AsObject;
+                 self.token_remoto:= _item['token_pdv'].AsString;
+
+                with _data.Query do
+                Begin
+                    Close;
+                    Sql.Clear;
+                    Sql.Add('insert into ems_pdv (token_local, token_remoto, apelido,status,id) values ('+
+                            QuotedStr(self.token_local)+','+
+                            QuotedStr(self.token_remoto)+','+
+                            QuotedStr(self.apelido)+','+
+                            QuotedStr('P')+','+
+                            QuotedStr(_item['id'].AsString)+
+                            ')');
+                    ExecSQL;
+                end;
+              finally
+                FreeAndnil(_data);
+              end;
+        end;
+    end else
+    Begin
+         if _api.Return.Find('json_error') > -1 then
+             messagedlg(_api.Return['json_error'].AsString,mtError,[mbok],0)
+         else
+             messagedlg(_api.response,mtError,[mbok],0)
     end;
 
   finally
@@ -175,11 +217,13 @@ begin
              if FieldByName('status').AsString = 'B' then
                 self.status := 'PDV bloqueado'
              else
-             if FieldByName('status').AsString = 'I' then
+             if FieldByName('status').AsString = 'C' then
                 self.status := 'PDV Cancelado'
              else
              if FieldByName('status').AsString = 'A' then
-                self.status := 'Liberado';
+                self.status := 'Liberado'
+             else
+                self.status := 'Desconhecido('+FieldByName('status').AsString+')';
 
              result := true;
           end;
@@ -192,6 +236,8 @@ end;
 
 function TClassLogin.logar: boolean;
 var _db : TConexao;
+    _status : string;
+    _Logar : boolean;
 begin
 try
      try
@@ -200,6 +246,38 @@ try
 
        with _db.Query  do
        Begin
+            Close;
+            Sql.Clear;
+            Sql.Add('select * from ems_pdv');
+            Open;
+
+            _logar := false;
+
+            if (FieldByName('status').AsString = 'P')  then
+               _status := 'Aguardando liberação'
+            else
+            if FieldByName('status').AsString = 'B' then
+               _status := 'PDV bloqueado'
+            else
+            if FieldByName('status').AsString = 'C' then
+               _status := 'PDV Cancelado'
+            else
+            if FieldByName('status').AsString = 'A' then
+            Begin
+               _status := 'Liberado';
+               _logar := true;
+            end
+            else
+               _status := 'Desconhecido('+FieldByName('status').AsString+')';
+
+
+            if not _logar then
+            Begin
+                messagedlg('Não é possivel logar motivo : '+_status,mtError,[mbok],0);
+                Exit;
+            end;
+
+
             Close;
             Sql.Clear;
             Sql.Add('select * from usuarios where usuario = '+QuotedStr(femail));
@@ -256,7 +334,7 @@ begin
           Sql.Add('select * from ems_pdv ');
           open;
 
-          Result := FieldByName('primeira_sinc').AsString = 'S';
+          Result := not (FieldByName('primeira_sinc').AsString = 'N');
           self.token_remoto := FieldByName('token_remoto').AsString;;
 
           sessao.estoque_id:= fieldByName('estoque_id').AsInteger;
@@ -277,7 +355,8 @@ begin
    Begin
         Close;
         Sql.Clear;
-        Sql.Add('update ems_pdv set status ='+QuotedStr('N'));
+        Sql.Add('update ems_pdv set status ='+QuotedStr('A'));
+        Sql.Add(' , primeira_sinc = '+QuotedStr('N'));
         Sql.Add(' where token_remoto= '+QuotedStr(token_remoto));
         ExecSQL;
    end;

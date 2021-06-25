@@ -22,13 +22,13 @@ begin
   FormatSettings.DateSeparator := '/';
   FormatSettings.ShortDateFormat := 'dd/mm/yyyy';
   FormatSettings.CurrencyString := '';
-  FormatSettings.DecimalSeparator := '.';
- // FormatSettings.ThousandSeparator := ',';
+
 
   RequireDerivedFormResource:=True;
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(Tfrm_login, frm_login);
+  Application.CreateForm(Tf_selecionaEmpresa, f_selecionaEmpresa);
   Application.Run;
 
 end.
