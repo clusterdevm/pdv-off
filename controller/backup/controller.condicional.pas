@@ -120,7 +120,7 @@ begin
            if _Api.Return.Find('msg') > -1 then
               messagedlg(_Api.Return['msg'].AsString,mterror,[mbok],0)
            else
-              messagedlg('#149 Contate suporte: '+_Api.response,mterror,[mbok],0)
+              messagedlg('#148 Contate suporte: '+_Api.response,mterror,[mbok],0)
        end;
    end;
 
@@ -326,15 +326,15 @@ begin
           result := (ResponseCode in [200..207]);
 
           if not Result  then
-             Showmessage(_api.Return['msg'].AsString)
+             messagedlg(_api.Return['msg'].AsString,mtError,[mbok],0)
           else
-          Begin
-
+              Report;
           end;
 
       end;
   finally
      WCursor.SetNormal;
+     FreeAndNIl(_api);
   end;
 end;
 
@@ -363,7 +363,7 @@ begin
           Begin
               try
                  f_report := Treport_condicional.Create(nil);
-                 f_report.GetCondicionalReport(_Api.Return.Stringify);
+                 f_report.GetCondicionalReport(_Api.Return);
               finally
                  FreeAndNIl(f_report);
               end;

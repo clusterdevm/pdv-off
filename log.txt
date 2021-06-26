@@ -164,3 +164,1283 @@
 25-06-2021 18:55:56 download: 452
 25-06-2021 18:55:57 download: 0
 25-06-2021 18:55:57 Requisicao: 
+25-06-2021 21:56:48 download: 462
+25-06-2021 21:56:52 download: 0
+25-06-2021 21:56:52 Requisicao: 
+25-06-2021 21:56:55 download: 1300
+25-06-2021 21:56:56 download: 452
+25-06-2021 21:56:57 download: 0
+25-06-2021 21:56:57 Requisicao: 
+25-06-2021 21:57:01 download: 452
+25-06-2021 21:57:03 download: 0
+25-06-2021 21:57:03 Requisicao: 
+25-06-2021 21:57:08 download: 0
+25-06-2021 21:57:08 Requisicao: 
+25-06-2021 21:57:12 download: 452
+25-06-2021 21:57:14 download: 0
+25-06-2021 21:57:14 Requisicao: 
+25-06-2021 21:57:19 download: 0
+25-06-2021 21:57:19 Requisicao: 
+25-06-2021 21:57:20 download: 133
+25-06-2021 21:57:25 download: 332
+25-06-2021 21:57:25 Requisicao: {"resultado":{"registros":1,"protocolo":"45bcfbd2306085dff7348a3086554e54","financeiro_caixa":[{"id":2517,"empresa_id":6,"operador_id":1891,"saldo_abertura":100,"saldo_fechamento":0,"data_abertura":"2021-06-26T00:57:17.414Z","data_fechamento":null,"data_conferencia":null,"conferido":null,"status":"A","inf_caixa":null,"inf_conferencia":null,"usuario_conferencia_id":null,"saldo_fechamentodebito":0,"saldo_fechamentocredito":0,"saldo_fechamentovale":0,"dataatualizacao":"2021-06-26T00:57:20.192Z","datacriacao":"2021-06-26T00:57:20.192Z","uuid":"{F6D75708-EC75-4767-8A8A-C2C39E939E35}","pdv_id":58}]}}
+
+25-06-2021 21:57:25 download: 0
+25-06-2021 21:57:31 download: 0
+25-06-2021 21:57:31 Requisicao: 
+25-06-2021 21:57:35 download: 92
+25-06-2021 21:57:36 download: 0
+25-06-2021 21:57:36 Requisicao: 
+25-06-2021 21:57:42 download: 0
+25-06-2021 21:57:42 Requisicao: 
+25-06-2021 21:57:47 download: 0
+25-06-2021 21:57:47 Requisicao: 
+25-06-2021 21:57:53 download: 0
+25-06-2021 21:57:53 Requisicao: 
+25-06-2021 21:57:58 download: 0
+25-06-2021 21:57:58 Requisicao: 
+25-06-2021 21:58:04 download: 0
+25-06-2021 21:58:04 Requisicao: 
+25-06-2021 21:58:09 download: 29
+25-06-2021 21:58:09 download: 0
+25-06-2021 21:58:09 Requisicao: 
+25-06-2021 21:58:15 download: 0
+25-06-2021 21:58:15 Requisicao: 
+25-06-2021 21:58:20 download: 0
+25-06-2021 21:58:20 Requisicao: 
+25-06-2021 21:58:24 download: 452
+25-06-2021 21:58:26 download: 0
+25-06-2021 21:58:26 Requisicao: 
+25-06-2021 21:58:31 download: 0
+25-06-2021 21:58:31 Requisicao: 
+25-06-2021 21:58:37 download: 0
+25-06-2021 21:58:37 Requisicao: 
+25-06-2021 21:58:41 download: 1871
+25-06-2021 21:58:42 download: 0
+25-06-2021 21:58:42 Requisicao: 
+25-06-2021 21:58:48 download: 0
+25-06-2021 21:58:48 Requisicao: 
+25-06-2021 21:58:53 download: 0
+25-06-2021 21:58:53 Requisicao: 
+25-06-2021 21:58:59 download: 0
+25-06-2021 21:58:59 Requisicao: 
+25-06-2021 21:59:04 download: 0
+25-06-2021 21:59:04 Requisicao: 
+25-06-2021 21:59:10 download: 0
+25-06-2021 21:59:10 Requisicao: 
+25-06-2021 21:59:15 download: 0
+25-06-2021 21:59:15 Requisicao: 
+25-06-2021 21:59:21 download: 0
+25-06-2021 21:59:21 Requisicao: 
+25-06-2021 21:59:26 download: 0
+25-06-2021 21:59:26 Requisicao: 
+25-06-2021 21:59:32 download: 0
+25-06-2021 21:59:32 Requisicao: 
+25-06-2021 21:59:37 download: 0
+25-06-2021 21:59:37 Requisicao: 
+25-06-2021 21:59:43 download: 0
+25-06-2021 21:59:43 Requisicao: 
+25-06-2021 21:59:48 download: 0
+25-06-2021 21:59:48 Requisicao: 
+25-06-2021 21:59:54 download: 0
+25-06-2021 21:59:54 Requisicao: 
+25-06-2021 21:59:59 download: 0
+25-06-2021 21:59:59 Requisicao: 
+25-06-2021 22:00:05 download: 0
+25-06-2021 22:00:05 Requisicao: 
+25-06-2021 22:00:10 download: 0
+25-06-2021 22:00:10 Requisicao: 
+25-06-2021 22:00:16 download: 0
+25-06-2021 22:00:16 Requisicao: 
+25-06-2021 22:00:22 download: 0
+25-06-2021 22:00:22 Requisicao: 
+25-06-2021 22:00:27 download: 0
+25-06-2021 22:00:27 Requisicao: 
+25-06-2021 22:00:33 download: 0
+25-06-2021 22:00:33 Requisicao: 
+25-06-2021 22:00:38 download: 0
+25-06-2021 22:00:38 Requisicao: 
+25-06-2021 22:00:44 download: 0
+25-06-2021 22:00:44 Requisicao: 
+25-06-2021 22:00:49 download: 0
+25-06-2021 22:00:49 Requisicao: 
+25-06-2021 22:00:55 download: 0
+25-06-2021 22:00:55 Requisicao: 
+25-06-2021 22:01:01 download: 0
+25-06-2021 22:01:01 Requisicao: 
+25-06-2021 22:01:07 download: 0
+25-06-2021 22:01:07 Requisicao: 
+25-06-2021 22:01:12 download: 0
+25-06-2021 22:01:12 Requisicao: 
+25-06-2021 22:01:18 download: 0
+25-06-2021 22:01:18 Requisicao: 
+25-06-2021 22:01:23 download: 0
+25-06-2021 22:01:23 Requisicao: 
+25-06-2021 22:01:29 download: 0
+25-06-2021 22:01:29 Requisicao: 
+25-06-2021 22:01:34 download: 0
+25-06-2021 22:01:34 Requisicao: 
+25-06-2021 22:01:39 download: 0
+25-06-2021 22:01:39 Requisicao: 
+25-06-2021 22:01:45 download: 0
+25-06-2021 22:01:45 Requisicao: 
+25-06-2021 22:01:51 download: 0
+25-06-2021 22:01:51 Requisicao: 
+25-06-2021 22:01:56 download: 0
+25-06-2021 22:01:56 Requisicao: 
+25-06-2021 22:02:02 download: 0
+25-06-2021 22:02:02 Requisicao: 
+25-06-2021 22:02:07 download: 0
+25-06-2021 22:02:07 Requisicao: 
+25-06-2021 22:02:13 download: 0
+25-06-2021 22:02:13 Requisicao: 
+25-06-2021 22:02:18 download: 0
+25-06-2021 22:02:18 Requisicao: 
+25-06-2021 22:02:23 download: 0
+25-06-2021 22:02:23 Requisicao: 
+25-06-2021 22:02:29 download: 0
+25-06-2021 22:02:29 Requisicao: 
+25-06-2021 22:02:34 download: 0
+25-06-2021 22:02:34 Requisicao: 
+25-06-2021 22:02:40 download: 0
+25-06-2021 22:02:40 Requisicao: 
+25-06-2021 22:02:46 download: 0
+25-06-2021 22:02:46 Requisicao: 
+25-06-2021 22:02:51 download: 0
+25-06-2021 22:02:51 Requisicao: 
+25-06-2021 22:02:57 download: 0
+25-06-2021 22:02:57 Requisicao: 
+25-06-2021 22:03:02 download: 0
+25-06-2021 22:03:02 Requisicao: 
+25-06-2021 22:03:08 download: 0
+25-06-2021 22:03:08 Requisicao: 
+25-06-2021 22:03:13 download: 0
+25-06-2021 22:03:13 Requisicao: 
+25-06-2021 22:03:18 download: 0
+25-06-2021 22:03:18 Requisicao: 
+25-06-2021 22:03:24 download: 0
+25-06-2021 22:03:24 Requisicao: 
+25-06-2021 22:03:29 download: 0
+25-06-2021 22:03:29 Requisicao: 
+25-06-2021 22:03:35 download: 0
+25-06-2021 22:03:35 Requisicao: 
+25-06-2021 22:03:40 download: 0
+25-06-2021 22:03:40 Requisicao: 
+25-06-2021 22:03:46 download: 0
+25-06-2021 22:03:46 Requisicao: 
+25-06-2021 22:03:51 download: 0
+25-06-2021 22:03:51 Requisicao: 
+25-06-2021 22:03:57 download: 0
+25-06-2021 22:03:57 Requisicao: 
+25-06-2021 22:04:02 download: 0
+25-06-2021 22:04:02 Requisicao: 
+25-06-2021 22:04:08 download: 0
+25-06-2021 22:04:08 Requisicao: 
+25-06-2021 22:04:14 download: 0
+25-06-2021 22:04:14 Requisicao: 
+25-06-2021 22:04:19 download: 0
+25-06-2021 22:04:19 Requisicao: 
+25-06-2021 22:04:24 download: 1871
+25-06-2021 22:04:24 download: 0
+25-06-2021 22:04:24 Requisicao: 
+25-06-2021 22:04:30 download: 0
+25-06-2021 22:04:30 Requisicao: 
+25-06-2021 22:04:36 download: 0
+25-06-2021 22:04:36 Requisicao: 
+25-06-2021 22:04:41 download: 0
+25-06-2021 22:04:41 Requisicao: 
+25-06-2021 22:04:47 download: 0
+25-06-2021 22:04:47 Requisicao: 
+25-06-2021 22:04:52 download: 0
+25-06-2021 22:04:52 Requisicao: 
+25-06-2021 22:04:58 download: 0
+25-06-2021 22:04:58 Requisicao: 
+25-06-2021 22:05:03 download: 0
+25-06-2021 22:05:03 Requisicao: 
+25-06-2021 22:48:12 download: 465
+25-06-2021 22:48:16 download: 0
+25-06-2021 22:48:16 Requisicao: 
+25-06-2021 22:48:18 download: 1523
+25-06-2021 22:48:19 download: 1871
+25-06-2021 22:48:22 download: 0
+25-06-2021 22:48:22 Requisicao: 
+25-06-2021 22:48:28 download: 0
+25-06-2021 22:48:28 Requisicao: 
+25-06-2021 22:48:33 download: 0
+25-06-2021 22:48:33 Requisicao: 
+25-06-2021 22:48:39 download: 0
+25-06-2021 22:48:39 Requisicao: 
+25-06-2021 22:48:45 download: 0
+25-06-2021 22:48:45 Requisicao: 
+25-06-2021 22:48:51 download: 0
+25-06-2021 22:48:51 Requisicao: 
+25-06-2021 22:48:56 download: 0
+25-06-2021 22:48:56 Requisicao: 
+25-06-2021 22:49:02 download: 0
+25-06-2021 22:49:02 Requisicao: 
+25-06-2021 22:49:08 download: 0
+25-06-2021 22:49:08 Requisicao: 
+25-06-2021 22:49:13 download: 0
+25-06-2021 22:49:13 Requisicao: 
+25-06-2021 22:49:19 download: 0
+25-06-2021 22:49:19 Requisicao: 
+25-06-2021 22:49:24 download: 0
+25-06-2021 22:49:24 Requisicao: 
+25-06-2021 22:49:30 download: 0
+25-06-2021 22:49:30 Requisicao: 
+25-06-2021 22:49:35 download: 0
+25-06-2021 22:49:35 Requisicao: 
+25-06-2021 22:49:41 download: 0
+25-06-2021 22:49:41 Requisicao: 
+25-06-2021 22:49:46 download: 0
+25-06-2021 22:49:46 Requisicao: 
+25-06-2021 22:49:52 download: 0
+25-06-2021 22:49:52 Requisicao: 
+25-06-2021 22:49:57 download: 0
+25-06-2021 22:49:57 Requisicao: 
+25-06-2021 22:50:03 download: 0
+25-06-2021 22:50:03 Requisicao: 
+25-06-2021 22:50:08 download: 0
+25-06-2021 22:50:08 Requisicao: 
+25-06-2021 22:50:14 download: 0
+25-06-2021 22:50:14 Requisicao: 
+25-06-2021 22:50:19 download: 0
+25-06-2021 22:50:19 Requisicao: 
+25-06-2021 22:50:25 download: 0
+25-06-2021 22:50:25 Requisicao: 
+25-06-2021 22:50:30 download: 0
+25-06-2021 22:50:30 Requisicao: 
+25-06-2021 22:50:36 download: 0
+25-06-2021 22:50:36 Requisicao: 
+25-06-2021 22:50:42 download: 0
+25-06-2021 22:50:42 Requisicao: 
+25-06-2021 22:50:47 download: 0
+25-06-2021 22:50:47 Requisicao: 
+25-06-2021 22:50:53 download: 0
+25-06-2021 22:50:53 Requisicao: 
+25-06-2021 22:50:58 download: 0
+25-06-2021 22:50:58 Requisicao: 
+25-06-2021 22:51:04 download: 0
+25-06-2021 22:51:04 Requisicao: 
+25-06-2021 22:51:09 download: 0
+25-06-2021 22:51:09 Requisicao: 
+25-06-2021 22:51:15 download: 0
+25-06-2021 22:51:15 Requisicao: 
+25-06-2021 22:51:20 download: 0
+25-06-2021 22:51:20 Requisicao: 
+25-06-2021 22:51:26 download: 0
+25-06-2021 22:51:26 Requisicao: 
+25-06-2021 22:51:31 download: 0
+25-06-2021 22:51:31 Requisicao: 
+25-06-2021 22:51:37 download: 0
+25-06-2021 22:51:37 Requisicao: 
+25-06-2021 22:51:42 download: 0
+25-06-2021 22:51:42 Requisicao: 
+25-06-2021 22:51:48 download: 0
+25-06-2021 22:51:48 Requisicao: 
+25-06-2021 22:51:53 download: 0
+25-06-2021 22:51:53 Requisicao: 
+25-06-2021 22:51:59 download: 0
+25-06-2021 22:51:59 Requisicao: 
+25-06-2021 22:52:04 download: 0
+25-06-2021 22:52:04 Requisicao: 
+25-06-2021 22:52:10 download: 0
+25-06-2021 22:52:10 Requisicao: 
+25-06-2021 22:52:15 download: 0
+25-06-2021 22:52:15 Requisicao: 
+25-06-2021 22:52:21 download: 0
+25-06-2021 22:52:21 Requisicao: 
+25-06-2021 22:52:26 download: 0
+25-06-2021 22:52:26 Requisicao: 
+25-06-2021 22:52:32 download: 0
+25-06-2021 22:52:32 Requisicao: 
+25-06-2021 22:52:37 download: 0
+25-06-2021 22:52:37 Requisicao: 
+25-06-2021 22:52:43 download: 0
+25-06-2021 22:52:43 Requisicao: 
+25-06-2021 22:52:48 download: 0
+25-06-2021 22:52:48 Requisicao: 
+25-06-2021 22:52:54 download: 0
+25-06-2021 22:52:54 Requisicao: 
+25-06-2021 22:52:59 download: 0
+25-06-2021 22:52:59 Requisicao: 
+25-06-2021 22:53:05 download: 0
+25-06-2021 22:53:05 Requisicao: 
+25-06-2021 22:53:10 download: 0
+25-06-2021 22:53:10 Requisicao: 
+25-06-2021 22:53:16 download: 0
+25-06-2021 22:53:16 Requisicao: 
+25-06-2021 22:53:21 download: 0
+25-06-2021 22:53:21 Requisicao: 
+25-06-2021 22:53:27 download: 0
+25-06-2021 22:53:27 Requisicao: 
+25-06-2021 22:53:32 download: 0
+25-06-2021 22:53:32 Requisicao: 
+25-06-2021 22:53:38 download: 0
+25-06-2021 22:53:38 Requisicao: 
+25-06-2021 22:53:43 download: 0
+25-06-2021 22:53:43 Requisicao: 
+25-06-2021 22:53:49 download: 0
+25-06-2021 22:53:49 Requisicao: 
+25-06-2021 22:53:54 download: 0
+25-06-2021 22:53:54 Requisicao: 
+25-06-2021 22:54:00 download: 0
+25-06-2021 22:54:00 Requisicao: 
+25-06-2021 22:54:06 download: 0
+25-06-2021 22:54:06 Requisicao: 
+25-06-2021 22:54:11 download: 0
+25-06-2021 22:54:11 Requisicao: 
+25-06-2021 22:54:17 download: 0
+25-06-2021 22:54:17 Requisicao: 
+25-06-2021 22:54:22 download: 0
+25-06-2021 22:54:22 Requisicao: 
+25-06-2021 22:54:28 download: 0
+25-06-2021 22:54:28 Requisicao: 
+25-06-2021 22:54:33 download: 0
+25-06-2021 22:54:33 Requisicao: 
+25-06-2021 22:54:39 download: 0
+25-06-2021 22:54:39 Requisicao: 
+25-06-2021 22:54:45 download: 0
+25-06-2021 22:54:45 Requisicao: 
+25-06-2021 22:54:50 download: 0
+25-06-2021 22:54:50 Requisicao: 
+25-06-2021 22:54:56 download: 0
+25-06-2021 22:54:56 Requisicao: 
+25-06-2021 22:55:02 download: 0
+25-06-2021 22:55:02 Requisicao: 
+25-06-2021 22:55:19 download: 465
+25-06-2021 22:55:24 download: 0
+25-06-2021 22:55:24 Requisicao: 
+25-06-2021 22:55:26 download: 1538
+25-06-2021 22:55:26 download: 1871
+25-06-2021 22:55:29 download: 0
+25-06-2021 22:55:29 Requisicao: 
+25-06-2021 22:55:43 download: 0
+25-06-2021 22:55:43 Requisicao: 
+25-06-2021 22:55:49 download: 0
+25-06-2021 22:55:49 Requisicao: 
+25-06-2021 22:55:54 download: 0
+25-06-2021 22:55:54 Requisicao: 
+25-06-2021 22:56:00 download: 0
+25-06-2021 22:56:00 Requisicao: 
+25-06-2021 22:56:06 download: 0
+25-06-2021 22:56:06 Requisicao: 
+25-06-2021 22:56:11 download: 0
+25-06-2021 22:56:11 Requisicao: 
+25-06-2021 22:56:17 download: 0
+25-06-2021 22:56:17 Requisicao: 
+25-06-2021 22:56:22 download: 0
+25-06-2021 22:56:22 Requisicao: 
+25-06-2021 22:56:28 download: 0
+25-06-2021 22:56:28 Requisicao: 
+25-06-2021 22:56:33 download: 0
+25-06-2021 22:56:33 Requisicao: 
+25-06-2021 22:56:39 download: 0
+25-06-2021 22:56:39 Requisicao: 
+25-06-2021 22:56:44 download: 0
+25-06-2021 22:56:44 Requisicao: 
+25-06-2021 22:56:50 download: 0
+25-06-2021 22:56:50 Requisicao: 
+25-06-2021 22:56:55 download: 0
+25-06-2021 22:56:55 Requisicao: 
+25-06-2021 22:57:01 download: 0
+25-06-2021 22:57:01 Requisicao: 
+25-06-2021 22:57:06 download: 0
+25-06-2021 22:57:06 Requisicao: 
+25-06-2021 22:57:12 download: 0
+25-06-2021 22:57:12 Requisicao: 
+25-06-2021 22:57:17 download: 0
+25-06-2021 22:57:17 Requisicao: 
+25-06-2021 22:57:23 download: 0
+25-06-2021 22:57:23 Requisicao: 
+25-06-2021 22:57:28 download: 0
+25-06-2021 22:57:28 Requisicao: 
+25-06-2021 22:57:33 download: 0
+25-06-2021 22:57:33 Requisicao: 
+25-06-2021 22:57:39 download: 0
+25-06-2021 22:57:39 Requisicao: 
+25-06-2021 22:57:44 download: 0
+25-06-2021 22:57:44 Requisicao: 
+25-06-2021 22:57:50 download: 0
+25-06-2021 22:57:50 Requisicao: 
+25-06-2021 22:57:55 download: 0
+25-06-2021 22:57:55 Requisicao: 
+25-06-2021 22:58:01 download: 0
+25-06-2021 22:58:01 Requisicao: 
+25-06-2021 22:58:06 download: 0
+25-06-2021 22:58:07 Requisicao: 
+25-06-2021 22:58:12 download: 0
+25-06-2021 22:58:12 Requisicao: 
+25-06-2021 22:58:17 download: 0
+25-06-2021 22:58:17 Requisicao: 
+25-06-2021 22:58:23 download: 0
+25-06-2021 22:58:23 Requisicao: 
+25-06-2021 22:58:28 download: 0
+25-06-2021 22:58:28 Requisicao: 
+25-06-2021 22:58:34 download: 0
+25-06-2021 22:58:34 Requisicao: 
+25-06-2021 22:58:39 download: 0
+25-06-2021 22:58:39 Requisicao: 
+25-06-2021 22:58:45 download: 0
+25-06-2021 22:58:45 Requisicao: 
+25-06-2021 22:58:51 download: 0
+25-06-2021 22:58:51 Requisicao: 
+25-06-2021 22:58:56 download: 0
+25-06-2021 22:58:56 Requisicao: 
+25-06-2021 22:59:02 download: 0
+25-06-2021 22:59:02 Requisicao: 
+25-06-2021 22:59:07 download: 0
+25-06-2021 22:59:07 Requisicao: 
+25-06-2021 23:04:34 download: 465
+25-06-2021 23:04:38 download: 0
+25-06-2021 23:04:38 Requisicao: 
+25-06-2021 23:04:40 download: 1538
+25-06-2021 23:04:40 download: 1871
+25-06-2021 23:04:44 download: 0
+25-06-2021 23:04:44 Requisicao: 
+25-06-2021 23:04:49 download: 0
+25-06-2021 23:04:49 Requisicao: 
+25-06-2021 23:04:55 download: 0
+25-06-2021 23:04:55 Requisicao: 
+25-06-2021 23:05:00 download: 0
+25-06-2021 23:05:00 Requisicao: 
+25-06-2021 23:05:06 download: 0
+25-06-2021 23:05:06 Requisicao: 
+25-06-2021 23:05:11 download: 0
+25-06-2021 23:05:11 Requisicao: 
+25-06-2021 23:05:38 download: 465
+25-06-2021 23:05:43 download: 0
+25-06-2021 23:05:43 Requisicao: 
+25-06-2021 23:05:44 download: 1311
+25-06-2021 23:05:44 download: 1871
+25-06-2021 23:05:48 download: 0
+25-06-2021 23:05:48 Requisicao: 
+25-06-2021 23:05:54 download: 0
+25-06-2021 23:05:54 Requisicao: 
+25-06-2021 23:08:20 download: 465
+25-06-2021 23:08:24 download: 0
+25-06-2021 23:08:24 Requisicao: 
+25-06-2021 23:08:26 download: 1542
+25-06-2021 23:08:26 download: 1871
+25-06-2021 23:08:31 download: 0
+25-06-2021 23:08:31 Requisicao: 
+25-06-2021 23:08:36 download: 0
+25-06-2021 23:08:36 Requisicao: 
+25-06-2021 23:08:42 download: 0
+25-06-2021 23:08:42 Requisicao: 
+25-06-2021 23:08:48 download: 0
+25-06-2021 23:08:48 Requisicao: 
+25-06-2021 23:08:53 download: 0
+25-06-2021 23:08:53 Requisicao: 
+25-06-2021 23:08:59 download: 0
+25-06-2021 23:08:59 Requisicao: 
+25-06-2021 23:09:05 download: 0
+25-06-2021 23:09:05 Requisicao: 
+25-06-2021 23:09:11 download: 0
+25-06-2021 23:09:11 Requisicao: 
+25-06-2021 23:09:16 download: 0
+25-06-2021 23:09:16 Requisicao: 
+25-06-2021 23:09:22 download: 0
+25-06-2021 23:09:22 Requisicao: 
+25-06-2021 23:09:27 download: 0
+25-06-2021 23:09:27 Requisicao: 
+25-06-2021 23:09:33 download: 0
+25-06-2021 23:09:33 Requisicao: 
+25-06-2021 23:09:39 download: 0
+25-06-2021 23:09:39 Requisicao: 
+25-06-2021 23:09:44 download: 0
+25-06-2021 23:09:44 Requisicao: 
+25-06-2021 23:09:50 download: 0
+25-06-2021 23:09:50 Requisicao: 
+25-06-2021 23:09:56 download: 0
+25-06-2021 23:09:56 Requisicao: 
+25-06-2021 23:10:02 download: 0
+25-06-2021 23:10:02 Requisicao: 
+25-06-2021 23:10:07 download: 0
+25-06-2021 23:10:07 Requisicao: 
+25-06-2021 23:10:13 download: 0
+25-06-2021 23:10:13 Requisicao: 
+25-06-2021 23:10:18 download: 0
+25-06-2021 23:10:18 Requisicao: 
+25-06-2021 23:10:24 download: 0
+25-06-2021 23:10:24 Requisicao: 
+25-06-2021 23:10:30 download: 0
+25-06-2021 23:10:30 Requisicao: 
+25-06-2021 23:10:36 download: 0
+25-06-2021 23:10:36 Requisicao: 
+25-06-2021 23:10:41 download: 0
+25-06-2021 23:10:41 Requisicao: 
+25-06-2021 23:10:47 download: 0
+25-06-2021 23:10:47 Requisicao: 
+25-06-2021 23:10:53 download: 0
+25-06-2021 23:10:53 Requisicao: 
+25-06-2021 23:10:58 download: 0
+25-06-2021 23:10:58 Requisicao: 
+25-06-2021 23:11:04 download: 0
+25-06-2021 23:11:04 Requisicao: 
+25-06-2021 23:11:10 download: 0
+25-06-2021 23:11:10 Requisicao: 
+25-06-2021 23:11:15 download: 0
+25-06-2021 23:11:15 Requisicao: 
+25-06-2021 23:11:21 download: 0
+25-06-2021 23:11:21 Requisicao: 
+25-06-2021 23:11:26 download: 0
+25-06-2021 23:11:26 Requisicao: 
+25-06-2021 23:11:32 download: 0
+25-06-2021 23:11:32 Requisicao: 
+25-06-2021 23:11:38 download: 0
+25-06-2021 23:11:38 Requisicao: 
+25-06-2021 23:11:43 download: 0
+25-06-2021 23:11:43 Requisicao: 
+25-06-2021 23:11:49 download: 0
+25-06-2021 23:11:49 Requisicao: 
+25-06-2021 23:11:55 download: 0
+25-06-2021 23:11:55 Requisicao: 
+25-06-2021 23:12:01 download: 0
+25-06-2021 23:12:01 Requisicao: 
+25-06-2021 23:12:06 download: 0
+25-06-2021 23:12:06 Requisicao: 
+25-06-2021 23:12:12 download: 0
+25-06-2021 23:12:12 Requisicao: 
+25-06-2021 23:12:17 download: 0
+25-06-2021 23:12:17 Requisicao: 
+25-06-2021 23:18:02 download: 465
+25-06-2021 23:18:09 download: 0
+25-06-2021 23:18:09 Requisicao: 
+25-06-2021 23:18:10 download: 1543
+25-06-2021 23:18:11 download: 1871
+25-06-2021 23:18:14 download: 0
+25-06-2021 23:18:14 Requisicao: 
+25-06-2021 23:18:20 download: 0
+25-06-2021 23:18:20 Requisicao: 
+25-06-2021 23:18:26 download: 0
+25-06-2021 23:18:26 Requisicao: 
+25-06-2021 23:18:31 download: 0
+25-06-2021 23:18:31 Requisicao: 
+25-06-2021 23:18:37 download: 0
+25-06-2021 23:18:37 Requisicao: 
+25-06-2021 23:18:43 download: 0
+25-06-2021 23:18:43 Requisicao: 
+25-06-2021 23:18:48 download: 0
+25-06-2021 23:18:48 Requisicao: 
+25-06-2021 23:18:54 download: 0
+25-06-2021 23:18:54 Requisicao: 
+25-06-2021 23:19:09 download: 465
+25-06-2021 23:19:15 download: 0
+25-06-2021 23:19:15 Requisicao: 
+25-06-2021 23:19:16 download: 1523
+25-06-2021 23:19:17 download: 452
+25-06-2021 23:19:19 download: 1871
+25-06-2021 23:19:20 download: 0
+25-06-2021 23:19:20 Requisicao: 
+25-06-2021 23:19:26 download: 0
+25-06-2021 23:19:26 Requisicao: 
+25-06-2021 23:20:59 download: 465
+25-06-2021 23:21:03 download: 0
+25-06-2021 23:21:03 Requisicao: 
+25-06-2021 23:21:05 download: 1304
+25-06-2021 23:21:06 download: 1871
+25-06-2021 23:21:09 download: 0
+25-06-2021 23:21:09 Requisicao: 
+25-06-2021 23:21:15 download: 0
+25-06-2021 23:21:15 Requisicao: 
+25-06-2021 23:21:20 download: 0
+25-06-2021 23:21:21 Requisicao: 
+25-06-2021 23:21:26 download: 0
+25-06-2021 23:21:26 Requisicao: 
+25-06-2021 23:21:32 download: 0
+25-06-2021 23:21:32 Requisicao: 
+25-06-2021 23:21:38 download: 0
+25-06-2021 23:21:38 Requisicao: 
+25-06-2021 23:21:43 download: 0
+25-06-2021 23:21:43 Requisicao: 
+25-06-2021 23:21:49 download: 0
+25-06-2021 23:21:49 Requisicao: 
+25-06-2021 23:21:54 download: 0
+25-06-2021 23:21:54 Requisicao: 
+25-06-2021 23:22:01 download: 0
+25-06-2021 23:22:01 Requisicao: 
+25-06-2021 23:22:06 download: 0
+25-06-2021 23:22:06 Requisicao: 
+25-06-2021 23:26:06 download: 465
+25-06-2021 23:26:11 download: 0
+25-06-2021 23:26:11 Requisicao: 
+25-06-2021 23:26:14 download: 1543
+25-06-2021 23:26:14 download: 1871
+25-06-2021 23:26:17 download: 0
+25-06-2021 23:26:17 Requisicao: 
+25-06-2021 23:26:19 download: 961
+25-06-2021 23:26:23 download: 0
+25-06-2021 23:26:23 Requisicao: 
+25-06-2021 23:26:26 download: 17
+25-06-2021 23:26:28 download: 0
+25-06-2021 23:26:28 Requisicao: 
+25-06-2021 23:26:34 download: 0
+25-06-2021 23:26:34 Requisicao: 
+25-06-2021 23:26:36 download: 1867
+25-06-2021 23:26:40 download: 0
+25-06-2021 23:26:40 Requisicao: 
+25-06-2021 23:26:45 download: 0
+25-06-2021 23:26:45 Requisicao: 
+25-06-2021 23:26:51 download: 0
+25-06-2021 23:26:51 Requisicao: 
+25-06-2021 23:26:57 download: 0
+25-06-2021 23:26:57 Requisicao: 
+25-06-2021 23:27:02 download: 0
+25-06-2021 23:27:02 Requisicao: 
+25-06-2021 23:27:08 download: 0
+25-06-2021 23:27:08 Requisicao: 
+25-06-2021 23:27:20 download: 465
+25-06-2021 23:28:11 download: 0
+25-06-2021 23:28:11 Requisicao: 
+25-06-2021 23:28:13 download: 1318
+25-06-2021 23:28:13 download: 1867
+25-06-2021 23:28:17 download: 0
+25-06-2021 23:28:17 Requisicao: 
+25-06-2021 23:28:17 download: 838
+25-06-2021 23:28:19 download: 17
+25-06-2021 23:28:22 download: 0
+25-06-2021 23:28:22 Requisicao: 
+25-06-2021 23:28:25 download: 1868
+25-06-2021 23:28:28 download: 0
+25-06-2021 23:28:28 Requisicao: 
+25-06-2021 23:32:10 download: 465
+25-06-2021 23:32:16 download: 0
+25-06-2021 23:32:16 Requisicao: 
+25-06-2021 23:32:19 download: 1523
+25-06-2021 23:32:19 download: 1868
+25-06-2021 23:32:22 download: 0
+25-06-2021 23:32:22 Requisicao: 
+25-06-2021 23:32:27 download: 0
+25-06-2021 23:32:27 Requisicao: 
+25-06-2021 23:32:30 download: 855
+25-06-2021 23:32:32 download: 17
+25-06-2021 23:32:33 download: 0
+25-06-2021 23:32:33 Requisicao: 
+25-06-2021 23:32:38 download: 0
+25-06-2021 23:32:38 Requisicao: 
+25-06-2021 23:32:44 download: 0
+25-06-2021 23:32:44 Requisicao: 
+25-06-2021 23:32:48 download: 1878
+25-06-2021 23:32:49 download: 0
+25-06-2021 23:32:49 Requisicao: 
+25-06-2021 23:32:55 download: 0
+25-06-2021 23:32:55 Requisicao: 
+25-06-2021 23:33:00 download: 0
+25-06-2021 23:33:00 Requisicao: 
+25-06-2021 23:33:06 download: 0
+25-06-2021 23:33:06 Requisicao: 
+25-06-2021 23:33:09 download: 1878
+25-06-2021 23:33:11 download: 0
+25-06-2021 23:33:11 Requisicao: 
+25-06-2021 23:33:17 download: 0
+25-06-2021 23:33:17 Requisicao: 
+25-06-2021 23:33:22 download: 0
+25-06-2021 23:33:22 Requisicao: 
+25-06-2021 23:33:28 download: 0
+25-06-2021 23:33:28 Requisicao: 
+25-06-2021 23:33:33 download: 0
+25-06-2021 23:33:33 Requisicao: 
+25-06-2021 23:33:39 download: 0
+25-06-2021 23:33:39 Requisicao: 
+25-06-2021 23:33:44 download: 0
+25-06-2021 23:33:44 Requisicao: 
+25-06-2021 23:33:50 download: 0
+25-06-2021 23:33:50 Requisicao: 
+25-06-2021 23:33:55 download: 0
+25-06-2021 23:33:55 Requisicao: 
+25-06-2021 23:34:01 download: 0
+25-06-2021 23:34:01 Requisicao: 
+25-06-2021 23:34:06 download: 0
+25-06-2021 23:34:06 Requisicao: 
+25-06-2021 23:34:24 download: 41588
+25-06-2021 23:34:29 download: 1878
+25-06-2021 23:34:30 download: 0
+25-06-2021 23:34:30 Requisicao: 
+25-06-2021 23:34:36 download: 0
+25-06-2021 23:34:36 Requisicao: 
+25-06-2021 23:34:40 download: 727
+25-06-2021 23:34:41 download: 1872
+25-06-2021 23:34:41 download: 0
+25-06-2021 23:34:41 Requisicao: 
+25-06-2021 23:35:00 download: 41588
+25-06-2021 23:35:06 download: 1877
+25-06-2021 23:35:06 download: 0
+25-06-2021 23:35:06 Requisicao: 
+25-06-2021 23:35:12 download: 0
+25-06-2021 23:35:12 Requisicao: 
+25-06-2021 23:35:32 download: 41588
+25-06-2021 23:35:37 download: 1870
+25-06-2021 23:35:38 download: 0
+25-06-2021 23:35:38 Requisicao: 
+25-06-2021 23:35:43 download: 0
+25-06-2021 23:35:43 Requisicao: 
+25-06-2021 23:35:49 download: 0
+25-06-2021 23:35:49 Requisicao: 
+25-06-2021 23:35:54 download: 0
+25-06-2021 23:35:54 Requisicao: 
+25-06-2021 23:36:00 download: 0
+25-06-2021 23:36:00 Requisicao: 
+25-06-2021 23:47:31 download: 465
+25-06-2021 23:47:35 download: 0
+25-06-2021 23:47:35 Requisicao: 
+25-06-2021 23:47:36 download: 1541
+25-06-2021 23:47:37 download: 1870
+25-06-2021 23:47:40 download: 0
+25-06-2021 23:47:40 Requisicao: 
+25-06-2021 23:47:46 download: 0
+25-06-2021 23:47:46 Requisicao: 
+25-06-2021 23:47:48 download: 1870
+25-06-2021 23:47:51 download: 0
+25-06-2021 23:47:51 Requisicao: 
+25-06-2021 23:47:55 download: 1870
+25-06-2021 23:47:57 download: 0
+25-06-2021 23:47:57 Requisicao: 
+25-06-2021 23:48:00 download: 1870
+25-06-2021 23:48:02 download: 0
+25-06-2021 23:48:02 Requisicao: 
+25-06-2021 23:48:41 download: 465
+25-06-2021 23:48:45 download: 0
+25-06-2021 23:48:45 Requisicao: 
+25-06-2021 23:48:47 download: 1525
+25-06-2021 23:48:47 download: 1870
+25-06-2021 23:48:51 download: 0
+25-06-2021 23:48:51 Requisicao: 
+25-06-2021 23:48:56 download: 0
+25-06-2021 23:48:56 Requisicao: 
+25-06-2021 23:49:02 download: 0
+25-06-2021 23:49:02 Requisicao: 
+25-06-2021 23:49:07 download: 0
+25-06-2021 23:49:07 Requisicao: 
+25-06-2021 23:49:12 download: 0
+25-06-2021 23:49:13 Requisicao: 
+25-06-2021 23:49:18 download: 0
+25-06-2021 23:49:18 Requisicao: 
+25-06-2021 23:49:23 download: 0
+25-06-2021 23:49:23 Requisicao: 
+25-06-2021 23:49:29 download: 0
+25-06-2021 23:49:29 Requisicao: 
+25-06-2021 23:49:34 download: 0
+25-06-2021 23:49:35 Requisicao: 
+25-06-2021 23:49:40 download: 0
+25-06-2021 23:49:40 Requisicao: 
+25-06-2021 23:49:45 download: 0
+25-06-2021 23:49:45 Requisicao: 
+25-06-2021 23:49:51 download: 0
+25-06-2021 23:49:51 Requisicao: 
+25-06-2021 23:49:56 download: 0
+25-06-2021 23:49:56 Requisicao: 
+25-06-2021 23:50:02 download: 0
+25-06-2021 23:50:02 Requisicao: 
+25-06-2021 23:50:18 download: 465
+25-06-2021 23:50:29 download: 0
+25-06-2021 23:50:29 Requisicao: 
+25-06-2021 23:50:31 download: 1543
+25-06-2021 23:50:31 download: 1870
+25-06-2021 23:50:35 download: 0
+25-06-2021 23:50:35 Requisicao: 
+25-06-2021 23:50:39 download: 3
+25-06-2021 23:50:39 download: 1863
+25-06-2021 23:50:40 download: 0
+25-06-2021 23:50:40 Requisicao: 
+25-06-2021 23:50:43 download: 3
+25-06-2021 23:50:43 download: 1832
+25-06-2021 23:50:46 download: 0
+25-06-2021 23:50:46 Requisicao: 
+25-06-2021 23:50:47 download: 3
+25-06-2021 23:50:48 download: 1809
+25-06-2021 23:50:51 download: 3
+25-06-2021 23:50:51 download: 1790
+25-06-2021 23:50:52 download: 0
+25-06-2021 23:50:52 Requisicao: 
+25-06-2021 23:50:55 download: 3
+25-06-2021 23:50:55 download: 1761
+25-06-2021 23:50:57 download: 0
+25-06-2021 23:50:57 Requisicao: 
+25-06-2021 23:51:03 download: 0
+25-06-2021 23:51:03 Requisicao: 
+25-06-2021 23:51:06 download: 3
+25-06-2021 23:51:06 download: 1743
+25-06-2021 23:51:08 download: 0
+25-06-2021 23:51:08 Requisicao: 
+25-06-2021 23:51:14 download: 0
+25-06-2021 23:51:14 Requisicao: 
+25-06-2021 23:51:14 download: 3
+25-06-2021 23:51:14 download: 1721
+25-06-2021 23:51:19 download: 0
+25-06-2021 23:51:19 Requisicao: 
+25-06-2021 23:51:22 download: 3
+25-06-2021 23:51:22 download: 1702
+25-06-2021 23:51:25 download: 0
+25-06-2021 23:51:25 Requisicao: 
+25-06-2021 23:51:26 download: 3
+25-06-2021 23:51:26 download: 1674
+25-06-2021 23:51:29 download: 3
+25-06-2021 23:51:29 download: 1657
+25-06-2021 23:51:30 download: 0
+25-06-2021 23:51:30 Requisicao: 
+25-06-2021 23:51:33 download: 3
+25-06-2021 23:51:33 download: 1631
+25-06-2021 23:51:36 download: 0
+25-06-2021 23:51:36 Requisicao: 
+25-06-2021 23:51:36 download: 3
+25-06-2021 23:51:36 download: 1609
+25-06-2021 23:51:40 download: 3
+25-06-2021 23:51:40 download: 1589
+25-06-2021 23:51:41 download: 0
+25-06-2021 23:51:41 Requisicao: 
+25-06-2021 23:51:44 download: 3
+25-06-2021 23:51:44 download: 1552
+25-06-2021 23:51:47 download: 0
+25-06-2021 23:51:47 Requisicao: 
+25-06-2021 23:51:48 download: 3
+25-06-2021 23:51:48 download: 1537
+25-06-2021 23:51:52 download: 0
+25-06-2021 23:51:52 Requisicao: 
+25-06-2021 23:51:52 download: 3
+25-06-2021 23:51:53 download: 1508
+25-06-2021 23:51:56 download: 3
+25-06-2021 23:51:56 download: 1481
+25-06-2021 23:51:58 download: 0
+25-06-2021 23:51:58 Requisicao: 
+25-06-2021 23:51:59 download: 3
+25-06-2021 23:51:59 download: 1461
+25-06-2021 23:52:03 download: 3
+25-06-2021 23:52:03 download: 1439
+25-06-2021 23:52:04 download: 0
+25-06-2021 23:52:04 Requisicao: 
+25-06-2021 23:52:07 download: 3
+25-06-2021 23:52:07 download: 1421
+25-06-2021 23:52:09 download: 0
+25-06-2021 23:52:09 Requisicao: 
+25-06-2021 23:52:11 download: 3
+25-06-2021 23:52:11 download: 1398
+25-06-2021 23:52:15 download: 0
+25-06-2021 23:52:15 Requisicao: 
+25-06-2021 23:52:15 download: 3
+25-06-2021 23:52:15 download: 1371
+25-06-2021 23:52:19 download: 3
+25-06-2021 23:52:20 download: 1344
+25-06-2021 23:52:20 download: 0
+25-06-2021 23:52:20 Requisicao: 
+25-06-2021 23:52:24 download: 3
+25-06-2021 23:52:24 download: 1332
+25-06-2021 23:52:26 download: 0
+25-06-2021 23:52:26 Requisicao: 
+25-06-2021 23:52:29 download: 3
+25-06-2021 23:52:29 download: 1309
+25-06-2021 23:52:31 download: 0
+25-06-2021 23:52:31 Requisicao: 
+25-06-2021 23:52:34 download: 3
+25-06-2021 23:52:34 download: 1268
+25-06-2021 23:52:37 download: 0
+25-06-2021 23:52:37 Requisicao: 
+25-06-2021 23:52:40 download: 3
+25-06-2021 23:52:40 download: 1242
+25-06-2021 23:52:42 download: 0
+25-06-2021 23:52:42 Requisicao: 
+25-06-2021 23:52:48 download: 0
+25-06-2021 23:52:48 Requisicao: 
+25-06-2021 23:52:49 download: 1631
+25-06-2021 23:52:53 download: 26
+25-06-2021 23:52:54 download: 0
+25-06-2021 23:52:54 Requisicao: 
+25-06-2021 23:52:55 download: 1255
+25-06-2021 23:52:59 download: 0
+25-06-2021 23:52:59 Requisicao: 
+25-06-2021 23:53:00 download: 955
+25-06-2021 23:53:01 download: 26
+25-06-2021 23:53:03 download: 1257
+25-06-2021 23:53:05 download: 709
+25-06-2021 23:53:06 download: 0
+25-06-2021 23:53:06 Requisicao: 
+25-06-2021 23:53:06 download: 26
+25-06-2021 23:53:07 download: 1250
+25-06-2021 23:53:09 download: 1181
+25-06-2021 23:53:10 download: 26
+25-06-2021 23:53:11 download: 1261
+25-06-2021 23:53:11 download: 0
+25-06-2021 23:53:11 Requisicao: 
+25-06-2021 23:53:13 download: 712
+25-06-2021 23:53:14 download: 27
+25-06-2021 23:53:15 download: 1249
+25-06-2021 23:53:17 download: 0
+25-06-2021 23:53:17 Requisicao: 
+25-06-2021 23:53:17 download: 685
+25-06-2021 23:53:18 download: 26
+25-06-2021 23:53:19 download: 1253
+25-06-2021 23:53:22 download: 914
+25-06-2021 23:53:22 download: 0
+25-06-2021 23:53:22 Requisicao: 
+25-06-2021 23:53:24 download: 26
+25-06-2021 23:53:25 download: 1242
+25-06-2021 23:53:27 download: 792
+25-06-2021 23:53:28 download: 0
+25-06-2021 23:53:28 Requisicao: 
+25-06-2021 23:53:28 download: 27
+25-06-2021 23:53:29 download: 1255
+25-06-2021 23:53:32 download: 815
+25-06-2021 23:53:32 download: 27
+25-06-2021 23:53:33 download: 0
+25-06-2021 23:53:33 Requisicao: 
+25-06-2021 23:53:34 download: 1247
+25-06-2021 23:53:39 download: 0
+25-06-2021 23:53:39 Requisicao: 
+25-06-2021 23:53:40 download: 650
+25-06-2021 23:53:41 download: 27
+25-06-2021 23:53:42 download: 1246
+25-06-2021 23:53:44 download: 0
+25-06-2021 23:53:44 Requisicao: 
+25-06-2021 23:53:45 download: 949
+25-06-2021 23:53:46 download: 26
+25-06-2021 23:53:47 download: 1239
+25-06-2021 23:53:49 download: 906
+25-06-2021 23:53:50 download: 0
+25-06-2021 23:53:50 Requisicao: 
+25-06-2021 23:53:50 download: 26
+25-06-2021 23:53:51 download: 1236
+25-06-2021 23:53:56 download: 0
+25-06-2021 23:53:56 Requisicao: 
+25-06-2021 23:54:02 download: 0
+25-06-2021 23:54:02 Requisicao: 
+25-06-2021 23:54:08 download: 0
+25-06-2021 23:54:08 Requisicao: 
+25-06-2021 23:54:13 download: 0
+25-06-2021 23:54:13 Requisicao: 
+25-06-2021 23:54:18 download: 0
+25-06-2021 23:54:19 Requisicao: 
+25-06-2021 23:54:24 download: 0
+25-06-2021 23:54:24 Requisicao: 
+25-06-2021 23:54:29 download: 693
+25-06-2021 23:54:30 download: 0
+25-06-2021 23:54:30 Requisicao: 
+25-06-2021 23:54:32 download: 1236
+25-06-2021 23:54:35 download: 0
+25-06-2021 23:54:35 Requisicao: 
+25-06-2021 23:54:41 download: 0
+25-06-2021 23:54:41 Requisicao: 
+25-06-2021 23:54:46 download: 0
+25-06-2021 23:54:46 Requisicao: 
+25-06-2021 23:54:52 download: 0
+25-06-2021 23:54:52 Requisicao: 
+25-06-2021 23:54:57 download: 0
+25-06-2021 23:54:57 Requisicao: 
+25-06-2021 23:55:03 download: 0
+25-06-2021 23:55:03 Requisicao: 
+25-06-2021 23:55:08 download: 0
+25-06-2021 23:55:08 Requisicao: 
+25-06-2021 23:55:14 download: 0
+25-06-2021 23:55:14 Requisicao: 
+25-06-2021 23:55:19 download: 0
+25-06-2021 23:55:19 Requisicao: 
+25-06-2021 23:55:25 download: 0
+25-06-2021 23:55:25 Requisicao: 
+25-06-2021 23:55:30 download: 0
+25-06-2021 23:55:30 Requisicao: 
+25-06-2021 23:55:36 download: 0
+25-06-2021 23:55:36 Requisicao: 
+25-06-2021 23:55:41 download: 0
+25-06-2021 23:55:41 Requisicao: 
+25-06-2021 23:55:47 download: 0
+25-06-2021 23:55:47 Requisicao: 
+25-06-2021 23:55:52 download: 0
+25-06-2021 23:55:52 Requisicao: 
+25-06-2021 23:55:58 download: 0
+25-06-2021 23:55:58 Requisicao: 
+25-06-2021 23:56:03 download: 0
+25-06-2021 23:56:03 Requisicao: 
+25-06-2021 23:56:09 download: 0
+25-06-2021 23:56:09 Requisicao: 
+25-06-2021 23:56:14 download: 0
+25-06-2021 23:56:14 Requisicao: 
+25-06-2021 23:56:20 download: 0
+25-06-2021 23:56:20 Requisicao: 
+25-06-2021 23:56:25 download: 0
+25-06-2021 23:56:25 Requisicao: 
+25-06-2021 23:56:31 download: 0
+25-06-2021 23:56:31 Requisicao: 
+25-06-2021 23:56:36 download: 0
+25-06-2021 23:56:36 Requisicao: 
+25-06-2021 23:56:42 download: 0
+25-06-2021 23:56:42 Requisicao: 
+25-06-2021 23:56:47 download: 0
+25-06-2021 23:56:47 Requisicao: 
+25-06-2021 23:56:53 download: 0
+25-06-2021 23:56:53 Requisicao: 
+25-06-2021 23:56:58 download: 0
+25-06-2021 23:56:58 Requisicao: 
+25-06-2021 23:57:04 download: 0
+25-06-2021 23:57:04 Requisicao: 
+25-06-2021 23:57:09 download: 0
+25-06-2021 23:57:09 Requisicao: 
+25-06-2021 23:57:15 download: 0
+25-06-2021 23:57:15 Requisicao: 
+25-06-2021 23:57:20 download: 0
+25-06-2021 23:57:20 Requisicao: 
+25-06-2021 23:57:26 download: 0
+25-06-2021 23:57:26 Requisicao: 
+25-06-2021 23:57:31 download: 0
+25-06-2021 23:57:31 Requisicao: 
+25-06-2021 23:57:37 download: 0
+25-06-2021 23:57:37 Requisicao: 
+25-06-2021 23:57:42 download: 0
+25-06-2021 23:57:42 Requisicao: 
+25-06-2021 23:57:48 download: 0
+25-06-2021 23:57:48 Requisicao: 
+25-06-2021 23:57:53 download: 0
+25-06-2021 23:57:53 Requisicao: 
+25-06-2021 23:57:59 download: 0
+25-06-2021 23:57:59 Requisicao: 
+25-06-2021 23:58:04 download: 0
+25-06-2021 23:58:04 Requisicao: 
+25-06-2021 23:58:10 download: 0
+25-06-2021 23:58:10 Requisicao: 
+25-06-2021 23:58:15 download: 0
+25-06-2021 23:58:15 Requisicao: 
+25-06-2021 23:58:21 download: 0
+25-06-2021 23:58:21 Requisicao: 
+25-06-2021 23:58:26 download: 0
+25-06-2021 23:58:26 Requisicao: 
+25-06-2021 23:58:32 download: 0
+25-06-2021 23:58:32 Requisicao: 
+25-06-2021 23:58:37 download: 0
+25-06-2021 23:58:37 Requisicao: 
+25-06-2021 23:58:43 download: 0
+25-06-2021 23:58:43 Requisicao: 
+25-06-2021 23:58:48 download: 0
+25-06-2021 23:58:48 Requisicao: 
+25-06-2021 23:58:54 download: 0
+25-06-2021 23:58:54 Requisicao: 
+25-06-2021 23:58:59 download: 0
+25-06-2021 23:58:59 Requisicao: 
+25-06-2021 23:59:05 download: 0
+25-06-2021 23:59:05 Requisicao: 
+25-06-2021 23:59:10 download: 0
+25-06-2021 23:59:10 Requisicao: 
+25-06-2021 23:59:13 download: 1236
+25-06-2021 23:59:16 download: 0
+25-06-2021 23:59:16 Requisicao: 
+25-06-2021 23:59:21 download: 0
+25-06-2021 23:59:21 Requisicao: 
+25-06-2021 23:59:27 download: 0
+25-06-2021 23:59:27 Requisicao: 
+25-06-2021 23:59:32 download: 0
+25-06-2021 23:59:32 Requisicao: 
+25-06-2021 23:59:38 download: 0
+25-06-2021 23:59:38 Requisicao: 
+25-06-2021 23:59:43 download: 0
+25-06-2021 23:59:43 Requisicao: 
+25-06-2021 23:59:49 download: 0
+25-06-2021 23:59:49 Requisicao: 
+25-06-2021 23:59:54 download: 0
+25-06-2021 23:59:54 Requisicao: 
+26-06-2021 00:00:01 download: 0
+26-06-2021 00:00:01 Requisicao: 
+26-06-2021 00:00:07 download: 0
+26-06-2021 00:00:07 Requisicao: 
+26-06-2021 00:00:12 download: 0
+26-06-2021 00:00:12 Requisicao: 
+26-06-2021 00:20:39 download: 465
+26-06-2021 00:20:47 download: 0
+26-06-2021 00:20:47 Requisicao: 
+26-06-2021 00:20:50 download: 1310
+26-06-2021 00:20:51 download: 1236
+26-06-2021 00:20:53 download: 0
+26-06-2021 00:20:53 Requisicao: 
+26-06-2021 00:20:53 download: 1236
+26-06-2021 00:20:58 download: 0
+26-06-2021 00:20:58 Requisicao: 
+26-06-2021 00:21:04 download: 0
+26-06-2021 00:21:04 Requisicao: 
+26-06-2021 00:21:10 download: 0
+26-06-2021 00:21:10 Requisicao: 
+26-06-2021 00:21:15 download: 0
+26-06-2021 00:21:15 Requisicao: 
+26-06-2021 00:21:21 download: 0
+26-06-2021 00:21:21 Requisicao: 
+26-06-2021 00:21:27 download: 0
+26-06-2021 00:21:27 Requisicao: 
+26-06-2021 00:21:32 download: 0
+26-06-2021 00:21:32 Requisicao: 
+26-06-2021 00:21:38 download: 0
+26-06-2021 00:21:38 Requisicao: 
+26-06-2021 00:21:44 download: 0
+26-06-2021 00:21:44 Requisicao: 
+26-06-2021 00:21:49 download: 0
+26-06-2021 00:21:49 Requisicao: 
+26-06-2021 00:21:55 download: 0
+26-06-2021 00:21:55 Requisicao: 
+26-06-2021 00:22:00 download: 0
+26-06-2021 00:22:00 Requisicao: 
+26-06-2021 00:22:06 download: 0
+26-06-2021 00:22:06 Requisicao: 
+26-06-2021 00:22:11 download: 0
+26-06-2021 00:22:11 Requisicao: 
+26-06-2021 00:22:17 download: 0
+26-06-2021 00:22:17 Requisicao: 
+26-06-2021 00:22:22 download: 0
+26-06-2021 00:22:22 Requisicao: 
+26-06-2021 00:22:28 download: 0
+26-06-2021 00:22:28 Requisicao: 
+26-06-2021 00:22:33 download: 0
+26-06-2021 00:22:33 Requisicao: 
+26-06-2021 00:22:39 download: 0
+26-06-2021 00:22:39 Requisicao: 
+26-06-2021 00:22:44 download: 0
+26-06-2021 00:22:44 Requisicao: 
+26-06-2021 00:22:50 download: 0
+26-06-2021 00:22:50 Requisicao: 
+26-06-2021 00:22:55 download: 0
+26-06-2021 00:22:55 Requisicao: 
+26-06-2021 00:23:01 download: 0
+26-06-2021 00:23:01 Requisicao: 
+26-06-2021 00:23:07 download: 0
+26-06-2021 00:23:07 Requisicao: 
+26-06-2021 00:23:12 download: 0
+26-06-2021 00:23:12 Requisicao: 
+26-06-2021 00:23:18 download: 0
+26-06-2021 00:23:18 Requisicao: 
+26-06-2021 00:23:23 download: 0
+26-06-2021 00:23:23 Requisicao: 
+26-06-2021 00:23:29 download: 0
+26-06-2021 00:23:29 Requisicao: 
+26-06-2021 00:23:34 download: 0
+26-06-2021 00:23:34 Requisicao: 
+26-06-2021 00:23:40 download: 0
+26-06-2021 00:23:40 Requisicao: 
+26-06-2021 00:23:45 download: 0
+26-06-2021 00:23:45 Requisicao: 
+26-06-2021 00:23:51 download: 0
+26-06-2021 00:23:51 Requisicao: 
+26-06-2021 00:23:56 download: 0
+26-06-2021 00:23:56 Requisicao: 
+26-06-2021 00:24:02 download: 0
+26-06-2021 00:24:02 Requisicao: 
+26-06-2021 00:24:07 download: 0
+26-06-2021 00:24:07 Requisicao: 
+26-06-2021 00:24:13 download: 0
+26-06-2021 00:24:13 Requisicao: 
+26-06-2021 00:24:18 download: 0
+26-06-2021 00:24:18 Requisicao: 
+26-06-2021 00:24:24 download: 0
+26-06-2021 00:24:24 Requisicao: 
+26-06-2021 00:24:29 download: 0
+26-06-2021 00:24:29 Requisicao: 
+26-06-2021 00:24:35 download: 0
+26-06-2021 00:24:35 Requisicao: 
+26-06-2021 00:30:16 download: 465
+26-06-2021 00:30:21 download: 0
+26-06-2021 00:30:21 Requisicao: 
+26-06-2021 00:30:26 download: 0
+26-06-2021 00:30:26 Requisicao: 
+26-06-2021 00:30:32 download: 0
+26-06-2021 00:30:32 Requisicao: 
+26-06-2021 00:30:37 download: 0
+26-06-2021 00:30:37 Requisicao: 
+26-06-2021 00:30:39 download: 1550
+26-06-2021 00:30:40 download: 840
+26-06-2021 00:30:43 download: 0
+26-06-2021 00:30:43 Requisicao: 
+26-06-2021 00:32:49 download: 465
+26-06-2021 00:32:54 download: 0
+26-06-2021 00:32:54 Requisicao: 
+26-06-2021 00:32:59 download: 0
+26-06-2021 00:32:59 Requisicao: 
+26-06-2021 00:33:03 download: 1521
+26-06-2021 00:33:03 download: 838
+26-06-2021 00:33:05 download: 0
+26-06-2021 00:33:05 Requisicao: 
+26-06-2021 00:33:10 download: 0
+26-06-2021 00:33:10 Requisicao: 
+26-06-2021 00:33:16 download: 0
+26-06-2021 00:33:16 Requisicao: 
+26-06-2021 00:36:54 download: 465
+26-06-2021 00:37:07 download: 0
+26-06-2021 00:37:07 Requisicao: 
+26-06-2021 00:37:08 download: 1550
+26-06-2021 00:37:13 download: 0
+26-06-2021 00:37:18 download: 0
+26-06-2021 00:37:18 Requisicao: 
+26-06-2021 00:37:21 download: 0
+26-06-2021 00:37:31 download: 0
+26-06-2021 00:37:31 Requisicao: 
+26-06-2021 00:37:36 download: 0
+26-06-2021 00:37:36 Requisicao: 
+26-06-2021 00:37:39 download: 849
+26-06-2021 00:37:42 download: 0
+26-06-2021 00:37:42 Requisicao: 
+26-06-2021 00:37:47 download: 0
+26-06-2021 00:37:47 Requisicao: 
+26-06-2021 00:37:53 download: 0
+26-06-2021 00:37:53 Requisicao: 
+26-06-2021 00:37:58 download: 0
+26-06-2021 00:37:59 Requisicao: 
+26-06-2021 00:38:04 download: 0
+26-06-2021 00:38:04 Requisicao: 
+26-06-2021 00:38:10 download: 0
+26-06-2021 00:38:10 Requisicao: 
+26-06-2021 00:38:15 download: 0
+26-06-2021 00:38:15 Requisicao: 
+26-06-2021 00:38:21 download: 0
+26-06-2021 00:38:21 Requisicao: 
+26-06-2021 00:38:26 download: 0
+26-06-2021 00:38:26 Requisicao: 
+26-06-2021 00:38:31 download: 0
+26-06-2021 00:38:31 Requisicao: 
+26-06-2021 00:38:37 download: 0
+26-06-2021 00:38:37 Requisicao: 
+26-06-2021 00:38:42 download: 0
+26-06-2021 00:38:43 Requisicao: 
+26-06-2021 01:02:33 download: 465
+26-06-2021 01:02:48 download: 465
+26-06-2021 01:02:52 download: 0
+26-06-2021 01:02:52 Requisicao: 
+26-06-2021 01:02:53 download: 1301
+26-06-2021 01:02:54 download: 67
+26-06-2021 01:02:58 download: 0
+26-06-2021 01:02:58 Requisicao: 
+26-06-2021 01:02:59 download: 452
+26-06-2021 01:03:03 download: 0
+26-06-2021 01:03:03 Requisicao: 
+26-06-2021 01:03:09 download: 0
+26-06-2021 01:03:09 Requisicao: 
+26-06-2021 01:03:14 download: 0
+26-06-2021 01:03:14 Requisicao: 
+26-06-2021 01:03:20 download: 0
+26-06-2021 01:03:20 Requisicao: 
+26-06-2021 01:03:25 download: 0
+26-06-2021 01:03:25 Requisicao: 
+26-06-2021 01:03:31 download: 0
+26-06-2021 01:03:31 Requisicao: 
+26-06-2021 01:03:37 download: 0
+26-06-2021 01:03:37 Requisicao: 
+26-06-2021 01:03:42 download: 0
+26-06-2021 01:03:42 Requisicao: 
+26-06-2021 01:03:48 download: 0
+26-06-2021 01:03:48 Requisicao: 
+26-06-2021 01:03:53 download: 0
+26-06-2021 01:03:53 Requisicao: 
+26-06-2021 01:03:59 download: 0
+26-06-2021 01:03:59 Requisicao: 
+26-06-2021 01:04:04 download: 0
+26-06-2021 01:04:04 Requisicao: 
+26-06-2021 01:04:10 download: 0
+26-06-2021 01:04:10 Requisicao: 
+26-06-2021 01:04:15 download: 0
+26-06-2021 01:04:15 Requisicao: 
+26-06-2021 01:04:32 download: 465
+26-06-2021 01:04:39 download: 0
+26-06-2021 01:04:39 Requisicao: 
+26-06-2021 01:04:40 download: 1537
+26-06-2021 01:04:41 download: 67
+26-06-2021 01:04:44 download: 452
+26-06-2021 01:04:45 download: 0
+26-06-2021 01:04:45 Requisicao: 
+26-06-2021 01:04:50 download: 0
+26-06-2021 01:04:50 Requisicao: 
+26-06-2021 01:04:56 download: 0
+26-06-2021 01:04:56 Requisicao: 
+26-06-2021 01:05:01 download: 0
+26-06-2021 01:05:01 Requisicao: 
+26-06-2021 01:05:07 download: 0
+26-06-2021 01:05:07 Requisicao: 

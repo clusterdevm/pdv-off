@@ -23,6 +23,7 @@ type
     acInativar: TAction;
     acImprimir: TAction;
     ActionList1: TActionList;
+    b_localizar1: TSpeedButton;
     cds_condicional: TBufDataset;
     cds_condicionalcli_nome: TStringField;
     cds_condicionaldataatualizacao: TDateTimeField;
@@ -69,12 +70,8 @@ type
     procedure edt_nomeChange(Sender: TObject);
     procedure edt_nomeKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
-    procedure ed_conclusao_inicialChange(Sender: TObject);
-    procedure ed_emissao_finalChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure Label4Click(Sender: TObject);
-    procedure Timer1StartTimer(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
      var  a , b : Integer;
@@ -204,16 +201,6 @@ begin
      DBGrid1.SetFocus;
 end;
 
-procedure Tfrm_CondicionalFIltrar.ed_conclusao_inicialChange(Sender: TObject);
-begin
-
-end;
-
-procedure Tfrm_CondicionalFIltrar.ed_emissao_finalChange(Sender: TObject);
-begin
-
-end;
-
 procedure Tfrm_CondicionalFIltrar.acNovoExecute(Sender: TObject);
 begin
     frmCondicionalCriar := TfrmCondicionalCriar.Create(self);
@@ -286,19 +273,11 @@ begin
     b_Inativar.Visible:= true;
     b_Inativar.Action := acInativar;
     b_localizar.Action := acBuscar;
+    b_localizar1.Action := acImprimir;
+    b_localizar1.visible := true;
     edt_nome.SetFocus;
     a:= 0; b:= 0;
     Timer1.Enabled:=true;
-end;
-
-procedure Tfrm_CondicionalFIltrar.Label4Click(Sender: TObject);
-begin
-
-end;
-
-procedure Tfrm_CondicionalFIltrar.Timer1StartTimer(Sender: TObject);
-begin
-
 end;
 
 procedure Tfrm_CondicionalFIltrar.Timer1Timer(Sender: TObject);

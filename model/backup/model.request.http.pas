@@ -216,6 +216,7 @@ try
     HTTPSender.Headers.Add('Content-Type: application/json');
     HTTPSender.Headers.Add('Accept-Encoding: gzip');
 
+
     for i := 0 to Header.Count-1  do
        HTTPSender.Headers.Add(Header.Item[i].Campo+': '+ Header.Item[i].Valor);
 
@@ -235,7 +236,7 @@ try
         end;
     end;
 
-        if _contentEnconding <> '' then
+        if _contentEnconding <> '' then                                eber@
             fresponse:= inflate(HTTPSender.Document)
         else
         Begin
@@ -353,10 +354,12 @@ try
        if copy(trim(fresponse),1,1) = '{' then
          try
             Return.Parse(fresponse);
-            on e:exception do
-            Begin
-                RegistraLogErro('Parse ao fazer parse: '+ e.message);
-            end;
+         except
+              on e:exception do
+              Begin
+                  RegistraLogErro('Parse ao fazer parse: '+ e.message);
+              end;
+         end
        else
           Return.Put('json_error',fresponse);
 

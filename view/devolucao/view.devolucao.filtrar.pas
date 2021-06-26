@@ -22,6 +22,7 @@ type
     acInativar: TAction;
     acImprimir: TAction;
     ActionList1: TActionList;
+    b_localizar1: TSpeedButton;
     cds_devolucao: TBufDataset;
     cds_devolucaodata_emissao: TDateTimeField;
     cds_devolucaoid: TLongintField;
@@ -56,20 +57,13 @@ type
     procedure acNovoExecute(Sender: TObject);
     procedure Action1Execute(Sender: TObject);
     procedure ac_buscarExecute(Sender: TObject);
-    procedure acEditarExecute(Sender: TObject);
     procedure cb_statusChange(Sender: TObject);
-    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
-      DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure DBGrid1KeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure edt_nomeChange(Sender: TObject);
     procedure edt_nomeKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
-    procedure ed_conclusao_inicialChange(Sender: TObject);
-    procedure ed_emissao_finalChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure Label4Click(Sender: TObject);
-    procedure Timer1StartTimer(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
      var  a , b : Integer;
@@ -113,41 +107,9 @@ begin
   end;
 end;
 
-procedure Tf_devolucaoFiltrar.acEditarExecute(Sender: TObject);
-var devolucao : Tdevolucao;
-begin
-   //try
-   //   condicional := TCondicional.Create;
-   //   condicional.id := cds_devolucaoid.AsInteger;
-   //   Condicional.Get;
-   //   ac_buscarExecute(Self);
-   //finally
-   //  FreeAndNil(condicional);
-   //end;
-end;
-
 procedure Tf_devolucaoFiltrar.cb_statusChange(Sender: TObject);
 begin
   ac_buscarExecute(self);
-end;
-
-procedure Tf_devolucaoFiltrar.DBGrid1DrawColumnCell(Sender: TObject;
-  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
-begin
-//
-//  if (Column.Field.FieldName = 'status') and (cds_devolucao.RecordCount > 0) then // Aqui o campo a colorir
-//  begin
-//       if trim(Column.Field.Value) <> '' then
-//       Begin
-//        if trim(Column.Field.Value) = 'rascunho' then // coloque aqui sua condição de quando colorir
-//           DBGrid1.Canvas.Font.Color:= clRed
-//        else
-//           DBGrid1.Canvas.Font.Color:= clBlack;
-//
-//        DBGrid1.Canvas.FillRect(Rect);
-//        DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
-//       end;
-//  end;
 end;
 
 procedure Tf_devolucaoFiltrar.DBGrid1KeyUp(Sender: TObject; var Key: Word;
@@ -174,16 +136,6 @@ procedure Tf_devolucaoFiltrar.edt_nomeKeyDown(Sender: TObject;
 begin
   IF key = vk_down then
      DBGrid1.SetFocus;
-end;
-
-procedure Tf_devolucaoFiltrar.ed_conclusao_inicialChange(Sender: TObject);
-begin
-
-end;
-
-procedure Tf_devolucaoFiltrar.ed_emissao_finalChange(Sender: TObject);
-begin
-
 end;
 
 procedure Tf_devolucaoFiltrar.acNovoExecute(Sender: TObject);
@@ -213,7 +165,7 @@ begin
   try
      devolucao := Tdevolucao.Create;
      devolucao.id:= cds_devolucaoid.AsInteger;
-     devolucao.Report;
+     devolucao.Report();
   finally
       FreeAndNil(devolucao);
   end;
@@ -250,23 +202,14 @@ begin
     b_Inativar.Visible:= true;
     b_Inativar.Action := acInativar;
     b_localizar.Action := acBuscar;
-
+    b_localizar1.Action := acImprimir;
+    b_localizar1.Visible:= true;
     ed_emissao_inicial.Text:= FormatDateTime('dd/mm/yyyy',now);
     ed_emissao_final.Text:= FormatDateTime('dd/mm/yyyy',now);
 
     edt_nome.SetFocus;
     a:= 0; b:= 0;
    Timer1.Enabled:=true;
-end;
-
-procedure Tf_devolucaoFiltrar.Label4Click(Sender: TObject);
-begin
-
-end;
-
-procedure Tf_devolucaoFiltrar.Timer1StartTimer(Sender: TObject);
-begin
-
 end;
 
 procedure Tf_devolucaoFiltrar.Timer1Timer(Sender: TObject);

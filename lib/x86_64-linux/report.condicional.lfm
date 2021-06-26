@@ -1,17 +1,30 @@
 object report_condicional: Treport_condicional
   Left = 319
-  Height = 568
+  Height = 695
   Top = 250
   Width = 758
   Caption = 'report_condicional'
-  ClientHeight = 568
+  ClientHeight = 695
   ClientWidth = 758
-  OnCloseQuery = FormCloseQuery
-  OnCreate = FormCreate
+  LCLVersion = '2.0.12.0'
+  Scaled = False
+  object ListBox1: TListBox
+    Left = 0
+    Height = 168
+    Top = 0
+    Width = 184
+    Items.Strings = (
+      'Cupom'
+      'A4'
+    )
+    ItemHeight = 23
+    ScrollWidth = 182
+    TabOrder = 0
+  end
   object RLReport1: TRLReport
-    Left = 232
+    Left = 288
     Height = 1512
-    Top = 16
+    Top = -96
     Width = 302
     Font.CharSet = ANSI_CHARSET
     Font.Color = clBlack
@@ -23,10 +36,10 @@ object report_condicional: Treport_condicional
     PageSetup.PaperSize = fpCustom
     PageSetup.PaperWidth = 80
     PageSetup.PaperHeight = 400
-    PrintDialog = False
     PrintEmpty = False
     Title = 'Cluster Sistemas : Condicional '
     Visible = False
+    UnlimitedHeight = True
     OnDataRecord = RLReport1DataRecord
     object bandCabecalho: TRLBand
       Left = 11
@@ -180,15 +193,15 @@ object report_condicional: Treport_condicional
     end
     object bandRodape: TRLBand
       Left = 11
-      Height = 64
-      Top = 498
+      Height = 168
+      Top = 521
       Width = 291
       BandType = btSummary
       BeforePrint = bandRodapeBeforePrint
       object lSistema: TRLLabel
         Left = 0
         Height = 13
-        Top = 0
+        Top = 57
         Width = 291
         Align = faTop
         Alignment = taCenter
@@ -209,7 +222,7 @@ object report_condicional: Treport_condicional
       object lSistema1: TRLLabel
         Left = 0
         Height = 10
-        Top = 13
+        Top = 70
         Width = 291
         Align = faTop
         Alignment = taCenter
@@ -225,7 +238,7 @@ object report_condicional: Treport_condicional
       object lblData: TRLLabel
         Left = 0
         Height = 13
-        Top = 23
+        Top = 80
         Width = 291
         Align = faTop
         Alignment = taCenter
@@ -242,6 +255,34 @@ object report_condicional: Treport_condicional
         Font.Style = [fsBold, fsItalic]
         Layout = tlBottom
         ParentFont = False
+      end
+      object RLPanel6: TRLPanel
+        Left = 0
+        Height = 57
+        Top = 0
+        Width = 291
+        Align = faTop
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = False
+        Borders.DrawTop = True
+        Borders.DrawRight = False
+        Borders.DrawBottom = False
+        object qrcode: TRLBarcode
+          Left = 85
+          Height = 56
+          Top = 1
+          Width = 121
+          Align = faCenterTop
+          BarcodeType = bcEAN128A
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -16
+          Font.Name = 'Arial'
+          Margins.LeftMargin = 1
+          Margins.RightMargin = 1
+          ParentFont = False
+          ShowText = boCode
+        end
       end
     end
     object detailPendente: TRLSubDetail
@@ -454,7 +495,6 @@ object report_condicional: Treport_condicional
       Height = 101
       Top = 294
       Width = 291
-      BeforePrint = detailDevolvidosBeforePrint
       OnNeedData = detailDevolvidosNeedData
       object RLBand4: TRLBand
         Left = 0
@@ -647,7 +687,7 @@ object report_condicional: Treport_condicional
     end
     object detailFaturado: TRLSubDetail
       Left = 11
-      Height = 103
+      Height = 126
       Top = 395
       Width = 291
       OnNeedData = detailFaturadoNeedData
@@ -656,6 +696,7 @@ object report_condicional: Treport_condicional
         Height = 16
         Top = 40
         Width = 291
+        BeforePrint = RLBand5BeforePrint
         object lblValorFaturado: TRLLabel
           Left = 257
           Height = 12
@@ -696,7 +737,6 @@ object report_condicional: Treport_condicional
         Top = 0
         Width = 291
         BandType = btHeader
-        BeforePrint = RLBand6BeforePrint
         object RLLabel3: TRLLabel
           Left = 1
           Height = 19
@@ -775,7 +815,7 @@ object report_condicional: Treport_condicional
       end
       object RLBand10: TRLBand
         Left = 0
-        Height = 46
+        Height = 57
         Top = 56
         Width = 291
         BandType = btSummary
@@ -787,7 +827,7 @@ object report_condicional: Treport_condicional
         Borders.Style = bsHorizontal
         object RLPanel4: TRLPanel
           Left = 0
-          Height = 43
+          Height = 48
           Top = 1
           Width = 291
           Align = faTop
@@ -931,9 +971,10 @@ object report_condicional: Treport_condicional
     end
   end
   object RLPDFFilter1: TRLPDFFilter
-    DocumentInfo.Creator = 'FortesReport Community Edition v4.0.0.1 \251 Copyright © 1999-2021 Fortes Informática'
+    DocumentInfo.Title = 'www.clustersitemas.com.br'
+    DocumentInfo.Creator = 'Cluster Sistemas'
     DisplayName = 'Documento PDF'
-    Left = 8
-    Top = 8
+    Left = 160
+    Top = 256
   end
 end

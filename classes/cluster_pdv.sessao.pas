@@ -5,7 +5,7 @@ unit cluster_pdv.sessao;
 interface
 
 uses
-  Classes, SysUtils ,jsons, Dialogs, forms, controls, uf_fechamentoCaixa;
+  Classes, SysUtils ,jsons, Dialogs, forms, controls, uf_fechamentoCaixa, DateUtils;
 
 type
 
@@ -55,6 +55,8 @@ private
       function tabela_preco_id : integer;
       function estoque_id : integer ;
 
+      Function GetUtcOFF : integer;
+
       function datetimeformat : string;
       function formatsubtotal(_loadSimbolo:boolean = true ): string;
       function formatunitario(_loadSimbolo:boolean = true): string;
@@ -69,6 +71,9 @@ private
       property cidade : string read fcidade write fcidade;
 
       Property usuarioName : String Read FusuarioName Write FusuarioName;
+
+      Function DateToLocal(value:string):TDateTime;overload;
+      Function DateToLocal(value:TDateTime):TDateTime;overload;
 
 
 
@@ -142,6 +147,11 @@ end;
 function TSessao.estoque_id: integer;
 begin
 
+end;
+
+function TSessao.GetUtcOFF: integer;
+begin
+   Result := -3;
 end;
 
 function TSessao.datetimeformat: string;
@@ -288,6 +298,16 @@ begin
   finally
       FreeAndNil(_db);
   end;
+end;
+
+function TSessao.DateToLocal(value: string): TDateTime;
+begin
+  result := DateToLocal(getDataBanco(value));
+end;
+
+function TSessao.DateToLocal(value: TDateTime): TDateTime;
+begin
+   Result := UniversalTimeToLocal(value,GetUtcOFF);;
 end;
 
 function TSessao.GetCaixa: string;

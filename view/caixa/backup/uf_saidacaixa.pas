@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ActnList,
-  ExtCtrls, Spin, SpinEx, frame.cliente.localiza, jsons, ACBrEnterTab;
+  ExtCtrls, Spin, SpinEx, frame.cliente.localiza, report.sangria, jsons,
+  ACBrEnterTab;
 
 type
 
@@ -29,9 +30,7 @@ type
     procedure EditIDEnter(Sender: TObject);
     procedure EditIDExit(Sender: TObject);
     procedure EditIDKeyPress(Sender: TObject; var Key: char);
-    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure Frame1Click(Sender: TObject);
   private
 
   public
@@ -50,11 +49,6 @@ implementation
 uses model.request.http, classe.utils;
 
 { Tf_saidaCaixa }
-
-procedure Tf_saidaCaixa.FormCreate(Sender: TObject);
-begin
-
-end;
 
 procedure Tf_saidaCaixa.FormShow(Sender: TObject);
 begin
@@ -91,7 +85,12 @@ begin
 
           if (ResponseCode in [200..207]) then
           Begin
-             Showmessage('Sucesso');
+             try
+                f_sangriaReport := Tf_sangriaReport.Create(self);
+                f_sangriaReport.GetSangriaReport(_api.Return,_endpoint ='sangria');
+             finally
+                FreeAndNil(f_sangriaReport);
+             end;
              self.Close;
           end
           else
@@ -114,7 +113,10 @@ procedure Tf_saidaCaixa.EditIDExit(Sender: TObject);
 begin
     if (_temp <> framePessoa.EditID.Text) or (_temp = '' ) then
        if not framePessoa.Localiza then
+       Begin
           (Sender as TEdit).SetFocus;
+          Abort;
+       end;
 end;
 
 procedure Tf_saidaCaixa.EditIDKeyPress(Sender: TObject; var Key: char);
@@ -125,11 +127,6 @@ begin
      if framePessoa._avancar then
         PerformTab(true)//Perform(WM_NEXTDLGCTL,0,0);
   end;
-end;
-
-procedure Tf_saidaCaixa.Frame1Click(Sender: TObject);
-begin
-
 end;
 
 end.

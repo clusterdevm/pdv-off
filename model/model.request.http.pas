@@ -216,6 +216,7 @@ try
     HTTPSender.Headers.Add('Content-Type: application/json');
     HTTPSender.Headers.Add('Accept-Encoding: gzip');
 
+
     for i := 0 to Header.Count-1  do
        HTTPSender.Headers.Add(Header.Item[i].Campo+': '+ Header.Item[i].Valor);
 

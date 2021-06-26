@@ -5,7 +5,7 @@ unit controller.devolucao;
 interface
 
 uses
-  Classes, SysUtils, jsons, BufDataset, db, Controls, wcursos,
+  Classes, SysUtils, jsons, BufDataset, db, Controls, wcursos, report.devolucao,
   Dialogs, clipbrd;
 
   type
@@ -50,7 +50,7 @@ uses
 
           Procedure Filtrar(_query : TDataSet);
           Procedure Cancelar;
-          Procedure Report;
+          Procedure Report(_get:boolean = true);
 
           Function GetVendaDevolucao(_vendaID: string) : Boolean;
           Procedure devolve(_devolve : TJsonObject);
@@ -167,9 +167,47 @@ begin
  end;
 end;
 
-procedure TDevolucao.Report;
+procedure TDevolucao.Report(_get:boolean = true);
+var _Api : TRequisicao;
 begin
+    if _get then
+    Begin
+       try
+         _api := TRequisicao.Create;
+         WCursor.SetWait;
+         with _Api do
+         Begin
+             Metodo:='get';
+             tokenBearer := GetBearerEMS;
+             AddHeader('kind-report','json');
+             webservice := getEMS_Webservice(mvenda);
+             rota:='vendas/devolucao';
+             endpoint:=IntToStr(self.id)+'/report';
+             ExecuteSynapse;
 
+             if (ResponseCode in [200..207]) then
+                self.venda.Parse(_api.Return['resultado'].AsObject.Stringify)
+             else
+             Begin
+                 if _Api.Return.Find('msg') > -1 then
+                    messagedlg(_Api.Return['msg'].AsString,mterror,[mbok],0)
+                 else
+                    messagedlg('#150 Contate suporte: '+_Api.response,mterror,[mbok],0)
+             end;
+         end;
+         finally
+             FreeAndNil(_api);
+             WCursor.SetNormal;
+         end;
+    end;
+
+    try
+       f_devolucaoReport := Tf_devolucaoReport.Create(nil);
+       f_devolucaoReport.GetDevolucaoReport(self.venda);
+    finally
+       f_devolucaoReport.Release;
+       f_devolucaoReport := nil;
+    end;
 end;
 
 function TDevolucao.GetVendaDevolucao(_vendaID: string): Boolean;
@@ -285,6 +323,7 @@ begin
        Begin
           result := true;
           self.venda.Parse(_api.Return['resultado'].AsObject.Stringify);
+          Report(false);
        end
        else
        Begin

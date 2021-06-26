@@ -5,8 +5,8 @@ unit report.condicional;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, RLReport, RLPDFFilter,
-  jsons, classe.utils, RLTypes;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, RLReport,
+  RLPDFFilter, jsons, RLTypes, RLBarcode;
 
 type
 
@@ -49,12 +49,14 @@ type
     lblValorFaturado: TRLLabel;
     lblValorPendente: TRLLabel;
     lEndereco: TRLMemo;
+    ListBox1: TListBox;
     lNomeFantasia: TRLMemo;
     lRazaoSocial: TRLMemo;
     lSistema: TRLLabel;
     lSistema1: TRLLabel;
     lTelefone: TRLMemo;
     lUnidade: TRLMemo;
+    qrcode: TRLBarcode;
     RLBand1: TRLBand;
     RLBand10: TRLBand;
     RLBand2: TRLBand;
@@ -83,22 +85,19 @@ type
     RLPanel3: TRLPanel;
     RLPanel4: TRLPanel;
     RLPanel5: TRLPanel;
+    RLPanel6: TRLPanel;
     RLPDFFilter1: TRLPDFFilter;
     RLReport1: TRLReport;
     procedure bandCabecalhoBeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure bandInfoCondicionalBeforePrint(Sender: TObject;
       var PrintIt: Boolean);
     procedure bandRodapeBeforePrint(Sender: TObject; var PrintIt: Boolean);
-    procedure detailDevolvidosBeforePrint(Sender: TObject; var PrintIt: Boolean
-      );
     procedure detailDevolvidosNeedData(Sender: TObject; var MoreData: Boolean);
     procedure detailFaturadoNeedData(Sender: TObject; var MoreData: Boolean);
     procedure detailPendenteNeedData(Sender: TObject; var MoreData: Boolean);
-    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
-    procedure FormCreate(Sender: TObject);
     procedure RLBand2BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLBand3BeforePrint(Sender: TObject; var PrintIt: Boolean);
-    procedure RLBand6BeforePrint(Sender: TObject; var PrintIt: Boolean);
+    procedure RLBand5BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLPanel2BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLPanel3BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLPanel4BeforePrint(Sender: TObject; var PrintIt: Boolean);
@@ -107,10 +106,10 @@ type
   private
     _itemPendentes,_itemDevolvidos,_itemFaturados : Integer;
     _rowPendentes,_rowDevolvidos,_RowFaturados : Integer;
+    _objeto : TJsonObject;
     _total : Currency;
-    _dados : TJsonObject;
   public
-       Procedure GetCondicionalReport(_content : string);
+       Procedure GetCondicionalReport(_dados: TJsonObject);
   end;
 
 var
@@ -121,6 +120,8 @@ implementation
 
 {$R *.lfm}
 
+uses classe.utils;
+
 
 
 { Treport_condicional }
@@ -128,46 +129,42 @@ implementation
 procedure Treport_condicional.bandCabecalhoBeforePrint(Sender: TObject;
   var PrintIt: Boolean);
 begin
-    lNomeFantasia.Lines.Text :=  _dados['empresa'].AsObject['fantasia'].AsString;
-    lUnidade.Lines.Text :=  _dados['empresa'].AsObject['unidade'].AsString;
-    lRazaoSocial.Lines.Text :=  _dados['empresa'].AsObject['razao'].AsString;
-    lEndereco.Lines.Text :=  _dados['empresa'].AsObject['endereco'].AsString;
-    lTelefone.Lines.Text :=  _dados['empresa'].AsObject['telefone'].AsString;
+    lNomeFantasia.Lines.Text :=  _objeto['empresa'].AsObject['fantasia'].AsString;
+    lUnidade.Lines.Text :=  _objeto['empresa'].AsObject['n_unidade'].AsString;
+    lRazaoSocial.Lines.Text := _objeto['empresa'].AsObject['empresa'].AsString;
+    lEndereco.Lines.Text :=  _objeto['empresa'].AsObject['endereco'].AsString+
+                             ',' + _objeto['empresa'].AsObject['numero'].AsString;
+    lTelefone.Lines.Text :=  _objeto['empresa'].AsObject['telefone'].AsString;
 end;
 
 procedure Treport_condicional.bandInfoCondicionalBeforePrint(Sender: TObject;
   var PrintIt: Boolean);
 begin
-    lblEmissao.Caption:= 'Emissão: '+
-    FormatDateTime('dd/mm/yyyy hh:mm',getDataBanco(_dados['data_emissao'].AsString));
+     lblEmissao.Caption:= 'Emissão: '+
+     FormatDateTime('dd/mm/yyyy hh:mm',sessao.DateToLocal(_Objeto['data_emissao'].AsString));
 
-    lblCondicionalID.caption := 'Numero: '+_dados['id'].AsString;
-    lblDadosVendedor.Lines.Text := 'Vendedor(a): ('+_dados['vendedor_id'].AsString+
-                                            ') '+_dados['n_vendedor'].AsString;
+     lblCondicionalID.caption := 'Numero: '+_Objeto['id'].AsString;
+     lblDadosVendedor.Lines.Text := 'Vendedor(a): ('+_Objeto['vendedor_id'].AsString+
+                                             ') '+_Objeto['n_vendedor'].AsString;
 
-    lblDadosCliente.Lines.Text := 'Cliente: ('+_dados['cliente_id'].AsString+
-                                         ') '+_dados['n_cliente'].AsString
+     lblDadosCliente.Lines.Text := 'Cliente: ('+_Objeto['cliente_id'].AsString+
+                                          ') '+_Objeto['n_cliente'].AsString
 end;
 
 procedure Treport_condicional.bandRodapeBeforePrint(Sender: TObject;
   var PrintIt: Boolean);
 begin
+    qrcode.Caption := FormatFloat('00000000000',_Objeto['id'].AsInteger);
     lblData.Caption:= 'Usuario: '+ sessao.usuarioName
-                        +' - Impresso em :'+ FormatDateTime('dd/mm/yyyy hh:mm', now);
-end;
-
-procedure Treport_condicional.detailDevolvidosBeforePrint(Sender: TObject;
-  var PrintIt: Boolean);
-begin
-
+                      +' - Impresso em :'+ FormatDateTime('dd/mm/yyyy hh:mm', now);
 end;
 
 procedure Treport_condicional.detailDevolvidosNeedData(Sender: TObject;
   var MoreData: Boolean);
 begin
   if _rowDevolvidos = 1 then
-   _total := 0;
-MoreData:= _rowDevolvidos <= _itemDevolvidos;
+     _total := 0;
+  MoreData:= _rowDevolvidos <= _itemDevolvidos;
 end;
 
 procedure Treport_condicional.detailFaturadoNeedData(Sender: TObject;
@@ -186,26 +183,15 @@ begin
   MoreData:= _rowPendentes <= _itemPendentes;
 end;
 
-procedure Treport_condicional.FormCloseQuery(Sender: TObject;
-  var CanClose: boolean);
-begin
-
-end;
-
-procedure Treport_condicional.FormCreate(Sender: TObject);
-begin
-  _dados := TJsonObject.Create();
-end;
-
 procedure Treport_condicional.RLBand2BeforePrint(Sender: TObject;
   var PrintIt: Boolean);
 begin
-  with _dados['itens_pendente'].AsArray.Items[_RowPendentes-1] do
+  with _Objeto['itens'].AsArray.Items[_RowPendentes-1] do
   Begin
-    lblCodigoPendente.Caption:= _dados['produto_id'].AsString;
-    lblDescricaoPendente.Caption:= _dados['descricao'].AsString;;
-    lblValorPendente.Caption:= FormatFloat('#0.00,',_dados['valor_final'].AsNumber);
-    _total := _total + _dados['valor_final'].AsNumber;
+    lblCodigoPendente.Caption:= AsObject['produto_id'].AsString;
+    lblDescricaoPendente.Caption:= AsObject['descricao'].AsString;;
+    lblValorPendente.Caption:= FormatFloat('#0.00,',AsObject['valor_final'].AsNumber);
+    _total := _total + AsObject['valor_final'].AsNumber;
     inc(_RowPendentes);
   end;
 end;
@@ -213,27 +199,30 @@ end;
 procedure Treport_condicional.RLBand3BeforePrint(Sender: TObject;
   var PrintIt: Boolean);
 begin
-  with _dados['itens_devolvido'].AsArray.Items[_rowDevolvidos-1] do
+  with _Objeto['devolvido'].AsArray.Items[_rowDevolvidos-1] do
   Begin
-    lblCodigoDevolvido.Caption:= _dados['produto_id'].AsString;
-    lblDescricaoDevolvido.Caption:= _dados['descricao'].AsString;;
-    lblValorDevolvido.Caption:= FormatFloat('#0.00,',_dados['valor_final'].AsNumber);
-    _total := _total + _dados['valor_final'].AsNumber;
+    lblCodigoDevolvido.Caption:= AsObject['produto_id'].AsString;
+    lblDescricaoDevolvido.Caption:= AsObject['descricao'].AsString;;
+    lblValorDevolvido.Caption:= FormatFloat('#0.00,',AsObject['valor_final'].AsNumber);
+    _total := _total + AsObject['valor_final'].AsNumber;
     inc(_rowDevolvidos);
   end;
-
 end;
 
-procedure Treport_condicional.RLBand6BeforePrint(Sender: TObject;
+procedure Treport_condicional.RLBand5BeforePrint(Sender: TObject;
   var PrintIt: Boolean);
 begin
-  with _dados['itens_faturado'].AsArray.Items[_rowFaturados-1] do
-  Begin
-    lblCodigoFaturado.Caption:= _dados['produto_id'].AsString;
-    lblDescricaoFaturado.Caption:= _dados['descricao'].AsString;;
-    lblValorFaturado.Caption:= FormatFloat('#0.00,',_dados['valor_final'].AsNumber);
-    _total := _total + _dados['valor_final'].AsNumber;
-    inc(_rowFaturados);
+  try
+      with _Objeto['faturado'].AsArray.Items[_rowFaturados-1] do
+      Begin
+        lblCodigoFaturado.Caption:= AsObject['produto_id'].AsString;
+        lblDescricaoFaturado.Caption:= AsObject['descricao'].AsString;;
+        lblValorFaturado.Caption:= FormatFloat('#0.00,',AsObject['valor_final'].AsNumber);
+        _total := _total + AsObject['valor_final'].AsNumber;
+        inc(_rowFaturados);
+      end;
+  except
+
   end;
 end;
 
@@ -248,14 +237,14 @@ procedure Treport_condicional.RLPanel3BeforePrint(Sender: TObject;
   var PrintIt: Boolean);
 begin
   lblItensDevolvido.Caption:= IntToStr(_itemDevolvidos);
-    lblSubTotalDevolvido.Caption:= FormatFloat('#0.00,',_total);
+  lblSubTotalDevolvido.Caption:= FormatFloat('#0.00,',_total);
 end;
 
 procedure Treport_condicional.RLPanel4BeforePrint(Sender: TObject;
   var PrintIt: Boolean);
 begin
   lblItensFaturado.Caption:= IntToStr(_itemFaturados);
-    lblSubTotalFaturado.Caption:= FormatFloat('#0.00,',_total);
+  lblSubTotalFaturado.Caption:= FormatFloat('#0.00,',_total);
 end;
 
 procedure Treport_condicional.RLReport1DataRecord(Sender: TObject;
@@ -265,36 +254,14 @@ begin
   Eof := (RecNo > 1);
 end;
 
-procedure Treport_condicional.GetCondicionalReport(_content : string);
+procedure Treport_condicional.GetCondicionalReport(_dados: TJsonObject);
 var i : Integer;
  _status: String;
 begin
-    _dados.Parse(_content);
-    for i :=  0 to _dados['itens'].AsArray.Count-1 do
-    Begin
-         _status := _dados['itens'].AsArray.Items[i].AsObject['status'].AsString;
-
-         if  (_status ='rascunho') or (_status ='pendente')  then
-         Begin
-              with _dados['itens_pendente'].AsArray do
-                 Put(_dados['itens'].AsArray.Items[i].AsObject);
-         end else
-
-         if  (_status ='devolvido') or (_status ='cancelado')  then
-         Begin
-              with _dados['itens_devolvido'].AsArray do
-                 Put(_dados['itens'].AsArray.Items[i].AsObject);
-         end else
-
-         Begin
-              with _dados['itens_faturado'].AsArray do
-                 Put(_dados['itens'].AsArray.Items[i].AsObject);
-         end;
-    end;
-
-    _itemPendentes:= _dados['itens_pendente'].AsArray.Count;
-    _itemDevolvidos:= _dados['itens_devolvido'].AsArray.Count;
-    _itemFaturados:= _dados['itens_faturado'].AsArray.Count;
+    _objeto := _dados;
+    _itemPendentes:= _Objeto['itens'].AsArray.Count;
+    _itemDevolvidos:= _Objeto['devolvido'].AsArray.Count;
+    _itemFaturados:= _Objeto['faturado'].AsArray.Count;
 
     detailPendente.Visible:= _itemPendentes > 0;
     detailDevolvidos.Visible:= _itemDevolvidos > 0;
@@ -306,9 +273,7 @@ begin
     RLReport1.PageSetup.PaperSize   := fpCustom ;
     RLReport1.UnlimitedHeight:= true;
 
-    RLReport1.Show;
-    freeAndNil(_dados);
-
+    RLReport1.PreviewModal;
 end;
 
 end.

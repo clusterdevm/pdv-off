@@ -1,0 +1,451 @@
+object f_sangriaReport: Tf_sangriaReport
+  Left = 1972
+  Height = 603
+  Top = 250
+  Width = 872
+  Caption = 'f_sangriaReport'
+  ClientHeight = 603
+  ClientWidth = 872
+  Scaled = False
+  object RLReport1: TRLReport
+    Left = 304
+    Height = 1512
+    Top = -24
+    Width = 302
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Margins.LeftMargin = 3
+    Margins.TopMargin = 5
+    Margins.RightMargin = 2
+    PageSetup.PaperSize = fpCustom
+    PageSetup.PaperWidth = 80
+    PageSetup.PaperHeight = 400
+    PrintDialog = False
+    PrintEmpty = False
+    Title = 'Cluster Sistemas : Condicional '
+    Visible = False
+    UnlimitedHeight = True
+    OnDataRecord = RLReport1DataRecord
+    object bandCabecalho: TRLBand
+      Left = 11
+      Height = 120
+      Top = 19
+      Width = 283
+      BeforePrint = bandCabecalhoBeforePrint
+      object lNomeFantasia: TRLMemo
+        Left = 0
+        Height = 16
+        Top = 0
+        Width = 283
+        Align = faTop
+        Alignment = taCenter
+        Behavior = [beSiteExpander]
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        Layout = tlCenter
+        Lines.Strings = (
+          'Nome Fantasia'
+        )
+        ParentFont = False
+      end
+      object lRazaoSocial: TRLMemo
+        Left = 0
+        Height = 11
+        Top = 30
+        Width = 283
+        Align = faTop
+        Alignment = taCenter
+        Behavior = [beSiteExpander]
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -9
+        Font.Name = 'Arial'
+        Lines.Strings = (
+          'Razão Social'
+        )
+        ParentFont = False
+      end
+      object lEndereco: TRLMemo
+        Left = 0
+        Height = 11
+        Top = 41
+        Width = 283
+        Align = faTop
+        Alignment = taCenter
+        Behavior = [beSiteExpander]
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -9
+        Font.Name = 'Arial'
+        Lines.Strings = (
+          'Endereço'
+        )
+        ParentFont = False
+      end
+      object RLLabel28: TRLLabel
+        Left = 0
+        Height = 17
+        Top = 86
+        Width = 283
+        Align = faTop
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'Documento Gerencial'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        Layout = tlCenter
+        ParentFont = False
+      end
+      object lLABEL: TRLLabel
+        Left = 0
+        Height = 22
+        Top = 64
+        Width = 283
+        Align = faTop
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'S A N G R I A'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        Layout = tlCenter
+        ParentFont = False
+      end
+      object RLLabel30: TRLLabel
+        Left = 0
+        Height = 16
+        Top = 103
+        Width = 283
+        Align = faTop
+        Alignment = taCenter
+        AutoSize = False
+        Caption = 'S E M   V A L O R  F I S C A L'
+        Color = clBlack
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        Layout = tlCenter
+        ParentColor = False
+        ParentFont = False
+        Transparent = False
+      end
+      object lUnidade: TRLMemo
+        Left = 0
+        Height = 14
+        Top = 16
+        Width = 283
+        Align = faTop
+        Alignment = taCenter
+        Behavior = [beSiteExpander]
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        Layout = tlCenter
+        Lines.Strings = (
+          'Loja Vila A'
+        )
+        ParentFont = False
+      end
+      object lTelefone: TRLMemo
+        Left = 0
+        Height = 12
+        Top = 52
+        Width = 283
+        Align = faTop
+        Alignment = taCenter
+        Behavior = [beSiteExpander]
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -9
+        Font.Name = 'Arial'
+        Lines.Strings = (
+          'Endereço'
+        )
+        ParentFont = False
+      end
+    end
+    object bandRodape: TRLBand
+      Left = 11
+      Height = 145
+      Top = 322
+      Width = 283
+      BandType = btSummary
+      BeforePrint = bandRodapeBeforePrint
+      object lSistema: TRLLabel
+        Left = 0
+        Height = 13
+        Top = 83
+        Width = 283
+        Align = faTop
+        Alignment = taCenter
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = False
+        Borders.DrawTop = True
+        Borders.DrawRight = False
+        Borders.DrawBottom = False
+        Caption = 'www.clustersistemas.com.br'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -9
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        Layout = tlBottom
+        ParentFont = False
+      end
+      object lSistema1: TRLLabel
+        Left = 0
+        Height = 10
+        Top = 96
+        Width = 283
+        Align = faTop
+        Alignment = taCenter
+        Caption = '(C) Cluster Sistemas'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -8
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        Layout = tlBottom
+        ParentFont = False
+      end
+      object lblData: TRLLabel
+        Left = 0
+        Height = 13
+        Top = 106
+        Width = 283
+        Align = faTop
+        Alignment = taCenter
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = False
+        Borders.DrawTop = True
+        Borders.DrawRight = False
+        Borders.DrawBottom = False
+        Caption = 'www.clustersistemas.com.br'
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -9
+        Font.Name = 'Arial'
+        Font.Style = [fsBold, fsItalic]
+        Layout = tlBottom
+        ParentFont = False
+      end
+      object RLPanel1: TRLPanel
+        Left = 0
+        Height = 83
+        Top = 0
+        Width = 283
+        Align = faTop
+        object qrCode: TRLBarcode
+          Left = 47
+          Height = 74
+          Top = 4
+          Width = 188
+          Align = faCenter
+          Alignment = taCenter
+          BarcodeType = bcEAN128A
+          Caption = '001000000576'
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Margins.LeftMargin = 1
+          Margins.RightMargin = 1
+          ParentFont = False
+          ShowText = boCode
+        end
+      end
+    end
+    object bandInfoSangria: TRLBand
+      Left = 11
+      Height = 183
+      Top = 139
+      Width = 283
+      AutoSize = True
+      BeforePrint = bandInfoSangriaBeforePrint
+      object pnlData: TRLPanel
+        Left = 0
+        Height = 20
+        Top = 0
+        Width = 283
+        Align = faTop
+        object lEmissao: TRLLabel
+          Left = 0
+          Height = 20
+          Top = 0
+          Width = 101
+          Align = faLeft
+          Caption = 'Data: 16/03/2021 12:53'
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Layout = tlCenter
+          ParentFont = False
+        end
+        object lID: TRLLabel
+          Left = 156
+          Height = 20
+          Top = 0
+          Width = 127
+          Align = faRight
+          Alignment = taRightJustify
+          Caption = 'Numero: 25632'
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Layout = tlCenter
+          ParentFont = False
+        end
+      end
+      object lCaixaID: TRLMemo
+        Left = 0
+        Height = 16
+        Top = 20
+        Width = 283
+        Align = faTop
+        Behavior = [beSiteExpander]
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Layout = tlCenter
+        Lines.Strings = (
+          'Caixa ID: 000060'
+        )
+        ParentFont = False
+      end
+      object lRelacionado: TRLMemo
+        Left = 0
+        Height = 16
+        Top = 52
+        Width = 283
+        Align = faTop
+        Behavior = [beSiteExpander]
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        Layout = tlCenter
+        Lines.Strings = (
+          'Relacionado:  (102) Maria Rosa'
+        )
+        ParentFont = False
+      end
+      object lOperador: TRLMemo
+        Left = 0
+        Height = 16
+        Top = 36
+        Width = 283
+        Align = faTop
+        Behavior = [beSiteExpander]
+        Font.CharSet = ANSI_CHARSET
+        Font.Color = clBlack
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Layout = tlCenter
+        Lines.Strings = (
+          'Operador:  Maria'
+        )
+        ParentFont = False
+      end
+      object pnlValor: TRLPanel
+        Left = 0
+        Height = 15
+        Top = 68
+        Width = 283
+        Align = faTop
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = False
+        Borders.DrawTop = True
+        Borders.DrawRight = False
+        Borders.DrawBottom = True
+        Borders.Style = bsCross
+        object RLLabel1: TRLLabel
+          Left = 145
+          Height = 13
+          Top = 1
+          Width = 92
+          Align = faRight
+          Alignment = taCenter
+          AutoSize = False
+          Caption = 'Valor :'
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object lValorSangria: TRLLabel
+          Left = 237
+          Height = 13
+          Top = 1
+          Width = 46
+          Align = faRight
+          Alignment = taCenter
+          Caption = 'R$ 100,00'
+          Font.CharSet = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -9
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+      end
+      object pnlObservacao: TRLPanel
+        Left = 0
+        Height = 100
+        Top = 83
+        Width = 283
+        Align = faTop
+        AutoExpand = True
+        AutoSize = True
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = False
+        Borders.DrawTop = False
+        Borders.DrawRight = False
+        Borders.DrawBottom = True
+        object lObservacao: TRLMemo
+          Left = 0
+          Height = 99
+          Top = 0
+          Width = 283
+          Align = faClient
+          Behavior = [beSiteExpander]
+          Lines.Strings = (
+            '1'
+            '2'
+            '2'
+            '23'
+            '232'
+          )
+        end
+      end
+    end
+  end
+  object RLPDFFilter1: TRLPDFFilter
+    DocumentInfo.Title = 'www.clustersitemas.com.br'
+    DocumentInfo.Creator = 'Cluster Sistemas'
+    DisplayName = 'Documento PDF'
+    Left = 100
+    Top = 124
+  end
+end
