@@ -85,7 +85,7 @@ begin
              DeleteFile(_Diretorio+'old_'+_fileOld);
 
           RenameFile(_Diretorio+_fileOld,
-                     _Diretorio+'OLD_'+_fileOld);
+                     _Diretorio+'old_'+_fileOld);
 
           if not FileExists(_Diretorio+_fileOld) then
              RenameFile(_Diretorio+_NomeFile,_Diretorio+_fileOld);

@@ -95,15 +95,14 @@ object frmFiltroCliente: TfrmFiltroCliente
     DataSource = dsCliente
     DefaultRowHeight = 22
     FixedColor = clDefault
-    Flat = True
     HeaderHotZones = []
-    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgDisplayMemoText]
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgDisplayMemoText]
     ReadOnly = True
     TabAdvance = aaRightUp
     TabOrder = 4
     TitleFont.Color = clBlack
     TitleFont.Height = -11
-    TitleStyle = tsStandard
+    TitleStyle = tsNative
     UseXORFeatures = True
     OnDblClick = DBGrid1DblClick
     OnKeyDown = DBGrid1KeyDown
@@ -258,7 +257,7 @@ object frmFiltroCliente: TfrmFiltroCliente
   end
   object Timer1: TTimer
     Enabled = False
-    Interval = 500
+    Interval = 350
     OnTimer = Timer1Timer
     Left = 232
     Top = 184

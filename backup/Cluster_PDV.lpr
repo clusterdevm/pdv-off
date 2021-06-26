@@ -3,7 +3,11 @@ program Cluster_PDV;
 {$mode delphi}{$H+}
 
 uses
-  cthreads,cmem,   SysUtils,
+  {$IFDEF MSWINDOWS}
+  {$else}
+      cthreads,
+  {$ENDIF}
+  cmem,   SysUtils,
   Interfaces, // this includes the LCL widgetset
   Forms, runtimetypeinfocontrols, lazcontrols,
   form.login, view.filtros.cliente, view.venda, model.request.http,
@@ -14,7 +18,7 @@ uses
 
   view.condicional.criar, model.pessoa, cluster_pdv.sessao, uf_aguarde,
   view.devolucao.filtrar, view.devolucao.criar, thread.wait, wcursos,
-  view.condicional, unit1;
+  view.condicional;
 
 {$R *.res}
 
@@ -22,9 +26,10 @@ begin
   FormatSettings.DateSeparator := '/';
   FormatSettings.ShortDateFormat := 'dd/mm/yyyy';
   FormatSettings.CurrencyString := '';
+  FormatSettings.DecimalSeparator := '.';
 
 
-  RequireDerivedFormResource:=True;
+  //RequireDerivedFormResource:=True;
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(Tfrm_login, frm_login);

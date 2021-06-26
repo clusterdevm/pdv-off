@@ -66,6 +66,8 @@ type
     RLBand6: TRLBand;
     RLBand8: TRLBand;
     RLBand9: TRLBand;
+    RLDraw1: TRLDraw;
+    RLLabel1: TRLLabel;
     RLLabel10: TRLLabel;
     RLLabel11: TRLLabel;
     RLLabel12: TRLLabel;
@@ -80,12 +82,14 @@ type
     RLLabel7: TRLLabel;
     RLLabel8: TRLLabel;
     RLLabel9: TRLLabel;
+    RLMemo1: TRLMemo;
     RLPanel1: TRLPanel;
     RLPanel2: TRLPanel;
     RLPanel3: TRLPanel;
     RLPanel4: TRLPanel;
     RLPanel5: TRLPanel;
     RLPanel6: TRLPanel;
+    RLPanel7: TRLPanel;
     RLPDFFilter1: TRLPDFFilter;
     RLReport1: TRLReport;
     procedure bandCabecalhoBeforePrint(Sender: TObject; var PrintIt: Boolean);
@@ -101,6 +105,7 @@ type
     procedure RLPanel2BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLPanel3BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLPanel4BeforePrint(Sender: TObject; var PrintIt: Boolean);
+    procedure RLReport1BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLReport1DataRecord(Sender: TObject; RecNo: Integer;
       CopyNo: Integer; var Eof: Boolean; var RecordAction: TRLRecordAction);
   private
@@ -130,7 +135,7 @@ procedure Treport_condicional.bandCabecalhoBeforePrint(Sender: TObject;
   var PrintIt: Boolean);
 begin
     lNomeFantasia.Lines.Text :=  _objeto['empresa'].AsObject['fantasia'].AsString;
-    lUnidade.Lines.Text :=  _objeto['empresa'].AsObject['n_unidade'].AsString;
+    lUnidade.Lines.Text :=  _objeto['empresa'].AsObject['nomeresumido'].AsString;
     lRazaoSocial.Lines.Text := _objeto['empresa'].AsObject['empresa'].AsString;
     lEndereco.Lines.Text :=  _objeto['empresa'].AsObject['endereco'].AsString+
                              ',' + _objeto['empresa'].AsObject['numero'].AsString;
@@ -247,6 +252,12 @@ begin
   lblSubTotalFaturado.Caption:= FormatFloat('#0.00,',_total);
 end;
 
+procedure Treport_condicional.RLReport1BeforePrint(Sender: TObject;
+  var PrintIt: Boolean);
+begin
+
+end;
+
 procedure Treport_condicional.RLReport1DataRecord(Sender: TObject;
   RecNo: Integer; CopyNo: Integer; var Eof: Boolean;
   var RecordAction: TRLRecordAction);
@@ -271,8 +282,7 @@ begin
 
     RLReport1.PageBreaking := pbNone;
     RLReport1.PageSetup.PaperSize   := fpCustom ;
-    RLReport1.UnlimitedHeight:= true;
-
+    RLReport1.UnlimitedHeight:= false;
     RLReport1.PreviewModal;
 end;
 

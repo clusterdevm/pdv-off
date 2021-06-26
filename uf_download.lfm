@@ -4,7 +4,7 @@ object f_download: Tf_download
   Top = 250
   Width = 412
   BorderIcons = [biSystemMenu]
-  Caption = 'f_download'
+  Caption = 'Cluster Sistemas :: Download'
   ClientHeight = 64
   ClientWidth = 412
   OnActivate = FormActivate

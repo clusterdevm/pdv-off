@@ -1444,3 +1444,320 @@
 26-06-2021 01:05:01 Requisicao: 
 26-06-2021 01:05:07 download: 0
 26-06-2021 01:05:07 Requisicao: 
+26-06-2021 07:50:56 download: 465
+26-06-2021 07:51:59 download: 0
+26-06-2021 07:51:59 Requisicao: 
+26-06-2021 07:52:04 download: 1300
+26-06-2021 07:52:04 download: 67
+26-06-2021 07:52:05 download: 0
+26-06-2021 07:52:05 Requisicao: 
+26-06-2021 07:52:08 download: 452
+26-06-2021 07:52:10 download: 0
+26-06-2021 07:52:10 Requisicao: 
+26-06-2021 07:52:16 download: 0
+26-06-2021 07:52:16 Requisicao: 
+26-06-2021 07:52:21 download: 0
+26-06-2021 07:52:21 Requisicao: 
+26-06-2021 07:52:27 download: 0
+26-06-2021 07:52:27 Requisicao: 
+26-06-2021 07:52:32 download: 0
+26-06-2021 07:52:32 Requisicao: 
+26-06-2021 07:52:38 download: 0
+26-06-2021 07:52:38 Requisicao: 
+26-06-2021 07:52:43 download: 0
+26-06-2021 07:52:43 Requisicao: 
+26-06-2021 07:52:49 download: 0
+26-06-2021 07:52:49 Requisicao: 
+26-06-2021 07:52:54 download: 0
+26-06-2021 07:52:54 Requisicao: 
+26-06-2021 07:53:01 download: 0
+26-06-2021 07:53:01 Requisicao: 
+26-06-2021 07:53:06 download: 0
+26-06-2021 07:53:06 Requisicao: 
+26-06-2021 07:53:12 download: 0
+26-06-2021 07:53:12 Requisicao: 
+26-06-2021 07:53:17 download: 0
+26-06-2021 07:53:17 Requisicao: 
+26-06-2021 07:53:22 download: 0
+26-06-2021 07:53:23 Requisicao: 
+26-06-2021 07:55:41 download: 465
+26-06-2021 07:55:46 download: 0
+26-06-2021 07:55:46 Requisicao: 
+26-06-2021 07:55:52 download: 0
+26-06-2021 07:55:52 Requisicao: 
+26-06-2021 07:55:57 download: 0
+26-06-2021 07:55:57 Requisicao: 
+26-06-2021 07:56:03 download: 0
+26-06-2021 07:56:03 Requisicao: 
+26-06-2021 07:56:08 download: 0
+26-06-2021 07:56:08 Requisicao: 
+26-06-2021 07:56:14 download: 0
+26-06-2021 07:56:14 Requisicao: 
+26-06-2021 07:56:19 download: 0
+26-06-2021 07:56:19 Requisicao: 
+26-06-2021 07:56:25 download: 0
+26-06-2021 07:56:25 Requisicao: 
+26-06-2021 07:56:30 download: 0
+26-06-2021 07:56:30 Requisicao: 
+26-06-2021 07:56:36 download: 0
+26-06-2021 07:56:36 Requisicao: 
+26-06-2021 07:56:41 download: 0
+26-06-2021 07:56:41 Requisicao: 
+26-06-2021 07:56:47 download: 0
+26-06-2021 07:56:47 Requisicao: 
+26-06-2021 07:56:53 download: 0
+26-06-2021 07:56:53 Requisicao: 
+26-06-2021 07:56:58 download: 0
+26-06-2021 07:56:58 Requisicao: 
+26-06-2021 07:57:04 download: 0
+26-06-2021 07:57:04 Requisicao: 
+26-06-2021 07:57:09 download: 0
+26-06-2021 07:57:10 Requisicao: 
+26-06-2021 07:57:15 download: 0
+26-06-2021 07:57:15 Requisicao: 
+26-06-2021 07:57:21 download: 0
+26-06-2021 07:57:21 Requisicao: 
+26-06-2021 07:57:26 download: 0
+26-06-2021 07:57:27 Requisicao: 
+26-06-2021 07:57:32 download: 0
+26-06-2021 07:57:32 Requisicao: 
+26-06-2021 07:57:38 download: 0
+26-06-2021 07:57:38 Requisicao: 
+26-06-2021 07:57:43 download: 0
+26-06-2021 07:57:43 Requisicao: 
+26-06-2021 07:57:49 download: 0
+26-06-2021 07:57:49 Requisicao: 
+26-06-2021 07:57:55 download: 0
+26-06-2021 07:57:55 Requisicao: 
+26-06-2021 07:58:00 download: 0
+26-06-2021 07:58:00 Requisicao: 
+26-06-2021 07:58:06 download: 0
+26-06-2021 07:58:06 Requisicao: 
+26-06-2021 07:58:12 download: 0
+26-06-2021 07:58:12 Requisicao: 
+26-06-2021 07:58:17 download: 0
+26-06-2021 07:58:17 Requisicao: 
+26-06-2021 07:58:23 download: 0
+26-06-2021 07:58:23 Requisicao: 
+26-06-2021 07:58:29 download: 0
+26-06-2021 07:58:29 Requisicao: 
+26-06-2021 07:58:34 download: 0
+26-06-2021 07:58:34 Requisicao: 
+26-06-2021 07:58:40 download: 0
+26-06-2021 07:58:40 Requisicao: 
+26-06-2021 07:58:46 download: 0
+26-06-2021 07:58:46 Requisicao: 
+26-06-2021 07:58:51 download: 0
+26-06-2021 07:58:51 Requisicao: 
+26-06-2021 07:58:57 download: 0
+26-06-2021 07:58:57 Requisicao: 
+26-06-2021 07:59:02 download: 0
+26-06-2021 07:59:02 Requisicao: 
+26-06-2021 07:59:08 download: 0
+26-06-2021 07:59:08 Requisicao: 
+26-06-2021 07:59:13 download: 0
+26-06-2021 07:59:13 Requisicao: 
+26-06-2021 07:59:19 download: 0
+26-06-2021 07:59:19 Requisicao: 
+26-06-2021 07:59:23 download: 1542
+26-06-2021 07:59:24 download: 67
+26-06-2021 07:59:24 download: 0
+26-06-2021 07:59:24 Requisicao: 
+26-06-2021 07:59:28 download: 452
+26-06-2021 07:59:30 download: 0
+26-06-2021 07:59:30 Requisicao: 
+26-06-2021 08:00:53 download: 465
+26-06-2021 08:01:03 download: 0
+26-06-2021 08:01:03 Requisicao: 
+26-06-2021 08:01:04 download: 1532
+26-06-2021 08:01:05 download: 67
+26-06-2021 08:01:08 download: 452
+26-06-2021 08:01:09 download: 0
+26-06-2021 08:01:09 Requisicao: 
+26-06-2021 08:01:14 download: 0
+26-06-2021 08:01:14 Requisicao: 
+26-06-2021 08:01:20 download: 0
+26-06-2021 08:01:20 Requisicao: 
+26-06-2021 08:01:25 download: 0
+26-06-2021 08:01:25 Requisicao: 
+26-06-2021 08:01:31 download: 0
+26-06-2021 08:01:31 Requisicao: 
+26-06-2021 08:01:36 download: 0
+26-06-2021 08:01:36 Requisicao: 
+26-06-2021 08:01:42 download: 0
+26-06-2021 08:01:42 Requisicao: 
+26-06-2021 08:01:47 download: 0
+26-06-2021 08:01:47 Requisicao: 
+26-06-2021 08:01:53 download: 0
+26-06-2021 08:01:53 Requisicao: 
+26-06-2021 08:01:58 download: 0
+26-06-2021 08:01:58 Requisicao: 
+26-06-2021 08:02:04 download: 0
+26-06-2021 08:02:04 Requisicao: 
+26-06-2021 08:02:09 download: 0
+26-06-2021 08:02:09 Requisicao: 
+26-06-2021 08:03:08 download: 465
+26-06-2021 08:03:20 download: 0
+26-06-2021 08:03:20 Requisicao: 
+26-06-2021 08:03:22 download: 1539
+26-06-2021 08:03:23 download: 67
+26-06-2021 08:03:24 download: 67
+26-06-2021 08:03:26 download: 0
+26-06-2021 08:03:26 Requisicao: 
+26-06-2021 08:03:26 download: 452
+26-06-2021 08:03:34 download: 0
+26-06-2021 08:03:34 Requisicao: 
+26-06-2021 08:03:39 download: 0
+26-06-2021 08:03:39 Requisicao: 
+26-06-2021 08:03:45 download: 0
+26-06-2021 08:03:45 Requisicao: 
+26-06-2021 08:04:08 download: 465
+26-06-2021 08:04:29 download: 0
+26-06-2021 08:04:29 Requisicao: 
+26-06-2021 08:04:30 download: 1541
+26-06-2021 08:04:30 download: 67
+26-06-2021 08:04:32 download: 452
+26-06-2021 08:04:34 download: 0
+26-06-2021 08:04:34 Requisicao: 
+26-06-2021 08:04:44 download: 0
+26-06-2021 08:04:44 Requisicao: 
+26-06-2021 08:04:49 download: 0
+26-06-2021 08:04:49 Requisicao: 
+26-06-2021 08:33:54 download: 465
+26-06-2021 08:34:06 download: 0
+26-06-2021 08:34:06 Requisicao: 
+26-06-2021 08:34:09 download: 1311
+26-06-2021 08:34:10 download: 1236
+26-06-2021 08:34:11 download: 0
+26-06-2021 08:34:11 Requisicao: 
+26-06-2021 08:34:14 download: 1236
+26-06-2021 08:34:16 download: 67
+26-06-2021 08:34:17 download: 0
+26-06-2021 08:34:17 Requisicao: 
+26-06-2021 08:34:19 download: 1236
+26-06-2021 08:35:42 download: 465
+26-06-2021 08:35:47 download: 0
+26-06-2021 08:35:47 Requisicao: 
+26-06-2021 08:35:52 download: 0
+26-06-2021 08:35:52 Requisicao: 
+26-06-2021 08:36:49 download: 465
+26-06-2021 08:38:27 download: 0
+26-06-2021 08:38:27 Requisicao: 
+26-06-2021 08:38:32 download: 0
+26-06-2021 08:38:32 Requisicao: 
+26-06-2021 08:38:38 download: 0
+26-06-2021 08:38:38 Requisicao: 
+26-06-2021 08:38:43 download: 0
+26-06-2021 08:38:43 Requisicao: 
+26-06-2021 08:38:49 download: 0
+26-06-2021 08:38:49 Requisicao: 
+26-06-2021 08:41:23 download: 465
+26-06-2021 08:41:27 download: 0
+26-06-2021 08:41:27 Requisicao: 
+26-06-2021 08:41:28 download: 1540
+26-06-2021 08:41:29 download: 67
+26-06-2021 08:41:33 download: 67
+26-06-2021 08:41:33 download: 0
+26-06-2021 08:41:33 Requisicao: 
+26-06-2021 08:41:39 download: 0
+26-06-2021 08:41:39 Requisicao: 
+26-06-2021 08:41:45 download: 0
+26-06-2021 08:41:45 Requisicao: 
+26-06-2021 08:41:51 download: 0
+26-06-2021 08:41:51 Requisicao: 
+26-06-2021 08:53:10 download: 465
+26-06-2021 08:53:17 download: 0
+26-06-2021 08:53:17 Requisicao: 
+26-06-2021 08:53:23 download: 0
+26-06-2021 08:53:23 Requisicao: 
+26-06-2021 08:53:29 download: 0
+26-06-2021 08:53:29 Requisicao: 
+26-06-2021 08:53:34 download: 0
+26-06-2021 08:53:34 Requisicao: 
+26-06-2021 08:53:40 download: 0
+26-06-2021 08:53:40 Requisicao: 
+26-06-2021 09:00:48 download: 465
+26-06-2021 09:00:52 download: 395
+26-06-2021 09:00:52 Requisicao: {"resultado":{"registros":1,"protocolo":"66895e162fec0b2be4e03aa73b044776","parametros_venda":[{"id":14,"casadecimal_unitario":2,"casadecimal_totalizador":2,"casadecimal_quantidade":0,"cliente_padrao_id":0,"venda_sem_estoque":false,"filtro_com_estoque":false,"mensagem_1":"SANGGYH","mensagem_2":"SANGGYH","duplicar_itens_venda":false,"promissoria_automatica":false,"modelo_relatorio_pedido":"0","gerar_txt_shopping":true,"ordernar_itens":"","datacomissao":null,"datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-26T11:54:51.214Z","balanca_modelo":3,"modelo_relatorio_dav":null,"default_armazenamento_id":3,"default_tabela_preco_id":2}]}}
+
+26-06-2021 09:00:52 download: 0
+26-06-2021 09:00:54 download: 1313
+26-06-2021 09:00:54 download: 67
+26-06-2021 09:00:58 download: 0
+26-06-2021 09:00:58 Requisicao: 
+26-06-2021 09:01:03 download: 0
+26-06-2021 09:01:03 Requisicao: 
+26-06-2021 09:01:09 download: 0
+26-06-2021 09:01:09 Requisicao: 
+26-06-2021 09:01:14 download: 0
+26-06-2021 09:01:14 Requisicao: 
+26-06-2021 09:01:20 download: 0
+26-06-2021 09:01:20 Requisicao: 
+26-06-2021 09:01:25 download: 0
+26-06-2021 09:01:25 Requisicao: 
+26-06-2021 09:01:31 download: 0
+26-06-2021 09:01:31 Requisicao: 
+26-06-2021 09:01:36 download: 0
+26-06-2021 09:01:36 Requisicao: 
+26-06-2021 09:01:39 download: 67
+26-06-2021 09:01:42 download: 0
+26-06-2021 09:01:42 Requisicao: 
+26-06-2021 09:01:48 download: 0
+26-06-2021 09:01:48 Requisicao: 
+26-06-2021 09:01:54 download: 0
+26-06-2021 09:01:54 Requisicao: 
+26-06-2021 09:01:59 download: 0
+26-06-2021 09:01:59 Requisicao: 
+26-06-2021 09:02:05 download: 0
+26-06-2021 09:02:05 Requisicao: 
+26-06-2021 09:02:10 download: 0
+26-06-2021 09:02:10 Requisicao: 
+26-06-2021 09:02:16 download: 0
+26-06-2021 09:02:16 Requisicao: 
+26-06-2021 09:02:21 download: 0
+26-06-2021 09:02:21 Requisicao: 
+26-06-2021 09:02:27 download: 0
+26-06-2021 09:02:27 Requisicao: 
+26-06-2021 09:02:32 download: 0
+26-06-2021 09:02:32 Requisicao: 
+26-06-2021 09:02:38 download: 0
+26-06-2021 09:02:38 Requisicao: 
+26-06-2021 09:02:43 download: 0
+26-06-2021 09:02:43 Requisicao: 
+26-06-2021 09:02:49 download: 0
+26-06-2021 09:02:49 Requisicao: 
+26-06-2021 09:02:54 download: 0
+26-06-2021 09:02:55 Requisicao: 
+26-06-2021 09:03:00 download: 0
+26-06-2021 09:03:00 Requisicao: 
+26-06-2021 09:03:06 download: 0
+26-06-2021 09:03:06 Requisicao: 
+26-06-2021 09:03:07 download: 67
+26-06-2021 09:11:47 download: 463
+26-06-2021 09:13:13 download: 0
+26-06-2021 09:13:13 Requisicao: 
+26-06-2021 09:13:18 download: 0
+26-06-2021 09:13:18 Requisicao: 
+26-06-2021 09:13:24 download: 0
+26-06-2021 09:13:24 Requisicao: 
+26-06-2021 09:13:30 download: 0
+26-06-2021 09:13:30 Requisicao: 
+26-06-2021 09:13:35 download: 0
+26-06-2021 09:13:35 Requisicao: 
+26-06-2021 11:44:46 download: 463
+26-06-2021 11:44:50 download: 2025
+26-06-2021 11:44:50 Requisicao: {"resultado":{"registros":11,"protocolo":"7e64785e114d622c586b550e2879bdf6","empresa":[{"id":6,"status":"N","empresa":"MATRIZ","fantasia":"CLUSTER SOFTWARE","nomeresumido":"CLUSTER GESTOR","endereco":"RUA PASTEUR","cidade":"FOZ DO IGUAÇU","complemento":"13º EDF. JATOBA","numero":"463","bairro":"BATEL","cep":"85851190","uf":"PR","pais":"BRASIL","cnpj":"13267229000139","fundacao":"2014-07-15","responsavel":"EBER ALVES DA SILVA","cargo_reponsavel":"SOCIO ADMINISTRADOR","ie":"9054925007","telefone":"45-4053-9101","email":"","site":"WWW.CLUSTERSISTEMAS.COM.BR","facebook":"CLUSTER SISTEMAS","twitter":null,"inscricaomunicipal":"","instagram":"@CLUSTERSISTEMASS","blog":"","ibge_cidade":4108304,"celular":"45998220372","responsavel_cpf":"","responsavel_nascimento":"1899-12-30","canal_origem_id":1,"hibrido":true,"contabilidade_id":null,"schema_info_id":1,"parametros_fiscal_id":16,"parametros_smtp_id":16,"parametros_venda_id":14,"parametros_financeiro_id":12,"parametros_produto_id":11,"parametros_devolucao_id":12,"parametros_ordem_servico_id":11,"parametros_remessa_id":11,"parametros_geral_id":12,"dataatualizacao":"2021-06-26T12:23:43.285Z","datacriacao":"2020-10-20T19:24:00.000Z","parametros_certificado_id":11,"timezone":"America/Sao_Paulo","logo_arquivo_id":248,"regime_id":1,"contador_cnpj":null}],"parametros_fiscal":[{"id":16,"producao":false,"modelo_danfe_nf_e":"Retrato","nfc_token":"EAT5NEREUQB3OAG8LCZUCHOUQO6NL4LTAJ4Q","nfc_idtoken":"000001","apresentar_desconto":false,"nsu":"000000000000903","datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-26T12:19:32.942Z","nsu_resultado":null,"enviar_email_autorizar":true,"csosn":"102","cst_pis":"01","cst_cofins":"01","cst_icms":"00","cst_ipi":"99","aliq_pis":5.13,"aliq_cofins":0,"aliq_ipi":0,"aliq_icms":0,"cfop_estadual":5102,"cfop_interestadual":6102}],"parametros_geral":[{"id":12,"moeda_padrao_id":1,"time_zone":"America/Sao_Paulo","condicional_dias":7,"datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-26T12:19:19.078Z"}],"parametros_produto":[{"id":11,"nome_automatico":true,"analise_estoque_dias":90,"dias_maximo_estoque":30,"dias_reposicao":5,"nivel_servico_aliq":0,"nivel_servico":0,"controle_lote":true,"datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-26T12:19:30.249Z","add_marca":true,"add_genero":true,"bx_producao_automatica":true}],"parametros_venda":[{"id":14,"casadecimal_unitario":2,"casadecimal_totalizador":2,"casadecimal_quantidade":0,"cliente_padrao_id":0,"venda_sem_estoque":false,"filtro_com_estoque":false,"mensagem_1":"SANGGYH","mensagem_2":"SANGGYH","duplicar_itens_venda":false,"promissoria_automatica":false,"modelo_relatorio_pedido":"0","gerar_txt_shopping":true,"ordernar_itens":"","datacomissao":null,"datacriacao":"2020-10-20T19:24:00.000Z","dataatualizacao":"2021-06-26T12:20:53.007Z","balanca_modelo":3,"modelo_relatorio_dav":null,"default_armazenamento_id":3,"default_tabela_preco_id":2}],"produtos":[{"id":87232,"matriz_id":null,"descricao":"KPSULA IMUNESE  60 capsulas 820md cada","obsfisco":null,"unidade_id":1,"obs":"450mg propolis 500mg vitamica c 1000ui vitamina d + vit slenio de zinco","gtin":"7898623617001","origemmercadoria":"0","ncm_id":"08043000","marca_id":1126,"subgrupo_id":9,"referencia":"EKOBE","permitido_venda":true,"tipo_produto":"S","sabor":false,"qtde_sabor":null,"codigo_fabricante":null,"cest":null,"grade":false,"colecao_id":null,"nutricional_id":null,"fabricante_id":3840,"datacriacao":"2021-06-25T12:53:21.122Z","descricaoresumida":null,"dataatualizacao":"2021-06-26T12:58:00.495Z","similar_id":null,"pesoliquido":null,"pesobruto":null,"impressora_id":null,"dias_validade":null,"dataimagem":null,"ecommerce":false,"empresa_estoque_inicial_id":null,"saldo_inicial":20,"ativo":true,"altura":null,"largura":null,"profundidade":null,"genero_id":null,"grade1_id":null,"grade2_id":null,"controle_lote":false}],"produtos_empresa":[{"id":9927,"empresa_id":6,"produto_id":87232,"ultima_venda":null,"media_valor_unit":null,"ultima_apuracao":null,"dias_estoque":0,"nivel_estoque_aliq":0,"nivel_estoque":0,"media_dia":null,"sugerido_estoque_minimo":null,"sugerido_estoque_seguranca":null,"sugerido_estoque_maximo":null,"lead_time":0,"frequencia_compra":null,"nivel_seguranca":0,"dataatualizacao":"2021-06-26T12:58:00.884Z","visivel":true,"preco_custo_id":10522,"estoque_minimo":0,"estoque_maximo":0}],"produtos_preco_venda":[{"id":296709,"tabela_id":2,"valor":50,"dataatualizacao":"2021-06-26T12:58:00.982Z","comissao":0,"acima_de":0,"valor_acima":0,"markup":0,"permitir_desconto":true,"produto_empresa_id":9927},{"id":296710,"tabela_id":4,"valor":35,"dataatualizacao":"2021-06-26T12:58:00.983Z","comissao":0,"acima_de":0,"valor_acima":0,"markup":0,"permitir_desconto":true,"produto_empresa_id":9927},{"id":296711,"tabela_id":1,"valor":40,"dataatualizacao":"2021-06-26T12:58:00.983Z","comissao":0,"acima_de":0,"valor_acima":0,"markup":0,"permitir_desconto":true,"produto_empresa_id":9927},{"id":296712,"tabela_id":9,"valor":43.75,"dataatualizacao":"2021-06-26T12:58:00.984Z","comissao":0,"acima_de":0,"valor_acima":0,"markup":0,"permitir_desconto":true,"produto_empresa_id":9927}]}}
+
+26-06-2021 11:44:50 download: 0
+26-06-2021 11:44:52 download: 1538
+26-06-2021 11:44:53 download: 362
+26-06-2021 11:44:56 download: 0
+26-06-2021 11:44:56 Requisicao: 
+26-06-2021 11:44:58 download: 1336
+26-06-2021 11:45:02 download: 0
+26-06-2021 11:45:02 Requisicao: 
+26-06-2021 11:45:02 download: 1336
+26-06-2021 11:45:03 download: 1498
+26-06-2021 11:45:05 download: 1336
+26-06-2021 11:45:08 download: 0
+26-06-2021 11:45:08 Requisicao: 

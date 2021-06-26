@@ -5,7 +5,7 @@ unit cluster_pdv.sessao;
 interface
 
 uses
-  Classes, SysUtils ,jsons, Dialogs, forms, controls, uf_fechamentoCaixa, Datautils;
+  Classes, SysUtils ,jsons, Dialogs, forms, controls, uf_fechamentoCaixa, DateUtils;
 
 type
 
@@ -34,6 +34,8 @@ private
       DecimalTotal : Integer;
       DecimalUnitario : Integer;
       DecimalQuantidade : Integer;
+      TabelaArmazenamentoID : Integer;
+      TabelaPrecoID : Integer;
 
       Property caixa_id : Integer Read FCaixa_Id Write FCaixa_id;
       Function getCaixID : String;
@@ -82,7 +84,6 @@ private
       Procedure FechaCaixa;
       Procedure Suprimento;
       Procedure Sangria;
-      Procedure ShowForm(TFormulario: TComponentClass; var Formulario);
 
       Constructor create;
 end;
@@ -137,16 +138,61 @@ begin
   DecimalQuantidade:= -1;
   DecimalTotal:= -1;
   DecimalUnitario:= -1;
+  TabelaArmazenamentoID := -1;
+  TabelaPrecoID:= -1;
 end;
 
 function TSessao.tabela_preco_id: integer;
+var _db : TConexao;
+   i : integer;
 begin
 
+  if TabelaPrecoID = -1 then
+  Begin
+      try
+          _db := TConexao.Create;
+          with _db.Query do
+          Begin
+              Close;
+              Sql.Clear;
+              Sql.Add('select pv.default_tabela_preco_id from empresa e inner join parametros_venda pv ');
+              Sql.Add('           on pv.id = e.parametros_venda_id');
+              open;
+
+              TabelaPrecoID := FieldByName('default_tabela_preco_id').AsInteger;
+          end;
+      finally
+          FreeAndNil(_db);
+      end;
+  end;
+
+  Result := TabelaPrecoID;
 end;
 
 function TSessao.estoque_id: integer;
+var _db : TConexao;
 begin
 
+  if TabelaArmazenamentoID = -1 then
+  Begin
+      try
+          _db := TConexao.Create;
+          with _db.Query do
+          Begin
+              Close;
+              Sql.Clear;
+              Sql.Add('select pv.default_armazenamento_id from empresa e inner join parametros_venda pv ');
+              Sql.Add('           on pv.id = e.parametros_venda_id');
+              open;
+
+              TabelaArmazenamentoID := FieldByName('default_armazenamento_id').AsInteger;
+          end;
+      finally
+          FreeAndNil(_db);
+      end;
+  end;
+
+  Result := TabelaArmazenamentoID;
 end;
 
 function TSessao.GetUtcOFF: integer;
@@ -365,12 +411,12 @@ end;
 
 procedure TSessao.FechaCaixa;
 begin
-  sessao.ShowForm(Tf_fechamentoCaixa, f_fechamentoCaixa);
+  CriarForm(Tf_fechamentoCaixa, f_fechamentoCaixa);
 end;
 
 procedure TSessao.Suprimento;
 begin
-    f_saidaCaixa := Tf_saidaCaixa.Create(frmPrincipal);
+    f_saidaCaixa := Tf_saidaCaixa.Create(nil);
     f_saidaCaixa._endpoint:= 'suprimento';
     f_saidaCaixa._caixaID:= getCaixID;
     f_saidaCaixa.Caption:= 'Suprimento de Caixa';
@@ -381,7 +427,7 @@ end;
 
 procedure TSessao.Sangria;
 begin
-  f_saidaCaixa := Tf_saidaCaixa.Create(frmPrincipal);
+  f_saidaCaixa := Tf_saidaCaixa.Create(nil);
   f_saidaCaixa._endpoint:= 'sangria';
   f_saidaCaixa._caixaID:= getCaixID;
   f_saidaCaixa.Caption:= 'Sangria de Caixa';
@@ -390,17 +436,6 @@ begin
   f_saidaCaixa := nil;
 end;
 
-procedure TSessao.ShowForm(TFormulario: TComponentClass; var Formulario);
-begin
-  Application.CreateForm(TFormulario, Formulario);
-  with TForm(Formulario) do
-  Begin
-      BorderStyle := bsSizeable;
-      BorderIcons:= BorderIcons - [biMinimize];
-      ShowModal;
-      release
-  End;
-end;
 
 constructor TSessao.create;
 begin

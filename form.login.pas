@@ -167,9 +167,9 @@ end;
 
 procedure Tfrm_login.lblRecuperaSenhaClick(Sender: TObject);
 begin
-    frmPrincipal := TfrmPrincipal.Create(nil);
-    frm_login.hide;
-    frmPrincipal.ShowModal;
+    //frmPrincipal := TfrmPrincipal.Create(nil);
+    //frm_login.hide;
+    //frmPrincipal.Show;
 end;
 
 procedure Tfrm_login.Panel1Click(Sender: TObject);
@@ -241,17 +241,10 @@ begin
 
            if objeto.logar then
            Begin
-                frmPrincipal := TfrmPrincipal.Create(frm_login);
+                frmPrincipal := TfrmPrincipal.Create(nil);
                 frm_login.Hide;
                 Sessao.segundoplano := true;
-                try
-                   frmPrincipal.ShowModal;
-                except
-                  on e:exception do
-                  Begin
-                       RegistraLogErro('erro Principal: '+e.message);
-                  end;
-                end;
+                frmPrincipal.Show;
            end;
        end;
 

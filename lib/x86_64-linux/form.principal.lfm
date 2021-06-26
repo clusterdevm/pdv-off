@@ -7,12 +7,11 @@ object frmPrincipal: TfrmPrincipal
   ClientHeight = 505
   ClientWidth = 966
   Color = clWhite
-  DefaultMonitor = dmMainForm
   OnActivate = FormActivate
   OnCloseQuery = FormCloseQuery
   OnResize = FormResize
   OnShow = FormShow
-  Position = poMainFormCenter
+  Position = poScreenCenter
   WindowState = wsMaximized
   object pnlRodape: TPanel
     Left = 0

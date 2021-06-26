@@ -9,8 +9,7 @@ object frmCondicionalCriar: TfrmCondicionalCriar
   ClientWidth = 521
   KeyPreview = True
   OnShow = FormShow
-  Position = poMainFormCenter
-  LCLVersion = '2.0.12.0'
+  Position = poScreenCenter
   inline Frame1_1: TFrame1
     Left = 3
     inherited Label1: TLabel
@@ -51,22 +50,12 @@ object frmCondicionalCriar: TfrmCondicionalCriar
     Top = 56
     TabOrder = 1
     inherited Panel1: TPanel
-      BevelWidth = 1
       inherited EditID: TEdit
-        Left = 2
-        Height = 29
-        Top = 2
         OnEnter = EditIDEnter
         OnExit = EditIDExit
       end
-      inherited edt_name: TEdit
-        Left = 82
-        Height = 29
-        Top = 2
-      end
     end
     inherited Label1: TLabel
-      Height = 14
       Width = 59
       Caption = 'Vendedor'
     end
@@ -76,23 +65,10 @@ object frmCondicionalCriar: TfrmCondicionalCriar
     Top = 120
     TabOrder = 2
     inherited Panel1: TPanel
-      BevelWidth = 1
       inherited EditID: TEdit
-        Left = 2
-        Height = 29
-        Top = 2
         OnEnter = EditIDEnter
         OnExit = ac_clienteExecute
       end
-      inherited edt_name: TEdit
-        Left = 82
-        Height = 29
-        Top = 2
-      end
-    end
-    inherited Label1: TLabel
-      Height = 14
-      Width = 42
     end
   end
   object ACBrEnterTab1: TACBrEnterTab

@@ -12,7 +12,8 @@ object f_devolucaoCriar: Tf_devolucaoCriar
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnResize = FormResize
-  Position = poMainFormCenter
+  Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
   object pnlBotao: TPanel
     Left = 0
     Height = 50

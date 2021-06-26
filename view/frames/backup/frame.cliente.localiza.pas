@@ -68,7 +68,7 @@ begin
          if _pessoa.get(self.EditID.text) then
          Begin
              edt_name.Text:= _pessoa.razao;
-             _avancar:=true;
+             result := true;
          end
          else
          Begin

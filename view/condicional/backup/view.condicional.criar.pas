@@ -73,7 +73,7 @@ begin
        if not frame_cliente.Localiza then
        Begin
           (Sender as TEdit).SetFocus;
-          Abort;
+           Abort;
        end;
   end;
 end;

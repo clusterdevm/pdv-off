@@ -10,32 +10,33 @@ object framePessoaGet: TframePessoaGet
   DesignTop = 23
   object Panel1: TPanel
     Left = 0
-    Height = 33
+    Height = 25
     Top = 16
     Width = 512
     BevelInner = bvLowered
-    BevelWidth = 2
-    ClientHeight = 33
+    ClientHeight = 25
     ClientWidth = 512
     Color = clGradientInactiveCaption
     ParentColor = False
     TabOrder = 0
     object EditID: TEdit
-      Left = 4
-      Height = 25
-      Top = 4
+      Left = 2
+      Height = 21
+      Top = 2
       Width = 80
       Align = alLeft
       BorderStyle = bsNone
       TabOrder = 1
+      Text = '00'
       TextHint = 'Informe ID'
     end
     object edt_name: TEdit
-      Left = 84
-      Height = 25
-      Top = 4
-      Width = 406
-      Align = alLeft
+      Left = 82
+      Height = 21
+      Top = 2
+      Width = 428
+      Align = alClient
+      AutoSize = False
       BorderStyle = bsNone
       ReadOnly = True
       TabStop = False
@@ -44,9 +45,9 @@ object framePessoaGet: TframePessoaGet
   end
   object Label1: TLabel
     Left = 0
-    Height = 15
+    Height = 14
     Top = 0
-    Width = 47
+    Width = 42
     Caption = 'Cliente'
     ParentColor = False
   end

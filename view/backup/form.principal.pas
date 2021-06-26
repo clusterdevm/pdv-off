@@ -11,8 +11,6 @@ uses
 
 type
 
-  { TfrmPrincipal }
-
   TfrmPrincipal = class(TForm)
     ac_devolucao: TAction;
     ac_venda: TAction;
@@ -69,8 +67,6 @@ implementation
 
 {$R *.lfm}
 
-{ TfrmPrincipal }
-
 procedure TfrmPrincipal.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
 
@@ -95,12 +91,16 @@ end;
 
 procedure TfrmPrincipal.ac_condicionalExecute(Sender: TObject);
 begin
-  sessao.ShowForm(Tfrm_CondicionalFIltrar,frm_CondicionalFIltrar);
+  CriarForm(Tfrm_CondicionalFIltrar);
 end;
 
 procedure TfrmPrincipal.ac_devolucaoExecute(Sender: TObject);
 begin
-  sessao.ShowForm(Tf_devolucaoFiltrar,f_devolucaoFiltrar);
+  //CriarForm(Tf_devolucaoFiltrar);
+  f_devolucaoFiltrar := Tf_devolucaoFiltrar.Create(nil);
+  f_devolucaoFiltrar.ShowModal;
+  f_devolucaoFiltrar.Release;
+  f_devolucaoFiltrar := nil;
 end;
 
 procedure TfrmPrincipal.ac_sairExecute(Sender: TObject);
@@ -110,7 +110,7 @@ end;
 
 procedure TfrmPrincipal.ac_vendaExecute(Sender: TObject);
 begin
-  sessao.ShowForm(Tform_venda, form_venda);
+  CriarForm(Tform_venda);
 end;
 
 procedure TfrmPrincipal.FormActivate(Sender: TObject);
@@ -164,8 +164,6 @@ end;
 procedure TfrmPrincipal.AtivaBusca;
 var _sincronizar : TSincDownload;
 begin
-
-  exit;
   _sincronizar := TSincDownload.Create(true,
                                  pnlRodape ,
                                  sessao.token

@@ -1179,7 +1179,7 @@ object frm_login: Tfrm_login
       Width = 353
       Align = alBottom
       Alignment = taCenter
-      Caption = 'Versão 1.0.1'
+      Caption = '1.0.0'
       Font.Height = -11
       Font.Name = 'Sans'
       ParentColor = False

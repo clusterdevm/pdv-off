@@ -180,8 +180,6 @@ begin
    pnlLinha1.Height:= trunc((pnlDadosCliente.Height /2));
    pnlLinha2.Height:= trunc((pnlDadosCliente.Height /2));
 
-
-
    {Linha 1}
    ed_dataEmissao.Width:= trunc((pnlDadosCliente.Width * 0.147));
    ed_documento.Width:= trunc((pnlDadosCliente.Width * 0.147));
@@ -244,6 +242,7 @@ begin
    ed_loja.Font.Size:= trunc(_size);
 
    {GRID}
+   DBGrid1.Font.Size:= trunc(_size);
    DBGrid1.Columns[0].Width:= trunc((pnlDadosCliente.Width * 0.086));
    DBGrid1.Columns[1].Width:= trunc((pnlDadosCliente.Width * 0.07));
    DBGrid1.Columns[2].Width:= trunc((pnlDadosCliente.Width * 0.05));

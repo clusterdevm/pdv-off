@@ -56,9 +56,26 @@ var Sessao : TSessao;
   Function GetFloat(value:string) : Extended;
   Procedure Limpa(aDataSet:TBufDataset);
 
+  //Procedure CriarForm(NomeForm: TFormClass);
+
 implementation
 
-uses model.request.http, uf_download;
+uses model.request.http, uf_download, form.principal;
+
+
+//procedure CriarForm(NomeForm: TFormClass);
+//var
+//  form: TForm;
+//begin
+//  form := NomeForm.Create(Application);
+//  try
+//    //form.BorderIcons:= BorderIcons - [biMinimize];
+//    //form.BorderStyle := bsSizeable;
+//    form.ShowModal;
+//  finally
+//    form.Free;
+//  end;
+//end;
 
 function RemoveIfens(value: string): String;
 begin
@@ -323,27 +340,6 @@ end;
 
 function getEMS_Webservice(value:TPathServicos): string;
 begin
-      case value of
-       mGeral :
-          result := 'https://api-dev.clustererp.com.br/api/v1/';
-       mCondicional :
-          result := 'https://api-dev.clustererp.com.br/api/v1/';
-       mAutenticacao :
-          result := 'https://api-dev.clustererp.com.br/api/v1/';
-       mPDV :
-          result := 'https://api-dev.clustererp.com.br/api/v1/cadastro/';
-          //result := 'http://localhost/api/v1/cadastro/';
-       mFinanceiro :
-          result := 'https://api-dev.clustererp.com.br/api/v1/';
-       mVenda :
-          //result := 'http://localhost/api/v1/';
-          result := 'https://api-dev.clustererp.com.br/api/v1/';
-     end;
-
-      exit;
-
-
-
    if appProducao then
    Begin
     case value of

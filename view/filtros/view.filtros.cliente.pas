@@ -47,6 +47,7 @@ type
     procedure edt_razaoChange(Sender: TObject);
     procedure edt_razaoKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure edt_razaoKeyPress(Sender: TObject; var Key: char);
     procedure edt_telefoneKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
@@ -168,6 +169,15 @@ begin
        KEY := 0;
        edt_telefone.SetFocus;
     end;
+end;
+
+procedure TfrmFiltroCliente.edt_razaoKeyPress(Sender: TObject; var Key: char);
+begin
+  if key = #13 then
+  Begin
+      key := #0;
+      DBGrid1.SetFocus;
+  end;
 end;
 
 procedure TfrmFiltroCliente.edt_telefoneKeyDown(Sender: TObject; var Key: Word;

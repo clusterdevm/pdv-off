@@ -50,6 +50,7 @@ type
     RLLabel30: TRLLabel;
     RLMemo1: TRLMemo;
     RLPanel1: TRLPanel;
+    RLPanel2: TRLPanel;
     RLPanel4: TRLPanel;
     RLPDFFilter1: TRLPDFFilter;
     RLReport1: TRLReport;
@@ -120,7 +121,7 @@ begin
   lblEmissao.Caption:= 'Emissão: '+
    FormatDateTime('dd/mm/yyyy hh:mm',sessao.DateToLocal(_Objeto['data_emissao'].AsString));
 
-   lblCondicionalID.caption := 'Numero: '+_Objeto['id'].AsString;
+   lblCondicionalID.caption := 'Numero: '+_Objeto['id'].AsString+'  ';
    lblDadosVendedor.Lines.Text := 'Vendedor(a): ('+_Objeto['vendedor_id'].AsString+
                                            ') '+_Objeto['n_vendedor'].AsString;
 

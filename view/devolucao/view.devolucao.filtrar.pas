@@ -140,7 +140,12 @@ end;
 
 procedure Tf_devolucaoFiltrar.acNovoExecute(Sender: TObject);
 begin
-  sessao.ShowForm(Tf_devolucaoCriar,f_devolucaoCriar);
+   CriarForm(Tf_devolucaoCriar);
+  //f_devolucaoCriar := Tf_devolucaoCriar.Create(nil);
+  //f_devolucaoCriar.ShowModal;
+  //f_devolucaoCriar.Release;
+  //f_devolucaoCriar := nil;
+
    edt_nome.SetFocus;
    ac_buscarExecute(self);
 end;

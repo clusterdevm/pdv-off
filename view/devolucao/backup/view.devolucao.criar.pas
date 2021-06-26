@@ -154,7 +154,7 @@ procedure Tf_devolucaoCriar.ac_confirmarExecute(Sender: TObject);
 begin
    _objeto.Observacao:= mObs.Text;
    if _objeto.Concluir then
-      self.Close;;
+      self.Close;
 end;
 
 procedure Tf_devolucaoCriar.FormResize(Sender: TObject);
@@ -244,6 +244,7 @@ begin
    ed_loja.Font.Size:= trunc(_size);
 
    {GRID}
+   DBGrid1.Font.Size:= trunc(_size);
    DBGrid1.Columns[0].Width:= trunc((pnlDadosCliente.Width * 0.086));
    DBGrid1.Columns[1].Width:= trunc((pnlDadosCliente.Width * 0.07));
    DBGrid1.Columns[2].Width:= trunc((pnlDadosCliente.Width * 0.05));
