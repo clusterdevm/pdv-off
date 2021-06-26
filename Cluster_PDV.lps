@@ -82,11 +82,11 @@
         </CompilerOptions>
       </Item2>
     </BuildModes>
-    <Units Count="77">
+    <Units Count="78">
       <Unit0>
         <Filename Value="Cluster_PDV.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="2"/>
         <TopLine Value="15"/>
         <CursorPos X="44" Y="21"/>
         <UsageCount Value="116"/>
@@ -138,9 +138,10 @@
       <Unit5>
         <Filename Value="classes/classe.utils.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="56"/>
-        <CursorPos X="3" Y="59"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="66"/>
+        <CursorPos X="5" Y="75"/>
         <UsageCount Value="116"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -160,8 +161,8 @@
         <ComponentName Value="frmPrincipal"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="95"/>
-        <CursorPos X="3" Y="99"/>
+        <TopLine Value="111"/>
+        <CursorPos X="30" Y="113"/>
         <UsageCount Value="116"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -308,9 +309,9 @@
       <Unit22>
         <Filename Value="classes/cluster_pdv.sessao.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="420"/>
-        <CursorPos X="32" Y="419"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="418"/>
+        <CursorPos X="32" Y="427"/>
         <UsageCount Value="116"/>
         <Bookmarks Count="1">
           <Item0 X="70" Y="169" ID="2"/>
@@ -382,10 +383,12 @@
         <ComponentName Value="form_venda"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="258"/>
-        <CursorPos X="25" Y="291"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="265"/>
+        <CursorPos X="47" Y="273"/>
         <UsageCount Value="116"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit29>
       <Unit30>
@@ -452,10 +455,9 @@
         <ComponentName Value="f_devolucaoCriar"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="232"/>
-        <CursorPos Y="182"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="182"/>
+        <CursorPos X="53" Y="186"/>
         <UsageCount Value="93"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -736,10 +738,11 @@
       </Unit66>
       <Unit67>
         <Filename Value="/usr/share/lazarus/2.0.12/lcl/include/customform.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1079"/>
-        <CursorPos X="37" Y="1090"/>
-        <UsageCount Value="9"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="2161"/>
+        <CursorPos X="38" Y="2170"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
       </Unit67>
       <Unit68>
         <Filename Value="../../componentes/acbr/Fontes/ACBrTCP/ACBrDownloadClass.pas"/>
@@ -817,96 +820,137 @@
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit76>
+      <Unit77>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/forms.pp"/>
+        <UnitName Value="Forms"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="382"/>
+        <CursorPos X="15" Y="390"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit77>
     </Units>
-    <JumpHistory Count="22" HistoryIndex="21">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="112" Column="23" TopLine="92"/>
+        <Filename Value="classes/classe.utils.pas"/>
+        <Caret Line="59" Column="3" TopLine="47"/>
       </Position1>
       <Position2>
         <Filename Value="view/form.principal.pas"/>
-        <Caret Line="105" Column="3" TopLine="92"/>
+        <Caret Line="103" Column="32" TopLine="86"/>
       </Position2>
       <Position3>
         <Filename Value="view/form.principal.pas"/>
-        <Caret Line="103" TopLine="91"/>
+        <Caret Line="113" Column="24" TopLine="101"/>
       </Position3>
       <Position4>
         <Filename Value="classes/classe.utils.pas"/>
-        <Caret Line="58" Column="13" TopLine="46"/>
+        <Caret Line="66" TopLine="56"/>
       </Position4>
       <Position5>
-        <Filename Value="classes/classe.utils.pas"/>
-        <Caret Line="75" Column="16" TopLine="63"/>
+        <Filename Value="view/form.principal.pas"/>
+        <Caret Line="109" Column="22" TopLine="101"/>
       </Position5>
       <Position6>
-        <Filename Value="classes/classe.utils.pas"/>
-        <Caret Line="373" Column="50" TopLine="363"/>
+        <Filename Value="view/form.principal.pas"/>
+        <Caret Line="10" Column="17"/>
       </Position6>
       <Position7>
-        <Filename Value="classes/classe.utils.pas"/>
-        <Caret Line="70" Column="17" TopLine="64"/>
+        <Filename Value="view/form.principal.pas"/>
+        <Caret Line="17" Column="17"/>
       </Position7>
       <Position8>
-        <Filename Value="classes/classe.utils.pas"/>
-        <Caret Line="60" Column="45" TopLine="55"/>
+        <Filename Value="view/form.principal.pas"/>
+        <Caret Line="45" Column="27" TopLine="26"/>
       </Position8>
       <Position9>
-        <Filename Value="classes/classe.utils.pas"/>
-        <Caret Line="59" Column="3" TopLine="47"/>
+        <Filename Value="view/form.principal.pas"/>
+        <Caret Line="13" TopLine="2"/>
       </Position9>
       <Position10>
         <Filename Value="view/form.principal.pas"/>
-        <Caret Line="103" Column="32" TopLine="86"/>
+        <Caret Line="69" TopLine="60"/>
       </Position10>
       <Position11>
         <Filename Value="view/form.principal.pas"/>
-        <Caret Line="113" Column="24" TopLine="101"/>
+        <Caret Line="86" Column="36" TopLine="76"/>
       </Position11>
       <Position12>
-        <Filename Value="classes/classe.utils.pas"/>
-        <Caret Line="66" TopLine="56"/>
+        <Filename Value="view/form.principal.pas"/>
+        <Caret Line="67" Column="42" TopLine="62"/>
       </Position12>
       <Position13>
         <Filename Value="view/form.principal.pas"/>
-        <Caret Line="109" Column="22" TopLine="101"/>
+        <Caret Line="106" Column="21" TopLine="95"/>
       </Position13>
       <Position14>
         <Filename Value="view/form.principal.pas"/>
-        <Caret Line="10" Column="17"/>
+        <Caret Line="99" Column="3" TopLine="95"/>
       </Position14>
       <Position15>
         <Filename Value="view/form.principal.pas"/>
-        <Caret Line="17" Column="17"/>
+        <Caret Line="107" Column="15" TopLine="95"/>
       </Position15>
       <Position16>
         <Filename Value="view/form.principal.pas"/>
-        <Caret Line="45" Column="27" TopLine="26"/>
+        <Caret Line="78" Column="34" TopLine="70"/>
       </Position16>
       <Position17>
         <Filename Value="view/form.principal.pas"/>
-        <Caret Line="13" TopLine="2"/>
+        <Caret Line="9" Column="71"/>
       </Position17>
       <Position18>
         <Filename Value="view/form.principal.pas"/>
-        <Caret Line="69" TopLine="60"/>
+        <Caret Line="11" Column="45"/>
       </Position18>
       <Position19>
         <Filename Value="view/form.principal.pas"/>
-        <Caret Line="86" Column="36" TopLine="76"/>
+        <Caret Line="113" Column="29" TopLine="111"/>
       </Position19>
       <Position20>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="67" Column="42" TopLine="62"/>
+        <Filename Value="classes/classe.utils.pas"/>
+        <Caret Line="59" Column="13" TopLine="47"/>
       </Position20>
       <Position21>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="106" Column="21" TopLine="95"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="278" Column="32" TopLine="267"/>
       </Position21>
       <Position22>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="99" Column="3" TopLine="95"/>
+        <Filename Value="classes/classe.utils.pas"/>
+        <Caret Line="77" Column="16" TopLine="66"/>
       </Position22>
+      <Position23>
+        <Filename Value="classes/classe.utils.pas"/>
+        <Caret Line="71" Column="22" TopLine="60"/>
+      </Position23>
+      <Position24>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/forms.pp"/>
+        <Caret Line="783" Column="14" TopLine="772"/>
+      </Position24>
+      <Position25>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/forms.pp"/>
+        <Caret Line="690" Column="14" TopLine="679"/>
+      </Position25>
+      <Position26>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/forms.pp"/>
+        <Caret Line="393" Column="31" TopLine="382"/>
+      </Position26>
+      <Position27>
+        <Filename Value="classes/classe.utils.pas"/>
+        <Caret Line="62" Column="44" TopLine="52"/>
+      </Position27>
+      <Position28>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/include/customform.inc"/>
+        <Caret Line="2173" Column="40" TopLine="2161"/>
+      </Position28>
+      <Position29>
+        <Filename Value="view/form.principal.pas"/>
+        <Caret Line="113" Column="30" TopLine="111"/>
+      </Position29>
+      <Position30>
+        <Filename Value="classes/classe.utils.pas"/>
+        <Caret Line="59" Column="76" TopLine="47"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

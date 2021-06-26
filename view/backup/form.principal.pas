@@ -96,11 +96,11 @@ end;
 
 procedure TfrmPrincipal.ac_devolucaoExecute(Sender: TObject);
 begin
-  //CriarForm(Tf_devolucaoFiltrar);
-  f_devolucaoFiltrar := Tf_devolucaoFiltrar.Create(nil);
-  f_devolucaoFiltrar.ShowModal;
-  f_devolucaoFiltrar.Release;
-  f_devolucaoFiltrar := nil;
+  CriarForm(Tf_devolucaoFiltrar);
+  //f_devolucaoFiltrar := Tf_devolucaoFiltrar.Create(nil);
+  //f_devolucaoFiltrar.ShowModal;
+  //f_devolucaoFiltrar.Release;
+  //f_devolucaoFiltrar := nil;
 end;
 
 procedure TfrmPrincipal.ac_sairExecute(Sender: TObject);

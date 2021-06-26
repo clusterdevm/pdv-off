@@ -30,7 +30,7 @@ begin
 
 
   //RequireDerivedFormResource:=True;
-  Application.Scaled:= false;
+  Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(Tfrm_login, frm_login);
   Application.Run;

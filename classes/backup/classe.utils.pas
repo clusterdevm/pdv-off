@@ -56,26 +56,29 @@ var Sessao : TSessao;
   Function GetFloat(value:string) : Extended;
   Procedure Limpa(aDataSet:TBufDataset);
 
-  //Procedure CriarForm(NomeForm: TFormClass);
+  Procedure CriarForm(NomeForm: TFormClass; _fullScream : Boolean = false);
 
 implementation
 
 uses model.request.http, uf_download, form.principal;
 
 
-//procedure CriarForm(NomeForm: TFormClass);
-//var
-//  form: TForm;
-//begin
-//  form := NomeForm.Create(Application);
-//  try
-//    //form.BorderIcons:= BorderIcons - [biMinimize];
-//    //form.BorderStyle := bsSizeable;
-//    form.ShowModal;
-//  finally
-//    form.Free;
-//  end;
-//end;
+procedure CriarForm(NomeForm: TFormClass; _fullScream : Boolean = false);
+var
+  form: TForm;
+begin
+  form := NomeForm.Create(Application);
+  try
+    form.BorderIcons:=  [biMinimize];
+
+    if _fullScream=  then form.BorderStyle := bsSizeable;
+
+    form.ShowModal;
+  finally
+    form.release;
+    Form :=nil;
+  end;
+end;
 
 function RemoveIfens(value: string): String;
 begin

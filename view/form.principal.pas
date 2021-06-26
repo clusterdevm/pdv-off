@@ -110,7 +110,7 @@ end;
 
 procedure TfrmPrincipal.ac_vendaExecute(Sender: TObject);
 begin
-  CriarForm(Tform_venda);
+  CriarForm(Tform_venda, true);
 end;
 
 procedure TfrmPrincipal.FormActivate(Sender: TObject);

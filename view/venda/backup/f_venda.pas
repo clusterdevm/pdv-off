@@ -288,7 +288,7 @@ end;
 
 procedure Tform_venda.ac_recebimentoExecute(Sender: TObject);
 begin
-  CriarForm(Tf_crediario,f_crediario);
+  CriarForm(Tf_crediario);
 end;
 
 procedure Tform_venda.FormCreate(Sender: TObject);

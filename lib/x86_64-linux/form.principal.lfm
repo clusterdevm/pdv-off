@@ -7,6 +7,7 @@ object frmPrincipal: TfrmPrincipal
   ClientHeight = 505
   ClientWidth = 966
   Color = clWhite
+  DefaultMonitor = dmPrimary
   OnActivate = FormActivate
   OnCloseQuery = FormCloseQuery
   OnResize = FormResize
@@ -69,9 +70,7 @@ object frmPrincipal: TfrmPrincipal
     BorderStyle = bsNone
     ClientHeight = 328
     ClientWidth = 200
-    Color = clWhite
     ParentBackground = True
-    ParentColor = False
     TabOrder = 2
     Visible = False
     object pnl_menu: TPanel

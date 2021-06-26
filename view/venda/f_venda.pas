@@ -237,7 +237,7 @@ end;
 
 procedure Tform_venda.ac_sairExecute(Sender: TObject);
 begin
-    form_venda.Close;
+    self.Close;
 end;
 
 procedure Tform_venda.ac_sangriaExecute(Sender: TObject);
