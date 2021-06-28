@@ -3041,7 +3041,7 @@ object form_venda: Tform_venda
       Left = 184
       Height = 17
       Top = 5
-      Width = 360
+      Width = 672
       AutoSize = False
       Caption = 'Foz do Iguaçu 01 de abril de 2020.    00:30:08'
       Font.Color = clWhite

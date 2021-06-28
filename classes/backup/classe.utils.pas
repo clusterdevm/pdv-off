@@ -71,7 +71,7 @@ begin
   try
     form.BorderIcons:=  [biMinimize];
 
-    if _fullScream=  then form.BorderStyle := bsSizeable;
+    if not _fullScream  then form.BorderStyle := bsSizeable;
 
     form.ShowModal;
   finally
@@ -343,6 +343,23 @@ end;
 
 function getEMS_Webservice(value:TPathServicos): string;
 begin
+
+ case value of
+   mGeral :
+      result := 'http://localhost/api/v1/';
+   mCondicional :
+      result := 'http://localhost/api/v1/';
+   mAutenticacao :
+      result := 'http://localhost/api/v1/';
+   mPDV :
+      result := 'http://localhost/api/v1/cadastro/';
+   mFinanceiro :
+      result := 'http://localhost/api/v1/';
+   mVenda :
+      result := 'http://localhost/api/v1/';
+ end;
+
+   exit;
    if appProducao then
    Begin
     case value of

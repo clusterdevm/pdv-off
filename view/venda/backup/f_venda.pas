@@ -230,14 +230,14 @@ procedure Tform_venda.FormShow(Sender: TObject);
 begin
   TabControl1.Tabs.Clear;
   lblUsuario.Caption:= 'Usuario: '+ Sessao.usuarioName;
-  lblDadosEmpresa.Caption:= sessao.cidade+'  '+FormatDateTime('dddd "de" mmmm "de" yyyy',Now) +'   ('+
+  lblDadosEmpresa.Caption:= sessao.cidade+'  '+FormatDateTime('dddd "," dd "de" mmmm "de" yyyy',Now) +'   ('+
                              sessao.n_unidade+')';
   GetVendasAndamento;
 end;
 
 procedure Tform_venda.ac_sairExecute(Sender: TObject);
 begin
-    form_venda.Close;
+    self.Close;
 end;
 
 procedure Tform_venda.ac_sangriaExecute(Sender: TObject);
