@@ -3,12 +3,10 @@ object form_venda: Tform_venda
   Height = 592
   Top = 100
   Width = 1154
-  BorderStyle = bsNone
   Caption = 'form_venda'
   ClientHeight = 592
   ClientWidth = 1154
   Color = clWhite
-  DefaultMonitor = dmPrimary
   KeyPreview = True
   OnCreate = FormCreate
   OnKeyPress = FormKeyPress
@@ -30,9 +28,9 @@ object form_venda: Tform_venda
     TabOrder = 0
     object lblUsuario: TLabel
       Left = 184
-      Height = 15
+      Height = 14
       Top = 25
-      Width = 183
+      Width = 165
       Caption = 'Usuario: Eber Alves da Silva'
       Font.Color = clWhite
       ParentColor = False
@@ -3146,6 +3144,7 @@ object form_venda: Tform_venda
     Height = 532
     Top = 60
     Width = 1154
+    TabStop = False
     OnChange = TabControl1Change
     Style = tsButtons
     TabIndex = 0
@@ -3153,23 +3152,24 @@ object form_venda: Tform_venda
       'Venda 001'
     )
     Align = alClient
-    Options = [nboShowCloseButtons, nboShowAddTabButton]
+    Font.Style = [fsBold]
+    ParentFont = False
     TabOrder = 1
     object pnlBase: TPanel
       Left = 2
-      Height = 501
-      Top = 29
+      Height = 502
+      Top = 28
       Width = 1150
       Align = alClient
       BevelOuter = bvNone
       Caption = 'pnlBase'
-      ClientHeight = 501
+      ClientHeight = 502
       ClientWidth = 1150
       TabOrder = 0
       object pnlBotoes: TPanel
         Left = 0
         Height = 50
-        Top = 451
+        Top = 452
         Width = 1150
         Align = alBottom
         BevelColor = 12672305
@@ -3426,16 +3426,16 @@ object form_venda: Tform_venda
           StateHover.FontEx.ShadowOffsetX = 1
           StateHover.FontEx.ShadowOffsetY = 1
           StateHover.FontEx.Style = [fsBold]
-          StateNormal.Background.Color = 11270132
-          StateNormal.Background.Gradient1.StartColor = 11270132
-          StateNormal.Background.Gradient1.EndColor = 11270132
+          StateNormal.Background.Color = 11829830
+          StateNormal.Background.Gradient1.StartColor = 11829830
+          StateNormal.Background.Gradient1.EndColor = 11829830
           StateNormal.Background.Gradient1.GradientType = gtLinear
           StateNormal.Background.Gradient1.Point1XPercent = 0
           StateNormal.Background.Gradient1.Point1YPercent = 0
           StateNormal.Background.Gradient1.Point2XPercent = 0
           StateNormal.Background.Gradient1.Point2YPercent = 100
-          StateNormal.Background.Gradient2.StartColor = 11270132
-          StateNormal.Background.Gradient2.EndColor = 11270132
+          StateNormal.Background.Gradient2.StartColor = 11829830
+          StateNormal.Background.Gradient2.EndColor = 11829830
           StateNormal.Background.Gradient2.GradientType = gtRadial
           StateNormal.Background.Gradient2.Point1XPercent = 50
           StateNormal.Background.Gradient2.Point1YPercent = 100
@@ -3444,10 +3444,9 @@ object form_venda: Tform_venda
           StateNormal.Background.Gradient1EndPercent = 60
           StateNormal.Background.Style = bbsGradient
           StateNormal.Border.Style = bboNone
-          StateNormal.FontEx.Color = clBlack
+          StateNormal.FontEx.Color = clWhite
           StateNormal.FontEx.FontQuality = fqFineAntialiasing
-          StateNormal.FontEx.Shadow = False
-          StateNormal.FontEx.ShadowColor = clGray
+          StateNormal.FontEx.Shadow = True
           StateNormal.FontEx.ShadowRadius = 2
           StateNormal.FontEx.ShadowOffsetX = 1
           StateNormal.FontEx.ShadowOffsetY = 1
@@ -3522,16 +3521,16 @@ object form_venda: Tform_venda
           StateHover.FontEx.ShadowOffsetX = 1
           StateHover.FontEx.ShadowOffsetY = 1
           StateHover.FontEx.Style = [fsBold]
-          StateNormal.Background.Color = 11270132
-          StateNormal.Background.Gradient1.StartColor = 11270132
-          StateNormal.Background.Gradient1.EndColor = 11270132
+          StateNormal.Background.Color = 11829830
+          StateNormal.Background.Gradient1.StartColor = 11829830
+          StateNormal.Background.Gradient1.EndColor = 11829830
           StateNormal.Background.Gradient1.GradientType = gtLinear
           StateNormal.Background.Gradient1.Point1XPercent = 0
           StateNormal.Background.Gradient1.Point1YPercent = 0
           StateNormal.Background.Gradient1.Point2XPercent = 0
           StateNormal.Background.Gradient1.Point2YPercent = 100
-          StateNormal.Background.Gradient2.StartColor = 11270132
-          StateNormal.Background.Gradient2.EndColor = 11270132
+          StateNormal.Background.Gradient2.StartColor = 11829830
+          StateNormal.Background.Gradient2.EndColor = 11829830
           StateNormal.Background.Gradient2.GradientType = gtRadial
           StateNormal.Background.Gradient2.Point1XPercent = 50
           StateNormal.Background.Gradient2.Point1YPercent = 100
@@ -3540,10 +3539,9 @@ object form_venda: Tform_venda
           StateNormal.Background.Gradient1EndPercent = 60
           StateNormal.Background.Style = bbsGradient
           StateNormal.Border.Style = bboNone
-          StateNormal.FontEx.Color = clBlack
+          StateNormal.FontEx.Color = clWhite
           StateNormal.FontEx.FontQuality = fqFineAntialiasing
-          StateNormal.FontEx.Shadow = False
-          StateNormal.FontEx.ShadowColor = clGray
+          StateNormal.FontEx.Shadow = True
           StateNormal.FontEx.ShadowRadius = 2
           StateNormal.FontEx.ShadowOffsetX = 1
           StateNormal.FontEx.ShadowOffsetY = 1
@@ -3618,16 +3616,16 @@ object form_venda: Tform_venda
           StateHover.FontEx.ShadowOffsetX = 1
           StateHover.FontEx.ShadowOffsetY = 1
           StateHover.FontEx.Style = [fsBold]
-          StateNormal.Background.Color = 11270132
-          StateNormal.Background.Gradient1.StartColor = 11270132
-          StateNormal.Background.Gradient1.EndColor = 11270132
+          StateNormal.Background.Color = 11829830
+          StateNormal.Background.Gradient1.StartColor = 11829830
+          StateNormal.Background.Gradient1.EndColor = 11829830
           StateNormal.Background.Gradient1.GradientType = gtLinear
           StateNormal.Background.Gradient1.Point1XPercent = 0
           StateNormal.Background.Gradient1.Point1YPercent = 0
           StateNormal.Background.Gradient1.Point2XPercent = 0
           StateNormal.Background.Gradient1.Point2YPercent = 100
-          StateNormal.Background.Gradient2.StartColor = 11270132
-          StateNormal.Background.Gradient2.EndColor = 11270132
+          StateNormal.Background.Gradient2.StartColor = 11829830
+          StateNormal.Background.Gradient2.EndColor = 11829830
           StateNormal.Background.Gradient2.GradientType = gtRadial
           StateNormal.Background.Gradient2.Point1XPercent = 50
           StateNormal.Background.Gradient2.Point1YPercent = 100
@@ -3636,10 +3634,9 @@ object form_venda: Tform_venda
           StateNormal.Background.Gradient1EndPercent = 60
           StateNormal.Background.Style = bbsGradient
           StateNormal.Border.Style = bboNone
-          StateNormal.FontEx.Color = clBlack
+          StateNormal.FontEx.Color = clWhite
           StateNormal.FontEx.FontQuality = fqFineAntialiasing
-          StateNormal.FontEx.Shadow = False
-          StateNormal.FontEx.ShadowColor = clGray
+          StateNormal.FontEx.Shadow = True
           StateNormal.FontEx.ShadowRadius = 2
           StateNormal.FontEx.ShadowOffsetX = 1
           StateNormal.FontEx.ShadowOffsetY = 1
@@ -3903,16 +3900,16 @@ object form_venda: Tform_venda
           StateHover.FontEx.ShadowOffsetX = 1
           StateHover.FontEx.ShadowOffsetY = 1
           StateHover.FontEx.Style = [fsBold]
-          StateNormal.Background.Color = 11270132
-          StateNormal.Background.Gradient1.StartColor = 11270132
-          StateNormal.Background.Gradient1.EndColor = 11270132
+          StateNormal.Background.Color = 11829830
+          StateNormal.Background.Gradient1.StartColor = 11829830
+          StateNormal.Background.Gradient1.EndColor = 11829830
           StateNormal.Background.Gradient1.GradientType = gtLinear
           StateNormal.Background.Gradient1.Point1XPercent = 0
           StateNormal.Background.Gradient1.Point1YPercent = 0
           StateNormal.Background.Gradient1.Point2XPercent = 0
           StateNormal.Background.Gradient1.Point2YPercent = 100
-          StateNormal.Background.Gradient2.StartColor = 11270132
-          StateNormal.Background.Gradient2.EndColor = 11270132
+          StateNormal.Background.Gradient2.StartColor = 11829830
+          StateNormal.Background.Gradient2.EndColor = 11829830
           StateNormal.Background.Gradient2.GradientType = gtRadial
           StateNormal.Background.Gradient2.Point1XPercent = 50
           StateNormal.Background.Gradient2.Point1YPercent = 100
@@ -3921,10 +3918,9 @@ object form_venda: Tform_venda
           StateNormal.Background.Gradient1EndPercent = 60
           StateNormal.Background.Style = bbsGradient
           StateNormal.Border.Style = bboNone
-          StateNormal.FontEx.Color = clBlack
+          StateNormal.FontEx.Color = clWhite
           StateNormal.FontEx.FontQuality = fqFineAntialiasing
-          StateNormal.FontEx.Shadow = False
-          StateNormal.FontEx.ShadowColor = clGray
+          StateNormal.FontEx.Shadow = True
           StateNormal.FontEx.ShadowRadius = 2
           StateNormal.FontEx.ShadowOffsetX = 1
           StateNormal.FontEx.ShadowOffsetY = 1
@@ -4057,28 +4053,28 @@ object form_venda: Tform_venda
       end
       object pnlVendas: TPanel
         Left = 0
-        Height = 451
+        Height = 452
         Top = 0
         Width = 1150
         Align = alClient
         BevelOuter = bvNone
-        ClientHeight = 451
+        ClientHeight = 452
         ClientWidth = 1150
         TabOrder = 1
         object pnlLateral: TPanel
           Left = 0
-          Height = 451
+          Height = 452
           Top = 0
           Width = 440
           Align = alLeft
           BevelOuter = bvNone
-          ClientHeight = 451
+          ClientHeight = 452
           ClientWidth = 440
           TabOrder = 0
           object pnlCodigo: TPanel
             Left = 0
             Height = 98
-            Top = 353
+            Top = 354
             Width = 440
             Align = alBottom
             BevelOuter = bvNone
@@ -4097,9 +4093,9 @@ object form_venda: Tform_venda
             end
             object Label2: TLabel
               Left = 20
-              Height = 15
+              Height = 14
               Top = 16
-              Width = 149
+              Width = 141
               Caption = '(Codigo * Quantidade)'
               ParentColor = False
             end
@@ -4770,11 +4766,11 @@ object form_venda: Tform_venda
         end
         object pnlDireito: TPanel
           Left = 440
-          Height = 451
+          Height = 452
           Top = 0
           Width = 710
           Align = alClient
-          ClientHeight = 451
+          ClientHeight = 452
           ClientWidth = 710
           TabOrder = 1
           object pnlGridVendas: TPanel
@@ -4787,6 +4783,7 @@ object form_venda: Tform_venda
             ClientHeight = 353
             ClientWidth = 708
             TabOrder = 0
+            OnClick = pnlGridVendasClick
             object Shape3: TShape
               Left = 8
               Height = 313
@@ -4806,6 +4803,7 @@ object form_venda: Tform_venda
               ClientHeight = 305
               ClientWidth = 679
               TabOrder = 0
+              OnResize = pnlGridResize
               object pnlTitle: TPanel
                 Left = 0
                 Height = 30
@@ -4819,6 +4817,7 @@ object form_venda: Tform_venda
                 Color = 14540260
                 ParentColor = False
                 TabOrder = 0
+                Visible = False
                 object pnlColCodigo: TPanel
                   Left = 0
                   Height = 30
@@ -4903,6 +4902,11 @@ object form_venda: Tform_venda
                 Color = clWhite
                 Columns = <                
                   item
+                    Title.Caption = 'Seq'
+                    Width = 50
+                    FieldName = 'sequencia'
+                  end                
+                  item
                     Title.Caption = 'Codigo'
                     Width = 100
                     FieldName = 'produto_id'
@@ -4935,81 +4939,121 @@ object form_venda: Tform_venda
                 DefaultRowHeight = 22
                 FixedColor = clGreen
                 FixedHotColor = clGreen
+                Font.Color = clBlack
+                Font.Style = [fsBold]
                 HeaderHotZones = []
-                Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgMultiselect]
+                Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgRowSelect]
+                ParentFont = False
                 ReadOnly = True
-                Scrollbars = ssAutoVertical
+                Scrollbars = ssNone
                 TabOrder = 1
                 TabStop = False
+                TitleFont.Color = clBlack
                 TitleFont.Height = -16
+                TitleFont.Style = [fsBold]
                 TitleStyle = tsNative
-                OnKeyPress = gridItensKeyPress
+                OnDrawColumnCell = gridItensDrawColumnCell
+                OnKeyDown = gridItensKeyDown
               end
             end
           end
           object pnlTotalizador: TPanel
             Left = 1
-            Height = 96
+            Height = 97
             Top = 354
             Width = 708
             Align = alClient
             BevelOuter = bvSpace
-            ClientHeight = 96
+            ClientHeight = 97
             ClientWidth = 708
             TabOrder = 1
             object pnlTotal: TPanel
               Left = 447
-              Height = 94
+              Height = 95
               Top = 1
               Width = 250
               Align = alRight
               Alignment = taRightJustify
               BorderSpacing.Right = 10
               BevelOuter = bvNone
-              ClientHeight = 94
+              ClientHeight = 95
               ClientWidth = 250
               TabOrder = 0
               object Shape4: TShape
                 Left = 0
-                Height = 94
+                Height = 95
                 Top = 0
                 Width = 250
                 Align = alClient
-                Brush.Color = 10086018
+                Brush.Color = 10875023
+                Brush.Style = bsVertical
                 Pen.Color = clSilver
                 Pen.Style = psPattern
                 Shape = stRoundRect
               end
-              object Label5: TLabel
-                Left = 14
-                Height = 20
-                Top = 1
-                Width = 105
-                Caption = 'Total Pagar'
-                Font.Height = -19
-                Font.Style = [fsBold]
-                ParentColor = False
-                ParentFont = False
-              end
-              object Label4: TLabel
-                Left = 20
-                Height = 54
-                Top = 40
-                Width = 215
+              object Panel1: TPanel
+                Left = 13
+                Height = 69
+                Top = 13
+                Width = 224
                 Align = alClient
-                Alignment = taRightJustify
-                BorderSpacing.Left = 20
-                BorderSpacing.Top = 40
-                BorderSpacing.Right = 15
-                Caption = 'R$ 0,00'
-                Font.Height = -27
+                BorderSpacing.Left = 3
+                BorderSpacing.Top = 3
+                BorderSpacing.Right = 3
+                BorderSpacing.Bottom = 3
+                BorderSpacing.Around = 10
+                BevelOuter = bvNone
+                ClientHeight = 69
+                ClientWidth = 224
+                Color = 10875023
                 ParentColor = False
-                ParentFont = False
+                TabOrder = 0
+                object Label5: TLabel
+                  Left = 0
+                  Height = 20
+                  Top = 0
+                  Width = 224
+                  Align = alTop
+                  Caption = 'Total Pagar'
+                  Font.Height = -19
+                  Font.Style = [fsBold]
+                  ParentColor = False
+                  ParentFont = False
+                end
+                object Label4: TLabel
+                  Left = 0
+                  Height = 29
+                  Top = 20
+                  Width = 224
+                  Align = alClient
+                  Alignment = taRightJustify
+                  Caption = 'R$ 0,00'
+                  Font.Height = -32
+                  Font.Style = [fsBold]
+                  Layout = tlCenter
+                  ParentColor = False
+                  ParentFont = False
+                  OnClick = Label4Click
+                end
+                object lblPecas: TLabel
+                  Left = 0
+                  Height = 20
+                  Top = 49
+                  Width = 224
+                  Align = alBottom
+                  Alignment = taCenter
+                  AutoSize = False
+                  Caption = 'Peças: 0'
+                  Font.Color = 8479077
+                  Font.Height = -13
+                  ParentColor = False
+                  ParentFont = False
+                end
               end
             end
             object PnlCadatro: TPanel
               Left = 11
-              Height = 94
+              Height = 95
               Top = 1
               Width = 426
               Align = alClient
@@ -5017,30 +5061,33 @@ object form_venda: Tform_venda
               BorderSpacing.Left = 10
               BorderSpacing.Right = 10
               BevelOuter = bvNone
-              ClientHeight = 94
+              ClientHeight = 95
               ClientWidth = 426
+              Color = clWhite
+              ParentColor = False
               TabOrder = 1
               object Shape5: TShape
                 Left = 0
-                Height = 94
+                Height = 95
                 Top = 0
                 Width = 426
                 Align = alClient
-                Brush.Color = 13684948
+                Brush.Color = 15393754
                 Pen.Color = clSilver
                 Pen.Style = psPattern
+                OnChangeBounds = Shape5ChangeBounds
                 Shape = stRoundRect
               end
               object ed_cliente: TLabeledEdit
                 Left = 8
-                Height = 25
+                Height = 24
                 Top = 22
                 Width = 406
                 Anchors = [akTop, akLeft, akRight]
                 BorderStyle = bsNone
-                EditLabel.Height = 15
+                EditLabel.Height = 14
                 EditLabel.Width = 406
-                EditLabel.Caption = 'Cliente (F1)'
+                EditLabel.Caption = ' '
                 EditLabel.ParentColor = False
                 Font.Color = clBlue
                 ParentFont = False
@@ -5050,14 +5097,14 @@ object form_venda: Tform_venda
               end
               object ed_vendedor: TLabeledEdit
                 Left = 8
-                Height = 25
+                Height = 24
                 Top = 71
                 Width = 206
                 Anchors = [akTop, akLeft, akRight]
                 BorderStyle = bsNone
-                EditLabel.Height = 15
+                EditLabel.Height = 14
                 EditLabel.Width = 206
-                EditLabel.Caption = 'Vendedor (F2)'
+                EditLabel.Caption = '  '
                 EditLabel.ParentColor = False
                 Font.Color = clBlue
                 ParentFont = False
@@ -5067,20 +5114,48 @@ object form_venda: Tform_venda
               end
               object ed_cpf: TLabeledEdit
                 Left = 222
-                Height = 25
+                Height = 24
                 Top = 71
                 Width = 192
                 Anchors = [akTop, akRight]
                 BorderStyle = bsNone
-                EditLabel.Height = 15
+                EditLabel.Height = 14
                 EditLabel.Width = 192
-                EditLabel.Caption = 'CPF ( CTRL + F1 )'
+                EditLabel.Caption = '  '
                 EditLabel.ParentColor = False
                 Font.Color = clBlue
                 ParentFont = False
                 ReadOnly = True
                 TabOrder = 0
                 TabStop = False
+                OnChange = ed_cpfChange
+              end
+              object SpeedButton2: TSpeedButton
+                Left = 8
+                Height = 22
+                Top = 48
+                Width = 135
+                Action = ac_alterarVendedor
+                Caption = 'Vendedor (Ctrl + F2)'
+                Flat = True
+              end
+              object SpeedButton3: TSpeedButton
+                Left = 225
+                Height = 22
+                Top = 48
+                Width = 102
+                Action = ac_alterarCPF
+                Caption = 'CPF (CTRL + F1)'
+                Flat = True
+              end
+              object SpeedButton4: TSpeedButton
+                Left = 8
+                Height = 22
+                Top = 1
+                Width = 80
+                Action = ac_alterarCliente
+                Caption = 'Cliente (F1)'
+                Flat = True
               end
             end
           end
@@ -5679,12 +5754,43 @@ object form_venda: Tform_venda
       OnExecute = Action1Execute
       ShortCut = 116
     end
+    object ac_cancelamento: TAction
+      Caption = 'Cancelamento'
+      OnExecute = ac_cancelamentoExecute
+      ShortCut = 118
+    end
+    object ac_alterarCliente: TAction
+      Caption = 'Alterar Cliente'
+      OnExecute = ac_alterarClienteExecute
+      ShortCut = 112
+    end
+    object ac_alterarVendedor: TAction
+      Caption = 'Alterar Vendedor (Ctrl + F2)'
+      OnExecute = ac_alterarVendedorExecute
+      ShortCut = 16497
+    end
+    object ac_alterarCPF: TAction
+      Caption = 'Alterar CPF'
+      OnExecute = ac_alterarCPFExecute
+      ShortCut = 16496
+    end
+    object ac_remover: TAction
+      Caption = 'Remover  Item'
+      OnExecute = ac_removerExecute
+      ShortCut = 113
+    end
+    object ac_fechavenda: TAction
+      Caption = 'Fecha Venda'
+      OnExecute = ac_fechavendaExecute
+      ShortCut = 117
+    end
   end
   object qryItens: TBufDataset
     FieldDefs = <>
     Left = 1056
     Top = 288
     object qryItensproduto_id: TLongintField
+      Alignment = taLeftJustify
       FieldKind = fkData
       FieldName = 'produto_id'
       Index = 0
@@ -5725,6 +5831,25 @@ object form_venda: Tform_venda
       FieldKind = fkData
       FieldName = 'sub_total'
       Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryItenssequencia: TLongintField
+      Alignment = taLeftJustify
+      FieldKind = fkData
+      FieldName = 'sequencia'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryItensid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False

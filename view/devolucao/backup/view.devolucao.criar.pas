@@ -117,7 +117,7 @@ end;
 
 procedure Tf_devolucaoCriar.ac_sairExecute(Sender: TObject);
 begin
-    f_devolucaoCriar.Close;
+    self.Close;
 end;
 
 procedure Tf_devolucaoCriar.ac_buscaExecute(Sender: TObject);
@@ -161,7 +161,7 @@ procedure Tf_devolucaoCriar.FormResize(Sender: TObject);
 var _size, _variacao : Double;
 begin
   // 1156    h: 618
-   _variacao := (((f_devolucaoCriar.Width + f_devolucaoCriar.Height) / 1774)*100)- 100;
+   _variacao := (((self.Width + self.Height) / 1774)*100)- 100;
 
    _size  := 10;
    if _variacao <> 0 then
@@ -169,18 +169,16 @@ begin
 
    if _size < 10 then _size := 10;
 
-   pnlBanner.Height:= trunc((f_devolucaoCriar.Height * 0.049));
+   pnlBanner.Height:= trunc((self.Height * 0.049));
    pnlBanner.Font.Size:= trunc(_size);
 
-   pnlTitle.Height:= trunc((f_devolucaoCriar.Height * 0.12));
-   pnlTotal.Height:= trunc((f_devolucaoCriar.Height * 0.09));
-   pnlBotao.Height:= trunc((f_devolucaoCriar.Height * 0.08));
+   pnlTitle.Height:= trunc((self.Height * 0.12));
+   pnlTotal.Height:= trunc((self.Height * 0.09));
+   pnlBotao.Height:= trunc((self.Height * 0.08));
 
    pnlDadosCliente.Height:= trunc((f_devolucaoCriar.Height * 0.207));
    pnlLinha1.Height:= trunc((pnlDadosCliente.Height /2));
    pnlLinha2.Height:= trunc((pnlDadosCliente.Height /2));
-
-
 
    {Linha 1}
    ed_dataEmissao.Width:= trunc((pnlDadosCliente.Width * 0.147));

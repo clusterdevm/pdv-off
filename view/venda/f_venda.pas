@@ -7,9 +7,10 @@ interface
 uses
   Classes, SysUtils, BufDataset, DB, Forms, Controls, Graphics, Dialogs,
   ExtCtrls, StdCtrls, Buttons, Menus, ComCtrls, DBGrids, ActnList, Grids,
-  view.condicional.filtrar, view.devolucao.filtrar, uf_crediario, VTHeaderPopup,
-  BGRAShape, atshapelinebgra, BGRAResizeSpeedButton, BCButton, ColorSpeedButton, jsons,
-  clipbrd;
+  view.condicional.filtrar, view.devolucao.filtrar, uf_crediario,
+  view.filtros.cliente, uf_venda.fechamento, VTHeaderPopup, BGRAShape,
+  atshapelinebgra, BGRAResizeSpeedButton, BCButton, ColorSpeedButton, jsons,
+  clipbrd, LCLtype, LCLProc;
 
 type
 
@@ -17,6 +18,12 @@ type
 
   Tform_venda = class(TForm)
     Action1: TAction;
+    ac_fechavenda: TAction;
+    ac_remover: TAction;
+    ac_alterarCPF: TAction;
+    ac_alterarVendedor: TAction;
+    ac_alterarCliente: TAction;
+    ac_cancelamento: TAction;
     ac_recebimento: TAction;
     ac_devolucao: TAction;
     ac_condicional: TAction;
@@ -37,6 +44,8 @@ type
     BCButton8: TBCButton;
     BCButton9: TBCButton;
     dsItens: TDataSource;
+    lblPecas: TLabel;
+    Panel1: TPanel;
     qryItens: TBufDataset;
     gridItens: TDBGrid;
     Image1: TImage;
@@ -79,8 +88,10 @@ type
     pnlImagem: TPanel;
     PopupMenu1: TPopupMenu;
     qryItensdescricao: TStringField;
+    qryItensid: TLongintField;
     qryItensproduto_id: TLongintField;
     qryItensquantidade: TFloatField;
+    qryItenssequencia: TLongintField;
     qryItenssub_total: TFloatField;
     qryItensvalor_unitario: TFloatField;
     Shape1: TShape;
@@ -89,22 +100,40 @@ type
     Shape4: TShape;
     Shape5: TShape;
     SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
     TabControl1: TTabControl;
     procedure Action1Execute(Sender: TObject);
     procedure ac_abreCaixaExecute(Sender: TObject);
+    procedure ac_alterarClienteExecute(Sender: TObject);
+    procedure ac_alterarCPFExecute(Sender: TObject);
+    procedure ac_alterarVendedorExecute(Sender: TObject);
+    procedure ac_cancelamentoExecute(Sender: TObject);
     procedure ac_condicionalExecute(Sender: TObject);
     procedure ac_devolucaoExecute(Sender: TObject);
     procedure ac_fechaCaixaExecute(Sender: TObject);
+    procedure ac_fechavendaExecute(Sender: TObject);
     procedure ac_recebimentoExecute(Sender: TObject);
+    procedure ac_removerExecute(Sender: TObject);
     procedure ac_sairExecute(Sender: TObject);
     procedure ac_sangriaExecute(Sender: TObject);
     procedure ac_suprimentoExecute(Sender: TObject);
+    procedure ed_cpfChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: char);
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure gridItensDrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure gridItensKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure gridItensKeyPress(Sender: TObject; var Key: char);
+    procedure Label4Click(Sender: TObject);
+    procedure pnlGridResize(Sender: TObject);
+    procedure pnlGridVendasClick(Sender: TObject);
     procedure Shape3Resize(Sender: TObject);
+    procedure Shape5ChangeBounds(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure TabControl1Change(Sender: TObject);
   private
@@ -150,6 +179,7 @@ begin
     lblCodigo.Caption:= '';
     pnlBase.Visible:= sessao.GetCaixa <> '';
 
+    TabControl1.Tabs.Clear;
     pnlCodigo.Visible:= false;
     pnlImagem.Visible:= false;
     pnlDireito.Visible:= false;
@@ -178,6 +208,16 @@ begin
           end;
           SetVenda;
      end;
+     if TabControl1.Tabs.Count = 0 then
+     Begin
+        ac_abreCaixa.ShortCut := TextToShortCut('F1');
+        ac_alterarCliente.ShortCut:= TextToShortCut('+');
+     end else
+     Begin
+       ac_abreCaixa.ShortCut := TextToShortCut('+');
+       ac_alterarCliente.ShortCut:= TextToShortCut('F1');
+     end;
+
    finally
        FreeAndNil(_db);
    end;
@@ -188,6 +228,10 @@ begin
   pnlCodigo.Visible:= TabControl1.Tabs.Count > 0;
   pnlImagem.Visible:= TabControl1.Tabs.Count > 0;
   pnlDireito.Visible:= TabControl1.Tabs.Count > 0;
+
+//  gridItens.SelectedColor:= clWhite;
+//  gridItens.Font.Color:= clBlack;
+  gridItens.SelectedColor:= $00BEEDF2;
 end;
 
 procedure Tform_venda.SetNovaAba;
@@ -195,14 +239,12 @@ var _db : TConexao;
      _nota : TJsonObject;
      _cpf : string;
 begin
-
   _cpf := '';
-
-  if messagedlg('CPF na Nota ?',mtInformation,[mbyes,mbno],0) = mryes then
+  //  if messagedlg('CPF na Nota ?',mtInformation,[mbyes,mbno],0) = mryes then
+  if Application.MessageBox('CPF Na Nota','Cluster Sistemas',mb_yesno + mb_iconquestion) = id_yes then
   Begin
       InputQuery('Cluster Sistemas','CPF Na Nota',_cpf);
   end;
-
 
     try
        _db := TConexao.Create;
@@ -216,8 +258,10 @@ begin
        _nota['prazo_id'].AsInteger:= 1;
        _nota['coi_id'].AsInteger:= 1;
        _nota['entrada_saida'].AsString:= 'S';
+       _nota['sinc_pendente'].AsString:= 'S';
        _nota['status'].AsString:= 'rascunho';
        _nota['cpf'].AsString:= _cpf;
+       _nota['uuid'].AsString:= GetUUID;
        _db.InserirDados('vendas',_nota);
        TabControl1.Tabs.Add('Venda '+FormatFloat('000000000',_nota['documento'].AsInteger));
        TabControl1.TabIndex:= TabControl1.Tabs.Count-1;
@@ -235,8 +279,12 @@ var _item : TJsonObject;
      _produtoID : Integer;
      _quantidade : Double;
 begin
+
   if TabControl1.Tabs.Count = 0 then
      SetNovaAba;
+
+  if lblCodigo.Caption = '' then
+     exit;
 
 
 
@@ -253,6 +301,8 @@ begin
      _item['descricao'].AsString:= 'Produto Teste';
      _item['valor_unitario'].AsNumber:= 10.52;
      _item['sub_total'].AsNumber:=  50.00;
+     _item['sinc_pendente'].AsString:= 'S';
+     _item['uuid'].AsString:=GetUUID;
      _db.InserirDados('venda_itens',_item);
 
      SetVenda;
@@ -270,30 +320,40 @@ begin
     gridItens.DefaultRowHeight:= trunc((Shape3.Height * 0.08));
     pnlTitle.Height:= gridItens.DefaultRowHeight;
 
-    gridItens.Columns[0].Width:= trunc((Shape3.Width * 0.145));
-    gridItens.Columns[1].Width:= trunc((Shape3.Width * 0.37));
-    gridItens.Columns[2].Width:= trunc((Shape3.Width * 0.11));
-    gridItens.Columns[3].Width:= trunc((Shape3.Width * 0.175));
+    gridItens.Columns[1].Width:= trunc((Shape3.Width * 0.145));
+   // gridItens.Columns[2].Width:= trunc((Shape3.Width * 0.37));
+    gridItens.Columns[3].Width:= trunc((Shape3.Width * 0.11));
     gridItens.Columns[4].Width:= trunc((Shape3.Width * 0.175));
+    gridItens.Columns[5].Width:= trunc((Shape3.Width * 0.175));
     gridItens.TitleFont.Size := trunc((Shape3.Height * 0.030));
 
-
-    pnlColCodigo.Width:= trunc((Shape3.Width * 0.145));
-    pnlColDescricao.Width:= trunc((Shape3.Width * 0.37));
-    pnlColQuantidade.Width:= trunc((Shape3.Width * 0.11));
-    pnlColUnitario.Width:= trunc((Shape3.Width * 0.175));
-    pnlColUnitario1.Width := trunc((Shape3.Width * 0.175));
-
-
+    //pnlColCodigo.Width:= trunc((Shape3.Width * 0.145));
+    //pnlColDescricao.Width:= trunc((Shape3.Width * 0.37));
+    //pnlColQuantidade.Width:= trunc((Shape3.Width * 0.11));
+    //pnlColUnitario.Width:= trunc((Shape3.Width * 0.175));
+    //pnlColUnitario1.Width := trunc((Shape3.Width * 0.175));
 
     if  gridItens.TitleFont.Size < 12 then
       gridItens.TitleFont.Size := 12;
 
-    pnlColCodigo.Font.Size:= gridItens.TitleFont.Size ;
-    pnlColDescricao.Font.Size:= gridItens.TitleFont.Size ;
-    pnlColQuantidade.Font.Size:= gridItens.TitleFont.Size ;
-    pnlColUnitario.Font.Size:= gridItens.TitleFont.Size ;
-    pnlColUnitario1.Font.Size := gridItens.TitleFont.Size ;
+    //pnlColCodigo.Font.Size:= gridItens.TitleFont.Size ;
+    //pnlColDescricao.Font.Size:= gridItens.TitleFont.Size ;
+    //pnlColQuantidade.Font.Size:= gridItens.TitleFont.Size ;
+    //pnlColUnitario.Font.Size:= gridItens.TitleFont.Size ;
+    //pnlColUnitario1.Font.Size := gridItens.TitleFont.Size ;
+
+    gridItens.Columns[2].Width:= pnlGrid.Width -( gridItens.Columns[0].Width +
+                                                  gridItens.Columns[1].Width +
+                                                  gridItens.Columns[3].Width +
+                                                  gridItens.Columns[4].Width +
+                                                  gridItens.Columns[5].Width +
+                                                  40
+                                                 );
+end;
+
+procedure Tform_venda.Shape5ChangeBounds(Sender: TObject);
+begin
+
 end;
 
 procedure Tform_venda.FormResize(Sender: TObject);
@@ -309,11 +369,7 @@ begin
     PnlCadatro.Width:= trunc((pnlTotalizador.Width * 0.30));
 
 
-    //gridItens.Columns[1].Width:= gridItens.Width -( gridItens.Columns[0].Width +
-    //                                                gridItens.Columns[2].Width +
-    //                                                gridItens.Columns[3].Width +
-    //                                                gridItens.Columns[4].Width
-    //                                               );
+
 end;
 
 procedure Tform_venda.FormShow(Sender: TObject);
@@ -325,11 +381,48 @@ begin
   GetVendasAndamento;
 end;
 
+procedure Tform_venda.gridItensDrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
+begin
+    if gdSelected in State then
+    begin
+       TDBGrid( Sender ).Canvas.Brush.Color := $00EAE3DA;
+       TDBGrid( Sender ).Canvas.Font.Color  := clBlack;
+       //TDBGrid( Sender ).Canvas.Pen.Color := Brush.Color;
+    end;
+    TDBGrid( Sender ).DefaultDrawColumnCell( Rect, DataCol, Column, State );
+end;
+
+procedure Tform_venda.gridItensKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+var _char : Char;
+begin
+  if (key = VK_RETURN) then
+  Begin
+     _char := #13;
+     FormKeyPress(self,_char);
+  end;
+
+end;
+
 procedure Tform_venda.gridItensKeyPress(Sender: TObject; var Key: char);
 begin
-   form_venda.SetFocus;
-   qryItens.Cancel;
-   key := #0;
+
+end;
+
+procedure Tform_venda.Label4Click(Sender: TObject);
+begin
+
+end;
+
+procedure Tform_venda.pnlGridResize(Sender: TObject);
+begin
+
+end;
+
+procedure Tform_venda.pnlGridVendasClick(Sender: TObject);
+begin
+
 end;
 
 procedure Tform_venda.ac_sairExecute(Sender: TObject);
@@ -348,6 +441,14 @@ begin
   sessao.suprimento;
 end;
 
+procedure Tform_venda.ed_cpfChange(Sender: TObject);
+begin
+  if trim(ed_cpf.Text) = '' then
+     ed_cpf.Color := clRed
+  else
+     ed_cpf.Color := clGreen;
+end;
+
 procedure Tform_venda.FormCreate(Sender: TObject);
 begin
   qryItens.CreateDataset;
@@ -361,9 +462,123 @@ begin
         sessao.AbreCaixa;
         GetVendasAndamento;
     end else
-    Begin
-         messagedlg('Ja Existe um caixa aberto em andamento',mtWarning,[mbok],0);
+       messagedlg('Ja Existe um caixa aberto em andamento',mtWarning,[mbok],0);
+end;
+
+procedure Tform_venda.ac_alterarClienteExecute(Sender: TObject);
+var _venda : TJsonObject;
+    _db : TConexao;
+begin
+
+  frmFiltroCliente := TfrmFiltroCliente.Create(nil);
+
+  Sessao.getID:='';
+  frmFiltroCliente._FiltroID := true;
+  //frmFiltroCliente._OnlyCustomer:= self.onlyColaborador;
+  frmFiltroCliente.ShowModal;
+
+  if Sessao.getID = '' then
+     exit;
+
+    try
+        _venda := TJsonObject.Create();
+        _db := TConexao.Create;
+        _venda['id'].AsString:= getNumeros(TabControl1.Tabs[TabControl1.TabIndex]);
+        _venda['sinc_pendente'].AsString:= 'S';
+        _venda['cliente_id'].AsString:= sessao.getID;
+        _db.updateSQl('vendas',_venda);
+        SetVenda;
+    finally
+        FreeAndNil(_venda);
+        FreeAndNil(_db);
     end;
+end;
+
+procedure Tform_venda.ac_alterarCPFExecute(Sender: TObject);
+var _venda : TJsonObject;
+ _db : TConexao;
+    _cpf : string;
+begin
+   _cpf := ed_cpf.Text;
+   if not InputQuery('Cluster Sistemas','Informe CPF',_cpf) then
+      exit;
+
+
+    try
+        _db := TConexao.Create;
+        _venda := TJsonObject.Create();
+        _venda['id'].AsString:= getNumeros(TabControl1.Tabs[TabControl1.TabIndex]);
+        _venda['sinc_pendente'].AsString:= 'S';
+        _venda['cpf'].AsString:= _cpf;
+        _db.updateSQl('vendas',_venda);
+        SetVenda;
+    finally
+        FreeAndNil(_venda);
+
+    end;
+end;
+
+procedure Tform_venda.ac_alterarVendedorExecute(Sender: TObject);
+var _venda : TJsonObject;
+    _db : TConexao;
+begin
+
+  frmFiltroCliente := TfrmFiltroCliente.Create(nil);
+
+  Sessao.getID:='';
+  frmFiltroCliente._FiltroID := true;
+  frmFiltroCliente._OnlyCustomer:= true;
+  frmFiltroCliente.ShowModal;
+
+  if Sessao.getID = '' then
+     exit;
+
+    try
+        _venda := TJsonObject.Create();
+        _db := TConexao.Create;
+        _venda['id'].AsString:= getNumeros(TabControl1.Tabs[TabControl1.TabIndex]);
+        _venda['sinc_pendente'].AsString:= 'S';
+        _venda['vendedor_id'].AsString:= sessao.getID;
+        _db.updateSQl('vendas',_venda);
+        SetVenda;
+    finally
+        FreeAndNil(_venda);
+        FreeAndNil(_db);
+    end;
+end;
+
+procedure Tform_venda.ac_cancelamentoExecute(Sender: TObject);
+var _db : TConexao;
+     _motivo : string;
+     _venda : TJsonObject;
+begin
+  if TabControl1.Tabs.Count > 0 then
+  Begin
+       if Application.MessageBox('Cancelar Venda','Cluster Sistemas',mb_yesno + mb_iconquestion) = id_yes then
+       Begin
+            if not InputQuery('Cluster Sistemas','Informe Motivo',_motivo) then
+            Begin
+                 Messagedlg('Motivo Não informado',mtWarning,[mbok],0);
+                 abort;
+            end;
+            _motivo:= 'Cancelamento de venda em andamento Motivo > : '+_motivo;
+
+            try
+               _db := TConexao.Create;
+               _venda := TJsonObject.Create();
+               _venda['id'].AsString:=getNumeros(TabControl1.Tabs[TabControl1.TabIndex]);
+               _venda['dados_adicionais'].AsString:= _motivo;
+               _venda['sinc_pendente'].AsString:= 'S';
+               _venda['status'].AsString:= 'cancelado';
+               _db.updateSQl('vendas',_venda);
+
+               GetVendasAndamento;
+            finally
+                FreeAndNil(_db);
+                FreeAndNIl(_venda)
+            end;
+       end;
+  end;
 end;
 
 procedure Tform_venda.Action1Execute(Sender: TObject);
@@ -395,15 +610,56 @@ begin
 
 end;
 
+procedure Tform_venda.ac_fechavendaExecute(Sender: TObject);
+begin
+   CriarForm(Tf_fechamento);
+end;
+
 procedure Tform_venda.ac_recebimentoExecute(Sender: TObject);
 begin
   CriarForm(Tf_crediario);
 end;
 
+procedure Tform_venda.ac_removerExecute(Sender: TObject);
+var _sequencia : string;
+    _db : TConexao;
+    _itens : TJsonObject;
+begin
+   if TabControl1.Tabs.Count > 0 then
+   Begin
+       if not InputQuery('Cluster Sistemas', 'Iforme a Sequencia a ser removida',_sequencia) then
+          exit;
+
+       if (StrToIntDef(_sequencia,0) = 0) or (StrToIntDef(_sequencia,0) > qryItens.RecordCount) then
+       Begin
+          Messagedlg('Sequencia Invalida',mtError,[mbok],0);
+          exit;
+       end;
+
+       try
+           _db := TConexao.Create;
+           qryItens.DisableControls;
+           qryItens.RecNo:= StrToInt(_sequencia);
+
+           _itens := TJsonObject.Create();
+           _itens['status'].AsString:= 'R';
+           _itens['sinc_pendente'].AsString:= 'S';
+           _itens['id'].AsInteger:=qryItensid.Value;
+           _db.updateSQl('venda_itens',_itens);
+           SetVenda;
+       finally
+           qryItens.EnableControls;
+           FreeAndNil(_db);
+       end;
+   end;
+end;
+
 procedure Tform_venda.FormKeyPress(Sender: TObject; var Key: char);
 begin
 
-  if pnlBase.Visible = false then
+
+
+    if pnlBase.Visible = false then
 
       exit;
 
@@ -470,6 +726,10 @@ begin
     Begin
          try
              _db := TConexao.Create;
+             Limpa(qryItens);
+             //qryItens.Close;
+             //qryItens.Open;
+
              qryItens.DisableControls;
              with _db.Query do
              Begin
@@ -477,9 +737,10 @@ begin
                   Sql.Clear;
                   Sql.Add('select * from venda_itens ');
                   Sql.Add(' where venda_id = '+QuotedStr(getNumeros(TabControl1.Tabs[TabControl1.TabIndex])));
+                  Sql.Add(' and (status is null  or status = '''' )');
                   Open;
+                  //showmessage(IntTostr(RecordCount));
                   first;
-                  Limpa(qryItens);
 
                   while not eof do
                   Begin
@@ -488,6 +749,8 @@ begin
                      qryItensproduto_id.Value:= FieldByName('produto_id').AsInteger;
                      qryItensquantidade.Value:= FieldByName('quantidade').AsFloat;
                      qryItensvalor_unitario.Value:= FieldByName('valor_unitario').AsFloat;
+                     qryItensid.Value:= FieldBYName('id').AsInteger;
+                     qryItenssequencia.Value:= qryItens.RecordCount+1;
                      qryItens.Post;
                      Next;
                   end;

@@ -244,7 +244,12 @@ begin
                 frmPrincipal := TfrmPrincipal.Create(nil);
                 frm_login.Hide;
                 Sessao.segundoplano := true;
-                frmPrincipal.ShowModal;
+
+                {$IFDEF MSWINDOWS}
+                   frmPrincipal.Show;
+                {$else}
+                   frmPrincipal.ShowModal;
+                {$ENDIF}
            end;
        end;
 

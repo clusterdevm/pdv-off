@@ -39,7 +39,7 @@ Type
          Function DataSetToArrayString(ADataset:TBufDataset; _nomeObjeto:String = ''): String;
          function ToObjectString(_nomeObjeto:String ;_first : Boolean = false):TJsonObject;
 
-         procedure updateSQl(_tabela:String;_Json, _jsonOlD:TJsonObject);
+         procedure updateSQl(_tabela:String;_Json:TJsonObject);
          procedure updateSQlArray(_tabela:String;_JsonArray:TJsonArray; _forceUpdate : Boolean = false);
          Procedure ProcessaSinc(_name : String ; _jArray  : TJsonArray);
 
@@ -577,7 +577,7 @@ begin
 
 end;
 
-procedure TConexao.updateSQl(_tabela:String;_Json, _jsonOlD:TJsonObject);
+procedure TConexao.updateSQl(_tabela:String;_Json:TJsonObject);
 var i : Integer;
    _value : TStringlist;
   _delimiter : String;

@@ -69,7 +69,7 @@
         <PackageName Value="LCL"/>
       </Item13>
     </RequiredPackages>
-    <Units Count="42">
+    <Units Count="44">
       <Unit0>
         <Filename Value="Cluster_PDV.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -319,8 +319,22 @@
         <Filename Value="view/caixa/uf_crediario.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="f_crediario"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit41>
+      <Unit42>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="f_fechamento"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="framePagamento"/>
+        <ResourceBaseClass Value="Frame"/>
+      </Unit43>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -354,7 +368,7 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="31">
+    <Exceptions Count="33">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -448,6 +462,12 @@
       <Item31>
         <Name Value="FPImageException"/>
       </Item31>
+      <Item32>
+        <Name Value="RunError(210)"/>
+      </Item32>
+      <Item33>
+        <Name Value="EObjectCheck"/>
+      </Item33>
     </Exceptions>
   </Debugging>
 </CONFIG>

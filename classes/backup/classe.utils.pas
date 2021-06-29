@@ -19,6 +19,7 @@ var Sessao : TSessao;
     WCursor : TWaitCursor;
     appVersao : string;
     appProducao : boolean;
+    GSincronizar : boolean;
 
   function md5Text(value:string):String;
   function bioswindows : String;
@@ -77,13 +78,14 @@ procedure CriarForm(NomeForm: TFormClass; _fullScream : Boolean = false);
 var
   form: TForm;
 begin
-  form := NomeForm.Create(Application);
+  form := NomeForm.Create(nil);
+
   try
-    form.BorderIcons:=  [biMinimize];
+     form.BorderIcons:=  [biMinimize];
+     if not _fullScream  then
+        form.BorderStyle := bsSizeable;
 
-    if not _fullScream  then form.BorderStyle := bsSizeable;
-
-    form.ShowModal;
+      form.ShowModal;
   finally
     form.release;
     Form :=nil;
@@ -409,13 +411,16 @@ end;
 
 Procedure Limpa(aDataSet:TBufDataset);
 Begin
-   try
-       aDataSet.DisableControls;
-       while not aDataSet.eof do
-           aDataSet.Delete;
-   finally
-      aDataSet.EnableControls;
-   end;
+
+   aDataSet.Close;
+   aDataSet.Open;
+   //try
+   //    aDataSet.DisableControls;
+   //    while not aDataSet.eof do
+   //        aDataSet.Delete;
+   //finally
+   //   aDataSet.EnableControls;
+   //end;
 end;
 
 function bioswindows : String;

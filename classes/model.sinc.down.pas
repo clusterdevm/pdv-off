@@ -261,6 +261,12 @@ try
                      ' '+_type+
                      ' '+ _notNull;
 
+            if (LowerCase(_item['column_name'].AsString) = 'id') and
+               (LowerCase(_tabelaName) = 'venda_itens') then
+            Begin
+                  _line:= _line + ' PRIMARY KEY AUTOINCREMENT ';
+            end;
+
             _sql.Add(_line);
 
             checaIndex(_item['column_name'].AsString);
