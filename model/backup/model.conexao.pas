@@ -140,6 +140,7 @@ begin
      Conector.Password      := '';
      Conector.User          := '';
      Conector.Protocol      := 'sqlite-3';
+     Conector.AutoCommit:= true;
      Conector.ClientCodepage:='UTF-8';
      {$IFDEF MSWINDOWS}
         Conector.LibraryLocation:='sqlite3.dll';
@@ -150,6 +151,8 @@ begin
      FQuery.Connection := Conector;
 
      if CriarBase then criaBaseDefault;
+
+     Sincronizar := true;
 
   except
      on e:Exception do
@@ -364,8 +367,10 @@ begin
             Sql.Add('apelido text,');
             Sql.Add('status text,');
             Sql.Add('primeira_sinc text,');
-            Sql.Add('tabela_preco_id integer,');
-            Sql.Add('estoque_id integer,');
+            Sql.Add('nfe_id integer,');
+            Sql.Add('nfce integer,');
+            Sql.Add('dav integer,');
+            Sql.Add('orcamento integer,');
             Sql.Add('id integer);');
             ExecSQL;
        end;
@@ -421,22 +426,54 @@ begin
           Sql.Add('  where m.name = '+QuotedStr(_tabela));
           open;
 
-          _find := false;
-          while not eof do
+          _find := true;
+          if (_tabela = 'financeiro_caixa') or (_tabela = 'financeiro') or
+             (_tabela = 'vendas_itens') or (_tabela = 'vendas')
+          then
+             _find := false;
+          if _find = false then
           Begin
-              if _tabela = 'financeiro_caixa' then
-              Begin
-                   if FieldByName('column_name').AsString = 'sinc_pendente' then
-                   Begin
-                       _find := true;
-                       Break;
-                   end;
-              end;
-              Next;
+                first;
+                while not eof do
+                Begin
+                     if FieldByName('column_name').AsString = 'sinc_pendente' then
+                     Begin
+                         _find := true;
+                         Break;
+                     end;
+                    Next;
+                end;
           end;
 
           if not _find then
              ExecutaSQL('alter table '+_tabela+' add sinc_pendente text;');
+
+
+          // Checando UUID
+          _find := true;
+
+          if (_tabela = 'financeiro_caixa') or (_tabela = 'financeiro') or
+             (_tabela = 'vendas_itens') or (_tabela = 'vendas')
+          then
+             _find := false;
+
+
+          if _find = false then
+          Begin
+                first;
+                while not eof do
+                Begin
+                     if FieldByName('column_name').AsString = 'uuid' then
+                     Begin
+                         _find := true;
+                         Break;
+                     end;
+                    Next;
+                end;
+          end;
+
+          if not _find then
+             ExecutaSQL('alter table '+_tabela+' add uuid text;');
        end;
    finally
      FreeAndNil(qryCheca);

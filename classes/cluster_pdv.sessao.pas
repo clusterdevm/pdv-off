@@ -77,7 +77,9 @@ private
       Function DateToLocal(value:string):TDateTime;overload;
       Function DateToLocal(value:TDateTime):TDateTime;overload;
 
+      Function GetSerieID(_Cpf : Boolean = false ): integer;
 
+      Function GetNewDocumento : Integer;
 
       Function GetCaixa : string;
       Procedure AbreCaixa ;
@@ -354,6 +356,37 @@ end;
 function TSessao.DateToLocal(value: TDateTime): TDateTime;
 begin
    Result := UniversalTimeToLocal(value,GetUtcOFF);;
+end;
+
+function TSessao.GetSerieID(_Cpf : Boolean ): integer;
+begin
+  result := 4;
+end;
+
+function TSessao.GetNewDocumento: Integer;
+var _db : TConexao;
+begin
+   try
+       _db := TConexao.Create;
+       with _db.Query do
+       Begin
+            Close;
+            Sql.Clear;
+            Sql.Add('update serie_fiscal set documento = documento + 1');
+            Sql.Add(' where id = '+QuotedStr(IntToStr(GetSerieID())));
+            ExecSQL;
+
+            Close;
+            Sql.Clear;
+            Sql.Add('select documento from serie_fiscal');
+            Sql.Add(' where id = '+QuotedStr(IntToStr(GetSerieID)));
+            open;
+
+            Result := FieldByName('documento').AsInteger;
+       end;
+   finally
+       FreeAndNIl(_db);
+   end;
 end;
 
 function TSessao.GetCaixa: string;

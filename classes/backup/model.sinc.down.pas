@@ -124,7 +124,7 @@ try
         //_api.fphttpclient.OnDataReceived:= ControleDown;
         _api.Execute;
 
-        RegistraLogErro('Requisicao: '_api.response);
+        RegistraLogErro('Requisicao: '+_api.response);
 
 
         if not (_api.ResponseCode in [200..207]) then
@@ -570,6 +570,8 @@ begin
 
   _db := TConexao.Create;
 
+  valida_table('financeiro_caixa');
+  valida_table('financeiro');
   valida_table('financeiro_caixa');
 
   inherited Create(CreateSuspended);

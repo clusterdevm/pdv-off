@@ -19,6 +19,7 @@ var Sessao : TSessao;
     WCursor : TWaitCursor;
     appVersao : string;
     appProducao : boolean;
+    GSincronizar : boolean;
 
   function md5Text(value:string):String;
   function bioswindows : String;
@@ -55,12 +56,22 @@ var Sessao : TSessao;
   Function GetUUID : String;
   Function GetFloat(value:string) : Extended;
   Procedure Limpa(aDataSet:TBufDataset);
-
+  function getNumeros(fField : String): String;
   Procedure CriarForm(NomeForm: TFormClass; _fullScream : Boolean = false);
 
 implementation
 
 uses model.request.http, uf_download, form.principal;
+
+function getNumeros(fField : String): String;
+var
+  I : Byte;
+begin
+   Result := '';
+   for I := 1 To Length(fField) do
+       if fField [I] In ['0'..'9'] Then
+            Result := Result + fField [I];
+end;
 
 
 procedure CriarForm(NomeForm: TFormClass; _fullScream : Boolean = false);

@@ -159,6 +159,8 @@ begin
     FBody     := TStringList.Create;
     FHeader   := THeader.Create(THeaderItens);
     FReturn := TJsonObject.Create;
+
+    GSincronizar := true;
 end;
 
 destructor TRequisicao.Destroy;

@@ -571,6 +571,9 @@ begin
   _db := TConexao.Create;
 
   valida_table('financeiro_caixa');
+  valida_table('financeiro');
+  valida_table('vendas');
+  valida_table('venda_itens');
 
   inherited Create(CreateSuspended);
 end;

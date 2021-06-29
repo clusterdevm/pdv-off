@@ -159,6 +159,8 @@ begin
     FBody     := TStringList.Create;
     FHeader   := THeader.Create(THeaderItens);
     FReturn := TJsonObject.Create;
+
+    GSincronizar := true
 end;
 
 destructor TRequisicao.Destroy;
@@ -236,7 +238,7 @@ try
         end;
     end;
 
-        if _contentEnconding <> '' then                                eber@
+        if _contentEnconding <> '' then
             fresponse:= inflate(HTTPSender.Document)
         else
         Begin

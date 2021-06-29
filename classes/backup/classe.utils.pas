@@ -55,12 +55,22 @@ var Sessao : TSessao;
   Function GetUUID : String;
   Function GetFloat(value:string) : Extended;
   Procedure Limpa(aDataSet:TBufDataset);
-
+  function getNumeros(fField : String): String;
   Procedure CriarForm(NomeForm: TFormClass; _fullScream : Boolean = false);
 
 implementation
 
 uses model.request.http, uf_download, form.principal;
+
+function getNumeros(fField : String): String;
+var
+  I : Byte;
+begin
+   Result := '';
+   for I := 1 To Length(fField) do
+       if fField [I] In ['0'..'9'] Then
+            Result := Result + fField [I];
+end;
 
 
 procedure CriarForm(NomeForm: TFormClass; _fullScream : Boolean = false);
@@ -344,22 +354,22 @@ end;
 function getEMS_Webservice(value:TPathServicos): string;
 begin
 
- case value of
-   mGeral :
-      result := 'http://localhost/api/v1/';
-   mCondicional :
-      result := 'http://localhost/api/v1/';
-   mAutenticacao :
-      result := 'http://localhost/api/v1/';
-   mPDV :
-      result := 'http://localhost/api/v1/cadastro/';
-   mFinanceiro :
-      result := 'http://localhost/api/v1/';
-   mVenda :
-      result := 'http://localhost/api/v1/';
- end;
-
-   exit;
+ //case value of
+ //  mGeral :
+ //     result := 'http://localhost/api/v1/';
+ //  mCondicional :
+ //     result := 'http://localhost/api/v1/';
+ //  mAutenticacao :
+ //     result := 'http://localhost/api/v1/';
+ //  mPDV :
+ //     result := 'http://localhost/api/v1/cadastro/';
+ //  mFinanceiro :
+ //     result := 'http://localhost/api/v1/';
+ //  mVenda :
+ //     result := 'http://localhost/api/v1/';
+ //end;
+ //
+ //  exit;
    if appProducao then
    Begin
     case value of

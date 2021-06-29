@@ -82,14 +82,14 @@
         </CompilerOptions>
       </Item2>
     </BuildModes>
-    <Units Count="67">
+    <Units Count="68">
       <Unit0>
         <Filename Value="Cluster_PDV.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="15"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="4"/>
         <CursorPos Y="26"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
@@ -102,7 +102,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="227"/>
         <CursorPos X="10" Y="238"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit1>
       <Unit2>
@@ -114,34 +114,35 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="8"/>
         <CursorPos X="65" Y="14"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit2>
       <Unit3>
         <Filename Value="model/model.request.http.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="244"/>
-        <CursorPos X="68" Y="250"/>
-        <UsageCount Value="199"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="153"/>
+        <CursorPos X="26" Y="163"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit3>
       <Unit4>
         <Filename Value="model/model.conexao.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="3"/>
         <TopLine Value="139"/>
-        <CursorPos X="95" Y="143"/>
-        <UsageCount Value="199"/>
+        <CursorPos X="65" Y="149"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit4>
       <Unit5>
         <Filename Value="classes/classe.utils.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="324"/>
-        <CursorPos X="43" Y="329"/>
-        <UsageCount Value="199"/>
+        <CursorPos X="59" Y="6"/>
+        <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
@@ -151,7 +152,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="27"/>
         <CursorPos X="55" Y="33"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit6>
       <Unit7>
@@ -162,7 +163,7 @@
         <ResourceBaseClass Value="Form"/>
         <TopLine Value="111"/>
         <CursorPos X="30" Y="113"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -176,7 +177,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="1009"/>
         <CursorPos X="19" Y="1022"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit8>
       <Unit9>
@@ -188,7 +189,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="174"/>
         <CursorPos X="17" Y="178"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit9>
       <Unit10>
@@ -197,22 +198,22 @@
         <ComponentName Value="frm_balcao"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit10>
       <Unit11>
         <Filename Value="model/model.usuarios.pas"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit11>
       <Unit12>
         <Filename Value="classes/model.sinc.down.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="66"/>
-        <CursorPos X="21" Y="76"/>
-        <UsageCount Value="199"/>
+        <TopLine Value="162"/>
+        <CursorPos X="58" Y="171"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit12>
       <Unit13>
@@ -221,13 +222,13 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="197"/>
         <CursorPos X="42" Y="208"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit13>
       <Unit14>
         <Filename Value="classes/model.request.jsons.pas"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit14>
       <Unit15>
@@ -236,7 +237,7 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit15>
       <Unit16>
@@ -248,7 +249,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="253"/>
         <CursorPos X="34" Y="277"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit16>
       <Unit17>
@@ -260,7 +261,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="15"/>
         <CursorPos X="3" Y="42"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit17>
       <Unit18>
@@ -272,7 +273,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="17"/>
         <CursorPos X="41" Y="32"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit18>
       <Unit19>
@@ -284,7 +285,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="62"/>
         <CursorPos X="42" Y="67"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit19>
       <Unit20>
@@ -293,7 +294,7 @@
         <ComponentName Value="frameProdutoGet"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit20>
       <Unit21>
@@ -302,19 +303,16 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="79"/>
         <CursorPos X="65" Y="89"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit21>
       <Unit22>
         <Filename Value="classes/cluster_pdv.sessao.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="418"/>
-        <CursorPos X="32" Y="427"/>
-        <UsageCount Value="199"/>
-        <Bookmarks Count="1">
-          <Item0 X="70" Y="169" ID="2"/>
-        </Bookmarks>
+        <TopLine Value="65"/>
+        <CursorPos X="49" Y="80"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit22>
       <Unit23>
@@ -323,13 +321,13 @@
         <ComponentName Value="f_aguarde"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit23>
       <Unit24>
         <Filename Value="classes/thread.wait.pas"/>
         <IsPartOfProject Value="True"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit24>
       <Unit25>
@@ -337,7 +335,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="13"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit25>
       <Unit26>
@@ -348,7 +346,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="34" Y="10"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit26>
       <Unit27>
@@ -360,7 +358,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="46"/>
         <CursorPos X="31" Y="56"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit27>
       <Unit28>
@@ -372,7 +370,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="267"/>
         <CursorPos X="49" Y="271"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit28>
       <Unit29>
@@ -383,9 +381,12 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="214"/>
-        <CursorPos X="72" Y="233"/>
-        <UsageCount Value="199"/>
+        <TopLine Value="191"/>
+        <CursorPos X="58" Y="200"/>
+        <UsageCount Value="200"/>
+        <Bookmarks Count="1">
+          <Item0 Y="260" ID="2"/>
+        </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -395,7 +396,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="14"/>
-        <UsageCount Value="197"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit30>
       <Unit31>
@@ -408,7 +409,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="77"/>
         <CursorPos X="73" Y="89"/>
-        <UsageCount Value="187"/>
+        <UsageCount Value="191"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit31>
       <Unit32>
@@ -421,7 +422,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="73"/>
         <CursorPos X="83" Y="90"/>
-        <UsageCount Value="186"/>
+        <UsageCount Value="190"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit32>
       <Unit33>
@@ -433,20 +434,19 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="131"/>
         <CursorPos X="41" Y="137"/>
-        <UsageCount Value="178"/>
+        <UsageCount Value="182"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit33>
       <Unit34>
         <Filename Value="controller/controller.devolucao.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="312"/>
-        <CursorPos X="76" Y="319"/>
-        <UsageCount Value="178"/>
+        <CursorPos X="56" Y="324"/>
+        <UsageCount Value="182"/>
         <Bookmarks Count="1">
           <Item0 X="37" Y="325" ID="2"/>
         </Bookmarks>
-        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit34>
       <Unit35>
@@ -458,7 +458,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="182"/>
         <CursorPos X="53" Y="186"/>
-        <UsageCount Value="176"/>
+        <UsageCount Value="180"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit35>
       <Unit36>
@@ -470,7 +470,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="139"/>
         <CursorPos X="56" Y="147"/>
-        <UsageCount Value="155"/>
+        <UsageCount Value="159"/>
         <Bookmarks Count="1">
           <Item0 X="25" Y="219" ID="1"/>
         </Bookmarks>
@@ -486,7 +486,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="6"/>
         <CursorPos X="14" Y="36"/>
-        <UsageCount Value="138"/>
+        <UsageCount Value="142"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit37>
       <Unit38>
@@ -498,7 +498,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="58"/>
         <CursorPos X="33" Y="67"/>
-        <UsageCount Value="132"/>
+        <UsageCount Value="136"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit38>
       <Unit39>
@@ -510,7 +510,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="70"/>
         <CursorPos X="45" Y="72"/>
-        <UsageCount Value="117"/>
+        <UsageCount Value="121"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit39>
       <Unit40>
@@ -522,7 +522,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="104"/>
         <CursorPos X="72" Y="110"/>
-        <UsageCount Value="116"/>
+        <UsageCount Value="120"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit40>
       <Unit41>
@@ -533,7 +533,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="33"/>
         <CursorPos X="45" Y="39"/>
-        <UsageCount Value="115"/>
+        <UsageCount Value="119"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit41>
       <Unit42>
@@ -610,7 +610,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="223"/>
         <CursorPos Y="241"/>
-        <UsageCount Value="1"/>
+        <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit51>
       <Unit52>
@@ -737,96 +737,136 @@
         <CursorPos X="15" Y="390"/>
         <UsageCount Value="2"/>
       </Unit66>
+      <Unit67>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/include/wincontrol.inc"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="5683"/>
+        <CursorPos Y="5701"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit67>
     </Units>
-    <JumpHistory Count="22" HistoryIndex="21">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="103" Column="32" TopLine="86"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="120" Column="19" TopLine="98"/>
       </Position1>
       <Position2>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="113" Column="24" TopLine="101"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="451" Column="108" TopLine="437"/>
       </Position2>
       <Position3>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="109" Column="22" TopLine="101"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="252" TopLine="226"/>
       </Position3>
       <Position4>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="10" Column="17"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="120" Column="19" TopLine="99"/>
       </Position4>
       <Position5>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="17" Column="17"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="470" Column="38" TopLine="454"/>
       </Position5>
       <Position6>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="45" Column="27" TopLine="26"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="253" Column="15" TopLine="235"/>
       </Position6>
       <Position7>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="13" TopLine="2"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="245" Column="7" TopLine="225"/>
       </Position7>
       <Position8>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="69" TopLine="60"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="248" Column="32" TopLine="231"/>
       </Position8>
       <Position9>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="86" Column="36" TopLine="76"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="241" Column="19" TopLine="234"/>
       </Position9>
       <Position10>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="67" Column="42" TopLine="62"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="244" Column="29" TopLine="234"/>
       </Position10>
       <Position11>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="106" Column="21" TopLine="95"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="245" TopLine="234"/>
       </Position11>
       <Position12>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="99" Column="3" TopLine="95"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="247" TopLine="234"/>
       </Position12>
       <Position13>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="107" Column="15" TopLine="95"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="248" TopLine="234"/>
       </Position13>
       <Position14>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="78" Column="34" TopLine="70"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="249" TopLine="234"/>
       </Position14>
       <Position15>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="9" Column="71"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="250" TopLine="234"/>
       </Position15>
       <Position16>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="11" Column="45"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="251" TopLine="234"/>
       </Position16>
       <Position17>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="113" Column="29" TopLine="111"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="252" TopLine="234"/>
       </Position17>
       <Position18>
         <Filename Value="view/venda/f_venda.pas"/>
-        <Caret Line="278" Column="32" TopLine="267"/>
+        <Caret Line="253" TopLine="234"/>
       </Position18>
       <Position19>
-        <Filename Value="view/form.principal.pas"/>
-        <Caret Line="113" Column="30" TopLine="111"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="254" TopLine="234"/>
       </Position19>
       <Position20>
-        <Filename Value="controller/controller.devolucao.pas"/>
-        <Caret Line="319" Column="76" TopLine="312"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="255" TopLine="234"/>
       </Position20>
       <Position21>
-        <Filename Value="classes/classe.utils.pas"/>
-        <Caret Line="41" Column="12" TopLine="29"/>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="257" TopLine="234"/>
       </Position21>
       <Position22>
         <Filename Value="view/venda/f_venda.pas"/>
-        <Caret Line="233" Column="82" TopLine="214"/>
+        <Caret Line="259" TopLine="234"/>
       </Position22>
+      <Position23>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="262" TopLine="234"/>
+      </Position23>
+      <Position24>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="263" TopLine="235"/>
+      </Position24>
+      <Position25>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="265" TopLine="237"/>
+      </Position25>
+      <Position26>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="433" TopLine="416"/>
+      </Position26>
+      <Position27>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="435" TopLine="416"/>
+      </Position27>
+      <Position28>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/include/wincontrol.inc"/>
+        <Caret Line="5701" TopLine="5683"/>
+      </Position28>
+      <Position29>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="240" Column="41" TopLine="223"/>
+      </Position29>
+      <Position30>
+        <Filename Value="view/venda/f_venda.pas"/>
+        <Caret Line="114" Column="19" TopLine="98"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
