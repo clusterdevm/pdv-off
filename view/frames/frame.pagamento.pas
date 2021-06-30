@@ -6,18 +6,44 @@ interface
 
 uses
   Classes, SysUtils, BufDataset, DB, Forms, Controls, ExtCtrls, StdCtrls,
-  DBGrids, ComCtrls, DBCtrls, Dialogs, Spin, SpinEx, Grids, Graphics;
+  DBGrids, ComCtrls, DBCtrls, Dialogs, Spin, SpinEx, Grids, Graphics, LCLType;
 
 type
 
   { TframePagamento }
 
   TframePagamento = class(TFrame)
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    cbDebito: TDBLookupComboBox;
+    dsCredito: TDataSource;
+    dsDebito: TDataSource;
+    cbCredito: TDBLookupComboBox;
+    edtValeCredito: TEdit;
+    ed_autorizacaoCredito: TEdit;
+    ed_autorizacaoDebito: TEdit;
+    ed_valorCredito: TFloatSpinEditEx;
+    ed_valorDebito: TFloatSpinEditEx;
+    Label10: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    qCredito: TBufDataset;
     Button1: TButton;
     dsQuitacao: TDataSource;
     ed_valorDinheiro: TFloatSpinEditEx;
     Panel5: TPanel;
     Panel6: TPanel;
+    qCreditodescricao: TStringField;
+    qCreditoid: TLongintField;
+    qDebito: TBufDataset;
+    qDebitodescricao: TStringField;
+    qDebitoid: TLongintField;
     qQuitacao: TBufDataset;
     DBLookupComboBox1: TDBLookupComboBox;
     dsmoeda: TDataSource;
@@ -52,16 +78,22 @@ type
     tabTEF: TTabSheet;
     tabValeCredito: TTabSheet;
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
     procedure gridValoresDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure ListBox1SelectionChange(Sender: TObject; User: boolean);
   private
         TotalPagar,TotalPago : Currency;
+        NumeroParcelas : Integer;
         Function SelecionadoItem : Integer;
         Procedure CarregaMoeda;
+        Procedure CarregaCredito;
+        Procedure CarregaDebito;
         Procedure Calcula;
   public
-      Procedure Inicializa(_valorPagar : currency);
+      Procedure Inicializa(_valorPagar : currency;n_parcelas:integer);
       function Quitado : boolean;
   end;
 
@@ -69,7 +101,7 @@ implementation
 
 {$R *.lfm}
 
-uses model.conexao, classe.utils;
+uses model.conexao, classe.utils, model.request.http;
 
 procedure TframePagamento.ListBox1SelectionChange(Sender: TObject; User: boolean
   );
@@ -104,6 +136,93 @@ begin
      ListBox1.Selected[0] := true;
 
      Calcula;
+end;
+
+procedure TframePagamento.Button2Click(Sender: TObject);
+begin
+  qQuitacao.Append;
+  qQuitacaodisplay.Value:= 'Crédito('+cbCredito.Text+') ';
+  qQuitacaovalor.Value:= ToValor(ed_valorCredito.Text);
+  qQuitacaon_autorizacao.Value:= ed_autorizacaoCredito.Text ;
+  qQuitacaon_parcelas.Value:= NumeroParcelas;
+  qQuitacaotipo.Value:= 'credito';
+  qQuitacao.Post;
+
+  ed_valorCredito.Value:= 0;
+  ed_autorizacaoCredito.Text := '';
+  cbCredito.KeyValue:=0;
+  ListBox1.SetFocus;
+  ListBox1.Selected[0] := true;
+
+  Calcula;
+end;
+
+procedure TframePagamento.Button3Click(Sender: TObject);
+begin
+  qQuitacao.Append;
+  qQuitacaodisplay.Value:= 'Débito('+cbDebito.Text+') ';
+  qQuitacaovalor.Value:= ToValor(ed_valorDebito.Text);
+  qQuitacaon_autorizacao.Value:= ed_autorizacaoDebito.Text ;
+  qQuitacaon_parcelas.Value:= NumeroParcelas;
+  qQuitacaotipo.Value:= 'debito';
+  qQuitacao.Post;
+
+  ed_valorDebito.Value:= 0;
+  ed_autorizacaoDebito.Text := '';
+  cbDebito.KeyValue:=0;
+  ListBox1.SetFocus;
+  ListBox1.Selected[0] := true;
+
+  Calcula;
+end;
+
+procedure TframePagamento.Button4Click(Sender: TObject);
+var _api : TRequisicao;
+    _valorStr : String;
+begin
+
+  if trim(edtValeCredito.Text)= '' then
+  Begin
+     Messagedlg('Numero do vale não informado',mtWarning,[mbok],0);
+     exit;
+  end;
+
+   try
+        _api := TRequisicao.Create;
+        _api.Metodo:='get';
+        _api.tokenBearer:= GetBearerEMS;;
+        _api.webservice:= getEMS_Webservice(mFinanceiro);
+        _api.rota:='vale_credito';
+        _api.endpoint:=edtValeCredito.Text;
+        _api.Execute;
+
+        _valorStr := FormatFloat(sessao.formatsubtotal,
+        _api.Return['resultado'].AsObject['valor'].AsNumber);
+
+        if _api.ResponseCode in [200..207] then
+        Begin
+           if messagedlg('Registrar Vale'+#13+
+                         'Valor:'+_valorStr
+                         ,mtInformation,[mbno,mbyes],0)=mryes then
+           Begin
+              qQuitacao.Append;
+              qQuitacaodisplay.Value:= 'Vale Credito '+edtValeCredito.Text;
+              qQuitacaovalor.Value:= _api.Return['resultado'].AsObject['valor'].AsNumber;
+              qQuitacaotipo.Value:= 'vale';
+              qQuitacaocodigo_vale.Value := StrToIntDef(edtValeCredito.Text,0);
+              qQuitacao.Post;
+           end
+        end else
+           messagedlg('Vale Invalido',mtWarning,[mbok],0);
+
+        edtValeCredito.Text := '';
+        ListBox1.SetFocus;
+        ListBox1.Selected[0] := true;
+        Calcula;
+
+   finally
+       FreeAndNil(_api);
+   end;
 end;
 
 procedure TframePagamento.gridValoresDrawColumnCell(Sender: TObject;
@@ -161,6 +280,70 @@ begin
    end;
 end;
 
+procedure TframePagamento.CarregaCredito;
+var _db : TConexao;
+begin
+   try
+       _db := TConexao.Create;
+       with _db.Query do
+       Begin
+             Close;
+             Sql.Clear;
+             Sql.add('select * from bandeira_cartao');
+             Sql.Add(' where ativo = '+QuotedStr('true'));
+             Sql.Add(' and prazo_credito > 0 ');
+             Sql.Add(' order by descricao ');
+             open;
+
+             qCredito.CreateDataset;
+             qCredito.Open;
+             while not eof do
+             Begin
+                 qCredito.Append;
+                 qCreditoid.Value:= FieldBYName('id').AsInteger;
+                 qCreditodescricao.Value:= trim(FieldByName('descricao').AsString);
+                 qCredito.Post;
+                 Next;
+             end;
+             //DBLookupComboBox1.KeyValue:= sessao.GetmoedaPadrao;
+       end;
+   finally
+       FreeAndNil(_db);
+   end;
+end;
+
+procedure TframePagamento.CarregaDebito;
+var _db : TConexao;
+begin
+   try
+       _db := TConexao.Create;
+       with _db.Query do
+       Begin
+             Close;
+             Sql.Clear;
+             Sql.add('select * from bandeira_cartao');
+             Sql.Add(' where ativo = '+QuotedStr('true'));
+             Sql.Add(' and prazo_debito > 0 ');
+             Sql.Add(' order by descricao ');
+             open;
+
+             qDebito.CreateDataset;
+             qDebito.Open;
+             while not eof do
+             Begin
+                 qDebito.Append;
+                 qDebitoid.Value:= FieldBYName('id').AsInteger;
+                 qDebitodescricao.Value:= trim(FieldByName('descricao').AsString);
+                 qDebito.Post;
+                 Next;
+             end;
+             //DBLookupComboBox1.KeyValue:= sessao.GetmoedaPadrao;
+       end;
+   finally
+       FreeAndNil(_db);
+   end;
+end;
+
 procedure TframePagamento.Calcula;
 begin
   //$00AB9DF5  red
@@ -184,7 +367,7 @@ begin
 
 end;
 
-procedure TframePagamento.Inicializa(_valorPagar : currency);
+procedure TframePagamento.Inicializa(_valorPagar : currency;n_parcelas:integer);
 begin
      PageControl1.ShowTabs:= false;
      PageControl1.TabIndex:= 6;
@@ -195,7 +378,10 @@ begin
      gridValores.SelectedColor:= clwhite; //$00EAE3DA
      gridValores.Columns[1].DisplayFormat:= sessao.formatsubtotal();
      CarregaMoeda;
+     CarregaCredito;
+     CarregaDebito;
      TotalPagar:= _valorPagar;
+     NumeroParcelas := n_parcelas;
      Calcula;
 end;
 

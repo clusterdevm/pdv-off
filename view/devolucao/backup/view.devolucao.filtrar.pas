@@ -72,6 +72,8 @@ type
 
   end;
 
+
+
 var
   f_devolucaoFiltrar: Tf_devolucaoFiltrar;
 
@@ -140,7 +142,7 @@ end;
 
 procedure Tf_devolucaoFiltrar.acNovoExecute(Sender: TObject);
 begin
-   CriarForm(Tf_devolucaoCriar); refatorar
+   CriarForm(Tf_devolucaoCriar);
   //f_devolucaoCriar := Tf_devolucaoCriar.Create(nil);
   //f_devolucaoCriar.ShowModal;
   //f_devolucaoCriar.Release;

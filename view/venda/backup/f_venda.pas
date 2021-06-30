@@ -167,7 +167,7 @@ end;
 
 procedure Tform_venda.LimpaTela;
 begin
-    pnlTotal.Caption:= FormatFloat(sessao.formatsubtotal,0);
+//    pnlTotal.Caption:= FormatFloat(sessao.formatsubtotal,0);
     ed_cliente.Text:=  'Consumidor';
     ed_vendedor.Text:=  'Não Definido';
     ed_cpf.Text:= '';
@@ -582,7 +582,12 @@ end;
 
 procedure Tform_venda.ac_fechavendaExecute(Sender: TObject);
 begin
-   CriarForm(Tf_fechamento);
+  f_fechamento := Tf_fechamento.Create(nil);
+  f_fechamento.n_venda:= getNumeros(TabControl1.Tabs[TabControl1.TabIndex]);
+  f_fechamento.ShowModal;
+  f_fechamento.Release;
+  f_fechamento := nil;
+  CriarForm(Tf_fechamento);
 end;
 
 procedure Tform_venda.ac_recebimentoExecute(Sender: TObject);

@@ -5,14 +5,19 @@ unit frame.empresa;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, StdCtrls, CheckLst, ComboEx;
+  Classes, SysUtils, BufDataset, DB, Forms, Controls, StdCtrls, CheckLst,
+  ComboEx, DBCtrls;
 
 type
 
   { TFrame1 }
 
   TFrame1 = class(TFrame)
-    cb_empresa: TCheckComboBox;
+    DBLookupComboBox2: TDBLookupComboBox;
+    qEmpresa: TBufDataset;
+    qEmpresadescricao: TStringField;
+    qEmpresaid: TLongintField;
+    dsempresa: TDataSource;
     Label1: TLabel;
   private
 
@@ -25,24 +30,53 @@ type
 implementation
 
 {$R *.lfm}
-
-{ TFrame1 }
+ uses model.conexao;
 
 function TFrame1.GetArray: String;
 begin
-     result := IntTostr(StrToInt(copy(cb_empresa.Text,1,6)));
+     result := DBLookupComboBox2.KeyValue;
 end;
 
 function TFrame1.GetItem: String;
 begin
-     result := IntTostr(StrToInt(copy(cb_empresa.Text,1,6)));
+  result := DBLookupComboBox2.KeyValue;
 end;
 
 procedure TFrame1.carregaEmpresa;
+var _db : TConexao;
 begin
-  cb_empresa.Items.Clear;
-  cb_empresa.Items.Add('000006 Empresa X');
-  cb_empresa.ItemIndex:= 0;
+try
+  try
+     _db := TConexao.Create;
+     qEmpresa.CreateDataset;
+     qEmpresa.Open;
+     with _db.Query do
+     Begin
+         Close;
+         Sql.Clear;
+         Sql.Add('select * from empresa ');
+         open;
+
+         while not eof do
+         Begin
+             qEmpresa.Append;
+             qEmpresaid.Value:= FieldBYName('id').AsInteger;
+             qEmpresadescricao.Value:= FieldBYName('nomeresumido').AsString;
+             qEmpresa.Post;
+             Next;
+         end;
+         first;
+         DBLookupComboBox2.KeyValue:= FieldByName('id').AsInteger;
+     end;
+  finally
+     FreeAndNil(_db);
+  end;
+except
+   on e:Exception do
+   Begin
+      Showmessage('Get Empresa:' +e.message);
+   end;
+end;
 end;
 
 end.

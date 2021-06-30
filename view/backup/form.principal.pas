@@ -110,7 +110,11 @@ end;
 
 procedure TfrmPrincipal.ac_vendaExecute(Sender: TObject);
 begin
-  CriarForm(Tform_venda);
+   form_venda := Tform_venda.Create(nil);
+   form_venda.showModal;
+   form_venda.release;
+   form_venda := nil;
+  //CriarForm(Tform_venda, true);
 end;
 
 procedure TfrmPrincipal.FormActivate(Sender: TObject);

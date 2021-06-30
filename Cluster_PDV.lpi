@@ -28,52 +28,49 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <RequiredPackages Count="15">
+    <RequiredPackages Count="14">
       <Item1>
         <PackageName Value="SynEdit"/>
       </Item1>
       <Item2>
-        <PackageName Value="JvStdCtrlsLazR"/>
+        <PackageName Value="indylaz"/>
       </Item2>
       <Item3>
-        <PackageName Value="indylaz"/>
+        <PackageName Value="ACBrTCP"/>
       </Item3>
       <Item4>
-        <PackageName Value="ACBrTCP"/>
+        <PackageName Value="LazControls"/>
       </Item4>
       <Item5>
-        <PackageName Value="LazControls"/>
+        <PackageName Value="virtualtreeview_package"/>
       </Item5>
       <Item6>
-        <PackageName Value="virtualtreeview_package"/>
+        <PackageName Value="frce"/>
       </Item6>
       <Item7>
-        <PackageName Value="frce"/>
+        <PackageName Value="bgracontrols"/>
       </Item7>
       <Item8>
-        <PackageName Value="bgracontrols"/>
+        <PackageName Value="TurboPowerIPro"/>
       </Item8>
       <Item9>
-        <PackageName Value="TurboPowerIPro"/>
+        <PackageName Value="RunTimeTypeInfoControls"/>
       </Item9>
       <Item10>
-        <PackageName Value="RunTimeTypeInfoControls"/>
+        <PackageName Value="weblaz"/>
       </Item10>
       <Item11>
-        <PackageName Value="weblaz"/>
+        <PackageName Value="ACBrDiversos"/>
       </Item11>
       <Item12>
-        <PackageName Value="ACBrDiversos"/>
+        <PackageName Value="FCL"/>
       </Item12>
       <Item13>
-        <PackageName Value="FCL"/>
+        <PackageName Value="zcomponent"/>
       </Item13>
       <Item14>
-        <PackageName Value="zcomponent"/>
-      </Item14>
-      <Item15>
         <PackageName Value="LCL"/>
-      </Item15>
+      </Item14>
     </RequiredPackages>
     <Units Count="44">
       <Unit0>

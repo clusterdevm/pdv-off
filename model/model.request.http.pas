@@ -341,7 +341,7 @@ try
             end;
        end;
 
-        RegistraLogErro('download: '+IntToStr(_response.Size));
+
         if _contentEnconding <> '' then
             fresponse:= inflate(_response)
         else

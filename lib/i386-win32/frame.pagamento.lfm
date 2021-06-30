@@ -1,0 +1,615 @@
+object framePagamento: TframePagamento
+  Left = 0
+  Height = 587
+  Top = 0
+  Width = 816
+  ClientHeight = 587
+  ClientWidth = 816
+  Color = clWhite
+  ParentColor = False
+  TabOrder = 0
+  DesignLeft = 1362
+  DesignTop = 6
+  object Panel1: TPanel
+    Left = 0
+    Height = 587
+    Top = 0
+    Width = 816
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 587
+    ClientWidth = 816
+    TabOrder = 0
+    object pnlDisplay: TPanel
+      Left = 0
+      Height = 50
+      Top = 0
+      Width = 816
+      Align = alTop
+      BevelOuter = bvNone
+      Caption = 'Falta Pagar R$ 350,00'
+      Color = 15393754
+      Font.Height = -27
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 0
+    end
+    object Panel3: TPanel
+      Left = 0
+      Height = 150
+      Top = 188
+      Width = 816
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 150
+      ClientWidth = 816
+      TabOrder = 1
+      object gridValores: TDBGrid
+        Left = 3
+        Height = 114
+        Top = 33
+        Width = 810
+        Align = alClient
+        BorderSpacing.Around = 3
+        BorderStyle = bsNone
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'Display'
+            Width = 400
+            FieldName = 'Display'
+          end        
+          item
+            Title.Caption = 'Valor Pago'
+            Width = 200
+            FieldName = 'valor'
+          end>
+        DataSource = dsQuitacao
+        FixedCols = 0
+        Options = [dgColumnResize, dgColumnMove]
+        Scrollbars = ssNone
+        TabOrder = 0
+        TitleStyle = tsNative
+        OnDrawColumnCell = gridValoresDrawColumnCell
+      end
+      object Panel5: TPanel
+        Left = 0
+        Height = 30
+        Top = 0
+        Width = 816
+        Align = alTop
+        BevelOuter = bvNone
+        Caption = 'Valores Pagos'
+        Color = 11829830
+        Font.Color = clWhite
+        Font.Height = -16
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 1
+      end
+    end
+    object Panel4: TPanel
+      Left = 0
+      Height = 138
+      Top = 50
+      Width = 816
+      Align = alTop
+      BevelOuter = bvNone
+      ClientHeight = 138
+      ClientWidth = 816
+      TabOrder = 2
+      object ListBox1: TListBox
+        Left = 5
+        Height = 138
+        Top = 0
+        Width = 132
+        Align = alLeft
+        BorderSpacing.Left = 5
+        BorderStyle = bsNone
+        Items.Strings = (
+          'Efetivo (dinheiro)'
+          'Cartão Crédito'
+          'Cartão Débito'
+          'Cheque'
+          'Vale Crédito'
+          'TEF'
+        )
+        ItemHeight = 22
+        OnSelectionChange = ListBox1SelectionChange
+        ScrollWidth = 132
+        TabOrder = 0
+      end
+      object PageControl1: TPageControl
+        Left = 140
+        Height = 132
+        Top = 3
+        Width = 673
+        TabStop = False
+        ActivePage = tabDebito
+        Align = alClient
+        BorderSpacing.Around = 3
+        TabIndex = 2
+        TabOrder = 1
+        TabPosition = tpBottom
+        object tabDinheiro: TTabSheet
+          Caption = 'Dinheiro'
+          ClientHeight = 102
+          ClientWidth = 663
+          object Label1: TLabel
+            Left = 6
+            Height = 14
+            Top = 20
+            Width = 42
+            Caption = 'Moeda'
+            ParentColor = False
+          end
+          object Label2: TLabel
+            Left = 8
+            Height = 14
+            Top = 56
+            Width = 32
+            Caption = 'Valor'
+            ParentColor = False
+          end
+          object DBLookupComboBox1: TDBLookupComboBox
+            Left = 64
+            Height = 32
+            Top = 8
+            Width = 280
+            AutoComplete = True
+            AutoDropDown = True
+            KeyField = 'id'
+            ListField = 'descricao'
+            ListFieldIndex = 0
+            ListSource = dsmoeda
+            LookupCache = False
+            ReadOnly = True
+            ScrollListDataset = True
+            Sorted = True
+            Style = csOwnerDrawFixed
+            TabOrder = 0
+          end
+          object ed_valorDinheiro: TFloatSpinEditEx
+            Left = 64
+            Height = 32
+            Top = 48
+            Width = 280
+            MaxLength = 0
+            TabOrder = 1
+            MaxValue = 0
+            MinRepeatValue = 0
+            UpDownVisible = False
+          end
+          object Button1: TButton
+            Left = 256
+            Height = 25
+            Top = 82
+            Width = 88
+            Caption = 'Registrar'
+            OnClick = Button1Click
+            TabOrder = 2
+          end
+        end
+        object tabCredito: TTabSheet
+          Caption = 'Cartão Crédito'
+          ClientHeight = 102
+          ClientWidth = 663
+          object Label3: TLabel
+            Left = 5
+            Height = 14
+            Top = 11
+            Width = 40
+            Caption = 'Cartão'
+            ParentColor = False
+          end
+          object cbCredito: TDBLookupComboBox
+            Left = 80
+            Height = 31
+            Top = 3
+            Width = 264
+            KeyField = 'id'
+            ListField = 'descricao'
+            ListFieldIndex = 0
+            ListSource = dsCredito
+            LookupCache = False
+            ReadOnly = True
+            Style = csOwnerDrawFixed
+            TabOrder = 0
+          end
+          object Button2: TButton
+            Left = 256
+            Height = 30
+            Top = 70
+            Width = 88
+            Caption = 'Registrar'
+            OnClick = Button2Click
+            TabOrder = 3
+          end
+          object ed_valorCredito: TFloatSpinEditEx
+            Left = 80
+            Height = 32
+            Top = 70
+            Width = 176
+            MaxLength = 0
+            TabOrder = 2
+            MaxValue = 0
+            MinRepeatValue = 0
+            UpDownVisible = False
+          end
+          object Label4: TLabel
+            Left = 8
+            Height = 14
+            Top = 86
+            Width = 32
+            Caption = 'Valor'
+            ParentColor = False
+          end
+          object Label8: TLabel
+            Left = 5
+            Height = 14
+            Top = 48
+            Width = 72
+            Caption = 'Autorização'
+            ParentColor = False
+          end
+          object ed_autorizacaoCredito: TEdit
+            Left = 80
+            Height = 32
+            Top = 37
+            Width = 264
+            TabOrder = 1
+          end
+        end
+        object tabDebito: TTabSheet
+          Caption = 'Cartão Debito'
+          ClientHeight = 102
+          ClientWidth = 663
+          object Label5: TLabel
+            Left = 5
+            Height = 14
+            Top = 11
+            Width = 40
+            Caption = 'Cartão'
+            ParentColor = False
+          end
+          object cbDebito: TDBLookupComboBox
+            Left = 78
+            Height = 31
+            Top = 3
+            Width = 266
+            KeyField = 'id'
+            ListField = 'descricao'
+            ListFieldIndex = 0
+            ListSource = dsDebito
+            LookupCache = False
+            ReadOnly = True
+            Style = csOwnerDrawFixed
+            TabOrder = 0
+          end
+          object Button3: TButton
+            Left = 256
+            Height = 32
+            Top = 67
+            Width = 88
+            Caption = 'Registrar'
+            OnClick = Button3Click
+            TabOrder = 3
+          end
+          object ed_valorDebito: TFloatSpinEditEx
+            Left = 78
+            Height = 32
+            Top = 67
+            Width = 176
+            MaxLength = 0
+            TabOrder = 2
+            MaxValue = 0
+            MinRepeatValue = 0
+            UpDownVisible = False
+          end
+          object Label6: TLabel
+            Left = 5
+            Height = 14
+            Top = 75
+            Width = 32
+            Caption = 'Valor'
+            ParentColor = False
+          end
+          object Label9: TLabel
+            Left = 5
+            Height = 14
+            Top = 45
+            Width = 72
+            Caption = 'Autorização'
+            ParentColor = False
+          end
+          object ed_autorizacaoDebito: TEdit
+            Left = 78
+            Height = 32
+            Top = 35
+            Width = 266
+            TabOrder = 1
+          end
+        end
+        object tabCheque: TTabSheet
+          Caption = 'Cheque'
+        end
+        object tabValeCredito: TTabSheet
+          Caption = 'Vale Crédito'
+          ClientHeight = 102
+          ClientWidth = 663
+          object Label10: TLabel
+            Left = 2
+            Height = 14
+            Top = 2
+            Width = 89
+            Caption = 'N. Vale Crédito'
+            ParentColor = False
+          end
+          object edtValeCredito: TEdit
+            Left = 2
+            Height = 32
+            Top = 18
+            Width = 168
+            TabOrder = 0
+          end
+          object Button4: TButton
+            Left = 174
+            Height = 32
+            Top = 18
+            Width = 106
+            Caption = 'Buscar '
+            OnClick = Button4Click
+            TabOrder = 1
+          end
+        end
+        object tabTEF: TTabSheet
+          Caption = 'TEF'
+          ClientHeight = 102
+          ClientWidth = 663
+          object Label7: TLabel
+            Left = 0
+            Height = 17
+            Top = 0
+            Width = 663
+            Align = alTop
+            Caption = 'Não Ativado , Entre em contato com DPTO Comercial'
+            Font.Color = clRed
+            Font.Height = -16
+            ParentColor = False
+            ParentFont = False
+          end
+        end
+        object tabNeutra: TTabSheet
+          Caption = 'tabNeutra'
+        end
+      end
+    end
+    object DBGrid2: TDBGrid
+      Left = 5
+      Height = 209
+      Top = 373
+      Width = 806
+      Align = alClient
+      BorderSpacing.Around = 5
+      BorderStyle = bsNone
+      Color = clWindow
+      Columns = <      
+        item
+          Title.Caption = 'Title'
+        end>
+      FixedCols = 0
+      Options = []
+      Scrollbars = ssNone
+      TabOrder = 3
+    end
+    object Panel6: TPanel
+      Left = 0
+      Height = 30
+      Top = 338
+      Width = 816
+      Align = alTop
+      BevelOuter = bvNone
+      Caption = 'Falta Pagar'
+      Color = 11247093
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 4
+      Visible = False
+    end
+  end
+  object qMoeda: TBufDataset
+    FieldDefs = <>
+    Left = 760
+    Top = 120
+    object qMoedaid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qMoedadescricao: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object qMoedacambio: TFloatField
+      FieldKind = fkData
+      FieldName = 'cambio'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object dsmoeda: TDataSource
+    DataSet = qMoeda
+    Left = 704
+    Top = 208
+  end
+  object qQuitacao: TBufDataset
+    FieldDefs = <>
+    Left = 632
+    Top = 240
+    object qQuitacaotipo: TStringField
+      FieldKind = fkData
+      FieldName = 'tipo'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object qQuitacaovalor: TFloatField
+      FieldKind = fkData
+      FieldName = 'valor'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qQuitacaodisplay: TStringField
+      FieldKind = fkData
+      FieldName = 'display'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qQuitacaomoeda_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'moeda_id'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qQuitacaocambio: TFloatField
+      FieldKind = fkData
+      FieldName = 'cambio'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qQuitacaovalor_moeda: TFloatField
+      FieldKind = fkData
+      FieldName = 'valor_moeda'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qQuitacaon_parcelas: TLongintField
+      FieldKind = fkData
+      FieldName = 'n_parcelas'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qQuitacaon_autorizacao: TStringField
+      FieldKind = fkData
+      FieldName = 'n_autorizacao'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object qQuitacaocodigo_vale: TLongintField
+      FieldKind = fkData
+      FieldName = 'codigo_vale'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object dsQuitacao: TDataSource
+    DataSet = qQuitacao
+    Left = 552
+    Top = 240
+  end
+  object qCredito: TBufDataset
+    FieldDefs = <>
+    Left = 528
+    Top = 192
+    object qCreditodescricao: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object qCreditoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object qDebito: TBufDataset
+    FieldDefs = <>
+    Left = 632
+    Top = 216
+    object qDebitoid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qDebitodescricao: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+  end
+  object dsCredito: TDataSource
+    DataSet = qCredito
+    Left = 752
+    Top = 64
+  end
+  object dsDebito: TDataSource
+    DataSet = qDebito
+    Left = 784
+    Top = 72
+  end
+end

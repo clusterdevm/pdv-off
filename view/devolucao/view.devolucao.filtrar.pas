@@ -72,6 +72,8 @@ type
 
   end;
 
+
+
 var
   f_devolucaoFiltrar: Tf_devolucaoFiltrar;
 

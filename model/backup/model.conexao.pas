@@ -119,8 +119,6 @@ var CriarBase : boolean;
 begin
   try
 
-
-
     {$IFDEF MSWINDOWS}
         _PathDataBase := '.\tabela\ems.db';
         if not DirectoryExists('.\tabela\') then
@@ -157,7 +155,7 @@ begin
   except
      on e:Exception do
      Begin
-         Showmessage(e.message);
+         RegistraLogErro('Create:'+e.message);
      end;
   end;
 end;
@@ -353,6 +351,7 @@ end;
 procedure TConexao.CriaBaseDefault;
 var _qryDefault : TZQuery;
 begin
+ try
    try
        _qryDefault := TZQuery.Create(nil);
        _qryDefault.Connection := Conector;
@@ -377,6 +376,13 @@ begin
    finally
        FreeAndNil(_qryDefault);
    end;
+
+ except
+     on e:Exception do
+     Begin
+         RegistraLogErro('Create Default: '+e.Message);
+     end;
+ end;
 end;
 
 procedure TConexao.ExecutaSQL(isql: string; _aux:string = '');
@@ -611,7 +617,7 @@ begin
        Sql.Clear;
        Sql.Add('update '+_tabela+ ' set ');
        Sql.Add(_value.text);
-       Sql.add(' where id = '+QuotedStr(_Json['id'].AsString))
+       Sql.add(' where id = '+QuotedStr(_Json['id'].AsString));
        sql.text := UTF8Encode(sql.text);
        ExecSQL;
    end;

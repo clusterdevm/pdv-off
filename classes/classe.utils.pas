@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, model.conexao, Dialogs, md5, process, Graphics,
   controls, StdCtrls, Forms, TypInfo, DateUtils, db, cluster_pdv.sessao,
-  wcursos,BufDataset;
+  wcursos,BufDataset, math;
 
 type
   TPathServicos = (mAutenticacao, mCondicional, mGeral, mPDV, mFinanceiro, mvenda);
@@ -63,9 +63,31 @@ var Sessao : TSessao;
   function GetAliquota(valor, desconto : double) : double;
   function GetValorAliquota(valor, aliquota: double):Double;
 
+  function Decimal(Value: Extended; Decimals: Integer  = -1): Extended;
+
 implementation
 
 uses model.request.http, uf_download, form.principal;
+
+
+function Decimal(Value: Extended; Decimals: Integer  = -1): Extended;
+var
+  Factor, Fraction: Extended;
+begin
+  if Decimals = -1 then
+    Decimals:= sessao.TotalCasasDecimal;
+
+  Factor := IntPower(10, Decimals);
+  Value := StrToFloat(FloatToStr(Value * Factor));
+  Result := Int(Value);
+  Fraction := Frac(Value);
+  if Fraction >= 0.5 then
+    Result := Result + 1
+  else
+    if Fraction <= -0.5 then
+      Result := Result - 1;
+  Result := Result / Factor;
+end;
 
 function getNumeros(fField : String): String;
 var
@@ -82,14 +104,12 @@ procedure CriarForm(NomeForm: TFormClass; _fullScream : Boolean = false);
 var
   form: TForm;
 begin
-  form := NomeForm.Create(nil);
-
   try
-     form.BorderIcons:= [];
-     if not _fullScream  then
-        form.BorderStyle := bsSizeable;
-
-      form.ShowModal;
+     form := NomeForm.Create(nil);
+     form.BorderStyle := bsSizeable;
+     form.BorderIcons:= form.BorderIcons-[biMinimize];
+     form.Position := poScreenCenter;
+     form.ShowModal;
   finally
     form.release;
     Form :=nil;

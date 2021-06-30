@@ -11,6 +11,8 @@ uses
 
 type
 
+  { TfrmPrincipal }
+
   TfrmPrincipal = class(TForm)
     ac_devolucao: TAction;
     ac_venda: TAction;
@@ -47,6 +49,7 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure lblUnidadeClick(Sender: TObject);
     procedure pnl_menuClick(Sender: TObject);
     procedure pnl_menuMouseEnter(Sender: TObject);
     procedure pnl_menuMouseLeave(Sender: TObject);
@@ -110,7 +113,11 @@ end;
 
 procedure TfrmPrincipal.ac_vendaExecute(Sender: TObject);
 begin
-  CriarForm(Tform_venda, true);
+   form_venda := Tform_venda.Create(nil);
+   form_venda.showModal;
+   form_venda.release;
+   form_venda := nil;
+  //CriarForm(Tform_venda, true);
 end;
 
 procedure TfrmPrincipal.FormActivate(Sender: TObject);
@@ -125,6 +132,11 @@ end;
 procedure TfrmPrincipal.FormShow(Sender: TObject);
 begin
   AtivaBusca;
+end;
+
+procedure TfrmPrincipal.lblUnidadeClick(Sender: TObject);
+begin
+
 end;
 
 procedure TfrmPrincipal.pnl_menuClick(Sender: TObject);

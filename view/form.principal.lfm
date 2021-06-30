@@ -185,16 +185,18 @@ object frmPrincipal: TfrmPrincipal
         ParentFont = False
       end
       object lblUnidade: TLabel
-        Left = 168
+        Left = 72
         Height = 15
         Top = 28
-        Width = 61
+        Width = 157
         Alignment = taRightJustify
+        AutoSize = False
         Caption = 'Unidade:'
         Font.Color = clWhite
         Font.Height = -15
         ParentColor = False
         ParentFont = False
+        OnClick = lblUnidadeClick
       end
     end
   end

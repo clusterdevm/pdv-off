@@ -6,9 +6,10 @@ interface
 
 uses
   Classes, SysUtils, BufDataset, DB, Forms, Controls, Graphics, Dialogs,
-  ExtCtrls, DBGrids, StdCtrls, BCButton, JvBaseEdits, clipbrd, ComCtrls,
+  ExtCtrls, DBGrids, StdCtrls, BCButton, clipbrd, ComCtrls,
   ActnList, EditBtn, Spin, ACBrEnterTab, RTTICtrls, SynEdit, SpinEx,
-  frame.pagamento, math, jsons, Types, Grids,LCLProc,LCLtype;
+  frame.pagamento, math, jsons, Types, Grids,LCLProc,LCLtype,
+  DateUtils;
 
 type
 
@@ -19,7 +20,11 @@ type
     ac_fechar: TAction;
     ActionList1: TActionList;
     BCButton4: TBCButton;
+    dsCrediario: TDataSource;
+    pnlLabelCrediario: TPanel;
+    qCrediario: TBufDataset;
     CheckBox1: TCheckBox;
+    gridCrediario: TDBGrid;
     DBGrid2: TDBGrid;
     dsPagamento: TDataSource;
     ed_entrega: TEdit;
@@ -32,7 +37,20 @@ type
     Label1: TLabel;
     Label10: TLabel;
     Label11: TLabel;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
+    lCondicoes: TLabel;
     Label6: TLabel;
+    lCliente: TLabel;
+    lVendedor: TLabel;
     lShape1: TLabel;
     lShape2: TLabel;
     lShape3: TLabel;
@@ -45,12 +63,18 @@ type
     Label8: TLabel;
     Label9: TLabel;
     lTotalGeral: TLabel;
+    lCPF: TLabel;
+    lTotal: TLabel;
+    lDesconto: TLabel;
+    lAcrescimo: TLabel;
+    lEntrega: TLabel;
+    lEntrada: TLabel;
+    lTotalVenda: TLabel;
     Memo1: TMemo;
     PageControl1: TPageControl;
     Panel1: TPanel;
     Panel10: TPanel;
     Panel11: TPanel;
-    Panel12: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
     Panel4: TPanel;
@@ -59,14 +83,23 @@ type
     Panel7: TPanel;
     Panel8: TPanel;
     Panel9: TPanel;
+    qCrediarioDocumento: TStringField;
+    qCrediarioParcela: TLongintField;
+    qCrediariovalor: TFloatField;
+    qCrediarioVencimento: TDateField;
     qPagamento: TBufDataset;
     qPagamentoaliq_desconto: TFloatField;
     qPagamentoaliq_desconto1: TFloatField;
     qPagamentocrediario: TBooleanField;
     qPagamentodescricao: TStringField;
     qPagamentodescricao1: TStringField;
+    qPagamentodisplay_resumo: TStringField;
     qPagamentoid: TLongintField;
     qPagamentoid1: TLongintField;
+    qPagamenton_parcelas: TLongintField;
+    qPagamentoprimeiro_vencimento: TLongintField;
+    qPagamentovenciveis_de: TLongintField;
+    Shape1: TShape;
     ShapeBarra: TShape;
     nextShape1: TShape;
     nextShape2: TShape;
@@ -104,8 +137,12 @@ type
 
         Procedure LoadShape(posicao:integer);
 
+        Procedure SetResumo;
   public
-      _valorBruto, _valorPromocao, _valorDesconto, _valorDescontoExtra, _valorEntrada, _ValorRecebimento : Currency;
+      _valorBruto, _valorPromocao, _valorDesconto, _valorDescontoExtra,
+        _valorEntrada, _ValorRecebimento, _totalVenda, _totalCrediario : Currency;
+
+      n_venda : string;
   end;
 
 var
@@ -115,12 +152,16 @@ implementation
 
 {$R *.lfm}
 
-uses model.conexao, classe.utils;
+uses model.conexao, classe.utils, f_venda;
 
 procedure Tf_fechamento.FormCreate(Sender: TObject);
 begin
    qPagamento.CreateDataset;
    qPagamento.Open;
+
+   qCrediario.CreateDataset;
+   qCrediario.Open;
+
    _aliquota:= false;
 
    Frame := TframePagamento.Create(f_fechamento);
@@ -137,15 +178,25 @@ end;
 procedure Tf_fechamento.ac_fecharExecute(Sender: TObject);
 var _avancar : boolean;
 begin
+  SetResumo;
   case PageControl1.PageIndex of
    0 : Begin
-       PageControl1.PageIndex:= 1;
-       Frame.Inicializa(_ValorRecebimento);
-       Frame.ListBox1.SetFocus;
-       Frame.ListBox1.Selected[0] := True
-       ;
-       ac_fechar.Caption:= 'Proximo (F6)';
-       LoadShape(2);
+       if _ValorRecebimento > 0 then
+       Begin
+           PageControl1.PageIndex:= 1;
+           Frame.Inicializa(_ValorRecebimento,qPagamenton_parcelas.Value);
+           Frame.ListBox1.SetFocus;
+           Frame.ListBox1.Selected[0] := True;
+           ac_fechar.Caption:= 'Proximo (F6)';
+           LoadShape(2);
+       end
+       else
+       Begin
+           PageControl1.PageIndex:= 2;
+           ac_fechar.Caption:= 'Concluir (F6)';
+           LoadShape(3);
+       end;
+
    end;
    1 : Begin
        if _ValorRecebimento > 0 then
@@ -255,6 +306,7 @@ procedure Tf_fechamento.PageControl1Changing(Sender: TObject;
   var AllowChange: Boolean);
 begin
    LoadShape(PageControl1.PageIndex+1);
+
 end;
 
 procedure Tf_fechamento.LoadPrazo;
@@ -281,6 +333,10 @@ begin
               qPagamentoaliq_desconto.Value:= FieldByName('aliq_desconto').AsFloat;
               qPagamentodescricao.Value:= FieldByName('descricao').AsString +' ('+CalculaValorStr+')';
               qPagamentocrediario.Value:= trim(FieldByName('tipo_forma').AsString) = 'crediario';
+              qPagamentodisplay_resumo.Value:= FieldByName('descricao').AsString;
+              qPagamentovenciveis_de.Value:= FieldByName('venciveis_de').AsInteger;
+              qPagamenton_parcelas.Value:= FieldByName('qtde_parcela').AsInteger;
+              qPagamentoprimeiro_vencimento.Value:= FieldByName('primeiro_vencimento').AsInteger;
               qPagamento.Post;
 
               Next;
@@ -328,16 +384,17 @@ begin
    ed_valorDesconto.Text:= FormatFloat(sessao.formatsubtotal(false),ToValor(ed_valorDesconto.Text));
    ed_valorEntrada.Text:= FormatFloat(sessao.formatsubtotal(false),ToValor(ed_valorEntrada.Text));
 
-   lTotalGeral.Caption:= FormatFloat(sessao.formatsubtotal(),Result);
-   lTotalPagar.Caption:= FormatFloat(sessao.formatsubtotal(),(Result +
-                                                             ToValor(ed_acrescimo.Text)+
-                                                             ToValor(ed_entrega.Text) +
-                                                             _valorPromocao
-                                                             ) -
-                                                             (ToValor(ed_valorDesconto.Text)+
-                                                              _valorEntrada
-                                                             )
-                                                             );
+   _totalCrediario := Decimal(Result +
+                       ToValor(ed_acrescimo.Text)+
+                       ToValor(ed_entrega.Text) +
+                       _valorPromocao
+                       ) -
+                       (ToValor(ed_valorDesconto.Text)+
+                        _valorEntrada
+                       );
+
+   lTotalGeral.Caption:= FormatFloat(sessao.formatsubtotal(),_valorBruto);
+   lTotalPagar.Caption:= FormatFloat(sessao.formatsubtotal(),_totalCrediario);
 
    _ValorRecebimento := 0;
    if qPagamentocrediario.Value = true  then
@@ -351,6 +408,9 @@ begin
                            (ToValor(ed_valorDesconto.Text)+
                             _valorEntrada
                            );
+
+   _totalVenda:= (_valorBruto+_valorPromocao) -
+                 (_valorDesconto+_valorDescontoExtra);
 
 
 end;
@@ -402,6 +462,67 @@ begin
          nextShape3.Brush.Color := clGreen;
      end;
   end;
+end;
+
+procedure Tf_fechamento.SetResumo;
+var _vencimento : TDate;
+    _valor, _acumulado : Currency;
+     i : Integer;
+begin
+    lCondicoes.Caption:= qPagamentodisplay_resumo.Value;
+    lVendedor.Caption:= form_venda.ed_vendedor.Text;
+    lCliente.Caption:= form_venda.ed_cliente.Text;
+    lCPF.Caption:= form_venda.ed_cpf.Text;
+
+    lTotal.Caption:= FormatFloat(sessao.formatsubtotal(),_valorBruto+_valorPromocao);
+    lDesconto.Caption:= FormatFloat(sessao.formatsubtotal(),_valorDesconto+_valorDescontoExtra);
+    lAcrescimo.Caption:= FormatFloat(sessao.formatsubtotal(),0);
+    lEntrega.Caption:= FormatFloat(sessao.formatsubtotal(),ToValor(ed_entrega.Text));
+    lEntrada.Caption:=FormatFloat(sessao.formatsubtotal(),_valorEntrada);
+    lTotalVenda.Caption:=FormatFloat(sessao.formatsubtotal(),_totalVenda);
+
+    pnlLabelCrediario.Visible:= false;
+    gridCrediario.Visible:= false;
+
+    if qPagamentocrediario.Value = true  then
+    Begin
+        pnlLabelCrediario.Visible:= true;
+        gridCrediario.Visible:= true;
+        _vencimento:= IncDay(sessao.DataServidor + qPagamentoprimeiro_vencimento.Value);
+
+        if qPagamenton_parcelas.Value > 0  then
+            _valor := Decimal(_totalCrediario / qPagamenton_parcelas.Value);
+
+
+        qCrediario.Close;
+        qCrediario.Open;
+        gridCrediario.Columns[3].DisplayFormat:= sessao.formatsubtotal();
+        _acumulado:= 0;
+
+        for i := 1 to qPagamenton_parcelas.Value do
+        Begin
+            qCrediario.Append;
+            qCrediarioDocumento.Value:= n_venda;
+            qCrediarioParcela.Value:= i;
+            qCrediariovalor.Value:=_valor;
+            qCrediarioVencimento.Value:= _vencimento;
+            qCrediario.Post;
+            _acumulado:= _acumulado + _valor;
+            _vencimento:= IncDay(sessao.DataServidor + qPagamentovenciveis_de.Value);;
+        end;
+
+        if _acumulado <> _totalCrediario then
+        Begin
+             qCrediario.First;
+             qCrediario.Edit;
+             if _acumulado > _totalCrediario then
+                qCrediariovalor.Value := qCrediariovalor.Value- (_acumulado-_totalCrediario)
+             else
+                 qCrediariovalor.Value := qCrediariovalor.Value + (_totalCrediario-_acumulado);
+             qCrediario.Post;
+        end;
+
+    end;
 end;
 
 end.

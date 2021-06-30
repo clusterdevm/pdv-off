@@ -20,6 +20,8 @@ type
     acNovo: TAction;
     Action1: TAction;
     acEditar: TAction;
+
+
     acInativar: TAction;
     acImprimir: TAction;
     ActionList1: TActionList;

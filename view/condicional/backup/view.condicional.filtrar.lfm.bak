@@ -175,11 +175,6 @@ inherited frm_CondicionalFIltrar: Tfrm_CondicionalFIltrar
       Anchors = [akRight]
       ClientWidth = 267
       TabOrder = 1
-      inherited cb_empresa: TComboBox
-        Width = 266
-        OnChange = ac_buscarExecute
-        OnClick = ac_buscarExecute
-      end
     end
     object ed_emissao_inicial: TDateEdit
       Left = 416

@@ -20,6 +20,8 @@ type
     acNovo: TAction;
     Action1: TAction;
     acEditar: TAction;
+
+
     acInativar: TAction;
     acImprimir: TAction;
     ActionList1: TActionList;
@@ -274,7 +276,7 @@ begin
     b_Inativar.Action := acInativar;
     b_localizar.Action := acBuscar;
     b_localizar1.Action := acImprimir;
-    b_localizar1.visible := true
+    b_localizar1.visible := true;
     edt_nome.SetFocus;
     a:= 0; b:= 0;
     Timer1.Enabled:=true;

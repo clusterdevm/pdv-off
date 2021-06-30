@@ -246,6 +246,7 @@ begin
                 Sessao.segundoplano := true;
 
                 {$IFDEF MSWINDOWS}
+                   //frmPrincipal.BorderStyle  := bsNone;
                    frmPrincipal.Show;
                 {$else}
                    frmPrincipal.ShowModal;

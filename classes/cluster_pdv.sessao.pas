@@ -65,6 +65,7 @@ private
       function formatunitario(_loadSimbolo:boolean = true): string;
       function formatquantidade : string;
       function formatAliquota(_loadSimbolo : boolean = false):string;
+      function TotalCasasDecimal : Integer;
       function Getsimbolo : string;
 
       property razao : string read frazao write frazao;
@@ -89,6 +90,8 @@ private
       Procedure Sangria;
 
       Function GetmoedaPadrao : integer;
+
+      Function DataServidor : TDate;
 
       Constructor create;
 end;
@@ -322,6 +325,12 @@ begin
       Result := '#0.00,'
 end;
 
+function TSessao.TotalCasasDecimal: Integer;
+begin
+  formatsubtotal;
+  result := DecimalTotal;
+end;
+
 function TSessao.Getsimbolo: string;
 var _db : TConexao;
 begin
@@ -497,6 +506,11 @@ begin
   end;
 
   Result := MoedaPadrao;
+end;
+
+function TSessao.DataServidor: TDate;
+begin
+  Result := date;
 end;
 
 

@@ -160,7 +160,7 @@ begin
     FHeader   := THeader.Create(THeaderItens);
     FReturn := TJsonObject.Create;
 
-    GSincronizar := true
+    GSincronizar := true;
 end;
 
 destructor TRequisicao.Destroy;
