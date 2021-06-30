@@ -28,9 +28,9 @@ object form_venda: Tform_venda
     TabOrder = 0
     object lblUsuario: TLabel
       Left = 184
-      Height = 14
+      Height = 15
       Top = 25
-      Width = 165
+      Width = 183
       Caption = 'Usuario: Eber Alves da Silva'
       Font.Color = clWhite
       ParentColor = False
@@ -3157,19 +3157,19 @@ object form_venda: Tform_venda
     TabOrder = 1
     object pnlBase: TPanel
       Left = 2
-      Height = 502
-      Top = 28
+      Height = 501
+      Top = 29
       Width = 1150
       Align = alClient
       BevelOuter = bvNone
       Caption = 'pnlBase'
-      ClientHeight = 502
+      ClientHeight = 501
       ClientWidth = 1150
       TabOrder = 0
       object pnlBotoes: TPanel
         Left = 0
         Height = 50
-        Top = 452
+        Top = 451
         Width = 1150
         Align = alBottom
         BevelColor = 12672305
@@ -4053,28 +4053,28 @@ object form_venda: Tform_venda
       end
       object pnlVendas: TPanel
         Left = 0
-        Height = 452
+        Height = 451
         Top = 0
         Width = 1150
         Align = alClient
         BevelOuter = bvNone
-        ClientHeight = 452
+        ClientHeight = 451
         ClientWidth = 1150
         TabOrder = 1
         object pnlLateral: TPanel
           Left = 0
-          Height = 452
+          Height = 451
           Top = 0
           Width = 440
           Align = alLeft
           BevelOuter = bvNone
-          ClientHeight = 452
+          ClientHeight = 451
           ClientWidth = 440
           TabOrder = 0
           object pnlCodigo: TPanel
             Left = 0
             Height = 98
-            Top = 354
+            Top = 353
             Width = 440
             Align = alBottom
             BevelOuter = bvNone
@@ -4093,9 +4093,9 @@ object form_venda: Tform_venda
             end
             object Label2: TLabel
               Left = 20
-              Height = 14
+              Height = 15
               Top = 16
-              Width = 141
+              Width = 158
               Caption = '(Codigo * Quantidade)'
               ParentColor = False
             end
@@ -4766,11 +4766,11 @@ object form_venda: Tform_venda
         end
         object pnlDireito: TPanel
           Left = 440
-          Height = 452
+          Height = 451
           Top = 0
           Width = 710
           Align = alClient
-          ClientHeight = 452
+          ClientHeight = 451
           ClientWidth = 710
           TabOrder = 1
           object pnlGridVendas: TPanel
@@ -4783,7 +4783,6 @@ object form_venda: Tform_venda
             ClientHeight = 353
             ClientWidth = 708
             TabOrder = 0
-            OnClick = pnlGridVendasClick
             object Shape3: TShape
               Left = 8
               Height = 313
@@ -4803,7 +4802,6 @@ object form_venda: Tform_venda
               ClientHeight = 305
               ClientWidth = 679
               TabOrder = 0
-              OnResize = pnlGridResize
               object pnlTitle: TPanel
                 Left = 0
                 Height = 30
@@ -4959,52 +4957,56 @@ object form_venda: Tform_venda
           end
           object pnlTotalizador: TPanel
             Left = 1
-            Height = 97
+            Height = 96
             Top = 354
             Width = 708
             Align = alClient
             BevelOuter = bvSpace
-            ClientHeight = 97
+            ClientHeight = 96
             ClientWidth = 708
+            ParentColor = False
             TabOrder = 1
             object pnlTotal: TPanel
-              Left = 447
-              Height = 95
+              Left = 397
+              Height = 94
               Top = 1
-              Width = 250
+              Width = 300
               Align = alRight
               Alignment = taRightJustify
               BorderSpacing.Right = 10
               BevelOuter = bvNone
-              ClientHeight = 95
-              ClientWidth = 250
+              ClientHeight = 94
+              ClientWidth = 300
+              Color = 10875023
+              ParentColor = False
               TabOrder = 0
               object Shape4: TShape
                 Left = 0
-                Height = 95
+                Height = 94
                 Top = 0
-                Width = 250
+                Width = 300
                 Align = alClient
                 Brush.Color = 10875023
                 Brush.Style = bsVertical
-                Pen.Color = clSilver
-                Pen.Style = psPattern
+                ParentShowHint = False
+                Pen.Color = 10875023
+                Pen.Cosmetic = False
+                Pen.Style = psClear
                 Shape = stRoundRect
+                ShowHint = True
+                Visible = False
               end
               object Panel1: TPanel
-                Left = 13
-                Height = 69
-                Top = 13
-                Width = 224
+                Left = 5
+                Height = 84
+                Top = 5
+                Width = 290
                 Align = alClient
-                BorderSpacing.Left = 3
-                BorderSpacing.Top = 3
-                BorderSpacing.Right = 3
-                BorderSpacing.Bottom = 3
-                BorderSpacing.Around = 10
+                BorderSpacing.Around = 5
                 BevelOuter = bvNone
-                ClientHeight = 69
-                ClientWidth = 224
+                Caption = ' '
+                ClientHeight = 84
+                ClientWidth = 290
                 Color = 10875023
                 ParentColor = False
                 TabOrder = 0
@@ -5012,7 +5014,7 @@ object form_venda: Tform_venda
                   Left = 0
                   Height = 20
                   Top = 0
-                  Width = 224
+                  Width = 290
                   Align = alTop
                   Caption = 'Total Pagar'
                   Font.Height = -19
@@ -5022,9 +5024,9 @@ object form_venda: Tform_venda
                 end
                 object Label4: TLabel
                   Left = 0
-                  Height = 29
+                  Height = 44
                   Top = 20
-                  Width = 224
+                  Width = 290
                   Align = alClient
                   Alignment = taRightJustify
                   Caption = 'R$ 0,00'
@@ -5033,13 +5035,12 @@ object form_venda: Tform_venda
                   Layout = tlCenter
                   ParentColor = False
                   ParentFont = False
-                  OnClick = Label4Click
                 end
                 object lblPecas: TLabel
                   Left = 0
                   Height = 20
-                  Top = 49
-                  Width = 224
+                  Top = 64
+                  Width = 290
                   Align = alBottom
                   Alignment = taCenter
                   AutoSize = False
@@ -5053,40 +5054,39 @@ object form_venda: Tform_venda
             end
             object PnlCadatro: TPanel
               Left = 11
-              Height = 95
+              Height = 94
               Top = 1
-              Width = 426
+              Width = 376
               Align = alClient
               Alignment = taRightJustify
               BorderSpacing.Left = 10
               BorderSpacing.Right = 10
               BevelOuter = bvNone
-              ClientHeight = 95
-              ClientWidth = 426
+              ClientHeight = 94
+              ClientWidth = 376
               Color = clWhite
               ParentColor = False
               TabOrder = 1
               object Shape5: TShape
                 Left = 0
-                Height = 95
+                Height = 94
                 Top = 0
-                Width = 426
+                Width = 376
                 Align = alClient
                 Brush.Color = 15393754
                 Pen.Color = clSilver
                 Pen.Style = psPattern
-                OnChangeBounds = Shape5ChangeBounds
                 Shape = stRoundRect
               end
               object ed_cliente: TLabeledEdit
                 Left = 8
-                Height = 24
+                Height = 25
                 Top = 22
-                Width = 406
+                Width = 356
                 Anchors = [akTop, akLeft, akRight]
                 BorderStyle = bsNone
-                EditLabel.Height = 14
-                EditLabel.Width = 406
+                EditLabel.Height = 15
+                EditLabel.Width = 356
                 EditLabel.Caption = ' '
                 EditLabel.ParentColor = False
                 Font.Color = clBlue
@@ -5097,13 +5097,13 @@ object form_venda: Tform_venda
               end
               object ed_vendedor: TLabeledEdit
                 Left = 8
-                Height = 24
+                Height = 25
                 Top = 71
-                Width = 206
+                Width = 156
                 Anchors = [akTop, akLeft, akRight]
                 BorderStyle = bsNone
-                EditLabel.Height = 14
-                EditLabel.Width = 206
+                EditLabel.Height = 15
+                EditLabel.Width = 156
                 EditLabel.Caption = '  '
                 EditLabel.ParentColor = False
                 Font.Color = clBlue
@@ -5113,13 +5113,13 @@ object form_venda: Tform_venda
                 TabStop = False
               end
               object ed_cpf: TLabeledEdit
-                Left = 222
-                Height = 24
+                Left = 172
+                Height = 25
                 Top = 71
                 Width = 192
                 Anchors = [akTop, akRight]
                 BorderStyle = bsNone
-                EditLabel.Height = 14
+                EditLabel.Height = 15
                 EditLabel.Width = 192
                 EditLabel.Caption = '  '
                 EditLabel.ParentColor = False
@@ -5131,19 +5131,19 @@ object form_venda: Tform_venda
                 OnChange = ed_cpfChange
               end
               object SpeedButton2: TSpeedButton
-                Left = 8
+                Left = 12
                 Height = 22
                 Top = 48
-                Width = 135
+                Width = 145
                 Action = ac_alterarVendedor
                 Caption = 'Vendedor (Ctrl + F2)'
                 Flat = True
               end
               object SpeedButton3: TSpeedButton
-                Left = 225
+                Left = 227
                 Height = 22
                 Top = 48
-                Width = 102
+                Width = 106
                 Action = ac_alterarCPF
                 Caption = 'CPF (CTRL + F1)'
                 Flat = True

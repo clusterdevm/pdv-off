@@ -1,30 +1,30 @@
 object framePagamento: TframePagamento
   Left = 0
-  Height = 419
+  Height = 587
   Top = 0
-  Width = 419
-  ClientHeight = 419
-  ClientWidth = 419
+  Width = 816
+  ClientHeight = 587
+  ClientWidth = 816
   Color = clWhite
   ParentColor = False
   TabOrder = 0
-  DesignLeft = 1363
-  DesignTop = 7
+  DesignLeft = 1362
+  DesignTop = 6
   object Panel1: TPanel
     Left = 0
-    Height = 419
+    Height = 587
     Top = 0
-    Width = 419
+    Width = 816
     Align = alClient
     BevelOuter = bvNone
-    ClientHeight = 419
-    ClientWidth = 419
+    ClientHeight = 587
+    ClientWidth = 816
     TabOrder = 0
-    object Panel2: TPanel
+    object pnlDisplay: TPanel
       Left = 0
       Height = 50
       Top = 0
-      Width = 419
+      Width = 816
       Align = alTop
       BevelOuter = bvNone
       Caption = 'Falta Pagar R$ 350,00'
@@ -37,39 +37,68 @@ object framePagamento: TframePagamento
     end
     object Panel3: TPanel
       Left = 0
-      Height = 100
-      Top = 50
-      Width = 419
+      Height = 150
+      Top = 188
+      Width = 816
       Align = alTop
       BevelOuter = bvNone
-      ClientHeight = 100
-      ClientWidth = 419
+      ClientHeight = 150
+      ClientWidth = 816
       TabOrder = 1
-      object DBGrid1: TDBGrid
-        Left = 0
-        Height = 100
-        Top = 0
-        Width = 419
+      object gridValores: TDBGrid
+        Left = 3
+        Height = 114
+        Top = 33
+        Width = 810
         Align = alClient
+        BorderSpacing.Around = 3
         BorderStyle = bsNone
         Color = clWindow
-        Columns = <>
+        Columns = <        
+          item
+            Title.Caption = 'Display'
+            Width = 400
+            FieldName = 'Display'
+          end        
+          item
+            Title.Caption = 'Valor Pago'
+            Width = 200
+            FieldName = 'valor'
+          end>
+        DataSource = dsQuitacao
         FixedCols = 0
-        Options = [dgColumnResize, dgColumnMove, dgAlwaysShowSelection]
+        Options = [dgColumnResize, dgColumnMove]
         Scrollbars = ssNone
         TabOrder = 0
         TitleStyle = tsNative
+        OnDrawColumnCell = gridValoresDrawColumnCell
+      end
+      object Panel5: TPanel
+        Left = 0
+        Height = 30
+        Top = 0
+        Width = 816
+        Align = alTop
+        BevelOuter = bvNone
+        Caption = 'Valores Pagos'
+        Color = 11829830
+        Font.Color = clWhite
+        Font.Height = -16
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        TabOrder = 1
       end
     end
     object Panel4: TPanel
       Left = 0
       Height = 138
-      Top = 150
-      Width = 419
+      Top = 50
+      Width = 816
       Align = alTop
       BevelOuter = bvNone
       ClientHeight = 138
-      ClientWidth = 419
+      ClientWidth = 816
       TabOrder = 2
       object ListBox1: TListBox
         Left = 5
@@ -87,63 +116,73 @@ object framePagamento: TframePagamento
           'Vale Crédito'
           'TEF'
         )
-        ItemHeight = 22
+        ItemHeight = 23
+        OnSelectionChange = ListBox1SelectionChange
         ScrollWidth = 132
         TabOrder = 0
       end
       object PageControl1: TPageControl
-        Left = 137
-        Height = 138
-        Top = 0
-        Width = 282
+        Left = 140
+        Height = 132
+        Top = 3
+        Width = 673
+        TabStop = False
         ActivePage = tabDinheiro
         Align = alClient
+        BorderSpacing.Around = 3
         TabIndex = 0
         TabOrder = 1
-        OnChange = PageControl1Change
+        TabPosition = tpBottom
         object tabDinheiro: TTabSheet
           Caption = 'Dinheiro'
-          ClientHeight = 108
-          ClientWidth = 272
+          ClientHeight = 101
+          ClientWidth = 663
           object Label1: TLabel
             Left = 6
-            Height = 14
+            Height = 15
             Top = 20
-            Width = 42
+            Width = 47
             Caption = 'Moeda'
             ParentColor = False
           end
-          object ComboBox1: TComboBox
-            Left = 64
-            Height = 32
-            Top = 8
-            Width = 200
-            ItemHeight = 0
-            TabOrder = 0
-            Text = 'ComboBox1'
-          end
           object Label2: TLabel
             Left = 8
-            Height = 14
+            Height = 15
             Top = 56
-            Width = 32
+            Width = 36
             Caption = 'Valor'
             ParentColor = False
           end
-          object Edit1: TEdit
+          object DBLookupComboBox1: TDBLookupComboBox
             Left = 64
-            Height = 32
-            Top = 45
-            Width = 200
+            Height = 33
+            Top = 8
+            Width = 280
+            KeyField = 'id'
+            ListField = 'descricao'
+            ListFieldIndex = 0
+            ListSource = dsmoeda
+            LookupCache = False
+            TabOrder = 0
+          end
+          object ed_valorDinheiro: TFloatSpinEditEx
+            Left = 64
+            Height = 33
+            Top = 48
+            Width = 280
+            MaxLength = 0
             TabOrder = 1
-            Text = 'Edit1'
+            MaxValue = 0
+            MinRepeatValue = 0
+            UpDownVisible = False
           end
           object Button1: TButton
-            Left = 176
+            Left = 256
             Height = 25
-            Top = 80
+            Top = 82
             Width = 88
             Caption = 'Registrar'
+            OnClick = Button1Click
             TabOrder = 2
           end
         end
@@ -162,21 +201,177 @@ object framePagamento: TframePagamento
         object tabTEF: TTabSheet
           Caption = 'TEF'
         end
+        object tabNeutra: TTabSheet
+          Caption = 'tabNeutra'
+        end
       end
     end
     object DBGrid2: TDBGrid
-      Left = 0
-      Height = 131
-      Top = 288
-      Width = 419
+      Left = 5
+      Height = 209
+      Top = 373
+      Width = 806
       Align = alClient
+      BorderSpacing.Around = 5
       BorderStyle = bsNone
       Color = clWindow
-      Columns = <>
+      Columns = <      
+        item
+          Title.Caption = 'Title'
+        end>
       FixedCols = 0
       Options = []
       Scrollbars = ssNone
       TabOrder = 3
     end
+    object Panel6: TPanel
+      Left = 0
+      Height = 30
+      Top = 338
+      Width = 816
+      Align = alTop
+      BevelOuter = bvNone
+      Caption = 'Falta Pagar'
+      Color = 11247093
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 4
+      Visible = False
+    end
+  end
+  object qMoeda: TBufDataset
+    FieldDefs = <>
+    Left = 760
+    Top = 120
+    object qMoedaid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qMoedadescricao: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+    object qMoedacambio: TFloatField
+      FieldKind = fkData
+      FieldName = 'cambio'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object dsmoeda: TDataSource
+    DataSet = qMoeda
+    Left = 704
+    Top = 112
+  end
+  object qQuitacao: TBufDataset
+    FieldDefs = <>
+    Left = 632
+    Top = 240
+    object qQuitacaotipo: TStringField
+      FieldKind = fkData
+      FieldName = 'tipo'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object qQuitacaovalor: TFloatField
+      FieldKind = fkData
+      FieldName = 'valor'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qQuitacaodisplay: TStringField
+      FieldKind = fkData
+      FieldName = 'display'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object qQuitacaomoeda_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'moeda_id'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qQuitacaocambio: TFloatField
+      FieldKind = fkData
+      FieldName = 'cambio'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qQuitacaovalor_moeda: TFloatField
+      FieldKind = fkData
+      FieldName = 'valor_moeda'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qQuitacaon_parcelas: TLongintField
+      FieldKind = fkData
+      FieldName = 'n_parcelas'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qQuitacaon_autorizacao: TStringField
+      FieldKind = fkData
+      FieldName = 'n_autorizacao'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object qQuitacaocodigo_vale: TLongintField
+      FieldKind = fkData
+      FieldName = 'codigo_vale'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object dsQuitacao: TDataSource
+    DataSet = qQuitacao
+    Left = 552
+    Top = 240
   end
 end

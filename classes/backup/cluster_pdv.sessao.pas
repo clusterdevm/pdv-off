@@ -77,7 +77,7 @@ private
       Function DateToLocal(value:string):TDateTime;overload;
       Function DateToLocal(value:TDateTime):TDateTime;overload;
 
-      Function GetSerieID(_Cpf : Boolean ): integer;
+      Function GetSerieID(_Cpf : Boolean = false ): integer;
 
       Function GetNewDocumento : Integer;
 
@@ -86,6 +86,8 @@ private
       Procedure FechaCaixa;
       Procedure Suprimento;
       Procedure Sangria;
+
+      Function GetmoedaPadrao : integer;
 
       Constructor create;
 end;
@@ -142,6 +144,7 @@ begin
   DecimalUnitario:= -1;
   TabelaArmazenamentoID := -1;
   TabelaPrecoID:= -1;
+  MoedaPadrao := -1;
 end;
 
 function TSessao.tabela_preco_id: integer;
@@ -373,7 +376,7 @@ begin
             Close;
             Sql.Clear;
             Sql.Add('update serie_fiscal set documento = documento + 1');
-            Sql.Add(' where id = '+QuotedStr(IntToStr(GetSerieID)));
+            Sql.Add(' where id = '+QuotedStr(IntToStr(GetSerieID())));
             ExecSQL;
 
             Close;
@@ -467,6 +470,32 @@ begin
   f_saidaCaixa.ShowModal;
   f_saidaCaixa.Release;
   f_saidaCaixa := nil;
+end;
+
+function TSessao.GetmoedaPadrao: integer;
+var _db : TConexao;
+begin
+
+  if MoedaPadrao = -1 then
+  Begin
+      try
+          _db := TConexao.Create;
+          with _db.Query do
+          Begin
+              Close;
+              Sql.Clear;
+              Sql.Add('select pg.moeda_padrao_id from empresa e inner join parametros_geral pg ');
+              Sql.Add('           on pg.id = e.parametros_geral_id');
+              open;
+
+              MoedaPadrao := FieldByName('moeda_padrao_id').AsInteger;
+          end;
+      finally
+          FreeAndNil(_db);
+      end;
+  end;
+
+  Result := MoedaPadrao;
 end;
 
 

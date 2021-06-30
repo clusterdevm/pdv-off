@@ -128,12 +128,7 @@ type
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure gridItensKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure gridItensKeyPress(Sender: TObject; var Key: char);
-    procedure Label4Click(Sender: TObject);
-    procedure pnlGridResize(Sender: TObject);
-    procedure pnlGridVendasClick(Sender: TObject);
     procedure Shape3Resize(Sender: TObject);
-    procedure Shape5ChangeBounds(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure TabControl1Change(Sender: TObject);
   private
@@ -351,11 +346,6 @@ begin
                                                  );
 end;
 
-procedure Tform_venda.Shape5ChangeBounds(Sender: TObject);
-begin
-
-end;
-
 procedure Tform_venda.FormResize(Sender: TObject);
 begin
     pnlLateral.Width:= trunc((pnlVendas.Width * 0.35));
@@ -402,26 +392,6 @@ begin
      _char := #13;
      FormKeyPress(self,_char);
   end;
-
-end;
-
-procedure Tform_venda.gridItensKeyPress(Sender: TObject; var Key: char);
-begin
-
-end;
-
-procedure Tform_venda.Label4Click(Sender: TObject);
-begin
-
-end;
-
-procedure Tform_venda.pnlGridResize(Sender: TObject);
-begin
-
-end;
-
-procedure Tform_venda.pnlGridVendasClick(Sender: TObject);
-begin
 
 end;
 

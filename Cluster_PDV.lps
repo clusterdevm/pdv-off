@@ -82,16 +82,14 @@
         </CompilerOptions>
       </Item2>
     </BuildModes>
-    <Units Count="55">
+    <Units Count="57">
       <Unit0>
         <Filename Value="Cluster_PDV.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="9"/>
-        <CursorPos X="19" Y="21"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="4"/>
+        <CursorPos X="64" Y="9"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
       <Unit1>
@@ -100,12 +98,10 @@
         <ComponentName Value="frm_login"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="231"/>
         <CursorPos X="55" Y="252"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit1>
       <Unit2>
@@ -141,10 +137,10 @@
       <Unit5>
         <Filename Value="classes/classe.utils.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="72"/>
-        <CursorPos X="32" Y="80"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="5" Y="17"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
       <Unit6>
@@ -309,10 +305,11 @@
       <Unit22>
         <Filename Value="classes/cluster_pdv.sessao.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="456"/>
-        <CursorPos X="60" Y="464"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="78"/>
+        <CursorPos X="70" Y="80"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit22>
       <Unit23>
@@ -379,9 +376,9 @@
         <ComponentName Value="form_venda"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="613"/>
-        <CursorPos X="56" Y="631"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="712"/>
+        <CursorPos X="44" Y="740"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -403,8 +400,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uf_fechamentoCaixa"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="77"/>
-        <CursorPos X="73" Y="89"/>
+        <TopLine Value="48"/>
+        <CursorPos X="24" Y="66"/>
         <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit31>
@@ -427,12 +424,10 @@
         <ComponentName Value="f_devolucaoFiltrar"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="131"/>
         <CursorPos X="33" Y="139"/>
         <UsageCount Value="201"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit33>
       <Unit34>
@@ -453,12 +448,10 @@
         <ComponentName Value="f_devolucaoCriar"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="249"/>
         <CursorPos X="42" Y="260"/>
-        <UsageCount Value="199"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit35>
       <Unit36>
@@ -470,7 +463,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="139"/>
         <CursorPos X="56" Y="147"/>
-        <UsageCount Value="178"/>
+        <UsageCount Value="198"/>
         <Bookmarks Count="1">
           <Item0 X="25" Y="219" ID="1"/>
         </Bookmarks>
@@ -486,7 +479,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="6"/>
         <CursorPos X="14" Y="36"/>
-        <UsageCount Value="161"/>
+        <UsageCount Value="181"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit37>
       <Unit38>
@@ -498,7 +491,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="58"/>
         <CursorPos X="33" Y="67"/>
-        <UsageCount Value="155"/>
+        <UsageCount Value="175"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit38>
       <Unit39>
@@ -510,7 +503,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="70"/>
         <CursorPos X="45" Y="72"/>
-        <UsageCount Value="140"/>
+        <UsageCount Value="160"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit39>
       <Unit40>
@@ -522,7 +515,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="104"/>
         <CursorPos X="72" Y="110"/>
-        <UsageCount Value="139"/>
+        <UsageCount Value="159"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit40>
       <Unit41>
@@ -534,217 +527,266 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="2"/>
         <CursorPos X="3" Y="15"/>
-        <UsageCount Value="138"/>
+        <UsageCount Value="158"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit41>
       <Unit42>
-        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="381"/>
-        <CursorPos X="32" Y="389"/>
-        <UsageCount Value="0"/>
-        <Bookmarks Count="2">
-          <Item0 X="10" Y="370" ID="3"/>
-          <Item1 X="38" Y="434" ID="2"/>
-        </Bookmarks>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit42>
-      <Unit43>
-        <Filename Value="../../../eber/.lazarus/onlinepackagemanager/packages/zeosdbo/src/dbc/ZDbcSqLiteUtils.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="223"/>
-        <CursorPos Y="241"/>
-        <UsageCount Value="8"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit43>
-      <Unit44>
-        <Filename Value="/usr/share/lazarus/2.0.12/lcl/include/customform.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="2161"/>
-        <CursorPos X="38" Y="2170"/>
-        <UsageCount Value="0"/>
-      </Unit44>
-      <Unit45>
-        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLReport.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="61"/>
-        <CursorPos X="45" Y="14166"/>
-        <UsageCount Value="0"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit45>
-      <Unit46>
-        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLMetaVCL.pas"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="45" Y="13"/>
-        <UsageCount Value="0"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit46>
-      <Unit47>
-        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLPrinters.pas"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="27" Y="13"/>
-        <UsageCount Value="0"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit47>
-      <Unit48>
-        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLPreviewForm.pas"/>
-        <ComponentName Value="RLPreviewForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="0"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit48>
-      <Unit49>
-        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLPreview.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="817"/>
-        <CursorPos X="53" Y="828"/>
-        <UsageCount Value="0"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit49>
-      <Unit50>
-        <Filename Value="/usr/share/lazarus/2.0.12/lcl/forms.pp"/>
-        <UnitName Value="Forms"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="382"/>
-        <CursorPos X="15" Y="390"/>
-        <UsageCount Value="0"/>
-      </Unit50>
-      <Unit51>
-        <Filename Value="/usr/share/lazarus/2.0.12/lcl/include/wincontrol.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="5683"/>
-        <CursorPos Y="5701"/>
-        <UsageCount Value="9"/>
-      </Unit51>
-      <Unit52>
-        <Filename Value="/usr/share/lazarus/2.0.12/lcl/dbgrids.pas"/>
-        <UnitName Value="DBGrids"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1473"/>
-        <CursorPos Y="1484"/>
-        <UsageCount Value="11"/>
-      </Unit52>
-      <Unit53>
         <Filename Value="view/venda/uf_venda.fechamento.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="f_fechamento"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="6"/>
-        <TopLine Value="96"/>
-        <CursorPos X="3" Y="99"/>
-        <UsageCount Value="29"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="132"/>
+        <CursorPos X="38" Y="153"/>
+        <UsageCount Value="49"/>
         <Bookmarks Count="1">
-          <Item0 X="27" Y="146" ID="2"/>
+          <Item0 X="12" Y="153" ID="2"/>
         </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit53>
-      <Unit54>
+      </Unit42>
+      <Unit43>
         <Filename Value="view/frames/frame.pagamento.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="framePagamento"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="30"/>
-        <CursorPos X="3" Y="49"/>
-        <UsageCount Value="22"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="67"/>
+        <CursorPos X="57" Y="103"/>
+        <UsageCount Value="42"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit43>
+      <Unit44>
+        <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="322"/>
+        <CursorPos X="4" Y="326"/>
+        <UsageCount Value="9"/>
+        <Bookmarks Count="2">
+          <Item0 X="10" Y="370" ID="3"/>
+          <Item1 X="38" Y="434" ID="2"/>
+        </Bookmarks>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit44>
+      <Unit45>
+        <Filename Value="../../../eber/.lazarus/onlinepackagemanager/packages/zeosdbo/src/dbc/ZDbcSqLiteUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="223"/>
+        <CursorPos Y="241"/>
+        <UsageCount Value="7"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit45>
+      <Unit46>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/include/customform.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2161"/>
+        <CursorPos X="38" Y="2170"/>
+        <UsageCount Value="9"/>
+      </Unit46>
+      <Unit47>
+        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLReport.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="61"/>
+        <CursorPos X="45" Y="14166"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit47>
+      <Unit48>
+        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLMetaVCL.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="45" Y="13"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit48>
+      <Unit49>
+        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLPrinters.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="27" Y="13"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit49>
+      <Unit50>
+        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLPreviewForm.pas"/>
+        <ComponentName Value="RLPreviewForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit50>
+      <Unit51>
+        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLPreview.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="817"/>
+        <CursorPos X="53" Y="828"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit51>
+      <Unit52>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/forms.pp"/>
+        <UnitName Value="Forms"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="382"/>
+        <CursorPos X="15" Y="390"/>
+        <UsageCount Value="9"/>
+      </Unit52>
+      <Unit53>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/include/wincontrol.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="5683"/>
+        <CursorPos Y="5701"/>
+        <UsageCount Value="8"/>
+      </Unit53>
+      <Unit54>
+        <Filename Value="/usr/share/lazarus/2.0.12/lcl/dbgrids.pas"/>
+        <UnitName Value="DBGrids"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1473"/>
+        <CursorPos Y="1484"/>
+        <UsageCount Value="10"/>
       </Unit54>
+      <Unit55>
+        <Filename Value="/usr/share/fpcsrc/3.2.0/rtl/objpas/sysutils/sysstrh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="176"/>
+        <CursorPos X="23" Y="189"/>
+        <UsageCount Value="15"/>
+      </Unit55>
+      <Unit56>
+        <Filename Value="/usr/share/fpcsrc/3.2.0/rtl/objpas/classes/classesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="66"/>
+        <CursorPos X="3" Y="83"/>
+        <UsageCount Value="9"/>
+      </Unit56>
     </Units>
-    <JumpHistory Count="22" HistoryIndex="21">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="55" Column="23" TopLine="40"/>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="90" Column="3" TopLine="88"/>
       </Position1>
       <Position2>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="132" Column="14" TopLine="114"/>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="89" Column="3" TopLine="87"/>
       </Position2>
       <Position3>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="55" Column="39" TopLine="44"/>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="90" Column="3" TopLine="88"/>
       </Position3>
       <Position4>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="126" Column="39" TopLine="115"/>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="61" Column="27" TopLine="44"/>
       </Position4>
       <Position5>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="56" Column="31" TopLine="47"/>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="166" Column="44" TopLine="145"/>
       </Position5>
       <Position6>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="126" Column="46" TopLine="115"/>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="63" Column="39" TopLine="46"/>
       </Position6>
       <Position7>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="128" Column="23" TopLine="115"/>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="169" Column="62" TopLine="145"/>
       </Position7>
       <Position8>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="55" Column="18" TopLine="44"/>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="59" Column="29" TopLine="46"/>
       </Position8>
       <Position9>
         <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="137" Column="23" TopLine="115"/>
+        <Caret Line="141" Column="25" TopLine="147"/>
       </Position9>
       <Position10>
         <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="136" Column="31" TopLine="117"/>
+        <Caret Line="101" Column="25" TopLine="84"/>
       </Position10>
       <Position11>
         <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="68" Column="33" TopLine="52"/>
+        <Caret Line="337" Column="30" TopLine="309"/>
       </Position11>
       <Position12>
         <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="136" Column="66" TopLine="117"/>
+        <Caret Line="142" Column="32" TopLine="124"/>
       </Position12>
       <Position13>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="123" Column="22" TopLine="117"/>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="64" Column="22" TopLine="46"/>
       </Position13>
       <Position14>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="124" Column="22" TopLine="118"/>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="178" Column="14" TopLine="146"/>
       </Position14>
       <Position15>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="125" Column="22" TopLine="119"/>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="62" Column="19" TopLine="45"/>
       </Position15>
       <Position16>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="132" Column="22" TopLine="126"/>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="167" Column="15" TopLine="148"/>
       </Position16>
       <Position17>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="98" Column="3" TopLine="95"/>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="65" Column="15" TopLine="48"/>
       </Position17>
       <Position18>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="99" Column="3" TopLine="96"/>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="204" Column="69" TopLine="170"/>
       </Position18>
       <Position19>
         <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="98" Column="3" TopLine="95"/>
+        <Caret Line="141" Column="46" TopLine="124"/>
       </Position19>
       <Position20>
         <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="99" Column="3" TopLine="96"/>
+        <Caret Line="107" Column="105" TopLine="90"/>
       </Position20>
       <Position21>
         <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="100" Column="3" TopLine="97"/>
+        <Caret Line="141" Column="42" TopLine="112"/>
       </Position21>
       <Position22>
         <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="99" Column="3" TopLine="96"/>
+        <Caret Line="138" TopLine="129"/>
       </Position22>
+      <Position23>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="140" TopLine="129"/>
+      </Position23>
+      <Position24>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="141" TopLine="129"/>
+      </Position24>
+      <Position25>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="138" Column="45" TopLine="129"/>
+      </Position25>
+      <Position26>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="64" Column="17" TopLine="47"/>
+      </Position26>
+      <Position27>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="196" Column="30" TopLine="173"/>
+      </Position27>
+      <Position28>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="187" Column="52" TopLine="173"/>
+      </Position28>
+      <Position29>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="135" Column="68" TopLine="131"/>
+      </Position29>
+      <Position30>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="169" Column="28" TopLine="166"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

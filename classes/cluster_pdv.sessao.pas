@@ -35,6 +35,7 @@ private
       DecimalUnitario : Integer;
       DecimalQuantidade : Integer;
       TabelaArmazenamentoID : Integer;
+      MoedaPadrao : Integer;
       TabelaPrecoID : Integer;
 
       Property caixa_id : Integer Read FCaixa_Id Write FCaixa_id;
@@ -86,6 +87,8 @@ private
       Procedure FechaCaixa;
       Procedure Suprimento;
       Procedure Sangria;
+
+      Function GetmoedaPadrao : integer;
 
       Constructor create;
 end;
@@ -142,6 +145,7 @@ begin
   DecimalUnitario:= -1;
   TabelaArmazenamentoID := -1;
   TabelaPrecoID:= -1;
+  MoedaPadrao := -1;
 end;
 
 function TSessao.tabela_preco_id: integer;
@@ -467,6 +471,32 @@ begin
   f_saidaCaixa.ShowModal;
   f_saidaCaixa.Release;
   f_saidaCaixa := nil;
+end;
+
+function TSessao.GetmoedaPadrao: integer;
+var _db : TConexao;
+begin
+
+  if MoedaPadrao = -1 then
+  Begin
+      try
+          _db := TConexao.Create;
+          with _db.Query do
+          Begin
+              Close;
+              Sql.Clear;
+              Sql.Add('select pg.moeda_padrao_id from empresa e inner join parametros_geral pg ');
+              Sql.Add('           on pg.id = e.parametros_geral_id');
+              open;
+
+              MoedaPadrao := FieldByName('moeda_padrao_id').AsInteger;
+          end;
+      finally
+          FreeAndNil(_db);
+      end;
+  end;
+
+  Result := MoedaPadrao;
 end;
 
 

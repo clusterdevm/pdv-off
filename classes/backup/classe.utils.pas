@@ -55,6 +55,7 @@ var Sessao : TSessao;
 
   Function GetUUID : String;
   Function GetFloat(value:string) : Extended;
+  Function ToValor(value:string) : Extended;
   Procedure Limpa(aDataSet:TBufDataset);
   function getNumeros(fField : String): String;
   Procedure CriarForm(NomeForm: TFormClass; _fullScream : Boolean = false);
@@ -81,7 +82,7 @@ begin
   form := NomeForm.Create(nil);
 
   try
-     form.BorderIcons:=  [biMinimize];
+     form.BorderIcons:= [];
      if not _fullScream  then
         form.BorderStyle := bsSizeable;
 
@@ -353,6 +354,27 @@ begin
   end;
 end;
 
+function GetAliquota(valor, desconto: double) : double;
+begin
+try
+     result := desconto / valor;
+     result := result * 100;
+except
+   result := 0
+end;
+end;
+
+
+function GetValorAliquota(valor, aliquota: double): Double;
+begin
+try
+    result := aliquota * valor;
+    result := result / 100;
+except
+   result := 0
+end;
+end;
+
 function getEMS_Webservice(value:TPathServicos): string;
 begin
 
@@ -407,6 +429,12 @@ begin
           result := 'https://api-dev.clustererp.com.br/api/v1/';
      end;
    end;
+end;
+
+function ToValor(value: string): Extended;
+begin
+   value := SubsString(value,',','.');
+   TryStrToFloat(value, result);
 end;
 
 Procedure Limpa(aDataSet:TBufDataset);

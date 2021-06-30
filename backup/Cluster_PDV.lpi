@@ -28,46 +28,52 @@
       <FormatVersion Value="2"/>
       <Modes Count="0"/>
     </RunParams>
-    <RequiredPackages Count="13">
+    <RequiredPackages Count="15">
       <Item1>
-        <PackageName Value="indylaz"/>
+        <PackageName Value="SynEdit"/>
       </Item1>
       <Item2>
-        <PackageName Value="ACBrTCP"/>
+        <PackageName Value="JvStdCtrlsLazR"/>
       </Item2>
       <Item3>
-        <PackageName Value="LazControls"/>
+        <PackageName Value="indylaz"/>
       </Item3>
       <Item4>
-        <PackageName Value="virtualtreeview_package"/>
+        <PackageName Value="ACBrTCP"/>
       </Item4>
       <Item5>
-        <PackageName Value="frce"/>
+        <PackageName Value="LazControls"/>
       </Item5>
       <Item6>
-        <PackageName Value="bgracontrols"/>
+        <PackageName Value="virtualtreeview_package"/>
       </Item6>
       <Item7>
-        <PackageName Value="TurboPowerIPro"/>
+        <PackageName Value="frce"/>
       </Item7>
       <Item8>
-        <PackageName Value="RunTimeTypeInfoControls"/>
+        <PackageName Value="bgracontrols"/>
       </Item8>
       <Item9>
-        <PackageName Value="weblaz"/>
+        <PackageName Value="TurboPowerIPro"/>
       </Item9>
       <Item10>
-        <PackageName Value="ACBrDiversos"/>
+        <PackageName Value="RunTimeTypeInfoControls"/>
       </Item10>
       <Item11>
-        <PackageName Value="FCL"/>
+        <PackageName Value="weblaz"/>
       </Item11>
       <Item12>
-        <PackageName Value="zcomponent"/>
+        <PackageName Value="ACBrDiversos"/>
       </Item12>
       <Item13>
-        <PackageName Value="LCL"/>
+        <PackageName Value="FCL"/>
       </Item13>
+      <Item14>
+        <PackageName Value="zcomponent"/>
+      </Item14>
+      <Item15>
+        <PackageName Value="LCL"/>
+      </Item15>
     </RequiredPackages>
     <Units Count="44">
       <Unit0>
@@ -333,6 +339,7 @@
         <Filename Value="view/frames/frame.pagamento.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="framePagamento"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
       </Unit43>
     </Units>
