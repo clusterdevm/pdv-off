@@ -75,7 +75,9 @@ begin
    _db.updateSQlArray(_tabela,_jsonvalue, _tabela = 'financeiro_caixa');
 
    if (_tabela='parametros_venda') or  (_tabela='parametros_produto') or
-      (_tabela='parametros_fiscal') or (_tabela='parametros_geral') then
+      (_tabela='parametros_fiscal') or (_tabela='parametros_geral') or
+      (_tabela='ems_pdv')
+   then
       sessao.InicializaConfigPadrao;
 
 
@@ -117,7 +119,7 @@ try
         _api := TRequisicao.Create;
         _api.Metodo:= 'post';
         _api.webservice:= getEMS_Webservice(mPDV);
-        _api.AddHeader('token-pdv',FTokenPDV);
+        _api.AddHeader('token-pdv',UpperCase(FTokenPDV))
         _api.rota:='hibrido';
         _api.endpoint:= 'download';
 
@@ -264,7 +266,7 @@ try
             if (LowerCase(_item['column_name'].AsString) = 'id') and
                (LowerCase(_tabelaName) = 'venda_itens') then
             Begin
-
+                  _line:= _line + ' PRIMARY KEY AUTOINCREMENT ';
             end;
 
             _sql.Add(_line);

@@ -227,8 +227,8 @@ begin
                  while not _sincronizar.Finished do
                      Application.ProcessMessages;
 
-                 //if Assigned(_sincronizar.FatalException) then
-                 //  raise _sincronizar.FatalException;
+                 if Assigned(_sincronizar.FatalException) then
+                   raise _sincronizar.FatalException;
 
                  objeto.SetPrimeiroLogFalse;
               finally

@@ -79,7 +79,7 @@ private
       Function DateToLocal(value:string):TDateTime;overload;
       Function DateToLocal(value:TDateTime):TDateTime;overload;
 
-      Function GetSerieID(_Cpf : Boolean = false ): integer;
+      Function GetSerieID(_Cpf : Boolean = false ; Orcamento : Boolean = false): integer;
 
       Function GetNewDocumento : Integer;
 
@@ -371,9 +371,38 @@ begin
    Result := UniversalTimeToLocal(value,GetUtcOFF);;
 end;
 
-function TSessao.GetSerieID(_Cpf : Boolean ): integer;
+function TSessao.GetSerieID(_Cpf : Boolean ; Orcamento : Boolean = false): integer;
+var _db : TConexao;
 begin
-  result := 4;
+  try
+      _db := TConexao.Create;
+      with _db.Query do
+      Begin
+          Close;
+          Sql.Clear;
+          Sql.Add('select sf.id from modelo_documento md ');
+          Sql.Add('  inner join serie_fiscal sf ');
+          Sql.Add('  on sf.modelo_documento_id - md.id ');
+
+          if _cpf then
+            Sql.Add(' and md.modelo = 65 ')
+          else
+          Begin
+             Sql.Add('  inner join ems_pdv ep ');
+             Sql.Add('  on ep.modelo_default = md.modelo ');
+
+             if orcamento then
+               Sql.Add(' and  md.abreviacao IN (''ORC'',''NFC'',''NFE'') ')
+             else
+               Sql.Add(' and  md.abreviacao IN (''DAV'',''NFC'',''NFE'') ')
+          end;
+
+          Open;
+          result := FieldByName('id').AsInteger;
+      end;
+  finally
+      FreeAndNil(_db);
+  end;
 end;
 
 function TSessao.GetNewDocumento: Integer;

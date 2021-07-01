@@ -70,7 +70,8 @@ begin
            finally
                   FreeAndNil(_data);
            end;
-      end;
+      end else
+         showmessage(_api.response);
 
    finally
      FreeAndNil(_api);
@@ -98,12 +99,7 @@ begin
   try
 
     _api := TRequisicao.Create;
-
-    {$IFDEF MSWINDOWS}
-         self.token_local := md5Text(bioswindows);
-    {$else}
-         self.token_local:= md5Text(FormatDatetime('ddmmyyyyhhmmss',now));
-    {$ENDIF}
+    self.token_local := GetUUID;
 
     _jsonBody := TJSONObject.Create;
     _jsonBody.Put('origem','D');
@@ -336,10 +332,6 @@ begin
 
           Result := not (FieldByName('primeira_sinc').AsString = 'N');
           self.token_remoto := FieldByName('token_remoto').AsString;
-
-          sessao.estoque_id:= fieldByName('estoque_id').AsInteger;
-          sessao.tabela_preco_id:= fieldByName('tabela_preco_id').AsInteger;
-
      end;
   finally
        FreeAndNil(_data);

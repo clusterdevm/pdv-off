@@ -366,10 +366,7 @@ begin
             Sql.Add('apelido text,');
             Sql.Add('status text,');
             Sql.Add('primeira_sinc text,');
-            Sql.Add('nfe_id integer,');
-            Sql.Add('nfce integer,');
-            Sql.Add('dav integer,');
-            Sql.Add('orcamento integer,');
+            Sql.Add('modelo_default integer,');
             Sql.Add('id integer);');
             ExecSQL;
        end;

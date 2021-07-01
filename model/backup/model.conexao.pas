@@ -155,7 +155,7 @@ begin
   except
      on e:Exception do
      Begin
-         RegistraLogErro('Create:'+e.message);
+         RegistraLogErro('Create Coenxao:'+e.message);
      end;
   end;
 end;

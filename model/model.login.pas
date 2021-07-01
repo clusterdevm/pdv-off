@@ -53,7 +53,7 @@ begin
       _api.AddHeader('token-pdv',self.token_remoto);
       _api.rota:='hibrido';
       _api.endpoint:='status';
-      _api.Execute;
+      _api.ExecuteSynapse;
 
       if _api.ResponseCode in [200..207] then
       Begin
@@ -70,7 +70,8 @@ begin
            finally
                   FreeAndNil(_data);
            end;
-      end;
+      end else
+         showmessage(_api.response);
 
    finally
      FreeAndNil(_api);
@@ -98,12 +99,7 @@ begin
   try
 
     _api := TRequisicao.Create;
-
-    {$IFDEF MSWINDOWS}
-         self.token_local := md5Text(bioswindows);
-    {$else}
-         self.token_local:= md5Text(FormatDatetime('ddmmyyyyhhmmss',now));
-    {$ENDIF}
+    self.token_local := GetUUID;
 
     _jsonBody := TJSONObject.Create;
     _jsonBody.Put('origem','D');
