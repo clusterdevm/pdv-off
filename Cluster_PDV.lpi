@@ -72,7 +72,7 @@
         <PackageName Value="LCL"/>
       </Item14>
     </RequiredPackages>
-    <Units Count="46">
+    <Units Count="48">
       <Unit0>
         <Filename Value="Cluster_PDV.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -347,6 +347,19 @@
         <Filename Value="../api/microservicos/vendas/model/model.vendas.config.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit45>
+      <Unit46>
+        <Filename Value="view/filtros/view.filtros.produtos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="f_produtosPesquisa"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit46>
+      <Unit47>
+        <Filename Value="view/filtros/view.filtros.produtos.selecao.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="f_produtosPesquisaSelecao"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit47>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

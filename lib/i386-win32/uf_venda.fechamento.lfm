@@ -374,7 +374,7 @@ object f_fechamento: Tf_fechamento
               Caption = 'Total Promoção'
               ParentColor = False
             end
-            object Label8: TLabel
+            object lPromocao: TLabel
               Left = 1
               Height = 28
               Top = 15

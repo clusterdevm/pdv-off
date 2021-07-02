@@ -8,6 +8,7 @@ object form_venda: Tform_venda
   ClientWidth = 1154
   Color = clWhite
   KeyPreview = True
+  Menu = MainMenu1
   OnCreate = FormCreate
   OnKeyPress = FormKeyPress
   OnResize = FormResize
@@ -4932,6 +4933,12 @@ object form_venda: Tform_venda
                     Title.Caption = 'SubTotal'
                     Width = 120
                     FieldName = 'sub_total'
+                  end                
+                  item
+                    Title.Caption = 'promocional'
+                    Width = 0
+                    Visible = False
+                    FieldName = 'promocional'
                   end>
                 DataSource = dsItens
                 DefaultRowHeight = 22
@@ -4964,6 +4971,7 @@ object form_venda: Tform_venda
             BevelOuter = bvSpace
             ClientHeight = 97
             ClientWidth = 708
+            Color = clWhite
             ParentColor = False
             TabOrder = 1
             object pnlTotal: TPanel
@@ -5022,7 +5030,7 @@ object form_venda: Tform_venda
                   ParentColor = False
                   ParentFont = False
                 end
-                object Label4: TLabel
+                object lblSubTotal: TLabel
                   Left = 0
                   Height = 45
                   Top = 20
@@ -5697,23 +5705,24 @@ object form_venda: Tform_venda
     end
     object MenuItem3: TMenuItem
       Caption = 'Importar Condicional'
+      Enabled = False
     end
     object MenuItem4: TMenuItem
-      Caption = 'Remover Item'
+      Action = ac_remover
     end
     object MenuItem5: TMenuItem
-      Caption = 'Alterar Preço'
+      Action = ac_alteraPreco
     end
     object MenuItem6: TMenuItem
-      Caption = 'Concluir'
+      Action = ac_fechavenda
     end
     object MenuItem7: TMenuItem
-      Caption = 'Cancelar Operação'
+      Action = ac_cancelamento
     end
   end
   object ActionList1: TActionList
     Left = 584
-    Top = 200
+    Top = 216
     object ac_sair: TAction
       Caption = 'Sair'
       OnExecute = ac_sairExecute
@@ -5783,6 +5792,16 @@ object form_venda: Tform_venda
       Caption = 'Fecha Venda'
       OnExecute = ac_fechavendaExecute
       ShortCut = 117
+    end
+    object ac_filtroProdutos: TAction
+      Caption = 'Filtrar Produtos'
+      OnExecute = ac_filtroProdutosExecute
+      ShortCut = 114
+    end
+    object ac_alteraPreco: TAction
+      Caption = 'Alterar Preço'
+      OnExecute = ac_alteraPrecoExecute
+      ShortCut = 16449
     end
   end
   object qryItens: TBufDataset
@@ -5855,10 +5874,31 @@ object form_venda: Tform_venda
       ReadOnly = False
       Required = False
     end
+    object qryItenspromocional: TBooleanField
+      FieldKind = fkData
+      FieldName = 'promocional'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayValues = 'True;False'
+    end
   end
   object dsItens: TDataSource
     DataSet = qryItens
     Left = 960
     Top = 280
+  end
+  object MainMenu1: TMainMenu
+    Left = 769
+    Top = 243
+  end
+  object MainMenu2: TMainMenu
+    Left = 769
+    Top = 243
+    object MenuItem8: TMenuItem
+      Caption = 'MenuItem8'
+    end
   end
 end

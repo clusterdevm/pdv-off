@@ -6,8 +6,8 @@ object frameProdutoGet: TframeProdutoGet
   ClientHeight = 49
   ClientWidth = 515
   TabOrder = 0
-  DesignLeft = 1435
-  DesignTop = 22
+  DesignLeft = 1434
+  DesignTop = 21
   object Panel1: TPanel
     Left = 0
     Height = 33
@@ -27,7 +27,6 @@ object frameProdutoGet: TframeProdutoGet
       Width = 80
       Align = alLeft
       BorderStyle = bsNone
-      OnKeyPress = EditIDKeyPress
       TabOrder = 1
       TextHint = 'Informe ID'
     end

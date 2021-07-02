@@ -1,704 +1,719 @@
-01-07-2021 11:17:53 Requisicao: {
-  "msg" : "token pdv invalido",
-  "app" : "cadastro",
-  "metodo" : "LoadClaimPDV"
-}
+02-07-2021 17:57:06 Tabela: bandeira_cartao Não existe localmente 
+02-07-2021 17:57:06 Tabela: bandeira_cartao Não existe localmente 
+02-07-2021 17:57:10 select sum(COALESCE(vl_produtos,0)) as tprodutos ,
+       sum(COALESCE(vl_outras_despesas) as tdespesas ,
+       sum(COALESCE(vl_acrescimo,0)) as tacrescimo ,
+       sum(COALESCE(vl_desconto,0)) as tdesconto ,
+       sum(COALESCE(bc_icms,0)) as tbc_icms ,
+       sum(COALESCE(bc_ipi,0)) as tbc_ipi ,
+       sum(COALESCE(bc_icms_st,0)) as tbc_icms_st ,
+       sum(COALESCE(bc_cofins,0)) as tbc_cofins ,
+       sum(COALESCE(bc_pis,0)) as tbc_pis ,
+       sum(COALESCE(vl_ipi,0)) as tipi ,
+       sum(COALESCE(vl_pis,0)) as tpis ,
+       0 tpis_st ,
+       sum(COALESCE(vl_retpis,0)) as tret_pis ,
+       sum(COALESCE(vl_cofins,0)) as tcofins ,
+       0 tcofins_st ,
+       sum(COALESCE(vl_retcofins,0)) as tret_cofins ,
+       sum(COALESCE(vl_icms,0)) as ticms ,
+       sum(COALESCE(vl_icms_st,0)) as ticms_st ,
+       sum(COALESCE(vl_ibpt,0)) as tibpt ,
+       sum(COALESCE(peso_liquido,0)) as tpeso_liquido ,
+       sum(COALESCE(peso_bruto,0)) as tpeso_bruto ,
+       sum(COALESCE(vl_frete,0)) as tfrete ,
+       sum(COALESCE(vl_retcsll,0)) as tret_csll ,
+       sum(COALESCE(bc_irrf,0)) as tbc_irrf ,
+       sum(COALESCE(vl_irrf,0)) as tirrf ,
+       sum(COALESCE(bc_retprev,0)) as tbc_retprev ,
+       sum(COALESCE(vl_retprev,0)) as tret_prev ,
+       sum(COALESCE(vl_seguro,0)) as tseguro ,
+       sum(COALESCE(vl_siscomex,0)) as tsiscomex 
+ from venda_itens 
+ where venda_id = '000020028'
 
-01-07-2021 11:17:53 Logando : SQL Error: SQL logic error
-01-07-2021 11:20:10 Requisicao: {"resultado":{"registros":105,"protocolo":"fdec5236c7a211a9e788e1140c3f4212","coi":[{"id":1,"descricao":"VENDA DE MERCADORIA INTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"interna","finalidade_documento":"normal"},{"id":2,"descricao":"DEVOLUCAO DE MERCADORIA INTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"interna","finalidade_documento":"normal"},{"id":3,"descricao":"VENDA DE MERCADORIA EXTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"externa","finalidade_documento":"normal"},{"id":4,"descricao":"DEVOLUCAO DE MERCADORIA EXTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"externa","finalidade_documento":"devolucao"},{"id":5,"descricao":"VENDA DE MERCADORIA INTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"interna","finalidade_documento":"normal"},{"id":6,"descricao":"DEVOLUCAO DE MERCADORIA INTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"externa","finalidade_documento":"devolucao"},{"id":7,"descricao":"ENVIO CONSIGNACAO INTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"interna","finalidade_documento":"normal"},{"id":8,"descricao":"ENVIO CONSIGNACAO EXTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"externa","finalidade_documento":"normal"},{"id":9,"descricao":"BONIFICACAO INTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"interna","finalidade_documento":"normal"},{"id":10,"descricao":"BONIFICACAO EXTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"externa","finalidade_documento":"normal"},{"id":11,"descricao":"INSUMOS INTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"interna","finalidade_documento":"normal"},{"id":12,"descricao":"INSUMOS EXTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"externa","finalidade_documento":"normal"}],"conta_corrente":[{"id":1,"empresa_id":1016,"descricao":"CAIXA","obs":"Gerado por Default","ativo":true,"saldoinicial":0,"datacriacao":"2021-06-30T15:47:22.105Z","dataatualizacao":"2021-06-30T15:47:22.105Z","conta_digital":false,"conta_digital_id":null},{"id":2,"empresa_id":1016,"descricao":"TESOURARIA","obs":"Gerado por Default","ativo":true,"saldoinicial":0,"datacriacao":"2021-06-30T15:47:22.105Z","dataatualizacao":"2021-06-30T15:47:22.105Z","conta_digital":false,"conta_digital_id":null},{"id":3,"empresa_id":1016,"descricao":"CAIXA","obs":"Gerado por Default","ativo":true,"saldoinicial":0,"datacriacao":"2021-06-30T15:47:22.105Z","dataatualizacao":"2021-06-30T15:47:22.105Z","conta_digital":false,"conta_digital_id":null},{"id":4,"empresa_id":1016,"descricao":"TESOURARIA","obs":"Gerado por Default","ativo":true,"saldoinicial":0,"datacriacao":"2021-06-30T15:47:22.105Z","dataatualizacao":"2021-06-30T15:47:22.105Z","conta_digital":false,"conta_digital_id":null}],"empresa":[{"id":1016,"status":"N","empresa":"MAICON CORACINI DOS SANTOS","fantasia":"CORACINI STORE","nomeresumido":"CORACINI STORE","endereco":"AVENIDA JULES RIMETBEVERLY FALLS PARK","cidade":"FOZ DO IGUAÇU","complemento":"DE 2006/2007 AO FIM","numero":"1008","bairro":"CAMPOS DO IGUAÇU","cep":"85858-000","uf":"PR","pais":"BRASIL","cnpj":"34661316000146","fundacao":null,"responsavel":null,"cargo_reponsavel":null,"ie":null,"telefone":"45999661863","email":"mozarabmaicon@gmail.com","site":null,"facebook":null,"twitter":null,"inscricaomunicipal":null,"instagram":null,"blog":null,"ibge_cidade":4108304,"celular":null,"responsavel_cpf":null,"responsavel_nascimento":null,"canal_origem_id":1,"hibrido":null,"contabilidade_id":null,"schema_info_id":26,"parametros_fiscal_id":35,"parametros_smtp_id":34,"parametros_venda_id":36,"parametros_financeiro_id":25,"parametros_produto_id":25,"parametros_devolucao_id":21,"parametros_ordem_servico_id":20,"parametros_remessa_id":19,"parametros_geral_id":21,"dataatualizacao":"2021-06-30T21:07:16.791Z","datacriacao":"2021-06-30T15:47:20.155Z","parametros_certificado_id":22,"timezone":"America/Sao_Paulo","logo_arquivo_id":0,"regime_id":1,"contador_cnpj":null}],"meios_pagamento":[{"id":1,"descricao":"CREDIARIO","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":2,"descricao":"BOLETO","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":3,"descricao":"CHEQUE","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":4,"descricao":"CARTAO CREDITO","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":5,"descricao":"CARTAO DEDITO","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":6,"descricao":"PROMISSORIA","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":7,"descricao":"DEBITO EM CONTA","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":8,"descricao":"PICPAY","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":9,"descricao":"PIX","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":10,"descricao":"TRANSFERENCIA BANCARIA","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":11,"descricao":"VOUCHER","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":12,"descricao":"TED","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":13,"descricao":"DOC","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":18,"descricao":"BOLETO DIGITAL","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"}],"midias":[{"id":1,"descricao":"FACEBOOK","obs":"","datacriacao":"2021-06-30T15:47:22.042Z","dataatualizacao":"2021-06-30T15:47:22.042Z","ativo":true},{"id":2,"descricao":"INSTAGRAM","obs":"","datacriacao":"2021-06-30T15:47:22.042Z","dataatualizacao":"2021-06-30T15:47:22.042Z","ativo":true},{"id":3,"descricao":"TWITTER","obs":"","datacriacao":"2021-06-30T15:47:22.042Z","dataatualizacao":"2021-06-30T15:47:22.042Z","ativo":true},{"id":4,"descricao":"LINKEDIN","obs":"","datacriacao":"2021-06-30T15:47:22.042Z","dataatualizacao":"2021-06-30T15:47:22.042Z","ativo":true},{"id":5,"descricao":"BLOG","obs":"","datacriacao":"2021-06-30T15:47:22.042Z","dataatualizacao":"2021-06-30T15:47:22.042Z","ativo":true}],"modelo_documento":[{"id":1,"descricao":"NF-e","datacriacao":"2021-02-26T17:26:44.094Z","dataatualizacao":"2021-03-22T20:20:53.146Z","abreviacao":"NFE","modelo":55,"op_fiscal":true},{"id":2,"descricao":"NFC-e","datacriacao":"2021-02-26T17:26:44.094Z","dataatualizacao":"2021-03-22T20:20:53.146Z","abreviacao":"NFC","modelo":65,"op_fiscal":true},{"id":3,"descricao":"DAV ( Documento Auxiliar de Venda)","datacriacao":"2021-02-26T17:26:44.094Z","dataatualizacao":"2021-03-22T20:20:53.146Z","abreviacao":"DAV","modelo":0,"op_fiscal":false},{"id":4,"descricao":"Orçamento","datacriacao":"2021-02-26T17:26:44.094Z","dataatualizacao":"2021-03-22T20:20:53.146Z","abreviacao":"ORC","modelo":0,"op_fiscal":false}],"moeda":[{"id":1,"descricao":"REAL","simbolo":"R$","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.093Z","dataatualizacao":"2021-06-30T15:47:22.093Z","ativo":true},{"id":2,"descricao":"DOLAR","simbolo":"U$","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.093Z","dataatualizacao":"2021-06-30T15:47:22.093Z","ativo":true},{"id":3,"descricao":"PESO","simbolo":"P$","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.093Z","dataatualizacao":"2021-06-30T15:47:22.093Z","ativo":true},{"id":4,"descricao":"GUARANI","simbolo":"G$","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.093Z","dataatualizacao":"2021-06-30T15:47:22.093Z","ativo":true},{"id":5,"descricao":"EURO","simbolo":"E$","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.093Z","dataatualizacao":"2021-06-30T15:47:22.093Z","ativo":true}],"pessoas":[{"id":1,"nome":"CONSUMIDOR","fantasia":"CONSUMIDOR","cpf_cnpj":null,"nascimento_fundacao":null,"cnh":null,"rg_ie":null,"obs":null,"cliente":true,"fornecedor":false,"colaborador":false,"tipo_pessoa":"f","representante_id":null,"segmento_id":null,"regiao_id":null,"regime_tributacao_id":null,"retencao":null,"atividade_id":null,"finalidade_id":null,"contribuinte_tributacao_id":null,"limitecredito":null,"ultima_venda":null,"ultima_compra":null,"cargo_id":null,"contador_id":null,"placa_veiculo":null,"ativo":true,"datacriacao":"2021-06-30T15:47:22.032Z","dataatualizacao":"2021-06-30T15:47:22.032Z","produtor_rural":null,"empresa_registro_id":null,"split_agencia":null,"split_agencia_digito":null,"split_conta":null,"split_conta_digito":null,"split_banco_id":null,"split_nome_beneficiario":null,"split_cpf_cnpj":null,"cpf_situacao":null,"sexo":null,"nome_mae":null,"falecido":null,"renda":null},{"id":2,"nome":"MAICON","fantasia":null,"cpf_cnpj":null,"nascimento_fundacao":null,"cnh":null,"rg_ie":null,"obs":null,"cliente":false,"fornecedor":true,"colaborador":true,"tipo_pessoa":"f","representante_id":null,"segmento_id":null,"regiao_id":null,"regime_tributacao_id":4,"retencao":true,"atividade_id":1,"finalidade_id":1,"contribuinte_tributacao_id":1,"limitecredito":null,"ultima_venda":null,"ultima_compra":null,"cargo_id":1,"contador_id":null,"placa_veiculo":null,"ativo":true,"datacriacao":"2021-06-30T17:07:24.119Z","dataatualizacao":"2021-06-30T17:08:10.661Z","produtor_rural":null,"empresa_registro_id":1016,"split_agencia":null,"split_agencia_digito":null,"split_conta":null,"split_conta_digito":null,"split_banco_id":null,"split_nome_beneficiario":null,"split_cpf_cnpj":null,"cpf_situacao":null,"sexo":null,"nome_mae":null,"falecido":false,"renda":null}],"pessoas_atividade":[{"id":1,"matriz_id":null,"descricao":"INDUSTRIAL","obs":"","ativo":true,"datacriacao":"2021-06-30T15:47:22.035Z","dataatualizacao":"2021-06-30T15:47:22.035Z"},{"id":2,"matriz_id":null,"descricao":"COMERCIO VAREJISTA","obs":"","ativo":true,"datacriacao":"2021-06-30T15:47:22.035Z","dataatualizacao":"2021-06-30T15:47:22.035Z"},{"id":3,"matriz_id":null,"descricao":"COMERCIO ATACADISTA","obs":"","ativo":true,"datacriacao":"2021-06-30T15:47:22.035Z","dataatualizacao":"2021-06-30T15:47:22.035Z"},{"id":4,"matriz_id":null,"descricao":"OUTRAS(PRESTADORES SERVICOS; NÃO CONSTRIBUINTE ICMS E ETC..)","obs":"","ativo":true,"datacriacao":"2021-06-30T15:47:22.035Z","dataatualizacao":"2021-06-30T15:47:22.035Z"}],"pessoas_carteira":[{"id":1,"descricao":"CLIENTE A","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.051Z","dataatualizacao":"2021-06-30T15:47:22.051Z"},{"id":2,"descricao":"CLIENTE B","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.051Z","dataatualizacao":"2021-06-30T15:47:22.051Z"},{"id":3,"descricao":"CLIENTE C","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.051Z","dataatualizacao":"2021-06-30T15:47:22.051Z"},{"id":4,"descricao":"CLIENTE D","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.051Z","dataatualizacao":"2021-06-30T15:47:22.051Z"},{"id":5,"descricao":"CLIENTE F","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.051Z","dataatualizacao":"2021-06-30T15:47:22.051Z"}],"pessoas_finalidade":[{"id":1,"matriz_id":null,"descricao":"CONSUMIDOR FINAL","obs":"","ativo":true,"datacriacao":"2021-06-30T15:47:22.027Z","dataatualizacao":"2021-06-30T15:47:22.027Z","consumidor_final":true},{"id":2,"matriz_id":null,"descricao":"REVENDA","obs":"","ativo":true,"datacriacao":"2021-06-30T15:47:22.027Z","dataatualizacao":"2021-06-30T15:47:22.027Z","consumidor_final":false}],"prazo_pagamento":[{"id":1,"descricao":"AVISTA","obs":"","qtde_parcela":1,"primeiro_vencimento":0,"venciveis_de":0,"ativo":true,"aliq_desconto":0,"aliq_acrescimo":0,"datacriacao":"2021-06-30T15:47:22.072Z","dataatualizacao":"2021-06-30T15:47:22.072Z","tipo_forma":"avista"},{"id":2,"descricao":"CREDIARIO 30 DIAS","obs":"","qtde_parcela":1,"primeiro_vencimento":30,"venciveis_de":0,"ativo":true,"aliq_desconto":0,"aliq_acrescimo":0,"datacriacao":"2021-06-30T15:47:22.072Z","dataatualizacao":"2021-06-30T15:47:22.072Z","tipo_forma":"crediario"}],"produtos":[{"id":1,"matriz_id":null,"descricao":"blusa basica","obsfisco":null,"unidade_id":1,"obs":null,"gtin":null,"origemmercadoria":"0","ncm_id":null,"marca_id":null,"subgrupo_id":null,"referencia":null,"permitido_venda":true,"tipo_produto":"S","sabor":false,"qtde_sabor":null,"codigo_fabricante":null,"cest":null,"grade":false,"colecao_id":null,"nutricional_id":null,"fabricante_id":null,"datacriacao":"2021-06-30T17:27:54.900Z","descricaoresumida":null,"dataatualizacao":"2021-06-30T17:27:54.900Z","similar_id":null,"pesoliquido":null,"pesobruto":null,"impressora_id":null,"dias_validade":null,"dataimagem":null,"ecommerce":true,"empresa_estoque_inicial_id":null,"saldo_inicial":0,"ativo":true,"altura":null,"largura":null,"profundidade":null,"genero_id":null,"grade1_id":2,"grade2_id":1,"controle_lote":false}],"produtos_empresa":[{"id":1,"empresa_id":1016,"produto_id":1,"ultima_venda":null,"media_valor_unit":null,"ultima_apuracao":null,"dias_estoque":0,"nivel_estoque_aliq":0,"nivel_estoque":0,"media_dia":null,"sugerido_estoque_minimo":null,"sugerido_estoque_seguranca":null,"sugerido_estoque_maximo":null,"lead_time":0,"frequencia_compra":null,"nivel_seguranca":0,"dataatualizacao":"2021-06-30T17:27:55.207Z","visivel":true,"preco_custo_id":1,"estoque_minimo":0,"estoque_maximo":0}],"produtos_genero":[{"id":1,"descricao":"MASCULINO","ativo":true,"obs":"","dataatualizacao":"2021-06-30T15:47:22.075Z","datacriacao":"2021-06-30T15:47:22.075Z"},{"id":2,"descricao":"FEMININO","ativo":true,"obs":"","dataatualizacao":"2021-06-30T15:47:22.075Z","datacriacao":"2021-06-30T15:47:22.075Z"},{"id":3,"descricao":"UNISSEX","ativo":true,"obs":"","dataatualizacao":"2021-06-30T15:47:22.075Z","datacriacao":"2021-06-30T15:47:22.075Z"}],"produtos_gradeamento":[{"id":1,"grade_item_id":5,"grade_item2_id":3,"gtin":null,"gtin_grade":"000001000001","saldo_gerencial":null,"saldo_fisico":null,"datacriacao":"2021-06-30T17:27:55.533Z","dataatualizacao":"2021-06-30T17:27:55.533Z","ativo":true,"produto_id":1},{"id":2,"grade_item_id":5,"grade_item2_id":2,"gtin":null,"gtin_grade":"000001000002","saldo_gerencial":null,"saldo_fisico":null,"datacriacao":"2021-06-30T17:27:55.533Z","dataatualizacao":"2021-06-30T17:27:55.533Z","ativo":true,"produto_id":1},{"id":3,"grade_item_id":4,"grade_item2_id":3,"gtin":null,"gtin_grade":"000001000003","saldo_gerencial":null,"saldo_fisico":null,"datacriacao":"2021-06-30T17:27:55.533Z","dataatualizacao":"2021-06-30T17:27:55.533Z","ativo":true,"produto_id":1},{"id":4,"grade_item_id":4,"grade_item2_id":2,"gtin":null,"gtin_grade":"000001000004","saldo_gerencial":null,"saldo_fisico":null,"datacriacao":"2021-06-30T17:27:55.533Z","dataatualizacao":"2021-06-30T17:27:55.533Z","ativo":true,"produto_id":1}],"produtos_grades":[{"id":1,"descricao":"TAMANHO ADULTO","obs":null,"ativo":true,"datacriacao":"2021-06-30T17:14:35.743Z","dataatualizacao":"2021-06-30T17:14:35.743Z","descricao_resumida":"TAM"},{"id":2,"descricao":"CORES","obs":null,"ativo":true,"datacriacao":"2021-06-30T17:14:58.502Z","dataatualizacao":"2021-06-30T17:14:58.502Z","descricao_resumida":"COR"}],"produtos_grades_itens":[{"id":1,"sequencia":1,"grade_id":1,"gtin_grade":"001001","descricao":"P","ativo":true,"datacriacao":null,"dataatualizacao":null},{"id":2,"sequencia":2,"grade_id":1,"gtin_grade":"001002","descricao":"M","ativo":true,"datacriacao":null,"dataatualizacao":null},{"id":3,"sequencia":3,"grade_id":1,"gtin_grade":"001003","descricao":"G","ativo":true,"datacriacao":null,"dataatualizacao":null},{"id":4,"sequencia":1,"grade_id":2,"gtin_grade":"002001","descricao":"BRANCA","ativo":true,"datacriacao":null,"dataatualizacao":null},{"id":5,"sequencia":2,"grade_id":2,"gtin_grade":"002002","descricao":"AMARELA","ativo":true,"datacriacao":null,"dataatualizacao":null}],"produtos_marcas":[{"id":1,"descricao":"BENESH","ativo":true,"obs":"ROUPAS","datacriacao":"2021-06-30T23:14:41.196Z","dataatualizacao":"2021-06-30T23:14:41.196Z","arquivo_id":0},{"id":2,"descricao":"MAMO","ativo":true,"obs":"ROUPAS FEMININAS","datacriacao":"2021-06-30T23:15:00.789Z","dataatualizacao":"2021-06-30T23:15:00.789Z","arquivo_id":0},{"id":3,"descricao":"TUART","ativo":true,"obs":"ROUPAS FEMININAS","datacriacao":"2021-06-30T23:15:22.149Z","dataatualizacao":"2021-06-30T23:15:22.149Z","arquivo_id":0},{"id":4,"descricao":"LOV IT","ativo":true,"obs":"ROUPAS FEMININAS","datacriacao":"2021-06-30T23:15:37.425Z","dataatualizacao":"2021-06-30T23:15:37.425Z","arquivo_id":0}],"produtos_preco_venda":[{"id":1,"tabela_id":1,"valor":0,"dataatualizacao":null,"comissao":0,"acima_de":0,"valor_acima":0,"markup":0,"permitir_desconto":true,"produto_empresa_id":1},{"id":2,"tabela_id":2,"valor":0,"dataatualizacao":null,"comissao":0,"acima_de":0,"valor_acima":0,"markup":0,"permitir_desconto":true,"produto_empresa_id":1}],"produtos_unidades":[{"id":1,"descricao":"UNIDADE","un":"UN","ativo":true,"obs":"Gerado por Default","tipovalor":"I","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":2,"descricao":"LITRO","un":"LT","ativo":true,"obs":"Gerado por Default","tipovalor":"F","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":3,"descricao":"KILOGRAMA","un":"KG","ativo":true,"obs":"Gerado por Default","tipovalor":"F","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":4,"descricao":"PAR","un":"PR","ativo":true,"obs":"Gerado por Default","tipovalor":"I","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":5,"descricao":"CARTELA","un":"CT","ativo":true,"obs":"Gerado por Default","tipovalor":"I","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":6,"descricao":"CAIXA","un":"CX","ativo":true,"obs":"Gerado por Default","tipovalor":"I","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":7,"descricao":"DUZIA","un":"DZ","ativo":true,"obs":"Gerado por Default","tipovalor":"I","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":8,"descricao":"PACOTE","un":"PT","ativo":true,"obs":"Gerado por Default","tipovalor":"I","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":9,"descricao":"ROLO","un":"RL","ativo":true,"obs":"Gerado por Default","tipovalor":"I","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":10,"descricao":"METRO LINEAR","un":"MT","ativo":true,"obs":"Gerado por Default","tipovalor":"F","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":11,"descricao":"METRO QUADRADO","un":"M2","ativo":true,"obs":"Gerado por Default","tipovalor":"F","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"}],"serie_fiscal":[{"id":1,"empresa_id":1016,"serie":1,"documento":1,"obs":null,"ativo":true,"datacriacao":"2021-06-30T17:08:36.432Z","dataatualizacao":"2021-06-30T17:09:23.716Z","modelo_documento_id":2,"pdv_id":null},{"id":2,"empresa_id":1016,"serie":1,"documento":0,"obs":null,"ativo":true,"datacriacao":"2021-06-30T17:08:43.794Z","dataatualizacao":"2021-06-30T17:09:14.866Z","modelo_documento_id":3,"pdv_id":null},{"id":3,"empresa_id":1016,"serie":1,"documento":0,"obs":null,"ativo":true,"datacriacao":"2021-06-30T17:08:49.611Z","dataatualizacao":"2021-06-30T17:09:30.934Z","modelo_documento_id":1,"pdv_id":null},{"id":4,"empresa_id":1016,"serie":1,"documento":0,"obs":"GERADO AUTOMATICO PARA USO NO PDV","ativo":true,"datacriacao":"2021-07-01T12:30:08.600Z","dataatualizacao":"2021-07-01T12:30:08.600Z","modelo_documento_id":4,"pdv_id":null}],"tabela_preco":[{"id":1,"descricao":"PADRAO","obs":"","datacriacao":"2021-06-30T15:47:22.102Z","dataatualizacao":"2021-06-30T15:47:22.102Z","ativo":true},{"id":2,"descricao":"ECOMMERCE","obs":null,"datacriacao":"2021-06-30T17:13:33.994Z","dataatualizacao":"2021-06-30T17:13:33.994Z","ativo":true}],"tipo_arquivo":[{"id":1,"descricao":"DOCUMENTOS PESSOAIS(CNH, RG, CPF)","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.063Z","dataatualizacao":"2021-06-30T15:47:22.063Z"},{"id":2,"descricao":"EXAMES(ADMISSIONAL,DEMISSIONAL)","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.063Z","dataatualizacao":"2021-06-30T15:47:22.063Z"},{"id":3,"descricao":"COMPROVANTE PAGAMENTO","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.063Z","dataatualizacao":"2021-06-30T15:47:22.063Z"},{"id":4,"descricao":"CONTRATO SOCIAL","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.063Z","dataatualizacao":"2021-06-30T15:47:22.063Z"}],"usuarios":[{"id":5030,"senha":"e10adc3949ba59abbe56e057f20f883e","usuario":"mozarabmaicon@gmail.com","observacao":null,"datacriacao":"2021-06-30T15:47:22.282Z","dataatualizacao":"2021-06-30T15:47:22.282Z","ativo":true,"status_cadastro":null,"token_cadastro":null,"data_status_cadastro":null,"arquivo_id":null,"nome_completo":"mozarabmaicon@gmail.com","root":false},{"id":5031,"senha":"e10adc3949ba59abbe56e057f20f883e","usuario":"root@1016","observacao":null,"datacriacao":"2021-06-30T15:47:23.510Z","dataatualizacao":"2021-06-30T15:47:23.510Z","ativo":true,"status_cadastro":null,"token_cadastro":null,"data_status_cadastro":null,"arquivo_id":null,"nome_completo":"root@","root":false}]}}
+02-07-2021 17:58:00 Tabela: bandeira_cartao Não existe localmente 
+02-07-2021 17:58:00 Tabela: bandeira_cartao Não existe localmente 
+02-07-2021 17:58:04 select sum(COALESCE(vl_produtos,0)) as tprodutos ,
+       sum(COALESCE(vl_outras_despesas,0)) as tdespesas ,
+       sum(COALESCE(vl_acrescimo,0)) as tacrescimo ,
+       sum(COALESCE(vl_desconto,0)) as tdesconto ,
+       sum(COALESCE(bc_icms,0)) as tbc_icms ,
+       sum(COALESCE(bc_ipi,0)) as tbc_ipi ,
+       sum(COALESCE(bc_icms_st,0)) as tbc_icms_st ,
+       sum(COALESCE(bc_cofins,0)) as tbc_cofins ,
+       sum(COALESCE(bc_pis,0)) as tbc_pis ,
+       sum(COALESCE(vl_ipi,0)) as tipi ,
+       sum(COALESCE(vl_pis,0)) as tpis ,
+       0 tpis_st ,
+       sum(COALESCE(vl_retpis,0)) as tret_pis ,
+       sum(COALESCE(vl_cofins,0)) as tcofins ,
+       0 tcofins_st ,
+       sum(COALESCE(vl_retcofins,0)) as tret_cofins ,
+       sum(COALESCE(vl_icms,0)) as ticms ,
+       sum(COALESCE(vl_icms_st,0)) as ticms_st ,
+       sum(COALESCE(vl_ibpt,0)) as tibpt ,
+       sum(COALESCE(peso_liquido,0)) as tpeso_liquido ,
+       sum(COALESCE(peso_bruto,0)) as tpeso_bruto ,
+       sum(COALESCE(vl_frete,0)) as tfrete ,
+       sum(COALESCE(vl_retcsll,0)) as tret_csll ,
+       sum(COALESCE(bc_irrf,0)) as tbc_irrf ,
+       sum(COALESCE(vl_irrf,0)) as tirrf ,
+       sum(COALESCE(bc_retprev,0)) as tbc_retprev ,
+       sum(COALESCE(vl_retprev,0)) as tret_prev ,
+       sum(COALESCE(vl_seguro,0)) as tseguro ,
+       sum(COALESCE(vl_siscomex,0)) as tsiscomex 
+ from venda_itens 
+ where venda_id = '000020028'
 
-01-07-2021 11:20:20 Requisicao: 
-01-07-2021 11:20:26 Requisicao: 
-01-07-2021 11:21:03 Requisicao: 
-01-07-2021 20:43:43 Requisicao: {"resultado":{"registros":109,"protocolo":"56ACEF96EE21C63931EECFA35471B9BD","coi":[{"id":1,"descricao":"VENDA DE MERCADORIA INTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"interna","finalidade_documento":"normal"},{"id":2,"descricao":"DEVOLUCAO DE MERCADORIA INTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"interna","finalidade_documento":"normal"},{"id":3,"descricao":"VENDA DE MERCADORIA EXTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"externa","finalidade_documento":"normal"},{"id":4,"descricao":"DEVOLUCAO DE MERCADORIA EXTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"externa","finalidade_documento":"devolucao"},{"id":5,"descricao":"VENDA DE MERCADORIA INTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"interna","finalidade_documento":"normal"},{"id":6,"descricao":"DEVOLUCAO DE MERCADORIA INTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"externa","finalidade_documento":"devolucao"},{"id":7,"descricao":"ENVIO CONSIGNACAO INTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"interna","finalidade_documento":"normal"},{"id":8,"descricao":"ENVIO CONSIGNACAO EXTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"externa","finalidade_documento":"normal"},{"id":9,"descricao":"BONIFICACAO INTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"interna","finalidade_documento":"normal"},{"id":10,"descricao":"BONIFICACAO EXTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"externa","finalidade_documento":"normal"},{"id":11,"descricao":"INSUMOS INTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"interna","finalidade_documento":"normal"},{"id":12,"descricao":"INSUMOS EXTERNA","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.067Z","dataatualizacao":"2021-06-30T15:47:22.067Z","ativo":true,"destino_operacao":"externa","finalidade_documento":"normal"}],"conta_corrente":[{"id":1,"empresa_id":1016,"descricao":"CAIXA","obs":"Gerado por Default","ativo":true,"saldoinicial":0,"datacriacao":"2021-06-30T15:47:22.105Z","dataatualizacao":"2021-06-30T15:47:22.105Z","conta_digital":false,"conta_digital_id":null},{"id":2,"empresa_id":1016,"descricao":"TESOURARIA","obs":"Gerado por Default","ativo":true,"saldoinicial":0,"datacriacao":"2021-06-30T15:47:22.105Z","dataatualizacao":"2021-06-30T15:47:22.105Z","conta_digital":false,"conta_digital_id":null},{"id":3,"empresa_id":1016,"descricao":"CAIXA","obs":"Gerado por Default","ativo":true,"saldoinicial":0,"datacriacao":"2021-06-30T15:47:22.105Z","dataatualizacao":"2021-06-30T15:47:22.105Z","conta_digital":false,"conta_digital_id":null},{"id":4,"empresa_id":1016,"descricao":"TESOURARIA","obs":"Gerado por Default","ativo":true,"saldoinicial":0,"datacriacao":"2021-06-30T15:47:22.105Z","dataatualizacao":"2021-06-30T15:47:22.105Z","conta_digital":false,"conta_digital_id":null}],"empresa":[{"id":1016,"status":"N","empresa":"MAICON CORACINI DOS SANTOS","fantasia":"CORACINI STORE","nomeresumido":"CORACINI STORE","endereco":"AVENIDA JULES RIMETBEVERLY FALLS PARK","cidade":"FOZ DO IGUAÇU","complemento":"DE 2006/2007 AO FIM","numero":"1008","bairro":"CAMPOS DO IGUAÇU","cep":"85858-000","uf":"PR","pais":"BRASIL","cnpj":"34661316000146","fundacao":null,"responsavel":null,"cargo_reponsavel":null,"ie":null,"telefone":"45999661863","email":"mozarabmaicon@gmail.com","site":null,"facebook":null,"twitter":null,"inscricaomunicipal":null,"instagram":null,"blog":null,"ibge_cidade":4108304,"celular":null,"responsavel_cpf":null,"responsavel_nascimento":null,"canal_origem_id":1,"hibrido":null,"contabilidade_id":null,"schema_info_id":26,"parametros_fiscal_id":35,"parametros_smtp_id":34,"parametros_venda_id":36,"parametros_financeiro_id":25,"parametros_produto_id":25,"parametros_devolucao_id":21,"parametros_ordem_servico_id":20,"parametros_remessa_id":19,"parametros_geral_id":21,"dataatualizacao":"2021-06-30T21:07:16.791Z","datacriacao":"2021-06-30T15:47:20.155Z","parametros_certificado_id":22,"timezone":"America/Sao_Paulo","logo_arquivo_id":0,"regime_id":1,"contador_cnpj":null}],"meios_pagamento":[{"id":1,"descricao":"CREDIARIO","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":2,"descricao":"BOLETO","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":3,"descricao":"CHEQUE","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":4,"descricao":"CARTAO CREDITO","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":5,"descricao":"CARTAO DEDITO","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":6,"descricao":"PROMISSORIA","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":7,"descricao":"DEBITO EM CONTA","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":8,"descricao":"PICPAY","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":9,"descricao":"PIX","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":10,"descricao":"TRANSFERENCIA BANCARIA","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":11,"descricao":"VOUCHER","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":12,"descricao":"TED","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":13,"descricao":"DOC","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"},{"id":18,"descricao":"BOLETO DIGITAL","ativo":true,"obs":"Gerado por Default","datacriacao":"2021-06-30T15:47:22.018Z","dataatualizacao":"2021-06-30T15:47:22.018Z"}],"midias":[{"id":1,"descricao":"FACEBOOK","obs":"","datacriacao":"2021-06-30T15:47:22.042Z","dataatualizacao":"2021-06-30T15:47:22.042Z","ativo":true},{"id":2,"descricao":"INSTAGRAM","obs":"","datacriacao":"2021-06-30T15:47:22.042Z","dataatualizacao":"2021-06-30T15:47:22.042Z","ativo":true},{"id":3,"descricao":"TWITTER","obs":"","datacriacao":"2021-06-30T15:47:22.042Z","dataatualizacao":"2021-06-30T15:47:22.042Z","ativo":true},{"id":4,"descricao":"LINKEDIN","obs":"","datacriacao":"2021-06-30T15:47:22.042Z","dataatualizacao":"2021-06-30T15:47:22.042Z","ativo":true},{"id":5,"descricao":"BLOG","obs":"","datacriacao":"2021-06-30T15:47:22.042Z","dataatualizacao":"2021-06-30T15:47:22.042Z","ativo":true}],"modelo_documento":[{"id":1,"descricao":"NF-e","datacriacao":"2021-02-26T17:26:44.094Z","dataatualizacao":"2021-03-22T20:20:53.146Z","abreviacao":"NFE","modelo":55,"op_fiscal":true},{"id":2,"descricao":"NFC-e","datacriacao":"2021-02-26T17:26:44.094Z","dataatualizacao":"2021-03-22T20:20:53.146Z","abreviacao":"NFC","modelo":65,"op_fiscal":true},{"id":3,"descricao":"DAV ( Documento Auxiliar de Venda)","datacriacao":"2021-02-26T17:26:44.094Z","dataatualizacao":"2021-03-22T20:20:53.146Z","abreviacao":"DAV","modelo":0,"op_fiscal":false},{"id":4,"descricao":"Orçamento","datacriacao":"2021-02-26T17:26:44.094Z","dataatualizacao":"2021-03-22T20:20:53.146Z","abreviacao":"ORC","modelo":0,"op_fiscal":false}],"moeda":[{"id":1,"descricao":"REAL","simbolo":"R$","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.093Z","dataatualizacao":"2021-06-30T15:47:22.093Z","ativo":true},{"id":2,"descricao":"DOLAR","simbolo":"U$","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.093Z","dataatualizacao":"2021-06-30T15:47:22.093Z","ativo":true},{"id":3,"descricao":"PESO","simbolo":"P$","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.093Z","dataatualizacao":"2021-06-30T15:47:22.093Z","ativo":true},{"id":4,"descricao":"GUARANI","simbolo":"G$","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.093Z","dataatualizacao":"2021-06-30T15:47:22.093Z","ativo":true},{"id":5,"descricao":"EURO","simbolo":"E$","matriz_id":null,"datacriacao":"2021-06-30T15:47:22.093Z","dataatualizacao":"2021-06-30T15:47:22.093Z","ativo":true}],"parametros_fiscal":[{"id":35,"producao":null,"modelo_danfe_nf_e":"Retrato","nfc_token":null,"nfc_idtoken":null,"apresentar_desconto":true,"nsu":null,"datacriacao":"2021-06-30T15:51:22.698Z","dataatualizacao":"2021-06-30T17:01:57.602Z","nsu_resultado":null,"enviar_email_autorizar":true,"csosn":"102","cst_pis":"01","cst_cofins":"01","cst_icms":"00","cst_ipi":"99","aliq_pis":0,"aliq_cofins":0,"aliq_ipi":0,"aliq_icms":0,"cfop_estadual":5102,"cfop_interestadual":6102}],"parametros_geral":[{"id":21,"moeda_padrao_id":1,"time_zone":"America/Sao_Paulo","condicional_dias":7,"datacriacao":"2021-06-30T15:47:48.212Z","dataatualizacao":"2021-06-30T17:01:53.818Z"}],"parametros_produto":[{"id":25,"nome_automatico":null,"analise_estoque_dias":null,"dias_maximo_estoque":null,"dias_reposicao":null,"nivel_servico_aliq":null,"nivel_servico":null,"controle_lote":null,"datacriacao":"2021-06-30T15:51:29.321Z","dataatualizacao":"2021-06-30T17:02:07.246Z","add_marca":false,"add_genero":false,"bx_producao_automatica":false}],"parametros_venda":[{"id":36,"casadecimal_unitario":2,"casadecimal_totalizador":2,"casadecimal_quantidade":0,"cliente_padrao_id":1,"venda_sem_estoque":false,"filtro_com_estoque":null,"mensagem_1":null,"mensagem_2":null,"duplicar_itens_venda":false,"promissoria_automatica":null,"modelo_relatorio_pedido":null,"gerar_txt_shopping":null,"ordernar_itens":null,"datacomissao":null,"datacriacao":"2021-06-30T15:51:51.569Z","dataatualizacao":"2021-06-30T21:09:23.449Z","balanca_modelo":null,"modelo_relatorio_dav":null,"default_armazenamento_id":1,"default_tabela_preco_id":1}],"pessoas":[{"id":1,"nome":"CONSUMIDOR","fantasia":"CONSUMIDOR","cpf_cnpj":null,"nascimento_fundacao":null,"cnh":null,"rg_ie":null,"obs":null,"cliente":true,"fornecedor":false,"colaborador":false,"tipo_pessoa":"f","representante_id":null,"segmento_id":null,"regiao_id":null,"regime_tributacao_id":null,"retencao":null,"atividade_id":null,"finalidade_id":null,"contribuinte_tributacao_id":null,"limitecredito":null,"ultima_venda":null,"ultima_compra":null,"cargo_id":null,"contador_id":null,"placa_veiculo":null,"ativo":true,"datacriacao":"2021-06-30T15:47:22.032Z","dataatualizacao":"2021-06-30T15:47:22.032Z","produtor_rural":null,"empresa_registro_id":null,"split_agencia":null,"split_agencia_digito":null,"split_conta":null,"split_conta_digito":null,"split_banco_id":null,"split_nome_beneficiario":null,"split_cpf_cnpj":null,"cpf_situacao":null,"sexo":null,"nome_mae":null,"falecido":null,"renda":null},{"id":2,"nome":"MAICON","fantasia":null,"cpf_cnpj":null,"nascimento_fundacao":null,"cnh":null,"rg_ie":null,"obs":null,"cliente":false,"fornecedor":true,"colaborador":true,"tipo_pessoa":"f","representante_id":null,"segmento_id":null,"regiao_id":null,"regime_tributacao_id":4,"retencao":true,"atividade_id":1,"finalidade_id":1,"contribuinte_tributacao_id":1,"limitecredito":null,"ultima_venda":null,"ultima_compra":null,"cargo_id":1,"contador_id":null,"placa_veiculo":null,"ativo":true,"datacriacao":"2021-06-30T17:07:24.119Z","dataatualizacao":"2021-06-30T17:08:10.661Z","produtor_rural":null,"empresa_registro_id":1016,"split_agencia":null,"split_agencia_digito":null,"split_conta":null,"split_conta_digito":null,"split_banco_id":null,"split_nome_beneficiario":null,"split_cpf_cnpj":null,"cpf_situacao":null,"sexo":null,"nome_mae":null,"falecido":false,"renda":null}],"pessoas_atividade":[{"id":1,"matriz_id":null,"descricao":"INDUSTRIAL","obs":"","ativo":true,"datacriacao":"2021-06-30T15:47:22.035Z","dataatualizacao":"2021-06-30T15:47:22.035Z"},{"id":2,"matriz_id":null,"descricao":"COMERCIO VAREJISTA","obs":"","ativo":true,"datacriacao":"2021-06-30T15:47:22.035Z","dataatualizacao":"2021-06-30T15:47:22.035Z"},{"id":3,"matriz_id":null,"descricao":"COMERCIO ATACADISTA","obs":"","ativo":true,"datacriacao":"2021-06-30T15:47:22.035Z","dataatualizacao":"2021-06-30T15:47:22.035Z"},{"id":4,"matriz_id":null,"descricao":"OUTRAS(PRESTADORES SERVICOS; NÃO CONSTRIBUINTE ICMS E ETC..)","obs":"","ativo":true,"datacriacao":"2021-06-30T15:47:22.035Z","dataatualizacao":"2021-06-30T15:47:22.035Z"}],"pessoas_carteira":[{"id":1,"descricao":"CLIENTE A","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.051Z","dataatualizacao":"2021-06-30T15:47:22.051Z"},{"id":2,"descricao":"CLIENTE B","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.051Z","dataatualizacao":"2021-06-30T15:47:22.051Z"},{"id":3,"descricao":"CLIENTE C","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.051Z","dataatualizacao":"2021-06-30T15:47:22.051Z"},{"id":4,"descricao":"CLIENTE D","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.051Z","dataatualizacao":"2021-06-30T15:47:22.051Z"},{"id":5,"descricao":"CLIENTE F","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.051Z","dataatualizacao":"2021-06-30T15:47:22.051Z"}],"pessoas_finalidade":[{"id":1,"matriz_id":null,"descricao":"CONSUMIDOR FINAL","obs":"","ativo":true,"datacriacao":"2021-06-30T15:47:22.027Z","dataatualizacao":"2021-06-30T15:47:22.027Z","consumidor_final":true},{"id":2,"matriz_id":null,"descricao":"REVENDA","obs":"","ativo":true,"datacriacao":"2021-06-30T15:47:22.027Z","dataatualizacao":"2021-06-30T15:47:22.027Z","consumidor_final":false}],"prazo_pagamento":[{"id":1,"descricao":"AVISTA","obs":"","qtde_parcela":1,"primeiro_vencimento":0,"venciveis_de":0,"ativo":true,"aliq_desconto":0,"aliq_acrescimo":0,"datacriacao":"2021-06-30T15:47:22.072Z","dataatualizacao":"2021-06-30T15:47:22.072Z","tipo_forma":"avista"},{"id":2,"descricao":"CREDIARIO 30 DIAS","obs":"","qtde_parcela":1,"primeiro_vencimento":30,"venciveis_de":0,"ativo":true,"aliq_desconto":0,"aliq_acrescimo":0,"datacriacao":"2021-06-30T15:47:22.072Z","dataatualizacao":"2021-06-30T15:47:22.072Z","tipo_forma":"crediario"}],"produtos":[{"id":1,"matriz_id":null,"descricao":"blusa basica","obsfisco":null,"unidade_id":1,"obs":null,"gtin":null,"origemmercadoria":"0","ncm_id":null,"marca_id":null,"subgrupo_id":null,"referencia":null,"permitido_venda":true,"tipo_produto":"S","sabor":false,"qtde_sabor":null,"codigo_fabricante":null,"cest":null,"grade":false,"colecao_id":null,"nutricional_id":null,"fabricante_id":null,"datacriacao":"2021-06-30T17:27:54.900Z","descricaoresumida":null,"dataatualizacao":"2021-06-30T17:27:54.900Z","similar_id":null,"pesoliquido":null,"pesobruto":null,"impressora_id":null,"dias_validade":null,"dataimagem":null,"ecommerce":true,"empresa_estoque_inicial_id":null,"saldo_inicial":0,"ativo":true,"altura":null,"largura":null,"profundidade":null,"genero_id":null,"grade1_id":2,"grade2_id":1,"controle_lote":false}],"produtos_empresa":[{"id":1,"empresa_id":1016,"produto_id":1,"ultima_venda":null,"media_valor_unit":null,"ultima_apuracao":null,"dias_estoque":0,"nivel_estoque_aliq":0,"nivel_estoque":0,"media_dia":null,"sugerido_estoque_minimo":null,"sugerido_estoque_seguranca":null,"sugerido_estoque_maximo":null,"lead_time":0,"frequencia_compra":null,"nivel_seguranca":0,"dataatualizacao":"2021-06-30T17:27:55.207Z","visivel":true,"preco_custo_id":1,"estoque_minimo":0,"estoque_maximo":0}],"produtos_genero":[{"id":1,"descricao":"MASCULINO","ativo":true,"obs":"","dataatualizacao":"2021-06-30T15:47:22.075Z","datacriacao":"2021-06-30T15:47:22.075Z"},{"id":2,"descricao":"FEMININO","ativo":true,"obs":"","dataatualizacao":"2021-06-30T15:47:22.075Z","datacriacao":"2021-06-30T15:47:22.075Z"},{"id":3,"descricao":"UNISSEX","ativo":true,"obs":"","dataatualizacao":"2021-06-30T15:47:22.075Z","datacriacao":"2021-06-30T15:47:22.075Z"}],"produtos_gradeamento":[{"id":1,"grade_item_id":5,"grade_item2_id":3,"gtin":null,"gtin_grade":"000001000001","saldo_gerencial":null,"saldo_fisico":null,"datacriacao":"2021-06-30T17:27:55.533Z","dataatualizacao":"2021-06-30T17:27:55.533Z","ativo":true,"produto_id":1},{"id":2,"grade_item_id":5,"grade_item2_id":2,"gtin":null,"gtin_grade":"000001000002","saldo_gerencial":null,"saldo_fisico":null,"datacriacao":"2021-06-30T17:27:55.533Z","dataatualizacao":"2021-06-30T17:27:55.533Z","ativo":true,"produto_id":1},{"id":3,"grade_item_id":4,"grade_item2_id":3,"gtin":null,"gtin_grade":"000001000003","saldo_gerencial":null,"saldo_fisico":null,"datacriacao":"2021-06-30T17:27:55.533Z","dataatualizacao":"2021-06-30T17:27:55.533Z","ativo":true,"produto_id":1},{"id":4,"grade_item_id":4,"grade_item2_id":2,"gtin":null,"gtin_grade":"000001000004","saldo_gerencial":null,"saldo_fisico":null,"datacriacao":"2021-06-30T17:27:55.533Z","dataatualizacao":"2021-06-30T17:27:55.533Z","ativo":true,"produto_id":1}],"produtos_grades":[{"id":1,"descricao":"TAMANHO ADULTO","obs":null,"ativo":true,"datacriacao":"2021-06-30T17:14:35.743Z","dataatualizacao":"2021-06-30T17:14:35.743Z","descricao_resumida":"TAM"},{"id":2,"descricao":"CORES","obs":null,"ativo":true,"datacriacao":"2021-06-30T17:14:58.502Z","dataatualizacao":"2021-06-30T17:14:58.502Z","descricao_resumida":"COR"}],"produtos_grades_itens":[{"id":1,"sequencia":1,"grade_id":1,"gtin_grade":"001001","descricao":"P","ativo":true,"datacriacao":null,"dataatualizacao":null},{"id":2,"sequencia":2,"grade_id":1,"gtin_grade":"001002","descricao":"M","ativo":true,"datacriacao":null,"dataatualizacao":null},{"id":3,"sequencia":3,"grade_id":1,"gtin_grade":"001003","descricao":"G","ativo":true,"datacriacao":null,"dataatualizacao":null},{"id":4,"sequencia":1,"grade_id":2,"gtin_grade":"002001","descricao":"BRANCA","ativo":true,"datacriacao":null,"dataatualizacao":null},{"id":5,"sequencia":2,"grade_id":2,"gtin_grade":"002002","descricao":"AMARELA","ativo":true,"datacriacao":null,"dataatualizacao":null}],"produtos_marcas":[{"id":1,"descricao":"BENESH","ativo":true,"obs":"ROUPAS","datacriacao":"2021-06-30T23:14:41.196Z","dataatualizacao":"2021-06-30T23:14:41.196Z","arquivo_id":0},{"id":2,"descricao":"MAMO","ativo":true,"obs":"ROUPAS FEMININAS","datacriacao":"2021-06-30T23:15:00.789Z","dataatualizacao":"2021-06-30T23:15:00.789Z","arquivo_id":0},{"id":3,"descricao":"TUART","ativo":true,"obs":"ROUPAS FEMININAS","datacriacao":"2021-06-30T23:15:22.149Z","dataatualizacao":"2021-06-30T23:15:22.149Z","arquivo_id":0},{"id":4,"descricao":"LOV IT","ativo":true,"obs":"ROUPAS FEMININAS","datacriacao":"2021-06-30T23:15:37.425Z","dataatualizacao":"2021-06-30T23:15:37.425Z","arquivo_id":0}],"produtos_preco_venda":[{"id":1,"tabela_id":1,"valor":0,"dataatualizacao":null,"comissao":0,"acima_de":0,"valor_acima":0,"markup":0,"permitir_desconto":true,"produto_empresa_id":1},{"id":2,"tabela_id":2,"valor":0,"dataatualizacao":null,"comissao":0,"acima_de":0,"valor_acima":0,"markup":0,"permitir_desconto":true,"produto_empresa_id":1}],"produtos_unidades":[{"id":1,"descricao":"UNIDADE","un":"UN","ativo":true,"obs":"Gerado por Default","tipovalor":"I","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":2,"descricao":"LITRO","un":"LT","ativo":true,"obs":"Gerado por Default","tipovalor":"F","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":3,"descricao":"KILOGRAMA","un":"KG","ativo":true,"obs":"Gerado por Default","tipovalor":"F","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":4,"descricao":"PAR","un":"PR","ativo":true,"obs":"Gerado por Default","tipovalor":"I","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":5,"descricao":"CARTELA","un":"CT","ativo":true,"obs":"Gerado por Default","tipovalor":"I","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":6,"descricao":"CAIXA","un":"CX","ativo":true,"obs":"Gerado por Default","tipovalor":"I","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":7,"descricao":"DUZIA","un":"DZ","ativo":true,"obs":"Gerado por Default","tipovalor":"I","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":8,"descricao":"PACOTE","un":"PT","ativo":true,"obs":"Gerado por Default","tipovalor":"I","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":9,"descricao":"ROLO","un":"RL","ativo":true,"obs":"Gerado por Default","tipovalor":"I","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":10,"descricao":"METRO LINEAR","un":"MT","ativo":true,"obs":"Gerado por Default","tipovalor":"F","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"},{"id":11,"descricao":"METRO QUADRADO","un":"M2","ativo":true,"obs":"Gerado por Default","tipovalor":"F","datacriacao":"2021-06-30T15:47:22.095Z","dataatualizacao":"2021-06-30T15:47:22.095Z"}],"serie_fiscal":[{"id":1,"empresa_id":1016,"serie":1,"documento":1000,"obs":null,"ativo":true,"datacriacao":"2021-06-30T17:08:36.432Z","dataatualizacao":"2021-07-01T23:43:18.914Z","modelo_documento_id":2,"pdv_id":71},{"id":2,"empresa_id":1016,"serie":1,"documento":0,"obs":null,"ativo":true,"datacriacao":"2021-06-30T17:08:43.794Z","dataatualizacao":"2021-07-01T23:43:18.913Z","modelo_documento_id":3,"pdv_id":71},{"id":3,"empresa_id":1016,"serie":1,"documento":0,"obs":null,"ativo":true,"datacriacao":"2021-06-30T17:08:49.611Z","dataatualizacao":"2021-07-01T23:43:18.914Z","modelo_documento_id":1,"pdv_id":71},{"id":4,"empresa_id":1016,"serie":1,"documento":0,"obs":"GERADO AUTOMATICO PARA USO NO PDV","ativo":true,"datacriacao":"2021-07-01T12:30:08.600Z","dataatualizacao":"2021-07-01T23:43:18.913Z","modelo_documento_id":4,"pdv_id":71}],"tabela_preco":[{"id":1,"descricao":"PADRAO","obs":"","datacriacao":"2021-06-30T15:47:22.102Z","dataatualizacao":"2021-06-30T15:47:22.102Z","ativo":true},{"id":2,"descricao":"ECOMMERCE","obs":null,"datacriacao":"2021-06-30T17:13:33.994Z","dataatualizacao":"2021-06-30T17:13:33.994Z","ativo":true}],"tipo_arquivo":[{"id":1,"descricao":"DOCUMENTOS PESSOAIS(CNH, RG, CPF)","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.063Z","dataatualizacao":"2021-06-30T15:47:22.063Z"},{"id":2,"descricao":"EXAMES(ADMISSIONAL,DEMISSIONAL)","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.063Z","dataatualizacao":"2021-06-30T15:47:22.063Z"},{"id":3,"descricao":"COMPROVANTE PAGAMENTO","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.063Z","dataatualizacao":"2021-06-30T15:47:22.063Z"},{"id":4,"descricao":"CONTRATO SOCIAL","ativo":true,"obs":"","datacriacao":"2021-06-30T15:47:22.063Z","dataatualizacao":"2021-06-30T15:47:22.063Z"}],"usuarios":[{"id":5030,"senha":"e10adc3949ba59abbe56e057f20f883e","usuario":"mozarabmaicon@gmail.com","observacao":null,"datacriacao":"2021-06-30T15:47:22.282Z","dataatualizacao":"2021-06-30T15:47:22.282Z","ativo":true,"status_cadastro":null,"token_cadastro":null,"data_status_cadastro":null,"arquivo_id":null,"nome_completo":"mozarabmaicon@gmail.com","root":false},{"id":5031,"senha":"e10adc3949ba59abbe56e057f20f883e","usuario":"root@1016","observacao":null,"datacriacao":"2021-06-30T15:47:23.510Z","dataatualizacao":"2021-06-30T15:47:23.510Z","ativo":true,"status_cadastro":null,"token_cadastro":null,"data_status_cadastro":null,"arquivo_id":null,"nome_completo":"root@","root":false}]}}
+02-07-2021 17:59:08 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '3'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '35' or 
+ p.gtin = '35' or pgrd.gtin ='35' or pgrd.gtin_grade = '35' )
+order by 2
 
-01-07-2021 20:43:56 Requisicao: 
-01-07-2021 20:44:01 Requisicao: 
-01-07-2021 20:44:07 Requisicao: 
-01-07-2021 20:44:12 Requisicao: 
-01-07-2021 20:44:18 Requisicao: 
-01-07-2021 20:50:49 Requisicao: 
-01-07-2021 20:50:54 Requisicao: 
-01-07-2021 20:51:00 Requisicao: 
-01-07-2021 20:51:06 Requisicao: 
-01-07-2021 20:51:11 Requisicao: 
-01-07-2021 20:51:17 Requisicao: 
-01-07-2021 20:51:23 Requisicao: 
-01-07-2021 20:51:28 Requisicao: 
-01-07-2021 20:51:34 Requisicao: 
-01-07-2021 20:51:40 Requisicao: 
-01-07-2021 20:51:45 Requisicao: 
-01-07-2021 20:51:51 Requisicao: 
-01-07-2021 20:51:57 Requisicao: 
-01-07-2021 20:52:03 Requisicao: 
-01-07-2021 20:52:09 Requisicao: 
-01-07-2021 20:52:14 Requisicao: {"resultado":{"registros":5,"protocolo":"9C25B5EE72A6F33B8E3534573F5B959F","serie_fiscal":[{"id":1,"empresa_id":1016,"serie":1,"documento":1000,"obs":null,"ativo":true,"datacriacao":"2021-06-30T17:08:36.432Z","dataatualizacao":"2021-07-01T23:52:10.459Z","modelo_documento_id":2,"pdv_id":71},{"id":2,"empresa_id":1016,"serie":1,"documento":0,"obs":null,"ativo":true,"datacriacao":"2021-06-30T17:08:43.794Z","dataatualizacao":"2021-07-01T23:52:10.459Z","modelo_documento_id":3,"pdv_id":71},{"id":3,"empresa_id":1016,"serie":1,"documento":0,"obs":null,"ativo":true,"datacriacao":"2021-06-30T17:08:49.611Z","dataatualizacao":"2021-07-01T23:52:10.460Z","modelo_documento_id":1,"pdv_id":71},{"id":4,"empresa_id":1016,"serie":1,"documento":0,"obs":"GERADO AUTOMATICO PARA USO NO PDV","ativo":true,"datacriacao":"2021-07-01T12:30:08.600Z","dataatualizacao":"2021-07-01T23:52:10.459Z","modelo_documento_id":4,"pdv_id":71}],"ems_pdv":[{"id":71,"apelido":"MOZARAB","origem":"D","token":"9B9CD38E06EA779E145FB75DE568BDDC","status":"A","datacriacao":"2021-07-01T23:42:12.783Z","dataatualizacao":"2021-07-01T23:52:10.436Z","schema_info_id":26,"usuario_registro_id":null,"produtos_armazenamento_id":1,"tabela_preco_id":1,"empresa_id":1016,"canal_venda_id":1,"layout":null,"operar_caixa":null,"ultimo_download":"2021-07-01T23:43:42.984Z","ultimo_download_temp":"2021-07-01T23:43:42.984Z","ultimo_protocolo":"56ACEF96EE21C63931EECFA35471B9BD","modelo_default":0}]}}
+02-07-2021 17:59:09 Tabela: bandeira_cartao Não existe localmente 
+02-07-2021 17:59:10 Tabela: bandeira_cartao Não existe localmente 
+02-07-2021 17:59:13 select sum(COALESCE(vl_produtos,0)) as tprodutos ,
+       sum(COALESCE(vl_outras_despesas,0)) as tdespesas ,
+       sum(COALESCE(vl_acrescimo,0)) as tacrescimo ,
+       sum(COALESCE(vl_desconto,0)) as tdesconto ,
+       sum(COALESCE(bc_icms,0)) as tbc_icms ,
+       sum(COALESCE(bc_ipi,0)) as tbc_ipi ,
+       sum(COALESCE(bc_icms_st,0)) as tbc_icms_st ,
+       sum(COALESCE(bc_cofins,0)) as tbc_cofins ,
+       sum(COALESCE(bc_pis,0)) as tbc_pis ,
+       sum(COALESCE(vl_ipi,0)) as tipi ,
+       sum(COALESCE(vl_pis,0)) as tpis ,
+       0 tpis_st ,
+       sum(COALESCE(vl_retpis,0)) as tret_pis ,
+       sum(COALESCE(vl_cofins,0)) as tcofins ,
+       0 tcofins_st ,
+       sum(COALESCE(vl_retcofins,0)) as tret_cofins ,
+       sum(COALESCE(vl_icms,0)) as ticms ,
+       sum(COALESCE(vl_icms_st,0)) as ticms_st ,
+       sum(COALESCE(vl_ibpt,0)) as tibpt ,
+       sum(COALESCE(peso_liquido,0)) as tpeso_liquido ,
+       sum(COALESCE(peso_bruto,0)) as tpeso_bruto ,
+       sum(COALESCE(vl_frete,0)) as tfrete ,
+       sum(COALESCE(vl_retcsll,0)) as tret_csll ,
+       sum(COALESCE(bc_irrf,0)) as tbc_irrf ,
+       sum(COALESCE(vl_irrf,0)) as tirrf ,
+       sum(COALESCE(bc_retprev,0)) as tbc_retprev ,
+       sum(COALESCE(vl_retprev,0)) as tret_prev ,
+       sum(COALESCE(vl_seguro,0)) as tseguro ,
+       sum(COALESCE(vl_siscomex,0)) as tsiscomex 
+ from venda_itens 
+ where venda_id = '000020029'
 
-01-07-2021 20:52:20 Requisicao: 
-01-07-2021 20:52:26 Requisicao: 
-01-07-2021 20:52:32 Requisicao: 
-01-07-2021 20:52:38 Requisicao: 
-01-07-2021 20:52:43 Requisicao: 
-01-07-2021 20:52:49 Requisicao: 
-01-07-2021 20:52:55 Requisicao: 
-01-07-2021 20:53:01 Requisicao: 
-01-07-2021 20:53:06 Requisicao: 
-01-07-2021 20:53:12 Requisicao: 
-01-07-2021 20:53:18 Requisicao: 
-01-07-2021 20:53:24 Requisicao: 
-01-07-2021 20:53:29 Requisicao: 
-01-07-2021 20:53:35 Requisicao: 
-01-07-2021 20:59:47 Requisicao: 
-01-07-2021 20:59:52 Requisicao: 
-01-07-2021 20:59:58 Requisicao: 
-01-07-2021 21:00:04 Requisicao: 
-01-07-2021 21:00:10 Requisicao: 
-01-07-2021 21:00:15 Requisicao: 
-01-07-2021 21:00:21 Requisicao: 
-01-07-2021 21:00:27 Requisicao: 
-01-07-2021 21:00:33 Requisicao: 
-01-07-2021 21:03:10 Requisicao: 
-01-07-2021 21:03:16 Requisicao: 
-01-07-2021 21:03:21 Requisicao: 
-01-07-2021 21:07:00 Requisicao: 
-01-07-2021 21:07:06 Requisicao: 
-01-07-2021 21:07:12 Requisicao: 
-01-07-2021 21:07:17 Requisicao: 
-01-07-2021 21:07:23 Requisicao: 
-01-07-2021 21:07:29 Requisicao: {"resultado":{"registros":1,"protocolo":"C70F03663F221DE41D4F6E208AE2F9BA","financeiro_caixa":[{"id":3,"empresa_id":1016,"operador_id":5030,"saldo_abertura":100,"saldo_fechamento":0,"data_abertura":"2021-07-02T00:07:19.764Z","data_fechamento":null,"data_conferencia":null,"conferido":null,"status":"A","inf_caixa":null,"inf_conferencia":null,"usuario_conferencia_id":null,"saldo_fechamentodebito":0,"saldo_fechamentocredito":0,"saldo_fechamentovale":0,"dataatualizacao":"2021-07-02T00:07:23.801Z","datacriacao":"2021-07-02T00:07:23.801Z","pdv_id":71,"uuid":"{A2A61284-DBE9-4568-8448-E2E2E2EE492B}"}]}}
+02-07-2021 17:59:19 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '3'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '5' or 
+ p.gtin = '5' or pgrd.gtin ='5' or pgrd.gtin_grade = '5' )
+order by 2
 
-01-07-2021 21:07:35 Requisicao: 
-01-07-2021 21:07:41 Requisicao: 
-01-07-2021 21:07:46 Requisicao: 
-01-07-2021 21:07:52 Requisicao: 
-01-07-2021 21:07:57 Requisicao: 
-01-07-2021 21:08:03 Requisicao: 
-01-07-2021 21:08:09 Requisicao: 
-01-07-2021 21:08:14 Requisicao: 
-01-07-2021 21:08:20 Requisicao: 
-01-07-2021 21:08:25 Requisicao: 
-01-07-2021 21:08:31 Requisicao: 
-01-07-2021 21:08:37 Requisicao: 
-01-07-2021 21:08:43 Requisicao: 
-01-07-2021 21:08:48 Requisicao: 
-01-07-2021 21:08:54 Requisicao: 
-01-07-2021 21:09:00 Requisicao: 
-01-07-2021 21:09:05 Requisicao: 
-01-07-2021 21:09:11 Requisicao: 
-01-07-2021 21:09:17 Requisicao: {"resultado":{"registros":1,"protocolo":"F508025FBCC1685EC3FB6BFF9C0BADEF","financeiro_caixa":[{"id":3,"empresa_id":1016,"operador_id":5030,"saldo_abertura":100,"saldo_fechamento":0,"data_abertura":"2021-07-02T00:07:19.764Z","data_fechamento":"2021-07-02T00:09:07.211Z","data_conferencia":null,"conferido":null,"status":"F","inf_caixa":null,"inf_conferencia":null,"usuario_conferencia_id":0,"saldo_fechamentodebito":0,"saldo_fechamentocredito":0,"saldo_fechamentovale":0,"dataatualizacao":"2021-07-02T00:09:12.033Z","datacriacao":"2021-07-02T00:07:23.801Z","pdv_id":71,"uuid":"{A2A61284-DBE9-4568-8448-E2E2E2EE492B}"}]}}
+02-07-2021 17:59:21 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '3'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '3' or 
+ p.gtin = '3' or pgrd.gtin ='3' or pgrd.gtin_grade = '3' )
+order by 2
 
-01-07-2021 21:09:17 caixa: delete from financeiro_caixa where id = '3'
+02-07-2021 17:59:22 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '3'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '3' or 
+ p.gtin = '3' or pgrd.gtin ='3' or pgrd.gtin_grade = '3' )
+ and pgrd.id = '7'
+order by 2
 
-01-07-2021 21:12:58 Requisicao: 
-01-07-2021 21:13:04 Requisicao: 
-01-07-2021 21:13:10 Requisicao: {"resultado":{"registros":1,"protocolo":"D993A20D944B3F50BB1147ACF298B43D","financeiro_caixa":[{"id":4,"empresa_id":1016,"operador_id":5030,"saldo_abertura":10,"saldo_fechamento":0,"data_abertura":"2021-07-02T00:13:03.820Z","data_fechamento":null,"data_conferencia":null,"conferido":null,"status":"A","inf_caixa":null,"inf_conferencia":null,"usuario_conferencia_id":null,"saldo_fechamentodebito":0,"saldo_fechamentocredito":0,"saldo_fechamentovale":0,"dataatualizacao":"2021-07-02T00:13:04.461Z","datacriacao":"2021-07-02T00:13:04.461Z","pdv_id":71,"uuid":"{68F568D2-7CAB-4CDA-BDBF-F0E7494F0602}"}]}}
+02-07-2021 17:59:25 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '3'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '34' or 
+ p.gtin = '34' or pgrd.gtin ='34' or pgrd.gtin_grade = '34' )
+order by 2
 
-01-07-2021 21:13:16 Requisicao: 
-01-07-2021 21:13:21 Requisicao: 
-01-07-2021 21:13:27 Requisicao: 
-01-07-2021 21:13:32 Requisicao: 
-01-07-2021 21:14:44 Requisicao: 
-01-07-2021 21:14:50 Requisicao: 
-01-07-2021 21:14:55 Requisicao: 
-01-07-2021 21:15:43 Requisicao: {"resultado":{"registros":1,"protocolo":"E5549BFC4E7090E84FB4BEB84406A906","financeiro_caixa":[{"id":4,"empresa_id":1016,"operador_id":5030,"saldo_abertura":10,"saldo_fechamento":0,"data_abertura":"2021-07-02T00:13:03.820Z","data_fechamento":"2021-07-02T00:14:54.675Z","data_conferencia":null,"conferido":null,"status":"F","inf_caixa":null,"inf_conferencia":null,"usuario_conferencia_id":0,"saldo_fechamentodebito":0,"saldo_fechamentocredito":0,"saldo_fechamentovale":0,"dataatualizacao":"2021-07-02T00:14:56.152Z","datacriacao":"2021-07-02T00:13:04.461Z","pdv_id":71,"uuid":"{68F568D2-7CAB-4CDA-BDBF-F0E7494F0602}"}]}}
+02-07-2021 17:59:29 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '3'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '39' or 
+ p.gtin = '39' or pgrd.gtin ='39' or pgrd.gtin_grade = '39' )
+ and pgrd.id = '36'
+order by 2
 
-01-07-2021 21:15:43 caixa: delete from financeiro_caixa where id = '4'
+02-07-2021 17:59:35 {"id":"43","venda_id":"20030","sequencia":"","produto_id":"34","descricao":"BALA BANZÉ IOGURTE","quantidade":1,"unidade_medida_id":"1","medida_descricao":"UN","valor_unitario":34,"custo_unitario":3.25,"vl_produtos":11.38,"vl_custo":0,"valor_final":11.38,"lucro":11.38,"lucro_f":11.38,"custo_f":0,"subcustof":0,"ncm":"17049020","origem_mercadoria":"0","cfop":"5102","cest":"","tributavel_quantidade":1,"tributavel_valor":11.38,"tributavel_unidade":"UN","tributavel_gtin":"789631219905","inf_fisco":"","codigo_beneficio":"","aliq_icms":0,"aliq_ipi":0,"aliq_pis":0,"aliq_pis_r":0,"aliq_cofins":0,"aliq_cofins_r":0,"aliq_desconto":0,"aliq_ibpt":0,"aliq_mva":0,"aliq_redicms":0,"aliq_redicmsst":0,"aliq_icmsinterpart":0,"aliq_icmsinter":0,"aliq_icmsufdest":0,"aliq_fcpufdest":0,"aliq_retpis":0,"aliq_retcofins":0,"aliq_retcsll":0,"aliq_irrf":0,"aliq_retprev":0,"aliq_ii":0,"aliq_iof":0,"aliq_iva":0,"aliq_frete":0,"bc_icms":0,"bc_ipi":0,"bc_icms_st":0,"qt_bc_pis":0,"bc_cofins":0,"qt_bc_cofins":0,"bc_pis":0,"bc_irrf":0,"bc_ii":0,"bc_iof":0,"bc_retprev":0,"cst_icms":"","csosn":"102","cst_ipi":"99","cst_pis":"41","cst_cofins":"41","vl_icms":0,"vl_icms_st":0,"vl_ipi":0,"vl_pis":0,"vl_cofins":0,"vl_ibpt":0,"vl_desconto":0,"vl_redicms":0,"vl_redicmsst":0,"vl_outras_despesas":0,"vl_icmsufdest":0,"vl_icmsufremet":0,"vl_fcpufdest":0,"vl_bcufdest":0,"vl_retpis":0,"vl_retcofins":0,"vl_retcsll":0,"vl_irrf":0,"vl_seguro":0,"vl_siscomex":0,"vl_acrescimo":0,"vl_ii":0,"vl_iof":0,"vl_iva":0,"vl_frete":0,"vl_bcstret":0,"vl_icmsstret":0,"vl_cred":0,"vl_retprev":0,"pedido_id":"","empresa_id":"","grade_id":"","gtin":"789631219905","lote_id":"0","inflote":"","chave_nfe":"","drawback":"","reg_exportacao":"","peso_bruto":0,"peso_liquido":0,"defaultvalue":"true","tabela_id":"","num_fatura":"","uuid":"","aliq_outras_despesas":0,"status":"","vl_final":0,"show_desconto":"true","promocional":"true"}
+02-07-2021 17:59:35 {"id":"43","venda_id":"20030","sequencia":"","produto_id":"34","descricao":"BALA BANZÉ IOGURTE","quantidade":1,"unidade_medida_id":"1","medida_descricao":"UN","valor_unitario":34,"custo_unitario":3.25,"vl_produtos":34,"vl_custo":0,"valor_final":34,"lucro":34,"lucro_f":34,"custo_f":0,"subcustof":0,"ncm":"17049020","origem_mercadoria":"0","cfop":"5102","cest":"","tributavel_quantidade":1,"tributavel_valor":34,"tributavel_unidade":"UN","tributavel_gtin":"789631219905","inf_fisco":"","codigo_beneficio":"","aliq_icms":0,"aliq_ipi":0,"aliq_pis":0,"aliq_pis_r":0,"aliq_cofins":0,"aliq_cofins_r":0,"aliq_desconto":0,"aliq_ibpt":0,"aliq_mva":0,"aliq_redicms":0,"aliq_redicmsst":0,"aliq_icmsinterpart":0,"aliq_icmsinter":0,"aliq_icmsufdest":0,"aliq_fcpufdest":0,"aliq_retpis":0,"aliq_retcofins":0,"aliq_retcsll":0,"aliq_irrf":0,"aliq_retprev":0,"aliq_ii":0,"aliq_iof":0,"aliq_iva":0,"aliq_frete":0,"bc_icms":0,"bc_ipi":0,"bc_icms_st":0,"qt_bc_pis":0,"bc_cofins":0,"qt_bc_cofins":0,"bc_pis":0,"bc_irrf":0,"bc_ii":0,"bc_iof":0,"bc_retprev":0,"cst_icms":"","csosn":"102","cst_ipi":"99","cst_pis":"41","cst_cofins":"41","vl_icms":0,"vl_icms_st":0,"vl_ipi":0,"vl_pis":0,"vl_cofins":0,"vl_ibpt":0,"vl_desconto":0,"vl_redicms":0,"vl_redicmsst":0,"vl_outras_despesas":0,"vl_icmsufdest":0,"vl_icmsufremet":0,"vl_fcpufdest":0,"vl_bcufdest":0,"vl_retpis":0,"vl_retcofins":0,"vl_retcsll":0,"vl_irrf":0,"vl_seguro":0,"vl_siscomex":0,"vl_acrescimo":0,"vl_ii":0,"vl_iof":0,"vl_iva":0,"vl_frete":0,"vl_bcstret":0,"vl_icmsstret":0,"vl_cred":0,"vl_retprev":0,"pedido_id":"","empresa_id":"","grade_id":"","gtin":"789631219905","lote_id":"0","inflote":"","chave_nfe":"","drawback":"","reg_exportacao":"","peso_bruto":0,"peso_liquido":0,"defaultvalue":"true","tabela_id":"","num_fatura":"","uuid":"","aliq_outras_despesas":0,"status":"","vl_final":0,"show_desconto":"true","promocional":"true","custo_contabil":null,"sub_total":34,"aliq_redicmsinterpart":0}
+02-07-2021 18:04:11 Tabela: bandeira_cartao Não existe localmente 
+02-07-2021 18:04:11 Tabela: bandeira_cartao Não existe localmente 
+02-07-2021 18:04:19 select sum(COALESCE(vl_produtos,0)) as tprodutos ,
+       sum(COALESCE(vl_outras_despesas,0)) as tdespesas ,
+       sum(COALESCE(vl_acrescimo,0)) as tacrescimo ,
+       sum(COALESCE(vl_desconto,0)) as tdesconto ,
+       sum(COALESCE(bc_icms,0)) as tbc_icms ,
+       sum(COALESCE(bc_ipi,0)) as tbc_ipi ,
+       sum(COALESCE(bc_icms_st,0)) as tbc_icms_st ,
+       sum(COALESCE(bc_cofins,0)) as tbc_cofins ,
+       sum(COALESCE(bc_pis,0)) as tbc_pis ,
+       sum(COALESCE(vl_ipi,0)) as tipi ,
+       sum(COALESCE(vl_pis,0)) as tpis ,
+       0 tpis_st ,
+       sum(COALESCE(vl_retpis,0)) as tret_pis ,
+       sum(COALESCE(vl_cofins,0)) as tcofins ,
+       0 tcofins_st ,
+       sum(COALESCE(vl_retcofins,0)) as tret_cofins ,
+       sum(COALESCE(vl_icms,0)) as ticms ,
+       sum(COALESCE(vl_icms_st,0)) as ticms_st ,
+       sum(COALESCE(vl_ibpt,0)) as tibpt ,
+       sum(COALESCE(peso_liquido,0)) as tpeso_liquido ,
+       sum(COALESCE(peso_bruto,0)) as tpeso_bruto ,
+       sum(COALESCE(vl_frete,0)) as tfrete ,
+       sum(COALESCE(vl_retcsll,0)) as tret_csll ,
+       sum(COALESCE(bc_irrf,0)) as tbc_irrf ,
+       sum(COALESCE(vl_irrf,0)) as tirrf ,
+       sum(COALESCE(bc_retprev,0)) as tbc_retprev ,
+       sum(COALESCE(vl_retprev,0)) as tret_prev ,
+       sum(COALESCE(vl_seguro,0)) as tseguro ,
+       sum(COALESCE(vl_siscomex,0)) as tsiscomex 
+ from venda_itens 
+ where venda_id = '000020030'
 
-01-07-2021 21:15:49 Requisicao: 
-01-07-2021 21:15:55 Requisicao: {"resultado":{"registros":1,"protocolo":"51803506BEBD3F918DEAC0F73C622E05","financeiro_caixa":[{"id":5,"empresa_id":1016,"operador_id":5030,"saldo_abertura":1,"saldo_fechamento":0,"data_abertura":"2021-07-02T00:15:46.140Z","data_fechamento":null,"data_conferencia":null,"conferido":null,"status":"A","inf_caixa":null,"inf_conferencia":null,"usuario_conferencia_id":null,"saldo_fechamentodebito":0,"saldo_fechamentocredito":0,"saldo_fechamentovale":0,"dataatualizacao":"2021-07-02T00:15:49.365Z","datacriacao":"2021-07-02T00:15:49.365Z","pdv_id":71,"uuid":"{2BFF4A7A-8E60-4E88-B142-2825DC6E001E}"}]}}
+02-07-2021 18:04:30 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '3'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '50' or 
+ p.gtin = '50' or pgrd.gtin ='50' or pgrd.gtin_grade = '50' )
+order by 2
 
-01-07-2021 21:16:01 Requisicao: 
-01-07-2021 21:16:12 Requisicao: 
-01-07-2021 21:16:17 Requisicao: 
-01-07-2021 21:16:23 Requisicao: 
-01-07-2021 21:16:29 Requisicao: 
-01-07-2021 21:16:34 Requisicao: 
-01-07-2021 21:16:40 Requisicao: 
-01-07-2021 21:16:46 Requisicao: 
-01-07-2021 21:17:51 Requisicao: 
-01-07-2021 21:17:56 Requisicao: 
-01-07-2021 21:19:16 Requisicao: 
-01-07-2021 21:19:22 Requisicao: {"resultado":{"registros":1,"protocolo":"49F25F3C13D51006ED1D80C3E2E67465","financeiro_caixa":[{"id":5,"empresa_id":1016,"operador_id":5030,"saldo_abertura":1,"saldo_fechamento":0,"data_abertura":"2021-07-02T00:15:46.140Z","data_fechamento":"2021-07-02T00:17:59.644Z","data_conferencia":null,"conferido":null,"status":"F","inf_caixa":null,"inf_conferencia":null,"usuario_conferencia_id":0,"saldo_fechamentodebito":0,"saldo_fechamentocredito":0,"saldo_fechamentovale":0,"dataatualizacao":"2021-07-02T00:19:16.577Z","datacriacao":"2021-07-02T00:15:49.365Z","pdv_id":71,"uuid":"{2BFF4A7A-8E60-4E88-B142-2825DC6E001E}"}]}}
+02-07-2021 18:04:34 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '3'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '34' or 
+ p.gtin = '34' or pgrd.gtin ='34' or pgrd.gtin_grade = '34' )
+order by 2
 
-01-07-2021 21:19:22 caixa: delete from financeiro_caixa where id = '5'
+02-07-2021 18:04:38 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '3'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '1' or 
+ p.gtin = '1' or pgrd.gtin ='1' or pgrd.gtin_grade = '1' )
+ and pgrd.id = '3'
+order by 2
 
-01-07-2021 21:19:28 Requisicao: {"resultado":{"registros":1,"protocolo":"D3511FAE7B14C278958A22A0B819A92B","financeiro_caixa":[{"id":6,"empresa_id":1016,"operador_id":5030,"saldo_abertura":10,"saldo_fechamento":0,"data_abertura":"2021-07-02T00:19:19.846Z","data_fechamento":null,"data_conferencia":null,"conferido":null,"status":"A","inf_caixa":null,"inf_conferencia":null,"usuario_conferencia_id":null,"saldo_fechamentodebito":0,"saldo_fechamentocredito":0,"saldo_fechamentovale":0,"dataatualizacao":"2021-07-02T00:19:22.740Z","datacriacao":"2021-07-02T00:19:22.740Z","pdv_id":71,"uuid":"{D89188CF-3722-4E10-A72E-9414FC471C24}"}]}}
-
-01-07-2021 21:19:34 Requisicao: 
-01-07-2021 21:19:39 Requisicao: 
-01-07-2021 21:19:45 Requisicao: 
-01-07-2021 21:19:52 Requisicao: 
-01-07-2021 21:21:09 Requisicao: 
-01-07-2021 21:21:14 Requisicao: 
-01-07-2021 21:21:36 Requisicao: 
-01-07-2021 21:21:42 Requisicao: 
-01-07-2021 21:22:49 Requisicao: {"resultado":{"registros":1,"protocolo":"FB2E546767D29BF655B05964C276B7E5","financeiro_caixa":[{"id":6,"empresa_id":1016,"operador_id":5030,"saldo_abertura":10,"saldo_fechamento":0,"data_abertura":"2021-07-02T00:19:19.846Z","data_fechamento":"2021-07-02T00:21:40.467Z","data_conferencia":null,"conferido":null,"status":"F","inf_caixa":null,"inf_conferencia":null,"usuario_conferencia_id":0,"saldo_fechamentodebito":0,"saldo_fechamentocredito":0,"saldo_fechamentovale":0,"dataatualizacao":"2021-07-02T00:21:42.570Z","datacriacao":"2021-07-02T00:19:22.740Z","pdv_id":71,"uuid":"{D89188CF-3722-4E10-A72E-9414FC471C24}"}]}}
-
-01-07-2021 21:22:49 caixa: delete from financeiro_caixa where id = '6'
-
-01-07-2021 21:22:54 Requisicao: 
-01-07-2021 21:23:01 Requisicao: {"resultado":{"registros":1,"protocolo":"0C40697C324979B33494AD45C956976D","financeiro_caixa":[{"id":7,"empresa_id":1016,"operador_id":5030,"saldo_abertura":1,"saldo_fechamento":0,"data_abertura":"2021-07-02T00:22:51.592Z","data_fechamento":null,"data_conferencia":null,"conferido":null,"status":"A","inf_caixa":null,"inf_conferencia":null,"usuario_conferencia_id":null,"saldo_fechamentodebito":0,"saldo_fechamentocredito":0,"saldo_fechamentovale":0,"dataatualizacao":"2021-07-02T00:22:55.278Z","datacriacao":"2021-07-02T00:22:55.278Z","pdv_id":71,"uuid":"{C9ECB71E-6280-4020-BE83-40133170BA5A}"}]}}
-
-01-07-2021 21:23:07 Requisicao: 
-01-07-2021 21:23:12 Requisicao: 
-01-07-2021 21:23:18 Requisicao: 
-01-07-2021 21:23:24 Requisicao: 
-01-07-2021 21:23:30 Requisicao: 
-01-07-2021 21:23:35 Requisicao: 
-01-07-2021 21:23:41 Requisicao: 
-01-07-2021 21:28:46 Requisicao: 
-01-07-2021 21:28:52 Requisicao: 
-01-07-2021 21:28:58 Requisicao: 
-01-07-2021 21:29:04 Requisicao: 
-01-07-2021 21:29:10 Requisicao: 
-01-07-2021 21:29:15 Requisicao: 
-01-07-2021 21:30:29 Requisicao: 
-01-07-2021 21:30:32 Tabela: bandeira_cartao Não existe localmente 
-01-07-2021 21:30:32 Tabela: bandeira_cartao Não existe localmente 
-01-07-2021 21:30:34 Requisicao: 
-01-07-2021 21:30:40 Requisicao: 
-01-07-2021 21:30:46 Requisicao: 
-01-07-2021 21:33:00 Requisicao: 
-01-07-2021 21:33:06 Requisicao: 
-01-07-2021 21:33:12 Requisicao: 
-01-07-2021 21:33:17 Requisicao: 
-01-07-2021 21:33:23 Requisicao: 
-01-07-2021 21:33:29 Requisicao: 
-01-07-2021 21:33:35 Requisicao: 
-01-07-2021 21:33:41 Requisicao: 
-01-07-2021 21:33:46 Requisicao: 
-01-07-2021 21:33:52 Requisicao: 
-01-07-2021 21:33:58 Requisicao: 
-01-07-2021 21:34:03 Requisicao: 
-01-07-2021 21:34:09 Requisicao: 
-01-07-2021 21:34:15 Requisicao: 
-01-07-2021 21:34:20 Requisicao: 
-01-07-2021 21:34:26 Requisicao: 
-01-07-2021 21:34:32 Requisicao: 
-01-07-2021 21:34:38 Requisicao: 
-01-07-2021 21:34:43 Requisicao: 
-01-07-2021 21:34:49 Requisicao: 
-01-07-2021 21:34:55 Requisicao: 
-01-07-2021 21:35:01 Requisicao: 
-01-07-2021 21:35:06 Requisicao: 
-01-07-2021 21:35:12 Requisicao: 
-01-07-2021 21:35:18 Requisicao: 
-01-07-2021 21:35:24 Requisicao: 
-01-07-2021 21:35:29 Requisicao: 
-01-07-2021 21:35:35 Requisicao: 
-01-07-2021 21:35:40 Requisicao: 
-01-07-2021 21:35:46 Requisicao: 
-01-07-2021 21:35:52 Requisicao: 
-01-07-2021 21:35:57 Requisicao: 
-01-07-2021 21:36:03 Requisicao: 
-01-07-2021 21:36:08 Requisicao: 
-01-07-2021 21:36:14 Requisicao: 
-01-07-2021 21:36:20 Requisicao: 
-01-07-2021 21:36:25 Requisicao: 
-01-07-2021 21:36:31 Requisicao: 
-01-07-2021 21:36:36 Requisicao: 
-01-07-2021 21:36:42 Requisicao: 
-01-07-2021 21:36:47 Requisicao: 
-01-07-2021 21:36:53 Requisicao: 
-01-07-2021 21:36:58 Requisicao: 
-01-07-2021 21:37:04 Requisicao: 
-01-07-2021 21:37:10 Requisicao: 
-01-07-2021 21:37:15 Requisicao: 
-01-07-2021 21:37:21 Requisicao: 
-01-07-2021 21:37:26 Requisicao: 
-01-07-2021 21:37:32 Requisicao: 
-01-07-2021 21:37:37 Requisicao: 
-01-07-2021 21:37:43 Requisicao: 
-01-07-2021 21:37:49 Requisicao: 
-01-07-2021 21:37:54 Requisicao: 
-01-07-2021 21:38:00 Requisicao: 
-01-07-2021 21:38:06 Requisicao: 
-01-07-2021 21:38:12 Requisicao: 
-01-07-2021 21:38:17 Requisicao: 
-01-07-2021 21:38:23 Requisicao: 
-01-07-2021 21:38:29 Requisicao: 
-01-07-2021 21:38:35 Requisicao: 
-01-07-2021 21:38:40 Requisicao: 
-01-07-2021 21:38:46 Requisicao: 
-01-07-2021 21:38:51 Requisicao: 
-01-07-2021 21:38:57 Requisicao: 
-01-07-2021 21:39:03 Requisicao: 
-01-07-2021 21:39:09 Requisicao: 
-01-07-2021 21:39:14 Requisicao: 
-01-07-2021 21:39:20 Requisicao: 
-01-07-2021 21:39:26 Requisicao: 
-01-07-2021 21:39:31 Requisicao: 
-01-07-2021 21:39:37 Requisicao: 
-01-07-2021 21:39:43 Requisicao: 
-01-07-2021 21:39:49 Requisicao: 
-01-07-2021 21:39:54 Requisicao: 
-01-07-2021 21:40:00 Requisicao: 
-01-07-2021 21:40:06 Requisicao: 
-01-07-2021 21:40:11 Requisicao: 
-01-07-2021 21:40:17 Requisicao: 
-01-07-2021 21:40:23 Requisicao: 
-01-07-2021 21:40:28 Requisicao: 
-01-07-2021 21:40:34 Requisicao: 
-01-07-2021 21:40:40 Requisicao: 
-01-07-2021 21:40:46 Requisicao: 
-01-07-2021 21:40:51 Requisicao: 
-01-07-2021 21:40:57 Requisicao: 
-01-07-2021 21:41:03 Requisicao: 
-01-07-2021 21:41:09 Requisicao: 
-01-07-2021 21:41:14 Requisicao: 
-01-07-2021 21:41:20 Requisicao: 
-01-07-2021 21:41:25 Requisicao: 
-01-07-2021 21:41:31 Requisicao: 
-01-07-2021 21:41:37 Requisicao: 
-01-07-2021 21:41:42 Requisicao: 
-01-07-2021 21:41:48 Requisicao: 
-01-07-2021 21:41:54 Requisicao: 
-01-07-2021 21:41:59 Requisicao: 
-01-07-2021 21:42:05 Requisicao: 
-01-07-2021 21:42:11 Requisicao: 
-01-07-2021 21:42:17 Requisicao: 
-01-07-2021 21:42:22 Requisicao: 
-01-07-2021 21:42:28 Requisicao: 
-01-07-2021 21:42:34 Requisicao: 
-01-07-2021 21:42:40 Requisicao: 
-01-07-2021 21:42:45 Requisicao: 
-01-07-2021 21:42:51 Requisicao: 
-01-07-2021 21:42:56 Requisicao: 
-01-07-2021 21:43:02 Requisicao: 
-01-07-2021 21:43:08 Requisicao: 
-01-07-2021 21:43:14 Requisicao: 
-01-07-2021 21:43:19 Requisicao: 
-01-07-2021 21:43:25 Requisicao: 
-01-07-2021 21:43:31 Requisicao: 
-01-07-2021 21:43:37 Requisicao: 
-01-07-2021 21:43:42 Requisicao: 
-01-07-2021 21:43:48 Requisicao: 
-01-07-2021 21:43:54 Requisicao: 
-01-07-2021 21:44:00 Requisicao: 
-01-07-2021 21:44:06 Requisicao: 
-01-07-2021 21:44:12 Requisicao: 
-01-07-2021 21:44:17 Requisicao: 
-01-07-2021 21:44:23 Requisicao: 
-01-07-2021 21:44:29 Requisicao: 
-01-07-2021 21:44:34 Requisicao: 
-01-07-2021 21:44:40 Requisicao: 
-01-07-2021 21:44:45 Requisicao: 
-01-07-2021 21:44:51 Requisicao: 
-01-07-2021 21:44:57 Requisicao: 
-01-07-2021 21:45:03 Requisicao: 
-01-07-2021 21:45:08 Requisicao: 
-01-07-2021 21:45:14 Requisicao: 
-01-07-2021 21:45:20 Requisicao: 
-01-07-2021 21:45:26 Requisicao: 
-01-07-2021 21:45:31 Requisicao: 
-01-07-2021 21:45:37 Requisicao: 
-01-07-2021 21:45:43 Requisicao: 
-01-07-2021 21:45:49 Requisicao: 
-01-07-2021 21:45:54 Requisicao: 
-01-07-2021 21:46:00 Requisicao: 
-01-07-2021 21:46:06 Requisicao: 
-01-07-2021 21:46:11 Requisicao: 
-01-07-2021 21:46:17 Requisicao: 
-01-07-2021 21:46:23 Requisicao: 
-01-07-2021 21:46:28 Requisicao: 
-01-07-2021 21:46:34 Requisicao: 
-01-07-2021 21:46:40 Requisicao: 
-01-07-2021 21:46:45 Requisicao: 
-01-07-2021 21:46:51 Requisicao: 
-01-07-2021 21:46:56 Requisicao: 
-01-07-2021 21:47:02 Requisicao: 
-01-07-2021 21:47:08 Requisicao: 
-01-07-2021 21:47:13 Requisicao: 
-01-07-2021 21:47:19 Requisicao: 
-01-07-2021 21:47:25 Requisicao: 
-01-07-2021 21:47:31 Requisicao: 
-01-07-2021 21:47:36 Requisicao: 
-01-07-2021 21:47:42 Requisicao: 
-01-07-2021 21:47:48 Requisicao: 
-01-07-2021 21:47:53 Requisicao: 
-01-07-2021 21:47:59 Requisicao: 
-01-07-2021 21:48:05 Requisicao: 
-01-07-2021 21:48:11 Requisicao: 
-01-07-2021 21:48:16 Requisicao: 
-01-07-2021 21:48:22 Requisicao: 
-01-07-2021 21:48:28 Requisicao: 
-01-07-2021 21:48:34 Requisicao: 
-01-07-2021 21:48:40 Requisicao: 
-01-07-2021 21:48:45 Requisicao: 
-01-07-2021 21:48:51 Requisicao: 
-01-07-2021 21:48:56 Requisicao: 
-01-07-2021 21:49:02 Requisicao: 
-01-07-2021 21:49:08 Requisicao: 
-01-07-2021 21:49:13 Requisicao: 
-01-07-2021 21:49:19 Requisicao: 
-01-07-2021 21:49:25 Requisicao: 
-01-07-2021 21:49:31 Requisicao: 
-01-07-2021 21:49:37 Requisicao: 
-01-07-2021 21:49:42 Requisicao: 
-01-07-2021 21:49:48 Requisicao: 
-01-07-2021 21:49:54 Requisicao: 
-01-07-2021 21:49:59 Requisicao: 
-01-07-2021 21:50:05 Requisicao: 
-01-07-2021 21:50:10 Requisicao: 
-01-07-2021 21:50:16 Requisicao: 
-01-07-2021 21:50:22 Requisicao: 
-01-07-2021 21:50:27 Requisicao: 
-01-07-2021 21:50:33 Requisicao: 
-01-07-2021 21:50:38 Requisicao: 
-01-07-2021 21:50:44 Requisicao: 
-01-07-2021 21:50:50 Requisicao: 
-01-07-2021 21:50:55 Requisicao: 
-01-07-2021 21:51:01 Requisicao: 
-01-07-2021 21:51:07 Requisicao: 
-01-07-2021 21:51:13 Requisicao: 
-01-07-2021 21:51:18 Requisicao: 
-01-07-2021 21:51:24 Requisicao: 
-01-07-2021 21:51:29 Requisicao: 
-01-07-2021 21:51:35 Requisicao: 
-01-07-2021 21:51:41 Requisicao: 
-01-07-2021 21:51:47 Requisicao: 
-01-07-2021 21:51:52 Requisicao: 
-01-07-2021 21:51:58 Requisicao: 
-01-07-2021 21:52:03 Requisicao: 
-01-07-2021 21:52:09 Requisicao: 
-01-07-2021 21:52:15 Requisicao: 
-01-07-2021 21:52:20 Requisicao: 
-01-07-2021 21:52:26 Requisicao: 
-01-07-2021 21:52:32 Requisicao: 
-01-07-2021 21:52:38 Requisicao: 
-01-07-2021 21:52:43 Requisicao: 
-01-07-2021 21:52:49 Requisicao: 
-01-07-2021 21:52:55 Requisicao: 
-01-07-2021 21:53:01 Requisicao: 
-01-07-2021 21:53:06 Requisicao: 
-01-07-2021 21:53:12 Requisicao: 
-01-07-2021 21:53:17 Requisicao: 
-01-07-2021 21:53:23 Requisicao: 
-01-07-2021 21:53:29 Requisicao: 
-01-07-2021 21:53:34 Requisicao: 
-01-07-2021 21:53:40 Requisicao: 
-01-07-2021 21:53:45 Requisicao: 
-01-07-2021 21:53:51 Requisicao: 
-01-07-2021 21:53:57 Requisicao: 
-01-07-2021 21:54:02 Requisicao: 
-01-07-2021 21:54:08 Requisicao: 
-01-07-2021 21:54:14 Requisicao: 
-01-07-2021 21:54:20 Requisicao: 
-01-07-2021 21:54:25 Requisicao: 
-01-07-2021 21:54:31 Requisicao: 
-01-07-2021 21:54:37 Requisicao: 
-01-07-2021 21:54:42 Requisicao: 
-01-07-2021 21:54:48 Requisicao: 
-01-07-2021 21:54:54 Requisicao: 
-01-07-2021 21:55:00 Requisicao: 
-01-07-2021 21:55:05 Requisicao: 
-01-07-2021 21:55:11 Requisicao: 
-01-07-2021 21:55:17 Requisicao: 
-01-07-2021 21:55:22 Requisicao: 
-01-07-2021 21:55:28 Requisicao: 
-01-07-2021 21:55:33 Requisicao: 
-01-07-2021 21:55:39 Requisicao: 
-01-07-2021 21:55:45 Requisicao: 
-01-07-2021 21:55:50 Requisicao: 
-01-07-2021 21:55:56 Requisicao: 
-01-07-2021 21:56:02 Requisicao: 
-01-07-2021 21:56:08 Requisicao: 
-01-07-2021 21:56:13 Requisicao: 
-01-07-2021 21:56:19 Requisicao: 
-01-07-2021 21:56:25 Requisicao: 
-01-07-2021 21:56:31 Requisicao: 
-01-07-2021 21:56:36 Requisicao: 
-01-07-2021 21:56:42 Requisicao: 
-01-07-2021 21:56:48 Requisicao: 
-01-07-2021 21:56:54 Requisicao: 
-01-07-2021 21:57:00 Requisicao: 
-01-07-2021 21:57:06 Requisicao: 
-01-07-2021 21:57:11 Requisicao: 
-01-07-2021 21:57:17 Requisicao: 
-01-07-2021 21:57:23 Requisicao: 
-01-07-2021 21:57:28 Requisicao: 
-01-07-2021 21:57:34 Requisicao: 
-01-07-2021 21:57:40 Requisicao: 
-01-07-2021 21:57:45 Requisicao: 
-01-07-2021 21:57:51 Requisicao: 
-01-07-2021 21:57:57 Requisicao: 
-01-07-2021 21:58:03 Requisicao: 
-01-07-2021 21:58:08 Requisicao: 
-01-07-2021 21:58:14 Requisicao: 
-01-07-2021 21:58:19 Requisicao: 
-01-07-2021 21:58:25 Requisicao: 
-01-07-2021 21:58:31 Requisicao: 
-01-07-2021 21:58:36 Requisicao: 
-01-07-2021 21:58:42 Requisicao: 
-01-07-2021 21:58:47 Requisicao: 
-01-07-2021 21:58:53 Requisicao: 
-01-07-2021 21:58:59 Requisicao: 
-01-07-2021 21:59:04 Requisicao: 
-01-07-2021 21:59:10 Requisicao: 
-01-07-2021 21:59:16 Requisicao: 
-01-07-2021 21:59:21 Requisicao: 
-01-07-2021 21:59:27 Requisicao: 
-01-07-2021 21:59:33 Requisicao: 
-01-07-2021 21:59:38 Requisicao: 
-01-07-2021 21:59:44 Requisicao: 
-01-07-2021 21:59:50 Requisicao: 
-01-07-2021 21:59:55 Requisicao: 
-01-07-2021 22:00:02 Requisicao: 
-01-07-2021 22:00:08 Requisicao: 
-01-07-2021 22:00:14 Requisicao: 
-01-07-2021 22:00:19 Requisicao: 
-01-07-2021 22:00:25 Requisicao: 
-01-07-2021 22:00:30 Requisicao: 
-01-07-2021 22:00:36 Requisicao: 
-01-07-2021 22:00:42 Requisicao: 
-01-07-2021 22:00:48 Requisicao: 
-01-07-2021 22:00:53 Requisicao: 
-01-07-2021 22:00:59 Requisicao: 
-01-07-2021 22:01:05 Requisicao: 
-01-07-2021 22:01:11 Requisicao: 
-01-07-2021 22:01:17 Requisicao: 
-01-07-2021 22:01:22 Requisicao: 
-01-07-2021 22:01:28 Requisicao: 
-01-07-2021 22:01:33 Requisicao: 
-01-07-2021 22:01:39 Requisicao: 
-01-07-2021 22:01:45 Requisicao: 
-01-07-2021 22:01:50 Requisicao: 
-01-07-2021 22:01:56 Requisicao: 
-01-07-2021 22:02:01 Requisicao: 
-01-07-2021 22:02:07 Requisicao: 
-01-07-2021 22:02:13 Requisicao: 
-01-07-2021 22:02:18 Requisicao: 
-01-07-2021 22:02:24 Requisicao: 
-01-07-2021 22:02:29 Requisicao: 
-01-07-2021 22:02:35 Requisicao: 
-01-07-2021 22:02:41 Requisicao: 
-01-07-2021 22:02:47 Requisicao: 
-01-07-2021 22:02:52 Requisicao: 
-01-07-2021 22:02:58 Requisicao: 
-01-07-2021 22:03:04 Requisicao: 
-01-07-2021 22:03:10 Requisicao: 
-01-07-2021 22:03:16 Requisicao: 
-01-07-2021 22:03:21 Requisicao: 
-01-07-2021 22:03:27 Requisicao: 
-01-07-2021 22:03:32 Requisicao: 
-01-07-2021 22:03:38 Requisicao: 
-01-07-2021 22:03:43 Requisicao: 
-01-07-2021 22:03:49 Requisicao: 
-01-07-2021 22:03:55 Requisicao: 
-01-07-2021 22:04:00 Requisicao: 
-01-07-2021 22:04:06 Requisicao: 
-01-07-2021 22:04:11 Requisicao: 
-01-07-2021 22:04:17 Requisicao: 
-01-07-2021 22:04:23 Requisicao: 
-01-07-2021 22:04:28 Requisicao: 
-01-07-2021 22:04:34 Requisicao: 
-01-07-2021 22:04:39 Requisicao: 
-01-07-2021 22:04:45 Requisicao: 
-01-07-2021 22:04:51 Requisicao: 
-01-07-2021 22:04:56 Requisicao: 
-01-07-2021 22:05:02 Requisicao: 
-01-07-2021 22:05:08 Requisicao: 
-01-07-2021 22:05:14 Requisicao: 
-01-07-2021 22:05:19 Requisicao: 
-01-07-2021 22:05:25 Requisicao: 
-01-07-2021 22:05:31 Requisicao: 
-01-07-2021 22:05:37 Requisicao: 
-01-07-2021 22:05:42 Requisicao: 
-01-07-2021 22:05:48 Requisicao: 
-01-07-2021 22:05:54 Requisicao: 
-01-07-2021 22:05:59 Requisicao: 
-01-07-2021 22:06:05 Requisicao: 
-01-07-2021 22:06:11 Requisicao: 
-01-07-2021 22:06:16 Requisicao: 
-01-07-2021 22:06:22 Requisicao: 
-01-07-2021 22:06:28 Requisicao: 
-01-07-2021 22:06:33 Requisicao: 
-01-07-2021 22:06:39 Requisicao: 
-01-07-2021 22:06:45 Requisicao: 
-01-07-2021 22:06:50 Requisicao: 
-01-07-2021 22:06:56 Requisicao: 
-01-07-2021 22:07:02 Requisicao: 
-01-07-2021 22:07:08 Requisicao: 
-01-07-2021 22:07:13 Requisicao: 
-01-07-2021 22:07:19 Requisicao: 
-01-07-2021 22:07:25 Requisicao: 
-01-07-2021 22:07:31 Requisicao: 
-01-07-2021 22:07:36 Requisicao: 
-01-07-2021 22:07:42 Requisicao: 
-01-07-2021 22:07:47 Requisicao: 
-01-07-2021 22:07:53 Requisicao: 
-01-07-2021 22:07:59 Requisicao: 
-01-07-2021 22:08:04 Requisicao: 
-01-07-2021 22:08:10 Requisicao: 
-01-07-2021 22:08:16 Requisicao: 
-01-07-2021 22:08:21 Requisicao: 
-01-07-2021 22:08:27 Requisicao: 
-01-07-2021 22:08:32 Requisicao: 
-01-07-2021 22:08:38 Requisicao: 
-01-07-2021 22:08:44 Requisicao: 
-01-07-2021 22:08:50 Requisicao: 
-01-07-2021 22:08:55 Requisicao: 
-01-07-2021 22:09:01 Requisicao: 
-01-07-2021 22:09:07 Requisicao: 
-01-07-2021 22:09:12 Requisicao: 
-01-07-2021 22:09:18 Requisicao: 
-01-07-2021 22:09:24 Requisicao: 
-01-07-2021 22:09:29 Requisicao: 
-01-07-2021 22:09:35 Requisicao: 
-01-07-2021 22:09:41 Requisicao: 
-01-07-2021 22:09:46 Requisicao: 
-01-07-2021 22:09:52 Requisicao: 
-01-07-2021 22:09:58 Requisicao: 
-01-07-2021 22:10:04 Requisicao: 
-01-07-2021 22:10:09 Requisicao: 
-01-07-2021 22:10:15 Requisicao: 
-01-07-2021 22:10:20 Requisicao: 
-01-07-2021 22:10:26 Requisicao: 
-01-07-2021 22:10:31 Requisicao: 
-01-07-2021 22:10:37 Requisicao: 
-01-07-2021 22:10:42 Requisicao: 
-01-07-2021 22:10:48 Requisicao: 
-01-07-2021 22:10:54 Requisicao: 
-01-07-2021 22:11:00 Requisicao: 
-01-07-2021 22:11:06 Requisicao: 
-01-07-2021 22:11:11 Requisicao: 
-01-07-2021 22:11:17 Requisicao: 
-01-07-2021 22:11:23 Requisicao: 
-01-07-2021 22:11:29 Requisicao: 
-01-07-2021 22:11:34 Requisicao: 
-01-07-2021 22:11:40 Requisicao: 
-01-07-2021 22:11:46 Requisicao: 
-01-07-2021 22:11:51 Requisicao: 
-01-07-2021 22:11:57 Requisicao: 
-01-07-2021 22:12:03 Requisicao: 
-01-07-2021 22:12:08 Requisicao: 
-01-07-2021 22:12:14 Requisicao: 
-01-07-2021 22:12:19 Requisicao: 
-01-07-2021 22:12:25 Requisicao: 
-01-07-2021 22:12:30 Requisicao: 
-01-07-2021 22:12:36 Requisicao: 
-01-07-2021 22:12:41 Requisicao: 
-01-07-2021 22:12:47 Requisicao: 
-01-07-2021 22:12:53 Requisicao: 
-01-07-2021 22:12:58 Requisicao: 
-01-07-2021 22:13:04 Requisicao: 
-01-07-2021 22:13:10 Requisicao: 
-01-07-2021 22:13:15 Requisicao: 
-01-07-2021 22:13:21 Requisicao: 
-01-07-2021 22:13:26 Requisicao: 
-01-07-2021 22:13:32 Requisicao: 
-01-07-2021 22:13:38 Requisicao: 
-01-07-2021 22:13:43 Requisicao: 
-01-07-2021 22:13:49 Requisicao: 
-01-07-2021 22:13:55 Requisicao: 
-01-07-2021 22:14:01 Requisicao: 
-01-07-2021 22:14:06 Requisicao: 
-01-07-2021 22:14:12 Requisicao: 
-01-07-2021 22:14:17 Requisicao: 
-01-07-2021 22:14:23 Requisicao: 
-01-07-2021 22:14:29 Requisicao: 
-01-07-2021 22:14:34 Requisicao: 
-01-07-2021 22:14:40 Requisicao: 
-01-07-2021 22:14:46 Requisicao: 
-01-07-2021 22:14:52 Requisicao: 
-01-07-2021 22:14:58 Requisicao: 
-01-07-2021 22:15:03 Requisicao: 
-01-07-2021 22:15:09 Requisicao: 
-01-07-2021 22:15:15 Requisicao: 
-01-07-2021 22:15:20 Requisicao: 
-01-07-2021 22:15:26 Requisicao: 
-01-07-2021 22:15:32 Requisicao: 
-01-07-2021 22:15:37 Requisicao: 
-01-07-2021 22:15:43 Requisicao: 
-01-07-2021 22:15:48 Requisicao: 
-01-07-2021 22:15:54 Requisicao: 
-01-07-2021 22:16:00 Requisicao: 
-01-07-2021 22:16:06 Requisicao: 
-01-07-2021 22:16:12 Requisicao: 
-01-07-2021 22:16:17 Requisicao: 
-01-07-2021 22:16:23 Requisicao: 
-01-07-2021 22:16:29 Requisicao: 
-01-07-2021 22:16:35 Requisicao: 
-01-07-2021 22:16:41 Requisicao: 
-01-07-2021 22:16:46 Requisicao: 
-01-07-2021 22:16:52 Requisicao: 
-01-07-2021 22:16:57 Requisicao: 
-01-07-2021 22:17:03 Requisicao: 
-01-07-2021 22:17:09 Requisicao: 
-01-07-2021 22:17:15 Requisicao: 
-01-07-2021 22:17:20 Requisicao: 
-01-07-2021 22:17:26 Requisicao: 
-01-07-2021 22:17:32 Requisicao: 
-01-07-2021 22:17:37 Requisicao: 
-01-07-2021 22:17:43 Requisicao: 
-01-07-2021 22:17:49 Requisicao: 
-01-07-2021 22:17:54 Requisicao: 
-01-07-2021 22:18:00 Requisicao: 
-01-07-2021 22:18:06 Requisicao: 
-01-07-2021 22:18:11 Requisicao: 
-01-07-2021 22:18:17 Requisicao: 
-01-07-2021 22:18:22 Requisicao: 
-01-07-2021 22:18:28 Requisicao: 
-01-07-2021 22:18:34 Requisicao: 
-01-07-2021 22:18:39 Requisicao: 
-01-07-2021 22:18:45 Requisicao: 
-01-07-2021 22:18:51 Requisicao: 
-01-07-2021 22:18:57 Requisicao: 
-01-07-2021 22:19:03 Requisicao: 
-01-07-2021 22:19:08 Requisicao: 
-01-07-2021 22:19:14 Requisicao: 
-01-07-2021 22:19:20 Requisicao: 
-01-07-2021 22:19:25 Requisicao: 
-01-07-2021 22:19:31 Requisicao: 
-01-07-2021 22:19:37 Requisicao: 
-01-07-2021 22:19:42 Requisicao: 
-01-07-2021 22:19:48 Requisicao: 
-01-07-2021 22:19:53 Requisicao: 
-01-07-2021 22:19:59 Requisicao: 
-01-07-2021 22:20:05 Requisicao: 
-01-07-2021 22:20:10 Requisicao: 
-01-07-2021 22:20:16 Requisicao: 
-01-07-2021 22:20:21 Requisicao: 
-01-07-2021 22:20:27 Requisicao: 
-01-07-2021 22:20:33 Requisicao: 
-01-07-2021 22:20:38 Requisicao: 
-01-07-2021 22:20:44 Requisicao: 
-01-07-2021 22:20:49 Requisicao: 
-01-07-2021 22:20:55 Requisicao: 
-01-07-2021 22:21:01 Requisicao: 
-01-07-2021 22:21:06 Requisicao: 
-01-07-2021 22:21:12 Requisicao: 
-01-07-2021 22:21:18 Requisicao: 
-01-07-2021 22:21:23 Requisicao: 
-01-07-2021 22:21:29 Requisicao: 
-01-07-2021 22:21:34 Requisicao: 
-01-07-2021 22:21:40 Requisicao: 
-01-07-2021 22:21:46 Requisicao: 
-01-07-2021 22:21:51 Requisicao: 
-01-07-2021 22:21:57 Requisicao: 
-01-07-2021 22:22:03 Requisicao: 
-01-07-2021 22:22:08 Requisicao: 
-01-07-2021 22:22:14 Requisicao: 
-01-07-2021 22:22:20 Requisicao: 
-01-07-2021 22:22:23 Tabela: bandeira_cartao Não existe localmente 
-01-07-2021 22:22:23 Tabela: bandeira_cartao Não existe localmente 
-01-07-2021 22:22:25 Requisicao: 
-01-07-2021 22:22:31 Requisicao: 
-01-07-2021 22:22:36 Requisicao: 
-01-07-2021 22:22:42 Requisicao: 
-01-07-2021 22:22:48 Requisicao: 
-01-07-2021 22:22:54 Requisicao: 
-01-07-2021 22:22:59 Requisicao: 
-01-07-2021 22:23:05 Requisicao: 
-01-07-2021 22:23:10 Requisicao: 
-01-07-2021 22:23:16 Requisicao: 
-01-07-2021 22:23:21 Requisicao: 
-01-07-2021 22:23:27 Requisicao: 
-01-07-2021 22:23:33 Requisicao: 
-01-07-2021 22:23:38 Requisicao: 
-01-07-2021 22:23:44 Requisicao: 
-01-07-2021 22:23:49 Requisicao: 
-01-07-2021 22:23:55 Requisicao: 
-01-07-2021 22:24:00 Requisicao: 
-01-07-2021 22:24:06 Requisicao: 
-01-07-2021 22:24:12 Requisicao: 
+02-07-2021 18:04:48 {"id":"45","venda_id":"20031","sequencia":"","produto_id":"50","descricao":"BALINHA DO CORAÇAO","quantidade":1,"unidade_medida_id":"8","medida_descricao":"PT","valor_unitario":1,"custo_unitario":0.3,"vl_produtos":0.85,"vl_custo":0,"valor_final":0.85,"lucro":0.85,"lucro_f":0.85,"custo_f":0,"subcustof":0,"ncm":"17049020","origem_mercadoria":"0","cfop":"5102","cest":"","tributavel_quantidade":1,"tributavel_valor":0.85,"tributavel_unidade":"PT","tributavel_gtin":"","inf_fisco":"","codigo_beneficio":"","aliq_icms":0,"aliq_ipi":0,"aliq_pis":0,"aliq_pis_r":0,"aliq_cofins":0,"aliq_cofins_r":0,"aliq_desconto":0,"aliq_ibpt":0,"aliq_mva":0,"aliq_redicms":0,"aliq_redicmsst":0,"aliq_icmsinterpart":0,"aliq_icmsinter":0,"aliq_icmsufdest":0,"aliq_fcpufdest":0,"aliq_retpis":0,"aliq_retcofins":0,"aliq_retcsll":0,"aliq_irrf":0,"aliq_retprev":0,"aliq_ii":0,"aliq_iof":0,"aliq_iva":0,"aliq_frete":0,"bc_icms":0,"bc_ipi":0,"bc_icms_st":0,"qt_bc_pis":0,"bc_cofins":0,"qt_bc_cofins":0,"bc_pis":0,"bc_irrf":0,"bc_ii":0,"bc_iof":0,"bc_retprev":0,"cst_icms":"","csosn":"102","cst_ipi":"99","cst_pis":"41","cst_cofins":"41","vl_icms":0,"vl_icms_st":0,"vl_ipi":0,"vl_pis":0,"vl_cofins":0,"vl_ibpt":0,"vl_desconto":0,"vl_redicms":0,"vl_redicmsst":0,"vl_outras_despesas":0,"vl_icmsufdest":0,"vl_icmsufremet":0,"vl_fcpufdest":0,"vl_bcufdest":0,"vl_retpis":0,"vl_retcofins":0,"vl_retcsll":0,"vl_irrf":0,"vl_seguro":0,"vl_siscomex":0,"vl_acrescimo":0,"vl_ii":0,"vl_iof":0,"vl_iva":0,"vl_frete":0,"vl_bcstret":0,"vl_icmsstret":0,"vl_cred":0,"vl_retprev":0,"pedido_id":"","empresa_id":"","grade_id":"","gtin":"","lote_id":"0","inflote":"","chave_nfe":"","drawback":"","reg_exportacao":"","peso_bruto":0,"peso_liquido":0,"defaultvalue":"true","tabela_id":"","num_fatura":"","uuid":"","aliq_outras_despesas":0,"status":"","vl_final":0,"show_desconto":"true","promocional":"true"}
+02-07-2021 18:04:48 {"id":"45","venda_id":"20031","sequencia":"","produto_id":"50","descricao":"BALINHA DO CORAÇAO","quantidade":1,"unidade_medida_id":"8","medida_descricao":"PT","valor_unitario":1,"custo_unitario":0.3,"vl_produtos":1,"vl_custo":0,"valor_final":1,"lucro":1,"lucro_f":1,"custo_f":0,"subcustof":0,"ncm":"17049020","origem_mercadoria":"0","cfop":"5102","cest":"","tributavel_quantidade":1,"tributavel_valor":1,"tributavel_unidade":"PT","tributavel_gtin":"","inf_fisco":"","codigo_beneficio":"","aliq_icms":0,"aliq_ipi":0,"aliq_pis":0,"aliq_pis_r":0,"aliq_cofins":0,"aliq_cofins_r":0,"aliq_desconto":0,"aliq_ibpt":0,"aliq_mva":0,"aliq_redicms":0,"aliq_redicmsst":0,"aliq_icmsinterpart":0,"aliq_icmsinter":0,"aliq_icmsufdest":0,"aliq_fcpufdest":0,"aliq_retpis":0,"aliq_retcofins":0,"aliq_retcsll":0,"aliq_irrf":0,"aliq_retprev":0,"aliq_ii":0,"aliq_iof":0,"aliq_iva":0,"aliq_frete":0,"bc_icms":0,"bc_ipi":0,"bc_icms_st":0,"qt_bc_pis":0,"bc_cofins":0,"qt_bc_cofins":0,"bc_pis":0,"bc_irrf":0,"bc_ii":0,"bc_iof":0,"bc_retprev":0,"cst_icms":"","csosn":"102","cst_ipi":"99","cst_pis":"41","cst_cofins":"41","vl_icms":0,"vl_icms_st":0,"vl_ipi":0,"vl_pis":0,"vl_cofins":0,"vl_ibpt":0,"vl_desconto":0,"vl_redicms":0,"vl_redicmsst":0,"vl_outras_despesas":0,"vl_icmsufdest":0,"vl_icmsufremet":0,"vl_fcpufdest":0,"vl_bcufdest":0,"vl_retpis":0,"vl_retcofins":0,"vl_retcsll":0,"vl_irrf":0,"vl_seguro":0,"vl_siscomex":0,"vl_acrescimo":0,"vl_ii":0,"vl_iof":0,"vl_iva":0,"vl_frete":0,"vl_bcstret":0,"vl_icmsstret":0,"vl_cred":0,"vl_retprev":0,"pedido_id":"","empresa_id":"","grade_id":"","gtin":"","lote_id":"0","inflote":"","chave_nfe":"","drawback":"","reg_exportacao":"","peso_bruto":0,"peso_liquido":0,"defaultvalue":"true","tabela_id":"","num_fatura":"","uuid":"","aliq_outras_despesas":0,"status":"","vl_final":0,"show_desconto":"true","promocional":"true","custo_contabil":null,"sub_total":1,"aliq_redicmsinterpart":0}

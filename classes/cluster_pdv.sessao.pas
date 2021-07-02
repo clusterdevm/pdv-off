@@ -20,6 +20,7 @@ private
   fdatetimeformat: string;
   fempresalogada: integer;
   fgetID: String;
+  FgradeID: String;
   fnomeFantasia: string;
   fnomeResumido: string;
   frazao: string;
@@ -48,6 +49,7 @@ private
       property senha : String read fsenha write fsenha;
       property empresalogada : integer read fempresalogada write fempresalogada;
       property getID : String read fgetID write fgetID;
+      property gradeID : String Read FgradeID write fgradeID ;
       property segundoplano : boolean read fsegundoplano write fsegundoplano;
       property token : String read ftoken write ftoken;
       property usuario_id : integer read fusuario_id write fusuario_id;
@@ -86,6 +88,7 @@ private
 
       Function GetNewDocumento : Integer;
 
+      Function PDV_ConfBalanca : String;
       Function GetCaixa : string;
 
       Function CaixaAberto : Boolean;
@@ -455,6 +458,11 @@ begin
    finally
        FreeAndNIl(_db);
    end;
+end;
+
+function TSessao.PDV_ConfBalanca: String;
+begin
+   Result := '';
 end;
 
 function TSessao.GetCaixa: string;

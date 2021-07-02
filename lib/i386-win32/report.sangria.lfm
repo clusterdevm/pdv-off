@@ -6,6 +6,7 @@ object f_sangriaReport: Tf_sangriaReport
   Caption = 'f_sangriaReport'
   ClientHeight = 603
   ClientWidth = 872
+  LCLVersion = '2.0.12.0'
   Scaled = False
   object RLReport1: TRLReport
     Left = 304

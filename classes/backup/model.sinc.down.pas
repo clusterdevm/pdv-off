@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, ExtCtrls, model.request.http, clipbrd, dialogs,
-  model.conexao,  ems.utils, Graphics,
+  ems.conexao,  ems.utils, Graphics,
   jsons, crt, model.usuarios;
 
 Type
@@ -122,11 +122,8 @@ try
         _api.AddHeader('token-pdv',UpperCase(FTokenPDV));
         _api.rota:='hibrido';
         _api.endpoint:= 'download';
-
         //_api.fphttpclient.OnDataReceived:= ControleDown;
         _api.Execute;
-
-        RegistraLogErro('Requisicao: '+_api.response);
 
 
         if not (_api.ResponseCode in [200..207]) then

@@ -10,9 +10,9 @@ uses
   cmem,   SysUtils,
   Interfaces, // this includes the LCL widgetset
   Forms, runtimetypeinfocontrols, lazcontrols, form.login, model.vendas.config,
-  view.filtros.cliente, view.venda, model.request.http, ems.conexao,
-  ems.utils, model.sinc.down, model.login, model.usuarios, dateutils,
-  controller.condicional,
+  model.vendas.imposto, view.filtros.cliente, view.venda, model.request.http,
+  ems.conexao, ems.utils, model.sinc.down, model.login, model.usuarios,
+  dateutils, controller.condicional,
 
   model.request.jsons, view.condicional.filtrar,
 
@@ -33,6 +33,7 @@ begin
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(Tfrm_login, frm_login);
+  Application.CreateForm(Tf_produtosPesquisaSelecao, f_produtosPesquisaSelecao);
   Application.Run;
 
 end.

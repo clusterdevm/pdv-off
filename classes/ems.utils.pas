@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, ems.conexao, Dialogs, md5, process, Graphics,
   controls, StdCtrls, Forms, TypInfo, DateUtils, db, cluster_pdv.sessao,
-  wcursos,BufDataset, math, jsons;
+  wcursos,BufDataset, math, jsons, ACBrInStore;
 
 type
   TPathServicos = (mAutenticacao, mCondicional, mGeral, mPDV, mFinanceiro, mvenda);
@@ -73,10 +73,104 @@ var Sessao : TSessao;
 
   Procedure FinalizaProcesso(msg:string;_local : string = '' ; status_http : Integer = 500);
 
+  procedure SeparaQuantidade(var _Codigo: String;var quantidade :Double);
+  Procedure GetDadosBalanca(scodigo : String; var CodProduto : String ; var quantidade:double;var _BalancaValor : boolean);
 
 implementation
 
 uses model.request.http, uf_download, form.principal;
+
+Procedure GetDadosBalanca(scodigo : String; var CodProduto : String ; var quantidade:double;var _BalancaValor : boolean);
+var ACBrInStore : TACBrInStore;
+Begin
+try
+  // Define a mascara do código de barra da balança, e já acha o prefixo
+  // Guardando na propriedade Prefixo.
+  ACBrInStore := tACBrInStore.Create(nil);
+  ACBrInStore.Codificacao := sessao.PDV_ConfBalanca;
+
+  codProduto := scodigo;
+  quantidade := 1;
+  _BalancaValor := false;
+
+  // Checa se o código da balança tem 13 digitos
+  if Length(scodigo) = 13 then
+  begin
+     // Verifica se o prefixo encontrado na mascara é igual ao
+     // prefixo do código de barra que veio da balança
+     // Atendendo a essas situações isso quer dizer que o código recebido é
+     // um código gerado pela balança.
+     if ACBrInStore.Prefixo = Copy(scodigo, 1, Length(ACBrInStore.Prefixo)) then
+     begin
+        ACBrInStore.Desmembrar(scodigo);
+
+        //edtPrefixo.Text := ACBrInStore1.Prefixo;
+        CodProduto  := ACBrInStore.Codigo;
+        if ACBrInStore.Peso > 0 then
+        Begin
+            quantidade  :=  ACBrInStore.Peso;
+
+        end
+        else
+        Begin
+            quantidade := ACBrInStore.Total;
+            _BalancaValor := true;
+        end;
+
+     end;
+
+//     Showmessage(FloatToStr(quantidade));
+     end;
+finally
+    FreeAndNil(ACBrInStore);
+end;
+end;
+
+procedure SeparaQuantidade(var _Codigo: String;var quantidade :Double);
+Var
+  I: Integer;
+  Valido: Boolean;
+  sQtde: String;
+  vMultiplicador: Boolean;
+  _BalancaValor : boolean;
+begin
+  _Codigo := UpperCase(_Codigo);
+
+  quantidade := 1;
+
+  Valido := false;
+
+  vMultiplicador := false;
+
+  if (Pos('*', _Codigo) > 0) or (Pos('X', _Codigo) > 0) then
+  begin
+    vMultiplicador := true;
+    IF (Pos('*', _Codigo) > 0) Then
+      sQtde := Copy(_Codigo, 01, Pos('*', _Codigo) - 01)
+    else
+      sQtde := Copy(_Codigo, 01, Pos('X', _Codigo) - 01);
+    Valido := true;
+
+    for I := 1 to Length(sQtde) do
+      if Pos(sQtde[I], ',0123456789') <= 0 then
+        Valido := false;
+    if Valido then
+      IF (Pos('*', _Codigo) > 0) Then
+        _Codigo := Copy(_Codigo, Pos('*', _Codigo) + 01, 20)
+      ELSE
+        _Codigo := Copy(_Codigo, Pos('X', _Codigo) + 01, 20);
+
+    quantidade := StrToFloatDef(sQtde, 1);
+
+  end;
+
+
+  if Length(_Codigo) > 12 then
+    if (Copy(_Codigo, 1, 1) = '2') and (not Valido) then // quando for balanca
+       GetDadosBalanca(_Codigo, _codigo, Quantidade, _BalancaValor)
+
+end;
+
 
 
 function DecimalUnitario(Value: Extended; Decimals: Integer): Extended;

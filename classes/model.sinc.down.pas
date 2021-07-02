@@ -122,16 +122,14 @@ try
         _api.AddHeader('token-pdv',UpperCase(FTokenPDV));
         _api.rota:='hibrido';
         _api.endpoint:= 'download';
-
         //_api.fphttpclient.OnDataReceived:= ControleDown;
         _api.Execute;
-
-        RegistraLogErro('Requisicao: '+_api.response);
 
 
         if not (_api.ResponseCode in [200..207]) then
         Begin
              FMsg:= _api.Return['msg'].AsString;
+             RegistraLogErro('Requisicao: '+_api.response);
              Synchronize(AtualizaLog);
              _ok := false;
         end

@@ -198,8 +198,6 @@ begin
         if IsEmpty then
            raise Exception.Create('Tabela Invalida '+_tabela);
 
-
-
         _estruturaDB := DataSetToJsonArray(_dbEstrutura);
     end;
    _dbEstrutura.Free;
@@ -581,7 +579,7 @@ begin
        end;
 
 
-        if (_count >=1000 ) then
+        if (_count >=250 ) then
         Begin
             if _value.Count > 0 then
             Begin
@@ -708,7 +706,7 @@ begin
          end;
 
 
-       if (_count >=1000 ) then
+       if (_count >=250 ) then
        Begin
            if _script.Count > 0 then
               ExecutaSql(_script.Text);

@@ -8,9 +8,9 @@ uses
   Classes, SysUtils, BufDataset, DB, Forms, Controls, Graphics, Dialogs,
   ExtCtrls, StdCtrls, Buttons, Menus, ComCtrls, DBGrids, ActnList, Grids,
   view.condicional.filtrar, view.devolucao.filtrar, uf_crediario,
-  view.filtros.cliente, uf_venda.fechamento, VTHeaderPopup, BGRAShape,
-  atshapelinebgra, BGRAResizeSpeedButton, BCButton, ColorSpeedButton, jsons,
-  clipbrd, LCLtype, LCLProc;
+  view.filtros.cliente, view.filtros.produtos, uf_venda.fechamento,
+  VTHeaderPopup, BGRAShape, atshapelinebgra, BGRAResizeSpeedButton, BCButton,
+  ColorSpeedButton, jsons, clipbrd, LCLtype, LCLProc;
 
 type
 
@@ -18,6 +18,8 @@ type
 
   Tform_venda = class(TForm)
     Action1: TAction;
+    ac_alteraPreco: TAction;
+    ac_filtroProdutos: TAction;
     ac_fechavenda: TAction;
     ac_remover: TAction;
     ac_alterarCPF: TAction;
@@ -45,6 +47,9 @@ type
     BCButton9: TBCButton;
     dsItens: TDataSource;
     lblPecas: TLabel;
+    MainMenu1: TMainMenu;
+    MainMenu2: TMainMenu;
+    MenuItem8: TMenuItem;
     Panel1: TPanel;
     qryItens: TBufDataset;
     gridItens: TDBGrid;
@@ -54,7 +59,7 @@ type
     lblUsuario: TLabel;
     Label2: TLabel;
     lblCodigo: TLabel;
-    Label4: TLabel;
+    lblSubTotal: TLabel;
     Label5: TLabel;
     ed_cliente: TLabeledEdit;
     ed_vendedor: TLabeledEdit;
@@ -90,6 +95,7 @@ type
     qryItensdescricao: TStringField;
     qryItensid: TLongintField;
     qryItensproduto_id: TLongintField;
+    qryItenspromocional: TBooleanField;
     qryItensquantidade: TFloatField;
     qryItenssequencia: TLongintField;
     qryItenssub_total: TFloatField;
@@ -105,6 +111,8 @@ type
     SpeedButton4: TSpeedButton;
     TabControl1: TTabControl;
     procedure Action1Execute(Sender: TObject);
+    procedure ac_alteraPrecoExecute(Sender: TObject);
+    procedure ac_filtroProdutosExecute(Sender: TObject);
     procedure ac_abreCaixaExecute(Sender: TObject);
     procedure ac_alterarClienteExecute(Sender: TObject);
     procedure ac_alterarCPFExecute(Sender: TObject);
@@ -132,6 +140,8 @@ type
     procedure SpeedButton1Click(Sender: TObject);
     procedure TabControl1Change(Sender: TObject);
   private
+        _valorBruto, _valorPromocao : Double;
+        _Pecas : Double;
         Procedure LimpaTela;
         Procedure GetVendasAndamento;
         Procedure ShowLayout;
@@ -142,6 +152,8 @@ type
         Procedure Redimensionar;
 
         Function GetVendaID : String;
+
+
   public
          Procedure ShowInfProduto;
          Procedure BuscaItem;
@@ -240,7 +252,8 @@ var _db : TConexao;
      _nota : TJsonObject;
      _cpf : string;
 begin
-  if not Sessao.CaixaAberto then
+
+    if not Sessao.CaixaAberto then
      exit;
 
   _cpf := '';
@@ -262,6 +275,8 @@ begin
        _nota['coi_id'].AsInteger:= 1;
        _nota['entrada_saida'].AsString:= 'S';
        _nota['sinc_pendente'].AsString:= 'S';
+       _nota['tabela_preco_id'].AsInteger:= sessao.tabela_preco_id;
+       _nota['armazenamento_id'].AsInteger:= sessao.estoque_id;
        _nota['status'].AsString:= 'rascunho';
        _nota['cpf'].AsString:= _cpf;
        _nota['uuid'].AsString:= GetUUID;
@@ -277,9 +292,7 @@ begin
 end;
 
 procedure Tform_venda.RegistraItem;
-var _item : TJsonObject;
-     _db : TConexao;
-     _produtoID : string;
+var  _produtoID : string;
      _quantidade : Double;
 begin
 
@@ -289,41 +302,17 @@ begin
   if lblCodigo.Caption = '' then
      exit;
 
+      _produtoID:= lblCodigo.Caption;
 
-
-  try
-
-      _produtoID:= '1';
-      _quantidade:= 1;
-
+      SeparaQuantidade(_produtoID,_quantidade);
       //SeparaQuantidade
+      lblCodigo.Caption:= '';
 
-      RegistraItemVenda(_produtoID,IntToStr(GetVendaID),_quantidade);
+      if _quantidade = 0 then
+        FinalizaProcesso('Quantidade Invalida');
 
-     //_item := TJsonObject.Create();
-     //_db:= TConexao.Create;
-     //_item['venda_id'].AsString:= GetVendaID;
-     //_item['produto_id'].AsInteger:= _produtoID;
-     //_item['quantidade'].AsNumber:= _quantidade;
-     //_item['descricao'].AsString:= 'Produto Teste';
-     //_item['valor_unitario'].AsNumber:= 10.52;
-     //_item['sub_total'].AsNumber:=  50.00;
-     //_item['sinc_pendente'].AsString:= 'S';
-     //_item['uuid'].AsString:=GetUUID;
-     //_db.InserirDados('venda_itens',_item);
-
-
-
-
-
-     SetVenda;
-
-     lblCodigo.Caption:= '';
-
-  finally
-      FreeAndNIl(_item);
-      FreeAndNIl(_db);
-  end;
+      if RegistraItemVenda(_produtoID,StrToInt(GetVendaID),_quantidade) then
+         SetVenda;
 end;
 
 procedure Tform_venda.Redimensionar;
@@ -403,6 +392,17 @@ begin
        TDBGrid( Sender ).Canvas.Font.Color  := clBlack;
        //TDBGrid( Sender ).Canvas.Pen.Color := Brush.Color;
     end;
+
+    if (Column.Field.FieldName = 'promocional')  then // Aqui o campo a colorir
+    begin
+          //if Column.Field.Value = true then // coloque aqui sua condição de quando colorir
+          //   TDBGrid( Sender ).Canvas.Font.Color  := clGreen
+          //else
+             TDBGrid( Sender ).Canvas.Font.Color  := clRed;
+
+          gridItens.Canvas.FillRect(Rect);
+    end;
+
     TDBGrid( Sender ).DefaultDrawColumnCell( Rect, DataCol, Column, State );
 end;
 
@@ -580,6 +580,79 @@ begin
    lblCodigo.Caption:= '';
 end;
 
+procedure Tform_venda.ac_alteraPrecoExecute(Sender: TObject);
+var _sequencia : string;
+    _db : TConexao;
+    _itens : TJsonObject;
+    _newValor : string;
+begin
+   if TabControl1.Tabs.Count > 0 then
+   Begin
+       if not InputQuery('Cluster Sistemas', 'Informe a Sequencia a ser Alterada',_sequencia) then
+          exit;
+
+       if (StrToIntDef(_sequencia,0) = 0) or (StrToIntDef(_sequencia,0) > qryItens.RecordCount) then
+       Begin
+          Messagedlg('Sequencia Invalida',mtError,[mbok],0);
+          exit;
+       end;
+
+       if not InputQuery('Cluster Sistemas', 'Informe o Novo Valor',_newValor) then
+          exit;
+
+
+
+       try
+           _db := TConexao.Create;
+           qryItens.DisableControls;
+           qryItens.RecNo:= StrToInt(_sequencia);
+
+           with _db.Query do
+           Begin
+              Close;
+              Sql.Clear;
+              Sql.Add('select * from venda_itens where id ='+QuotedStr(qryItensid.AsString));
+              Open;
+
+              _itens := _db.ToObjectString('',true);
+           end;
+
+           if _itens['valor_unitario'].AsNumber = ToValor(_newValor) then
+              FinalizaProcesso('Valor Informado Identico valor atual');
+
+           if _itens['valor_unitario'].AsNumber > ToValor(_newValor) then
+               _itens['vl_desconto'].AsNumber:= DecimalUnitario(_itens['valor_unitario'].AsNumber- ToValor(_newValor))
+           else
+              _itens['valor_unitario'].AsNumber:= ToValor(_newValor);
+
+           _itens['promocional'].AsString:= 'true';
+
+
+           RegistraLogErro(_itens.Stringify);
+           VendaGetItemRecalculo(_itens);
+           RegistraLogErro(_itens.Stringify);
+           _db.updateSQl('venda_itens',_itens);
+
+           SetVenda;
+       finally
+           qryItens.EnableControls;
+           FreeAndNil(_db);
+       end;
+   end;
+end;
+
+procedure Tform_venda.ac_filtroProdutosExecute(Sender: TObject);
+begin
+  if sessao.CaixaAberto then
+  Begin
+      sessao.getID:='';
+      sessao.gradeID:='';
+      CriarForm(Tf_produtosPesquisa);
+      lblCodigo.Caption := lblCodigo.Caption + sessao.getID;
+      RegistraItem;
+  end;
+end;
+
 procedure Tform_venda.ac_condicionalExecute(Sender: TObject);
 begin
   CriarForm(Tfrm_CondicionalFIltrar);
@@ -607,9 +680,13 @@ procedure Tform_venda.ac_fechavendaExecute(Sender: TObject);
 begin
   f_fechamento := Tf_fechamento.Create(nil);
   f_fechamento.n_venda:= GetVendaID;
+  f_fechamento._valorBruto:= _valorBruto;
+  f_fechamento._valorDesconto:= 0;
+  f_fechamento._valorPromocao:= _valorPromocao;
   f_fechamento.ShowModal;
   f_fechamento.Release;
   f_fechamento := nil;
+  GetVendasAndamento;
 //  CriarForm(Tf_fechamento);
 end;
 
@@ -728,7 +805,12 @@ begin
              //qryItens.Close;
              //qryItens.Open;
 
+             gridItens.Columns[3].DisplayFormat:= sessao.formatquantidade;
+             gridItens.Columns[4].DisplayFormat:= sessao.formatunitario;
+             gridItens.Columns[5].DisplayFormat:= sessao.formatsubtotal;
+
              qryItens.DisableControls;
+             _valorBruto:= 0; _valorPromocao:= 0; _Pecas:= 0;
              with _db.Query do
              Begin
                   Close;
@@ -737,7 +819,6 @@ begin
                   Sql.Add(' where venda_id = '+QuotedStr(GetVendaID));
                   Sql.Add(' and (status is null  or status = '''' )');
                   Open;
-                  //showmessage(IntTostr(RecordCount));
                   first;
 
                   while not eof do
@@ -746,9 +827,19 @@ begin
                      qryItensdescricao.Value:=  FieldByName('descricao').AsString;
                      qryItensproduto_id.Value:= FieldByName('produto_id').AsInteger;
                      qryItensquantidade.Value:= FieldByName('quantidade').AsFloat;
-                     qryItensvalor_unitario.Value:= FieldByName('valor_unitario').AsFloat;
+                     qryItensvalor_unitario.Value:= FieldByName('valor_final').AsFloat;
+                     qryItenssub_total.Value:= FieldByName('vl_produtos').AsFloat;
                      qryItensid.Value:= FieldBYName('id').AsInteger;
                      qryItenssequencia.Value:= qryItens.RecordCount+1;
+                     qryItenspromocional.Value:= LowerCase(trim(FieldByName('promocional').AsString)) = 'true';
+
+                     _Pecas:= _Pecas  + FieldByName('quantidade').AsFloat; ;
+
+                     if LowerCase(trim(FieldByName('promocional').AsString)) = 'true' then
+                        _valorPromocao:= _valorPromocao  + FieldByName('vl_produtos').AsFloat;
+                     else
+                        _valorBruto:= _valorBruto  + FieldByName('vl_produtos').AsFloat; ;
+
                      qryItens.Post;
                      Next;
                   end;
@@ -768,6 +859,9 @@ begin
                   ed_vendedor.Text:= FormatFloat('000000',FieldByName('vendedor_id').AsInteger) + ' ' + trim(FieldByName('n_vendedor').AsString);
                   ed_cpf.Text:= trim(FieldByName('cpf').AsString);
              end;
+
+             lblSubTotal.Caption:=FormatFloat(sessao.formatsubtotal(),_valorBruto + _valorPromocao);
+             lblPecas.Caption:='Peças: '+FormatFloat(sessao.formatquantidade,_Pecas);
          finally
              FreeAndnil(_db);
              qryItens.EnableControls;

@@ -60,7 +60,7 @@ type
     Label5: TLabel;
     lTotalPagar: TLabel;
     Label7: TLabel;
-    Label8: TLabel;
+    lPromocao: TLabel;
     Label9: TLabel;
     lTotalGeral: TLabel;
     lCPF: TLabel;
@@ -152,7 +152,7 @@ implementation
 
 {$R *.lfm}
 
-uses model.conexao, ems.utils, f_venda;
+uses ems.conexao, ems.utils, f_venda, model.vendas.imposto;
 
 procedure Tf_fechamento.FormCreate(Sender: TObject);
 begin
@@ -177,6 +177,7 @@ end;
 
 procedure Tf_fechamento.ac_fecharExecute(Sender: TObject);
 var _avancar : boolean;
+  _nota : TJsonObject;
 begin
   SetResumo;
   case PageControl1.PageIndex of
@@ -211,7 +212,8 @@ begin
    end;
    2 : Begin
        LoadShape(4);
-      Showmessage('concluir');
+       SetVendaTotalizador(n_venda, true);
+       self.Close;
    end;
 end;
 end;
@@ -257,11 +259,8 @@ end;
 
 procedure Tf_fechamento.FormShow(Sender: TObject);
 begin
-    _valorBruto := 1000;
     _valorEntrada:= 0;
     _valorDescontoExtra:= 0;
-    _valorDesconto:= 0;
-    _valorPromocao:= 0;
 
     PageControl1.TabIndex:= 0;
     PageControl1.ShowTabs:= false;
@@ -332,6 +331,10 @@ begin
               qPagamento.Append;
               qPagamentoaliq_desconto.Value:= FieldByName('aliq_desconto').AsFloat;
               qPagamentodescricao.Value:= FieldByName('descricao').AsString +' ('+CalculaValorStr+')';
+
+              if _valorPromocao > 0 then ;
+                 qPagamentodescricao.Value := qPagamentodescricao.Value + '(Promocao '+FormatFloat(sessao.formatsubtotal(),_valorPromocao)+')');
+
               qPagamentocrediario.Value:= trim(FieldByName('tipo_forma').AsString) = 'crediario';
               qPagamentodisplay_resumo.Value:= FieldByName('descricao').AsString;
               qPagamentovenciveis_de.Value:= FieldByName('venciveis_de').AsInteger;
@@ -394,6 +397,8 @@ begin
                        );
 
    lTotalGeral.Caption:= FormatFloat(sessao.formatsubtotal(),_valorBruto);
+   lPromocao.Caption:= FormatFloat(sessao.formatsubtotal(),_valorPromocao);
+
    lTotalPagar.Caption:= FormatFloat(sessao.formatsubtotal(),_totalCrediario);
 
    _ValorRecebimento := 0;

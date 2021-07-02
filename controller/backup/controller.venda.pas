@@ -5,14 +5,16 @@ unit controller.venda;
 interface
 
 uses
-  Classes, SysUtils, jsons, model.vendas.config;
+  Classes, SysUtils, jsons, model.vendas.config, clipbrd;
 
        Function RegistraItemVenda(_codigo : String; _venda : integer; quantidade : double ) : Boolean;
+       procedure VendaGetItemRecalculo(_dados : TJsonObject);
 implementation
 
-uses ems.conexao, ems.utils, model.vendas.imposto;
+uses ems.conexao, ems.utils, model.vendas.imposto,
+     view.filtros.produtos.selecao;
 
-procedure VendaGetItemRecalculo(_dados : TJsonObject);
+procedure VendaGetItemRecalculo(var _dados : TJsonObject);
 begin
 //      ValidaEdicao(_vendaID);
 
@@ -64,14 +66,13 @@ begin
       with iSql do
       Begin
           Add('select p.id produto_id, ');
-          Add('       case when pgri_1.descricao <> '''' and pgri_2.descricao <> '''' then');
-          Add('            concat(p.descricao,'' '',grd_1.descricao_resumida,'' '',');
-          Add('                   pgri_1.descricao, '' '',grd_2.descricao_resumida,'' '',pgri_2.descricao)');
-          Add('            when pgri_1.descricao <> ''''  then');
-          Add('            concat(p.descricao,'' '',pgri_1.descricao)');
-          Add('            else');
-          Add('            p.descricao end as descricao,');
-
+          Add('        case when pgri_1.descricao <> '''' and pgri_2.descricao <> '''' then ');
+          Add('        p.descricao ||'' ''|| grd_1.descricao_resumida||'' ''||');
+          Add('        pgri_1.descricao|| '' ''||grd_2.descricao_resumida||'' ''||pgri_2.descricao');
+          Add('        when pgri_1.descricao <> ''''  then');
+          Add('        p.descricao||'' ''||pgri_1.descricao');
+          Add('        else');
+          Add('        p.descricao end as descricao,');
           Add('       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,');
           Add('       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,');
 
@@ -118,14 +119,13 @@ begin
           Add('                      left join produtos_marcas pm');
           Add('                      on pm.id = p.marca_id');
 
-
           Add('                      left join produtos_unidades pu');
           Add('                      on pu.id = p.unidade_id');
 
           Add('                      left join produtos_colecoes pc');
           Add('                      on pc.id = p.colecao_id');
 
-          Add('                      left join public.lista_ncm ncm');
+          Add('                      left join lista_ncm ncm');
           Add('                      on ncm.ncm = p.ncm_id');
 
           Add('                      left join produtos_gradeamento pgrd');
@@ -156,13 +156,17 @@ begin
                   ' or pgrd.gtin_grade = '+QuotedStr(_produtoID)+
                   ' )');
 
-          if _gradeID<> '' then
+          if StrToIntDef(_gradeID,0) >0  then
              Add(' and pgrd.id = '+QuotedStr(_gradeID));
 
 
           Add('order by 2');
 
           Result := Text;
+
+          RegistraLogErro(text);
+
+          sessao.gradeID:= '';
       end;
 
   finally
@@ -186,8 +190,8 @@ begin
         Close;
         Sql.Clear;
         Sql.Add('select');
-        Sql.Add('COALESCE(v.tabela_preco_id,1) AS tabela_preco_id,');
-        Sql.Add('COALESCE(v.armazenamento_id,1) AS armazenamento_id');
+        Sql.Add('COALESCE(v.tabela_preco_id,0) AS tabela_preco_id,');
+        Sql.Add('COALESCE(v.armazenamento_id,0) AS armazenamento_id');
         Sql.Add('from vendas v');
         Sql.Add('where v.id = '+QuotedStr(IntTostr(_venda)));
         Open;
@@ -210,17 +214,50 @@ begin
 
         Close;
         Sql.Clear;
-        Sql.Add(GetSqlProduto(_codigo,IntToStr(_armazenamentoID),IntToStr(_tabelaPrecoID)));
+        Sql.Add(GetSqlProduto(_codigo,
+                              IntToStr(_armazenamentoID),
+                              IntToStr(_tabelaPrecoID),
+                              sessao.gradeID
+                             )
+
+                );
         Open;
 
         if RecordCount > 1 then
         Begin
+              sessao.getID := '';
+              sessao.gradeID:= '';
+
+              f_produtosPesquisaSelecao := tf_produtosPesquisaSelecao.Create(nil);
+              f_produtosPesquisaSelecao.qItens.Close;
+              f_produtosPesquisaSelecao.qItens.Open;
+              first;
+
+               while not eof do
+               begin
+                   f_produtosPesquisaSelecao.qItens.Append;
+                   f_produtosPesquisaSelecao.qItensid.Value := _db.Query.FieldByName('produto_id').AsInteger;
+                   f_produtosPesquisaSelecao.qItensdescricao.Value:= _db.Query.FieldByName('descricao').AsString;
+                   f_produtosPesquisaSelecao.qItensgrade_id.Value:= _db.Query.FieldByName('gradeamento_id').AsInteger;
+                   f_produtosPesquisaSelecao.qItensn_marca.Value:= _db.Query.FieldByName('n_marca').AsString;
+                   f_produtosPesquisaSelecao.qItenssaldo.Value:= _db.Query.FieldByName('saldo_gerencial').AsFloat;
+                   f_produtosPesquisaSelecao.qItensun_medida.Value:= _db.Query.FieldByName('medida_descricao').AsString;
+                   f_produtosPesquisaSelecao.qItensvalor.Value:= _db.Query.FieldByName('valor').AsFloat;
+                   f_produtosPesquisaSelecao.qItens.Post;
+                   Next;
+               end;
+               f_produtosPesquisaSelecao.StatusBar1.Panels[0].Text:='Registro(s) Encontrado(s): '+IntTostr(RecordCount);
+               f_produtosPesquisaSelecao.qItens.First;
+               f_produtosPesquisaSelecao.ShowModal;
+               f_produtosPesquisaSelecao.Release;
+               f_produtosPesquisaSelecao := nil;
+
               Close;
               Sql.Clear;
-              Sql.Add(GetSqlProduto(_codigo,IntToStr(_armazenamentoID),IntToStr(_tabelaPrecoID),_gradeID));
+              Sql.Add(GetSqlProduto(sessao.getID,IntToStr(_armazenamentoID),IntToStr(_tabelaPrecoID),sessao.gradeID));
               Open;
 
-              if trim(_codigo) = '' then
+              if trim(sessao.getID) = '' then
                  exit;
         end;
 
@@ -230,20 +267,23 @@ begin
         if FieldByName('valor').AsFloat = 0 then
            FinalizaProcesso('produto sem preco definido');
 
-        if not (FieldByName('ativo').AsBoolean) then
+        if (FieldByName('ativo').AsString='false') then
            FinalizaProcesso('produto esta inativo');
 
         if  Length(FieldByName('medida_descricao').AsString) < 2 then
            FinalizaProcesso('Unidade Medida informada Invalida');
 
-
-
         _Produto := _db.ToObjectString('',true);
         _Produto['valor_unitario'].AsNumber:= DecimalUnitario(_produto['valor'].AsNumber);
         _produto['quantidade'].AsNumber:= quantidade;
+        _produto['venda_id'].AsInteger:= _venda;
         VendaGetItemRecalculo(_Produto);
 
+        if quantidade <= 0 then
+           FinalizaProcesso('Quantidade invalida');
+
         _db.InserirDados('venda_itens',_Produto);
+        result := true;
         FreeAndNil(_produto);
       end;
    finally
