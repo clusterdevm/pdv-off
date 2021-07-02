@@ -11,6 +11,7 @@ object f_devolucaoSeleciona: Tf_devolucaoSeleciona
   OnResize = FormResize
   OnShow = FormShow
   Position = poMainFormCenter
+  LCLVersion = '2.0.12.0'
   object PageControl1: TPageControl
     Left = 0
     Height = 421
@@ -22,7 +23,7 @@ object f_devolucaoSeleciona: Tf_devolucaoSeleciona
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Seleção'
-      ClientHeight = 391
+      ClientHeight = 387
       ClientWidth = 852
       object DBGrid1: TDBGrid
         Left = 0
@@ -79,8 +80,6 @@ object f_devolucaoSeleciona: Tf_devolucaoSeleciona
         TitleStyle = tsNative
         OnCellClick = DBGrid1CellClick
         OnColExit = DBGrid1ColExit
-        OnDrawColumnCell = DBGrid1DrawColumnCell
-        OnEditingDone = DBGrid1EditingDone
         OnKeyPress = DBGrid1KeyPress
       end
       object Panel1: TPanel
@@ -106,7 +105,7 @@ object f_devolucaoSeleciona: Tf_devolucaoSeleciona
     end
     object TabSheet2: TTabSheet
       Caption = 'Devolvidos'
-      ClientHeight = 391
+      ClientHeight = 387
       ClientWidth = 852
       object gridDevolvidos: TDBGrid
         Left = 0
@@ -161,8 +160,6 @@ object f_devolucaoSeleciona: Tf_devolucaoSeleciona
         TitleFont.Color = clBtnText
         TitleStyle = tsNative
         OnCellClick = DBGrid1CellClick
-        OnDrawColumnCell = DBGrid1DrawColumnCell
-        OnEditingDone = DBGrid1EditingDone
         OnKeyPress = DBGrid1KeyPress
       end
     end

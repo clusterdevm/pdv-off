@@ -87,7 +87,7 @@ begin
           Begin
              try
                 f_sangriaReport := Tf_sangriaReport.Create(self);
-                f_sangriaReport.GetSangriaReport(_api.Return,_endpoint ='sangria');
+                f_sangriaReport.GetSangriaReport(_api.Return['resultado'].AsObject,_endpoint ='sangria');
              finally
                 FreeAndNil(f_sangriaReport);
              end;

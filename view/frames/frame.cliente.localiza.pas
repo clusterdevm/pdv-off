@@ -31,7 +31,7 @@ type
 
 implementation
 
-uses view.filtros.cliente, classe.utils, model.pessoa;
+uses view.filtros.cliente, ems.utils, model.pessoa;
 
 {$R *.lfm}
 

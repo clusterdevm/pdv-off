@@ -5,7 +5,7 @@ unit model.login;
 interface
 
 uses
-  Classes, SysUtils, model.conexao, model.request.http, classe.utils,
+  Classes, SysUtils, ems.conexao, model.request.http, ems.utils,
   uf_selecionaEmpresa, Dialogs, jsons;
 
 type
@@ -62,6 +62,7 @@ begin
               with _data.query do
               Begin
                   SQL.Add('update ems_pdv set status = '+QuotedStr(_api.Return['resultado'].AsObject['status'].AsString));
+                  Sql.Add(' , modelo_default = '+QuotedStr(_api.Return['resultado'].AsObject['modelo_default'].AsString));
                   SQL.Add(', id = '+QuotedStr(_api.Return['resultado'].AsObject['id'].AsString));
                   sql.add(' where token_remoto = '+QuotedStr(self.token_remoto));
                   ExecSQL;

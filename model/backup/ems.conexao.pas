@@ -1,4 +1,4 @@
-unit model.conexao;
+unit ems.conexao;
 
 interface
 
@@ -24,6 +24,7 @@ Type
           Procedure ExecutaSQL(isql : string; _aux:string = '');
           //Procedure ExecutaUpdateSQL(isql : string);
       Public
+         Function TabelaExists(_tabela:string) : Boolean;
          Procedure ChecaEstrutura(_tabela:string);
 
          Property Query : TZQuery      Read FQuery      Write FQuery;
@@ -406,6 +407,37 @@ begin
   finally
     FreeAndNil(iCommand);
   end;
+end;
+
+function TConexao.TabelaExists(_tabela: string): Boolean;
+var qryCheca : TZQuery;
+    _find : boolean;
+begin
+   try
+       qryCheca := TZQuery.Create(nil);
+       qryCheca.Connection := Conector;
+
+       with qryCheca do
+       Begin
+          Close;
+          Sql.Clear;
+          Sql.Add('SELECT');
+          Sql.Add('  p.name as column_name');
+          Sql.Add('FROM');
+          Sql.Add('  sqlite_master AS m');
+          Sql.Add('JOIN');
+          Sql.Add('  pragma_table_info(m.name) AS p');
+          Sql.Add('  where m.name = '+QuotedStr(_tabela));
+          open;
+
+          result := not IsEmpty;
+
+          if not result then
+            RegistraLogErro('Tabela: '+_tabela +' Não existe localmente ');
+       end;
+   finally
+        FreeAndNil(qryCheca);
+   end;
 end;
 
 procedure TConexao.ChecaEstrutura(_tabela: string);

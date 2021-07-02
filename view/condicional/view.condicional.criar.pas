@@ -8,7 +8,7 @@ uses
   Classes, SysUtils, fphttpclient, Forms, Controls, Graphics, Dialogs, ExtCtrls,
   StdCtrls, ActnList, ACBrEnterTab, BCImageButton, ColorSpeedButton, BCComboBox,
   BGRASpeedButton, frame.empresa, frame.cliente.localiza,
-  controller.condicional, classe.utils;
+  controller.condicional, ems.utils;
 
 type
 
@@ -31,8 +31,6 @@ type
     procedure ac_iniciarExecute(Sender: TObject);
     procedure EditIDEnter(Sender: TObject);
     procedure EditIDExit(Sender: TObject);
-    procedure EditIDKeyPress(Sender: TObject; var Key: char);
-    procedure EditIDVENDEDORKeyPress(Sender: TObject; var Key: char);
     procedure FormShow(Sender: TObject);
   private
 
@@ -107,20 +105,6 @@ begin
        end;
   end;
 end;
-
-procedure TfrmCondicionalCriar.EditIDKeyPress(Sender: TObject; var Key: char);
-begin
-
-end;
-
-procedure TfrmCondicionalCriar.EditIDVENDEDORKeyPress(Sender: TObject;
-  var Key: char);
-begin
-
-end;
-
-
-
 
 end.
 

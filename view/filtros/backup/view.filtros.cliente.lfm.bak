@@ -134,6 +134,7 @@ object frmFiltroCliente: TfrmFiltroCliente
       BorderStyle = bsNone
       OnChange = edt_razaoChange
       OnKeyDown = edt_razaoKeyDown
+      OnKeyPress = edt_razaoKeyPress
       TabOrder = 0
     end
   end

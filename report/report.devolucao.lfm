@@ -6,6 +6,7 @@ object f_devolucaoReport: Tf_devolucaoReport
   Caption = 'f_devolucaoReport'
   ClientHeight = 489
   ClientWidth = 842
+  LCLVersion = '2.0.12.0'
   Scaled = False
   object RLReport1: TRLReport
     Left = 160

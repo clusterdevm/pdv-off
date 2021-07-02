@@ -1,25 +1,28 @@
-unit classe.utils;
+unit ems.utils;
 
 {$mode delphi}{$H+}
 
 interface
 
 uses
-  Classes, SysUtils, model.conexao, Dialogs, md5, process, Graphics,
+  Classes, SysUtils, ems.conexao, Dialogs, md5, process, Graphics,
   controls, StdCtrls, Forms, TypInfo, DateUtils, db, cluster_pdv.sessao,
-  wcursos,BufDataset, math;
+  wcursos,BufDataset, math, jsons;
 
 type
   TPathServicos = (mAutenticacao, mCondicional, mGeral, mPDV, mFinanceiro, mvenda);
 
 const canal_token = '9b1b6b2dfcb8d4c13d4d7fcacd9aed78';
+const appPDV = true;
 
 var Sessao : TSessao;
+    _sessao : TSessao;
     //f_wait : TWaitProcess;
     WCursor : TWaitCursor;
     appVersao : string;
     appProducao : boolean;
     GSincronizar : boolean;
+    _response : TjsonObject;
 
   function md5Text(value:string):String;
   function bioswindows : String;
@@ -64,11 +67,32 @@ var Sessao : TSessao;
   function GetValorAliquota(valor, aliquota: double):Double;
 
   function Decimal(Value: Extended; Decimals: Integer  = -1): Extended;
+  function DecimalUnitario(Value: Extended; Decimals: Integer = -1): Extended;
+  function DecimalQuantidade(Value: Extended; Decimals: Integer = -1): Extended;
+
+  Procedure FinalizaProcesso(msg:string;_local : string = '' ; status_http : Integer = 500);
+
 
 implementation
 
 uses model.request.http, uf_download, form.principal;
 
+
+function DecimalUnitario(Value: Extended; Decimals: Integer): Extended;
+begin
+  if Decimals =-1 then
+     Decimals := sessao.TotalCasasUnitario;
+
+  result :=  Decimal(Value, Decimals);
+end;
+
+function DecimalQuantidade(Value: Extended; Decimals: Integer): Extended;
+begin
+  if Decimals =-1 then
+     Decimals := sessao.TotalCasasQuantidade;
+
+  result :=  Decimal(Value, Decimals);
+end;
 
 function Decimal(Value: Extended; Decimals: Integer  = -1): Extended;
 var
@@ -87,6 +111,12 @@ begin
     if Fraction <= -0.5 then
       Result := Result - 1;
   Result := Result / Factor;
+end;
+
+procedure FinalizaProcesso(msg:string;_local : string = '' ; status_http : Integer = 500);
+begin
+     Messagedlg(msg,mtError,[mbok],0);
+     abort;
 end;
 
 function getNumeros(fField : String): String;

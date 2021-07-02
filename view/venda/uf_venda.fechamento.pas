@@ -152,7 +152,7 @@ implementation
 
 {$R *.lfm}
 
-uses model.conexao, classe.utils, f_venda;
+uses ems.conexao, ems.utils, f_venda;
 
 procedure Tf_fechamento.FormCreate(Sender: TObject);
 begin

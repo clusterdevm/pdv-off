@@ -164,8 +164,8 @@ end;
 
 procedure Tf_devolucaoSeleciona.DBGrid1ColExit(Sender: TObject);
 begin
-          if DBGrid1.DataSource.State in [dsInsert, dsEdit] then
-           DBGrid1.DataSource.DataSet.Post;
+    if DBGrid1.DataSource.State in [dsInsert, dsEdit] then
+       DBGrid1.DataSource.DataSet.Post;
 end;
 
 procedure Tf_devolucaoSeleciona.DBGrid1DrawColumnCell(Sender: TObject;

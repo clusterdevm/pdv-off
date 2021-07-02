@@ -105,7 +105,6 @@ type
     procedure RLPanel2BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLPanel3BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLPanel4BeforePrint(Sender: TObject; var PrintIt: Boolean);
-    procedure RLReport1BeforePrint(Sender: TObject; var PrintIt: Boolean);
     procedure RLReport1DataRecord(Sender: TObject; RecNo: Integer;
       CopyNo: Integer; var Eof: Boolean; var RecordAction: TRLRecordAction);
   private
@@ -125,7 +124,7 @@ implementation
 
 {$R *.lfm}
 
-uses classe.utils;
+uses ems.utils;
 
 
 
@@ -250,12 +249,6 @@ procedure Treport_condicional.RLPanel4BeforePrint(Sender: TObject;
 begin
   lblItensFaturado.Caption:= IntToStr(_itemFaturados);
   lblSubTotalFaturado.Caption:= FormatFloat('#0.00,',_total);
-end;
-
-procedure Treport_condicional.RLReport1BeforePrint(Sender: TObject;
-  var PrintIt: Boolean);
-begin
-
 end;
 
 procedure Treport_condicional.RLReport1DataRecord(Sender: TObject;

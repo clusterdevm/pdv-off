@@ -5,7 +5,7 @@ unit cluster_pdv.sessao;
 interface
 
 uses
-  Classes, SysUtils ,jsons, Dialogs, forms, controls, uf_fechamentoCaixa, DateUtils;
+  Classes, SysUtils ,jsons, Dialogs, forms, controls, uf_fechamentoCaixa, DateUtils, clipbrd;
 
 type
 
@@ -66,6 +66,9 @@ private
       function formatquantidade : string;
       function formatAliquota(_loadSimbolo : boolean = false):string;
       function TotalCasasDecimal : Integer;
+      function TotalCasasQuantidade : Integer;
+      function TotalCasasUnitario : Integer;
+
       function Getsimbolo : string;
 
       property razao : string read frazao write frazao;
@@ -84,6 +87,9 @@ private
       Function GetNewDocumento : Integer;
 
       Function GetCaixa : string;
+
+      Function CaixaAberto : Boolean;
+
       Procedure AbreCaixa ;
       Procedure FechaCaixa;
       Procedure Suprimento;
@@ -93,12 +99,14 @@ private
 
       Function DataServidor : TDate;
 
+      Function schema : string;
+
       Constructor create;
 end;
 
 implementation
 
-uses model.conexao, classe.utils, uf_saidaCaixa, form.principal;
+uses ems.conexao, ems.utils, uf_saidaCaixa, form.principal;
 
 function TSessao.getCaixID: String;
 var _db : TConexao;
@@ -331,6 +339,18 @@ begin
   result := DecimalTotal;
 end;
 
+function TSessao.TotalCasasQuantidade: Integer;
+begin
+  formatquantidade;
+  result := DecimalQuantidade;
+end;
+
+function TSessao.TotalCasasUnitario: Integer;
+begin
+  formatunitario();
+  result := DecimalUnitario;
+end;
+
 function TSessao.Getsimbolo: string;
 var _db : TConexao;
 begin
@@ -382,7 +402,7 @@ begin
           Sql.Clear;
           Sql.Add('select sf.id from modelo_documento md ');
           Sql.Add('  inner join serie_fiscal sf ');
-          Sql.Add('  on sf.modelo_documento_id - md.id ');
+          Sql.Add('  on sf.modelo_documento_id = md.id ');
 
           if _cpf then
             Sql.Add(' and md.modelo = 65 ')
@@ -398,7 +418,13 @@ begin
           end;
 
           Open;
-          result := FieldByName('id').AsInteger;
+
+          if IsEmpty then
+          Begin
+             messagedlg('Modelo De Documento Default não definido',mtError,[mbok],0);
+             abort;
+          end else
+             result := FieldByName('id').AsInteger;
       end;
   finally
       FreeAndNil(_db);
@@ -453,6 +479,14 @@ begin
   finally
     FreeAndNil(_db);
   end;
+end;
+
+function TSessao.CaixaAberto: Boolean;
+begin
+    result := trim(GetCaixa) <> '';
+
+    if not result then
+       Messagedlg('Não possui caixa Aberto !!!!' , mtError,[mbok],0);
 end;
 
 procedure TSessao.AbreCaixa;
@@ -540,6 +574,11 @@ end;
 function TSessao.DataServidor: TDate;
 begin
   Result := date;
+end;
+
+function TSessao.schema: string;
+begin
+  // Compatibilidade
 end;
 
 

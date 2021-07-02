@@ -101,7 +101,7 @@ implementation
 
 {$R *.lfm}
 
-uses model.conexao, classe.utils, model.request.http;
+uses ems.conexao, ems.utils, model.request.http;
 
 procedure TframePagamento.ListBox1SelectionChange(Sender: TObject; User: boolean
   );
@@ -251,8 +251,13 @@ procedure TframePagamento.CarregaMoeda;
 var _db : TConexao;
     _pos : integer;
 begin
+
    try
        _db := TConexao.Create;
+
+       if not _db.TabelaExists('moeda') then
+          exit;
+
        with _db.Query do
        Begin
              Close;
@@ -285,6 +290,10 @@ var _db : TConexao;
 begin
    try
        _db := TConexao.Create;
+
+       if not _db.TabelaExists('bandeira_cartao') then
+          exit;
+
        with _db.Query do
        Begin
              Close;
@@ -317,6 +326,10 @@ var _db : TConexao;
 begin
    try
        _db := TConexao.Create;
+
+       if not _db.TabelaExists('bandeira_cartao') then
+          exit;
+
        with _db.Query do
        Begin
              Close;
@@ -346,8 +359,6 @@ end;
 
 procedure TframePagamento.Calcula;
 begin
-  //$00AB9DF5  red
-
   qQuitacao.First;
   TotalPago:= 0;
   while not qQuitacao.EOF do

@@ -50,9 +50,6 @@ type
     procedure cds_selecaoBeforePost(DataSet: TDataSet);
     procedure DBGrid1CellClick(Column: TColumn);
     procedure DBGrid1ColExit(Sender: TObject);
-    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
-      DataCol: Integer; Column: TColumn; State: TGridDrawState);
-    procedure DBGrid1EditingDone(Sender: TObject);
     procedure DBGrid1KeyPress(Sender: TObject; var Key: char);
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
@@ -71,7 +68,7 @@ implementation
 
 {$R *.lfm}
 
-uses classe.utils;
+uses ems.utils;
 
 procedure Tf_devolucaoSeleciona.FormCreate(Sender: TObject);
 begin
@@ -166,17 +163,6 @@ procedure Tf_devolucaoSeleciona.DBGrid1ColExit(Sender: TObject);
 begin
     if DBGrid1.DataSource.State in [dsInsert, dsEdit] then
        DBGrid1.DataSource.DataSet.Post;
-end;
-
-procedure Tf_devolucaoSeleciona.DBGrid1DrawColumnCell(Sender: TObject;
-  const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);
-begin
-
-end;
-
-procedure Tf_devolucaoSeleciona.DBGrid1EditingDone(Sender: TObject);
-begin
-
 end;
 
 procedure Tf_devolucaoSeleciona.DBGrid1KeyPress(Sender: TObject; var Key: char);

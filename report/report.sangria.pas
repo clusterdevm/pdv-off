@@ -59,7 +59,7 @@ var
 implementation
 
 {$R *.lfm}
-uses classe.utils;
+uses ems.utils;
 
 { Tf_sangriaReport }
 

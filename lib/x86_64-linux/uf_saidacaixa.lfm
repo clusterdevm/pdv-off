@@ -14,18 +14,13 @@ object f_saidaCaixa: Tf_saidaCaixa
     Left = 8
     Top = 8
     inherited Panel1: TPanel
-      BevelWidth = 1
       inherited EditID: TEdit
-        Left = 2
         Height = 29
-        Top = 2
         OnEnter = EditIDEnter
         OnExit = EditIDExit
       end
       inherited edt_name: TEdit
-        Left = 82
         Height = 29
-        Top = 2
       end
     end
     inherited Label1: TLabel

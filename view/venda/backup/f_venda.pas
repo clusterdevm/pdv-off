@@ -138,6 +138,10 @@ type
 
         Procedure SetNovaAba;
         Procedure RegistraItem;
+
+        Procedure Redimensionar;
+
+        Function GetVendaID : String;
   public
          Procedure ShowInfProduto;
          Procedure BuscaItem;
@@ -153,7 +157,7 @@ implementation
 
 {$R *.lfm}
 
-uses classe.utils, model.conexao;
+uses ems.utils, ems.conexao, controller.venda;
 
 procedure Tform_venda.SpeedButton1Click(Sender: TObject);
 begin
@@ -178,6 +182,7 @@ begin
     pnlCodigo.Visible:= false;
     pnlImagem.Visible:= false;
     pnlDireito.Visible:= false;
+
 end;
 
 procedure Tform_venda.GetVendasAndamento;
@@ -227,6 +232,7 @@ begin
 //  gridItens.SelectedColor:= clWhite;
 //  gridItens.Font.Color:= clBlack;
   gridItens.SelectedColor:= $00BEEDF2;
+
 end;
 
 procedure Tform_venda.SetNovaAba;
@@ -234,8 +240,10 @@ var _db : TConexao;
      _nota : TJsonObject;
      _cpf : string;
 begin
+  if not Sessao.CaixaAberto then
+     exit;
+
   _cpf := '';
-  //  if messagedlg('CPF na Nota ?',mtInformation,[mbyes,mbno],0) = mryes then
   if Application.MessageBox('CPF Na Nota','Cluster Sistemas',mb_yesno + mb_iconquestion) = id_yes then
   Begin
       InputQuery('Cluster Sistemas','CPF Na Nota',_cpf);
@@ -271,7 +279,7 @@ end;
 procedure Tform_venda.RegistraItem;
 var _item : TJsonObject;
      _db : TConexao;
-     _produtoID : Integer;
+     _produtoID : string;
      _quantidade : Double;
 begin
 
@@ -285,20 +293,28 @@ begin
 
   try
 
-      _produtoID:= 1;
+      _produtoID:= '1';
       _quantidade:= 1;
 
-     _item := TJsonObject.Create();
-     _db:= TConexao.Create;
-     _item['venda_id'].AsString:= getNumeros(TabControl1.Tabs[TabControl1.TabIndex]);
-     _item['produto_id'].AsInteger:= _produtoID;
-     _item['quantidade'].AsNumber:= _quantidade;
-     _item['descricao'].AsString:= 'Produto Teste';
-     _item['valor_unitario'].AsNumber:= 10.52;
-     _item['sub_total'].AsNumber:=  50.00;
-     _item['sinc_pendente'].AsString:= 'S';
-     _item['uuid'].AsString:=GetUUID;
-     _db.InserirDados('venda_itens',_item);
+      //SeparaQuantidade
+
+      RegistraItemVenda(_produtoID,IntToStr(GetVendaID),_quantidade);
+
+     //_item := TJsonObject.Create();
+     //_db:= TConexao.Create;
+     //_item['venda_id'].AsString:= GetVendaID;
+     //_item['produto_id'].AsInteger:= _produtoID;
+     //_item['quantidade'].AsNumber:= _quantidade;
+     //_item['descricao'].AsString:= 'Produto Teste';
+     //_item['valor_unitario'].AsNumber:= 10.52;
+     //_item['sub_total'].AsNumber:=  50.00;
+     //_item['sinc_pendente'].AsString:= 'S';
+     //_item['uuid'].AsString:=GetUUID;
+     //_db.InserirDados('venda_itens',_item);
+
+
+
+
 
      SetVenda;
 
@@ -308,6 +324,24 @@ begin
       FreeAndNIl(_item);
       FreeAndNIl(_db);
   end;
+end;
+
+procedure Tform_venda.Redimensionar;
+begin
+  pnlLateral.Width:= trunc((pnlVendas.Width * 0.35));
+
+  pnlImagem.Height:= trunc((pnlLateral.Height * 0.80));
+  pnlCodigo.Height:= pnlLateral.Height - pnlImagem.Height;
+
+  pnlGridVendas.Height:= trunc((pnlDireito.Height * 0.80));
+
+  pnlTotal.Width:= trunc((pnlTotalizador.Width * 0.35));
+  PnlCadatro.Width:= trunc((pnlTotalizador.Width * 0.30));
+end;
+
+function Tform_venda.GetVendaID: String;
+begin
+   Result := getNumeros(TabControl1.Tabs[TabControl1.TabIndex]);
 end;
 
 procedure Tform_venda.Shape3Resize(Sender: TObject);
@@ -348,18 +382,7 @@ end;
 
 procedure Tform_venda.FormResize(Sender: TObject);
 begin
-    pnlLateral.Width:= trunc((pnlVendas.Width * 0.35));
-
-    pnlImagem.Height:= trunc((pnlLateral.Height * 0.80));
-    pnlCodigo.Height:= pnlLateral.Height - pnlImagem.Height;
-
-    pnlGridVendas.Height:= trunc((pnlDireito.Height * 0.80));
-
-    pnlTotal.Width:= trunc((pnlTotalizador.Width * 0.35));
-    PnlCadatro.Width:= trunc((pnlTotalizador.Width * 0.30));
-
-
-
+    Redimensionar;
 end;
 
 procedure Tform_venda.FormShow(Sender: TObject);
@@ -453,7 +476,7 @@ begin
     try
         _venda := TJsonObject.Create();
         _db := TConexao.Create;
-        _venda['id'].AsString:= getNumeros(TabControl1.Tabs[TabControl1.TabIndex]);
+        _venda['id'].AsString:= GetVendaID;
         _venda['sinc_pendente'].AsString:= 'S';
         _venda['cliente_id'].AsString:= sessao.getID;
         _db.updateSQl('vendas',_venda);
@@ -477,7 +500,7 @@ begin
     try
         _db := TConexao.Create;
         _venda := TJsonObject.Create();
-        _venda['id'].AsString:= getNumeros(TabControl1.Tabs[TabControl1.TabIndex]);
+        _venda['id'].AsString:= GetVendaID;
         _venda['sinc_pendente'].AsString:= 'S';
         _venda['cpf'].AsString:= _cpf;
         _db.updateSQl('vendas',_venda);
@@ -506,7 +529,7 @@ begin
     try
         _venda := TJsonObject.Create();
         _db := TConexao.Create;
-        _venda['id'].AsString:= getNumeros(TabControl1.Tabs[TabControl1.TabIndex]);
+        _venda['id'].AsString:= GetVendaID;
         _venda['sinc_pendente'].AsString:= 'S';
         _venda['vendedor_id'].AsString:= sessao.getID;
         _db.updateSQl('vendas',_venda);
@@ -536,7 +559,7 @@ begin
             try
                _db := TConexao.Create;
                _venda := TJsonObject.Create();
-               _venda['id'].AsString:=getNumeros(TabControl1.Tabs[TabControl1.TabIndex]);
+               _venda['id'].AsString:=GetVendaID;
                _venda['dados_adicionais'].AsString:= _motivo;
                _venda['sinc_pendente'].AsString:= 'S';
                _venda['status'].AsString:= 'cancelado';
@@ -583,11 +606,11 @@ end;
 procedure Tform_venda.ac_fechavendaExecute(Sender: TObject);
 begin
   f_fechamento := Tf_fechamento.Create(nil);
-  f_fechamento.n_venda:= getNumeros(TabControl1.Tabs[TabControl1.TabIndex]);
+  f_fechamento.n_venda:= GetVendaID;
   f_fechamento.ShowModal;
   f_fechamento.Release;
   f_fechamento := nil;
-  CriarForm(Tf_fechamento);
+//  CriarForm(Tf_fechamento);
 end;
 
 procedure Tform_venda.ac_recebimentoExecute(Sender: TObject);
@@ -711,7 +734,7 @@ begin
                   Close;
                   Sql.Clear;
                   Sql.Add('select * from venda_itens ');
-                  Sql.Add(' where venda_id = '+QuotedStr(getNumeros(TabControl1.Tabs[TabControl1.TabIndex])));
+                  Sql.Add(' where venda_id = '+QuotedStr(GetVendaID));
                   Sql.Add(' and (status is null  or status = '''' )');
                   Open;
                   //showmessage(IntTostr(RecordCount));
@@ -738,7 +761,7 @@ begin
                   Sql.Add('               on p.id  = v.cliente_id');
                   Sql.Add('               left join pessoas vend ');
                   Sql.Add('               on vend.id  = v.vendedor_id');
-                  Sql.Add(' where v.id = '+QuotedStr(getNumeros(TabControl1.Tabs[TabControl1.TabIndex])));
+                  Sql.Add(' where v.id = '+QuotedStr(GetVendaID));
                   Open;
 
                   ed_cliente.Text:= FormatFloat('000000',FieldByName('cliente_id').AsInteger) + ' ' + trim(FieldByName('n_cliente').AsString);
@@ -748,6 +771,7 @@ begin
          finally
              FreeAndnil(_db);
              qryItens.EnableControls;
+             Redimensionar;
          end;
     end;
     ShowLayout;

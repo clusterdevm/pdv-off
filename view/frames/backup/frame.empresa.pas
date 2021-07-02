@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, BufDataset, DB, Forms, Controls, StdCtrls, CheckLst,
-  ComboEx, DBCtrls;
+  ComboEx, DBCtrls, Dialogs;
 
 type
 

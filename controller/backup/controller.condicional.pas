@@ -329,7 +329,6 @@ begin
              messagedlg(_api.Return['msg'].AsString,mtError,[mbok],0)
           else
               Report;
-          end;
 
       end;
   finally

@@ -11,6 +11,8 @@ uses
 
 type
 
+  { TfrmPrincipal }
+
   TfrmPrincipal = class(TForm)
     ac_devolucao: TAction;
     ac_venda: TAction;
@@ -19,12 +21,14 @@ type
     ActionList1: TActionList;
     DTAnalogClock1: TDTAnalogClock;
     Image2: TImage;
-    lblUsuario: TLabel;
-    lblCNPJ2: TLabel;
     lblCNPJ: TLabel;
-    lblUnidade2: TLabel;
+    lblCNPJ2: TLabel;
     lblUnidade: TLabel;
+    lblUnidade2: TLabel;
+    lblUsuario: TLabel;
     Panel1: TPanel;
+    Panel2: TPanel;
+    Panel4: TPanel;
     pnlLoja: TPanel;
     pnlButton: TPanel;
     pnlButtonCenter: TPanel;
@@ -52,7 +56,6 @@ type
     procedure pnl_menuMouseLeave(Sender: TObject);
     procedure pnl_sairMouseEnter(Sender: TObject);
     procedure pnl_sairMouseLeave(Sender: TObject);
-    procedure SpeedButton4Click(Sender: TObject);
   private
        Procedure AtivaBusca;
   public
@@ -119,7 +122,7 @@ end;
 
 procedure TfrmPrincipal.FormActivate(Sender: TObject);
 begin
-    pnlLoja.Caption:= '    '+sessao.nomeFantasia;
+    pnlLoja.Caption:= '    '+sessao.razao;
     lblCNPJ.Caption:= (FormataCNPJ(sessao.cnpj));
     lblUnidade.Caption:= Sessao.n_unidade;
 
@@ -158,11 +161,6 @@ end;
 procedure TfrmPrincipal.pnl_sairMouseLeave(Sender: TObject);
 begin
   pnl_sair.BevelInner:=  bvNone;
-end;
-
-procedure TfrmPrincipal.SpeedButton4Click(Sender: TObject);
-begin
-
 end;
 
 procedure TfrmPrincipal.AtivaBusca;

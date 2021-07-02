@@ -176,7 +176,7 @@ begin
    pnlTotal.Height:= trunc((self.Height * 0.09));
    pnlBotao.Height:= trunc((self.Height * 0.08));
 
-   pnlDadosCliente.Height:= trunc((f_devolucaoCriar.Height * 0.207));
+   pnlDadosCliente.Height:= trunc((self.Height * 0.207));
    pnlLinha1.Height:= trunc((pnlDadosCliente.Height /2));
    pnlLinha2.Height:= trunc((pnlDadosCliente.Height /2));
 

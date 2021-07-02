@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
   ActnList, StdCtrls, DTAnalogClock, view.condicional.filtrar, f_venda,
-  view.devolucao.filtrar, model.sinc.down, classe.utils;
+  view.devolucao.filtrar, model.sinc.down, ems.utils;
 
 type
 
@@ -21,12 +21,14 @@ type
     ActionList1: TActionList;
     DTAnalogClock1: TDTAnalogClock;
     Image2: TImage;
-    lblUsuario: TLabel;
-    lblCNPJ2: TLabel;
     lblCNPJ: TLabel;
-    lblUnidade2: TLabel;
+    lblCNPJ2: TLabel;
     lblUnidade: TLabel;
+    lblUnidade2: TLabel;
+    lblUsuario: TLabel;
     Panel1: TPanel;
+    Panel2: TPanel;
+    Panel4: TPanel;
     pnlLoja: TPanel;
     pnlButton: TPanel;
     pnlButtonCenter: TPanel;
@@ -49,13 +51,11 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure lblUnidadeClick(Sender: TObject);
     procedure pnl_menuClick(Sender: TObject);
     procedure pnl_menuMouseEnter(Sender: TObject);
     procedure pnl_menuMouseLeave(Sender: TObject);
     procedure pnl_sairMouseEnter(Sender: TObject);
     procedure pnl_sairMouseLeave(Sender: TObject);
-    procedure SpeedButton4Click(Sender: TObject);
   private
        Procedure AtivaBusca;
   public
@@ -122,7 +122,7 @@ end;
 
 procedure TfrmPrincipal.FormActivate(Sender: TObject);
 begin
-    pnlLoja.Caption:= '    '+sessao.nomeFantasia;
+    pnlLoja.Caption:= '    '+sessao.razao;
     lblCNPJ.Caption:= (FormataCNPJ(sessao.cnpj));
     lblUnidade.Caption:= Sessao.n_unidade;
 
@@ -132,11 +132,6 @@ end;
 procedure TfrmPrincipal.FormShow(Sender: TObject);
 begin
   AtivaBusca;
-end;
-
-procedure TfrmPrincipal.lblUnidadeClick(Sender: TObject);
-begin
-
 end;
 
 procedure TfrmPrincipal.pnl_menuClick(Sender: TObject);
@@ -166,11 +161,6 @@ end;
 procedure TfrmPrincipal.pnl_sairMouseLeave(Sender: TObject);
 begin
   pnl_sair.BevelInner:=  bvNone;
-end;
-
-procedure TfrmPrincipal.SpeedButton4Click(Sender: TObject);
-begin
-
 end;
 
 procedure TfrmPrincipal.AtivaBusca;

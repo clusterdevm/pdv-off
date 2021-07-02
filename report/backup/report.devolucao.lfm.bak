@@ -450,7 +450,7 @@ object f_devolucaoReport: Tf_devolucaoReport
           ParentFont = False
         end
         object lblItensFaturado: TRLLabel
-          Left = 210
+          Left = 194
           Height = 14
           Top = 8
           Width = 63
@@ -464,7 +464,7 @@ object f_devolucaoReport: Tf_devolucaoReport
           ParentFont = False
         end
         object lblSubTotalFaturado: TRLLabel
-          Left = 215
+          Left = 199
           Height = 14
           Top = 26
           Width = 58
@@ -486,7 +486,7 @@ object f_devolucaoReport: Tf_devolucaoReport
       Width = 261
       BeforePrint = RLBand5BeforePrint
       object lblValorFaturado: TRLLabel
-        Left = 249
+        Left = 232
         Height = 12
         Top = 1
         Width = 24
@@ -502,7 +502,7 @@ object f_devolucaoReport: Tf_devolucaoReport
         Left = 50
         Height = 15
         Top = 1
-        Width = 182
+        Width = 150
         AutoSize = False
         Caption = 'Descrição'
         Font.CharSet = ANSI_CHARSET
@@ -566,7 +566,7 @@ object f_devolucaoReport: Tf_devolucaoReport
         ParentFont = False
       end
       object lblValor5: TRLLabel
-        Left = 238
+        Left = 225
         Height = 15
         Top = 2
         Width = 36

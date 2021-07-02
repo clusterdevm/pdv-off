@@ -1,6 +1,6 @@
 unit model.usuarios;
 
-{$mode objfpc}{$H+}
+{$mode delphi}{$H+}
 
 interface
 

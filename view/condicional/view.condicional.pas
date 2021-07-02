@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
   ComCtrls, DBGrids, StdCtrls, ActnList, frame.produto.localiza,
-  classe.utils, jsons, BufDataset, DB, clipbrd;
+  ems.utils, jsons, BufDataset, DB, clipbrd;
 
 type
 
@@ -80,15 +80,11 @@ type
     procedure ac_cancelarExecute(Sender: TObject);
     procedure ac_gravarExecute(Sender: TObject);
     procedure ac_sairExecute(Sender: TObject);
-    procedure EditIDKeyPress(Sender: TObject; var Key: char);
     procedure ed_ProdutoIDKeyPress(Sender: TObject; var Key: char);
-    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure frameProdutoGet1Click(Sender: TObject);
-    procedure Panel5Click(Sender: TObject);
   private
         Procedure SetLayout;
   public
@@ -128,11 +124,6 @@ begin
      self.Close;
 end;
 
-procedure Tf_condicional.EditIDKeyPress(Sender: TObject; var Key: char);
-begin
-
-end;
-
 procedure Tf_condicional.ed_ProdutoIDKeyPress(Sender: TObject; var Key: char);
 var _Object : TCondicional;
 begin
@@ -156,12 +147,6 @@ begin
           FreeAndNil(_Object);
       end;
   end;
-end;
-
-procedure Tf_condicional.FormClose(Sender: TObject;
-  var CloseAction: TCloseAction);
-begin
-
 end;
 
 procedure Tf_condicional.FormCloseQuery(Sender: TObject; var CanClose: boolean);
@@ -220,16 +205,6 @@ begin
   PageControl1.ActivePage := TabSheet1;
   SetLayout;
   SpeedButton4.Action := ac_cancelar;
-end;
-
-procedure Tf_condicional.frameProdutoGet1Click(Sender: TObject);
-begin
-
-end;
-
-procedure Tf_condicional.Panel5Click(Sender: TObject);
-begin
-
 end;
 
 procedure Tf_condicional.SetLayout;

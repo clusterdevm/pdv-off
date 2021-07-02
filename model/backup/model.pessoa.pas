@@ -5,7 +5,7 @@ unit model.pessoa;
 interface
 
 uses
-  Classes, SysUtils, model.conexao, classe.utils, Dialogs;
+  Classes, SysUtils, model.conexao, ems.utils, Dialogs;
 
 type
 
@@ -92,8 +92,9 @@ begin
                 messagedlg('Cadastro esta Inativado',mtError,[mbok],0)
              else
              Begin
-             result := true;
-             self.razao := fieldbyName('nome').AsString;
+                 result := true;
+                 self.razao := fieldbyName('nome').AsString;
+             end;
          end;
      end;
    finally

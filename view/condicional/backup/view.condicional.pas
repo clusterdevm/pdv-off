@@ -235,17 +235,6 @@ end;
 procedure Tf_condicional.SetLayout;
 var i : Integer;
   _item : TJsonObject;
-  Procedure Limpa(aDataSet:TBufDataset);
-  Begin
-     try
-         aDataSet.DisableControls;
-         while not aDataSet.eof do
-             aDataSet.Delete;
-     finally
-        aDataSet.EnableControls;
-     end;
-  end;
-
 begin
 
   EdtDataEmissao.Text := FormatDateTime('dd/mm/yyyy hh:mm',getDataBanco(dadosJson['data_emissao'].AsString));

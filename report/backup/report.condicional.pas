@@ -282,7 +282,7 @@ begin
 
     RLReport1.PageBreaking := pbNone;
     RLReport1.PageSetup.PaperSize   := fpCustom ;
-    RLReport1.UnlimitedHeight:= false;
+    RLReport1.UnlimitedHeight:= true;
     RLReport1.PreviewModal;
 end;
 

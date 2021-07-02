@@ -6,6 +6,7 @@ object report_condicional: Treport_condicional
   Caption = 'report_condicional'
   ClientHeight = 695
   ClientWidth = 758
+  LCLVersion = '2.0.12.0'
   object ListBox1: TListBox
     Left = 0
     Height = 168
@@ -37,7 +38,6 @@ object report_condicional: Treport_condicional
     PrintEmpty = False
     Title = 'Cluster Sistemas : Condicional '
     Visible = False
-    BeforePrint = RLReport1BeforePrint
     OnDataRecord = RLReport1DataRecord
     object bandCabecalho: TRLBand
       Left = 11

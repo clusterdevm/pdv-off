@@ -18,7 +18,6 @@ type
     edt_name: TEdit;
     Label1: TLabel;
     Panel1: TPanel;
-    procedure EditIDKeyPress(Sender: TObject; var Key: char);
   private
 
   public
@@ -30,16 +29,11 @@ type
 
 implementation
 
-uses classe.utils;
+uses ems.utils;
 
 {$R *.lfm}
 
 { TframeProdutoGet }
-
-procedure TframeProdutoGet.EditIDKeyPress(Sender: TObject; var Key: char);
-begin
-
-end;
 
 function TframeProdutoGet.getID: Integer;
 begin

@@ -9,9 +9,9 @@ uses
   {$ENDIF}
   cmem,   SysUtils,
   Interfaces, // this includes the LCL widgetset
-  Forms, runtimetypeinfocontrols, lazcontrols,
-  form.login, view.filtros.cliente, view.venda, model.request.http,
-  model.conexao, classe.utils, model.sinc.down, model.login, model.usuarios,
+  Forms, runtimetypeinfocontrols, lazcontrols, form.login, model.vendas.config,
+  model.vendas.imposto, view.filtros.cliente, view.venda, model.request.http,
+  ems.conexao, ems.utils, model.sinc.down, model.login, model.usuarios,
   dateutils, controller.condicional,
 
   model.request.jsons, view.condicional.filtrar,

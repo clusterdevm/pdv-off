@@ -35,10 +35,7 @@ type
     Panel4: TPanel;
     procedure Action1Execute(Sender: TObject);
     procedure Action2Execute(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure Panel1Click(Sender: TObject);
   private
 
   public
@@ -54,12 +51,7 @@ implementation
 
 { Tf_fechamentoCaixa }
 
-uses model.conexao, classe.utils;
-
-procedure Tf_fechamentoCaixa.FormCreate(Sender: TObject);
-begin
-
-end;
+uses ems.conexao, ems.utils;
 
 procedure Tf_fechamentoCaixa.FormShow(Sender: TObject);
 begin
@@ -105,16 +97,6 @@ except
        RegistraLogErro('Fechamento caixa : '+e.message);
   end;
 end;
-end;
-
-procedure Tf_fechamentoCaixa.Button2Click(Sender: TObject);
-begin
-
-end;
-
-procedure Tf_fechamentoCaixa.Panel1Click(Sender: TObject);
-begin
-
 end;
 
 end.

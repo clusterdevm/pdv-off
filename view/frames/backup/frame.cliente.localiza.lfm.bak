@@ -10,18 +10,18 @@ object framePessoaGet: TframePessoaGet
   DesignTop = 23
   object Panel1: TPanel
     Left = 0
-    Height = 33
+    Height = 25
     Top = 16
     Width = 512
     BevelInner = bvLowered
-    ClientHeight = 33
+    ClientHeight = 25
     ClientWidth = 512
     Color = clGradientInactiveCaption
     ParentColor = False
     TabOrder = 0
     object EditID: TEdit
       Left = 2
-      Height = 29
+      Height = 21
       Top = 2
       Width = 80
       Align = alLeft
@@ -32,7 +32,7 @@ object framePessoaGet: TframePessoaGet
     end
     object edt_name: TEdit
       Left = 82
-      Height = 29
+      Height = 21
       Top = 2
       Width = 428
       Align = alClient

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, ExtCtrls, model.request.http, clipbrd, dialogs,
-  model.conexao,  classe.utils, Graphics,
+  ems.conexao,  ems.utils, Graphics,
   jsons, crt, model.usuarios;
 
 Type

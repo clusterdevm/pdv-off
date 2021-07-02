@@ -109,7 +109,7 @@ begin
      form.BorderStyle := bsSizeable;
      form.BorderIcons:= form.BorderIcons-[biMinimize];
      form.Position := poScreenCenter;
-      form.ShowModal;
+     form.ShowModal;
   finally
     form.release;
     Form :=nil;

@@ -60,7 +60,7 @@ end;
 
 implementation
 
-uses classe.utils, view.condicional;
+uses ems.utils, view.condicional;
 
 
 { TCondicional }

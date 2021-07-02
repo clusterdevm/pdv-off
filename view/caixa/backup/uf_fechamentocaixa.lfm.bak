@@ -6,9 +6,9 @@ object f_fechamentoCaixa: Tf_fechamentoCaixa
   Caption = 'f_fechamentoCaixa'
   ClientHeight = 252
   ClientWidth = 380
-  OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
+  LCLVersion = '2.0.12.0'
   object Panel1: TPanel
     Left = 5
     Height = 28
@@ -20,7 +20,6 @@ object f_fechamentoCaixa: Tf_fechamentoCaixa
     ClientHeight = 28
     ClientWidth = 375
     TabOrder = 0
-    OnClick = Panel1Click
     object Label1: TLabel
       Left = 0
       Height = 28
@@ -77,6 +76,7 @@ object f_fechamentoCaixa: Tf_fechamentoCaixa
       BorderSpacing.Right = 10
       MaxLength = 0
       TabOrder = 0
+      MaxValue = 9999999999
       UpDownVisible = False
     end
   end
@@ -191,7 +191,6 @@ object f_fechamentoCaixa: Tf_fechamentoCaixa
     Top = 224
     Width = 75
     Action = Action1
-    OnClick = Button2Click
     TabOrder = 6
   end
   object ActionList1: TActionList

@@ -322,7 +322,7 @@ begin
        if (ResponseCode in [200..207]) then
        Begin
           result := true;
-          self.venda.Parse(_api.Return['resultado'].AsObject.Stringify);
+          self.venda.Parse(_api.Return.Stringify);
           Report(false);
        end
        else

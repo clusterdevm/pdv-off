@@ -13,6 +13,7 @@ object frmPrincipal: TfrmPrincipal
   OnResize = FormResize
   OnShow = FormShow
   Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
   WindowState = wsMaximized
   object pnlRodape: TPanel
     Left = 0
@@ -34,7 +35,7 @@ object frmPrincipal: TfrmPrincipal
       Left = 0
       Height = 29
       Top = 0
-      Width = 46
+      Width = 52
       Align = alLeft
       Alignment = taCenter
       Caption = 'Usuario'
@@ -150,53 +151,82 @@ object frmPrincipal: TfrmPrincipal
       ClientHeight = 50
       ClientWidth = 246
       TabOrder = 0
-      object lblCNPJ2: TLabel
-        Left = 1
-        Height = 17
-        Top = 7
-        Width = 42
-        Caption = 'CNPJ:'
-        Font.Color = clWhite
-        Font.Height = -16
-        ParentColor = False
-        ParentFont = False
+      object Panel2: TPanel
+        Left = 0
+        Height = 18
+        Top = 2
+        Width = 243
+        Align = alTop
+        BorderSpacing.Top = 2
+        BorderSpacing.Right = 3
+        BevelOuter = bvNone
+        ClientHeight = 18
+        ClientWidth = 243
+        TabOrder = 0
+        object lblCNPJ2: TLabel
+          Left = 0
+          Height = 18
+          Top = 0
+          Width = 42
+          Align = alLeft
+          Caption = 'CNPJ:'
+          Font.Color = clWhite
+          Font.Height = -16
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblCNPJ: TLabel
+          Left = 204
+          Height = 18
+          Top = 0
+          Width = 39
+          Align = alRight
+          Alignment = taRightJustify
+          Caption = 'CNPJ:'
+          Font.Color = clWhite
+          Font.Height = -15
+          ParentColor = False
+          ParentFont = False
+        end
       end
-      object lblUnidade2: TLabel
-        Left = 1
-        Height = 17
+      object Panel4: TPanel
+        Left = 0
+        Height = 20
         Top = 28
-        Width = 63
-        Caption = 'Unidade:'
-        Font.Color = clWhite
-        Font.Height = -16
-        ParentColor = False
-        ParentFont = False
-      end
-      object lblCNPJ: TLabel
-        Left = 189
-        Height = 15
-        Top = 7
-        Width = 39
-        Alignment = taRightJustify
-        Caption = 'CNPJ:'
-        Font.Color = clWhite
-        Font.Height = -15
-        ParentColor = False
-        ParentFont = False
-      end
-      object lblUnidade: TLabel
-        Left = 72
-        Height = 15
-        Top = 28
-        Width = 157
-        Alignment = taRightJustify
-        AutoSize = False
-        Caption = 'Unidade:'
-        Font.Color = clWhite
-        Font.Height = -15
-        ParentColor = False
-        ParentFont = False
-        OnClick = lblUnidadeClick
+        Width = 243
+        Align = alBottom
+        BorderSpacing.Right = 3
+        BorderSpacing.Bottom = 2
+        BevelOuter = bvNone
+        ClientHeight = 20
+        ClientWidth = 243
+        TabOrder = 1
+        object lblUnidade: TLabel
+          Left = 86
+          Height = 20
+          Top = 0
+          Width = 157
+          Align = alRight
+          Alignment = taRightJustify
+          AutoSize = False
+          Caption = 'Unidade:'
+          Font.Color = clWhite
+          Font.Height = -15
+          ParentColor = False
+          ParentFont = False
+        end
+        object lblUnidade2: TLabel
+          Left = 0
+          Height = 20
+          Top = 0
+          Width = 63
+          Align = alLeft
+          Caption = 'Unidade:'
+          Font.Color = clWhite
+          Font.Height = -16
+          ParentColor = False
+          ParentFont = False
+        end
       end
     end
   end
@@ -6495,17 +6525,17 @@ object frmPrincipal: TfrmPrincipal
     TabOrder = 5
     object pnlButtonCenter: TPanel
       Left = 392
-      Height = 86
+      Height = 87
       Top = 0
       Width = 392
       AutoSize = True
       BevelOuter = bvNone
-      ClientHeight = 86
+      ClientHeight = 87
       ClientWidth = 392
       TabOrder = 0
       object SpeedButton1: TSpeedButton
         Left = 10
-        Height = 86
+        Height = 87
         Top = 0
         Width = 88
         Action = ac_venda
@@ -7032,7 +7062,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object SpeedButton2: TSpeedButton
         Left = 206
-        Height = 86
+        Height = 87
         Top = 0
         Width = 88
         Action = ac_devolucao
@@ -7559,7 +7589,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object SpeedButton3: TSpeedButton
         Left = 108
-        Height = 86
+        Height = 87
         Top = 0
         Width = 88
         Action = ac_condicional
@@ -8086,7 +8116,7 @@ object frmPrincipal: TfrmPrincipal
       end
       object SpeedButton4: TSpeedButton
         Left = 304
-        Height = 86
+        Height = 87
         Top = 0
         Width = 88
         Action = ac_sair

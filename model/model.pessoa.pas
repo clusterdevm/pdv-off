@@ -5,7 +5,7 @@ unit model.pessoa;
 interface
 
 uses
-  Classes, SysUtils, model.conexao, classe.utils, Dialogs;
+  Classes, SysUtils, ems.conexao, ems.utils, Dialogs;
 
 type
 

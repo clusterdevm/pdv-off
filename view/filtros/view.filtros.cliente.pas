@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
   Buttons, DBGrids, ActnList, db, Grids, LCLType, ComCtrls, ZDataset,
-  classe.utils, model.conexao, model.pessoa;
+  ems.utils, ems.conexao, model.pessoa;
 
 type
 

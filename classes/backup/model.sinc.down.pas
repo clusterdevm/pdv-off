@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, ExtCtrls, model.request.http, clipbrd, dialogs,
-  model.conexao,  classe.utils, Graphics,
+  model.conexao,  ems.utils, Graphics,
   jsons, crt, model.usuarios;
 
 Type
@@ -119,7 +119,7 @@ try
         _api := TRequisicao.Create;
         _api.Metodo:= 'post';
         _api.webservice:= getEMS_Webservice(mPDV);
-        _api.AddHeader('token-pdv',UpperCase(FTokenPDV))
+        _api.AddHeader('token-pdv',UpperCase(FTokenPDV));
         _api.rota:='hibrido';
         _api.endpoint:= 'download';
 

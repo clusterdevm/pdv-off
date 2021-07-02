@@ -445,6 +445,7 @@ object f_sangriaReport: Tf_sangriaReport
     DocumentInfo.Title = 'www.clustersitemas.com.br'
     DocumentInfo.Creator = 'Cluster Sistemas'
     DisplayName = 'Documento PDF'
+    ImageFormat = ifOriginal
     Left = 100
     Top = 124
   end

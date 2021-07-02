@@ -7,7 +7,6 @@ object f_condicional: Tf_condicional
   ClientHeight = 600
   ClientWidth = 897
   Color = clWhite
-  OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnResize = FormResize
@@ -1100,7 +1099,7 @@ object f_condicional: Tf_condicional
     TabOrder = 1
     object TabSheet1: TTabSheet
       Caption = 'Novos / Pendentes'
-      ClientHeight = 309
+      ClientHeight = 308
       ClientWidth = 887
       object Panel3: TPanel
         Left = 0
@@ -1160,7 +1159,7 @@ object f_condicional: Tf_condicional
     end
     object TabSheet2: TTabSheet
       Caption = 'Estornado/Devolvido'
-      ClientHeight = 309
+      ClientHeight = 308
       ClientWidth = 887
       object Panel2: TPanel
         Left = 0
@@ -1220,7 +1219,7 @@ object f_condicional: Tf_condicional
     end
     object TabSheet3: TTabSheet
       Caption = 'Faturados'
-      ClientHeight = 309
+      ClientHeight = 308
       ClientWidth = 887
       object Panel1: TPanel
         Left = 0
@@ -1281,7 +1280,6 @@ object f_condicional: Tf_condicional
     ClientHeight = 170
     ClientWidth = 897
     TabOrder = 2
-    OnClick = Panel5Click
     object Label2: TLabel
       Left = 7
       Height = 14

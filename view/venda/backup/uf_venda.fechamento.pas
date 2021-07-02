@@ -152,7 +152,7 @@ implementation
 
 {$R *.lfm}
 
-uses model.conexao, classe.utils, f_venda;
+uses model.conexao, ems.utils, f_venda;
 
 procedure Tf_fechamento.FormCreate(Sender: TObject);
 begin
@@ -184,7 +184,7 @@ begin
        if _ValorRecebimento > 0 then
        Begin
            PageControl1.PageIndex:= 1;
-           Frame.Inicializa(_ValorRecebimento);
+           Frame.Inicializa(_ValorRecebimento,qPagamenton_parcelas.Value);
            Frame.ListBox1.SetFocus;
            Frame.ListBox1.Selected[0] := True;
            ac_fechar.Caption:= 'Proximo (F6)';
