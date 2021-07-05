@@ -1,0 +1,13 @@
+Package: pdv
+Version: 1.0.0
+Architecture: all
+Maintainer: Cluster <atendimento@clustersistemas.com.br
+Installed-Size: 19,4 mb
+Depends: 
+Recommends: 
+Homepage: https://www.clustersistemas.com.br
+Priority: optional
+Section: acessories
+Size: 19,4
+Description: PDV Cluster
+Original-Maintainer: Cluster <atendimento@clustersistemas.com.br

@@ -15,7 +15,8 @@ Type
 
 TSincDownload = class(TThread)
  private
-      FMsg : String;
+       TabelasValidada : boolean;
+       FMsg : String;
       FErro : String;
       Fprocessando : boolean;
       FProtocolo : String;
@@ -30,15 +31,17 @@ TSincDownload = class(TThread)
       _name : String;
       _Registros : integer;
       _tProcessado : integer;
+
       Procedure Processa(_tabela:string; _jsonValue : TJsonArray);
       Procedure Consulta_Api(var _ok : Boolean) ;
-      function valida_table(_tabelaName:string):boolean;
+      function valida_table(_tabelaName:string; Criar : boolean = true):boolean;
       function CriaTabela(_tabelaName:String):Boolean;
 
       Procedure SendUpload(_upload : TJsonObject);
       Procedure PreparaUpload(_upload : TJsonObject);
       Procedure ProcessarUpdate(Return:TJsonObject);
       Procedure Concluir ;
+      Procedure ValidaTabelas;
  protected
    procedure Execute; override;
    Procedure AtualizaLog ;
@@ -94,7 +97,7 @@ begin
                           Close;
                           Sql.Clear;
                           Sql.Add('delete from financeiro_caixa where id = '+QuotedStr(_jsonValue.Items[i].AsObject['id'].AsString));
-                          RegistraLogErro('caixa: ' +sql.text);
+                          RegistraLogRequest('caixa: ' +sql.text);
                           ExecSQL;
                       end;
                  finally
@@ -129,6 +132,7 @@ try
         if not (_api.ResponseCode in [200..207]) then
         Begin
              FMsg:= _api.Return['msg'].AsString;
+             RegistraLogRequest('Requisicao: '+_api.response);
              Synchronize(AtualizaLog);
              _ok := false;
         end
@@ -145,11 +149,11 @@ try
 except
   on e: exception do
   Begin
-       RegistraLogErro('Consulta_Api Function : '+e.message);
-       RegistraLogErro('URl : '+_api.webservice);
-       RegistraLogErro('endPoint : '+_api.endpoint);
-       RegistraLogErro('rota : '+_api.rota);
-       RegistraLogErro('response : '+_api.response);
+       RegistraLogRequest('Consulta_Api Function : '+e.message);
+       RegistraLogRequest('URl : '+_api.webservice);
+       RegistraLogRequest('endPoint : '+_api.endpoint);
+       RegistraLogRequest('rota : '+_api.rota);
+       RegistraLogRequest('response : '+_api.response);
   end;
 end;
 
@@ -160,7 +164,7 @@ end;
 
 
 
-function TSincDownload.valida_table(_tabelaName: string): boolean;
+function TSincDownload.valida_table(_tabelaName: string; Criar : boolean = true):boolean;
 var _tabela : TConexao;
 begin
 try
@@ -175,7 +179,12 @@ try
          open;
 
          if IsEmpty then
-            Result := CriaTabela(_tabelaName)
+         Begin
+               if Criar then
+                  Result := CriaTabela(_tabelaName)
+               else
+                  Result := false;
+         end
          else
             Result := true;
       end;
@@ -185,35 +194,13 @@ try
 except
      on e:exception do
      Begin
-        RegistraLogErro('Get Lista Tabela SqLite');
+        RegistraLogRequest('Get Lista Tabela SqLite');
      end;
 end;
 end;
 
 function TSincDownload.CriaTabela(_tabelaName: String): Boolean;
 var _Api : TRequisicao;
-   _strutucre : TJsonArray;
-   _sql : TStringList;
-   _item : TJsonObject;
-   _line , _delimiter, _type, _notNull: String;
-   _index : String;
-   i : Integer;
-
-
-   procedure checaIndex(value:string);
-   Begin
-       value := LowerCase(value);
-       if (value = 'id') or
-          (value = 'nome') or
-          (value = 'ativo') or
-          (copy(value,1,4)= 'data') or
-          (copy(value,1,9)= 'descricao') or
-          (value = 'empresa_id') or
-          (value = 'matriz_id')
-       then
-          _index := _Index + _delimiter +value;
-   end;
-
 begin
 try
   Result := false;
@@ -231,68 +218,10 @@ try
     _api.Execute;
 
     if _api.ResponseCode in [200..207] then
-    Begin
-       _strutucre := _Api.Return['resultado'].asArray;
-       _sql := TStringList.Create;
+       _db.CreateTabela(_tabelaName,
+                        _api.Return['resultado'].AsArray
+                        );
 
-       _sql.add('CREATE TABLE '+_tabelaName+'(');
-       _delimiter := '';
-       _index:='';
-
-       for i := 0 to _strutucre.Count -1 do
-       Begin
-            _item := _strutucre.Items[i].AsObject;
-
-            if trim(LowerCase(_item['data_type'].AsString)) = 'integer' then
-                _type := 'INTEGER'
-            else
-            if trim(LowerCase(_item['data_type'].AsString)) = 'numeric' then
-                _type := 'REAL'
-            else
-                _type := 'TEXT';
-
-            //if LowerCase(_item['is_nullable'].AsString) = 'no' then
-            //   _notNull := 'NOT NULL'
-            //else
-            _notNull := '';
-
-            _line := _delimiter+_item['column_name'].AsString +
-                     ' '+_type+
-                     ' '+ _notNull;
-
-            if (LowerCase(_item['column_name'].AsString) = 'id') and
-               (LowerCase(_tabelaName) = 'venda_itens') then
-            Begin
-                  _line:= _line + ' PRIMARY KEY AUTOINCREMENT ';
-            end;
-
-            _sql.Add(_line);
-
-            checaIndex(_item['column_name'].AsString);
-            _delimiter := ',';
-       end;
-       _Sql.Add(')');
-
-       _index := 'CREATE INDEX IDX_'+_tabelaName+ ' ON ' +_tabelaName + '('+
-                 _index+');';
-
-       with _db.Query do
-       Begin
-           Close;
-           Sql.Clear;
-           Sql.Text:=_sql.Text;
-           if _strutucre.Count > 0 then
-              ExecSQL;
-
-           Close;
-           Sql.Clear;
-           Sql.Add(_index);
-           if _index <> '' then
-             if _strutucre.Count > 0 then ExecSQL;
-       end;
-       Result := true;
-       FreeAndNil(_sql);
-    end;
 
   finally
       FreeAndNil(_api);
@@ -300,8 +229,8 @@ try
 except
      on e:exception do
      Begin
-           RegistraLogErro('Criar Tabela '+_tabelaName+' ' +e.message);
-           RegistraLogErro('empresa: '  +_db.query.SQL.Text );
+           RegistraLogRequest('Criar Tabela '+_tabelaName+' ' +e.message);
+           RegistraLogRequest('empresa: '  +_db.query.SQL.Text );
      end;
 end;
 end;
@@ -335,11 +264,11 @@ begin
   except
        on e: exception do
        Begin
-            RegistraLogErro('Consulta_Api Function : '+e.message);
-            RegistraLogErro('URl : '+_api.webservice);
-            RegistraLogErro('endPoint : '+_api.endpoint);
-            RegistraLogErro('rota : '+_api.rota);
-            RegistraLogErro('response : '+_api.response);
+            RegistraLogRequest('Consulta_Api Function : '+e.message);
+            RegistraLogRequest('URl : '+_api.webservice);
+            RegistraLogRequest('endPoint : '+_api.endpoint);
+            RegistraLogRequest('rota : '+_api.rota);
+            RegistraLogRequest('response : '+_api.response);
             FMsg:= 'Falha Ao enviar Consulte log';
             FFalhou:= true;
             Synchronize(AtualizaLog);
@@ -416,13 +345,61 @@ try
 except
      on e: exception do
      Begin
-          RegistraLogErro('Consulta_Api Function : '+e.message);
-          RegistraLogErro('URl : '+_api.webservice);
-          RegistraLogErro('endPoint : '+_api.endpoint);
-          RegistraLogErro('rota : '+_api.rota);
-          RegistraLogErro('response : '+_api.response);
+          RegistraLogRequest('Consulta_Api Function : '+e.message);
+          RegistraLogRequest('URl : '+_api.webservice);
+          RegistraLogRequest('endPoint : '+_api.endpoint);
+          RegistraLogRequest('rota : '+_api.rota);
+          RegistraLogRequest('response : '+_api.response);
      end;
 end;
+end;
+
+procedure TSincDownload.ValidaTabelas;
+var _lista : TJsonObject;
+    i : integer;
+    _api : TRequisicao;
+    _item : TJsonObject;
+begin
+    try
+       try
+           _api := TRequisicao.Create;
+           _api.Metodo:= 'get';
+           _Api.AddHeader('canal-token',canal_token);
+           _api.webservice:= getEMS_Webservice(mAutenticacao);
+           _Api.AutUserName:= Sessao.usuario;
+           _Api.AutUserPass:= Sessao.senha;
+
+           _api.rota:='autenticacao/table';
+           _api.endpoint:='ddl';
+           _api.Execute;
+
+           RegistraLogRequest('auth:'+Sessao.usuario+' ; Senha : '+Sessao.senha);
+
+           if _api.ResponseCode in[200..207] then
+           Begin
+                _lista := _api.Return['resultado'].AsObject;
+                for i := 0 to _lista['tabelas'].AsArray.Count-1 do
+                Begin
+                   _item := _lista['tabelas'].AsArray.Items[i].AsObject;
+
+                   if valida_table(_item['item'].AsString,false) then
+                      _db.ChecaDDL(_item['item'].AsString,
+                                   _item['ddl'].AsArray
+                                  )
+                   else
+                      _db.CreateTabela(_item['item'].AsString,
+                                       _item['ddl'].AsArray
+                                       );
+                end;
+                TabelasValidada := true;
+           end else
+            RegistraLogRequest(_api.response);
+       finally
+           FreeAndNil(_api);
+       end;
+    except
+
+    end;
 end;
 
 
@@ -436,6 +413,9 @@ begin
   while Fprocessando do
   Begin
       try
+            if not TabelasValidada then
+                ValidaTabelas;
+
             FMsg:= 'Conectando ao Servidor';
             Synchronize(AtualizaLog);
             Consulta_Api(_ok);
@@ -477,7 +457,7 @@ begin
                    else
                    Begin
                        FErro_Processamento:= true;
-                       RegistraLogErro('Tabela inexistente '+ _name);
+                       RegistraLogRequest('Tabela inexistente '+ _name);
                    end;
                end;
 
@@ -546,7 +526,7 @@ begin
   if FErro <> '' then
   Begin
      FHistorico.Add(ferro);
-     //RegistraLogErro(FHistorico.Text);
+     //RegistraLogRequest(FHistorico.Text);
      FErro:= '';
   end;
 
@@ -575,10 +555,7 @@ begin
 
   _db := TConexao.Create;
 
-  valida_table('financeiro_caixa');
-  valida_table('financeiro');
-  valida_table('vendas');
-  valida_table('venda_itens');
+  TabelasValidada:= false;
 
   inherited Create(CreateSuspended);
 end;

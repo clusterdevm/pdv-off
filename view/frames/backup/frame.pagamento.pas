@@ -101,7 +101,7 @@ implementation
 
 {$R *.lfm}
 
-uses model.conexao, ems.utils, model.request.http;
+uses ems.conexao, ems.utils, model.request.http;
 
 procedure TframePagamento.ListBox1SelectionChange(Sender: TObject; User: boolean
   );
@@ -398,7 +398,7 @@ end;
 
 function TframePagamento.Quitado: boolean;
 begin
-   result := TotalPagar <= TotalPago;
+   result := Decimal(TotalPagar,0) <= TotalPago,2);
 
    if not result then
       messagedlg('Valor Pago Insuficiente',mtConfirmation,[mbok],0);

@@ -22,7 +22,9 @@ Type
           Procedure CriaBaseDefault;
 
           Procedure ExecutaSQL(isql : string; _aux:string = '');
-          //Procedure ExecutaUpdateSQL(isql : string);
+
+          procedure checaIndex(value:string; _delimiter:string ;var _index :string);
+
       Public
          Function TabelaExists(_tabela:string) : Boolean;
          Procedure ChecaEstrutura(_tabela:string);
@@ -51,6 +53,9 @@ Type
                                     _foreignKey : String = ''
                                     ; _foreingValue:integer = 0);
 
+         Procedure CreateTabela(_tabelaName : string; _ddl: TJsonArray);
+         Procedure ChecaDDL(_tabelaName : string; _ddl: TJsonArray);
+
          Constructor Create;
          Destructor Destroy;override;
 
@@ -59,7 +64,6 @@ Type
 implementation
 
 uses ems.utils;
-
 
 function DataSetToJsonArray(pDataSet: TDataSet): TjsonArray;
   var
@@ -156,7 +160,7 @@ begin
   except
      on e:Exception do
      Begin
-         RegistraLogErro('Create Coenxao:'+e.message);
+         RegistraLogRequest('Create Coenxao:'+e.message);
      end;
   end;
 end;
@@ -376,7 +380,7 @@ begin
  except
      on e:Exception do
      Begin
-         RegistraLogErro('Create Default: '+e.Message);
+         RegistraLogRequest('Create Default: '+e.Message);
      end;
  end;
 end;
@@ -397,14 +401,28 @@ begin
           except
               on e:Exception do
               Begin
-                  RegistraLogErro(' Command sql : '+_aux+' '+e.Message);
-                  RegistraLogErro(Script.Text);
+                  RegistraLogRequest(' Command sql : '+_aux+' '+e.Message);
+                  RegistraLogRequest(Script.Text);
               end;
           end;
       end;
   finally
     FreeAndNil(iCommand);
   end;
+end;
+
+procedure TConexao.checaIndex(value:string; _delimiter:string ;var _index :string);
+begin
+    value := LowerCase(value);
+    if (value = 'id') or
+       (value = 'nome') or
+       (value = 'ativo') or
+       (copy(value,1,4)= 'data') or
+       (copy(value,1,9)= 'descricao') or
+       (value = 'empresa_id') or
+       (value = 'matriz_id')
+    then
+       _index := _Index + _delimiter +value;
 end;
 
 function TConexao.TabelaExists(_tabela: string): Boolean;
@@ -431,7 +449,7 @@ begin
           result := not IsEmpty;
 
           if not result then
-            RegistraLogErro('Tabela: '+_tabela +' Não existe localmente ');
+            RegistraLogRequest('Tabela: '+_tabela +' Não existe localmente ');
        end;
    finally
         FreeAndNil(qryCheca);
@@ -610,6 +628,177 @@ begin
 
 end;
 
+procedure TConexao.CreateTabela(_tabelaName : string; _ddl: TJsonArray);
+var
+   _sql : TStringList;
+   _item : TJsonObject;
+   _line , _delimiter, _type, _notNull: String;
+   _index : String;
+   i : Integer;
+   qTable : TZQuery;
+begin
+   _sql := TStringList.Create;
+   qTable := TZQuery.Create(nil);
+   qTable.Connection := Conector;
+
+   _sql.add('CREATE TABLE '+_tabelaName+'(');
+   _delimiter := '';
+   _index:='';
+
+    for i := 0 to _ddl.Count -1 do
+    Begin
+         _item := _ddl.Items[i].AsObject;
+
+         if trim(LowerCase(_item['data_type'].AsString)) = 'integer' then
+             _type := 'INTEGER'
+         else
+         if trim(LowerCase(_item['data_type'].AsString)) = 'numeric' then
+             _type := 'REAL'
+         else
+             _type := 'TEXT';
+
+         _notNull := '';
+
+         _line := _delimiter+_item['column_name'].AsString +
+                  ' '+_type+
+                  ' '+ _notNull;
+
+         if (LowerCase(_item['column_name'].AsString) = 'id') and
+            (LowerCase(_tabelaName) = 'venda_itens') then
+            _line:= _line + ' PRIMARY KEY AUTOINCREMENT ';
+
+         _sql.Add(_line);
+
+         checaIndex(_item['column_name'].AsString,_delimiter,_index);
+         _delimiter := ',';
+    end;
+    _Sql.Add(')');
+
+    if trim(_index) <> '' then
+      _index := 'CREATE INDEX IDX_'+_tabelaName+ ' ON ' +_tabelaName + '('+
+                _index+');';
+
+    with qTable do
+    Begin
+        Close;
+        Sql.Clear;
+        Sql.Text:=_sql.Text;
+        if _ddl.Count > 0 then ExecSQL;
+
+        Close;
+        Sql.Clear;
+        Sql.Add(_index);
+        if _index <> '' then
+          if _ddl.Count > 0 then ExecSQL;
+    end;
+
+    FreeAndNil(_sql);
+    FreeAndNil(qTable);
+end;
+
+procedure TConexao.ChecaDDL(_tabelaName: string; _ddl: TJsonArray);
+var
+   _sql : TStringList;
+   _item : TJsonObject;
+   _line , _delimiter, _type, _notNull: String;
+   _index : String;
+   i : Integer;
+   qTable : TZQuery;
+
+   _find : Boolean;
+begin
+ try
+   _sql := TStringList.Create;
+   qTable := TZQuery.Create(nil);
+   qTable.Connection := Conector;
+
+   _delimiter := '';
+   _index:='';
+
+   if _tabelaName = 'venda_itens' then
+      _find := false;
+
+    for i := 0 to _ddl.Count -1 do
+    Begin
+         _item := _ddl.Items[i].AsObject;
+         _find := false;
+
+         with qTable do
+         Begin
+            Close;
+            Sql.Clear;
+            Sql.Add('SELECT');
+            Sql.Add('  p.name as column_name');
+            Sql.Add('FROM');
+            Sql.Add('  sqlite_master AS m');
+            Sql.Add('JOIN');
+            Sql.Add('  pragma_table_info(m.name) AS p');
+            Sql.Add('  where m.name = '+QuotedStr(_tabelaName));
+            Sql.Add(' and p.name = '+QuotedStr(_item['column_name'].AsString));
+            open;
+
+            _find := not IsEmpty;
+         end;
+
+
+         if not _find then
+         Begin
+               if trim(LowerCase(_item['data_type'].AsString)) = 'integer' then
+                   _type := 'INTEGER'
+               else
+               if trim(LowerCase(_item['data_type'].AsString)) = 'numeric' then
+                   _type := 'REAL'
+               else
+                   _type := 'TEXT';
+
+               _notNull := '';
+
+               _line := _delimiter+_item['column_name'].AsString +
+                        ' '+_type+
+                        ' '+ _notNull;
+
+               if (LowerCase(_item['column_name'].AsString) = 'id') and
+                  (LowerCase(_tabelaName) = 'venda_itens') then
+                  _line:= _line + ' PRIMARY KEY AUTOINCREMENT ';
+
+               _sql.Add('ADD '+_line);
+
+               checaIndex(_item['column_name'].AsString,_delimiter,_index);
+
+               _delimiter := ',';
+         end;
+    end;
+
+    if trim(_index) <> '' then
+      _index := 'CREATE INDEX IDX_'+_tabelaName+formatdatetime('ddmmyyhhmm',now)+ ' ON ' +_tabelaName + '('+
+                _index+');';
+
+    with qTable do
+    Begin
+        Close;
+        Sql.Clear;
+        Sql.Add('ALTER TABLE '+_tabelaName);
+        Sql.Add(_sql.Text);
+        Sql.Add(';');
+
+        if _tabelaName= 'venda_itens' then
+           RegistraLogRequest(_ddl.Stringify);
+
+        if _sql.Count > 0 then ExecSQL;
+
+        Close;
+        Sql.Clear;
+        Sql.Add(_index);
+        if _index <> '' then
+          if _ddl.Count > 0 then ExecSQL;
+    end;
+
+ finally
+    FreeAndNil(_sql);
+    FreeAndNil(qTable);
+ end;
+end;
+
 procedure TConexao.updateSQl(_tabela:String;_Json:TJsonObject);
 var i : Integer;
    _value : TStringlist;
@@ -763,7 +952,7 @@ try
 except
     on e:exception do
     Begin
-        RegistraLogErro('Erro Comando Sql '+e.Message);
+        RegistraLogRequest('Erro Comando Sql '+e.Message);
     end;
 end;
 end;
@@ -795,7 +984,7 @@ try
           Open;
        except
           on e:Exception do
-             RegistraLogErro(' ChecaSQL : '+_tabela+':'+e.Message);
+             RegistraLogRequest(' ChecaSQL : '+_tabela+':'+e.Message);
        end;
 
        first;
@@ -818,8 +1007,8 @@ try
 except
    on e:Exception do
    Begin
-      RegistraLogErro(' insert sql : '+_tabela+' '+e.Message);
-      RegistraLogErro(Query.Sql.Text);
+      RegistraLogRequest(' insert sql : '+_tabela+' '+e.Message);
+      RegistraLogRequest(Query.Sql.Text);
    end;
 end;
 end;

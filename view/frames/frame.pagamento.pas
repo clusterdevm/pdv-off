@@ -398,7 +398,7 @@ end;
 
 function TframePagamento.Quitado: boolean;
 begin
-   result := TotalPagar <= TotalPago;
+   result := Decimal(TotalPagar,2) <= Decimal(TotalPago,2);
 
    if not result then
       messagedlg('Valor Pago Insuficiente',mtConfirmation,[mbok],0);

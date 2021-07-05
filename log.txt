@@ -1,72 +1,4 @@
-02-07-2021 17:57:06 Tabela: bandeira_cartao Não existe localmente 
-02-07-2021 17:57:06 Tabela: bandeira_cartao Não existe localmente 
-02-07-2021 17:57:10 select sum(COALESCE(vl_produtos,0)) as tprodutos ,
-       sum(COALESCE(vl_outras_despesas) as tdespesas ,
-       sum(COALESCE(vl_acrescimo,0)) as tacrescimo ,
-       sum(COALESCE(vl_desconto,0)) as tdesconto ,
-       sum(COALESCE(bc_icms,0)) as tbc_icms ,
-       sum(COALESCE(bc_ipi,0)) as tbc_ipi ,
-       sum(COALESCE(bc_icms_st,0)) as tbc_icms_st ,
-       sum(COALESCE(bc_cofins,0)) as tbc_cofins ,
-       sum(COALESCE(bc_pis,0)) as tbc_pis ,
-       sum(COALESCE(vl_ipi,0)) as tipi ,
-       sum(COALESCE(vl_pis,0)) as tpis ,
-       0 tpis_st ,
-       sum(COALESCE(vl_retpis,0)) as tret_pis ,
-       sum(COALESCE(vl_cofins,0)) as tcofins ,
-       0 tcofins_st ,
-       sum(COALESCE(vl_retcofins,0)) as tret_cofins ,
-       sum(COALESCE(vl_icms,0)) as ticms ,
-       sum(COALESCE(vl_icms_st,0)) as ticms_st ,
-       sum(COALESCE(vl_ibpt,0)) as tibpt ,
-       sum(COALESCE(peso_liquido,0)) as tpeso_liquido ,
-       sum(COALESCE(peso_bruto,0)) as tpeso_bruto ,
-       sum(COALESCE(vl_frete,0)) as tfrete ,
-       sum(COALESCE(vl_retcsll,0)) as tret_csll ,
-       sum(COALESCE(bc_irrf,0)) as tbc_irrf ,
-       sum(COALESCE(vl_irrf,0)) as tirrf ,
-       sum(COALESCE(bc_retprev,0)) as tbc_retprev ,
-       sum(COALESCE(vl_retprev,0)) as tret_prev ,
-       sum(COALESCE(vl_seguro,0)) as tseguro ,
-       sum(COALESCE(vl_siscomex,0)) as tsiscomex 
- from venda_itens 
- where venda_id = '000020028'
-
-02-07-2021 17:58:00 Tabela: bandeira_cartao Não existe localmente 
-02-07-2021 17:58:00 Tabela: bandeira_cartao Não existe localmente 
-02-07-2021 17:58:04 select sum(COALESCE(vl_produtos,0)) as tprodutos ,
-       sum(COALESCE(vl_outras_despesas,0)) as tdespesas ,
-       sum(COALESCE(vl_acrescimo,0)) as tacrescimo ,
-       sum(COALESCE(vl_desconto,0)) as tdesconto ,
-       sum(COALESCE(bc_icms,0)) as tbc_icms ,
-       sum(COALESCE(bc_ipi,0)) as tbc_ipi ,
-       sum(COALESCE(bc_icms_st,0)) as tbc_icms_st ,
-       sum(COALESCE(bc_cofins,0)) as tbc_cofins ,
-       sum(COALESCE(bc_pis,0)) as tbc_pis ,
-       sum(COALESCE(vl_ipi,0)) as tipi ,
-       sum(COALESCE(vl_pis,0)) as tpis ,
-       0 tpis_st ,
-       sum(COALESCE(vl_retpis,0)) as tret_pis ,
-       sum(COALESCE(vl_cofins,0)) as tcofins ,
-       0 tcofins_st ,
-       sum(COALESCE(vl_retcofins,0)) as tret_cofins ,
-       sum(COALESCE(vl_icms,0)) as ticms ,
-       sum(COALESCE(vl_icms_st,0)) as ticms_st ,
-       sum(COALESCE(vl_ibpt,0)) as tibpt ,
-       sum(COALESCE(peso_liquido,0)) as tpeso_liquido ,
-       sum(COALESCE(peso_bruto,0)) as tpeso_bruto ,
-       sum(COALESCE(vl_frete,0)) as tfrete ,
-       sum(COALESCE(vl_retcsll,0)) as tret_csll ,
-       sum(COALESCE(bc_irrf,0)) as tbc_irrf ,
-       sum(COALESCE(vl_irrf,0)) as tirrf ,
-       sum(COALESCE(bc_retprev,0)) as tbc_retprev ,
-       sum(COALESCE(vl_retprev,0)) as tret_prev ,
-       sum(COALESCE(vl_seguro,0)) as tseguro ,
-       sum(COALESCE(vl_siscomex,0)) as tsiscomex 
- from venda_itens 
- where venda_id = '000020028'
-
-02-07-2021 17:59:08 select p.id produto_id, 
+05-07-2021 00:58:03 select p.id produto_id, 
         case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
         p.descricao ||' '|| grd_1.descricao_resumida||' '||
         pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
@@ -130,41 +62,7 @@ p.id = '35' or
  p.gtin = '35' or pgrd.gtin ='35' or pgrd.gtin_grade = '35' )
 order by 2
 
-02-07-2021 17:59:09 Tabela: bandeira_cartao Não existe localmente 
-02-07-2021 17:59:10 Tabela: bandeira_cartao Não existe localmente 
-02-07-2021 17:59:13 select sum(COALESCE(vl_produtos,0)) as tprodutos ,
-       sum(COALESCE(vl_outras_despesas,0)) as tdespesas ,
-       sum(COALESCE(vl_acrescimo,0)) as tacrescimo ,
-       sum(COALESCE(vl_desconto,0)) as tdesconto ,
-       sum(COALESCE(bc_icms,0)) as tbc_icms ,
-       sum(COALESCE(bc_ipi,0)) as tbc_ipi ,
-       sum(COALESCE(bc_icms_st,0)) as tbc_icms_st ,
-       sum(COALESCE(bc_cofins,0)) as tbc_cofins ,
-       sum(COALESCE(bc_pis,0)) as tbc_pis ,
-       sum(COALESCE(vl_ipi,0)) as tipi ,
-       sum(COALESCE(vl_pis,0)) as tpis ,
-       0 tpis_st ,
-       sum(COALESCE(vl_retpis,0)) as tret_pis ,
-       sum(COALESCE(vl_cofins,0)) as tcofins ,
-       0 tcofins_st ,
-       sum(COALESCE(vl_retcofins,0)) as tret_cofins ,
-       sum(COALESCE(vl_icms,0)) as ticms ,
-       sum(COALESCE(vl_icms_st,0)) as ticms_st ,
-       sum(COALESCE(vl_ibpt,0)) as tibpt ,
-       sum(COALESCE(peso_liquido,0)) as tpeso_liquido ,
-       sum(COALESCE(peso_bruto,0)) as tpeso_bruto ,
-       sum(COALESCE(vl_frete,0)) as tfrete ,
-       sum(COALESCE(vl_retcsll,0)) as tret_csll ,
-       sum(COALESCE(bc_irrf,0)) as tbc_irrf ,
-       sum(COALESCE(vl_irrf,0)) as tirrf ,
-       sum(COALESCE(bc_retprev,0)) as tbc_retprev ,
-       sum(COALESCE(vl_retprev,0)) as tret_prev ,
-       sum(COALESCE(vl_seguro,0)) as tseguro ,
-       sum(COALESCE(vl_siscomex,0)) as tsiscomex 
- from venda_itens 
- where venda_id = '000020029'
-
-02-07-2021 17:59:19 select p.id produto_id, 
+05-07-2021 00:58:04 select p.id produto_id, 
         case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
         p.descricao ||' '|| grd_1.descricao_resumida||' '||
         pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
@@ -224,305 +122,11 @@ from produtos p inner join produtos_empresa pe
 where
      1 = 1
 and ( 
-p.id = '5' or 
- p.gtin = '5' or pgrd.gtin ='5' or pgrd.gtin_grade = '5' )
+p.id = '565' or 
+ p.gtin = '565' or pgrd.gtin ='565' or pgrd.gtin_grade = '565' )
 order by 2
 
-02-07-2021 17:59:21 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '3'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '3' or 
- p.gtin = '3' or pgrd.gtin ='3' or pgrd.gtin_grade = '3' )
-order by 2
-
-02-07-2021 17:59:22 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '3'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '3' or 
- p.gtin = '3' or pgrd.gtin ='3' or pgrd.gtin_grade = '3' )
- and pgrd.id = '7'
-order by 2
-
-02-07-2021 17:59:25 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '3'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '34' or 
- p.gtin = '34' or pgrd.gtin ='34' or pgrd.gtin_grade = '34' )
-order by 2
-
-02-07-2021 17:59:29 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '3'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '39' or 
- p.gtin = '39' or pgrd.gtin ='39' or pgrd.gtin_grade = '39' )
- and pgrd.id = '36'
-order by 2
-
-02-07-2021 17:59:35 {"id":"43","venda_id":"20030","sequencia":"","produto_id":"34","descricao":"BALA BANZÉ IOGURTE","quantidade":1,"unidade_medida_id":"1","medida_descricao":"UN","valor_unitario":34,"custo_unitario":3.25,"vl_produtos":11.38,"vl_custo":0,"valor_final":11.38,"lucro":11.38,"lucro_f":11.38,"custo_f":0,"subcustof":0,"ncm":"17049020","origem_mercadoria":"0","cfop":"5102","cest":"","tributavel_quantidade":1,"tributavel_valor":11.38,"tributavel_unidade":"UN","tributavel_gtin":"789631219905","inf_fisco":"","codigo_beneficio":"","aliq_icms":0,"aliq_ipi":0,"aliq_pis":0,"aliq_pis_r":0,"aliq_cofins":0,"aliq_cofins_r":0,"aliq_desconto":0,"aliq_ibpt":0,"aliq_mva":0,"aliq_redicms":0,"aliq_redicmsst":0,"aliq_icmsinterpart":0,"aliq_icmsinter":0,"aliq_icmsufdest":0,"aliq_fcpufdest":0,"aliq_retpis":0,"aliq_retcofins":0,"aliq_retcsll":0,"aliq_irrf":0,"aliq_retprev":0,"aliq_ii":0,"aliq_iof":0,"aliq_iva":0,"aliq_frete":0,"bc_icms":0,"bc_ipi":0,"bc_icms_st":0,"qt_bc_pis":0,"bc_cofins":0,"qt_bc_cofins":0,"bc_pis":0,"bc_irrf":0,"bc_ii":0,"bc_iof":0,"bc_retprev":0,"cst_icms":"","csosn":"102","cst_ipi":"99","cst_pis":"41","cst_cofins":"41","vl_icms":0,"vl_icms_st":0,"vl_ipi":0,"vl_pis":0,"vl_cofins":0,"vl_ibpt":0,"vl_desconto":0,"vl_redicms":0,"vl_redicmsst":0,"vl_outras_despesas":0,"vl_icmsufdest":0,"vl_icmsufremet":0,"vl_fcpufdest":0,"vl_bcufdest":0,"vl_retpis":0,"vl_retcofins":0,"vl_retcsll":0,"vl_irrf":0,"vl_seguro":0,"vl_siscomex":0,"vl_acrescimo":0,"vl_ii":0,"vl_iof":0,"vl_iva":0,"vl_frete":0,"vl_bcstret":0,"vl_icmsstret":0,"vl_cred":0,"vl_retprev":0,"pedido_id":"","empresa_id":"","grade_id":"","gtin":"789631219905","lote_id":"0","inflote":"","chave_nfe":"","drawback":"","reg_exportacao":"","peso_bruto":0,"peso_liquido":0,"defaultvalue":"true","tabela_id":"","num_fatura":"","uuid":"","aliq_outras_despesas":0,"status":"","vl_final":0,"show_desconto":"true","promocional":"true"}
-02-07-2021 17:59:35 {"id":"43","venda_id":"20030","sequencia":"","produto_id":"34","descricao":"BALA BANZÉ IOGURTE","quantidade":1,"unidade_medida_id":"1","medida_descricao":"UN","valor_unitario":34,"custo_unitario":3.25,"vl_produtos":34,"vl_custo":0,"valor_final":34,"lucro":34,"lucro_f":34,"custo_f":0,"subcustof":0,"ncm":"17049020","origem_mercadoria":"0","cfop":"5102","cest":"","tributavel_quantidade":1,"tributavel_valor":34,"tributavel_unidade":"UN","tributavel_gtin":"789631219905","inf_fisco":"","codigo_beneficio":"","aliq_icms":0,"aliq_ipi":0,"aliq_pis":0,"aliq_pis_r":0,"aliq_cofins":0,"aliq_cofins_r":0,"aliq_desconto":0,"aliq_ibpt":0,"aliq_mva":0,"aliq_redicms":0,"aliq_redicmsst":0,"aliq_icmsinterpart":0,"aliq_icmsinter":0,"aliq_icmsufdest":0,"aliq_fcpufdest":0,"aliq_retpis":0,"aliq_retcofins":0,"aliq_retcsll":0,"aliq_irrf":0,"aliq_retprev":0,"aliq_ii":0,"aliq_iof":0,"aliq_iva":0,"aliq_frete":0,"bc_icms":0,"bc_ipi":0,"bc_icms_st":0,"qt_bc_pis":0,"bc_cofins":0,"qt_bc_cofins":0,"bc_pis":0,"bc_irrf":0,"bc_ii":0,"bc_iof":0,"bc_retprev":0,"cst_icms":"","csosn":"102","cst_ipi":"99","cst_pis":"41","cst_cofins":"41","vl_icms":0,"vl_icms_st":0,"vl_ipi":0,"vl_pis":0,"vl_cofins":0,"vl_ibpt":0,"vl_desconto":0,"vl_redicms":0,"vl_redicmsst":0,"vl_outras_despesas":0,"vl_icmsufdest":0,"vl_icmsufremet":0,"vl_fcpufdest":0,"vl_bcufdest":0,"vl_retpis":0,"vl_retcofins":0,"vl_retcsll":0,"vl_irrf":0,"vl_seguro":0,"vl_siscomex":0,"vl_acrescimo":0,"vl_ii":0,"vl_iof":0,"vl_iva":0,"vl_frete":0,"vl_bcstret":0,"vl_icmsstret":0,"vl_cred":0,"vl_retprev":0,"pedido_id":"","empresa_id":"","grade_id":"","gtin":"789631219905","lote_id":"0","inflote":"","chave_nfe":"","drawback":"","reg_exportacao":"","peso_bruto":0,"peso_liquido":0,"defaultvalue":"true","tabela_id":"","num_fatura":"","uuid":"","aliq_outras_despesas":0,"status":"","vl_final":0,"show_desconto":"true","promocional":"true","custo_contabil":null,"sub_total":34,"aliq_redicmsinterpart":0}
-02-07-2021 18:04:11 Tabela: bandeira_cartao Não existe localmente 
-02-07-2021 18:04:11 Tabela: bandeira_cartao Não existe localmente 
-02-07-2021 18:04:19 select sum(COALESCE(vl_produtos,0)) as tprodutos ,
-       sum(COALESCE(vl_outras_despesas,0)) as tdespesas ,
-       sum(COALESCE(vl_acrescimo,0)) as tacrescimo ,
-       sum(COALESCE(vl_desconto,0)) as tdesconto ,
-       sum(COALESCE(bc_icms,0)) as tbc_icms ,
-       sum(COALESCE(bc_ipi,0)) as tbc_ipi ,
-       sum(COALESCE(bc_icms_st,0)) as tbc_icms_st ,
-       sum(COALESCE(bc_cofins,0)) as tbc_cofins ,
-       sum(COALESCE(bc_pis,0)) as tbc_pis ,
-       sum(COALESCE(vl_ipi,0)) as tipi ,
-       sum(COALESCE(vl_pis,0)) as tpis ,
-       0 tpis_st ,
-       sum(COALESCE(vl_retpis,0)) as tret_pis ,
-       sum(COALESCE(vl_cofins,0)) as tcofins ,
-       0 tcofins_st ,
-       sum(COALESCE(vl_retcofins,0)) as tret_cofins ,
-       sum(COALESCE(vl_icms,0)) as ticms ,
-       sum(COALESCE(vl_icms_st,0)) as ticms_st ,
-       sum(COALESCE(vl_ibpt,0)) as tibpt ,
-       sum(COALESCE(peso_liquido,0)) as tpeso_liquido ,
-       sum(COALESCE(peso_bruto,0)) as tpeso_bruto ,
-       sum(COALESCE(vl_frete,0)) as tfrete ,
-       sum(COALESCE(vl_retcsll,0)) as tret_csll ,
-       sum(COALESCE(bc_irrf,0)) as tbc_irrf ,
-       sum(COALESCE(vl_irrf,0)) as tirrf ,
-       sum(COALESCE(bc_retprev,0)) as tbc_retprev ,
-       sum(COALESCE(vl_retprev,0)) as tret_prev ,
-       sum(COALESCE(vl_seguro,0)) as tseguro ,
-       sum(COALESCE(vl_siscomex,0)) as tsiscomex 
- from venda_itens 
- where venda_id = '000020030'
-
-02-07-2021 18:04:30 select p.id produto_id, 
+05-07-2021 00:58:05 select p.id produto_id, 
         case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
         p.descricao ||' '|| grd_1.descricao_resumida||' '||
         pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
@@ -586,71 +190,7 @@ p.id = '50' or
  p.gtin = '50' or pgrd.gtin ='50' or pgrd.gtin_grade = '50' )
 order by 2
 
-02-07-2021 18:04:34 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '3'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '34' or 
- p.gtin = '34' or pgrd.gtin ='34' or pgrd.gtin_grade = '34' )
-order by 2
-
-02-07-2021 18:04:38 select p.id produto_id, 
+05-07-2021 00:58:07 select p.id produto_id, 
         case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
         p.descricao ||' '|| grd_1.descricao_resumida||' '||
         pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
@@ -712,8 +252,326 @@ where
 and ( 
 p.id = '1' or 
  p.gtin = '1' or pgrd.gtin ='1' or pgrd.gtin_grade = '1' )
- and pgrd.id = '3'
 order by 2
 
-02-07-2021 18:04:48 {"id":"45","venda_id":"20031","sequencia":"","produto_id":"50","descricao":"BALINHA DO CORAÇAO","quantidade":1,"unidade_medida_id":"8","medida_descricao":"PT","valor_unitario":1,"custo_unitario":0.3,"vl_produtos":0.85,"vl_custo":0,"valor_final":0.85,"lucro":0.85,"lucro_f":0.85,"custo_f":0,"subcustof":0,"ncm":"17049020","origem_mercadoria":"0","cfop":"5102","cest":"","tributavel_quantidade":1,"tributavel_valor":0.85,"tributavel_unidade":"PT","tributavel_gtin":"","inf_fisco":"","codigo_beneficio":"","aliq_icms":0,"aliq_ipi":0,"aliq_pis":0,"aliq_pis_r":0,"aliq_cofins":0,"aliq_cofins_r":0,"aliq_desconto":0,"aliq_ibpt":0,"aliq_mva":0,"aliq_redicms":0,"aliq_redicmsst":0,"aliq_icmsinterpart":0,"aliq_icmsinter":0,"aliq_icmsufdest":0,"aliq_fcpufdest":0,"aliq_retpis":0,"aliq_retcofins":0,"aliq_retcsll":0,"aliq_irrf":0,"aliq_retprev":0,"aliq_ii":0,"aliq_iof":0,"aliq_iva":0,"aliq_frete":0,"bc_icms":0,"bc_ipi":0,"bc_icms_st":0,"qt_bc_pis":0,"bc_cofins":0,"qt_bc_cofins":0,"bc_pis":0,"bc_irrf":0,"bc_ii":0,"bc_iof":0,"bc_retprev":0,"cst_icms":"","csosn":"102","cst_ipi":"99","cst_pis":"41","cst_cofins":"41","vl_icms":0,"vl_icms_st":0,"vl_ipi":0,"vl_pis":0,"vl_cofins":0,"vl_ibpt":0,"vl_desconto":0,"vl_redicms":0,"vl_redicmsst":0,"vl_outras_despesas":0,"vl_icmsufdest":0,"vl_icmsufremet":0,"vl_fcpufdest":0,"vl_bcufdest":0,"vl_retpis":0,"vl_retcofins":0,"vl_retcsll":0,"vl_irrf":0,"vl_seguro":0,"vl_siscomex":0,"vl_acrescimo":0,"vl_ii":0,"vl_iof":0,"vl_iva":0,"vl_frete":0,"vl_bcstret":0,"vl_icmsstret":0,"vl_cred":0,"vl_retprev":0,"pedido_id":"","empresa_id":"","grade_id":"","gtin":"","lote_id":"0","inflote":"","chave_nfe":"","drawback":"","reg_exportacao":"","peso_bruto":0,"peso_liquido":0,"defaultvalue":"true","tabela_id":"","num_fatura":"","uuid":"","aliq_outras_despesas":0,"status":"","vl_final":0,"show_desconto":"true","promocional":"true"}
-02-07-2021 18:04:48 {"id":"45","venda_id":"20031","sequencia":"","produto_id":"50","descricao":"BALINHA DO CORAÇAO","quantidade":1,"unidade_medida_id":"8","medida_descricao":"PT","valor_unitario":1,"custo_unitario":0.3,"vl_produtos":1,"vl_custo":0,"valor_final":1,"lucro":1,"lucro_f":1,"custo_f":0,"subcustof":0,"ncm":"17049020","origem_mercadoria":"0","cfop":"5102","cest":"","tributavel_quantidade":1,"tributavel_valor":1,"tributavel_unidade":"PT","tributavel_gtin":"","inf_fisco":"","codigo_beneficio":"","aliq_icms":0,"aliq_ipi":0,"aliq_pis":0,"aliq_pis_r":0,"aliq_cofins":0,"aliq_cofins_r":0,"aliq_desconto":0,"aliq_ibpt":0,"aliq_mva":0,"aliq_redicms":0,"aliq_redicmsst":0,"aliq_icmsinterpart":0,"aliq_icmsinter":0,"aliq_icmsufdest":0,"aliq_fcpufdest":0,"aliq_retpis":0,"aliq_retcofins":0,"aliq_retcsll":0,"aliq_irrf":0,"aliq_retprev":0,"aliq_ii":0,"aliq_iof":0,"aliq_iva":0,"aliq_frete":0,"bc_icms":0,"bc_ipi":0,"bc_icms_st":0,"qt_bc_pis":0,"bc_cofins":0,"qt_bc_cofins":0,"bc_pis":0,"bc_irrf":0,"bc_ii":0,"bc_iof":0,"bc_retprev":0,"cst_icms":"","csosn":"102","cst_ipi":"99","cst_pis":"41","cst_cofins":"41","vl_icms":0,"vl_icms_st":0,"vl_ipi":0,"vl_pis":0,"vl_cofins":0,"vl_ibpt":0,"vl_desconto":0,"vl_redicms":0,"vl_redicmsst":0,"vl_outras_despesas":0,"vl_icmsufdest":0,"vl_icmsufremet":0,"vl_fcpufdest":0,"vl_bcufdest":0,"vl_retpis":0,"vl_retcofins":0,"vl_retcsll":0,"vl_irrf":0,"vl_seguro":0,"vl_siscomex":0,"vl_acrescimo":0,"vl_ii":0,"vl_iof":0,"vl_iva":0,"vl_frete":0,"vl_bcstret":0,"vl_icmsstret":0,"vl_cred":0,"vl_retprev":0,"pedido_id":"","empresa_id":"","grade_id":"","gtin":"","lote_id":"0","inflote":"","chave_nfe":"","drawback":"","reg_exportacao":"","peso_bruto":0,"peso_liquido":0,"defaultvalue":"true","tabela_id":"","num_fatura":"","uuid":"","aliq_outras_despesas":0,"status":"","vl_final":0,"show_desconto":"true","promocional":"true","custo_contabil":null,"sub_total":1,"aliq_redicmsinterpart":0}
+05-07-2021 00:58:08 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '3'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '1' or 
+ p.gtin = '1' or pgrd.gtin ='1' or pgrd.gtin_grade = '1' )
+ and pgrd.id = '1'
+order by 2
+
+05-07-2021 01:02:15 select sum(COALESCE(vl_produtos,0)) as tprodutos ,
+       sum(COALESCE(vl_outras_despesas,0)) as tdespesas ,
+       sum(COALESCE(vl_acrescimo,0)) as tacrescimo ,
+       sum(COALESCE(vl_desconto,0)) as tdesconto ,
+       sum(COALESCE(bc_icms,0)) as tbc_icms ,
+       sum(COALESCE(bc_ipi,0)) as tbc_ipi ,
+       sum(COALESCE(bc_icms_st,0)) as tbc_icms_st ,
+       sum(COALESCE(bc_cofins,0)) as tbc_cofins ,
+       sum(COALESCE(bc_pis,0)) as tbc_pis ,
+       sum(COALESCE(vl_ipi,0)) as tipi ,
+       sum(COALESCE(vl_pis,0)) as tpis ,
+       0 tpis_st ,
+       sum(COALESCE(vl_retpis,0)) as tret_pis ,
+       sum(COALESCE(vl_cofins,0)) as tcofins ,
+       0 tcofins_st ,
+       sum(COALESCE(vl_retcofins,0)) as tret_cofins ,
+       sum(COALESCE(vl_icms,0)) as ticms ,
+       sum(COALESCE(vl_icms_st,0)) as ticms_st ,
+       sum(COALESCE(vl_ibpt,0)) as tibpt ,
+       sum(COALESCE(peso_liquido,0)) as tpeso_liquido ,
+       sum(COALESCE(peso_bruto,0)) as tpeso_bruto ,
+       sum(COALESCE(vl_frete,0)) as tfrete ,
+       sum(COALESCE(vl_retcsll,0)) as tret_csll ,
+       sum(COALESCE(bc_irrf,0)) as tbc_irrf ,
+       sum(COALESCE(vl_irrf,0)) as tirrf ,
+       sum(COALESCE(bc_retprev,0)) as tbc_retprev ,
+       sum(COALESCE(vl_retprev,0)) as tret_prev ,
+       sum(COALESCE(vl_seguro,0)) as tseguro ,
+       sum(COALESCE(vl_siscomex,0)) as tsiscomex 
+ from venda_itens 
+ where venda_id = '000020015'
+
+05-07-2021 01:03:43 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '3'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '5' or 
+ p.gtin = '5' or pgrd.gtin ='5' or pgrd.gtin_grade = '5' )
+order by 2
+
+05-07-2021 01:03:45 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '3'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '50' or 
+ p.gtin = '50' or pgrd.gtin ='50' or pgrd.gtin_grade = '50' )
+order by 2
+
+05-07-2021 01:03:48 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '3'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '50' or 
+ p.gtin = '50' or pgrd.gtin ='50' or pgrd.gtin_grade = '50' )
+order by 2
+
+05-07-2021 01:04:01 select sum(COALESCE(vl_produtos,0)) as tprodutos ,
+       sum(COALESCE(vl_outras_despesas,0)) as tdespesas ,
+       sum(COALESCE(vl_acrescimo,0)) as tacrescimo ,
+       sum(COALESCE(vl_desconto,0)) as tdesconto ,
+       sum(COALESCE(bc_icms,0)) as tbc_icms ,
+       sum(COALESCE(bc_ipi,0)) as tbc_ipi ,
+       sum(COALESCE(bc_icms_st,0)) as tbc_icms_st ,
+       sum(COALESCE(bc_cofins,0)) as tbc_cofins ,
+       sum(COALESCE(bc_pis,0)) as tbc_pis ,
+       sum(COALESCE(vl_ipi,0)) as tipi ,
+       sum(COALESCE(vl_pis,0)) as tpis ,
+       0 tpis_st ,
+       sum(COALESCE(vl_retpis,0)) as tret_pis ,
+       sum(COALESCE(vl_cofins,0)) as tcofins ,
+       0 tcofins_st ,
+       sum(COALESCE(vl_retcofins,0)) as tret_cofins ,
+       sum(COALESCE(vl_icms,0)) as ticms ,
+       sum(COALESCE(vl_icms_st,0)) as ticms_st ,
+       sum(COALESCE(vl_ibpt,0)) as tibpt ,
+       sum(COALESCE(peso_liquido,0)) as tpeso_liquido ,
+       sum(COALESCE(peso_bruto,0)) as tpeso_bruto ,
+       sum(COALESCE(vl_frete,0)) as tfrete ,
+       sum(COALESCE(vl_retcsll,0)) as tret_csll ,
+       sum(COALESCE(bc_irrf,0)) as tbc_irrf ,
+       sum(COALESCE(vl_irrf,0)) as tirrf ,
+       sum(COALESCE(bc_retprev,0)) as tbc_retprev ,
+       sum(COALESCE(vl_retprev,0)) as tret_prev ,
+       sum(COALESCE(vl_seguro,0)) as tseguro ,
+       sum(COALESCE(vl_siscomex,0)) as tsiscomex 
+ from venda_itens 
+ where venda_id = '000020016'
+

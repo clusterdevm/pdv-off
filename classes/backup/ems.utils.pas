@@ -33,6 +33,7 @@ var Sessao : TSessao;
   procedure OnSair(Sender: TObject);
   Function FlagBoolean(value:string):String;
   Procedure RegistraLogErro(value:string);
+  Procedure RegistraLogRequest(value:string);
 
   function DownloadAtualizacao(var versao:string) :  boolean;
 
@@ -135,6 +136,8 @@ Var
   _BalancaValor : boolean;
 begin
   _Codigo := UpperCase(_Codigo);
+
+  quantidade := 1;
 
   Valido := false;
 
@@ -402,6 +405,32 @@ begin
   end;
 end;
 
+procedure RegistraLogRequest(value: string);
+var _text : TStringList;
+    _diretorio,_file : String;
+begin
+  try
+     _text := TStringList.Create;
+     _diretorio := extractfiledir(paramstr(0));// ExtractFileDir(ApplicationName);
+
+     {$IFDEF MSWINDOWS}
+        _file := _diretorio+'\log_request.txt';
+     {$else}
+        _file := _diretorio+'/log_request.txt';
+     {$ENDIF}
+
+     if FileExists(_file) then
+        _text.LoadFromFile(_file);
+
+     _text.Add(formatdatetime('dd-mm-yyyy hh:mm:ss',now)+' '+value);
+
+     _text.SaveToFile(_file);
+  finally
+     FreeAndNil(_text);
+  end;
+
+end;
+
 function DownloadAtualizacao(var versao: string): boolean;
 var _api : TRequisicao;
 begin
@@ -579,7 +608,13 @@ end;
 
 function ToValor(value: string): Extended;
 begin
-   value := SubsString(value,',','.');
+
+  {$IFDEF MSWINDOWS}
+      value := SubsString(value,',','.');
+  {$else}
+      value := SubsString(value,',','.');
+  {$ENDIF}
+
    TryStrToFloat(value, result);
 end;
 

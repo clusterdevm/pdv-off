@@ -156,7 +156,6 @@ type
 
   public
          Procedure ShowInfProduto;
-         Procedure BuscaItem;
          Procedure listaOperacoes;
          Procedure SetVenda;
 
@@ -669,6 +668,9 @@ begin
         messagedlg('Este Checkout não possui caixa em aberto',mtWarning,[mbok],0)
     else
     Begin
+        if TabControl1.Tabs.Count > 0 then
+           FinalizaProcesso('Existe vendas em andamento feche-as primeiro');
+
         sessao.FechaCaixa;
         GetVendasAndamento;
     end;
@@ -784,10 +786,6 @@ begin
 
 end;
 
-procedure Tform_venda.BuscaItem;
-begin
-
-end;
 
 procedure Tform_venda.listaOperacoes;
 begin
