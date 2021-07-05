@@ -9,7 +9,7 @@ object frm_login: Tfrm_login
   Color = clWhite
   DefaultMonitor = dmPrimary
   OnCloseQuery = FormCloseQuery
-  OnCreate = FormCreate
+  OnCreate = FormShow
   OnShow = FormShow
   Position = poScreenCenter
   object Panel1: TPanel
@@ -21,7 +21,6 @@ object frm_login: Tfrm_login
     ClientHeight = 640
     ClientWidth = 355
     TabOrder = 0
-    OnClick = Panel1Click
     object Image2: TImage
       Left = 40
       Height = 98
@@ -11577,10 +11576,6 @@ object frm_login: Tfrm_login
     ConnectTimeout = 3000
     HTTPversion = '1.1'
     AllowRedirect = False
-    OnRedirect = FPHTTPClient1Redirect
-    OnDataReceived = FPHTTPClient1DataReceived
-    OnHeaders = FPHTTPClient1Headers
-    OnGetSocketHandler = FPHTTPClient1GetSocketHandler
     Left = 512
     Top = 56
   end

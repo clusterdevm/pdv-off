@@ -5,7 +5,7 @@ unit model.login;
 interface
 
 uses
-  Classes, SysUtils, ems.conexao, model.request.http, classe.utils,
+  Classes, SysUtils, ems.conexao, model.request.http, ems.utils,
   uf_selecionaEmpresa, Dialogs, jsons;
 
 type
@@ -61,6 +61,8 @@ begin
               _data := TConexao.Create;
               with _data.query do
               Begin
+                  Close;
+                  Sql.Clear;
                   SQL.Add('update ems_pdv set status = '+QuotedStr(_api.Return['resultado'].AsObject['status'].AsString));
                   Sql.Add(' , modelo_default = '+QuotedStr(_api.Return['resultado'].AsObject['modelo_default'].AsString));
                   SQL.Add(', id = '+QuotedStr(_api.Return['resultado'].AsObject['id'].AsString));
@@ -98,7 +100,6 @@ var _jsonBody : TjsonObject;
   i : Integer;
 begin
   try
-
     _api := TRequisicao.Create;
     self.token_local := GetUUID;
 
@@ -112,6 +113,7 @@ begin
     _api.AutUserPass:= self.senha;
     _api.Metodo:='post';
     _api.rota:='hibrido';
+    Showmessage('4');
     _api.Execute;
 
     if _api.ResponseCode in [200..207] then
@@ -193,6 +195,7 @@ begin
      result := false;
      self.status := 'sem registro';
      data := TConexao.Create;
+
      with data.Query do
      Begin
           Sql.Clear;
@@ -201,6 +204,7 @@ begin
 
           if not IsEmpty then
           Begin
+
               self.token_remoto:= FieldByName('token_remoto').AsString;
               getStatusRemoto;
 

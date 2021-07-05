@@ -63,39 +63,10 @@ uses cluster_pdv.sessao, thread.wait;
 { Tfrm_login }
 
 procedure Tfrm_login.FormCreate(Sender: TObject);
-//var _conf : TIniFile;
-//    _file : String;
 Begin
-   //try
-   //  {$IFDEF MSWINDOWS}
-   //     _file := extractfiledir(paramstr(0))+'\conf.ini';
-   //  {$else}
-   //     _file := extractfiledir(paramstr(0))+'/conf.ini';
-   //  {$ENDIF}
-   //
-   //   _conf := TIniFile.Create(_file);
-   //   appVersao := _conf.ReadString('geral','versao','');
-   //   appProducao := not (LowerCase(_conf.ReadString('geral','teste',''))='true');
-   //
-   //  if DownloadAtualizacao(appVersao) then
-   //  Begin
-   //      _conf.WriteString('geral','versao',appVersao);
-   //
-   //      MessageDlg('Feche a Aplicação e Abra novamente',mtInformation,[mbok],0);
-   //      Application.Terminate;
-   //  end;
-   //
-   //finally
-   //  FreeAndnil(_conf);
-   //end;
-   //
    Screen.OnActiveControlChange := ControlChange;
-   //ChecaStatus;
-
    Sessao := TSessao.Create;
    Sessao.segundoplano:= false;
-
-   //WCursor := TWaitCursor.Create;
 end;
 
 procedure Tfrm_login.FormShow(Sender: TObject);
@@ -150,10 +121,8 @@ begin
        objeto.email := edtEmail.text;
        objeto.senha := edtSenha.text;
        objeto.apelido := edtApelido.text;
-
        Sessao.usuario := edtEmail.Text;
        Sessao.senha := edtSenha.Text;
-
        if edtApelido.visible then
        Begin
             if trim(edtApelido.Text) = '' then

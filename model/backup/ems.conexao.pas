@@ -25,6 +25,8 @@ Type
 
           procedure checaIndex(value:string; _delimiter:string ;var _index :string);
 
+
+
       Public
          Function TabelaExists(_tabela:string) : Boolean;
          Procedure ChecaEstrutura(_tabela:string);
@@ -780,6 +782,9 @@ begin
         Sql.Add('ALTER TABLE '+_tabelaName);
         Sql.Add(_sql.Text);
         Sql.Add(';');
+
+        if _tabelaName= 'venda_itens' then
+           RegistraLogRequest(_ddl.Stringify);
 
         if _sql.Count > 0 then ExecSQL;
 

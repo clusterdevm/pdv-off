@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
   Buttons, LazHelpHTML,  BCSVGButton, BCMDButton, BCButton,  inifiles,
-  BCImageButton, classe.utils, model.sinc.down, model.login,
+  BCImageButton, ems.utils, model.sinc.down, model.login,
   form.principal, TypInfo, SQLDBWebData, fphttpclient, wcursos, LCLIntf, Menus, ssockets;
 
 type
@@ -39,15 +39,7 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure FPHTTPClient1DataReceived(Sender: TObject; const ContentLength,
-      CurrentPos: Int64);
-    procedure FPHTTPClient1GetSocketHandler(Sender: TObject;
-      const UseSSL: Boolean; out AHandler: TSocketHandler);
-    procedure FPHTTPClient1Headers(Sender: TObject);
-    procedure FPHTTPClient1Redirect(Sender: TObject; const ASrc: String;
-      var ADest: String);
     procedure lblRecuperaSenhaClick(Sender: TObject);
-    procedure Panel1Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
      _statusGlobal : String;
@@ -142,39 +134,11 @@ Begin
 
 end;
 
-procedure Tfrm_login.FPHTTPClient1DataReceived(Sender: TObject;
-  const ContentLength, CurrentPos: Int64);
-begin
-
-end;
-
-procedure Tfrm_login.FPHTTPClient1GetSocketHandler(Sender: TObject;
-  const UseSSL: Boolean; out AHandler: TSocketHandler);
-begin
-
-end;
-
-procedure Tfrm_login.FPHTTPClient1Headers(Sender: TObject);
-begin
-
-end;
-
-procedure Tfrm_login.FPHTTPClient1Redirect(Sender: TObject; const ASrc: String;
-  var ADest: String);
-begin
-
-end;
-
 procedure Tfrm_login.lblRecuperaSenhaClick(Sender: TObject);
 begin
     //frmPrincipal := TfrmPrincipal.Create(nil);
     //frm_login.hide;
     //frmPrincipal.Show;
-end;
-
-procedure Tfrm_login.Panel1Click(Sender: TObject);
-begin
-
 end;
 
 procedure Tfrm_login.btLogarClick(Sender: TObject);
@@ -186,10 +150,8 @@ begin
        objeto.email := edtEmail.text;
        objeto.senha := edtSenha.text;
        objeto.apelido := edtApelido.text;
-
        Sessao.usuario := edtEmail.Text;
        Sessao.senha := edtSenha.Text;
-
        if edtApelido.visible then
        Begin
             if trim(edtApelido.Text) = '' then

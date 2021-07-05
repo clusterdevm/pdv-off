@@ -25,6 +25,8 @@ Type
 
           procedure checaIndex(value:string; _delimiter:string ;var _index :string);
 
+
+
       Public
          Function TabelaExists(_tabela:string) : Boolean;
          Procedure ChecaEstrutura(_tabela:string);
@@ -160,7 +162,7 @@ begin
   except
      on e:Exception do
      Begin
-         RegistraLogRequest('Create Coenxao:'+e.message);
+         RegistraLogRequest('Create Conexao:'+e.message);
      end;
   end;
 end;

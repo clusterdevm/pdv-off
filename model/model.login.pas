@@ -61,6 +61,8 @@ begin
               _data := TConexao.Create;
               with _data.query do
               Begin
+                  Close;
+                  Sql.Clear;
                   SQL.Add('update ems_pdv set status = '+QuotedStr(_api.Return['resultado'].AsObject['status'].AsString));
                   Sql.Add(' , modelo_default = '+QuotedStr(_api.Return['resultado'].AsObject['modelo_default'].AsString));
                   SQL.Add(', id = '+QuotedStr(_api.Return['resultado'].AsObject['id'].AsString));
@@ -98,7 +100,6 @@ var _jsonBody : TjsonObject;
   i : Integer;
 begin
   try
-
     _api := TRequisicao.Create;
     self.token_local := GetUUID;
 
@@ -193,6 +194,7 @@ begin
      result := false;
      self.status := 'sem registro';
      data := TConexao.Create;
+
      with data.Query do
      Begin
           Sql.Clear;
@@ -201,6 +203,7 @@ begin
 
           if not IsEmpty then
           Begin
+
               self.token_remoto:= FieldByName('token_remoto').AsString;
               getStatusRemoto;
 
