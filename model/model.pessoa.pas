@@ -39,7 +39,7 @@ implementation
 
 procedure TPessoa.Listar(_db: TConexao);
 begin
-    with _db.Query  do
+    with _db.qrySelect  do
     Begin
         Close;
         Sql.Clear;
@@ -76,7 +76,7 @@ begin
    try
      _db := TConexao.Create;
      Result := false;
-     with _db.query do
+     with _db.qrySelect do
      Begin
          Close;
          Sql.Clear;

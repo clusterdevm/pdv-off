@@ -203,7 +203,7 @@ begin
 
    try
      _db := TConexao.Create;
-     with _db.Query do
+     with _db.qrySelect do
      Begin
           Close;
           Sql.Clear;
@@ -219,14 +219,15 @@ begin
           end;
           SetVenda;
      end;
+
      if TabControl1.Tabs.Count = 0 then
      Begin
-        ac_abreCaixa.ShortCut := TextToShortCut('F1');
+        ac_abreCaixa.ShortCut := TextToShortCut('f1');
         ac_alterarCliente.ShortCut:= TextToShortCut('+');
      end else
      Begin
        ac_abreCaixa.ShortCut := TextToShortCut('+');
-       ac_alterarCliente.ShortCut:= TextToShortCut('F1');
+       ac_alterarCliente.ShortCut:= TextToShortCut('f1');
      end;
 
    finally
@@ -606,7 +607,7 @@ begin
            qryItens.DisableControls;
            qryItens.RecNo:= StrToInt(_sequencia);
 
-           with _db.Query do
+           with _db.qrySelect do
            Begin
               Close;
               Sql.Clear;
@@ -670,6 +671,7 @@ begin
     Begin
         if TabControl1.Tabs.Count > 0 then
            FinalizaProcesso('Existe vendas em andamento feche-as primeiro');
+
         sessao.FechaCaixa;
         GetVendasAndamento;
     end;
@@ -808,7 +810,7 @@ begin
 
              qryItens.DisableControls;
              _valorBruto:= 0; _valorPromocao:= 0; _Pecas:= 0;
-             with _db.Query do
+             with _db.qrySelect do
              Begin
                   Close;
                   Sql.Clear;

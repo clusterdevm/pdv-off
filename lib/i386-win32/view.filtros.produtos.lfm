@@ -10,6 +10,7 @@ object f_produtosPesquisa: Tf_produtosPesquisa
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
   object Panel1: TPanel
     Left = 0
     Height = 50

@@ -92,7 +92,7 @@ begin
              Begin
                  try
                     _remove := TConexao.Create;
-                      with _remove.Query do
+                      with _remove.qryPost do
                       Begin
                           Close;
                           Sql.Clear;
@@ -123,6 +123,7 @@ try
         _api.Metodo:= 'post';
         _api.webservice:= getEMS_Webservice(mPDV);
         _api.AddHeader('token-pdv',UpperCase(FTokenPDV));
+        _api.AddHeader('protocolo',FProtocolo);
         _api.rota:='hibrido';
         _api.endpoint:= 'download';
         //_api.fphttpclient.OnDataReceived:= ControleDown;
@@ -142,6 +143,7 @@ try
             if _api.ResponseCode <> 204 then
                 FResponse.Parse(_api.return.Stringify);
 
+            //RegistraLogRequest('erro: '+_api.response);
            _ok := true;
         end;
 
@@ -170,7 +172,7 @@ begin
 try
   try
       _tabela := TConexao.Create;
-      with _tabela.Query do
+      with _tabela.qrySelect do
       Begin
          Close;
          Sql.Clear;
@@ -230,7 +232,7 @@ except
      on e:exception do
      Begin
            RegistraLogRequest('Criar Tabela '+_tabelaName+' ' +e.message);
-           RegistraLogRequest('empresa: '  +_db.query.SQL.Text );
+           RegistraLogRequest('empresa: '  +_db.qrySelect.SQL.Text );
      end;
 end;
 end;
@@ -278,7 +280,7 @@ end;
 
 procedure TSincDownload.PreparaUpload(_upload: TJsonObject);
 begin
-    with _db.Query do
+    with _db.qrySelect do
     Begin
          _db.ChecaEstrutura('financeiro_caixa');
          Close;
@@ -391,7 +393,7 @@ begin
                 end;
                 TabelasValidada := true;
            end else
-            RegistraLogRequest(_api.response);
+            RegistraLogRequest('Erro:' +_api.response);
        finally
            FreeAndNil(_api);
        end;
@@ -405,7 +407,8 @@ procedure TSincDownload.Execute;
 var
    _itensJson : TJsonObject;
     j,i : Integer;
-    _ok : Boolean;
+    _ok, _finalizado : Boolean;
+    _time : integer;
 begin
 
   while Fprocessando do
@@ -419,7 +422,10 @@ begin
             Consulta_Api(_ok);
 
             FProtocolo:= FResponse['resultado'].AsObject['protocolo'].AsString;
+            _finalizado:= FResponse['resultado'].AsObject['finalizado'].AsBoolean;
+
             FResponse['resultado'].AsObject.Delete('protocolo');
+            FResponse['resultado'].AsObject.Delete('finalizado');
             FResponse['resultado'].AsObject.Delete('registros');
 
            if (_ok) and (FResponse.Stringify <> '{}') then
@@ -471,7 +477,10 @@ begin
                   if NOT Fprocessando then
                   Begin
                       if (not FErro_Processamento) and (_itensJson.Count> 0) then
-                         Concluir;
+                      Begin
+                           if _finalizado then
+                              Concluir;
+                      end;
 
                       FFalhou:= FErro_Processamento;
                   end;
@@ -481,7 +490,14 @@ begin
            else
               Fprocessando:= false;
 
-             FResponse.Clear;
+           if _finalizado = true then
+           Begin
+               _time := 5000 ;
+               FProtocolo := '';
+           end
+           else
+             _time := 0;
+
 
             if (Sessao.segundoplano) then
             Begin
@@ -495,13 +511,30 @@ begin
                  FMsg:= 'Ultima Sicronização '+ FormatDateTime('dd/mm/yyyy hh:mm:ss',now);
                  Synchronize(AtualizaLog);
                  Fprocessando:= true;
-                 Delay(5000);
+                 Delay(_time);
+            end else
+            Begin
+                FMsg:= 'Etapa: '+ FResponse['etapa'].AsString +
+                       ' > Registros : '+ FResponse['registro'].AsString;
+
+                Synchronize(AtualizaLog);
+                Delay(2000);
+
+                Fprocessando:= not _finalizado;
             end;
+
+            FResponse.Clear;
       except
-            Fprocessando:= true;
-            FMsg:= 'Erro ao Processar';
-            Synchronize(AtualizaLog);
-            Delay(1000);
+          on e:exception do
+          Begin
+              RegistraLogErro(e.message);
+              Fprocessando:= not _finalizado;
+              FMsg:= 'Erro ao Processar';
+
+              Synchronize(AtualizaLog);
+              FProtocolo:= '';
+              Delay(1000);
+          end;
       end;
   end;
 end;
@@ -564,6 +597,7 @@ begin
   Synchronize(AtualizaLog);
   FreeAndNil(FResponse);
   FreeAndNIl(FHistorico);
+  FreeAndNIl(_db);
   inherited Destroy;
 end;
 

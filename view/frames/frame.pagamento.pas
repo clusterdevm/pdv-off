@@ -258,7 +258,7 @@ begin
        if not _db.TabelaExists('moeda') then
           exit;
 
-       with _db.Query do
+       with _db.qrySelect do
        Begin
              Close;
              Sql.Clear;
@@ -294,7 +294,7 @@ begin
        if not _db.TabelaExists('bandeira_cartao') then
           exit;
 
-       with _db.Query do
+       with _db.qrySelect do
        Begin
              Close;
              Sql.Clear;
@@ -330,7 +330,7 @@ begin
        if not _db.TabelaExists('bandeira_cartao') then
           exit;
 
-       with _db.Query do
+       with _db.qrySelect do
        Begin
              Close;
              Sql.Clear;

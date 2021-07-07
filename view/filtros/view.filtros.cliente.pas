@@ -95,7 +95,7 @@ begin
       end;
       _objeto.Listar(_db);
 
-      StatusBar1.Panels[0].Text:= 'Registro(s) Encontrado(s):' +IntToStr(_db.Query.RecordCount);
+      StatusBar1.Panels[0].Text:= 'Registro(s) Encontrado(s):' +IntToStr(_db.qrySelect.RecordCount);
    finally
         FreeAndNil(_objeto);
    end;
@@ -223,13 +223,13 @@ begin
 
    _FiltroID := false;
    _db := TConexao.Create;
-   dsCliente.DataSet := _db.Query;
+   dsCliente.DataSet := _db.qrySelect;
 
 
-   _db.Query.FieldDefs.Add('id', ftInteger);
-   _db.Query.FieldDefs.Add('nome', ftString,100);
-   _db.Query.FieldDefs.Add('fantasia', ftString,100);
-   _db.Query.FieldDefs.Add('cpf_cnpj', ftString,20);
+   _db.qrySelect.FieldDefs.Add('id', ftInteger);
+   _db.qrySelect.FieldDefs.Add('nome', ftString,100);
+   _db.qrySelect.FieldDefs.Add('fantasia', ftString,100);
+   _db.qrySelect.FieldDefs.Add('cpf_cnpj', ftString,20);
 end;
 
 procedure TfrmFiltroCliente.FormShow(Sender: TObject);

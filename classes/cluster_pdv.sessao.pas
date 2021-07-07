@@ -118,7 +118,7 @@ begin
         _db := TConexao.Create;
         Result := '0';
 
-        with _db.Query do
+        with _db.qrySelect do
         Begin
             Close;
             Sql.Clear;
@@ -138,7 +138,7 @@ var _db :TConexao;
 begin
   try
      _db := TConexao.Create;
-     with _db.Query do
+     with _db.qrySelect do
      Begin
          Close;
          Sql.Add('select id from ems_pdv ');
@@ -171,7 +171,7 @@ begin
   Begin
       try
           _db := TConexao.Create;
-          with _db.Query do
+          with _db.qrySelect do
           Begin
               Close;
               Sql.Clear;
@@ -197,7 +197,7 @@ begin
   Begin
       try
           _db := TConexao.Create;
-          with _db.Query do
+          with _db.qrySelect do
           Begin
               Close;
               Sql.Clear;
@@ -234,7 +234,7 @@ begin
   Begin
       try
           _db := TConexao.Create;
-          with _db.Query do
+          with _db.qrySelect do
           Begin
               Close;
               Sql.Clear;
@@ -270,7 +270,7 @@ begin
   Begin
       try
           _db := TConexao.Create;
-          with _db.Query do
+          with _db.qrySelect do
           Begin
               Close;
               Sql.Clear;
@@ -305,7 +305,7 @@ begin
   Begin
       try
           _db := TConexao.Create;
-          with _db.Query do
+          with _db.qrySelect do
           Begin
               Close;
               Sql.Clear;
@@ -366,7 +366,7 @@ begin
 
   try
       _db := TConexao.Create;
-      with _db.Query do
+      with _db.qrySelect do
       Begin
           Close;
           Sql.Clear;
@@ -399,7 +399,7 @@ var _db : TConexao;
 begin
   try
       _db := TConexao.Create;
-      with _db.Query do
+      with _db.qrySelect do
       Begin
           Close;
           Sql.Clear;
@@ -439,7 +439,7 @@ var _db : TConexao;
 begin
    try
        _db := TConexao.Create;
-       with _db.Query do
+       with _db.qryPost do
        Begin
             Close;
             Sql.Clear;
@@ -472,7 +472,7 @@ begin
       _db := TConexao.Create;
       result := '';
 
-      With _db.Query do
+      With _db.qrySelect do
       Begin
          Close;
          Sql.Clear;
@@ -561,7 +561,7 @@ begin
   Begin
       try
           _db := TConexao.Create;
-          with _db.Query do
+          with _db.qrySelect do
           Begin
               Close;
               Sql.Clear;

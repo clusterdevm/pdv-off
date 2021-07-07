@@ -8,7 +8,7 @@ uses
   Classes, SysUtils, jsons, model.vendas.config, clipbrd;
 
        Function RegistraItemVenda(_codigo : String; _venda : integer; quantidade : double ) : Boolean;
-       procedure VendaGetItemRecalculo(_dados : TJsonObject);
+       procedure VendaGetItemRecalculo(var _dados : TJsonObject);
 implementation
 
 uses ems.conexao, ems.utils, model.vendas.imposto,
@@ -185,7 +185,7 @@ begin
    Result := false;
    try
       _db := TConexao.Create;
-      with _db.Query do
+      with _db.qrySelect do
       Begin
         Close;
         Sql.Clear;

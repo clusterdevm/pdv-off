@@ -11,6 +11,7 @@ object f_fechamento: Tf_fechamento
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
   object Panel1: TPanel
     Left = 0
     Height = 50
@@ -115,7 +116,7 @@ object f_fechamento: Tf_fechamento
     OnExit = ed_entregaExit
     object TabSheet1: TTabSheet
       Caption = 'TabSheet1'
-      ClientHeight = 461
+      ClientHeight = 458
       ClientWidth = 630
       object Panel3: TPanel
         Left = 0
@@ -454,7 +455,7 @@ object f_fechamento: Tf_fechamento
     end
     object TabSheet3: TTabSheet
       Caption = 'TabSheet3'
-      ClientHeight = 461
+      ClientHeight = 458
       ClientWidth = 630
       object Panel10: TPanel
         Left = 0
@@ -495,7 +496,7 @@ object f_fechamento: Tf_fechamento
     end
     object TabSheet2: TTabSheet
       Caption = 'TabSheet2'
-      ClientHeight = 461
+      ClientHeight = 458
       ClientWidth = 630
       object Shape1: TShape
         Left = -8

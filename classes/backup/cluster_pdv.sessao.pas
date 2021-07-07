@@ -88,6 +88,7 @@ private
 
       Function GetNewDocumento : Integer;
 
+      Function PDV_ConfBalanca : String;
       Function GetCaixa : string;
 
       Function CaixaAberto : Boolean;
@@ -117,7 +118,7 @@ begin
         _db := TConexao.Create;
         Result := '0';
 
-        with _db.Query do
+        with _db.qrySelect do
         Begin
             Close;
             Sql.Clear;
@@ -137,7 +138,7 @@ var _db :TConexao;
 begin
   try
      _db := TConexao.Create;
-     with _db.Query do
+     with _db.qrySelect do
      Begin
          Close;
          Sql.Add('select id from ems_pdv ');
@@ -170,7 +171,7 @@ begin
   Begin
       try
           _db := TConexao.Create;
-          with _db.Query do
+          with _db.qrySelect do
           Begin
               Close;
               Sql.Clear;
@@ -196,7 +197,7 @@ begin
   Begin
       try
           _db := TConexao.Create;
-          with _db.Query do
+          with _db.qrySelect do
           Begin
               Close;
               Sql.Clear;
@@ -233,7 +234,7 @@ begin
   Begin
       try
           _db := TConexao.Create;
-          with _db.Query do
+          with _db.qrySelect do
           Begin
               Close;
               Sql.Clear;
@@ -269,7 +270,7 @@ begin
   Begin
       try
           _db := TConexao.Create;
-          with _db.Query do
+          with _db.qrySelect do
           Begin
               Close;
               Sql.Clear;
@@ -304,7 +305,7 @@ begin
   Begin
       try
           _db := TConexao.Create;
-          with _db.Query do
+          with _db.qrySelect do
           Begin
               Close;
               Sql.Clear;
@@ -365,7 +366,7 @@ begin
 
   try
       _db := TConexao.Create;
-      with _db.Query do
+      with _db.qrySelect do
       Begin
           Close;
           Sql.Clear;
@@ -398,7 +399,7 @@ var _db : TConexao;
 begin
   try
       _db := TConexao.Create;
-      with _db.Query do
+      with _db.qrySelect do
       Begin
           Close;
           Sql.Clear;
@@ -438,7 +439,7 @@ var _db : TConexao;
 begin
    try
        _db := TConexao.Create;
-       with _db.Query do
+       with _db.qryPost do
        Begin
             Close;
             Sql.Clear;
@@ -459,6 +460,11 @@ begin
    end;
 end;
 
+function TSessao.PDV_ConfBalanca: String;
+begin
+   Result := '';
+end;
+
 function TSessao.GetCaixa: string;
 var _db : TConexao;
 begin
@@ -466,7 +472,7 @@ begin
       _db := TConexao.Create;
       result := '';
 
-      With _db.Query do
+      With _db.qrySelect do
       Begin
          Close;
          Sql.Clear;

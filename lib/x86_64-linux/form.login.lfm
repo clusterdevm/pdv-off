@@ -11580,4 +11580,19 @@ object frm_login: Tfrm_login
     Left = 512
     Top = 56
   end
+  object SQLConnector1: TSQLConnector
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Left = 128
+    Top = 24
+  end
+  object SQLQuery1: TSQLQuery
+    PacketRecords = -1
+    FieldDefs = <>
+    Options = [sqoKeepOpenOnCommit]
+    Params = <>
+    Left = 32
+    Top = 32
+  end
 end

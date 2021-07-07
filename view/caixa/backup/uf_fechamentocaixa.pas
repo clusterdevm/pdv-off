@@ -51,7 +51,7 @@ implementation
 
 { Tf_fechamentoCaixa }
 
-uses model.conexao, ems.utils;
+uses ems.conexao, ems.utils;
 
 procedure Tf_fechamentoCaixa.FormShow(Sender: TObject);
 begin
@@ -69,7 +69,7 @@ begin
 try
    try
         _db := TConexao.Create;
-        with _db.Query do
+        with _db.qry do
         Begin
             Close;
             Sql.Clear;

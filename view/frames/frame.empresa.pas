@@ -50,7 +50,7 @@ try
      _db := TConexao.Create;
      qEmpresa.CreateDataset;
      qEmpresa.Open;
-     with _db.Query do
+     with _db.qrySelect do
      Begin
          Close;
          Sql.Clear;

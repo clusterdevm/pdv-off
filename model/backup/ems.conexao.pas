@@ -2,8 +2,9 @@ unit ems.conexao;
 
 interface
 
-uses SysUtils, Variants, Classes, ZConnection, ZDataset,
-     jsons, db, BufDataset, typinfo, dialogs,ZSqlProcessor  ;
+uses SysUtils, Variants, Classes, // ZConnection, ZDataset,
+     sqldb,
+     jsons, db, BufDataset, typinfo, dialogs  ;
 
 Type
 
@@ -11,8 +12,10 @@ Type
 
   TConexao = Class
       Private
-          Conector : TZConnection;
-          FQuery   : TZQuery;
+          Conector : TSQLConnector;
+          FqryPost: TSQLQuery;
+          Transaction : TSQLTransaction;
+          FQuery   : TSQLQuery;
           _estruturaDB: TJsonArray;
 
           Procedure GetEstrutura(_tabela:string);
@@ -31,11 +34,9 @@ Type
          Function TabelaExists(_tabela:string) : Boolean;
          Procedure ChecaEstrutura(_tabela:string);
 
-         Property Query : TZQuery      Read FQuery      Write FQuery;
+         Property qrySelect : TSQLQuery      Read FQuery      Write FQuery;
+         Property qryPost : TSQLQuery      Read FqryPost      Write FqryPost;
 
-         function Execute: Boolean;
-         Function Abrir : Boolean;
-         Function Getsql: String;
 
          Function getStr(value:String):String;
 
@@ -110,50 +111,69 @@ begin
     end;
 end;
 
-
-
-function TConexao.Abrir: Boolean;
-begin
-    Result := False;
-    Query.Open();
-    Result := True;
-end;
-
-
 constructor TConexao.Create;
 var CriarBase : boolean;
-    _PathDataBase : String;
+    _PathConnection : String;
 begin
   try
 
     {$IFDEF MSWINDOWS}
-        _PathDataBase := '.\tabela\ems.db';
+        _PathConnection := '.\tabela\ems.db';
         if not DirectoryExists('.\tabela\') then
             ForceDirectories('.\tabela\');
     {$else}
-        _PathDataBase := './tabela/ems.db';
+        _PathConnection := './tabela/ems.db';
         if not DirectoryExists('./tabela/') then
             ForceDirectories('./tabela/');
     {$ENDIF}
 
-     CriarBase:= not (fileexists(_PathDataBase));
+     CriarBase:= not (fileexists(_PathConnection));
 
-     Conector               := TZConnection.Create(nil);
-     Conector.loginprompt   := false;
-     Conector.Database      := _PathDataBase;
+     Conector := TSQLConnector.Create(nil);
+     Conector.LoginPrompt:= false;
+     Conector.ConnectorType:= 'SQLite3';
+     Conector.DataBaseName      := _PathConnection;
      Conector.HostName      := '';
      Conector.Password      := '';
-     Conector.User          := '';
-     Conector.Protocol      := 'sqlite-3';
-     Conector.AutoCommit:= true;
-     Conector.ClientCodepage:='UTF-8';
-     {$IFDEF MSWINDOWS}
-        Conector.LibraryLocation:='sqlite3.dll';
-     {$else}
-        Conector.LibraryLocation:='';
-     {$ENDIF}
-     FQuery := TZQuery.Create(nil);
-     FQuery.Connection := Conector;
+     Conector.UserName          := '';
+     Conector.CharSet:='utf-8';
+
+     Transaction := TSQLTransaction.Create(nil);
+     Transaction.DataBase := Conector;
+
+
+     //Conector               := TZConnection.Create(nil);
+     //Conector.loginprompt   := false;
+     //Conector.Database      := _PathConnection;
+     //Conector.HostName      := '';
+     //Conector.Password      := '';
+     //Conector.User          := '';
+     //Conector.Protocol      := 'sqlite-3';
+     //Conector.AutoCommit:= true;
+     //Conector.ClientCodepage:='UTF-8';
+     //{$IFDEF MSWINDOWS}
+     //   Conector.LibraryLocation:='sqlite3.dll';
+     //{$else}
+     //   Conector.LibraryLocation:='';
+     //{$ENDIF}
+
+     Transaction.Options:= stoUseImplicit;
+     ExecutaSQL('PRAGMA journal_mode=WAL');
+
+     FQuery := TSQLQuery.Create(nil);
+     FQuery.DataBase := Conector;
+     FQuery.Transaction := Transaction;
+     FQuery.Options:= [sqoAutoApplyUpdates,sqoAutoCommit,sqoRefreshUsingSelect,sqoKeepOpenOnCommit];
+
+     FqryPost := TSQLQuery.Create(nil);
+     FqryPost.DataBase := Conector;
+     FQuery.Transaction := Transaction;
+     FqryPost.Options:= [sqoAutoApplyUpdates,sqoAutoCommit,sqoRefreshUsingSelect,sqoKeepOpenOnCommit];
+
+
+    //Conector.ExecuteDirect('PRAGMA foreign_keys = OFF');
+
+     //;
 
      if CriarBase then criaBaseDefault;
 
@@ -162,7 +182,7 @@ begin
   except
      on e:Exception do
      Begin
-         RegistraLogRequest('Create Coenxao:'+e.message);
+         RegistraLogRequest('Create Conexao:'+e.message);
      end;
   end;
 end;
@@ -172,16 +192,19 @@ begin
     FQuery.Close;
     Conector.Connected := false;
     FreeAndNil(FQuery);
+    FreeAndNil(FqryPost);
     FreeAndNil(Conector);
     inherited;
 end;
 
 
 procedure TConexao.GetEstrutura( _tabela: string);
-var _dbEstrutura: TZQuery;
+var _dbEstrutura: TSQLQuery;
 begin
-  _dbEstrutura := TZQuery.Create(nil);
-  _dbEstrutura.Connection := Conector;
+  _dbEstrutura := TSQLQuery.Create(nil);
+  _dbEstrutura.DataBase := Conector;
+  _dbEstrutura.Transaction := Transaction;
+  _dbEstrutura.Options:= [sqoAutoApplyUpdates,sqoAutoCommit];
     with _dbEstrutura do
     Begin
         //CLose;
@@ -225,35 +248,29 @@ begin
   end;
 end;
 
-function TConexao.Execute: Boolean;
-begin
-    Result := False;
-    Query.ExecSQL;
-    Result := true;
-    Query.Active:=false;
-end;
 
-function TConexao.Getsql: String;
-var  i: Integer;
-  r: string;
-begin
-  Result := LowerCase(Query.SQL.Text);
-  for i := 0 to Query.Params.Count - 1 do
-  begin
-      r:= QuotedStr(Query.Params[i].AsString);
 
-      Result := StringReplace(Result, ':' + lowercase(Query.Params.Items[i].Name), r, [rfReplaceAll]);
-  end;
-end;
+//function TConexao.Getsql: String;
+//var  i: Integer;
+//  r: string;
+//begin
+//  Result := LowerCase(Query.SQL.Text);
+//  for i := 0 to Query.Params.Count - 1 do
+//  begin
+//      r:= QuotedStr(Query.Params[i].AsString);
+//
+//      Result := StringReplace(Result, ':' + lowercase(Query.Params.Items[i].Name), r, [rfReplaceAll]);
+//  end;
+//end;
 
 function TConexao.getStr(value: String): String;
 begin
-     Result := trim(Query.FieldByName(value).AsString);
+     Result := trim(qrySelect.FieldByName(value).AsString);
 end;
 
 function TConexao.ToArrayString : TJsonArray;
 begin
-     Result :=  DataSetToJsonArray(Query);
+     Result :=  DataSetToJsonArray(qrySelect);
 end;
 
 function TConexao.DataSetToArrayString(ADataset: TBufDataset;
@@ -295,14 +312,14 @@ begin
   if _first then
   Begin
      _array := TJson.Create;
-     _array.Parse(DataSetToJsonArray(query).Stringify);
+     _array.Parse(DataSetToJsonArray(qrySelect).Stringify);
       Result := _array.Get(0).AsObject;
   end else
   Begin
       _return := TJson.Create;
 
       if _nomeObjeto <> '' then
-         _return.Put(_nomeObjeto,DataSetToJsonArray(query));
+         _return.Put(_nomeObjeto,DataSetToJsonArray(qrySelect));
 
       Result := _return.JsonObject;
   end;
@@ -340,7 +357,7 @@ begin
        end;
    end;
 
-   with Query do
+   with qryPost do
    Begin
        Sql.Clear;
        Sql.Add('insert into '+_tabela+ '(' +_sql+')');
@@ -354,50 +371,42 @@ begin
 end;
 
 procedure TConexao.CriaBaseDefault;
-var _qryDefault : TZQuery;
+var _isql : TStringList;
 begin
- try
    try
-       _qryDefault := TZQuery.Create(nil);
-       _qryDefault.Connection := Conector;
+      _isql := TStringList.Create;
 
-       with _qryDefault do
+       with _isql do
        Begin
-            Close;
-            Sql.Clear;
-            Sql.Add(' CREATE TABLE ems_pdv( ');
-            Sql.Add('token_local text, ');
-            Sql.Add('token_remoto text,');
-            Sql.Add('apelido text,');
-            Sql.Add('status text,');
-            Sql.Add('primeira_sinc text,');
-            Sql.Add('modelo_default integer,');
-            Sql.Add('id integer);');
-            ExecSQL;
+            Add(' CREATE TABLE ems_pdv( ');
+            Add('token_local text, ');
+            Add('token_remoto text,');
+            Add('apelido text,');
+            Add('status text,');
+            Add('primeira_sinc text,');
+            Add('modelo_default integer,');
+            Add('id integer);');
+            ExecutaSQL(text);
        end;
-   finally
-       FreeAndNil(_qryDefault);
-   end;
 
- except
-     on e:Exception do
-     Begin
-         RegistraLogRequest('Create Default: '+e.Message);
-     end;
- end;
+       ExecutaSQL('PRAGMA journal_mode=WAL');
+   finally
+       FreeAndNil(_isql);
+   end;
 end;
 
 procedure TConexao.ExecutaSQL(isql: string; _aux:string = '');
-var iCommand :  TZSQLProcessor;
+var iCommand :  TSQLScript;
 begin
   try
-      iCommand:= TZSQLProcessor.Create(nil);
-      iCommand.Connection := Conector;
+      iCommand:= TSQLScript.Create(nil);
+      iCommand.DataBase := Conector;
+      iCommand.Transaction :=  Transaction;
+      iCommand.AutoCommit:= true;
       with iCommand do
       Begin
           Script.Clear;
           Script.Add(iSql);
-          Script.text := UTF8Encode(Script.text);
           try
               iCommand.Execute;
           except
@@ -428,12 +437,14 @@ begin
 end;
 
 function TConexao.TabelaExists(_tabela: string): Boolean;
-var qryCheca : TZQuery;
+var qryCheca : TSQLQuery;
     _find : boolean;
 begin
    try
-       qryCheca := TZQuery.Create(nil);
-       qryCheca.Connection := Conector;
+       qryCheca := TSQLQuery.Create(nil);
+       qryCheca.DataBase := Conector;
+       qryCheca.Transaction := Transaction;
+       qryCheca.Options:= [sqoAutoApplyUpdates,sqoAutoCommit];
 
        with qryCheca do
        Begin
@@ -459,12 +470,14 @@ begin
 end;
 
 procedure TConexao.ChecaEstrutura(_tabela: string);
-var qryCheca : TZQuery;
+var qryCheca : TSQLQuery;
     _find : boolean;
 begin
    try
-       qryCheca := TZQuery.Create(nil);
-       qryCheca.Connection := Conector;
+       qryCheca := TSQLQuery.Create(nil);
+       qryCheca.DataBase := Conector;
+       qryCheca.Transaction := Transaction;
+       qryCheca.Options:= [sqoAutoApplyUpdates,sqoAutoCommit];
 
        with qryCheca do
        Begin
@@ -637,11 +650,13 @@ var
    _line , _delimiter, _type, _notNull: String;
    _index : String;
    i : Integer;
-   qTable : TZQuery;
+   qTable : TSQLQuery;
 begin
    _sql := TStringList.Create;
-   qTable := TZQuery.Create(nil);
-   qTable.Connection := Conector;
+   qTable := TSQLQuery.Create(nil);
+   qTable.DataBase := Conector;
+   qTable.Transaction := Transaction;
+   qTable.Options:= [sqoAutoApplyUpdates,sqoAutoCommit];
 
    _sql.add('CREATE TABLE '+_tabelaName+'(');
    _delimiter := '';
@@ -705,14 +720,16 @@ var
    _line , _delimiter, _type, _notNull: String;
    _index : String;
    i : Integer;
-   qTable : TZQuery;
+   qTable : TSQLQuery;
 
    _find : Boolean;
 begin
  try
    _sql := TStringList.Create;
-   qTable := TZQuery.Create(nil);
-   qTable.Connection := Conector;
+   qTable := TSQLQuery.Create(nil);
+   qTable.DataBase := Conector;
+   qTable.Transaction := Transaction;
+   qTable.Options:= [sqoAutoApplyUpdates,sqoAutoCommit];
 
    _delimiter := '';
    _index:='';
@@ -783,8 +800,6 @@ begin
         Sql.Add(_sql.Text);
         Sql.Add(';');
 
-        if _tabelaName= 'venda_itens' then
-           RegistraLogRequest(_ddl.Stringify);
 
         if _sql.Count > 0 then ExecSQL;
 
@@ -829,7 +844,7 @@ begin
        end;
    end;
 
-   with Query do
+   with qryPost do
    Begin
        close;
        Sql.Clear;
@@ -925,12 +940,15 @@ end;
 
 procedure TConexao.ProcessaSinc(_name: String; _jArray: TJsonArray);
 var i : integer;
-    iSql : TZSQLProcessor;
+    iSql : TSQLScript;
 begin
 try
   try
-    iSql:= TZSQLProcessor.Create(nil);
-    iSql.Connection := Conector;
+    iSql:= TSQLScript.Create(nil);
+    iSql.DataBase := Conector;
+    iSql.Transaction :=  Transaction;
+    iSql.AutoCommit:= true;
+
     for i := 0 to _jArray.Count-1 do
     Begin
          if _jArray.Items[i].AsObject['remover'].AsBoolean  then
@@ -965,7 +983,7 @@ var _item : TJsonObject;
   i : Integer;
 begin
 try
-  with Query  do
+  with qrySelect  do
   Begin
        Close;
        Sql.Clear;
@@ -1010,7 +1028,7 @@ except
    on e:Exception do
    Begin
       RegistraLogRequest(' insert sql : '+_tabela+' '+e.Message);
-      RegistraLogRequest(Query.Sql.Text);
+      RegistraLogRequest(qrySelect.Sql.Text);
    end;
 end;
 end;
@@ -1021,10 +1039,10 @@ begin
 
     if _returnID = true then
     Begin
-        query.Open;
-        _Json['id'].AsInteger:=Query.FieldByName('id').AsInteger;
+        qryPost.Open;
+        _Json['id'].AsInteger:=qryPost.FieldByName('id').AsInteger;
     end else
-        query.ExecSQL;
+        qryPost.ExecSQL;
 end;
 
 end.

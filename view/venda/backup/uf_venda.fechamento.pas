@@ -333,7 +333,7 @@ begin
               qPagamentodescricao.Value:= FieldByName('descricao').AsString +' ('+CalculaValorStr+')';
 
               if _valorPromocao > 0 then ;
-                 qPagamentodescricao.Value := qPagamentodescricao.Value + '(Promocao '+FormatFloat(sessao.formatsubtotal(),_valorPromocao)+')');
+                 qPagamentodescricao.Value := qPagamentodescricao.Value + '(Promocao '+FormatFloat(sessao.formatsubtotal(),_valorPromocao)+')';
 
               qPagamentocrediario.Value:= trim(FieldByName('tipo_forma').AsString) = 'crediario';
               qPagamentodisplay_resumo.Value:= FieldByName('descricao').AsString;

@@ -258,7 +258,7 @@ begin
        if not _db.TabelaExists('moeda') then
           exit;
 
-       with _db.Query do
+       with _db.qrySelect do
        Begin
              Close;
              Sql.Clear;
@@ -294,7 +294,7 @@ begin
        if not _db.TabelaExists('bandeira_cartao') then
           exit;
 
-       with _db.Query do
+       with _db.qrySelect do
        Begin
              Close;
              Sql.Clear;
@@ -398,7 +398,7 @@ end;
 
 function TframePagamento.Quitado: boolean;
 begin
-   result := Decimal(TotalPagar,0) <= TotalPago,2);
+   result := Decimal(TotalPagar,2) <= Decimal(TotalPago,2);
 
    if not result then
       messagedlg('Valor Pago Insuficiente',mtConfirmation,[mbok],0);

@@ -12,6 +12,7 @@ object frm_login: Tfrm_login
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
   object Panel1: TPanel
     Left = 650
     Height = 640
@@ -11578,5 +11579,20 @@ object frm_login: Tfrm_login
     AllowRedirect = False
     Left = 512
     Top = 56
+  end
+  object SQLConnector1: TSQLConnector
+    Connected = False
+    LoginPrompt = False
+    KeepConnection = False
+    Left = 128
+    Top = 24
+  end
+  object SQLQuery1: TSQLQuery
+    PacketRecords = -1
+    FieldDefs = <>
+    Options = [sqoKeepOpenOnCommit]
+    Params = <>
+    Left = 32
+    Top = 32
   end
 end

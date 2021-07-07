@@ -30,7 +30,7 @@ type
 implementation
 
 {$R *.lfm}
- uses model.conexao;
+ uses ems.conexao;
 
 function TFrame1.GetArray: String;
 begin

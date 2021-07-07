@@ -67,7 +67,6 @@ implementation
 
 {$R *.lfm}
 
-uses ems.utils;
 
 Procedure Tf_produtosPesquisa.Pesquisa;
 begin
@@ -79,7 +78,7 @@ try
      if sessao.tabela_preco_id = 0 then
         FinalizaProcesso('Tabela de Preço padrão não informado(tabela_preco_id)');
 
-     with _db.Query do
+     with _db.qrySelect do
      Begin
         Close;
         Sql.Clear;

@@ -135,7 +135,7 @@ object framePagamento: TframePagamento
         TabPosition = tpBottom
         object tabDinheiro: TTabSheet
           Caption = 'Dinheiro'
-          ClientHeight = 98
+          ClientHeight = 99
           ClientWidth = 663
           object Label1: TLabel
             Left = 6
@@ -194,7 +194,7 @@ object framePagamento: TframePagamento
         end
         object tabCredito: TTabSheet
           Caption = 'Cartão Crédito'
-          ClientHeight = 98
+          ClientHeight = 99
           ClientWidth = 663
           object Label3: TLabel
             Left = 5
@@ -264,7 +264,7 @@ object framePagamento: TframePagamento
         end
         object tabDebito: TTabSheet
           Caption = 'Cartão Debito'
-          ClientHeight = 98
+          ClientHeight = 99
           ClientWidth = 663
           object Label5: TLabel
             Left = 5
@@ -337,7 +337,7 @@ object framePagamento: TframePagamento
         end
         object tabValeCredito: TTabSheet
           Caption = 'Vale Crédito'
-          ClientHeight = 98
+          ClientHeight = 99
           ClientWidth = 663
           object Label10: TLabel
             Left = 2
@@ -366,7 +366,7 @@ object framePagamento: TframePagamento
         end
         object tabTEF: TTabSheet
           Caption = 'TEF'
-          ClientHeight = 98
+          ClientHeight = 99
           ClientWidth = 663
           object Label7: TLabel
             Left = 0

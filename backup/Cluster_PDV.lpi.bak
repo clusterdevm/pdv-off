@@ -389,7 +389,7 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="33">
+    <Exceptions Count="35">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -489,6 +489,12 @@
       <Item33>
         <Name Value="EObjectCheck"/>
       </Item33>
+      <Item34>
+        <Name Value="EInOutError"/>
+      </Item34>
+      <Item35>
+        <Name Value="ESQLDatabaseError"/>
+      </Item35>
     </Exceptions>
   </Debugging>
 </CONFIG>

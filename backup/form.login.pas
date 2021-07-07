@@ -6,9 +6,10 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Buttons, LazHelpHTML,  BCSVGButton, BCMDButton, BCButton,  inifiles,
-  BCImageButton, ems.utils, model.sinc.down, model.login,
-  form.principal, TypInfo, SQLDBWebData, fphttpclient, wcursos, LCLIntf, Menus, ssockets;
+  Buttons, LazHelpHTML, BCSVGButton, BCMDButton, BCButton, inifiles,
+  BCImageButton, ZSqlProcessor, ems.utils, model.sinc.down, model.login,
+  form.principal, TypInfo, SQLDBWebData, fphttpclient, wcursos, LCLIntf, Menus,
+  ssockets, SQLDB, SQLite3Conn, DateUtils;
 
 type
 
@@ -32,6 +33,8 @@ type
     Panel2: TPanel;
     Panel3: TPanel;
     pnlRegistro: TPanel;
+    SQLConnector1: TSQLConnector;
+    SQLQuery1: TSQLQuery;
     Timer1: TTimer;
     procedure ApplicationProperties1Exception(Sender: TObject; E: Exception);
     procedure btLogarClick(Sender: TObject);
@@ -63,39 +66,10 @@ uses cluster_pdv.sessao, thread.wait;
 { Tfrm_login }
 
 procedure Tfrm_login.FormCreate(Sender: TObject);
-//var _conf : TIniFile;
-//    _file : String;
 Begin
-   //try
-   //  {$IFDEF MSWINDOWS}
-   //     _file := extractfiledir(paramstr(0))+'\conf.ini';
-   //  {$else}
-   //     _file := extractfiledir(paramstr(0))+'/conf.ini';
-   //  {$ENDIF}
-   //
-   //   _conf := TIniFile.Create(_file);
-   //   appVersao := _conf.ReadString('geral','versao','');
-   //   appProducao := not (LowerCase(_conf.ReadString('geral','teste',''))='true');
-   //
-   //  if DownloadAtualizacao(appVersao) then
-   //  Begin
-   //      _conf.WriteString('geral','versao',appVersao);
-   //
-   //      MessageDlg('Feche a Aplicação e Abra novamente',mtInformation,[mbok],0);
-   //      Application.Terminate;
-   //  end;
-   //
-   //finally
-   //  FreeAndnil(_conf);
-   //end;
-   //
    Screen.OnActiveControlChange := ControlChange;
-   //ChecaStatus;
-
    Sessao := TSessao.Create;
    Sessao.segundoplano:= false;
-
-   //WCursor := TWaitCursor.Create;
 end;
 
 procedure Tfrm_login.FormShow(Sender: TObject);
@@ -144,6 +118,7 @@ end;
 procedure Tfrm_login.btLogarClick(Sender: TObject);
 var objeto : TClassLogin;
     _sincronizar : TSincDownload;
+    HoraInicial : TDateTime;
 begin
      try
        objeto := TClassLogin.Create;
@@ -180,6 +155,8 @@ begin
 
                  btLogar.Enabled:=false;
 
+                 HoraInicial:= now;
+
                  _sincronizar := TSincDownload.Create(true,
                                                 pnlRegistro ,
                                                 objeto.token_remoto
@@ -189,10 +166,16 @@ begin
                  while not _sincronizar.Finished do
                      Application.ProcessMessages;
 
-                 if Assigned(_sincronizar.FatalException) then
-                   raise _sincronizar.FatalException;
+                 Showmessage('Tempo Sicronizacao' + FormatDateTime('hh:mm:ss',HoraInicial - Now));
 
                  objeto.SetPrimeiroLogFalse;
+                 if Assigned(_sincronizar.FatalException) then
+                 Begin
+                      Showmessage('Aplicação Sera Finalizada');
+                      Application.Terminate;
+                 end;
+
+
               finally
                    WCursor.SetNormal;
                    pnlRegistro.color := clDefault;

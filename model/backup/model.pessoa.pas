@@ -5,7 +5,7 @@ unit model.pessoa;
 interface
 
 uses
-  Classes, SysUtils, model.conexao, ems.utils, Dialogs;
+  Classes, SysUtils, ems.conexao, ems.utils, Dialogs;
 
 type
 
@@ -39,7 +39,7 @@ implementation
 
 procedure TPessoa.Listar(_db: TConexao);
 begin
-    with _db.Query  do
+    with _db.qrySelect  do
     Begin
         Close;
         Sql.Clear;

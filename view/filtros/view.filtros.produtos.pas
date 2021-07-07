@@ -78,7 +78,7 @@ try
      if sessao.tabela_preco_id = 0 then
         FinalizaProcesso('Tabela de Preço padrão não informado(tabela_preco_id)');
 
-     with _db.Query do
+     with _db.qrySelect do
      Begin
         Close;
         Sql.Clear;
@@ -176,13 +176,13 @@ try
         while not eof do
         begin
             qItens.Append;
-            qItensid.Value := _db.Query.FieldByName('id').AsInteger;
-            qItensdescricao.Value:= _db.Query.FieldByName('descricao').AsString;
-            qItensgrade_id.Value:= _db.Query.FieldByName('gradeamento_id').AsInteger;
-            qItensn_marca.Value:= _db.Query.FieldByName('n_marca').AsString;
-            qItenssaldo.Value:= _db.Query.FieldByName('saldo').AsFloat;
-            qItensun_medida.Value:= _db.Query.FieldByName('n_unidade').AsString;
-            qItensvalor.Value:= _db.Query.FieldByName('valor').AsFloat;
+            qItensid.Value := _db.qrySelect.FieldByName('id').AsInteger;
+            qItensdescricao.Value:= _db.qrySelect.FieldByName('descricao').AsString;
+            qItensgrade_id.Value:= _db.qrySelect.FieldByName('gradeamento_id').AsInteger;
+            qItensn_marca.Value:= _db.qrySelect.FieldByName('n_marca').AsString;
+            qItenssaldo.Value:= _db.qrySelect.FieldByName('saldo').AsFloat;
+            qItensun_medida.Value:= _db.qrySelect.FieldByName('n_unidade').AsString;
+            qItensvalor.Value:= _db.qrySelect.FieldByName('valor').AsFloat;
             qItens.Post;
             Next;
         end;

@@ -185,7 +185,7 @@ begin
    Result := false;
    try
       _db := TConexao.Create;
-      with _db.Query do
+      with _db.qrySelect do
       Begin
         Close;
         Sql.Clear;
@@ -236,13 +236,13 @@ begin
                while not eof do
                begin
                    f_produtosPesquisaSelecao.qItens.Append;
-                   f_produtosPesquisaSelecao.qItensid.Value := _db.Query.FieldByName('produto_id').AsInteger;
-                   f_produtosPesquisaSelecao.qItensdescricao.Value:= _db.Query.FieldByName('descricao').AsString;
-                   f_produtosPesquisaSelecao.qItensgrade_id.Value:= _db.Query.FieldByName('gradeamento_id').AsInteger;
-                   f_produtosPesquisaSelecao.qItensn_marca.Value:= _db.Query.FieldByName('n_marca').AsString;
-                   f_produtosPesquisaSelecao.qItenssaldo.Value:= _db.Query.FieldByName('saldo_gerencial').AsFloat;
-                   f_produtosPesquisaSelecao.qItensun_medida.Value:= _db.Query.FieldByName('medida_descricao').AsString;
-                   f_produtosPesquisaSelecao.qItensvalor.Value:= _db.Query.FieldByName('valor').AsFloat;
+                   f_produtosPesquisaSelecao.qItensid.Value := _db.qrySelect.FieldByName('produto_id').AsInteger;
+                   f_produtosPesquisaSelecao.qItensdescricao.Value:= _db.qrySelect.FieldByName('descricao').AsString;
+                   f_produtosPesquisaSelecao.qItensgrade_id.Value:= _db.qrySelect.FieldByName('gradeamento_id').AsInteger;
+                   f_produtosPesquisaSelecao.qItensn_marca.Value:= _db.qrySelect.FieldByName('n_marca').AsString;
+                   f_produtosPesquisaSelecao.qItenssaldo.Value:= _db.qrySelect.FieldByName('saldo_gerencial').AsFloat;
+                   f_produtosPesquisaSelecao.qItensun_medida.Value:= _db.qrySelect.FieldByName('medida_descricao').AsString;
+                   f_produtosPesquisaSelecao.qItensvalor.Value:= _db.qrySelect.FieldByName('valor').AsFloat;
                    f_produtosPesquisaSelecao.qItens.Post;
                    Next;
                end;

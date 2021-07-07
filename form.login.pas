@@ -6,9 +6,10 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls,
-  Buttons, LazHelpHTML,  BCSVGButton, BCMDButton, BCButton,  inifiles,
-  BCImageButton, ems.utils, model.sinc.down, model.login,
-  form.principal, TypInfo, SQLDBWebData, fphttpclient, wcursos, LCLIntf, Menus, ssockets;
+  Buttons, LazHelpHTML, BCSVGButton, BCMDButton, BCButton, inifiles,
+  BCImageButton, ZSqlProcessor, ems.utils, model.sinc.down, model.login,
+  form.principal, TypInfo, SQLDBWebData, fphttpclient, wcursos, LCLIntf, Menus,
+  ssockets, SQLDB, SQLite3Conn, DateUtils;
 
 type
 
@@ -32,6 +33,8 @@ type
     Panel2: TPanel;
     Panel3: TPanel;
     pnlRegistro: TPanel;
+    SQLConnector1: TSQLConnector;
+    SQLQuery1: TSQLQuery;
     Timer1: TTimer;
     procedure ApplicationProperties1Exception(Sender: TObject; E: Exception);
     procedure btLogarClick(Sender: TObject);
@@ -115,6 +118,7 @@ end;
 procedure Tfrm_login.btLogarClick(Sender: TObject);
 var objeto : TClassLogin;
     _sincronizar : TSincDownload;
+    HoraInicial : TDateTime;
 begin
      try
        objeto := TClassLogin.Create;
@@ -151,6 +155,8 @@ begin
 
                  btLogar.Enabled:=false;
 
+                 HoraInicial:= now;
+
                  _sincronizar := TSincDownload.Create(true,
                                                 pnlRegistro ,
                                                 objeto.token_remoto
@@ -160,10 +166,17 @@ begin
                  while not _sincronizar.Finished do
                      Application.ProcessMessages;
 
-                 if Assigned(_sincronizar.FatalException) then
-                   raise _sincronizar.FatalException;
+                 Showmessage('Tempo Sicronizacao' + FormatDateTime('hh:mm:ss',HoraInicial - Now));
 
                  objeto.SetPrimeiroLogFalse;
+                 if Assigned(_sincronizar.FatalException) then
+                 Begin
+                      Showmessage('Aplicação Sera Finalizada');
+                      Application.Terminate;
+                      Abort;
+                 end;
+
+
               finally
                    WCursor.SetNormal;
                    pnlRegistro.color := clDefault;

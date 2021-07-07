@@ -313,7 +313,7 @@ var _db : TConexao;
 begin
   try
      _db := TConexao.Create;
-     with _db.Query do
+     with _db.qrySelect do
      Begin
          Close;
          Sql.Clear;

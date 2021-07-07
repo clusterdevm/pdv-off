@@ -59,7 +59,7 @@ begin
       Begin
            try
               _data := TConexao.Create;
-              with _data.query do
+              with _data.qryPost do
               Begin
                   Close;
                   Sql.Clear;
@@ -113,7 +113,6 @@ begin
     _api.AutUserPass:= self.senha;
     _api.Metodo:='post';
     _api.rota:='hibrido';
-    Showmessage('4');
     _api.Execute;
 
     if _api.ResponseCode in [200..207] then
@@ -140,7 +139,7 @@ begin
                     Exit;
                end;
 
-               _api.AddHeader('empresa-id',Copy(f_selecionaEmpresa.cbEmpresa.Text,1,6));
+               _api.AddHeader('empresa-id',IntTostr(StrToInt(Copy(f_selecionaEmpresa.cbEmpresa.Text,1,6))));
                _api.Execute;
             finally
                 FreeAndNil(f_selecionaEmpresa);
@@ -156,7 +155,7 @@ begin
                  _item := _api.Return['resultado'].AsObject;
                  self.token_remoto:= _item['token_pdv'].AsString;
 
-                with _data.Query do
+                with _data.qryPost do
                 Begin
                     Close;
                     Sql.Clear;
@@ -172,7 +171,8 @@ begin
               finally
                 FreeAndnil(_data);
               end;
-        end;
+        end else
+           showmessage(_api.response);
     end else
     Begin
          if _api.Return.Find('json_error') > -1 then
@@ -196,7 +196,7 @@ begin
      self.status := 'sem registro';
      data := TConexao.Create;
 
-     with data.Query do
+     with data.qrySelect do
      Begin
           Sql.Clear;
           Sql.Add('select * from ems_pdv ');
@@ -244,7 +244,7 @@ try
        Result := false;
        _db := TConexao.Create;
 
-       with _db.Query  do
+       with _db.qrySelect  do
        Begin
             Close;
             Sql.Clear;
@@ -328,7 +328,7 @@ begin
   try
      result := false;
      _data := TConexao.Create;
-     with _data.Query do
+     with _data.qrySelect do
      Begin
           Close;
           Sql.Clear;
