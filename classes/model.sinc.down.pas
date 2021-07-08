@@ -291,6 +291,25 @@ begin
 
          if not IsEmpty then
             _upload['itens'].AsObject.Put('financeiro_caixa',_db.ToArrayString);
+
+
+         Close;
+         Sql.Clear;
+         Sql.Add('select * from venda ');
+         Sql.Add(' where (trim(sinc_pendente) = ''S'' or sinc_pendente is null) ');
+         open;
+
+         if not IsEmpty then
+            _upload['itens'].AsObject.Put('venda',_db.ToArrayString);
+
+         Close;
+         Sql.Clear;
+         Sql.Add('select * from venda_itens ');
+         Sql.Add(' where (trim(sinc_pendente) = ''S'' or sinc_pendente is null) ');
+         open;
+
+         if not IsEmpty then
+            _upload['itens'].AsObject.Put('venda_itens',_db.ToArrayString);
     end;
 end;
 
@@ -392,6 +411,13 @@ begin
                                        );
                 end;
                 TabelasValidada := true;
+
+                // Checando Sinc_DB e UUID
+                _db.ChecaEstrutura('venda_itens');
+                _db.ChecaEstrutura('vendas');
+                _db.ChecaEstrutura('financeiro');
+                _db.ChecaEstrutura('financeiro_caixa');
+
            end else
             RegistraLogRequest('Erro:' +_api.response);
        finally

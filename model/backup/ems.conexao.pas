@@ -157,7 +157,7 @@ begin
      //   Conector.LibraryLocation:='';
      //{$ENDIF}
 
-     Transaction.Options:= stoUseImplicit;
+     Transaction.Options:= [stoUseImplicit];
      ExecutaSQL('PRAGMA journal_mode=WAL');
 
      FQuery := TSQLQuery.Create(nil);
@@ -205,6 +205,7 @@ begin
   _dbEstrutura.DataBase := Conector;
   _dbEstrutura.Transaction := Transaction;
   _dbEstrutura.Options:= [sqoAutoApplyUpdates,sqoAutoCommit];
+
     with _dbEstrutura do
     Begin
         //CLose;
@@ -221,11 +222,12 @@ begin
         Sql.Add('JOIN');
         Sql.Add('  pragma_table_info(m.name) AS p');
         Sql.Add('  where m.name = '+QuotedStr(_tabela));
-
         open;
 
         if IsEmpty then
            raise Exception.Create('Tabela Invalida '+_tabela);
+
+        ChecaEstrutura(_tabela);
 
         _estruturaDB := DataSetToJsonArray(_dbEstrutura);
     end;
@@ -494,7 +496,7 @@ begin
 
           _find := true;
           if (_tabela = 'financeiro_caixa') or (_tabela = 'financeiro') or
-             (_tabela = 'vendas_itens') or (_tabela = 'vendas')
+             (_tabela = 'venda_itens') or (_tabela = 'vendas')
           then
              _find := false;
           if _find = false then
@@ -519,7 +521,7 @@ begin
           _find := true;
 
           if (_tabela = 'financeiro_caixa') or (_tabela = 'financeiro') or
-             (_tabela = 'vendas_itens') or (_tabela = 'vendas')
+             (_tabela = 'venda_itens') or (_tabela = 'vendas')
           then
              _find := false;
 
@@ -540,6 +542,31 @@ begin
 
           if not _find then
              ExecutaSQL('alter table '+_tabela+' add uuid text;');
+
+
+          // checando uuid_venda
+
+          _find := true;
+          if (_tabela = 'venda_itens')  then
+             _find := false;
+
+          if _find = false then
+          Begin
+                first;
+                while not eof do
+                Begin
+                     if FieldByName('column_name').AsString = 'uuid_venda' then
+                     Begin
+                         _find := true;
+                         Break;
+                     end;
+                    Next;
+                end;
+          end;
+
+          if not _find then
+             ExecutaSQL('alter table '+_tabela+' add uuid_venda text;');
+
        end;
    finally
      FreeAndNil(qryCheca);

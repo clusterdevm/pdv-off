@@ -106,9 +106,9 @@ type
     Shape4: TShape;
     Shape5: TShape;
     SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
-    SpeedButton3: TSpeedButton;
-    SpeedButton4: TSpeedButton;
+    btVendedor: TSpeedButton;
+    btCPF: TSpeedButton;
+    bt_cliente: TSpeedButton;
     TabControl1: TTabControl;
     procedure Action1Execute(Sender: TObject);
     procedure ac_alteraPrecoExecute(Sender: TObject);
@@ -152,6 +152,7 @@ type
         Procedure Redimensionar;
 
         Function GetVendaID : String;
+        Function GetVendaUUID :String;
 
 
   public
@@ -220,16 +221,6 @@ begin
           SetVenda;
      end;
 
-     if TabControl1.Tabs.Count = 0 then
-     Begin
-        ac_abreCaixa.ShortCut := TextToShortCut('f1');
-        ac_alterarCliente.ShortCut:= TextToShortCut('+');
-     end else
-     Begin
-       ac_abreCaixa.ShortCut := TextToShortCut('+');
-       ac_alterarCliente.ShortCut:= TextToShortCut('f1');
-     end;
-
    finally
        FreeAndNil(_db);
    end;
@@ -241,9 +232,23 @@ begin
   pnlImagem.Visible:= TabControl1.Tabs.Count > 0;
   pnlDireito.Visible:= TabControl1.Tabs.Count > 0;
 
+  btCPF.Left:= ed_cpf.Left;
+  btVendedor.Left:=  ed_vendedor.Left;
+  bt_cliente.Left:=  ed_cliente.Left;
+
 //  gridItens.SelectedColor:= clWhite;
 //  gridItens.Font.Color:= clBlack;
   gridItens.SelectedColor:= $00BEEDF2;
+
+    if not pnlDireito.visible then
+    Begin
+       ac_abreCaixa.ShortCut := TextToShortCut('f1');
+       ac_alterarCliente.ShortCut:= TextToShortCut('+');
+    end else
+    Begin
+      ac_abreCaixa.ShortCut := TextToShortCut('+');
+      ac_alterarCliente.ShortCut:= TextToShortCut('f1');
+    end;
 
 end;
 
@@ -261,6 +266,7 @@ begin
   Begin
       InputQuery('Cluster Sistemas','CPF Na Nota',_cpf);
   end;
+
 
     try
        _db := TConexao.Create;
@@ -311,7 +317,7 @@ begin
       if _quantidade = 0 then
         FinalizaProcesso('Quantidade Invalida');
 
-      if RegistraItemVenda(_produtoID,StrToInt(GetVendaID),_quantidade) then
+      if RegistraItemVenda(_produtoID,GetVendaUUID,_quantidade) then
          SetVenda;
 end;
 
@@ -331,6 +337,26 @@ end;
 function Tform_venda.GetVendaID: String;
 begin
    Result := getNumeros(TabControl1.Tabs[TabControl1.TabIndex]);
+end;
+
+function Tform_venda.GetVendaUUID: String;
+var _db : TConexao;
+begin
+   try
+      _db := TConexao.Create;
+      with _db.qrySelect do
+      Begin
+          Close;
+          Sql.Clear;
+          Sql.Add('select uuid from vendas ');
+          Sql.add(' where documento = '+QuotedStr(GetVendaID));
+          open;
+
+          result := FieldByName('uuid').AsString;
+      end;
+   finally
+       FreeANdNil(_db);
+   end;
 end;
 
 procedure Tform_venda.Shape3Resize(Sender: TObject);
@@ -682,7 +708,8 @@ end;
 procedure Tform_venda.ac_fechavendaExecute(Sender: TObject);
 begin
   f_fechamento := Tf_fechamento.Create(nil);
-  f_fechamento.n_venda:= GetVendaID;
+  f_fechamento._vendaID:= GetVendaID;
+  f_fechamento._vendaID:= GetVendaUUID;
   f_fechamento._valorBruto:= _valorBruto;
   f_fechamento._valorDesconto:= 0;
   f_fechamento._valorPromocao:= _valorPromocao;
@@ -815,7 +842,7 @@ begin
                   Close;
                   Sql.Clear;
                   Sql.Add('select * from venda_itens ');
-                  Sql.Add(' where venda_id = '+QuotedStr(GetVendaID));
+                  Sql.Add(' where uuid_venda = '+QuotedStr(GetVendaUUID));
                   Sql.Add(' and (status is null  or status = '''' )');
                   Open;
                   first;

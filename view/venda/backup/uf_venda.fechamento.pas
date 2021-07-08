@@ -142,7 +142,7 @@ type
       _valorBruto, _valorPromocao, _valorDesconto, _valorDescontoExtra,
         _valorEntrada, _ValorRecebimento, _totalVenda, _totalCrediario : Currency;
 
-      n_venda : string;
+      _vendaID, _vendaUUID : string;
   end;
 
 var
@@ -212,7 +212,7 @@ begin
    end;
    2 : Begin
        LoadShape(4);
-       SetVendaTotalizador(n_venda, true);
+       SetVendaTotalizador(_vendaUUID,_vendaID, true);
        self.Close;
    end;
 end;
@@ -313,7 +313,7 @@ var _db : TConexao;
 begin
   try
      _db := TConexao.Create;
-     with _db.Query do
+     with _db.qrySelect do
      Begin
          Close;
          Sql.Clear;

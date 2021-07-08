@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, jsons, model.vendas.config, clipbrd;
 
-       Function RegistraItemVenda(_codigo : String; _venda : integer; quantidade : double ) : Boolean;
+       Function RegistraItemVenda(_codigo : String; _vendaUUID: string; quantidade : double ) : Boolean;
        procedure VendaGetItemRecalculo(var _dados : TJsonObject);
 implementation
 
@@ -174,7 +174,7 @@ begin
   end;
 end;
 
-function RegistraItemVenda(_codigo: String; _venda: integer; quantidade: double
+function RegistraItemVenda(_codigo: String; _vendaUUID: string; quantidade: double
   ): Boolean;
 var _db  : TConexao;
     _tabelaPrecoID, _armazenamentoID : Integer;
@@ -193,7 +193,7 @@ begin
         Sql.Add('COALESCE(v.tabela_preco_id,0) AS tabela_preco_id,');
         Sql.Add('COALESCE(v.armazenamento_id,0) AS armazenamento_id');
         Sql.Add('from vendas v');
-        Sql.Add('where v.id = '+QuotedStr(IntTostr(_venda)));
+        Sql.Add('where v.uuid = '+QuotedStr(_vendaUUID));
         Open;
 
         if IsEmpty then
@@ -236,13 +236,13 @@ begin
                while not eof do
                begin
                    f_produtosPesquisaSelecao.qItens.Append;
-                   f_produtosPesquisaSelecao.qItensid.Value := _db.Query.FieldByName('produto_id').AsInteger;
-                   f_produtosPesquisaSelecao.qItensdescricao.Value:= _db.Query.FieldByName('descricao').AsString;
-                   f_produtosPesquisaSelecao.qItensgrade_id.Value:= _db.Query.FieldByName('gradeamento_id').AsInteger;
-                   f_produtosPesquisaSelecao.qItensn_marca.Value:= _db.Query.FieldByName('n_marca').AsString;
-                   f_produtosPesquisaSelecao.qItenssaldo.Value:= _db.Query.FieldByName('saldo_gerencial').AsFloat;
-                   f_produtosPesquisaSelecao.qItensun_medida.Value:= _db.Query.FieldByName('medida_descricao').AsString;
-                   f_produtosPesquisaSelecao.qItensvalor.Value:= _db.Query.FieldByName('valor').AsFloat;
+                   f_produtosPesquisaSelecao.qItensid.Value := _db.qrySelect.FieldByName('produto_id').AsInteger;
+                   f_produtosPesquisaSelecao.qItensdescricao.Value:= _db.qrySelect.FieldByName('descricao').AsString;
+                   f_produtosPesquisaSelecao.qItensgrade_id.Value:= _db.qrySelect.FieldByName('gradeamento_id').AsInteger;
+                   f_produtosPesquisaSelecao.qItensn_marca.Value:= _db.qrySelect.FieldByName('n_marca').AsString;
+                   f_produtosPesquisaSelecao.qItenssaldo.Value:= _db.qrySelect.FieldByName('saldo_gerencial').AsFloat;
+                   f_produtosPesquisaSelecao.qItensun_medida.Value:= _db.qrySelect.FieldByName('medida_descricao').AsString;
+                   f_produtosPesquisaSelecao.qItensvalor.Value:= _db.qrySelect.FieldByName('valor').AsFloat;
                    f_produtosPesquisaSelecao.qItens.Post;
                    Next;
                end;
@@ -276,7 +276,7 @@ begin
         _Produto := _db.ToObjectString('',true);
         _Produto['valor_unitario'].AsNumber:= DecimalUnitario(_produto['valor'].AsNumber);
         _produto['quantidade'].AsNumber:= quantidade;
-        _produto['venda_id'].AsInteger:= _venda;
+        _produto['uuid_venda'].AsString:= _vendaUUID;
         VendaGetItemRecalculo(_Produto);
 
         if quantidade <= 0 then

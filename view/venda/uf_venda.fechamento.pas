@@ -142,7 +142,7 @@ type
       _valorBruto, _valorPromocao, _valorDesconto, _valorDescontoExtra,
         _valorEntrada, _ValorRecebimento, _totalVenda, _totalCrediario : Currency;
 
-      n_venda : string;
+      _vendaID, _vendaUUID : string;
   end;
 
 var
@@ -212,7 +212,7 @@ begin
    end;
    2 : Begin
        LoadShape(4);
-       SetVendaTotalizador(n_venda, true);
+       SetVendaTotalizador(_vendaUUID,_vendaID, true);
        self.Close;
    end;
 end;
@@ -507,7 +507,7 @@ begin
         for i := 1 to qPagamenton_parcelas.Value do
         Begin
             qCrediario.Append;
-            qCrediarioDocumento.Value:= n_venda;
+            qCrediarioDocumento.Value:= _vendaID;
             qCrediarioParcela.Value:= i;
             qCrediariovalor.Value:=_valor;
             qCrediarioVencimento.Value:= _vencimento;

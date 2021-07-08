@@ -1,0 +1,1083 @@
+08-07-2021 08:28:02 TSQLite3Connection : no such table: venda
+08-07-2021 08:28:04 TSQLite3Connection : no such table: venda
+08-07-2021 08:28:06 TSQLite3Connection : no such table: venda
+08-07-2021 08:28:07 TSQLite3Connection : no such table: venda
+08-07-2021 08:28:09 TSQLite3Connection : no such table: venda
+08-07-2021 08:28:11 TSQLite3Connection : no such table: venda
+08-07-2021 08:28:12 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '1'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '50' or 
+ p.gtin = '50' or pgrd.gtin ='50' or pgrd.gtin_grade = '50' )
+order by 2
+
+08-07-2021 08:28:13 TSQLite3Connection : no such table: venda
+08-07-2021 08:28:14 TSQLite3Connection : no such table: venda
+08-07-2021 08:28:16 TSQLite3Connection : no such table: venda
+08-07-2021 08:28:17 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '1'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '2984' or 
+ p.gtin = '2984' or pgrd.gtin ='2984' or pgrd.gtin_grade = '2984' )
+order by 2
+
+08-07-2021 08:28:18 TSQLite3Connection : no such table: venda
+08-07-2021 08:28:19 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '1'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '436' or 
+ p.gtin = '436' or pgrd.gtin ='436' or pgrd.gtin_grade = '436' )
+order by 2
+
+08-07-2021 08:28:20 TSQLite3Connection : no such table: venda
+08-07-2021 08:28:21 TSQLite3Connection : no such table: venda
+08-07-2021 08:28:23 TSQLite3Connection : no such table: venda
+08-07-2021 08:28:25 TSQLite3Connection : no such table: venda
+08-07-2021 08:28:27 TSQLite3Connection : no such table: venda
+08-07-2021 08:31:16 TSQLite3Connection : no such table: venda
+08-07-2021 08:31:18 TSQLite3Connection : no such table: venda
+08-07-2021 08:31:19 TSQLite3Connection : no such table: venda
+08-07-2021 08:31:21 TSQLite3Connection : no such table: venda
+08-07-2021 08:31:23 TSQLite3Connection : no such table: venda
+08-07-2021 08:31:25 TSQLite3Connection : no such table: venda
+08-07-2021 08:31:26 TSQLite3Connection : no such table: venda
+08-07-2021 08:31:28 TSQLite3Connection : no such table: venda
+08-07-2021 08:31:30 TSQLite3Connection : no such table: venda
+08-07-2021 08:31:31 TSQLite3Connection : no such table: venda
+08-07-2021 08:36:35 TSQLite3Connection : no such table: venda
+08-07-2021 08:36:36 TSQLite3Connection : no such table: venda
+08-07-2021 08:36:38 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '1'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '35' or 
+ p.gtin = '35' or pgrd.gtin ='35' or pgrd.gtin_grade = '35' )
+order by 2
+
+08-07-2021 08:36:38 TSQLite3Connection : no such table: venda
+08-07-2021 08:36:40 TSQLite3Connection : no such table: venda
+08-07-2021 08:36:42 TSQLite3Connection : no such table: venda
+08-07-2021 08:36:43 TSQLite3Connection : no such table: venda
+08-07-2021 08:36:45 TSQLite3Connection : no such table: venda
+08-07-2021 08:36:47 TSQLite3Connection : no such table: venda
+08-07-2021 08:36:49 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '1'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '463' or 
+ p.gtin = '463' or pgrd.gtin ='463' or pgrd.gtin_grade = '463' )
+order by 2
+
+08-07-2021 08:36:49 TSQLite3Connection : no such table: venda
+08-07-2021 08:36:51 TSQLite3Connection : no such table: venda
+08-07-2021 08:36:52 TSQLite3Connection : no such table: venda
+08-07-2021 08:36:54 TSQLite3Connection : no such table: venda
+08-07-2021 08:36:56 TSQLite3Connection : no such table: venda
+08-07-2021 08:36:57 TSQLite3Connection : no such table: venda
+08-07-2021 08:36:59 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:01 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:02 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:04 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:06 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:08 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:10 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:12 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:13 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:15 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:17 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:19 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:21 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:23 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:25 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:27 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:29 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:30 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:32 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:34 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:36 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:38 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:39 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:41 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:43 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:45 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:47 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:49 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:50 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:52 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:54 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:56 TSQLite3Connection : no such table: venda
+08-07-2021 08:37:58 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:00 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:02 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:03 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:05 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:07 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:09 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:10 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:12 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:14 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:16 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:18 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:19 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:21 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:23 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:25 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:27 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:28 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:30 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:32 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:34 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:36 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:38 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:39 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:41 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:43 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:45 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:47 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:49 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:50 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:52 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:54 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:56 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:57 TSQLite3Connection : no such table: venda
+08-07-2021 08:38:59 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:01 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:03 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:05 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:06 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:08 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:10 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:12 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:14 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:16 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:17 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:19 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:21 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:23 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:24 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:26 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:27 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '1'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '3461' or 
+ p.gtin = '3461' or pgrd.gtin ='3461' or pgrd.gtin_grade = '3461' )
+order by 2
+
+08-07-2021 08:39:28 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:29 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '1'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '52' or 
+ p.gtin = '52' or pgrd.gtin ='52' or pgrd.gtin_grade = '52' )
+order by 2
+
+08-07-2021 08:39:30 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:30 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '1'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '46' or 
+ p.gtin = '46' or pgrd.gtin ='46' or pgrd.gtin_grade = '46' )
+order by 2
+
+08-07-2021 08:39:31 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '1'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '63' or 
+ p.gtin = '63' or pgrd.gtin ='63' or pgrd.gtin_grade = '63' )
+order by 2
+
+08-07-2021 08:39:31 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:33 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:35 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:37 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:39 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:41 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:43 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:44 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:46 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:48 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:50 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:52 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:53 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:55 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:57 TSQLite3Connection : no such table: venda
+08-07-2021 08:39:58 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:00 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:03 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:05 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:07 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:09 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:11 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:12 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:14 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:16 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:18 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:20 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:21 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:23 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:25 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:27 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:29 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:30 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:32 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:34 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:36 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:38 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:39 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:41 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:43 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:45 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:47 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:49 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:51 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:53 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:54 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:56 TSQLite3Connection : no such table: venda
+08-07-2021 08:40:58 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:00 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:02 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:04 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:06 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:08 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:09 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:11 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:13 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:15 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:16 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:18 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:20 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:22 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:24 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:26 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:28 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:30 TSQLite3Connection : no such table: venda
+08-07-2021 08:41:32 TSQLite3Connection : no such table: venda
+08-07-2021 08:43:07 TSQLite3Connection : no such table: venda
+08-07-2021 08:43:08 TSQLite3Connection : no such table: venda
+08-07-2021 08:43:10 TSQLite3Connection : no such table: venda
+08-07-2021 08:43:12 TSQLite3Connection : no such table: venda
+08-07-2021 08:43:17 TSQLite3Connection : no such table: venda
+08-07-2021 08:43:19 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:18 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:20 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:22 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '1'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '463' or 
+ p.gtin = '463' or pgrd.gtin ='463' or pgrd.gtin_grade = '463' )
+order by 2
+
+08-07-2021 08:45:22 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:24 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:25 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:26 select p.id produto_id, 
+        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+        p.descricao ||' '|| grd_1.descricao_resumida||' '||
+        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+        when pgri_1.descricao <> ''  then
+        p.descricao||' '||pgri_1.descricao
+        else
+        p.descricao end as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
+       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, pm.descricao n_marca,
+       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
+       pgrd.gtin_grade,
+       pes.saldo_gerencial,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id, 
+ ppc.custo_markup custo_unitario 
+from produtos p inner join produtos_empresa pe
+                      on pe.produto_id = p.id
+                      inner join produtos_estoque pes
+                      on pes.produto_empresa_id = pe.id
+                      inner join produtos_armazenamento pa
+                      on pa.id  = pes.produto_armazenamento_id
+                      and pa.id = '1'
+                      and pa.empresa_id = pe.empresa_id
+                      inner join produtos_preco_venda ppv
+                      on ppv.produto_empresa_id = pe.id
+                      and ppv.tabela_id = '1'
+                      left join produtos_preco_custo ppc
+                      on ppc.id = pe.preco_custo_id
+                      inner join tabela_preco tp
+                      on tp.id = ppv.tabela_id
+                      left join produtos_subgrupos sg
+                      on sg.id = p.subgrupo_id
+                      left join produtos_grupos pg
+                      on pg.id = sg.grupo_id
+                      left join produtos_marcas pm
+                      on pm.id = p.marca_id
+                      left join produtos_unidades pu
+                      on pu.id = p.unidade_id
+                      left join produtos_colecoes pc
+                      on pc.id = p.colecao_id
+                      left join lista_ncm ncm
+                      on ncm.ncm = p.ncm_id
+                      left join produtos_gradeamento pgrd
+                      on pgrd.produto_id  = p.id
+                      left join produtos_grades_itens pgri_1
+                      on pgri_1.id = pgrd.grade_item_id
+                      left join produtos_grades grd_1
+                      on grd_1.id = pgri_1.grade_id
+                      left join produtos_grades_itens pgri_2
+                      on pgri_2.id = pgrd.grade_item2_id
+                      left join produtos_grades grd_2
+                      on grd_2.id = pgri_2.grade_id
+where
+     1 = 1
+and ( 
+p.id = '436' or 
+ p.gtin = '436' or pgrd.gtin ='436' or pgrd.gtin_grade = '436' )
+order by 2
+
+08-07-2021 08:45:27 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:29 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:31 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:32 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:34 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:36 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:38 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:40 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:41 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:43 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:45 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:47 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:49 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:51 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:53 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:55 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:57 TSQLite3Connection : no such table: venda
+08-07-2021 08:45:58 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:00 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:02 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:04 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:05 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:07 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:08 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:10 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:12 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:14 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:16 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:17 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:19 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:21 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:23 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:24 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:26 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:28 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:30 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:32 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:33 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:35 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:37 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:38 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:40 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:42 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:44 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:46 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:48 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:49 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:51 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:53 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:55 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:57 TSQLite3Connection : no such table: venda
+08-07-2021 08:46:58 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:00 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:02 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:04 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:06 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:08 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:10 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:11 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:13 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:15 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:17 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:19 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:21 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:22 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:24 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:25 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:27 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:29 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:31 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:33 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:35 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:37 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:38 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:40 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:42 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:44 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:45 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:47 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:49 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:51 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:53 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:54 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:56 TSQLite3Connection : no such table: venda
+08-07-2021 08:47:58 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:00 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:02 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:04 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:06 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:07 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:09 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:11 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:13 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:15 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:17 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:18 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:20 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:22 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:24 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:26 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:27 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:29 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:31 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:33 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:35 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:37 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:38 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:40 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:42 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:44 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:46 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:48 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:50 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:51 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:53 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:55 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:57 TSQLite3Connection : no such table: venda
+08-07-2021 08:48:59 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:01 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:02 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:04 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:06 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:08 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:10 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:12 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:14 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:15 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:17 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:19 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:21 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:23 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:25 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:26 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:28 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:30 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:32 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:34 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:36 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:38 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:40 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:42 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:44 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:46 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:48 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:49 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:51 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:53 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:54 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:56 TSQLite3Connection : no such table: venda
+08-07-2021 08:49:58 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:00 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:02 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:04 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:05 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:07 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:09 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:11 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:12 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:14 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:16 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:17 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:19 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:21 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:23 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:25 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:27 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:28 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:30 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:32 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:33 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:35 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:37 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:38 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:40 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:42 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:44 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:46 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:50 TSQLite3Connection : no such table: venda
+08-07-2021 08:50:51 TSQLite3Connection : no such table: venda
