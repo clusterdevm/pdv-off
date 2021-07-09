@@ -94,7 +94,7 @@ begin
              self.Close;
           end
           else
-             messagedlg('#150 Contate suporte: '+_Api.response,mtError,[mbok],0);
+             messagedlg('#150 Contate suporte: '+_Api.response.Text,mtError,[mbok],0);
       end;
 
    finally

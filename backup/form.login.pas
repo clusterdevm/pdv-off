@@ -173,6 +173,7 @@ begin
                  Begin
                       Showmessage('Aplicação Sera Finalizada');
                       Application.Terminate;
+                      Abort;
                  end;
 
 

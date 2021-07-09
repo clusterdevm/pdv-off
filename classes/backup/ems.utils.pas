@@ -610,7 +610,7 @@ function ToValor(value: string): Extended;
 begin
 
   {$IFDEF MSWINDOWS}
-      value := SubsString(value,',','.');
+      //value := SubsString(value,',','.');
   {$else}
       value := SubsString(value,',','.');
   {$ENDIF}

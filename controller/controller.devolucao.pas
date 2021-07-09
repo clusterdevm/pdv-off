@@ -119,7 +119,7 @@ begin
            if _Api.Return.Find('msg') > -1 then
               messagedlg(_Api.Return['msg'].AsString,mterror,[mbok],0)
            else
-              messagedlg('#149 Contate suporte: '+_Api.response,mterror,[mbok],0)
+              messagedlg('#149 Contate suporte: '+_Api.response.Text,mterror,[mbok],0)
        end;
    end;
 
@@ -158,7 +158,7 @@ begin
            if _Api.Return.Find('msg') > -1 then
               messagedlg(_Api.Return['msg'].AsString,mterror,[mbok],0)
            else
-              messagedlg('#150 Contate suporte: '+_Api.response,mterror,[mbok],0)
+              messagedlg('#150 Contate suporte: '+_Api.response.Text,mterror,[mbok],0)
        end;
    end;
  finally
@@ -192,7 +192,7 @@ begin
                  if _Api.Return.Find('msg') > -1 then
                     messagedlg(_Api.Return['msg'].AsString,mterror,[mbok],0)
                  else
-                    messagedlg('#150 Contate suporte: '+_Api.response,mterror,[mbok],0)
+                    messagedlg('#150 Contate suporte: '+_Api.response.Text,mterror,[mbok],0)
              end;
          end;
          finally
@@ -240,7 +240,7 @@ begin
            if _Api.Return.Find('msg') > -1 then
               messagedlg(_Api.Return['msg'].AsString,mterror,[mbok],0)
            else
-              messagedlg('#150 Contate suporte: '+_Api.response,mterror,[mbok],0)
+              messagedlg('#150 Contate suporte: '+_Api.response.Text,mterror,[mbok],0)
        end;
    end;
 
@@ -277,7 +277,7 @@ begin
            if _Api.Return.Find('msg') > -1 then
               messagedlg(_Api.Return['msg'].AsString,mterror,[mbok],0)
            else
-              messagedlg('#150 Contate suporte: '+_Api.response,mterror,[mbok],0)
+              messagedlg('#150 Contate suporte: '+_Api.response.Text,mterror,[mbok],0)
        end;
    end;
  finally
@@ -330,7 +330,7 @@ begin
            if _Api.Return.Find('msg') > -1 then
               messagedlg(_Api.Return['msg'].AsString,mterror,[mbok],0)
            else
-              messagedlg('#150 Contate suporte: '+_Api.response,mterror,[mbok],0)
+              messagedlg('#150 Contate suporte: '+_Api.response.Text,mterror,[mbok],0)
        end;
    end;
 

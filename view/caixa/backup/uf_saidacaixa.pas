@@ -46,7 +46,7 @@ implementation
 
 {$R *.lfm}
 
-uses model.request.http, classe.utils;
+uses model.request.http, ems.utils;
 
 { Tf_saidaCaixa }
 

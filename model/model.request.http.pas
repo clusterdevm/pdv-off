@@ -47,7 +47,7 @@ TRequisicao = Class
           FHeader: THeader;
           FMetodo: string;
           fMSg_Erro: String;
-          fresponse: string;
+          fresponse: TStringList;
           fresponsecode: Integer;
           FReturn: TJsonObject;
           frota: String;
@@ -67,12 +67,12 @@ TRequisicao = Class
          Property AutUserName : String read fAutUserName write fAutUserName;
          Property AutUserPass : String read fAutUserPass write fAutUserPass;
          Property Return   : TJsonObject Read FReturn      Write FReturn;
-         property response : string read fresponse write fresponse;
+         property response : TStringList read fresponse write fresponse;
          Property Header   : THeader  Read FHeader     Write FHeader;
          property getID : String read fgetID write fgetID;
          Property MSG_Erro : String read fMSg_Erro write Fmsg_erro;
 
-         Function Execute: Boolean;
+         Function Execute(doParse:boolean = true): Boolean;
          Function ExecuteSynapse: Boolean;
 
          procedure JsonToDataSet(aDataSet:TDataSet);
@@ -160,6 +160,8 @@ begin
     FHeader   := THeader.Create(THeaderItens);
     FReturn := TJsonObject.Create;
 
+    fresponse := TStringList.Create;
+
     GSincronizar := true;
 end;
 
@@ -171,6 +173,7 @@ begin
      FreeAndNil(FReturn);
 
   FreeAndnil(Ffphttpclient);
+  FreeAndnil(fresponse);
 
   inherited;
 end;
@@ -202,6 +205,7 @@ var
     _temp : TStringList;
     i : Integer;
     _contentEnconding : String;
+    _inicio : TDateTime;
 Begin
 try
   try
@@ -222,12 +226,16 @@ try
     for i := 0 to Header.Count-1  do
        HTTPSender.Headers.Add(Header.Item[i].Campo+': '+ Header.Item[i].Valor);
 
+    _inicio := now;
     HTTPSender.HTTPMethod(self.Metodo,getHost);
-
+    RegistraLogRequest(getHost+':'+FormatDateTime('hh:mm:ss',_inicio - Now));
+    RegistraLogRequest('Hora Finalizacao Download:'+FormatDateTime('hh:mm:ss',Now));
     self.ResponseCode:= HTTPSender.ResultCode;
 
     result := self.ResponseCode in [200..207];
 
+
+    RegistraLogRequest('Inicio Encoding:'+FormatDateTime('hh:mm:ss',Now));
     for i := 0 to HTTPSender.Headers.Count-1 do
     Begin
         if LowerCase(copy(HTTPSender.Headers[i],1,16))='content-encoding' then
@@ -238,17 +246,20 @@ try
         end;
     end;
 
+    RegistraLogRequest('Fim Encoding:'+FormatDateTime('hh:mm:ss',Now));
+
         if _contentEnconding <> '' then
-            fresponse:= inflate(HTTPSender.Document)
+            fresponse.Text:= inflate(HTTPSender.Document)
         else
         Begin
            _temp.LoadFromStream(HTTPSender.Document);
-           fresponse:= _temp.Text;
+           fresponse.Text:= _temp.Text;
         end;
 
-       if trim(copy(fresponse,1,1)) = '{' then
+       if trim(copy(fresponse.Text,1,1)) = '{' then
          try
-            Return.Parse(fresponse);
+            Return.Clear;
+            Return.Parse(fresponse.Text);
          except
             on e:exception do
             Begin
@@ -256,7 +267,7 @@ try
             end;
          end
        else
-          Return.Put('json_error',fresponse);
+          Return.Put('json_error',fresponse.Text);
 
 except
      on e:Exception do
@@ -265,7 +276,7 @@ except
        RegistraLogErro('host '+ getHost);
        //RegistraLogErro('response : '+_response.DataString);
        RegistraLogErro('Error Request : '+e.message);
-       RegistraLogErro('teste 2: '+fresponse);
+       RegistraLogErro('teste 2: '+fresponse.Text);
      end;
 end;
 
@@ -275,7 +286,7 @@ finally
 end;
 end;
 
-function TRequisicao.Execute: Boolean;
+function TRequisicao.Execute(doParse:boolean = true): Boolean;
 var
   _response : TStringStream;
       i : Integer;
@@ -343,9 +354,9 @@ try
 
 
         if _contentEnconding <> '' then
-            fresponse:= inflate(_response)
+            fresponse.Text:= inflate(_response)
         else
-           fresponse:= _response.DataString;
+           fresponse.Text:= _response.DataString;
 
 
        //RegistraLogErro(getHost);
@@ -353,9 +364,11 @@ try
        //RegistraLogErro('request : '+FBody.Text);
 
 
-       if copy(trim(fresponse),1,1) = '{' then
+       if copy(trim(fresponse.Text),1,1) = '{' then
          try
-            Return.Parse(fresponse);
+            return.Clear;
+            if doParse Then
+               Return.Parse(fresponse.Text);
          except
               on e:exception do
               Begin
@@ -363,7 +376,7 @@ try
               end;
          end
        else
-          Return.Put('json_error',fresponse);
+          Return.Put('json_error',fresponse.Text);
 
 except
      on e:Exception do
@@ -372,7 +385,7 @@ except
        RegistraLogErro('host '+ getHost);
        //RegistraLogErro('response : '+_response.DataString);
        RegistraLogErro('Error Request : '+e.message);
-       RegistraLogErro('teste 2: '+fresponse);
+       RegistraLogErro('teste 2: '+fresponse.Text);
      end;
 end;
 

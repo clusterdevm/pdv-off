@@ -126,22 +126,22 @@ try
         _api.AddHeader('protocolo',FProtocolo);
         _api.rota:='hibrido';
         _api.endpoint:= 'download';
-        //_api.fphttpclient.OnDataReceived:= ControleDown;
-        _api.Execute;
-
+        _api.Execute(false);
 
         if not (_api.ResponseCode in [200..207]) then
         Begin
              FMsg:= _api.Return['msg'].AsString;
-             RegistraLogRequest('Requisicao: '+_api.response);
+             RegistraLogRequest('Requisicao: '+_api.response.Text);
              Synchronize(AtualizaLog);
              _ok := false;
         end
         else
         Begin
+            FMsg:=' Preparando para Registrar Dados';
+            Synchronize(AtualizaLog);
             FResponse.Clear;
             if _api.ResponseCode <> 204 then
-                FResponse.Parse(_api.return.Stringify);
+                FResponse.Parse(_api.response.Text);
 
             //RegistraLogRequest('erro: '+_api.response);
            _ok := true;
@@ -155,7 +155,7 @@ except
        RegistraLogRequest('URl : '+_api.webservice);
        RegistraLogRequest('endPoint : '+_api.endpoint);
        RegistraLogRequest('rota : '+_api.rota);
-       RegistraLogRequest('response : '+_api.response);
+       RegistraLogRequest('response : '+_api.response.Text);
   end;
 end;
 
@@ -270,7 +270,7 @@ begin
             RegistraLogRequest('URl : '+_api.webservice);
             RegistraLogRequest('endPoint : '+_api.endpoint);
             RegistraLogRequest('rota : '+_api.rota);
-            RegistraLogRequest('response : '+_api.response);
+            RegistraLogRequest('response : '+_api.response.Text);
             FMsg:= 'Falha Ao enviar Consulte log';
             FFalhou:= true;
             Synchronize(AtualizaLog);
@@ -370,7 +370,7 @@ except
           RegistraLogRequest('URl : '+_api.webservice);
           RegistraLogRequest('endPoint : '+_api.endpoint);
           RegistraLogRequest('rota : '+_api.rota);
-          RegistraLogRequest('response : '+_api.response);
+          RegistraLogRequest('response : '+_api.response.Text);
      end;
 end;
 end;
@@ -419,7 +419,7 @@ begin
                 _db.ChecaEstrutura('financeiro_caixa');
 
            end else
-            RegistraLogRequest('Erro:' +_api.response);
+            RegistraLogRequest('Erro:' +_api.response.Text);
        finally
            FreeAndNil(_api);
        end;
@@ -447,12 +447,8 @@ begin
             Synchronize(AtualizaLog);
             Consulta_Api(_ok);
 
-            FProtocolo:= FResponse['resultado'].AsObject['protocolo'].AsString;
-            _finalizado:= FResponse['resultado'].AsObject['finalizado'].AsBoolean;
-
-            FResponse['resultado'].AsObject.Delete('protocolo');
-            FResponse['resultado'].AsObject.Delete('finalizado');
-            FResponse['resultado'].AsObject.Delete('registros');
+            FProtocolo:= FResponse['protocolo'].AsString;
+            _finalizado:= FResponse['finalizado'].AsBoolean;
 
            if (_ok) and (FResponse.Stringify <> '{}') then
            Begin
@@ -553,7 +549,7 @@ begin
       except
           on e:exception do
           Begin
-              RegistraLogErro(e.message);
+              RegistraLogRequest(e.message);
               Fprocessando:= not _finalizado;
               FMsg:= 'Erro ao Processar';
 

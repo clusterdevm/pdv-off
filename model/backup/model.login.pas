@@ -74,7 +74,7 @@ begin
                   FreeAndNil(_data);
            end;
       end else
-         showmessage(_api.response);
+         showmessage(_api.response.Text);
 
    finally
      FreeAndNil(_api);
@@ -172,7 +172,7 @@ begin
                 FreeAndnil(_data);
               end;
         end else
-           showmessage(_api.response);
+           showmessage(_api.response.Text);
     end else
     Begin
          if _api.Return.Find('json_error') > -1 then
@@ -348,7 +348,7 @@ var _db : TConexao;
 begin
  try
    _db := TConexao.Create;
-   with _db.Query do
+   with _db.qryPost do
    Begin
         Close;
         Sql.Clear;

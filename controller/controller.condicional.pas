@@ -120,7 +120,7 @@ begin
            if _Api.Return.Find('msg') > -1 then
               messagedlg(_Api.Return['msg'].AsString,mterror,[mbok],0)
            else
-              messagedlg('#148 Contate suporte: '+_Api.response,mterror,[mbok],0)
+              messagedlg('#148 Contate suporte: '+_Api.response.Text,mterror,[mbok],0)
        end;
    end;
 
@@ -228,7 +228,7 @@ begin
               WCursor.SetNormal;
               f_condicional.ShowModal;
         end else
-           Showmessage(_api.response);
+           Showmessage(_api.response.Text);
     end;
 
   finally
@@ -262,7 +262,7 @@ begin
               WCursor.SetNormal;
               f_condicional.ShowModal;
         end else
-           Showmessage(_api.response);
+           Showmessage(_api.response.Text);
     end;
   finally
      FreeAndNil(_api);

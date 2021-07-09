@@ -74,7 +74,7 @@ begin
                   FreeAndNil(_data);
            end;
       end else
-         showmessage(_api.response);
+         showmessage(_api.response.Text);
 
    finally
      FreeAndNil(_api);
@@ -172,13 +172,13 @@ begin
                 FreeAndnil(_data);
               end;
         end else
-           showmessage(_api.response);
+           showmessage(_api.response.Text);
     end else
     Begin
          if _api.Return.Find('json_error') > -1 then
              messagedlg(_api.Return['json_error'].AsString,mtError,[mbok],0)
          else
-             messagedlg(_api.response,mtError,[mbok],0)
+             messagedlg(_api.response.Text,mtError,[mbok],0)
     end;
 
   finally

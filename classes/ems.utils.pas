@@ -308,7 +308,7 @@ begin
            sessao.bearerems:= _api.Return['token'].AsString
        else
        Begin
-           RegistraLogErro('Erro: Linha 129 '+_api.response);
+           RegistraLogErro('Erro: Linha 129 '+_api.response.Text);
            Showmessage('Erro Checar Arquivo de Log');
        end;
   end;

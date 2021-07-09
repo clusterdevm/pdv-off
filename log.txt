@@ -1,1083 +1,336 @@
-08-07-2021 08:28:02 TSQLite3Connection : no such table: venda
-08-07-2021 08:28:04 TSQLite3Connection : no such table: venda
-08-07-2021 08:28:06 TSQLite3Connection : no such table: venda
-08-07-2021 08:28:07 TSQLite3Connection : no such table: venda
-08-07-2021 08:28:09 TSQLite3Connection : no such table: venda
-08-07-2021 08:28:11 TSQLite3Connection : no such table: venda
-08-07-2021 08:28:12 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '1'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '50' or 
- p.gtin = '50' or pgrd.gtin ='50' or pgrd.gtin_grade = '50' )
-order by 2
-
-08-07-2021 08:28:13 TSQLite3Connection : no such table: venda
-08-07-2021 08:28:14 TSQLite3Connection : no such table: venda
-08-07-2021 08:28:16 TSQLite3Connection : no such table: venda
-08-07-2021 08:28:17 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '1'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '2984' or 
- p.gtin = '2984' or pgrd.gtin ='2984' or pgrd.gtin_grade = '2984' )
-order by 2
-
-08-07-2021 08:28:18 TSQLite3Connection : no such table: venda
-08-07-2021 08:28:19 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '1'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '436' or 
- p.gtin = '436' or pgrd.gtin ='436' or pgrd.gtin_grade = '436' )
-order by 2
-
-08-07-2021 08:28:20 TSQLite3Connection : no such table: venda
-08-07-2021 08:28:21 TSQLite3Connection : no such table: venda
-08-07-2021 08:28:23 TSQLite3Connection : no such table: venda
-08-07-2021 08:28:25 TSQLite3Connection : no such table: venda
-08-07-2021 08:28:27 TSQLite3Connection : no such table: venda
-08-07-2021 08:31:16 TSQLite3Connection : no such table: venda
-08-07-2021 08:31:18 TSQLite3Connection : no such table: venda
-08-07-2021 08:31:19 TSQLite3Connection : no such table: venda
-08-07-2021 08:31:21 TSQLite3Connection : no such table: venda
-08-07-2021 08:31:23 TSQLite3Connection : no such table: venda
-08-07-2021 08:31:25 TSQLite3Connection : no such table: venda
-08-07-2021 08:31:26 TSQLite3Connection : no such table: venda
-08-07-2021 08:31:28 TSQLite3Connection : no such table: venda
-08-07-2021 08:31:30 TSQLite3Connection : no such table: venda
-08-07-2021 08:31:31 TSQLite3Connection : no such table: venda
-08-07-2021 08:36:35 TSQLite3Connection : no such table: venda
-08-07-2021 08:36:36 TSQLite3Connection : no such table: venda
-08-07-2021 08:36:38 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '1'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '35' or 
- p.gtin = '35' or pgrd.gtin ='35' or pgrd.gtin_grade = '35' )
-order by 2
-
-08-07-2021 08:36:38 TSQLite3Connection : no such table: venda
-08-07-2021 08:36:40 TSQLite3Connection : no such table: venda
-08-07-2021 08:36:42 TSQLite3Connection : no such table: venda
-08-07-2021 08:36:43 TSQLite3Connection : no such table: venda
-08-07-2021 08:36:45 TSQLite3Connection : no such table: venda
-08-07-2021 08:36:47 TSQLite3Connection : no such table: venda
-08-07-2021 08:36:49 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '1'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '463' or 
- p.gtin = '463' or pgrd.gtin ='463' or pgrd.gtin_grade = '463' )
-order by 2
-
-08-07-2021 08:36:49 TSQLite3Connection : no such table: venda
-08-07-2021 08:36:51 TSQLite3Connection : no such table: venda
-08-07-2021 08:36:52 TSQLite3Connection : no such table: venda
-08-07-2021 08:36:54 TSQLite3Connection : no such table: venda
-08-07-2021 08:36:56 TSQLite3Connection : no such table: venda
-08-07-2021 08:36:57 TSQLite3Connection : no such table: venda
-08-07-2021 08:36:59 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:01 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:02 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:04 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:06 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:08 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:10 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:12 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:13 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:15 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:17 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:19 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:21 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:23 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:25 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:27 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:29 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:30 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:32 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:34 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:36 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:38 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:39 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:41 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:43 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:45 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:47 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:49 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:50 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:52 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:54 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:56 TSQLite3Connection : no such table: venda
-08-07-2021 08:37:58 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:00 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:02 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:03 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:05 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:07 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:09 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:10 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:12 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:14 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:16 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:18 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:19 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:21 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:23 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:25 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:27 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:28 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:30 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:32 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:34 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:36 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:38 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:39 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:41 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:43 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:45 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:47 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:49 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:50 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:52 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:54 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:56 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:57 TSQLite3Connection : no such table: venda
-08-07-2021 08:38:59 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:01 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:03 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:05 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:06 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:08 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:10 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:12 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:14 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:16 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:17 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:19 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:21 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:23 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:24 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:26 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:27 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '1'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '3461' or 
- p.gtin = '3461' or pgrd.gtin ='3461' or pgrd.gtin_grade = '3461' )
-order by 2
-
-08-07-2021 08:39:28 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:29 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '1'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '52' or 
- p.gtin = '52' or pgrd.gtin ='52' or pgrd.gtin_grade = '52' )
-order by 2
-
-08-07-2021 08:39:30 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:30 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '1'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '46' or 
- p.gtin = '46' or pgrd.gtin ='46' or pgrd.gtin_grade = '46' )
-order by 2
-
-08-07-2021 08:39:31 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '1'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '63' or 
- p.gtin = '63' or pgrd.gtin ='63' or pgrd.gtin_grade = '63' )
-order by 2
-
-08-07-2021 08:39:31 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:33 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:35 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:37 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:39 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:41 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:43 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:44 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:46 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:48 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:50 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:52 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:53 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:55 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:57 TSQLite3Connection : no such table: venda
-08-07-2021 08:39:58 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:00 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:03 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:05 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:07 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:09 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:11 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:12 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:14 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:16 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:18 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:20 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:21 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:23 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:25 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:27 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:29 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:30 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:32 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:34 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:36 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:38 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:39 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:41 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:43 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:45 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:47 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:49 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:51 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:53 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:54 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:56 TSQLite3Connection : no such table: venda
-08-07-2021 08:40:58 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:00 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:02 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:04 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:06 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:08 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:09 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:11 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:13 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:15 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:16 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:18 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:20 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:22 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:24 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:26 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:28 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:30 TSQLite3Connection : no such table: venda
-08-07-2021 08:41:32 TSQLite3Connection : no such table: venda
-08-07-2021 08:43:07 TSQLite3Connection : no such table: venda
-08-07-2021 08:43:08 TSQLite3Connection : no such table: venda
-08-07-2021 08:43:10 TSQLite3Connection : no such table: venda
-08-07-2021 08:43:12 TSQLite3Connection : no such table: venda
-08-07-2021 08:43:17 TSQLite3Connection : no such table: venda
-08-07-2021 08:43:19 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:18 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:20 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:22 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '1'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '463' or 
- p.gtin = '463' or pgrd.gtin ='463' or pgrd.gtin_grade = '463' )
-order by 2
-
-08-07-2021 08:45:22 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:24 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:25 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:26 select p.id produto_id, 
-        case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
-        p.descricao ||' '|| grd_1.descricao_resumida||' '||
-        pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
-        when pgri_1.descricao <> ''  then
-        p.descricao||' '||pgri_1.descricao
-        else
-        p.descricao end as descricao,
-       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,
-       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,
-       sg.descricao n_subgrupo,
-       pg.descricao n_grupo, pm.descricao n_marca,
-       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,
-       pgrd.gtin_grade,
-       pes.saldo_gerencial,
-       pa.descricao n_estoque,
-       ppv.valor, tp.descricao n_tabela,
-       ncm.descricao n_ncm,
-       pgrd.id gradeamento_id, 
- ppc.custo_markup custo_unitario 
-from produtos p inner join produtos_empresa pe
-                      on pe.produto_id = p.id
-                      inner join produtos_estoque pes
-                      on pes.produto_empresa_id = pe.id
-                      inner join produtos_armazenamento pa
-                      on pa.id  = pes.produto_armazenamento_id
-                      and pa.id = '1'
-                      and pa.empresa_id = pe.empresa_id
-                      inner join produtos_preco_venda ppv
-                      on ppv.produto_empresa_id = pe.id
-                      and ppv.tabela_id = '1'
-                      left join produtos_preco_custo ppc
-                      on ppc.id = pe.preco_custo_id
-                      inner join tabela_preco tp
-                      on tp.id = ppv.tabela_id
-                      left join produtos_subgrupos sg
-                      on sg.id = p.subgrupo_id
-                      left join produtos_grupos pg
-                      on pg.id = sg.grupo_id
-                      left join produtos_marcas pm
-                      on pm.id = p.marca_id
-                      left join produtos_unidades pu
-                      on pu.id = p.unidade_id
-                      left join produtos_colecoes pc
-                      on pc.id = p.colecao_id
-                      left join lista_ncm ncm
-                      on ncm.ncm = p.ncm_id
-                      left join produtos_gradeamento pgrd
-                      on pgrd.produto_id  = p.id
-                      left join produtos_grades_itens pgri_1
-                      on pgri_1.id = pgrd.grade_item_id
-                      left join produtos_grades grd_1
-                      on grd_1.id = pgri_1.grade_id
-                      left join produtos_grades_itens pgri_2
-                      on pgri_2.id = pgrd.grade_item2_id
-                      left join produtos_grades grd_2
-                      on grd_2.id = pgri_2.grade_id
-where
-     1 = 1
-and ( 
-p.id = '436' or 
- p.gtin = '436' or pgrd.gtin ='436' or pgrd.gtin_grade = '436' )
-order by 2
-
-08-07-2021 08:45:27 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:29 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:31 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:32 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:34 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:36 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:38 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:40 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:41 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:43 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:45 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:47 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:49 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:51 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:53 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:55 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:57 TSQLite3Connection : no such table: venda
-08-07-2021 08:45:58 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:00 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:02 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:04 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:05 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:07 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:08 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:10 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:12 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:14 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:16 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:17 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:19 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:21 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:23 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:24 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:26 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:28 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:30 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:32 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:33 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:35 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:37 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:38 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:40 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:42 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:44 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:46 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:48 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:49 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:51 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:53 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:55 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:57 TSQLite3Connection : no such table: venda
-08-07-2021 08:46:58 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:00 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:02 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:04 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:06 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:08 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:10 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:11 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:13 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:15 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:17 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:19 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:21 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:22 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:24 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:25 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:27 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:29 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:31 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:33 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:35 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:37 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:38 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:40 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:42 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:44 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:45 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:47 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:49 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:51 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:53 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:54 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:56 TSQLite3Connection : no such table: venda
-08-07-2021 08:47:58 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:00 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:02 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:04 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:06 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:07 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:09 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:11 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:13 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:15 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:17 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:18 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:20 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:22 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:24 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:26 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:27 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:29 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:31 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:33 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:35 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:37 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:38 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:40 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:42 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:44 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:46 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:48 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:50 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:51 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:53 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:55 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:57 TSQLite3Connection : no such table: venda
-08-07-2021 08:48:59 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:01 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:02 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:04 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:06 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:08 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:10 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:12 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:14 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:15 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:17 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:19 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:21 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:23 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:25 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:26 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:28 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:30 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:32 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:34 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:36 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:38 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:40 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:42 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:44 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:46 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:48 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:49 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:51 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:53 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:54 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:56 TSQLite3Connection : no such table: venda
-08-07-2021 08:49:58 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:00 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:02 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:04 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:05 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:07 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:09 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:11 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:12 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:14 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:16 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:17 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:19 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:21 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:23 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:25 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:27 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:28 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:30 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:32 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:33 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:35 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:37 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:38 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:40 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:42 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:44 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:46 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:50 TSQLite3Connection : no such table: venda
-08-07-2021 08:50:51 TSQLite3Connection : no such table: venda
+09-07-2021 13:54:59 ====================================
+09-07-2021 13:54:59 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 13:54:59 Error Request : Unexpected response status code: 401
+09-07-2021 13:54:59 teste 2: 
+09-07-2021 13:57:43 ====================================
+09-07-2021 13:57:43 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 13:57:43 Error Request : Unexpected response status code: 401
+09-07-2021 13:57:43 teste 2: 
+09-07-2021 13:59:01 ====================================
+09-07-2021 13:59:01 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 13:59:01 Error Request : Unexpected response status code: 401
+09-07-2021 13:59:01 teste 2: 
+09-07-2021 14:00:17 ====================================
+09-07-2021 14:00:17 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:00:17 Error Request : Unexpected response status code: 401
+09-07-2021 14:00:17 teste 2: 
+09-07-2021 14:01:34 ====================================
+09-07-2021 14:01:34 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:01:34 Error Request : Unexpected response status code: 401
+09-07-2021 14:01:34 teste 2: 
+09-07-2021 14:02:51 ====================================
+09-07-2021 14:02:51 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:02:51 Error Request : Unexpected response status code: 401
+09-07-2021 14:02:51 teste 2: 
+09-07-2021 14:04:05 ====================================
+09-07-2021 14:04:05 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:04:05 Error Request : Unexpected response status code: 401
+09-07-2021 14:04:05 teste 2: 
+09-07-2021 14:05:20 ====================================
+09-07-2021 14:05:20 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:05:20 Error Request : Unexpected response status code: 401
+09-07-2021 14:05:20 teste 2: 
+09-07-2021 14:06:36 ====================================
+09-07-2021 14:06:36 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:06:36 Error Request : Unexpected response status code: 401
+09-07-2021 14:06:36 teste 2: 
+09-07-2021 14:07:52 ====================================
+09-07-2021 14:07:52 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:07:52 Error Request : Unexpected response status code: 401
+09-07-2021 14:07:52 teste 2: 
+09-07-2021 14:09:10 ====================================
+09-07-2021 14:09:10 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:09:10 Error Request : Unexpected response status code: 401
+09-07-2021 14:09:10 teste 2: 
+09-07-2021 14:10:32 ====================================
+09-07-2021 14:10:32 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:10:32 Error Request : Unexpected response status code: 401
+09-07-2021 14:10:32 teste 2: 
+09-07-2021 14:11:53 ====================================
+09-07-2021 14:11:53 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:11:53 Error Request : Unexpected response status code: 401
+09-07-2021 14:11:53 teste 2: 
+09-07-2021 14:13:15 ====================================
+09-07-2021 14:13:15 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:13:15 Error Request : Unexpected response status code: 401
+09-07-2021 14:13:15 teste 2: 
+09-07-2021 14:13:28 ====================================
+09-07-2021 14:13:28 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:13:28 Error Request : Unexpected response status code: 401
+09-07-2021 14:13:28 teste 2: 
+09-07-2021 14:13:41 ====================================
+09-07-2021 14:13:41 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:13:41 Error Request : Unexpected response status code: 401
+09-07-2021 14:13:41 teste 2: 
+09-07-2021 14:13:55 ====================================
+09-07-2021 14:13:55 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:13:55 Error Request : Unexpected response status code: 401
+09-07-2021 14:13:55 teste 2: 
+09-07-2021 14:14:08 ====================================
+09-07-2021 14:14:08 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:14:08 Error Request : Unexpected response status code: 401
+09-07-2021 14:14:08 teste 2: 
+09-07-2021 14:14:21 ====================================
+09-07-2021 14:14:21 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:14:21 Error Request : Unexpected response status code: 401
+09-07-2021 14:14:21 teste 2: 
+09-07-2021 14:14:35 ====================================
+09-07-2021 14:14:35 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:14:35 Error Request : Unexpected response status code: 401
+09-07-2021 14:14:35 teste 2: 
+09-07-2021 14:14:48 ====================================
+09-07-2021 14:14:48 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:14:48 Error Request : Unexpected response status code: 401
+09-07-2021 14:14:48 teste 2: 
+09-07-2021 14:15:02 ====================================
+09-07-2021 14:15:02 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:15:02 Error Request : Unexpected response status code: 401
+09-07-2021 14:15:02 teste 2: 
+09-07-2021 14:15:17 ====================================
+09-07-2021 14:15:17 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:15:17 Error Request : Unexpected response status code: 401
+09-07-2021 14:15:17 teste 2: 
+09-07-2021 14:15:31 ====================================
+09-07-2021 14:15:31 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:15:31 Error Request : Unexpected response status code: 401
+09-07-2021 14:15:31 teste 2: 
+09-07-2021 14:15:45 ====================================
+09-07-2021 14:15:45 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:15:45 Error Request : Unexpected response status code: 401
+09-07-2021 14:15:45 teste 2: 
+09-07-2021 14:15:58 ====================================
+09-07-2021 14:15:58 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:15:58 Error Request : Unexpected response status code: 401
+09-07-2021 14:15:58 teste 2: 
+09-07-2021 14:16:12 ====================================
+09-07-2021 14:16:12 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:16:12 Error Request : Unexpected response status code: 401
+09-07-2021 14:16:12 teste 2: 
+09-07-2021 14:16:26 ====================================
+09-07-2021 14:16:26 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:16:26 Error Request : Unexpected response status code: 401
+09-07-2021 14:16:26 teste 2: 
+09-07-2021 14:16:39 ====================================
+09-07-2021 14:16:39 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:16:39 Error Request : Unexpected response status code: 401
+09-07-2021 14:16:39 teste 2: 
+09-07-2021 14:16:53 ====================================
+09-07-2021 14:16:53 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:16:53 Error Request : Unexpected response status code: 401
+09-07-2021 14:16:53 teste 2: 
+09-07-2021 14:17:06 ====================================
+09-07-2021 14:17:06 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:17:06 Error Request : Unexpected response status code: 401
+09-07-2021 14:17:06 teste 2: 
+09-07-2021 14:17:20 ====================================
+09-07-2021 14:17:20 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:17:20 Error Request : Unexpected response status code: 401
+09-07-2021 14:17:20 teste 2: 
+09-07-2021 14:17:34 ====================================
+09-07-2021 14:17:34 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:17:34 Error Request : Unexpected response status code: 401
+09-07-2021 14:17:34 teste 2: 
+09-07-2021 14:17:48 ====================================
+09-07-2021 14:17:48 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:17:48 Error Request : Unexpected response status code: 401
+09-07-2021 14:17:48 teste 2: 
+09-07-2021 14:18:02 ====================================
+09-07-2021 14:18:02 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:18:02 Error Request : Unexpected response status code: 401
+09-07-2021 14:18:02 teste 2: 
+09-07-2021 14:18:16 ====================================
+09-07-2021 14:18:16 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:18:16 Error Request : Unexpected response status code: 401
+09-07-2021 14:18:16 teste 2: 
+09-07-2021 14:18:30 ====================================
+09-07-2021 14:18:30 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:18:30 Error Request : Unexpected response status code: 401
+09-07-2021 14:18:30 teste 2: 
+09-07-2021 14:18:44 ====================================
+09-07-2021 14:18:44 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:18:44 Error Request : Unexpected response status code: 401
+09-07-2021 14:18:44 teste 2: 
+09-07-2021 14:18:58 ====================================
+09-07-2021 14:18:58 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:18:58 Error Request : Unexpected response status code: 401
+09-07-2021 14:18:58 teste 2: 
+09-07-2021 14:19:12 ====================================
+09-07-2021 14:19:12 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:19:12 Error Request : Unexpected response status code: 401
+09-07-2021 14:19:12 teste 2: 
+09-07-2021 14:19:26 ====================================
+09-07-2021 14:19:26 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:19:26 Error Request : Unexpected response status code: 401
+09-07-2021 14:19:26 teste 2: 
+09-07-2021 14:19:39 ====================================
+09-07-2021 14:19:39 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:19:39 Error Request : Unexpected response status code: 401
+09-07-2021 14:19:39 teste 2: 
+09-07-2021 14:19:53 ====================================
+09-07-2021 14:19:53 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:19:53 Error Request : Unexpected response status code: 401
+09-07-2021 14:19:53 teste 2: 
+09-07-2021 14:20:07 ====================================
+09-07-2021 14:20:07 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:20:07 Error Request : Unexpected response status code: 401
+09-07-2021 14:20:07 teste 2: 
+09-07-2021 14:20:21 ====================================
+09-07-2021 14:20:21 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:20:21 Error Request : Unexpected response status code: 401
+09-07-2021 14:20:21 teste 2: 
+09-07-2021 14:20:35 ====================================
+09-07-2021 14:20:35 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:20:35 Error Request : Unexpected response status code: 401
+09-07-2021 14:20:35 teste 2: 
+09-07-2021 14:20:49 ====================================
+09-07-2021 14:20:49 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:20:49 Error Request : Unexpected response status code: 401
+09-07-2021 14:20:49 teste 2: 
+09-07-2021 14:21:03 ====================================
+09-07-2021 14:21:03 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:21:03 Error Request : Unexpected response status code: 401
+09-07-2021 14:21:03 teste 2: 
+09-07-2021 14:21:17 ====================================
+09-07-2021 14:21:17 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:21:17 Error Request : Unexpected response status code: 401
+09-07-2021 14:21:17 teste 2: 
+09-07-2021 14:21:31 ====================================
+09-07-2021 14:21:31 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:21:31 Error Request : Unexpected response status code: 401
+09-07-2021 14:21:31 teste 2: 
+09-07-2021 14:21:45 ====================================
+09-07-2021 14:21:45 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:21:45 Error Request : Unexpected response status code: 401
+09-07-2021 14:21:45 teste 2: 
+09-07-2021 14:21:59 ====================================
+09-07-2021 14:21:59 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:21:59 Error Request : Unexpected response status code: 401
+09-07-2021 14:21:59 teste 2: 
+09-07-2021 14:22:13 ====================================
+09-07-2021 14:22:13 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:22:13 Error Request : Unexpected response status code: 401
+09-07-2021 14:22:13 teste 2: 
+09-07-2021 14:22:45 ====================================
+09-07-2021 14:22:45 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:22:45 Error Request : Unexpected response status code: 401
+09-07-2021 14:22:45 teste 2: 
+09-07-2021 14:23:30 ====================================
+09-07-2021 14:23:30 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:23:30 Error Request : Unexpected response status code: 401
+09-07-2021 14:23:30 teste 2: 
+09-07-2021 14:23:44 ====================================
+09-07-2021 14:23:44 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:23:44 Error Request : Unexpected response status code: 401
+09-07-2021 14:23:44 teste 2: 
+09-07-2021 14:24:03 ====================================
+09-07-2021 14:24:03 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:24:03 Error Request : Unexpected response status code: 401
+09-07-2021 14:24:03 teste 2: 
+09-07-2021 14:24:57 ====================================
+09-07-2021 14:24:57 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:24:57 Error Request : Unexpected response status code: 401
+09-07-2021 14:24:57 teste 2: 
+09-07-2021 14:25:52 ====================================
+09-07-2021 14:25:52 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:25:52 Error Request : Unexpected response status code: 401
+09-07-2021 14:25:52 teste 2: 
+09-07-2021 14:26:46 ====================================
+09-07-2021 14:26:46 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:26:46 Error Request : Unexpected response status code: 401
+09-07-2021 14:26:46 teste 2: 
+09-07-2021 14:27:42 ====================================
+09-07-2021 14:27:42 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:27:42 Error Request : Unexpected response status code: 401
+09-07-2021 14:27:42 teste 2: 
+09-07-2021 14:28:37 ====================================
+09-07-2021 14:28:37 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:28:37 Error Request : Unexpected response status code: 401
+09-07-2021 14:28:37 teste 2: 
+09-07-2021 14:29:32 ====================================
+09-07-2021 14:29:32 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:29:32 Error Request : Unexpected response status code: 401
+09-07-2021 14:29:32 teste 2: 
+09-07-2021 14:30:27 ====================================
+09-07-2021 14:30:27 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:30:27 Error Request : Unexpected response status code: 401
+09-07-2021 14:30:27 teste 2: 
+09-07-2021 14:31:22 ====================================
+09-07-2021 14:31:22 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:31:22 Error Request : Unexpected response status code: 401
+09-07-2021 14:31:22 teste 2: 
+09-07-2021 14:32:17 ====================================
+09-07-2021 14:32:17 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:32:17 Error Request : Unexpected response status code: 401
+09-07-2021 14:32:17 teste 2: 
+09-07-2021 14:33:12 ====================================
+09-07-2021 14:33:12 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:33:12 Error Request : Unexpected response status code: 401
+09-07-2021 14:33:12 teste 2: 
+09-07-2021 14:34:07 ====================================
+09-07-2021 14:34:07 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:34:07 Error Request : Unexpected response status code: 401
+09-07-2021 14:34:07 teste 2: 
+09-07-2021 14:35:03 ====================================
+09-07-2021 14:35:03 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:35:03 Error Request : Unexpected response status code: 401
+09-07-2021 14:35:03 teste 2: 
+09-07-2021 14:35:19 ====================================
+09-07-2021 14:35:19 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:35:19 Error Request : Unexpected response status code: 401
+09-07-2021 14:35:19 teste 2: 
+09-07-2021 14:35:31 ====================================
+09-07-2021 14:35:31 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:35:31 Error Request : Unexpected response status code: 401
+09-07-2021 14:35:31 teste 2: 
+09-07-2021 14:35:43 ====================================
+09-07-2021 14:35:43 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:35:43 Error Request : Unexpected response status code: 401
+09-07-2021 14:35:43 teste 2: 
+09-07-2021 14:35:55 ====================================
+09-07-2021 14:35:55 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:35:55 Error Request : Unexpected response status code: 401
+09-07-2021 14:35:55 teste 2: 
+09-07-2021 14:36:08 ====================================
+09-07-2021 14:36:08 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:36:08 Error Request : Unexpected response status code: 401
+09-07-2021 14:36:08 teste 2: 
+09-07-2021 14:36:20 ====================================
+09-07-2021 14:36:20 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:36:20 Error Request : Unexpected response status code: 401
+09-07-2021 14:36:20 teste 2: 
+09-07-2021 14:36:33 ====================================
+09-07-2021 14:36:33 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:36:33 Error Request : Unexpected response status code: 401
+09-07-2021 14:36:33 teste 2: 
+09-07-2021 14:36:45 ====================================
+09-07-2021 14:36:45 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:36:45 Error Request : Unexpected response status code: 401
+09-07-2021 14:36:45 teste 2: 
+09-07-2021 14:36:58 ====================================
+09-07-2021 14:36:58 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:36:58 Error Request : Unexpected response status code: 401
+09-07-2021 14:36:58 teste 2: 
+09-07-2021 14:37:10 ====================================
+09-07-2021 14:37:10 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:37:10 Error Request : Unexpected response status code: 401
+09-07-2021 14:37:10 teste 2: 
+09-07-2021 14:37:23 ====================================
+09-07-2021 14:37:23 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:37:23 Error Request : Unexpected response status code: 401
+09-07-2021 14:37:23 teste 2: 
+09-07-2021 14:37:35 ====================================
+09-07-2021 14:37:35 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:37:35 Error Request : Unexpected response status code: 401
+09-07-2021 14:37:35 teste 2: 
+09-07-2021 14:37:48 ====================================
+09-07-2021 14:37:48 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:37:48 Error Request : Unexpected response status code: 401
+09-07-2021 14:37:48 teste 2: 
+09-07-2021 14:38:08 ====================================
+09-07-2021 14:38:08 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:38:08 Error Request : Unexpected response status code: 401
+09-07-2021 14:38:08 teste 2: 
+09-07-2021 14:38:36 ====================================
+09-07-2021 14:38:36 host https://api.clustererp.com.br/api/v1/autenticacao/table/ddl
+09-07-2021 14:38:36 Error Request : Unexpected response status code: 401
+09-07-2021 14:38:36 teste 2: 
