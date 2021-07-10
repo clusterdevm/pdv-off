@@ -1,0 +1,6 @@
+{"version":1,"strings":[
+{"hash":76866450,"name":"jsontools.snodenotcollection","sourcebytes":[78,111,100,101,32,105,115,32,110,111,116,32,97,32,99,111,110,116,97,105,110,101,114],"value":"Node is not a container"},
+{"hash":133860404,"name":"jsontools.srootnodekind","sourcebytes":[82,111,111,116,32,110,111,100,101,32,109,117,115,116,32,98,101,32,97,110,32,97,114,114,97,121,32,111,114,32,111,98,106,101,99,116],"value":"Root node must be an array or object"},
+{"hash":1710963,"name":"jsontools.sindexoutofbounds","sourcebytes":[73,110,100,101,120,32,111,117,116,32,111,102,32,98,111,117,110,100,115],"value":"Index out of bounds"},
+{"hash":96425865,"name":"jsontools.sparsingerror","sourcebytes":[74,115,111,110,32,73,110,118,97,108,105,100,111,32,40,69,114,114,111,32,97,111,32,102,97,122,101,114,32,112,97,114,115,105,110,103,41],"value":"Json Invalido (Erro ao fazer parsing)"}
+]}

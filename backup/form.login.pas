@@ -29,12 +29,11 @@ type
     lblRecuperaSenha: TLabel;
     Label4: TLabel;
     lblApelido: TLabel;
+    mProcesso: TMemo;
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
     pnlRegistro: TPanel;
-    SQLConnector1: TSQLConnector;
-    SQLQuery1: TSQLQuery;
     Timer1: TTimer;
     procedure ApplicationProperties1Exception(Sender: TObject; E: Exception);
     procedure btLogarClick(Sender: TObject);
@@ -148,9 +147,11 @@ begin
                  pnlRegistro.color := clblue;
                  pnlRegistro.Font.Size:= 10;
                  pnlRegistro.Enabled:= true;
-                 pnlRegistro.visible:= true;
-                 pnlRegistro.Caption:='Iniciando Download';
-                 pnlRegistro.Repaint;
+                 pnlRegistro.visible:= false;
+
+                 mProcesso.Visible:= true;
+                 mProcesso.Lines.Clear;
+                 mProcesso.Lines.Add('Iniciando Download');
                  Sessao.segundoplano := false;
 
                  btLogar.Enabled:=false;
@@ -158,14 +159,17 @@ begin
                  HoraInicial:= now;
 
                  _sincronizar := TSincDownload.Create(true,
-                                                pnlRegistro ,
-                                                objeto.token_remoto
+                                                nil ,
+                                                objeto.token_remoto,
+                                                mProcesso
                                               );
                  _sincronizar.Start;
 
                  while not _sincronizar.Finished do
                      Application.ProcessMessages;
 
+
+                 mProcesso.Lines.Add('Tempo Sicronizacao' + FormatDateTime('hh:mm:ss',HoraInicial - Now));
                  Showmessage('Tempo Sicronizacao' + FormatDateTime('hh:mm:ss',HoraInicial - Now));
 
                  objeto.SetPrimeiroLogFalse;
@@ -179,6 +183,8 @@ begin
 
               finally
                    WCursor.SetNormal;
+                   mProcesso.Clear;
+                   mProcesso.Visible := false;
                    pnlRegistro.color := clDefault;
               end;
            end;
@@ -303,9 +309,9 @@ begin
    //(ActiveControl is TDBMemo)
    // (ActiveControl is TDateTimePicker)
    then begin
-   TEdit(ActiveControl).Color := $00E6E0B0;
-   TEdit(ActiveControl).Font.Color := clBlack;
-   CompAnt := TEdit(ActiveControl);
+      //TEdit(ActiveControl).Color := $00E6E0B0;
+      // TEdit(ActiveControl).Font.Color := clBlack;
+      CompAnt := TEdit(ActiveControl);
    end else CompAnt := nil;
    //if (ActiveControl is TDBLookupComboBox) then
    //TDBLookupComboBox(ActiveControl).DroppedDown:=True;

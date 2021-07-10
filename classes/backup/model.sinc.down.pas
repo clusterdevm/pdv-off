@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, ExtCtrls, model.request.http, clipbrd, dialogs,
-  ems.conexao,  ems.utils, Graphics,
+  ems.conexao,  ems.utils, Graphics,  StdCtrls,
   jsons, crt, model.usuarios;
 
 Type
@@ -24,19 +24,19 @@ TSincDownload = class(TThread)
       FTokenPDV : String;
       FHistorico : TStringList;
       FPanel : TPanel;
+      mProcesso : TMemo;
       Fmsg_erro : string;
       FErro_Processamento : boolean;
       _db : TConexao;
       FFalhou : boolean;
       _name : String;
-      _Registros : integer;
-      _tProcessado : integer;
 
       Procedure Processa(_tabela:string; _jsonValue : TJsonArray);
       Procedure Consulta_Api(var _ok : Boolean) ;
       function valida_table(_tabelaName:string; Criar : boolean = true):boolean;
       function CriaTabela(_tabelaName:String):Boolean;
 
+      function ImportarScript : boolean;
       Procedure SendUpload(_upload : TJsonObject);
       Procedure PreparaUpload(_upload : TJsonObject);
       Procedure ProcessarUpdate(Return:TJsonObject);
@@ -47,7 +47,7 @@ TSincDownload = class(TThread)
    Procedure AtualizaLog ;
    Procedure ControleDown(Sender: TObject; const ContentLength, CurrentPos: Int64);
  public
-   Constructor Create(CreateSuspended : boolean; value : TPanel; _tokenpdv:string);
+   Constructor Create(CreateSuspended : boolean; value : TPanel; _tokenpdv:string; _memo : TMemo = nil);
    destructor Destroy; override;
  end;
 
@@ -123,10 +123,17 @@ try
         _api.Metodo:= 'post';
         _api.webservice:= getEMS_Webservice(mPDV);
         _api.AddHeader('token-pdv',UpperCase(FTokenPDV));
+
+        if not Sessao.segundoplano then
+        Begin
+           _api.AddHeader('first-download','true');
+           _api.Body.Text:= '{"token_remoto": "'+FTokenPDV+'"}';
+        end;
+
         _api.AddHeader('protocolo',FProtocolo);
         _api.rota:='hibrido';
         _api.endpoint:= 'download';
-        _api.Execute(false);
+        _api.Execute(false,true);
 
         if not (_api.ResponseCode in [200..207]) then
         Begin
@@ -139,9 +146,24 @@ try
         Begin
             FMsg:=' Preparando para Registrar Dados';
             Synchronize(AtualizaLog);
-            FResponse.Clear;
             if _api.ResponseCode <> 204 then
-                FResponse.Parse(_api.response.Text);
+            Begin
+                if not sessao.segundoplano then
+                Begin
+                    FResponse.Clear;
+                    FResponse._name:= 'resultado';
+                    {$IFDEF MSWINDOWS}
+                       _api.response.SaveToFile(extractfiledir(paramstr(0))+'\script.db');
+                    {$else}
+                      _api.response.SaveToFile(extractfiledir(paramstr(0))+'/script.db');
+                    {$ENDIF}
+                end else
+                Begin
+                   FResponse.Clear;
+                   FResponse._name:= 'resultado';
+                   FResponse.Parse(_api.response.Text);
+                end;
+            end;
 
             //RegistraLogRequest('erro: '+_api.response);
            _ok := true;
@@ -235,6 +257,22 @@ except
            RegistraLogRequest('empresa: '  +_db.qrySelect.SQL.Text );
      end;
 end;
+end;
+
+function TSincDownload.ImportarScript: boolean;
+var _db : TConexao;
+begin
+   try
+       result := false;
+      _db := TConexao.Create;
+      FMsg:= 'A Importação podera levar alguns minutos aguarde...';
+      Synchronize(AtualizaLog());
+      _db.ImportacaoSQl;;
+
+      Result := true;
+   finally
+       FreeAndNil(_db);
+   end;
 end;
 
 procedure TSincDownload.SendUpload(_upload : TJsonObject);
@@ -433,7 +471,7 @@ procedure TSincDownload.Execute;
 var
    _itensJson : TJsonObject;
     j,i : Integer;
-    _ok, _finalizado : Boolean;
+    _ok : Boolean;
     _time : integer;
 begin
 
@@ -447,82 +485,64 @@ begin
             Synchronize(AtualizaLog);
             Consulta_Api(_ok);
 
-            FProtocolo:= FResponse['protocolo'].AsString;
-            _finalizado:= FResponse.AsObject['finalizado'].AsBoolean;
-
-           if (_ok) and (FResponse.Stringify <> '{}') then
-           Begin
-
-               _itensJson := FResponse['resultado'].AsObject;
-               FErro_Processamento:= false;
-
-               _Registros := 0;
-               _tProcessado := 0;
-               for I := 0 to _itensJson.Count - 1 do
-               Begin
-                   _name := _itensJson.Items[i].Name;
-                   _Registros := _Registros + _itensJson[_name].AsArray.count;
-               end;
-
-
-               for I := 0 to _itensJson.Count - 1 do
-               begin
-                   _name := _itensJson.Items[i].Name ;
-
-                   _tProcessado := _tProcessado + _itensJson[_name].AsArray.Count;
-
-                   FMsg:= _name + ' Registros: '+IntToStr(_Registros)+'/'+IntToStr(_tProcessado);
-                   Synchronize(AtualizaLog);
-
-                   if valida_table(_name) then
-                   Begin
-                       Processa(_name,
-                               _itensJson[_name].AsArray
-                               );
-                   end
-                   else
-                   Begin
-                       FErro_Processamento:= true;
-                       RegistraLogRequest('Tabela inexistente '+ _name);
-                   end;
-               end;
-
-               Fprocessando:= false;
-
-           end;
-
-
-           if (i >= 0 ) and (_ok) then
-           Begin
-               if FResponse.Stringify <> '{}' then
-               Begin
-                  if NOT Fprocessando then
-                  Begin
-                      if (not FErro_Processamento) and (_itensJson.Count> 0) then
-                      Begin
-                           if _finalizado then
-                              Concluir;
-                      end;
-
-                      FFalhou:= FErro_Processamento;
-                  end;
-               end;
-               Synchronize(AtualizaLog);
-           end
-           else
-              Fprocessando:= false;
-
-           if _finalizado = true then
-           Begin
-               _time := 5000 ;
-               FProtocolo := '';
-           end
-           else
-             _time := 0;
-
-
-            if (Sessao.segundoplano) then
+            if not sessao.segundoplano then
             Begin
+                if ImportarScript then
+                   Concluir;
+            end else
+            Begin
+                  FMsg:= 'Iniciando Importacao';
+                  Synchronize(AtualizaLog);
+
+                  if (_ok) and (FResponse['registro'].AsInteger > 0) then
+                  Begin
+
+                     _itensJson := FResponse['resultado'].AsObject;
+                     FErro_Processamento:= false;
+
+
+                     for I := 0 to _itensJson.Count - 1 do
+                     begin
+                         _name := _itensJson.Items[i].Name ;
+
+                         Synchronize(AtualizaLog);
+
+                         if valida_table(_name) then
+                         Begin
+                             Processa(_name,
+                                     _itensJson[_name].AsArray
+                                     );
+                         end
+                         else
+                         Begin
+                             FErro_Processamento:= true;
+                             RegistraLogRequest('Tabela inexistente '+ _name);
+                         end;
+                     end;
+
+                     Fprocessando:= false;
+
+                 end;
+
+
+                 if (i >= 0 ) and (_ok) then
+                 Begin
+                     if FResponse['registro'].AsInteger > 0 then
+                     Begin
+                        if NOT Fprocessando then
+                        Begin
+                            if (not FErro_Processamento) and (_itensJson.Count> 0) then
+                                  Concluir;
+
+                            FFalhou:= FErro_Processamento;
+                        end;
+                     end;
+                     Synchronize(AtualizaLog);
+                 end
+                 else
+                    Fprocessando:= false;
+
+
                  _itensJson := TJsonObject.Create();
                  PreparaUpload(_itensJson);
 
@@ -533,27 +553,17 @@ begin
                  FMsg:= 'Ultima Sicronização '+ FormatDateTime('dd/mm/yyyy hh:mm:ss',now);
                  Synchronize(AtualizaLog);
                  Fprocessando:= true;
-                 Delay(_time);
-            end else
-            Begin
-                FMsg:= 'Etapa: '+ FResponse['etapa'].AsString +
-                       ' > Registros : '+ FResponse['registro'].AsString;
-
-                Synchronize(AtualizaLog);
-                Delay(2000);
-
-                Fprocessando:= not _finalizado;
+                 Delay(5000);
+                 FResponse.Clear;
             end;
-
-            FResponse.Clear;
       except
           on e:exception do
           Begin
               RegistraLogRequest(e.message);
-              Fprocessando:= not _finalizado;
-              FMsg:= 'Erro ao Processar';
-
+              Fprocessando:= true;
+              FMsg:= 'Erro ao Processar: ' + e.message;
               Synchronize(AtualizaLog);
+
               FProtocolo:= '';
               Delay(1000);
           end;
@@ -563,18 +573,23 @@ end;
 
 procedure TSincDownload.AtualizaLog;
 begin
+  if Assigned(FPanel) then
+  Begin
+        FPanel.Caption:= FMsg+'  ';
+        FPanel.Repaint;
+        fpanel.enabled := true;
 
-  FPanel.Caption:= FMsg+'  ';
-  FPanel.Repaint;
-  fpanel.enabled := true;
+        if FFalhou then
+           FPanel.Font.Color := clred
+        else
+          FPanel.Font.Color := clwhite;
 
-  if FFalhou then
-     FPanel.Font.Color := clred
-  else
-    FPanel.Font.Color := clwhite;
+        if not FPanel.Visible then
+           FPanel.Visible:= true;
+  end;
 
-  if not FPanel.Visible then
-     FPanel.Visible:= true;
+  if Assigned(mProcesso) then
+     mProcesso.Lines.Add(FMsg);
 
   if FErro <> '' then
   Begin
@@ -594,7 +609,7 @@ begin
       Synchronize(AtualizaLog);
 end;
 
-constructor TSincDownload.Create(CreateSuspended: boolean; value: TPanel; _tokenpdv:string);
+constructor TSincDownload.Create(CreateSuspended: boolean; value: TPanel; _tokenpdv:string; _memo : TMemo = nil);
 begin
   FFalhou:= false;
   FHistorico := TStringList.Create;
@@ -603,7 +618,7 @@ begin
   FPanel := value;
   FTokenPDV := _tokenpdv;
   FreeOnTerminate := true;
-
+  mProcesso:= _memo;
   FResponse := TJsonObject.Create;
 
   _db := TConexao.Create;

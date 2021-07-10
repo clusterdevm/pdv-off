@@ -1,0 +1,40 @@
+object Form1: TForm1
+  Left = 1920
+  Height = 569
+  Top = 250
+  Width = 832
+  Caption = 'Form1'
+  ClientHeight = 569
+  ClientWidth = 832
+  object Memo1: TMemo
+    Left = 0
+    Height = 96
+    Top = 0
+    Width = 832
+    Align = alTop
+    Lines.Strings = (
+      'Memo1'
+    )
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 0
+    Height = 25
+    Top = 112
+    Width = 75
+    Caption = 'Button1'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object Memo2: TMemo
+    Left = 0
+    Height = 416
+    Top = 153
+    Width = 832
+    Align = alBottom
+    Lines.Strings = (
+      'Memo1'
+    )
+    TabOrder = 2
+  end
+end

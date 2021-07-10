@@ -12,6 +12,7 @@ object frm_login: Tfrm_login
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
+  LCLVersion = '2.0.12.0'
   object Panel1: TPanel
     Left = 650
     Height = 640
@@ -1178,7 +1179,7 @@ object frm_login: Tfrm_login
       Width = 353
       Align = alBottom
       Alignment = taCenter
-      Caption = '1.0.1'
+      Caption = '1.0.2'
       Font.Height = -11
       Font.Name = 'Sans'
       ParentColor = False
@@ -1195,8 +1196,8 @@ object frm_login: Tfrm_login
       TabOrder = 0
       object edtEmail: TEdit
         Left = 0
-        Height = 32
-        Top = 19
+        Height = 33
+        Top = 20
         Width = 277
         Align = alTop
         BorderSpacing.Top = 5
@@ -1204,7 +1205,7 @@ object frm_login: Tfrm_login
       end
       object Label1: TLabel
         Left = 0
-        Height = 14
+        Height = 15
         Top = 0
         Width = 277
         Align = alTop
@@ -1213,8 +1214,8 @@ object frm_login: Tfrm_login
       end
       object Label2: TLabel
         Left = 0
-        Height = 14
-        Top = 61
+        Height = 15
+        Top = 63
         Width = 277
         Align = alTop
         BorderSpacing.Top = 10
@@ -1223,8 +1224,8 @@ object frm_login: Tfrm_login
       end
       object edtSenha: TEdit
         Left = 0
-        Height = 32
-        Top = 75
+        Height = 33
+        Top = 78
         Width = 277
         Align = alTop
         EchoMode = emPassword
@@ -1234,8 +1235,8 @@ object frm_login: Tfrm_login
       end
       object lblApelido: TLabel
         Left = 0
-        Height = 14
-        Top = 117
+        Height = 15
+        Top = 121
         Width = 277
         Align = alTop
         BorderSpacing.Top = 10
@@ -1244,8 +1245,8 @@ object frm_login: Tfrm_login
       end
       object edtApelido: TEdit
         Left = 0
-        Height = 32
-        Top = 131
+        Height = 33
+        Top = 136
         Width = 277
         Align = alTop
         TabOrder = 2
@@ -11558,6 +11559,24 @@ object frm_login: Tfrm_login
       }
       Stretch = True
     end
+    object mProcesso: TMemo
+      Left = 0
+      Height = 640
+      Top = 0
+      Width = 650
+      Align = alClient
+      Color = clBlack
+      Font.Color = clLime
+      Font.Height = -13
+      Lines.Strings = (
+        'mProcesso'
+      )
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 0
+      TabStop = False
+      Visible = False
+    end
   end
   object Timer1: TTimer
     Enabled = False
@@ -11578,20 +11597,5 @@ object frm_login: Tfrm_login
     AllowRedirect = False
     Left = 512
     Top = 56
-  end
-  object SQLConnector1: TSQLConnector
-    Connected = False
-    LoginPrompt = False
-    KeepConnection = False
-    Left = 128
-    Top = 24
-  end
-  object SQLQuery1: TSQLQuery
-    PacketRecords = -1
-    FieldDefs = <>
-    Options = [sqoKeepOpenOnCommit]
-    Params = <>
-    Left = 32
-    Top = 32
   end
 end

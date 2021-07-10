@@ -14,6 +14,7 @@ Type
       Private
           Conector : TSQLConnector;
           FqryPost: TSQLQuery;
+          FqrySelect: TSQLQuery;
           Transaction : TSQLTransaction;
           FQuery   : TSQLQuery;
           _estruturaDB: TJsonArray;
@@ -24,17 +25,17 @@ Type
 
           Procedure CriaBaseDefault;
 
-          Procedure ExecutaSQL(isql : string; _aux:string = '');
-
           procedure checaIndex(value:string; _delimiter:string ;var _index :string);
-
-
-
+          Procedure ExecutaSQL(isql : string; _aux:string = '');
       Public
+
+         Procedure ImportacaoSQl;
+
          Function TabelaExists(_tabela:string) : Boolean;
          Procedure ChecaEstrutura(_tabela:string);
 
-         Property qrySelect : TSQLQuery      Read FQuery      Write FQuery;
+         Property qrySelect : TSQLQuery      Read FqrySelect      Write FqrySelect;
+         Property Query : TSQLQuery      Read FQuery      Write FQuery;
          Property qryPost : TSQLQuery      Read FqryPost      Write FqryPost;
 
 
@@ -141,22 +142,6 @@ begin
      Transaction := TSQLTransaction.Create(nil);
      Transaction.DataBase := Conector;
 
-
-     //Conector               := TZConnection.Create(nil);
-     //Conector.loginprompt   := false;
-     //Conector.Database      := _PathConnection;
-     //Conector.HostName      := '';
-     //Conector.Password      := '';
-     //Conector.User          := '';
-     //Conector.Protocol      := 'sqlite-3';
-     //Conector.AutoCommit:= true;
-     //Conector.ClientCodepage:='UTF-8';
-     //{$IFDEF MSWINDOWS}
-     //   Conector.LibraryLocation:='sqlite3.dll';
-     //{$else}
-     //   Conector.LibraryLocation:='';
-     //{$ENDIF}
-
      Transaction.Options:= [stoUseImplicit];
      ExecutaSQL('PRAGMA journal_mode=WAL');
 
@@ -165,15 +150,17 @@ begin
      FQuery.Transaction := Transaction;
      FQuery.Options:= [sqoAutoApplyUpdates,sqoAutoCommit,sqoRefreshUsingSelect,sqoKeepOpenOnCommit];
 
+
+     FqrySelect := TSQLQuery.Create(nil);
+     FqrySelect.DataBase := Conector;
+     FqrySelect.Transaction := Transaction;
+     FqrySelect.Options:= [sqoAutoApplyUpdates,sqoAutoCommit,sqoRefreshUsingSelect,sqoKeepOpenOnCommit];
+
      FqryPost := TSQLQuery.Create(nil);
      FqryPost.DataBase := Conector;
      FQuery.Transaction := Transaction;
      FqryPost.Options:= [sqoAutoApplyUpdates,sqoAutoCommit,sqoRefreshUsingSelect,sqoKeepOpenOnCommit];
 
-
-    //Conector.ExecuteDirect('PRAGMA foreign_keys = OFF');
-
-     //;
 
      if CriarBase then criaBaseDefault;
 
@@ -192,6 +179,7 @@ begin
     FQuery.Close;
     Conector.Connected := false;
     FreeAndNil(FQuery);
+    FreeAndNil(FqrySelect);
     FreeAndNil(FqryPost);
     FreeAndNil(Conector);
     inherited;
@@ -222,12 +210,11 @@ begin
         Sql.Add('JOIN');
         Sql.Add('  pragma_table_info(m.name) AS p');
         Sql.Add('  where m.name = '+QuotedStr(_tabela));
+
         open;
 
         if IsEmpty then
            raise Exception.Create('Tabela Invalida '+_tabela);
-
-        ChecaEstrutura(_tabela);
 
         _estruturaDB := DataSetToJsonArray(_dbEstrutura);
     end;
@@ -250,20 +237,6 @@ begin
   end;
 end;
 
-
-
-//function TConexao.Getsql: String;
-//var  i: Integer;
-//  r: string;
-//begin
-//  Result := LowerCase(Query.SQL.Text);
-//  for i := 0 to Query.Params.Count - 1 do
-//  begin
-//      r:= QuotedStr(Query.Params[i].AsString);
-//
-//      Result := StringReplace(Result, ':' + lowercase(Query.Params.Items[i].Name), r, [rfReplaceAll]);
-//  end;
-//end;
 
 function TConexao.getStr(value: String): String;
 begin
@@ -380,7 +353,7 @@ begin
 
        with _isql do
        Begin
-            Add(' CREATE TABLE ems_pdv( ');
+            Add(' CREATE TABLE ems_pdv ( ');
             Add('token_local text, ');
             Add('token_remoto text,');
             Add('apelido text,');
@@ -422,6 +395,54 @@ begin
   finally
     FreeAndNil(iCommand);
   end;
+end;
+
+procedure TConexao.ImportacaoSQl;
+var iCommand :  TSQLScript;
+  f: TextFile;
+  linha: String;
+begin
+  try
+
+    {$IFDEF MSWINDOWS}
+       _AssignFile(f,extractfiledir(paramstr(0))+'\script.db');
+    {$else}
+        AssignFile(f,extractfiledir(paramstr(0)+'/script.db');
+    {$ENDIF}
+
+      Reset(f);
+
+      iCommand:= TSQLScript.Create(nil);
+      iCommand.DataBase := Conector;
+      iCommand.Transaction :=  Transaction;
+      iCommand.AutoCommit:= true;
+      with iCommand do
+      Begin
+          Script.Clear;
+
+          while not Eof(f) do
+          begin
+            ReadLn(f, linha);
+            Script.Add(linha);
+          end;
+
+          try
+              RegistraLogRequest('executar Comando');
+              iCommand.Execute;
+              RegistraLogRequest('fim da execucao');
+          except
+              on e:Exception do
+              Begin
+                  RegistraLogRequest(' Command sql :  '+e.Message);
+                  RegistraLogRequest(Script.Text);
+              end;
+          end;
+      end;
+  finally
+    FreeAndNil(iCommand);
+    CloseFile(f);
+  end;
+
 end;
 
 procedure TConexao.checaIndex(value:string; _delimiter:string ;var _index :string);

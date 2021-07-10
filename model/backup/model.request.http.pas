@@ -72,7 +72,7 @@ TRequisicao = Class
          property getID : String read fgetID write fgetID;
          Property MSG_Erro : String read fMSg_Erro write Fmsg_erro;
 
-         Function Execute(doParse:boolean = true): Boolean;
+         Function Execute(doParse:boolean = true; attachmentZIP : boolean = false): Boolean;
          Function ExecuteSynapse: Boolean;
 
          procedure JsonToDataSet(aDataSet:TDataSet);
@@ -286,7 +286,7 @@ finally
 end;
 end;
 
-function TRequisicao.Execute(doParse:boolean = true): Boolean;
+function TRequisicao.Execute(doParse:boolean = true; attachmentZIP : boolean = false): Boolean;
 var
   _response : TStringStream;
       i : Integer;
@@ -353,7 +353,9 @@ try
        end;
 
 
-        if _contentEnconding <> '' then
+
+
+        if (_contentEnconding <> '') or () then
             fresponse.Text:= inflate(_response)
         else
            fresponse.Text:= _response.DataString;
@@ -367,8 +369,8 @@ try
        if copy(trim(fresponse.Text),1,1) = '{' then
          try
             return.Clear;
-            if doParse Then ;
-            Return.Parse(fresponse.Text);
+            if doParse Then
+               Return.Parse(fresponse.Text);
          except
               on e:exception do
               Begin
