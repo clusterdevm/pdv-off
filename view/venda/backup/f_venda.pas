@@ -709,7 +709,7 @@ procedure Tform_venda.ac_fechavendaExecute(Sender: TObject);
 begin
   f_fechamento := Tf_fechamento.Create(nil);
   f_fechamento._vendaID:= GetVendaID;
-  f_fechamento._vendaID:= GetVendaUUID;
+  f_fechamento._vendaUUID:= GetVendaUUID;
   f_fechamento._valorBruto:= _valorBruto;
   f_fechamento._valorDesconto:= 0;
   f_fechamento._valorPromocao:= _valorPromocao;

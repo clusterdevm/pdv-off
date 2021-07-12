@@ -58,7 +58,7 @@ var
 
 implementation
 
-uses cluster_pdv.sessao, thread.wait;
+uses cluster_pdv.sessao, thread.wait, ems.conexao;
 
 {$R *.lfm}
 
@@ -118,7 +118,9 @@ procedure Tfrm_login.btLogarClick(Sender: TObject);
 var objeto : TClassLogin;
     _sincronizar : TSincDownload;
     HoraInicial : TDateTime;
+ _db : TConexao;
 begin
+
      try
        objeto := TClassLogin.Create;
        objeto.email := edtEmail.text;

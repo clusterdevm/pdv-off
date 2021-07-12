@@ -178,7 +178,7 @@ begin
          if _api.Return.Find('json_error') > -1 then
              messagedlg(_api.Return['json_error'].AsString,mtError,[mbok],0)
          else
-             messagedlg(_api.response,mtError,[mbok],0)
+             messagedlg(_api.response.Text,mtError,[mbok],0)
     end;
 
   finally
@@ -206,7 +206,7 @@ begin
           Begin
 
               self.token_remoto:= FieldByName('token_remoto').AsString;
-              getStatusRemoto;
+             // getStatusRemoto;
 
               Close;
               open;

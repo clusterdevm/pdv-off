@@ -27,8 +27,9 @@ Type
 
           procedure checaIndex(value:string; _delimiter:string ;var _index :string);
           Procedure ExecutaSQL(isql : string; _aux:string = '');
-      Public
 
+      Public
+         Procedure LimparBase;
          Procedure ImportacaoSQl;
 
          Function TabelaExists(_tabela:string) : Boolean;
@@ -148,18 +149,18 @@ begin
      FQuery := TSQLQuery.Create(nil);
      FQuery.DataBase := Conector;
      FQuery.Transaction := Transaction;
-     FQuery.Options:= [sqoAutoApplyUpdates,sqoAutoCommit,sqoRefreshUsingSelect,sqoKeepOpenOnCommit];
+     FQuery.Options:= [sqoAutoApplyUpdates,sqoAutoCommit];
 
 
      FqrySelect := TSQLQuery.Create(nil);
      FqrySelect.DataBase := Conector;
-     FqrySelect.Transaction := Transaction;
-     FqrySelect.Options:= [sqoAutoApplyUpdates,sqoAutoCommit,sqoRefreshUsingSelect,sqoKeepOpenOnCommit];
+     //FqrySelect.Transaction := Transaction;
+     //FqrySelect.Options:= [sqoAutoApplyUpdates,sqoAutoCommit,sqoRefreshUsingSelect,sqoKeepOpenOnCommit];
 
      FqryPost := TSQLQuery.Create(nil);
      FqryPost.DataBase := Conector;
      FQuery.Transaction := Transaction;
-     FqryPost.Options:= [sqoAutoApplyUpdates,sqoAutoCommit,sqoRefreshUsingSelect,sqoKeepOpenOnCommit];
+     FqryPost.Options:= [sqoAutoApplyUpdates,sqoAutoCommit];
 
 
      if CriarBase then criaBaseDefault;
@@ -363,8 +364,6 @@ begin
             Add('id integer);');
             ExecutaSQL(text);
        end;
-
-       ExecutaSQL('PRAGMA journal_mode=WAL');
    finally
        FreeAndNil(_isql);
    end;
@@ -387,8 +386,8 @@ begin
           except
               on e:Exception do
               Begin
-                  RegistraLogRequest(' Command sql : '+_aux+' '+e.Message);
-                  RegistraLogRequest(Script.Text);
+                  RegistraLogRequest(' ExecutaSQL : '+_aux+' '+e.Message);
+                  RegistraLogRequest(isql);
               end;
           end;
       end;
@@ -397,20 +396,60 @@ begin
   end;
 end;
 
+procedure TConexao.LimparBase;
+var _dbEstrutura: TSQLQuery;
+begin
+ try
+  _dbEstrutura := TSQLQuery.Create(nil);
+  _dbEstrutura.DataBase := Conector;
+  _dbEstrutura.Transaction := Transaction;
+  _dbEstrutura.Options:= [sqoAutoApplyUpdates,sqoAutoCommit];
+
+    with _dbEstrutura do
+    Begin
+        Close;
+        Sql.Clear;
+        Sql.Add('SELECT m.name');
+        Sql.Add('FROM');
+        Sql.Add('  sqlite_master AS m');
+        Sql.Add('  where m.name <> '+QuotedStr('ems_pdv'));
+        Sql.Add(' and type = ''table'' ');
+        open;
+        first;
+
+        while not eof do
+        Begin
+             ExecutaSQL('delete from '+FieldByName('name').AsString+';');
+             Next;
+        end;
+
+
+        close;
+        Sql.Clear;
+        Sql.Add('VACUUM');
+        ExecSQL;
+    end;
+
+ finally
+     FreeandNIl(_dbEstrutura);
+ end;
+end;
+
 procedure TConexao.ImportacaoSQl;
 var iCommand :  TSQLScript;
   f: TextFile;
-  linha: String;
+  linha, _path: String;
 begin
   try
 
     {$IFDEF MSWINDOWS}
-       _AssignFile(f,extractfiledir(paramstr(0))+'\script.db');
+         _path := extractfiledir(paramstr(0))+'\script.db';
     {$else}
-        AssignFile(f,extractfiledir(paramstr(0))+'/script.db');
+        _path := extractfiledir(paramstr(0))+'/script.db';
     {$ENDIF}
-
+      AssignFile(f,_path);
       Reset(f);
+
 
       iCommand:= TSQLScript.Create(nil);
       iCommand.DataBase := Conector;
@@ -427,36 +466,60 @@ begin
           end;
 
           try
-              RegistraLogRequest('executar Comando');
               iCommand.Execute;
-              RegistraLogRequest('fim da execucao');
           except
               on e:Exception do
               Begin
-                  RegistraLogRequest(' Command sql :  '+e.Message);
-                  RegistraLogRequest(Script.Text);
+                  RegistraLogRequest(' Importação SQL :  '+e.Message);
               end;
           end;
       end;
   finally
     FreeAndNil(iCommand);
     CloseFile(f);
+    DeleteFile(_path);
   end;
 
 end;
 
 procedure TConexao.checaIndex(value:string; _delimiter:string ;var _index :string);
+var _order : string;
 begin
     value := LowerCase(value);
+    if (value = 'id') or
+       (value = 'produto_id') or
+       (value = 'produto_empresa_id') or
+       (value = 'produto_estoque_id')
+    then
+      _order := ' DESC '
+    else
+      _order := EmptyStr;
+
     if (value = 'id') or
        (value = 'nome') or
        (value = 'ativo') or
        (copy(value,1,4)= 'data') or
        (copy(value,1,9)= 'descricao') or
        (value = 'empresa_id') or
-       (value = 'matriz_id')
+       (value = 'produto_empresa_id') or
+       (value = 'produto_armazenamento_id') or
+       (value = 'tabela_id') or
+       (value = 'subgrupo_id') or
+       (value = 'grupo_id') or
+       (value = 'unidade_id') or
+       (value = 'colecao_id') or
+       (value = 'referencia') or
+       (value = 'ncm_id') or
+       (value = 'ncm') or
+       (value = 'produto_id') or
+       (value = 'produto_gradeamento_id') or
+       (value = 'produto_estoque_id') or
+       (value = 'grade_item_id') or
+       (value = 'grade_id') or
+       (value = 'grade_item2_id')
+
     then
-       _index := _Index + _delimiter +value;
+       _index := _Index + _delimiter +value+ _ORDER;
 end;
 
 function TConexao.TabelaExists(_tabela: string): Boolean;
@@ -722,7 +785,10 @@ begin
          else
              _type := 'TEXT';
 
-         _notNull := '';
+         //if (LowerCase(_item['column_name'].AsString) = 'id') then
+         //   _notNull := ' DESC '
+         //else
+          _notNull := ''  ;
 
          _line := _delimiter+_item['column_name'].AsString +
                   ' '+_type+

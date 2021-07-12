@@ -162,9 +162,10 @@ begin
 
           Add('order by 2');
 
+
           Result := Text;
 
-          RegistraLogErro(text);
+
 
           sessao.gradeID:= '';
       end;
@@ -277,6 +278,7 @@ begin
         _Produto['valor_unitario'].AsNumber:= DecimalUnitario(_produto['valor'].AsNumber);
         _produto['quantidade'].AsNumber:= quantidade;
         _produto['uuid_venda'].AsString:= _vendaUUID;
+        _produto['uuid'].AsString:= GetUUID;
         VendaGetItemRecalculo(_Produto);
 
         if quantidade <= 0 then

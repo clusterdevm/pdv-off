@@ -13,7 +13,6 @@ object frmPrincipal: TfrmPrincipal
   OnResize = FormResize
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.0.12.0'
   WindowState = wsMaximized
   object pnlRodape: TPanel
     Left = 0

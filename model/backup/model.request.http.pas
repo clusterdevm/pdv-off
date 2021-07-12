@@ -228,14 +228,14 @@ try
 
     _inicio := now;
     HTTPSender.HTTPMethod(self.Metodo,getHost);
-    RegistraLogRequest(getHost+':'+FormatDateTime('hh:mm:ss',_inicio - Now));
-    RegistraLogRequest('Hora Finalizacao Download:'+FormatDateTime('hh:mm:ss',Now));
+    //RegistraLogRequest(getHost+':'+FormatDateTime('hh:mm:ss',_inicio - Now));
+    //RegistraLogRequest('Hora Finalizacao Download:'+FormatDateTime('hh:mm:ss',Now));
     self.ResponseCode:= HTTPSender.ResultCode;
 
     result := self.ResponseCode in [200..207];
 
 
-    RegistraLogRequest('Inicio Encoding:'+FormatDateTime('hh:mm:ss',Now));
+    //RegistraLogRequest('Inicio Encoding:'+FormatDateTime('hh:mm:ss',Now));
     for i := 0 to HTTPSender.Headers.Count-1 do
     Begin
         if LowerCase(copy(HTTPSender.Headers[i],1,16))='content-encoding' then
@@ -355,16 +355,10 @@ try
 
 
 
-        if (_contentEnconding <> '') or () then
+        if (_contentEnconding <> '') or (attachmentZIP) then
             fresponse.Text:= inflate(_response)
         else
            fresponse.Text:= _response.DataString;
-
-
-       //RegistraLogErro(getHost);
-       //RegistraLogErro('response : '+fresponse);
-       //RegistraLogErro('request : '+FBody.Text);
-
 
        if copy(trim(fresponse.Text),1,1) = '{' then
          try
@@ -385,7 +379,6 @@ except
      Begin
        RegistraLogErro('====================================');
        RegistraLogErro('host '+ getHost);
-       //RegistraLogErro('response : '+_response.DataString);
        RegistraLogErro('Error Request : '+e.message);
        RegistraLogErro('teste 2: '+fresponse.Text);
      end;

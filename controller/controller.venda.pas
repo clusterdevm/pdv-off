@@ -162,9 +162,9 @@ begin
 
           Add('order by 2');
 
+
           Result := Text;
 
-          RegistraLogErro(text);
 
           sessao.gradeID:= '';
       end;

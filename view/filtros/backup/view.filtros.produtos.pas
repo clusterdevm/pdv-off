@@ -154,10 +154,10 @@ try
           Sql.Add(' and p.descricao like '+QuotedStr('%'+SubsString(edt_descricao.Text,' ','%')+'%'));
 
         if trim(edt_GTIN.Text) <> '' then
-          Sql.Add(' and p.gtin like '+QuotedStr('%'+SubsString(edt_GTIN.Text,' ','%'))+'%');
+          Sql.Add(' and p.gtin like '+QuotedStr('%'+SubsString(edt_GTIN.Text,' ','%')+'%'));
 
         if trim(edt_marca.Text) <> '' then
-          Sql.Add(' and pm.descricao like '+QuotedStr('%'+SubsString(edt_marca.Text,' ','%'))+'%');
+          Sql.Add(' and pm.descricao like '+QuotedStr('%'+SubsString(edt_marca.Text,' ','%')+'%'));
 
         if trim(edt_referencia.Text) <> '' then
           Sql.Add(' and p.referencia like '+QuotedStr('%'+SubsString(edt_referencia.Text,' ','%'))+'%');
@@ -168,6 +168,8 @@ try
         gridProdutos.Columns[3].DisplayFormat:= sessao.formatquantidade;
         gridProdutos.Columns[5].DisplayFormat:= sessao.formatunitario();
 
+        RegistraLogErro(sql.text);
+
         qItens.Close;
         qItens.Open;
         open;
@@ -176,13 +178,13 @@ try
         while not eof do
         begin
             qItens.Append;
-            qItensid.Value := _db.Query.FieldByName('id').AsInteger;
-            qItensdescricao.Value:= _db.Query.FieldByName('descricao').AsString;
-            qItensgrade_id.Value:= _db.Query.FieldByName('gradeamento_id').AsInteger;
-            qItensn_marca.Value:= _db.Query.FieldByName('n_marca').AsString;
-            qItenssaldo.Value:= _db.Query.FieldByName('saldo').AsFloat;
-            qItensun_medida.Value:= _db.Query.FieldByName('n_unidade').AsString;
-            qItensvalor.Value:= _db.Query.FieldByName('valor').AsFloat;
+            qItensid.Value := _db.qrySelect.FieldByName('id').AsInteger;
+            qItensdescricao.Value:= _db.qrySelect.FieldByName('descricao').AsString;
+            qItensgrade_id.Value:= _db.qrySelect.FieldByName('gradeamento_id').AsInteger;
+            qItensn_marca.Value:= _db.qrySelect.FieldByName('n_marca').AsString;
+            qItenssaldo.Value:= _db.qrySelect.FieldByName('saldo').AsFloat;
+            qItensun_medida.Value:= _db.qrySelect.FieldByName('n_unidade').AsString;
+            qItensvalor.Value:= _db.qrySelect.FieldByName('valor').AsFloat;
             qItens.Post;
             Next;
         end;

@@ -154,19 +154,21 @@ try
           Sql.Add(' and p.descricao like '+QuotedStr('%'+SubsString(edt_descricao.Text,' ','%')+'%'));
 
         if trim(edt_GTIN.Text) <> '' then
-          Sql.Add(' and p.gtin like '+QuotedStr('%'+SubsString(edt_GTIN.Text,' ','%'))+'%');
+          Sql.Add(' and p.gtin like '+QuotedStr('%'+SubsString(edt_GTIN.Text,' ','%')+'%'));
 
         if trim(edt_marca.Text) <> '' then
-          Sql.Add(' and pm.descricao like '+QuotedStr('%'+SubsString(edt_marca.Text,' ','%'))+'%');
+          Sql.Add(' and pm.descricao like '+QuotedStr('%'+SubsString(edt_marca.Text,' ','%')+'%'));
 
         if trim(edt_referencia.Text) <> '' then
-          Sql.Add(' and p.referencia like '+QuotedStr('%'+SubsString(edt_referencia.Text,' ','%'))+'%');
+          Sql.Add(' and p.referencia like '+QuotedStr('%'+SubsString(edt_referencia.Text,' ','%')+'%'));
 
         Sql.Add('order by p.descricao');
         Sql.Add(' limit 1000');
         Sql.Add('COLLATE NOCASE');
         gridProdutos.Columns[3].DisplayFormat:= sessao.formatquantidade;
         gridProdutos.Columns[5].DisplayFormat:= sessao.formatunitario();
+
+        RegistraLogErro(sql.text);
 
         qItens.Close;
         qItens.Open;

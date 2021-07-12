@@ -51,6 +51,7 @@ type
     MainMenu2: TMainMenu;
     MenuItem8: TMenuItem;
     Panel1: TPanel;
+    PopupMenu2: TPopupMenu;
     qryItens: TBufDataset;
     gridItens: TDBGrid;
     Image1: TImage;

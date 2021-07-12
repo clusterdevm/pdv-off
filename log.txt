@@ -1,0 +1,323 @@
+11-07-2021 20:42:54 select p.id, 
+ trim(case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+          p.descricao||' '||grd_1.descricao_resumida||' '||
+                   pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+      when pgri_1.descricao <> ''  then
+            p.descricao||' '||pgri_1.descricao
+            else
+            p.descricao end) as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm,
+       p.tipo_produto,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, trim(pm.descricao) n_marca,
+       pu.un n_unidade, pc.descricao n_colecao,
+       case when pgri_1.descricao <> '' then peg.saldo_gerencial
+	        else pes.saldo_gerencial
+	   end as saldo,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id
+from produtos p inner join produtos_empresa pe
+                on pe.produto_id = p.id
+                inner join produtos_estoque pes
+                on pes.produto_empresa_id = pe.id
+                and pes.produto_armazenamento_id = '1'
+                inner join produtos_armazenamento pa
+                on pa.id  = pes.produto_armazenamento_id
+                and pa.empresa_id = pe.empresa_id
+                left join produtos_preco_venda ppv
+                on ppv.produto_empresa_id = pe.id
+                and ppv.tabela_id = '1'
+                left join tabela_preco tp
+                on tp.id = ppv.tabela_id
+                left join produtos_subgrupos sg
+                on sg.id = p.subgrupo_id
+                left join produtos_grupos pg
+                on pg.id = sg.grupo_id
+                left join produtos_marcas pm
+                on pm.id = p.marca_id
+                left join produtos_unidades pu
+                on pu.id = p.unidade_id
+                left join produtos_colecoes pc
+                on pc.id = p.colecao_id
+                left join lista_ncm ncm
+                on ncm.ncm = p.ncm_id
+                left join produtos_gradeamento pgrd
+                on pgrd.produto_id  = p.id
+		 left join produtos_estoque_grade peg
+		 on peg.produto_gradeamento_id = pgrd.id
+		 and peg.produto_estoque_id = pes.id
+                left join produtos_grades_itens pgri_1
+                on pgri_1.id = pgrd.grade_item_id
+                left join produtos_grades grd_1
+                on grd_1.id = pgri_1.grade_id
+                left join produtos_grades_itens pgri_2
+                on pgri_2.id = pgrd.grade_item2_id
+                left join produtos_grades grd_2
+                on grd_2.id = pgri_2.grade_id
+where
+ p.ativo = 'true'
+order by p.descricao
+ limit 1000
+COLLATE NOCASE
+
+11-07-2021 20:42:58 select p.id, 
+ trim(case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+          p.descricao||' '||grd_1.descricao_resumida||' '||
+                   pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+      when pgri_1.descricao <> ''  then
+            p.descricao||' '||pgri_1.descricao
+            else
+            p.descricao end) as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm,
+       p.tipo_produto,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, trim(pm.descricao) n_marca,
+       pu.un n_unidade, pc.descricao n_colecao,
+       case when pgri_1.descricao <> '' then peg.saldo_gerencial
+	        else pes.saldo_gerencial
+	   end as saldo,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id
+from produtos p inner join produtos_empresa pe
+                on pe.produto_id = p.id
+                inner join produtos_estoque pes
+                on pes.produto_empresa_id = pe.id
+                and pes.produto_armazenamento_id = '1'
+                inner join produtos_armazenamento pa
+                on pa.id  = pes.produto_armazenamento_id
+                and pa.empresa_id = pe.empresa_id
+                left join produtos_preco_venda ppv
+                on ppv.produto_empresa_id = pe.id
+                and ppv.tabela_id = '1'
+                left join tabela_preco tp
+                on tp.id = ppv.tabela_id
+                left join produtos_subgrupos sg
+                on sg.id = p.subgrupo_id
+                left join produtos_grupos pg
+                on pg.id = sg.grupo_id
+                left join produtos_marcas pm
+                on pm.id = p.marca_id
+                left join produtos_unidades pu
+                on pu.id = p.unidade_id
+                left join produtos_colecoes pc
+                on pc.id = p.colecao_id
+                left join lista_ncm ncm
+                on ncm.ncm = p.ncm_id
+                left join produtos_gradeamento pgrd
+                on pgrd.produto_id  = p.id
+		 left join produtos_estoque_grade peg
+		 on peg.produto_gradeamento_id = pgrd.id
+		 and peg.produto_estoque_id = pes.id
+                left join produtos_grades_itens pgri_1
+                on pgri_1.id = pgrd.grade_item_id
+                left join produtos_grades grd_1
+                on grd_1.id = pgri_1.grade_id
+                left join produtos_grades_itens pgri_2
+                on pgri_2.id = pgrd.grade_item2_id
+                left join produtos_grades grd_2
+                on grd_2.id = pgri_2.grade_id
+where
+ p.ativo = 'true'
+ and pm.descricao like '%VIS%'
+order by p.descricao
+ limit 1000
+COLLATE NOCASE
+
+11-07-2021 20:43:00 select p.id, 
+ trim(case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+          p.descricao||' '||grd_1.descricao_resumida||' '||
+                   pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+      when pgri_1.descricao <> ''  then
+            p.descricao||' '||pgri_1.descricao
+            else
+            p.descricao end) as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm,
+       p.tipo_produto,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, trim(pm.descricao) n_marca,
+       pu.un n_unidade, pc.descricao n_colecao,
+       case when pgri_1.descricao <> '' then peg.saldo_gerencial
+	        else pes.saldo_gerencial
+	   end as saldo,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id
+from produtos p inner join produtos_empresa pe
+                on pe.produto_id = p.id
+                inner join produtos_estoque pes
+                on pes.produto_empresa_id = pe.id
+                and pes.produto_armazenamento_id = '1'
+                inner join produtos_armazenamento pa
+                on pa.id  = pes.produto_armazenamento_id
+                and pa.empresa_id = pe.empresa_id
+                left join produtos_preco_venda ppv
+                on ppv.produto_empresa_id = pe.id
+                and ppv.tabela_id = '1'
+                left join tabela_preco tp
+                on tp.id = ppv.tabela_id
+                left join produtos_subgrupos sg
+                on sg.id = p.subgrupo_id
+                left join produtos_grupos pg
+                on pg.id = sg.grupo_id
+                left join produtos_marcas pm
+                on pm.id = p.marca_id
+                left join produtos_unidades pu
+                on pu.id = p.unidade_id
+                left join produtos_colecoes pc
+                on pc.id = p.colecao_id
+                left join lista_ncm ncm
+                on ncm.ncm = p.ncm_id
+                left join produtos_gradeamento pgrd
+                on pgrd.produto_id  = p.id
+		 left join produtos_estoque_grade peg
+		 on peg.produto_gradeamento_id = pgrd.id
+		 and peg.produto_estoque_id = pes.id
+                left join produtos_grades_itens pgri_1
+                on pgri_1.id = pgrd.grade_item_id
+                left join produtos_grades grd_1
+                on grd_1.id = pgri_1.grade_id
+                left join produtos_grades_itens pgri_2
+                on pgri_2.id = pgrd.grade_item2_id
+                left join produtos_grades grd_2
+                on grd_2.id = pgri_2.grade_id
+where
+ p.ativo = 'true'
+ and pm.descricao like '%VISION%'
+order by p.descricao
+ limit 1000
+COLLATE NOCASE
+
+11-07-2021 20:45:21 select p.id, 
+ trim(case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+          p.descricao||' '||grd_1.descricao_resumida||' '||
+                   pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+      when pgri_1.descricao <> ''  then
+            p.descricao||' '||pgri_1.descricao
+            else
+            p.descricao end) as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm,
+       p.tipo_produto,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, trim(pm.descricao) n_marca,
+       pu.un n_unidade, pc.descricao n_colecao,
+       case when pgri_1.descricao <> '' then peg.saldo_gerencial
+	        else pes.saldo_gerencial
+	   end as saldo,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id
+from produtos p inner join produtos_empresa pe
+                on pe.produto_id = p.id
+                inner join produtos_estoque pes
+                on pes.produto_empresa_id = pe.id
+                and pes.produto_armazenamento_id = '1'
+                inner join produtos_armazenamento pa
+                on pa.id  = pes.produto_armazenamento_id
+                and pa.empresa_id = pe.empresa_id
+                left join produtos_preco_venda ppv
+                on ppv.produto_empresa_id = pe.id
+                and ppv.tabela_id = '1'
+                left join tabela_preco tp
+                on tp.id = ppv.tabela_id
+                left join produtos_subgrupos sg
+                on sg.id = p.subgrupo_id
+                left join produtos_grupos pg
+                on pg.id = sg.grupo_id
+                left join produtos_marcas pm
+                on pm.id = p.marca_id
+                left join produtos_unidades pu
+                on pu.id = p.unidade_id
+                left join produtos_colecoes pc
+                on pc.id = p.colecao_id
+                left join lista_ncm ncm
+                on ncm.ncm = p.ncm_id
+                left join produtos_gradeamento pgrd
+                on pgrd.produto_id  = p.id
+		 left join produtos_estoque_grade peg
+		 on peg.produto_gradeamento_id = pgrd.id
+		 and peg.produto_estoque_id = pes.id
+                left join produtos_grades_itens pgri_1
+                on pgri_1.id = pgrd.grade_item_id
+                left join produtos_grades grd_1
+                on grd_1.id = pgri_1.grade_id
+                left join produtos_grades_itens pgri_2
+                on pgri_2.id = pgrd.grade_item2_id
+                left join produtos_grades grd_2
+                on grd_2.id = pgri_2.grade_id
+where
+ p.ativo = 'true'
+order by p.descricao
+ limit 1000
+COLLATE NOCASE
+
+11-07-2021 20:45:24 select p.id, 
+ trim(case when pgri_1.descricao <> '' and pgri_2.descricao <> '' then 
+          p.descricao||' '||grd_1.descricao_resumida||' '||
+                   pgri_1.descricao|| ' '||grd_2.descricao_resumida||' '||pgri_2.descricao
+      when pgri_1.descricao <> ''  then
+            p.descricao||' '||pgri_1.descricao
+            else
+            p.descricao end) as descricao,
+       p.gtin, p.referencia, p.ativo, p.ncm_id ncm,
+       p.tipo_produto,
+       sg.descricao n_subgrupo,
+       pg.descricao n_grupo, trim(pm.descricao) n_marca,
+       pu.un n_unidade, pc.descricao n_colecao,
+       case when pgri_1.descricao <> '' then peg.saldo_gerencial
+	        else pes.saldo_gerencial
+	   end as saldo,
+       pa.descricao n_estoque,
+       ppv.valor, tp.descricao n_tabela,
+       ncm.descricao n_ncm,
+       pgrd.id gradeamento_id
+from produtos p inner join produtos_empresa pe
+                on pe.produto_id = p.id
+                inner join produtos_estoque pes
+                on pes.produto_empresa_id = pe.id
+                and pes.produto_armazenamento_id = '1'
+                inner join produtos_armazenamento pa
+                on pa.id  = pes.produto_armazenamento_id
+                and pa.empresa_id = pe.empresa_id
+                left join produtos_preco_venda ppv
+                on ppv.produto_empresa_id = pe.id
+                and ppv.tabela_id = '1'
+                left join tabela_preco tp
+                on tp.id = ppv.tabela_id
+                left join produtos_subgrupos sg
+                on sg.id = p.subgrupo_id
+                left join produtos_grupos pg
+                on pg.id = sg.grupo_id
+                left join produtos_marcas pm
+                on pm.id = p.marca_id
+                left join produtos_unidades pu
+                on pu.id = p.unidade_id
+                left join produtos_colecoes pc
+                on pc.id = p.colecao_id
+                left join lista_ncm ncm
+                on ncm.ncm = p.ncm_id
+                left join produtos_gradeamento pgrd
+                on pgrd.produto_id  = p.id
+		 left join produtos_estoque_grade peg
+		 on peg.produto_gradeamento_id = pgrd.id
+		 and peg.produto_estoque_id = pes.id
+                left join produtos_grades_itens pgri_1
+                on pgri_1.id = pgrd.grade_item_id
+                left join produtos_grades grd_1
+                on grd_1.id = pgri_1.grade_id
+                left join produtos_grades_itens pgri_2
+                on pgri_2.id = pgrd.grade_item2_id
+                left join produtos_grades grd_2
+                on grd_2.id = pgri_2.grade_id
+where
+ p.ativo = 'true'
+ and pm.descricao like '%vision%'
+order by p.descricao
+ limit 1000
+COLLATE NOCASE
+

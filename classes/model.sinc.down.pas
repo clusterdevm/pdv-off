@@ -125,15 +125,18 @@ try
         _api.AddHeader('token-pdv',UpperCase(FTokenPDV));
 
         if not Sessao.segundoplano then
-        Begin
            _api.AddHeader('first-download','true');
-           _api.Body.Text:= '{"token_remoto": "'+FTokenPDV+'"}';
-        end;
 
-        _api.AddHeader('protocolo',FProtocolo);
+     //   _api.AddHeader('protocolo',FProtocolo);
         _api.rota:='hibrido';
         _api.endpoint:= 'download';
+        FMsg:=' Iniciando Download Dos Dados';
+        Synchronize(AtualizaLog);
+        RegistraLogRequest('iniciando get');
         _api.Execute(false,true);
+
+
+        RegistraLogRequest('retorno: '+_api.response.Text);
 
         if not (_api.ResponseCode in [200..207]) then
         Begin
@@ -151,25 +154,19 @@ try
                 if not sessao.segundoplano then
                 Begin
                     FResponse.Clear;
-                    FResponse._name:= 'resultado';
                     {$IFDEF MSWINDOWS}
                        _api.response.SaveToFile(extractfiledir(paramstr(0))+'\script.db');
                     {$else}
-                      _api.response.SaveToFile(extractfiledir(paramstr(0))+'/script.db');
+                       _api.response.SaveToFile(extractfiledir(paramstr(0))+'/script.db');
                     {$ENDIF}
                 end else
                 Begin
                    FResponse.Clear;
-                   FResponse._name:= 'resultado';
                    FResponse.Parse(_api.response.Text);
                 end;
             end;
-
-            //RegistraLogRequest('erro: '+_api.response);
            _ok := true;
         end;
-
-
 except
   on e: exception do
   Begin
@@ -260,19 +257,32 @@ end;
 end;
 
 function TSincDownload.ImportarScript: boolean;
-var _db : TConexao;
 begin
-   try
-       result := false;
-      _db := TConexao.Create;
+    try
+      result := false;
+      FMsg:= 'Iniciando Limpeza do Banco de Dados...';
+      Synchronize(AtualizaLog());
+      _db.LimparBase;
+
+      FMsg:= 'Limpeza finalizada...';
+      Synchronize(AtualizaLog());
+
+      FMsg:= 'Criando Estrutura...';
+      Synchronize(AtualizaLog());
+      ValidaTabelas;
+
       FMsg:= 'A Importação podera levar alguns minutos aguarde...';
       Synchronize(AtualizaLog());
-      _db.ImportacaoSQl;;
+      _db.ImportacaoSQl;
 
       Result := true;
-   finally
-       FreeAndNil(_db);
-   end;
+
+
+
+     except
+            on e : exception do
+              RegistraLogRequest('Importar Script : '+e.message);
+     end;
 end;
 
 procedure TSincDownload.SendUpload(_upload : TJsonObject);
@@ -333,12 +343,12 @@ begin
 
          Close;
          Sql.Clear;
-         Sql.Add('select * from venda ');
+         Sql.Add('select * from vendas ');
          Sql.Add(' where (trim(sinc_pendente) = ''S'' or sinc_pendente is null) ');
          open;
 
          if not IsEmpty then
-            _upload['itens'].AsObject.Put('venda',_db.ToArrayString);
+            _upload['itens'].AsObject.Put('vendas',_db.ToArrayString);
 
          Close;
          Sql.Clear;
@@ -381,7 +391,11 @@ try
         _api := TRequisicao.Create;
         _api.Metodo:= 'post';
         _api.webservice:= getEMS_Webservice(mPDV);
-        _api.AddHeader('protocolo',FProtocolo);
+        if Sessao.segundoplano then
+           _api.AddHeader('protocolo',FProtocolo)
+        else
+          _api.AddHeader('first-download',UpperCase(FTokenPDV));
+
         _api.rota:='hibrido';
         _api.endpoint:= 'confirmadownload';
         _api.Execute;
@@ -475,22 +489,25 @@ var
     _time : integer;
 begin
 
-  while Fprocessando do
+  while Fprocessando and (not sessao.FinalizaThread ) do
   Begin
       try
-            if not TabelasValidada then
-                ValidaTabelas;
-
             FMsg:= 'Conectando ao Servidor';
             Synchronize(AtualizaLog);
-            //Consulta_Api(_ok);
+            Consulta_Api(_ok);
 
             if not sessao.segundoplano then
             Begin
                 if ImportarScript then
                    Concluir;
+
+                Fprocessando:= false;
             end else
             Begin
+
+                  if not TabelasValidada then
+                     ValidaTabelas;
+
                   FMsg:= 'Iniciando Importacao';
                   Synchronize(AtualizaLog);
 
@@ -631,10 +648,10 @@ end;
 destructor TSincDownload.Destroy;
 begin
   FMsg:= 'Sincronismo encerrado';
+  FreeAndNIl(_db);
   Synchronize(AtualizaLog);
   FreeAndNil(FResponse);
   FreeAndNIl(FHistorico);
-  FreeAndNIl(_db);
   inherited Destroy;
 end;
 

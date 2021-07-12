@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
   ActnList, StdCtrls, DTAnalogClock, view.condicional.filtrar, f_venda,
-  view.devolucao.filtrar, model.sinc.down, classe.utils;
+  view.devolucao.filtrar, model.sinc.down, ems.utils;
 
 type
 
@@ -77,6 +77,7 @@ begin
 
   if messagedlg('Sair do Sistema?',mtWarning,[mbno,mbyes],0)= mryes then
   Begin
+     sessao.FinalizaThread := false;
      FreeAndNil(Sessao);
      FreeAndNil(WCursor);
      CanClose:=true;
