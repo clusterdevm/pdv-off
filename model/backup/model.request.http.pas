@@ -246,7 +246,7 @@ try
         end;
     end;
 
-    RegistraLogRequest('Fim Encoding:'+FormatDateTime('hh:mm:ss',Now));
+    //RegistraLogRequest('Fim Encoding:'+FormatDateTime('hh:mm:ss',Now));
 
         if _contentEnconding <> '' then
             fresponse.Text:= inflate(HTTPSender.Document)

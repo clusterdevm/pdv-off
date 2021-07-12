@@ -34,6 +34,7 @@ type
     Panel2: TPanel;
     Panel3: TPanel;
     pnlRegistro: TPanel;
+    SQLConnector1: TSQLConnector;
     Timer1: TTimer;
     procedure ApplicationProperties1Exception(Sender: TObject; E: Exception);
     procedure btLogarClick(Sender: TObject);

@@ -83,43 +83,21 @@ try
         Close;
         Sql.Clear;
         Sql.Add('select p.id, ');
-        Sql.Add(' trim(case when pgri_1.descricao <> '''' and pgri_2.descricao <> '''' then ');
-        Sql.Add('          p.descricao||'' ''||grd_1.descricao_resumida||'' ''||');
-        Sql.Add('                   pgri_1.descricao|| '' ''||grd_2.descricao_resumida||'' ''||pgri_2.descricao');
-        Sql.Add('      when pgri_1.descricao <> ''''  then');
-        Sql.Add('            p.descricao||'' ''||pgri_1.descricao');
-        Sql.Add('            else');
-        Sql.Add('            p.descricao end) as descricao,');
-
+        Sql.Add('       p.descricao ,');
         Sql.Add('       p.gtin, p.referencia, p.ativo, p.ncm_id ncm,');
         Sql.Add('       p.tipo_produto,');
         Sql.Add('       sg.descricao n_subgrupo,');
         Sql.Add('       pg.descricao n_grupo, trim(pm.descricao) n_marca,');
         Sql.Add('       pu.un n_unidade, pc.descricao n_colecao,');
-
-        Sql.Add('       case when pgri_1.descricao <> '''' then peg.saldo_gerencial');
-        Sql.Add('	        else pes.saldo_gerencial');
-        Sql.Add('	   end as saldo,');
-
-        Sql.Add('       pa.descricao n_estoque,');
+        Sql.Add('	p.saldo_disponivel saldo,');
         Sql.Add('       ppv.valor, tp.descricao n_tabela,');
         Sql.Add('       ncm.descricao n_ncm,');
-        Sql.Add('       pgrd.id gradeamento_id');
+        Sql.Add('       p.gradeamento_id');
 
-        Sql.Add('from produtos p inner join produtos_empresa pe');
-        Sql.Add('                on pe.produto_id = p.id');
-        Sql.Add('                inner join produtos_estoque pes');
-        Sql.Add('                on pes.produto_empresa_id = pe.id');
-        Sql.Add('                and pes.produto_armazenamento_id = '+QuotedStr(IntToStr(Sessao.estoque_id)));
-
-        Sql.Add('                inner join produtos_armazenamento pa');
-        Sql.Add('                on pa.id  = pes.produto_armazenamento_id');
-        Sql.Add('                and pa.empresa_id = pe.empresa_id');
-
+        Sql.Add('from produtos p ');
         Sql.Add('                left join produtos_preco_venda ppv');
-        Sql.Add('                on ppv.produto_empresa_id = pe.id');
+        Sql.Add('                on ppv.produto_id = p.id');
         Sql.Add('                and ppv.tabela_id = '+QuotedStr(IntToStr(Sessao.tabela_preco_id)));
-
         Sql.Add('                left join tabela_preco tp');
         Sql.Add('                on tp.id = ppv.tabela_id');
         Sql.Add('                left join produtos_subgrupos sg');
@@ -134,19 +112,6 @@ try
         Sql.Add('                on pc.id = p.colecao_id');
         Sql.Add('                left join lista_ncm ncm');
         Sql.Add('                on ncm.ncm = p.ncm_id');
-        Sql.Add('                left join produtos_gradeamento pgrd');
-        Sql.Add('                on pgrd.produto_id  = p.id');
-        Sql.Add('		 left join produtos_estoque_grade peg');
-        Sql.Add('		 on peg.produto_gradeamento_id = pgrd.id');
-        Sql.Add('		 and peg.produto_estoque_id = pes.id');
-        Sql.Add('                left join produtos_grades_itens pgri_1');
-        Sql.Add('                on pgri_1.id = pgrd.grade_item_id');
-        Sql.Add('                left join produtos_grades grd_1');
-        Sql.Add('                on grd_1.id = pgri_1.grade_id');
-        Sql.Add('                left join produtos_grades_itens pgri_2');
-        Sql.Add('                on pgri_2.id = pgrd.grade_item2_id');
-        Sql.Add('                left join produtos_grades grd_2');
-        Sql.Add('                on grd_2.id = pgri_2.grade_id');
         Sql.Add('where');
         Sql.Add(' p.ativo = ''true''');
 

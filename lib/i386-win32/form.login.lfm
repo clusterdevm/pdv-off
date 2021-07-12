@@ -11558,6 +11558,24 @@ object frm_login: Tfrm_login
       }
       Stretch = True
     end
+    object mProcesso: TMemo
+      Left = 0
+      Height = 640
+      Top = 0
+      Width = 650
+      Align = alClient
+      Color = clBlack
+      Font.Color = clLime
+      Font.Height = -13
+      Lines.Strings = (
+        'mProcesso'
+      )
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 0
+      TabStop = False
+      Visible = False
+    end
   end
   object Timer1: TTimer
     Enabled = False
@@ -11583,15 +11601,7 @@ object frm_login: Tfrm_login
     Connected = False
     LoginPrompt = False
     KeepConnection = False
-    Left = 128
-    Top = 24
-  end
-  object SQLQuery1: TSQLQuery
-    PacketRecords = -1
-    FieldDefs = <>
-    Options = [sqoKeepOpenOnCommit]
-    Params = <>
-    Left = 32
+    Left = 872
     Top = 32
   end
 end

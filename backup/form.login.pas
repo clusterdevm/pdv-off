@@ -160,13 +160,6 @@ begin
 
                  HoraInicial:= now;
 
-
-                    _db := TConexao.Create();
-                    _db.LimparBase;
-                    FreeAndNil(_db);
-
-                    exit;
-
                  _sincronizar := TSincDownload.Create(true,
                                                 nil ,
                                                 objeto.token_remoto,

@@ -151,11 +151,10 @@ begin
      FQuery.Transaction := Transaction;
      FQuery.Options:= [sqoAutoApplyUpdates,sqoAutoCommit];
 
-
      FqrySelect := TSQLQuery.Create(nil);
      FqrySelect.DataBase := Conector;
-     //FqrySelect.Transaction := Transaction;
-     //FqrySelect.Options:= [sqoAutoApplyUpdates,sqoAutoCommit,sqoRefreshUsingSelect,sqoKeepOpenOnCommit];
+     FqrySelect.Transaction := Transaction;
+     FqrySelect.Options:= [sqoAutoApplyUpdates,sqoAutoCommit];
 
      FqryPost := TSQLQuery.Create(nil);
      FqryPost.DataBase := Conector;
@@ -508,11 +507,15 @@ begin
        (value = 'grupo_id') or
        (value = 'unidade_id') or
        (value = 'colecao_id') or
+       (value = 'gtin_interno') or
+       (value = 'gtin_grade') or
+       (value = 'gtin') or
        (value = 'referencia') or
        (value = 'ncm_id') or
        (value = 'ncm') or
        (value = 'produto_id') or
        (value = 'produto_gradeamento_id') or
+       (value = 'gradeamento_id') or
        (value = 'produto_estoque_id') or
        (value = 'grade_item_id') or
        (value = 'grade_id') or
@@ -803,6 +806,30 @@ begin
          checaIndex(_item['column_name'].AsString,_delimiter,_index);
          _delimiter := ',';
     end;
+
+    if _tabelaName = 'produtos' then
+    Begin
+
+        _sql.Add(', gradeamento_id integer');
+        _sql.Add(', gtin_grade text');
+        _sql.Add(', gtin_interno text');
+        _sql.Add(', descricao_1 text');
+        _sql.Add(', preco_custo_f REAL');
+        _sql.Add(', preco_custo_g REAL');
+        _sql.Add(', saldo_disponivel REAL');
+
+        checaIndex('gtin_grade',_delimiter,_index);
+        checaIndex('gradeamento_id',_delimiter,_index);
+        checaIndex('gtin_interno',_delimiter,_index);
+    end;
+
+    if _tabelaName = 'produtos_preco_venda' then
+    Begin
+        _sql.Add(', produto_id integer');
+        _index := 'tabela_id desc, produto_id desc';
+        //checaIndex('produto_id',_delimiter,_index);
+    end;
+
     _Sql.Add(')');
 
     if trim(_index) <> '' then

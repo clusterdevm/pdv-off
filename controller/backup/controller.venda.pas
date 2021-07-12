@@ -66,13 +66,7 @@ begin
       with iSql do
       Begin
           Add('select p.id produto_id, ');
-          Add('        case when pgri_1.descricao <> '''' and pgri_2.descricao <> '''' then ');
-          Add('        p.descricao ||'' ''|| grd_1.descricao_resumida||'' ''||');
-          Add('        pgri_1.descricao|| '' ''||grd_2.descricao_resumida||'' ''||pgri_2.descricao');
-          Add('        when pgri_1.descricao <> ''''  then');
-          Add('        p.descricao||'' ''||pgri_1.descricao');
-          Add('        else');
-          Add('        p.descricao end as descricao,');
+          Add('       p.descricao,');
           Add('       p.gtin, p.referencia, p.ativo, p.ncm_id ncm, p.origemmercadoria origem_mercadoria,');
           Add('       p.tipo_produto, p.cest, p.pesobruto, p.pesoliquido,');
 
@@ -81,31 +75,18 @@ begin
 
           Add('       pu.un medida_descricao, pc.descricao n_colecao, pu.id unidade_medida_id,');
 
-          Add('       pgrd.gtin_grade,');
-          Add('       pes.saldo_gerencial,');
-          Add('       pa.descricao n_estoque,');
+          Add('       p.gtin_grade,');
+          Add('       p.saldo_disponivel,');
           Add('       ppv.valor, tp.descricao n_tabela,');
           Add('       ncm.descricao n_ncm,');
-          Add('       pgrd.id gradeamento_id, ');
+          Add('       p.id gradeamento_id, ');
 
-          Add(' ppc.custo_markup custo_unitario ');
-          Add('from produtos p inner join produtos_empresa pe');
-          Add('                      on pe.produto_id = p.id');
-
-          Add('                      inner join produtos_estoque pes');
-          Add('                      on pes.produto_empresa_id = pe.id');
-
-          Add('                      inner join produtos_armazenamento pa');
-          Add('                      on pa.id  = pes.produto_armazenamento_id');
-          Add('                      and pa.id = '+QuotedStr(_armazenamentoID));
-          Add('                      and pa.empresa_id = pe.empresa_id');
+          Add(' p.preco_custo_g custo_unitario ');
+          Add('from produtos p ');
 
           Add('                      inner join produtos_preco_venda ppv');
-          Add('                      on ppv.produto_empresa_id = pe.id');
+          Add('                      on ppv.produto_id = p.id');
           Add('                      and ppv.tabela_id = '+QuotedStr(_precoID));
-
-          Add('                      left join produtos_preco_custo ppc');
-          Add('                      on ppc.id = pe.preco_custo_id');
 
           Add('                      inner join tabela_preco tp');
           Add('                      on tp.id = ppv.tabela_id');
@@ -128,43 +109,29 @@ begin
           Add('                      left join lista_ncm ncm');
           Add('                      on ncm.ncm = p.ncm_id');
 
-          Add('                      left join produtos_gradeamento pgrd');
-          Add('                      on pgrd.produto_id  = p.id');
-
-          Add('                      left join produtos_grades_itens pgri_1');
-          Add('                      on pgri_1.id = pgrd.grade_item_id');
-
-          Add('                      left join produtos_grades grd_1');
-          Add('                      on grd_1.id = pgri_1.grade_id');
-
-          Add('                      left join produtos_grades_itens pgri_2');
-          Add('                      on pgri_2.id = pgrd.grade_item2_id');
-
-          Add('                      left join produtos_grades grd_2');
-          Add('                      on grd_2.id = pgri_2.grade_id');
           Add('where');
           Add('     1 = 1');
 
           Add('and ( ');
 
 
-          if Length(_produtoID) < 6 then
+          if Length(_produtoID) < 7 then
              Add('p.id = '+QuotedStr(_produtoID)+' or ');
 
           Add(' p.gtin = '+QuotedStr(_produtoID)+
-                  ' or pgrd.gtin ='+QuotedStr(_produtoID)+
-                  ' or pgrd.gtin_grade = '+QuotedStr(_produtoID)+
+                  ' or p.gtin_interno ='+QuotedStr(_produtoID)+
+                  ' or p.gtin_grade = '+QuotedStr(_produtoID)+
                   ' )');
 
           if StrToIntDef(_gradeID,0) >0  then
-             Add(' and pgrd.id = '+QuotedStr(_gradeID));
+             Add(' and p.gradeamento_id = '+QuotedStr(_gradeID));
 
 
           Add('order by 2');
 
+          RegistraLogErro(text);
 
           Result := Text;
-
 
 
           sessao.gradeID:= '';

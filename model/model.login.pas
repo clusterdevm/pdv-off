@@ -108,6 +108,8 @@ begin
     _jsonBody.Put('apelido',self.apelido);
     _api.AddHeader('canal-token',canal_token);
     _api.Body.Text:= _jsonBody.Stringify;
+
+    RegistraLogErro(_jsonBody.Stringify);
     _api.webservice:= getEMS_Webservice(mPDV);
     _api.AutUserName:= self.email;
     _api.AutUserPass:= self.senha;

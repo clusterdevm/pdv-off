@@ -27,7 +27,7 @@ TSincDownload = class(TThread)
       mProcesso : TMemo;
       Fmsg_erro : string;
       FErro_Processamento : boolean;
-      _db : TConexao;
+      _sqlLite : TConexao;
       FFalhou : boolean;
       _name : String;
 
@@ -65,17 +65,17 @@ begin
    FMsg:='Checando Itens:'+_tabela;
    Synchronize(AtualizaLog);
    if _tabela <> 'financeiro_caixa' then
-      _db.ChecaItensArrayToSQl(_tabela,_jsonvalue);
+      _sqlLite.ChecaItensArrayToSQl(_tabela,_jsonvalue);
 
    FMsg:='Inserindo Itens:'+_tabela;
    Synchronize(AtualizaLog);
 
    if _tabela <> 'financeiro_caixa' then
-      _db.InsertArrayToSQl(_tabela,_jsonvalue);
+      _sqlLite.InsertArrayToSQl(_tabela,_jsonvalue);
 
    FMsg:='Atualizando Itens :'+_tabela;
    Synchronize(AtualizaLog);
-   _db.updateSQlArray(_tabela,_jsonvalue, _tabela = 'financeiro_caixa');
+   _sqlLite.updateSQlArray(_tabela,_jsonvalue, _tabela = 'financeiro_caixa');
 
    if (_tabela='parametros_venda') or  (_tabela='parametros_produto') or
       (_tabela='parametros_fiscal') or (_tabela='parametros_geral') or
@@ -127,12 +127,11 @@ try
         if not Sessao.segundoplano then
            _api.AddHeader('first-download','true');
 
-        _api.AddHeader('protocolo',FProtocolo);
+     //   _api.AddHeader('protocolo',FProtocolo);
         _api.rota:='hibrido';
         _api.endpoint:= 'download';
         FMsg:=' Iniciando Download Dos Dados';
         Synchronize(AtualizaLog);
-        RegistraLogRequest('iniciando get');
         _api.Execute(false,true);
 
 
@@ -239,7 +238,7 @@ try
     _api.Execute;
 
     if _api.ResponseCode in [200..207] then
-       _db.CreateTabela(_tabelaName,
+       _sqlLite.CreateTabela(_tabelaName,
                         _api.Return['resultado'].AsArray
                         );
 
@@ -251,7 +250,7 @@ except
      on e:exception do
      Begin
            RegistraLogRequest('Criar Tabela '+_tabelaName+' ' +e.message);
-           RegistraLogRequest('empresa: '  +_db.qrySelect.SQL.Text );
+           RegistraLogRequest('empresa: '  +_sqlLite.qrySelect.SQL.Text );
      end;
 end;
 end;
@@ -262,7 +261,7 @@ begin
       result := false;
       FMsg:= 'Iniciando Limpeza do Banco de Dados...';
       Synchronize(AtualizaLog());
-      _db.LimparBase;
+      _sqlLite.LimparBase;
 
       FMsg:= 'Limpeza finalizada...';
       Synchronize(AtualizaLog());
@@ -273,11 +272,9 @@ begin
 
       FMsg:= 'A Importação podera levar alguns minutos aguarde...';
       Synchronize(AtualizaLog());
-      _db.ImportacaoSQl;
+      _sqlLite.ImportacaoSQl;
 
       Result := true;
-
-
 
      except
             on e : exception do
@@ -328,9 +325,9 @@ end;
 
 procedure TSincDownload.PreparaUpload(_upload: TJsonObject);
 begin
-    with _db.qrySelect do
+    with _sqlLite.qrySelect do
     Begin
-         _db.ChecaEstrutura('financeiro_caixa');
+         _sqlLite.ChecaEstrutura('financeiro_caixa');
          Close;
          Sql.Clear;
          Sql.Add('select * from financeiro_caixa ');
@@ -338,7 +335,7 @@ begin
          open;
 
          if not IsEmpty then
-            _upload['itens'].AsObject.Put('financeiro_caixa',_db.ToArrayString);
+            _upload['itens'].AsObject.Put('financeiro_caixa',_sqlLite.ToArrayString);
 
 
          Close;
@@ -348,7 +345,7 @@ begin
          open;
 
          if not IsEmpty then
-            _upload['itens'].AsObject.Put('vendas',_db.ToArrayString);
+            _upload['itens'].AsObject.Put('vendas',_sqlLite.ToArrayString);
 
          Close;
          Sql.Clear;
@@ -357,7 +354,7 @@ begin
          open;
 
          if not IsEmpty then
-            _upload['itens'].AsObject.Put('venda_itens',_db.ToArrayString);
+            _upload['itens'].AsObject.Put('venda_itens',_sqlLite.ToArrayString);
     end;
 end;
 
@@ -377,7 +374,7 @@ begin
       FMsg:= _name;
       Synchronize(AtualizaLog);
 
-      _db.ProcessaSinc(_name, _return['itens'].AsObject[_name].AsArray);
+      _sqlLite.ProcessaSinc(_name, _return['itens'].AsObject[_name].AsArray);
    end;
 
 end;
@@ -454,21 +451,21 @@ begin
                    _item := _lista['tabelas'].AsArray.Items[i].AsObject;
 
                    if valida_table(_item['item'].AsString,false) then
-                      _db.ChecaDDL(_item['item'].AsString,
+                      _sqlLite.ChecaDDL(_item['item'].AsString,
                                    _item['ddl'].AsArray
                                   )
                    else
-                      _db.CreateTabela(_item['item'].AsString,
+                      _sqlLite.CreateTabela(_item['item'].AsString,
                                        _item['ddl'].AsArray
                                        );
                 end;
                 TabelasValidada := true;
 
                 // Checando Sinc_DB e UUID
-                _db.ChecaEstrutura('venda_itens');
-                _db.ChecaEstrutura('vendas');
-                _db.ChecaEstrutura('financeiro');
-                _db.ChecaEstrutura('financeiro_caixa');
+                _sqlLite.ChecaEstrutura('venda_itens');
+                _sqlLite.ChecaEstrutura('vendas');
+                _sqlLite.ChecaEstrutura('financeiro');
+                _sqlLite.ChecaEstrutura('financeiro_caixa');
 
            end else
             RegistraLogRequest('Erro:' +_api.response.Text);
@@ -491,7 +488,9 @@ begin
 
   while Fprocessando and (not sessao.FinalizaThread ) do
   Begin
+     try
       try
+           _sqlLite := TConexao.Create;
             FMsg:= 'Conectando ao Servidor';
             Synchronize(AtualizaLog);
             Consulta_Api(_ok);
@@ -638,8 +637,6 @@ begin
   mProcesso:= _memo;
   FResponse := TJsonObject.Create;
 
-  _db := TConexao.Create;
-
   TabelasValidada:= false;
 
   inherited Create(CreateSuspended);
@@ -648,7 +645,6 @@ end;
 destructor TSincDownload.Destroy;
 begin
   FMsg:= 'Sincronismo encerrado';
-  FreeAndNIl(_db);
   Synchronize(AtualizaLog);
   FreeAndNil(FResponse);
   FreeAndNIl(FHistorico);

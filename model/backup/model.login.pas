@@ -206,7 +206,7 @@ begin
           Begin
 
               self.token_remoto:= FieldByName('token_remoto').AsString;
-             // getStatusRemoto;
+              getStatusRemoto;
 
               Close;
               open;

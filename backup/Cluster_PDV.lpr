@@ -23,7 +23,7 @@ uses
 {$R *.res}
 
 begin
-  FormatSettings.DateSeparator := '/';
+  FormatSettings.DateSeparator := '/';           -
   FormatSettings.ShortDateFormat := 'dd/mm/yyyy';
   FormatSettings.CurrencyString := '';
   FormatSettings.DecimalSeparator := '.';
@@ -33,7 +33,6 @@ begin
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(Tfrm_login, frm_login);
-  Application.CreateForm(Tf_produtosPesquisaSelecao, f_produtosPesquisaSelecao);
   Application.Run;
 
 end.
