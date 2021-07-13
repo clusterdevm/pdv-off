@@ -19,7 +19,6 @@ private
   fcnpj: string;
   fdatetimeformat: string;
   fempresalogada: integer;
-  fFinalizaThread: boolean;
   fgetID: String;
   FgradeID: String;
   fnomeFantasia: string;
@@ -54,7 +53,6 @@ private
       property segundoplano : boolean read fsegundoplano write fsegundoplano;
       property token : String read ftoken write ftoken;
       property usuario_id : integer read fusuario_id write fusuario_id;
-      Property FinalizaThread : boolean read fFinalizaThread write fFinalizaThread;
 
 
       Procedure InicializaConfigPadrao;
@@ -595,7 +593,6 @@ end;
 constructor TSessao.create;
 begin
   InicializaConfigPadrao;
-  fFinalizaThread := false;
 end;
 
 end.

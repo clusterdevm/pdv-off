@@ -118,7 +118,6 @@ end;
 procedure Tfrm_login.btLogarClick(Sender: TObject);
 var objeto : TClassLogin;
     _sincronizar : TSincDownload;
-    HoraInicial : TDateTime;
  _db : TConexao;
 begin
 
@@ -159,8 +158,6 @@ begin
 
                  btLogar.Enabled:=false;
 
-                 HoraInicial:= now;
-
                  _sincronizar := TSincDownload.Create(true,
                                                 nil ,
                                                 objeto.token_remoto,
@@ -171,9 +168,6 @@ begin
                  while not _sincronizar.Finished do
                      Application.ProcessMessages;
 
-
-                 mProcesso.Lines.Add('Tempo Sicronizacao' + FormatDateTime('hh:mm:ss',HoraInicial - Now));
-                 Showmessage('Tempo Sicronizacao' + FormatDateTime('hh:mm:ss',HoraInicial - Now));
 
                  objeto.SetPrimeiroLogFalse;
                  if Assigned(_sincronizar.FatalException) then

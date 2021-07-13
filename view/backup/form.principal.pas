@@ -77,7 +77,7 @@ begin
 
   if messagedlg('Sair do Sistema?',mtWarning,[mbno,mbyes],0)= mryes then
   Begin
-     sessao.FinalizaThread := false;
+     sessao.FinalizaThread := true;
      FreeAndNil(Sessao);
      FreeAndNil(WCursor);
      CanClose:=true;

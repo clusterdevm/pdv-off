@@ -30,6 +30,7 @@ TSincDownload = class(TThread)
       _sqlLite : TConexao;
       FFalhou : boolean;
       _name : String;
+      _HoraInicial : TDateTime;
 
       Procedure Processa(_tabela:string; _jsonValue : TJsonArray);
       Procedure Consulta_Api(var _ok : Boolean) ;
@@ -127,15 +128,14 @@ try
         if not Sessao.segundoplano then
            _api.AddHeader('first-download','true');
 
-     //   _api.AddHeader('protocolo',FProtocolo);
         _api.rota:='hibrido';
         _api.endpoint:= 'download';
         FMsg:=' Iniciando Download Dos Dados';
         Synchronize(AtualizaLog);
+
         _api.Execute(false,true);
-
-
-        RegistraLogRequest('retorno: '+_api.response.Text);
+        FMsg:= 'Download Realizado(' + FormatDateTime('hh:mm:ss',_HoraInicial - Now)+')';
+        Synchronize(AtualizaLog);
 
         if not (_api.ResponseCode in [200..207]) then
         Begin
@@ -486,11 +486,12 @@ var
     _time : integer;
 begin
 
-  while Fprocessando and (not sessao.FinalizaThread ) do
+  while Fprocessando do
   Begin
      try
       try
            _sqlLite := TConexao.Create;
+           _HoraInicial:= Now;
             FMsg:= 'Conectando ao Servidor';
             Synchronize(AtualizaLog);
             Consulta_Api(_ok);
@@ -566,6 +567,8 @@ begin
                     SendUpload(_itensJson);
                  FreeAndNil(_itensJson);
 
+                 FMsg := ('Tempo Sicronizacao' + FormatDateTime('hh:mm:ss',_HoraInicial - Now));
+                 Synchronize(AtualizaLog);
                  FMsg:= 'Ultima Sicronização '+ FormatDateTime('dd/mm/yyyy hh:mm:ss',now);
                  Synchronize(AtualizaLog);
                  Fprocessando:= true;
@@ -584,6 +587,10 @@ begin
               Delay(1000);
           end;
       end;
+
+     finally
+          FreeAndNil(_sqlLite);
+     end;
   end;
 end;
 

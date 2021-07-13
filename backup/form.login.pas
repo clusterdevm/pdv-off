@@ -34,6 +34,7 @@ type
     Panel2: TPanel;
     Panel3: TPanel;
     pnlRegistro: TPanel;
+    SQLConnector1: TSQLConnector;
     Timer1: TTimer;
     procedure ApplicationProperties1Exception(Sender: TObject; E: Exception);
     procedure btLogarClick(Sender: TObject);
@@ -117,7 +118,6 @@ end;
 procedure Tfrm_login.btLogarClick(Sender: TObject);
 var objeto : TClassLogin;
     _sincronizar : TSincDownload;
-    HoraInicial : TDateTime;
  _db : TConexao;
 begin
 
@@ -170,9 +170,6 @@ begin
                  while not _sincronizar.Finished do
                      Application.ProcessMessages;
 
-
-                 mProcesso.Lines.Add('Tempo Sicronizacao' + FormatDateTime('hh:mm:ss',HoraInicial - Now));
-                 Showmessage('Tempo Sicronizacao' + FormatDateTime('hh:mm:ss',HoraInicial - Now));
 
                  objeto.SetPrimeiroLogFalse;
                  if Assigned(_sincronizar.FatalException) then
