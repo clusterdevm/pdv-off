@@ -23,6 +23,8 @@ TCondicional = Class
     fnome: string;
     foperador_id: integer;
     fstatus: string;
+    ftabela_preco_id: integer;
+    ftipo_operacao: integer;
     fvendedor_id: integer;
     F_ProdutoJson: String;
   public
@@ -31,6 +33,8 @@ TCondicional = Class
       property status : string read fstatus write fstatus;
       property empresa_id: integer read fempresa_id write fempresa_id;
       property vendedor_id : integer read fvendedor_id write fvendedor_id;
+      Property tipo_operacao : integer read ftipo_operacao write ftipo_operacao;
+      Property tabela_preco_id : integer read ftabela_preco_id write ftabela_preco_id;
       property cliente_id : integer read fcliente_id write fcliente_id;
       property operador_id : integer read foperador_id write foperador_id;
       Property motivo : string read fmotivo write fmotivo;
@@ -39,7 +43,9 @@ TCondicional = Class
 
       Property _ResponseContent : String Read F_ProdutoJson Write F_ProdutoJson;
 
-      Procedure Filtrar(_query : TDataSet;  _status,_empresa,_emissaoInicial, emissaoFinal,
+      Procedure Filtrar(_query : TDataSet;  _status,
+                         operacao_id,
+                         _empresa,_emissaoInicial, emissaoFinal,
                         _conclusaoInicial, _conclusaoFinal: string);
 
       Function FindProduto(_produto : String; _gradeamento : String = '') : Boolean;
@@ -66,7 +72,7 @@ uses ems.utils, view.condicional;
 { TCondicional }
 
 
-procedure TCondicional.Filtrar(_query: TDataSet; _status,_empresa,_emissaoInicial, emissaoFinal,
+procedure TCondicional.Filtrar(_query: TDataSet; _status,operacao_id,_empresa,_emissaoInicial, emissaoFinal,
   _conclusaoInicial, _conclusaoFinal: string);
 var _body : TJsonObject;
   _Api : TRequisicao;
@@ -77,6 +83,7 @@ begin
    _body := TJsonObject.Create;
    _Api := TRequisicao.Create;
    _body.Put('nome_cliente', self.nome);
+   _body.Put('tipo_operacao',operacao_id);
 
    with _body['status'].AsArray do
    Begin
@@ -205,8 +212,8 @@ begin
     _body['empresa_id'].AsInteger:= Self.empresa_id;
     _body['vendedor_id'].AsInteger:= Self.vendedor_id;
     _body['cliente_id'].AsInteger:= Self.cliente_id;
-    //_body['operador_id'].AsInteger:= Self.operador_id;
-    _body['tabela_preco_id'].AsInteger:= Sessao.tabela_preco_id;
+    _body['tipo_operacao'].AsInteger:= self.tipo_operacao;
+    _body['tabela_preco_id'].AsInteger:= self.tabela_preco_id;
     _body['estoque_id'].AsInteger:= Sessao.estoque_id;
 
     with _api do

@@ -222,10 +222,10 @@ begin
   edt_unidade.Text:= FormatFloat('000000',dadosJson['empresa_id'].AsInteger)+' '+
                       dadosJson['nomeunidade'].AsString;
 
-  //cds_itens.edit;
-  //cds_itens.ClearFields;
-  //cds_cancelado.Edit;
-  //cds_cancelado.ClearFields;
+  if dadosJson['tipo_operacao'].AsInteger = 1  then
+      self.Caption:= 'Cluster Sistemas : Condicional '
+  else
+      self.Caption:= 'Cluster Sistemas : Reserva ';
 
   Limpa(cds_itens);
   Limpa(cds_cancelado);

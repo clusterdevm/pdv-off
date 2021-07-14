@@ -1,0 +1,154 @@
+object f_pendente: Tf_pendente
+  Left = 1920
+  Height = 574
+  Top = 250
+  Width = 798
+  BorderIcons = [biSystemMenu]
+  Caption = 'Cluster Sistemas : Vendas Pendentes de Pagamentos'
+  ClientHeight = 574
+  ClientWidth = 798
+  Color = clWhite
+  OnShow = FormShow
+  Position = poScreenCenter
+  object Panel1: TPanel
+    Left = 0
+    Height = 50
+    Top = 524
+    Width = 798
+    Align = alBottom
+    ClientHeight = 50
+    ClientWidth = 798
+    TabOrder = 0
+    object Button1: TButton
+      Left = 682
+      Height = 37
+      Top = 8
+      Width = 108
+      Action = ac_liquidar
+      Anchors = [akRight, akBottom]
+      TabOrder = 0
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 10
+    Height = 504
+    Top = 10
+    Width = 778
+    Align = alClient
+    BorderSpacing.Around = 10
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'baixar'
+        FieldName = 'baixar'
+      end    
+      item
+        Title.Caption = 'Venda'
+        Width = 100
+        FieldName = 'venda_id'
+      end    
+      item
+        Title.Caption = 'Data Emissão'
+        Width = 120
+        FieldName = 'data_emissao'
+      end    
+      item
+        Title.Caption = 'Cliente'
+        Width = 200
+        FieldName = 'n_cliente'
+      end    
+      item
+        Title.Caption = 'Vendedor'
+        Width = 120
+        FieldName = 'n_vendedor'
+      end    
+      item
+        Title.Caption = 'Valor'
+        Width = 120
+        FieldName = 'valor'
+      end>
+    DataSource = ds
+    Scrollbars = ssAutoVertical
+    TabOrder = 1
+    TabStop = False
+    TitleStyle = tsNative
+  end
+  object ActionList1: TActionList
+    Left = 176
+    Top = 384
+    object ac_sair: TAction
+      Caption = 'Sair'
+      ShortCut = 27
+    end
+    object ac_liquidar: TAction
+      Caption = 'Baixar'
+    end
+  end
+  object qry: TBufDataset
+    FieldDefs = <>
+    Left = 448
+    Top = 328
+    object qryvenda_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'venda_id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qrydata_emissao: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'data_emissao'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryn_cliente: TStringField
+      FieldKind = fkData
+      FieldName = 'n_cliente'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object qryvalor: TFloatField
+      FieldKind = fkData
+      FieldName = 'valor'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryn_vendedor: TStringField
+      FieldKind = fkData
+      FieldName = 'n_vendedor'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object qrybaixar: TBooleanField
+      FieldKind = fkData
+      FieldName = 'baixar'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      DisplayValues = 'True;False'
+    end
+  end
+  object ds: TDataSource
+    DataSet = qry
+    Left = 320
+    Top = 432
+  end
+end

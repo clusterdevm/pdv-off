@@ -356,6 +356,8 @@ begin
          if not IsEmpty then
             _upload['itens'].AsObject.Put('venda_itens',_sqlLite.ToArrayString);
     end;
+
+    _saveDebug(_upload.Stringify,'upload');
 end;
 
 procedure TSincDownload.ProcessarUpdate(Return: TJsonObject);
@@ -569,6 +571,7 @@ begin
 
                  FMsg := ('Tempo Sicronizacao' + FormatDateTime('hh:mm:ss',_HoraInicial - Now));
                  Synchronize(AtualizaLog);
+
                  FMsg:= 'Ultima Sicronização '+ FormatDateTime('dd/mm/yyyy hh:mm:ss',now);
                  Synchronize(AtualizaLog);
                  Fprocessando:= true;

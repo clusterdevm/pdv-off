@@ -3852,6 +3852,7 @@ object form_venda: Tform_venda
           Height = 46
           Top = 2
           Width = 96
+          Action = ac_pendente
           Align = alLeft
           StateClicked.Background.Gradient1.StartColor = 8404992
           StateClicked.Background.Gradient1.EndColor = 4194304
@@ -3929,7 +3930,6 @@ object form_venda: Tform_venda
           BorderSpacing.Left = 5
           BorderSpacing.Top = 2
           BorderSpacing.Bottom = 2
-          Caption = '(Delivery)'
           Color = clNone
           DropDownWidth = 16
           DropDownArrowSize = 8
@@ -5802,6 +5802,10 @@ object form_venda: Tform_venda
       Caption = 'Alterar Preço'
       OnExecute = ac_alteraPrecoExecute
       ShortCut = 16449
+    end
+    object ac_pendente: TAction
+      Caption = '(Pendente)'
+      OnExecute = ac_pendenteExecute
     end
   end
   object qryItens: TBufDataset

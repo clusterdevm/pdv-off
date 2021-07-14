@@ -88,6 +88,7 @@ private
 
       Function GetNewDocumento : Integer;
 
+
       Function PDV_ConfBalanca : String;
       Function GetCaixa : string;
 
@@ -459,6 +460,7 @@ begin
        FreeAndNIl(_db);
    end;
 end;
+
 
 function TSessao.PDV_ConfBalanca: String;
 begin

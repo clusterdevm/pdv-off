@@ -72,7 +72,7 @@
         <PackageName Value="LCL"/>
       </Item14>
     </RequiredPackages>
-    <Units Count="48">
+    <Units Count="50">
       <Unit0>
         <Filename Value="Cluster_PDV.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -360,6 +360,21 @@
         <ComponentName Value="f_produtosPesquisaSelecao"/>
         <ResourceBaseClass Value="Form"/>
       </Unit47>
+      <Unit48>
+        <Filename Value="view/frames/frame.tabelaprecos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frame_tabelasPrecos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+        <UnitName Value="frame.tabelaPrecos"/>
+      </Unit48>
+      <Unit49>
+        <Filename Value="view/venda/view.pendentes.baixa.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="f_pendente"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit49>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -389,7 +404,7 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="39">
+    <Exceptions Count="40">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -507,6 +522,9 @@
       <Item39>
         <Name Value="RunError(2)"/>
       </Item39>
+      <Item40>
+        <Name Value="EThreadError"/>
+      </Item40>
     </Exceptions>
   </Debugging>
 </CONFIG>

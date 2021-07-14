@@ -304,6 +304,7 @@ begin
        _api.endpoint := 'token/';
        _api.Execute();
 
+
        if (_api.ResponseCode in [200..207]) then
            sessao.bearerems:= _api.Return['token'].AsString
        else

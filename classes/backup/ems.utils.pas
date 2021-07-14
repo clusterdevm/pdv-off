@@ -304,11 +304,13 @@ begin
        _api.endpoint := 'token/';
        _api.Execute();
 
+       RegistraLogErro(_api.response.Text);
+
        if (_api.ResponseCode in [200..207]) then
            sessao.bearerems:= _api.Return['token'].AsString
        else
        Begin
-           RegistraLogErro('Erro: Linha 129 '+_api.response);
+           RegistraLogErro('Erro: Linha 129 '+_api.response.Text);
            Showmessage('Erro Checar Arquivo de Log');
        end;
   end;

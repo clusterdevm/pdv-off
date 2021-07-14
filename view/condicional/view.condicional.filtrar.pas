@@ -33,10 +33,12 @@ type
     cds_condicionaldata_emissao: TDateTimeField;
     cds_condicionalid: TLongintField;
     cds_condicionalnomeresumido: TStringField;
+    cds_condicionaln_operacao: TStringField;
     cds_condicionalstatus: TStringField;
     cds_condicionaltotal_pendente: TCurrencyField;
     cds_condicionaltotal_vendido: TCurrencyField;
     cds_condicionalvend_nome: TStringField;
+    cbTipoOperacao: TComboBox;
     DBGrid1: TDBGrid;
     ds_condicional: TDataSource;
     edt_nome: TEdit;
@@ -44,13 +46,13 @@ type
     ed_conclusao_final: TDateEdit;
     ed_emissao_inicial: TDateEdit;
     ed_conclusao_inicial: TDateEdit;
-    Frame1_1: TFrame1;
     Frame2_1: TFrame2;
     Label1: TLabel;
     anel2: TPanel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
+    Label5: TLabel;
     Label6: TLabel;
     MenuItem1: TMenuItem;
     MenuItem2: TMenuItem;
@@ -99,7 +101,8 @@ begin
 
      condicional.Filtrar(cds_condicional,
                          Frame2_1.GetArray,
-                         Frame1_1.GetArray,
+                         IntToStr(cbTipoOperacao.ItemIndex+1),
+                         IntToStr(sessao.empresalogada),
                          ed_emissao_inicial.Text,
                          ed_emissao_final.Text,
                          ed_conclusao_inicial.Text,
@@ -255,8 +258,6 @@ begin
      Add('Faturada');
   end;
   Frame2_1.cb_status.ItemIndex:=0;
-
-  Frame1_1.carregaEmpresa;
 
   DBGrid1.Columns[1].DisplayFormat:= Sessao.datetimeformat;
   DBGrid1.Columns[2].DisplayFormat:= Sessao.datetimeformat;

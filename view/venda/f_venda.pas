@@ -9,8 +9,9 @@ uses
   ExtCtrls, StdCtrls, Buttons, Menus, ComCtrls, DBGrids, ActnList, Grids,
   view.condicional.filtrar, view.devolucao.filtrar, uf_crediario,
   view.filtros.cliente, view.filtros.produtos, uf_venda.fechamento,
-  VTHeaderPopup, BGRAShape, atshapelinebgra, BGRAResizeSpeedButton, BCButton,
-  ColorSpeedButton, jsons, clipbrd, LCLtype, LCLProc;
+  view.pendentes.baixa, VTHeaderPopup, BGRAShape, atshapelinebgra,
+  BGRAResizeSpeedButton, BCButton, ColorSpeedButton, jsons, clipbrd, LCLtype,
+  LCLProc;
 
 type
 
@@ -18,6 +19,7 @@ type
 
   Tform_venda = class(TForm)
     Action1: TAction;
+    ac_pendente: TAction;
     ac_alteraPreco: TAction;
     ac_filtroProdutos: TAction;
     ac_fechavenda: TAction;
@@ -123,6 +125,7 @@ type
     procedure ac_devolucaoExecute(Sender: TObject);
     procedure ac_fechaCaixaExecute(Sender: TObject);
     procedure ac_fechavendaExecute(Sender: TObject);
+    procedure ac_pendenteExecute(Sender: TObject);
     procedure ac_recebimentoExecute(Sender: TObject);
     procedure ac_removerExecute(Sender: TObject);
     procedure ac_sairExecute(Sender: TObject);
@@ -274,6 +277,7 @@ begin
        _nota := TJsonObject.Create();
        _nota['cliente_id'].AsInteger:= 1;
        _nota['vendedor_id'].AsInteger:= 0;
+       _nota['empresa_id'].AsInteger:= sessao.empresalogada;
        _nota['data_emissao'].AsString:= getDataUTC;
        _nota['id'].AsInteger:= Sessao.GetNewDocumento;
        _nota['documento'].AsInteger:= _nota['id'].AsInteger;
@@ -494,7 +498,6 @@ begin
 
   Sessao.getID:='';
   frmFiltroCliente._FiltroID := true;
-  //frmFiltroCliente._OnlyCustomer:= self.onlyColaborador;
   frmFiltroCliente.ShowModal;
 
   if Sessao.getID = '' then
@@ -503,7 +506,7 @@ begin
     try
         _venda := TJsonObject.Create();
         _db := TConexao.Create;
-        _venda['id'].AsString:= GetVendaID;
+        _venda['uuid'].AsString:= GetVendaUUID;
         _venda['sinc_pendente'].AsString:= 'S';
         _venda['cliente_id'].AsString:= sessao.getID;
         _db.updateSQl('vendas',_venda);
@@ -527,7 +530,7 @@ begin
     try
         _db := TConexao.Create;
         _venda := TJsonObject.Create();
-        _venda['id'].AsString:= GetVendaID;
+        _venda['uuid'].AsString:= GetVendaUUID;
         _venda['sinc_pendente'].AsString:= 'S';
         _venda['cpf'].AsString:= _cpf;
         _db.updateSQl('vendas',_venda);
@@ -556,7 +559,7 @@ begin
     try
         _venda := TJsonObject.Create();
         _db := TConexao.Create;
-        _venda['id'].AsString:= GetVendaID;
+        _venda['uuid'].AsString:= GetVendaUUID;
         _venda['sinc_pendente'].AsString:= 'S';
         _venda['vendedor_id'].AsString:= sessao.getID;
         _db.updateSQl('vendas',_venda);
@@ -586,7 +589,7 @@ begin
             try
                _db := TConexao.Create;
                _venda := TJsonObject.Create();
-               _venda['id'].AsString:=GetVendaID;
+               _venda['uuid'].AsString:=GetVendaUUID;
                _venda['dados_adicionais'].AsString:= _motivo;
                _venda['sinc_pendente'].AsString:= 'S';
                _venda['status'].AsString:= 'cancelado';
@@ -721,6 +724,11 @@ begin
 //  CriarForm(Tf_fechamento);
 end;
 
+procedure Tform_venda.ac_pendenteExecute(Sender: TObject);
+begin
+  CriarForm(Tf_pendente);
+end;
+
 procedure Tform_venda.ac_recebimentoExecute(Sender: TObject);
 begin
   CriarForm(Tf_crediario);
@@ -844,7 +852,7 @@ begin
                   Sql.Clear;
                   Sql.Add('select * from venda_itens ');
                   Sql.Add(' where uuid_venda = '+QuotedStr(GetVendaUUID));
-                  Sql.Add(' and (status is null  or status = '''' )');
+                  Sql.Add(' and (status is null  or status = ''rascunho'' )');
                   Open;
                   first;
 
@@ -879,7 +887,7 @@ begin
                   Sql.Add('               on p.id  = v.cliente_id');
                   Sql.Add('               left join pessoas vend ');
                   Sql.Add('               on vend.id  = v.vendedor_id');
-                  Sql.Add(' where v.id = '+QuotedStr(GetVendaID));
+                  Sql.Add(' where v.uuid = '+QuotedStr(GetVendaUUID));
                   Open;
 
                   ed_cliente.Text:= FormatFloat('000000',FieldByName('cliente_id').AsInteger) + ' ' + trim(FieldByName('n_cliente').AsString);

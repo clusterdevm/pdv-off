@@ -129,8 +129,6 @@ begin
 
           Add('order by 2');
 
-          RegistraLogErro(text);
-
           Result := Text;
 
 

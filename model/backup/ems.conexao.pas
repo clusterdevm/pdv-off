@@ -144,7 +144,7 @@ begin
      Transaction.DataBase := Conector;
 
      Transaction.Options:= [stoUseImplicit];
-     //ExecutaSQL('PRAGMA journal_mode=WAL');
+     ExecutaSQL('PRAGMA journal_mode=WAL');
 
      FQuery := TSQLQuery.Create(nil);
      FQuery.DataBase := Conector;
@@ -991,8 +991,10 @@ begin
        Sql.Clear;
        Sql.Add('update '+_tabela+ ' set ');
        Sql.Add(_value.text);
-       Sql.add(' where id = '+QuotedStr(_Json['id'].AsString));
-       sql.text := UTF8Encode(sql.text);
+       if _(tabela = 'vendas') or (_tabela = 'venda_itens') then
+          Sql.add(' where uuid = '+QuotedStr(_Json['uuid'].AsString))
+       else
+          Sql.add(' where id = '+QuotedStr(_Json['id'].AsString));
        ExecSQL;
    end;
 

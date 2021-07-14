@@ -1,34 +1,27 @@
 object frmCondicionalCriar: TfrmCondicionalCriar
   Left = 1600
-  Height = 223
+  Height = 259
   Top = 250
-  Width = 521
+  Width = 529
   BorderIcons = [biSystemMenu]
-  Caption = 'Cluster Sistemas : Condicional Criar'
-  ClientHeight = 223
-  ClientWidth = 521
+  Caption = 'Cluster Sistemas'
+  ClientHeight = 259
+  ClientWidth = 529
   KeyPreview = True
-  OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '2.0.12.0'
-  inline Frame1_1: TFrame1
-    Left = 3
-    inherited Label1: TLabel
-      Left = 1
-    end
-  end
-  object Panel1: TPanel
+  object pnlInicia: TPanel
     Left = 0
     Height = 50
-    Top = 173
-    Width = 521
+    Top = 209
+    Width = 529
     Align = alBottom
     BevelOuter = bvNone
     ClientHeight = 50
-    ClientWidth = 521
-    TabOrder = 3
+    ClientWidth = 529
+    TabOrder = 0
+    Visible = False
     object BGRASpeedButton1: TBGRASpeedButton
-      Left = 432
+      Left = 440
       Height = 45
       Top = 0
       Width = 84
@@ -39,40 +32,119 @@ object frmCondicionalCriar: TfrmCondicionalCriar
       Color = clWindowText
     end
   end
-  inline frame_vendedor: TframePessoaGet
-    Left = 3
-    Top = 56
+  object pnlOperacao: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 529
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 50
+    ClientWidth = 529
     TabOrder = 1
-    inherited Panel1: TPanel
-      inherited EditID: TEdit
-        OnEnter = EditIDEnter
-        OnExit = EditIDExit
-      end
+    object Button1: TButton
+      Left = 8
+      Height = 36
+      Top = 4
+      Width = 240
+      Caption = 'Condicional'
+      OnClick = Button1Click
+      TabOrder = 0
     end
-    inherited Label1: TLabel
-      Width = 59
-      Caption = 'Vendedor'
+    object Button2: TButton
+      Left = 264
+      Height = 36
+      Top = 4
+      Width = 242
+      Caption = 'Reserva'
+      OnClick = Button2Click
+      TabOrder = 1
     end
   end
-  inline frame_cliente: TframePessoaGet
-    Left = 3
-    Top = 120
+  object pnlBase: TPanel
+    Left = 0
+    Height = 159
+    Top = 50
+    Width = 529
+    Align = alClient
+    ClientHeight = 159
+    ClientWidth = 529
     TabOrder = 2
-    inherited Panel1: TPanel
-      inherited EditID: TEdit
-        OnEnter = EditIDEnter
-        OnExit = ac_clienteExecute
+    Visible = False
+    inline frame_tabelasPrecos1: Tframe_tabelasPrecos
+      Height = 58
+      Top = 1
+      Width = 258
+      ClientHeight = 58
+      ClientWidth = 258
+      TabOrder = 0
+      inherited DBLookupComboBox1: TDBLookupComboBox
+        Width = 238
       end
+      inherited qry: TBufDataset
+        Left = 120
+        Top = 14
+      end
+      inherited ds: TDataSource
+        Left = 464
+        Top = 214
+      end
+    end
+    inline frame_Cliente: TframePessoaGet
+      Left = 8
+      Top = 64
+      TabOrder = 1
+      inherited Panel1: TPanel
+        inherited EditID: TEdit
+          OnExit = EditIDExit
+        end
+      end
+    end
+    inline frame_vendedor: TframePessoaGet
+      Left = 8
+      Top = 112
+      TabOrder = 2
+      inherited Panel1: TPanel
+        inherited EditID: TEdit
+          OnExit = ac_vendedorExecute
+        end
+      end
+      inherited Label1: TLabel
+        Width = 66
+        Caption = 'Vendedor'
+      end
+    end
+    object Label1: TLabel
+      Left = 264
+      Height = 15
+      Top = 1
+      Width = 94
+      Caption = 'Prazo Entrega'
+      ParentColor = False
+    end
+    object edtDataEntrega: TMaskEdit
+      Left = 264
+      Height = 33
+      Top = 24
+      Width = 176
+      CharCase = ecNormal
+      MaxLength = 10
+      ReadOnly = True
+      TabOrder = 3
+      TabStop = False
+      EditMask = '00/00/0000;1;_'
+      Text = '10/10/2020'
+      SpaceChar = '_'
     end
   end
   object ACBrEnterTab1: TACBrEnterTab
     EnterAsTab = True
-    Left = 432
-    Top = 8
+    Left = 360
+    Top = 232
   end
   object ActionList1: TActionList
-    Left = 328
-    Top = 16
+    Left = 392
+    Top = 200
     object Action1: TAction
       Caption = 'fechar'
       Enabled = False
@@ -87,9 +159,9 @@ object frmCondicionalCriar: TfrmCondicionalCriar
     object Action2: TAction
       Caption = 'Action2'
     end
-    object ac_cliente: TAction
+    object ac_vendedor: TAction
       Caption = 'GetPessoa'
-      OnExecute = ac_clienteExecute
+      OnExecute = ac_vendedorExecute
     end
   end
 end

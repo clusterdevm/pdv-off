@@ -6,9 +6,9 @@ interface
 
 uses
   Classes, SysUtils, fphttpclient, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, ActnList, ACBrEnterTab, BCImageButton, ColorSpeedButton, BCComboBox,
-  BGRASpeedButton, frame.empresa, frame.cliente.localiza,
-  controller.condicional, ems.utils;
+  StdCtrls, ActnList, MaskEdit, ACBrEnterTab, BCImageButton, ColorSpeedButton,
+  BCComboBox, BGRASpeedButton, frame.empresa, frame.cliente.localiza,
+  frame.tabelaPrecos, controller.condicional, ems.utils;
 
 type
 
@@ -18,22 +18,31 @@ type
     ACBrEnterTab1: TACBrEnterTab;
     Action1: TAction;
     Action2: TAction;
-    ac_cliente: TAction;
+    ac_vendedor: TAction;
     ac_iniciar: TAction;
     ActionList1: TActionList;
     BGRASpeedButton1: TBGRASpeedButton;
-    Frame1_1: TFrame1;
-    frame_cliente: TframePessoaGet;
+    Button1: TButton;
+    Button2: TButton;
+    frame_Cliente: TframePessoaGet;
     frame_vendedor: TframePessoaGet;
-    Panel1: TPanel;
+    frame_tabelasPrecos1: Tframe_tabelasPrecos;
+    Label1: TLabel;
+    edtDataEntrega: TMaskEdit;
+    pnlBase: TPanel;
+    pnlInicia: TPanel;
+    pnlOperacao: TPanel;
     procedure Action1Execute(Sender: TObject);
-    procedure ac_clienteExecute(Sender: TObject);
     procedure ac_iniciarExecute(Sender: TObject);
+    procedure ac_vendedorExecute(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
     procedure EditIDEnter(Sender: TObject);
     procedure EditIDExit(Sender: TObject);
-    procedure FormShow(Sender: TObject);
   private
+       _Operacao : Integer;
 
+       Procedure Ativa(_tipo:integer);
   public
       _temp : string;
 
@@ -48,10 +57,20 @@ implementation
 
 { TfrmCondicionalCriar }
 
-procedure TfrmCondicionalCriar.FormShow(Sender: TObject);
+procedure TfrmCondicionalCriar.Ativa(_tipo: integer);
 begin
-  Frame1_1.carregaEmpresa;
-  frame_vendedor.EditID.SetFocus;
+   _Operacao:= _tipo;
+   frame_tabelasPrecos1.Carrega;
+   edtDataEntrega.Text:= FormatDateTime('dd/mm/yyyy',now + 7);
+
+   pnlInicia.Visible:= true;
+   pnlOperacao.Visible:= false;
+   pnlBase.Visible:= true;
+   frame_Cliente.EditID.SetFocus;
+   frame_vendedor.onlyColaborador:= true;
+   frame_Cliente.onlyColaborador:= false;
+
+   frmCondicionalCriar.Height := frmCondicionalCriar.Height - pnlOperacao.Height;
 end;
 
 procedure TfrmCondicionalCriar.EditIDEnter(Sender: TObject);
@@ -59,30 +78,35 @@ begin
   _temp := (sender as TEdit).Text;
 end;
 
+procedure TfrmCondicionalCriar.EditIDExit(Sender: TObject);
+begin
+   if (_temp <> (Sender as TEdit).Text) or (trim(_temp) = '') then
+   Begin
+        if not frame_Cliente.Localiza then
+        Begin
+           (Sender as TEdit).SetFocus;
+            Abort;
+        end;
+   end;
+end;
+
 procedure TfrmCondicionalCriar.Action1Execute(Sender: TObject);
 begin
     frmCondicionalCriar.Close;
-end;
-
-procedure TfrmCondicionalCriar.ac_clienteExecute(Sender: TObject);
-begin
-  if (_temp <> (Sender as TEdit).Text) or (trim(_temp) = '') then
-  Begin
-       if not frame_cliente.Localiza then
-       Begin
-          (Sender as TEdit).SetFocus;
-           Abort;
-       end;
-  end;
 end;
 
 procedure TfrmCondicionalCriar.ac_iniciarExecute(Sender: TObject);
 var _condicional : Tcondicional ;
   aux : string;
 begin
+   if not pnlInicia.Visible then
+      exit;
+
    try
      _condicional:= Tcondicional.Create;
-     _condicional.empresa_id:= StrToInt(Frame1_1.GetItem);
+     _condicional.empresa_id:= sessao.empresalogada;
+     _condicional.tipo_operacao := _Operacao;
+     _condicional.tabela_preco_id := frame_tabelasPrecos1.getID;
 
      _condicional.vendedor_id :=frame_vendedor.getID;
      _condicional.cliente_id := frame_cliente.getID;
@@ -94,16 +118,26 @@ begin
    end;
 end;
 
-procedure TfrmCondicionalCriar.EditIDExit(Sender: TObject);
+procedure TfrmCondicionalCriar.ac_vendedorExecute(Sender: TObject);
 begin
-  if (_temp <> (Sender as TEdit).Text) or (trim(_temp) = '') then
-  Begin
-       if not frame_vendedor.Localiza then
-       Begin
-          (Sender as TEdit).SetFocus;
-           Abort;
-       end;
-  end;
+   if (_temp <> (Sender as TEdit).Text) or (trim(_temp) = '') then
+   Begin
+        if not frame_vendedor.Localiza then
+        Begin
+           (Sender as TEdit).SetFocus;
+            Abort;
+        end;
+   end;
+end;
+
+procedure TfrmCondicionalCriar.Button1Click(Sender: TObject);
+begin
+    Ativa(1);
+end;
+
+procedure TfrmCondicionalCriar.Button2Click(Sender: TObject);
+begin
+   Ativa(2);
 end;
 
 end.

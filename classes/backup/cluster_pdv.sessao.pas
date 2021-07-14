@@ -18,6 +18,7 @@ private
   fcidade: string;
   fcnpj: string;
   fdatetimeformat: string;
+  FempresaID: Integer;
   fempresalogada: integer;
   fgetID: String;
   FgradeID: String;
@@ -87,6 +88,7 @@ private
       Function GetSerieID(_Cpf : Boolean = false ; Orcamento : Boolean = false): integer;
 
       Function GetNewDocumento : Integer;
+
 
       Function PDV_ConfBalanca : String;
       Function GetCaixa : string;
@@ -460,6 +462,7 @@ begin
    end;
 end;
 
+
 function TSessao.PDV_ConfBalanca: String;
 begin
    Result := '';
@@ -593,7 +596,6 @@ end;
 constructor TSessao.create;
 begin
   InicializaConfigPadrao;
-  fFinalizaThread := false;
 end;
 
 end.
