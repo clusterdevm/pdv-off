@@ -95,10 +95,10 @@ try
         Sql.Add('       p.gradeamento_id');
 
         Sql.Add('from produtos p ');
-        Sql.Add('                left join produtos_preco_venda ppv');
+        Sql.Add('                inner join produtos_preco_venda ppv');
         Sql.Add('                on ppv.produto_id = p.id');
         Sql.Add('                and ppv.tabela_id = '+QuotedStr(IntToStr(Sessao.tabela_preco_id)));
-        Sql.Add('                left join tabela_preco tp');
+        Sql.Add('                inner join tabela_preco tp');
         Sql.Add('                on tp.id = ppv.tabela_id');
         Sql.Add('                left join produtos_subgrupos sg');
         Sql.Add('                on sg.id = p.subgrupo_id');

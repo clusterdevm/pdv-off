@@ -86,11 +86,10 @@
       <Unit0>
         <Filename Value="Cluster_PDV.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="2"/>
         <CursorPos X="48" Y="6"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
       <Unit1>
@@ -119,32 +118,31 @@
       <Unit3>
         <Filename Value="model/model.request.http.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="343"/>
         <CursorPos X="72" Y="363"/>
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
           <Item0 Y="229" ID="3"/>
         </Bookmarks>
-        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit3>
       <Unit4>
         <Filename Value="model/ems.conexao.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="977"/>
-        <CursorPos X="64" Y="990"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="813"/>
+        <CursorPos X="65" Y="830"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit4>
       <Unit5>
         <Filename Value="classes/ems.utils.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="291"/>
-        <CursorPos X="34" Y="297"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="287"/>
+        <CursorPos X="88" Y="296"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -164,12 +162,10 @@
         <ComponentName Value="frmPrincipal"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="67"/>
         <CursorPos Y="80"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit7>
       <Unit8>
@@ -216,8 +212,8 @@
       <Unit12>
         <Filename Value="classes/model.sinc.down.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="280"/>
-        <CursorPos X="45" Y="290"/>
+        <TopLine Value="220"/>
+        <CursorPos Y="225"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -225,11 +221,10 @@
       <Unit13>
         <Filename Value="controller/controller.condicional.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="7"/>
-        <TopLine Value="111"/>
-        <CursorPos X="26" Y="117"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="112"/>
+        <CursorPos Y="140"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit13>
       <Unit14>
@@ -255,7 +250,7 @@
         <ComponentName Value="frm_CondicionalFIltrar"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="5"/>
         <TopLine Value="86"/>
         <CursorPos X="20" Y="101"/>
         <UsageCount Value="200"/>
@@ -293,12 +288,10 @@
         <ComponentName Value="frmCondicionalCriar"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="59"/>
         <CursorPos X="41" Y="71"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit19>
       <Unit20>
@@ -399,7 +392,7 @@
         <ComponentName Value="form_venda"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="704"/>
         <CursorPos X="24" Y="729"/>
         <UsageCount Value="200"/>
@@ -413,10 +406,11 @@
       <Unit30>
         <Filename Value="controller/controller.venda.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="222"/>
-        <CursorPos X="74" Y="229"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="54"/>
+        <CursorPos X="58" Y="64"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit30>
       <Unit31>
@@ -561,7 +555,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="189"/>
         <CursorPos X="3" Y="182"/>
-        <UsageCount Value="190"/>
+        <UsageCount Value="191"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit42>
       <Unit43>
@@ -573,7 +567,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="256"/>
         <CursorPos Y="281"/>
-        <UsageCount Value="183"/>
+        <UsageCount Value="184"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit43>
       <Unit44>
@@ -582,7 +576,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="229"/>
         <CursorPos X="60" Y="234"/>
-        <UsageCount Value="143"/>
+        <UsageCount Value="144"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit44>
       <Unit45>
@@ -591,7 +585,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="37"/>
         <CursorPos X="31" Y="37"/>
-        <UsageCount Value="143"/>
+        <UsageCount Value="144"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit45>
       <Unit46>
@@ -600,10 +594,13 @@
         <ComponentName Value="f_produtosPesquisa"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="91"/>
-        <CursorPos Y="100"/>
-        <UsageCount Value="139"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="112"/>
+        <CursorPos X="52" Y="129"/>
+        <UsageCount Value="140"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit46>
       <Unit47>
@@ -614,7 +611,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="43"/>
         <CursorPos X="49" Y="46"/>
-        <UsageCount Value="133"/>
+        <UsageCount Value="134"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit47>
       <Unit48>
@@ -627,7 +624,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="38"/>
         <CursorPos X="40" Y="48"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="24"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit48>
       <Unit49>
@@ -636,10 +633,10 @@
         <ComponentName Value="f_pendente"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="22"/>
         <CursorPos X="68" Y="31"/>
-        <UsageCount Value="21"/>
+        <UsageCount Value="22"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -828,127 +825,103 @@
         <UsageCount Value="8"/>
       </Unit73>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="24" HistoryIndex="23">
       <Position1>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="86" TopLine="65"/>
-      </Position1>
-      <Position2>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="88" TopLine="65"/>
-      </Position2>
-      <Position3>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="90" TopLine="65"/>
-      </Position3>
-      <Position4>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="91" TopLine="65"/>
-      </Position4>
-      <Position5>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="92" TopLine="65"/>
-      </Position5>
-      <Position6>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="95" TopLine="66"/>
-      </Position6>
-      <Position7>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="96" TopLine="67"/>
-      </Position7>
-      <Position8>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="98" TopLine="69"/>
-      </Position8>
-      <Position9>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="101" TopLine="72"/>
-      </Position9>
-      <Position10>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="104" TopLine="75"/>
-      </Position10>
-      <Position11>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="107" TopLine="79"/>
-      </Position11>
-      <Position12>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="110" TopLine="82"/>
-      </Position12>
-      <Position13>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="111" TopLine="83"/>
-      </Position13>
-      <Position14>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="115" TopLine="87"/>
-      </Position14>
-      <Position15>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="116" TopLine="88"/>
-      </Position15>
-      <Position16>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="117" TopLine="89"/>
-      </Position16>
-      <Position17>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="118" TopLine="90"/>
-      </Position17>
-      <Position18>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="119" TopLine="91"/>
-      </Position18>
-      <Position19>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="120" TopLine="92"/>
-      </Position19>
-      <Position20>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="121" TopLine="93"/>
-      </Position20>
-      <Position21>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="123" TopLine="95"/>
-      </Position21>
-      <Position22>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="127" TopLine="99"/>
-      </Position22>
-      <Position23>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="128" TopLine="100"/>
-      </Position23>
-      <Position24>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="115" Column="35" TopLine="106"/>
-      </Position24>
-      <Position25>
-        <Filename Value="model/model.request.http.pas"/>
-        <Caret Line="75" Column="19" TopLine="58"/>
-      </Position25>
-      <Position26>
-        <Filename Value="model/model.request.http.pas"/>
-        <Caret Line="363" Column="72" TopLine="343"/>
-      </Position26>
-      <Position27>
         <Filename Value="view/condicional/view.condicional.filtrar.pas"/>
         <Caret Line="101" Column="20" TopLine="86"/>
-      </Position27>
-      <Position28>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="46" Column="22" TopLine="29"/>
-      </Position28>
-      <Position29>
-        <Filename Value="controller/controller.condicional.pas"/>
-        <Caret Line="117" Column="26" TopLine="111"/>
-      </Position29>
-      <Position30>
+      </Position1>
+      <Position2>
         <Filename Value="classes/ems.utils.pas"/>
         <Caret Line="49" Column="12" TopLine="32"/>
-      </Position30>
+      </Position2>
+      <Position3>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="297" Column="34" TopLine="291"/>
+      </Position3>
+      <Position4>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="294" Column="44" TopLine="287"/>
+      </Position4>
+      <Position5>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="296" TopLine="287"/>
+      </Position5>
+      <Position6>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="297" TopLine="287"/>
+      </Position6>
+      <Position7>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="298" TopLine="287"/>
+      </Position7>
+      <Position8>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="299" TopLine="287"/>
+      </Position8>
+      <Position9>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="300" TopLine="287"/>
+      </Position9>
+      <Position10>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="301" TopLine="287"/>
+      </Position10>
+      <Position11>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="302" TopLine="287"/>
+      </Position11>
+      <Position12>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="303" TopLine="287"/>
+      </Position12>
+      <Position13>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="304" TopLine="287"/>
+      </Position13>
+      <Position14>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="305" TopLine="287"/>
+      </Position14>
+      <Position15>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="308" TopLine="287"/>
+      </Position15>
+      <Position16>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="309" TopLine="287"/>
+      </Position16>
+      <Position17>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="316" TopLine="287"/>
+      </Position17>
+      <Position18>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="318" TopLine="289"/>
+      </Position18>
+      <Position19>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="290" Column="69" TopLine="280"/>
+      </Position19>
+      <Position20>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="38" Column="24" TopLine="26"/>
+      </Position20>
+      <Position21>
+        <Filename Value="classes/model.sinc.down.pas"/>
+        <Caret Line="225" TopLine="220"/>
+      </Position21>
+      <Position22>
+        <Filename Value="model/ems.conexao.pas"/>
+        <Caret Line="61" Column="20" TopLine="44"/>
+      </Position22>
+      <Position23>
+        <Filename Value="model/ems.conexao.pas"/>
+        <Caret Line="830" Column="65" TopLine="813"/>
+      </Position23>
+      <Position24>
+        <Filename Value="controller/controller.venda.pas"/>
+        <Caret Line="209" TopLine="167"/>
+      </Position24>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
@@ -956,7 +929,7 @@
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="2">
+    <BreakPoints Count="1">
       <Item1>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
@@ -964,13 +937,6 @@
         <Source Value="view/venda/f_venda.pas"/>
         <Line Value="1"/>
       </Item1>
-      <Item2>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="classes/ems.utils.pas"/>
-        <Line Value="294"/>
-      </Item2>
     </BreakPoints>
   </Debugging>
 </CONFIG>

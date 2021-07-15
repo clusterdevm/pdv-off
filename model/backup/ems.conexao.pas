@@ -476,7 +476,7 @@ begin
   finally
     FreeAndNil(iCommand);
     CloseFile(f);
-    DeleteFile(_path);
+    //DeleteFile(_path);
   end;
 
 end;
@@ -991,7 +991,7 @@ begin
        Sql.Clear;
        Sql.Add('update '+_tabela+ ' set ');
        Sql.Add(_value.text);
-       if _(tabela = 'vendas') or (_tabela = 'venda_itens') then
+       if (_tabela = 'vendas') or (_tabela = 'venda_itens') then
           Sql.add(' where uuid = '+QuotedStr(_Json['uuid'].AsString))
        else
           Sql.add(' where id = '+QuotedStr(_Json['id'].AsString));
@@ -1047,7 +1047,18 @@ begin
                Begin
                    _script.Add('update '+_tabela+ ' set ');
                    _script.Add(_value.text);
-                   _script.add(' where id = '+QuotedStr(_item['id'].AsString)+';');
+
+                   if _tabela = 'produtos' then
+                   Begin
+                         if _item['gradeamento_id'].AsString <> '' then
+                         Begin
+                             _script.add(' where id = '+QuotedStr(_item['id'].AsString));
+                             _script.add(' and gradeamento_id = '+QuotedStr(_item['gradeamento_id'].AsString);
+                         end else
+                            _script.add(' where id = '+QuotedStr(_item['id'].AsString)+';');
+                   end else
+                     _script.add(' where id = '+QuotedStr(_item['id'].AsString)+';');
+
                    _script.Add('');
                end;
                _value.Clear;
@@ -1128,42 +1139,62 @@ begin
 try
   with qrySelect  do
   Begin
-       Close;
-       Sql.Clear;
-       Sql.Add('select id from '+_tabela+' where id in (');
-       s_listaID:= '';
-
-       for i := 0 to _JsonArray.Count -1 do
+       if trim(_tabela)= 'produtos' then
        Begin
-           _item := _JsonArray.Items[i].AsObject;
-           s_listaID:= s_listaID +_delimiter + _item['id'].AsString;
-          _delimiter:= ',';
-       end;
-
-       Sql.Add(s_listaID);
-       Sql.add(')');
-
-       try
-          Open;
-       except
-          on e:Exception do
-             RegistraLogRequest(' ChecaSQL : '+_tabela+':'+e.Message);
-       end;
-
-       first;
-
-       while not eof do
-       Begin
-            for i := 0 to _JsonArray.count -1 do
-            Begin
+             for i := 0 to _JsonArray.Count -1 do
+             Begin
                 _item := _JsonArray.Items[i].AsObject;
-                if _item['id'].AsInteger = FieldByName('id').AsInteger then
-                Begin
-                     _item['update'].AsBoolean:= true;
-                     break;
-                end;
-            end;
-            Next;
+                Close;
+                Sql.Clear;
+                Sql.Add('select id from '+_tabela+' where id = '+QuotedStr(_item['id'].AsString) );
+
+                if _item['gradeamento_id'].AsString <> '' then
+                  Sql.Add('and gradeamento_id = '+QuotedStr(_item['gradeamento_id'].AsString) );
+
+                open;
+
+                _item['update'].AsBoolean:= not IsEmpty;
+             end;
+
+       end else
+       Begin
+             Close;
+             Sql.Clear;
+             Sql.Add('select id from '+_tabela+' where id in (');
+             s_listaID:= '';
+
+             for i := 0 to _JsonArray.Count -1 do
+             Begin
+                 _item := _JsonArray.Items[i].AsObject;
+                 s_listaID:= s_listaID +_delimiter + _item['id'].AsString;
+                _delimiter:= ',';
+             end;
+
+             Sql.Add(s_listaID);
+             Sql.add(')');
+
+             try
+                Open;
+             except
+                on e:Exception do
+                   RegistraLogRequest(' ChecaSQL : '+_tabela+':'+e.Message);
+             end;
+
+             first;
+
+             while not eof do
+             Begin
+                  for i := 0 to _JsonArray.count -1 do
+                  Begin
+                      _item := _JsonArray.Items[i].AsObject;
+                      if _item['id'].AsInteger = FieldByName('id').AsInteger then
+                      Begin
+                           _item['update'].AsBoolean:= true;
+                           break;
+                      end;
+                  end;
+                  Next;
+             end;
        end;
   end;
 

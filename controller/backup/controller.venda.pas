@@ -244,6 +244,7 @@ begin
         _produto['quantidade'].AsNumber:= quantidade;
         _produto['uuid_venda'].AsString:= _vendaUUID;
         _produto['uuid'].AsString:= GetUUID;
+        _produto['status'].AsString:= 'rascunho';
         VendaGetItemRecalculo(_Produto);
 
         if quantidade <= 0 then
