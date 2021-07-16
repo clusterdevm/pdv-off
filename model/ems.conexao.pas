@@ -4,7 +4,7 @@ interface
 
 uses SysUtils, Variants, Classes, // ZConnection, ZDataset,
      sqldb,
-     jsons, db, BufDataset, typinfo, dialogs  ;
+     jsons, db, BufDataset, typinfo, dialogs, md5  ;
 
 Type
 
@@ -169,7 +169,7 @@ begin
   except
      on e:Exception do
      Begin
-         RegistraLogRequest('Create Conexao:'+e.message);
+         RegistraLogErro('Create Conexao:'+e.message);
      end;
   end;
 end;
@@ -385,8 +385,8 @@ begin
           except
               on e:Exception do
               Begin
-                  RegistraLogRequest(' ExecutaSQL : '+_aux+' '+e.Message);
-                  RegistraLogRequest(isql);
+                  RegistraLogErro(' ExecutaSQL : '+_aux+' '+e.Message);
+                  RegistraLogErro(isql);
               end;
           end;
       end;
@@ -469,14 +469,14 @@ begin
           except
               on e:Exception do
               Begin
-                  RegistraLogRequest(' Importação SQL :  '+e.Message);
+                  RegistraLogErro(' Importação SQL :  '+e.Message);
               end;
           end;
       end;
   finally
     FreeAndNil(iCommand);
     CloseFile(f);
-    //DeleteFile(_path);
+    DeleteFile(_path);
   end;
 
 end;
@@ -551,7 +551,7 @@ begin
           result := not IsEmpty;
 
           if not result then
-            RegistraLogRequest('Tabela: '+_tabela +' Não existe localmente ');
+            RegistraLogErro('Tabela: '+_tabela +' Não existe localmente ');
        end;
    finally
         FreeAndNil(qryCheca);
@@ -1081,9 +1081,14 @@ begin
        end;
    end;
 
+   RegistraLogErro(_tabela+': '+ _script.Text);
+
     if (_count > 0) and (_processado = false) then
         if _script.Count > 0 then
+        Begin
            ExecutaSql(_script.Text);
+           RegistraLogErro(_tabela+' update : '+ _script.Text);
+        end;
 
 finally
    FreeAndNil(_value);
@@ -1126,7 +1131,7 @@ try
 except
     on e:exception do
     Begin
-        RegistraLogRequest('Erro Comando Sql '+e.Message);
+        RegistraLogErro('Erro Comando Sql '+e.Message);
     end;
 end;
 end;
@@ -1146,14 +1151,31 @@ try
                 _item := _JsonArray.Items[i].AsObject;
                 Close;
                 Sql.Clear;
-                Sql.Add('select id from '+_tabela+' where id = '+QuotedStr(_item['id'].AsString) );
-
-                if _item['gradeamento_id'].AsString <> '' then
-                  Sql.Add('and gradeamento_id = '+QuotedStr(_item['gradeamento_id'].AsString) );
-
+                Sql.Add('select id, gradeamento_id from '+_tabela+' where id = '+QuotedStr(_item['id'].AsString) );
                 open;
 
-                _item['update'].AsBoolean:= not IsEmpty;
+                if IsEmpty  then
+                  _item['update'].AsBoolean:= false
+                else
+                Begin
+                    if _item['gradeamento_id'].AsString <> '' then
+                    Begin
+                        first;
+                        While not eof do
+                        Begin
+                            if _item['gradeamento_id'].AsString  = FieldByName('gradeamento_id').AsString then
+                            Begin
+                                _item['update'].AsBoolean:= true;
+                                Break;
+                            end;
+                            Next;
+                        end;
+                    end else
+                      _item['update'].AsBoolean:= true;
+                end;
+                open;
+
+
              end;
 
        end else
@@ -1177,7 +1199,7 @@ try
                 Open;
              except
                 on e:Exception do
-                   RegistraLogRequest(' ChecaSQL : '+_tabela+':'+e.Message);
+                   RegistraLogErro(' ChecaSQL : '+_tabela+':'+e.Message);
              end;
 
              first;
@@ -1201,8 +1223,8 @@ try
 except
    on e:Exception do
    Begin
-      RegistraLogRequest(' insert sql : '+_tabela+' '+e.Message);
-      RegistraLogRequest(qrySelect.Sql.Text);
+      RegistraLogErro(' insert sql : '+_tabela+' '+e.Message);
+      RegistraLogErro(qrySelect.Sql.Text);
    end;
 end;
 end;

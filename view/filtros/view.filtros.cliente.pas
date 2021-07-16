@@ -213,7 +213,7 @@ end;
 
 procedure TfrmFiltroCliente.FormCreate(Sender: TObject);
 begin
-   Caption := 'Store :: Filtro de Clientes';
+   Caption := 'Store :: Filtro de Pessoas';
 
    lblTempoBusca.Caption := '';
 

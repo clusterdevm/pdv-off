@@ -304,7 +304,6 @@ begin
        _api.endpoint := 'token/';
        _api.Execute();
 
-       RegistraLogErro(_api.response.Text);
 
        if (_api.ResponseCode in [200..207]) then
            sessao.bearerems:= _api.Return['token'].AsString
@@ -609,15 +608,35 @@ begin
 end;
 
 function ToValor(value: string): Extended;
+var _posP, _posV : Integer;
 begin
 
-  {$IFDEF MSWINDOWS}
-      //value := SubsString(value,',','.');
-  {$else}
-      value := SubsString(value,',','.');
-  {$ENDIF}
+_posP := Pos('.',Value);
+  _posv := Pos(',',Value);
 
-   TryStrToFloat(value, result);
+  if (_posP > 0) and (_posV > 0 ) then
+  Begin
+      if _posP < _posV then
+         value := SubsString(value,'.','')
+      else
+        value := SubsString(value,',','')
+  end;
+
+  value := SubsString(value,'.',',');
+
+//  value := SubsString(value,',','.');
+
+  //{$IFDEF MSWINDOWS}
+  //    value := SubsString(value,',','.');
+  //{$else}
+  //    value := SubsString(value,',','.');
+  //{$ENDIF}
+
+  result := StrToFloat(value);
+  //if TryStrToFloat(value, result) then
+  //   Showmessage('true')
+  //else
+  //   Showmessage('false')
 end;
 
 Procedure Limpa(aDataSet:TBufDataset);

@@ -158,8 +158,6 @@ begin
 
                  btLogar.Enabled:=false;
 
-                 HoraInicial:= now;
-
                  _sincronizar := TSincDownload.Create(true,
                                                 nil ,
                                                 objeto.token_remoto,

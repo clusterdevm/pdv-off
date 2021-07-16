@@ -83,7 +83,9 @@ begin
    _body := TJsonObject.Create;
    _Api := TRequisicao.Create;
    _body.Put('nome_cliente', self.nome);
-   _body.Put('tipo_operacao',operacao_id);
+
+   with _body['tipo_operacao'].AsArray do
+        Put(operacao_id);
 
    with _body['status'].AsArray do
    Begin

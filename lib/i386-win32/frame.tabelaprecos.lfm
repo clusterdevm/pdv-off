@@ -1,0 +1,61 @@
+object frame_tabelasPrecos: Tframe_tabelasPrecos
+  Left = 0
+  Height = 57
+  Top = 0
+  Width = 372
+  ClientHeight = 57
+  ClientWidth = 372
+  TabOrder = 0
+  DesignLeft = 1917
+  DesignTop = 24
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 7
+    Height = 33
+    Top = 22
+    Width = 360
+    KeyField = 'id'
+    ListField = 'descricao'
+    ListFieldIndex = 0
+    ListSource = ds
+    LookupCache = False
+    Style = csOwnerDrawEditableFixed
+    TabOrder = 0
+  end
+  object Label1: TLabel
+    Left = 7
+    Height = 15
+    Top = 3
+    Width = 87
+    Caption = 'Tabela Preço'
+    ParentColor = False
+  end
+  object qry: TBufDataset
+    FieldDefs = <>
+    Left = 24
+    Top = 24
+    object qryid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qrydescricao: TStringField
+      FieldKind = fkData
+      FieldName = 'descricao'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+  end
+  object ds: TDataSource
+    DataSet = qry
+    Left = 32
+    Top = 32
+  end
+end

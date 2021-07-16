@@ -226,10 +226,10 @@ begin
    dsCliente.DataSet := _db.qrySelect;
 
 
-   _db.Query.FieldDefs.Add('id', ftInteger);
-   _db.Query.FieldDefs.Add('nome', ftString,100);
-   _db.Query.FieldDefs.Add('fantasia', ftString,100);
-   _db.Query.FieldDefs.Add('cpf_cnpj', ftString,20);
+   _db.qrySelect.FieldDefs.Add('id', ftInteger);
+   _db.qrySelect.FieldDefs.Add('nome', ftString,100);
+   _db.qrySelect.FieldDefs.Add('fantasia', ftString,100);
+   _db.qrySelect.FieldDefs.Add('cpf_cnpj', ftString,20);
 end;
 
 procedure TfrmFiltroCliente.FormShow(Sender: TObject);

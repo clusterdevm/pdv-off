@@ -133,7 +133,7 @@ try
         gridProdutos.Columns[3].DisplayFormat:= sessao.formatquantidade;
         gridProdutos.Columns[5].DisplayFormat:= sessao.formatunitario();
 
-
+        RegistraLogErro(sql.text);
 
         qItens.Close;
         qItens.Open;

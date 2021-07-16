@@ -261,7 +261,7 @@ end;
 
 function GetFloat(value: string): Extended;
 begin
-  value := SubsString(value,',','.');
+//  value := SubsString(value,',','.');
   result := StrToFloatDef(value,0);
 end;
 
@@ -608,15 +608,35 @@ begin
 end;
 
 function ToValor(value: string): Extended;
+var _posP, _posV : Integer;
 begin
 
-  {$IFDEF MSWINDOWS}
-      //value := SubsString(value,',','.');
-  {$else}
-      value := SubsString(value,',','.');
-  {$ENDIF}
+_posP := Pos('.',Value);
+  _posv := Pos(',',Value);
 
-   TryStrToFloat(value, result);
+  if (_posP > 0) and (_posV > 0 ) then
+  Begin
+      if _posP < _posV then
+         value := SubsString(value,'.','')
+      else
+        value := SubsString(value,',','')
+  end;
+
+  value := SubsString(value,'.',',');
+
+//  value := SubsString(value,',','.');
+
+  //{$IFDEF MSWINDOWS}
+  //    value := SubsString(value,',','.');
+  //{$else}
+  //    value := SubsString(value,',','.');
+  //{$ENDIF}
+
+  result := StrToFloat(value);
+  //if TryStrToFloat(value, result) then
+  //   Showmessage('true')
+  //else
+  //   Showmessage('false')
 end;
 
 Procedure Limpa(aDataSet:TBufDataset);

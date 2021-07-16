@@ -69,7 +69,7 @@ begin
 try
    try
         _db := TConexao.Create;
-        with _db.qry do
+        with _db.qryPost do
         Begin
             Close;
             Sql.Clear;

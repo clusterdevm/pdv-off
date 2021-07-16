@@ -59,7 +59,7 @@ var
 implementation
 
 {$R *.lfm}
-uses classe.utils;
+uses ems.utils;
 
 { Tf_sangriaReport }
 
@@ -112,6 +112,9 @@ procedure Tf_sangriaReport.GetSangriaReport(_dados: TJsonObject;
   lSangria: Boolean);
 begin
   _Objeto := _dados;
+
+  RegistraLogErro('objeto');
+  RegistraLogErro(_Objeto.Stringify);
   RLReport1.PageBreaking := pbNone;
   RLReport1.PageSetup.PaperSize   := fpCustom ;
   RLReport1.UnlimitedHeight:= true;

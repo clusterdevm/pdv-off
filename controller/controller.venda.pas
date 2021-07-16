@@ -16,6 +16,7 @@ uses ems.conexao, ems.utils, model.vendas.imposto,
 
 procedure VendaGetItemRecalculo(var _dados : TJsonObject);
 begin
+
 //      ValidaEdicao(_vendaID);
 
       defaultNumber(_dados,'aliq_desconto');
@@ -79,7 +80,7 @@ begin
           Add('       p.saldo_disponivel saldo_gerencial,');
           Add('       ppv.valor, tp.descricao n_tabela,');
           Add('       ncm.descricao n_ncm,');
-          Add('       p.id gradeamento_id, ');
+          Add('       p.gradeamento_id, ');
 
           Add(' p.preco_custo_g custo_unitario ');
           Add('from produtos p ');
@@ -187,6 +188,7 @@ begin
                              )
 
                 );
+
         Open;
 
         if RecordCount > 1 then

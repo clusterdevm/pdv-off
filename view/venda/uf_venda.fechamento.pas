@@ -140,7 +140,7 @@ type
         Procedure SetResumo;
   public
       _valorBruto, _valorPromocao, _valorDesconto, _valorDescontoExtra,
-        _valorEntrada, _ValorRecebimento, _totalVenda, _totalCrediario : Currency;
+        _valorEntrada, _ValorRecebimento, _totalVenda, _totalCrediario : Extended;
 
       _vendaID, _vendaUUID : string;
   end;
@@ -386,6 +386,7 @@ begin
    ed_acrescimo.Text:= FormatFloat(sessao.formatsubtotal(false),ToValor(ed_acrescimo.Text));
    ed_valorDesconto.Text:= FormatFloat(sessao.formatsubtotal(false),ToValor(ed_valorDesconto.Text));
    ed_valorEntrada.Text:= FormatFloat(sessao.formatsubtotal(false),ToValor(ed_valorEntrada.Text));
+
 
    _totalCrediario := Decimal(Result +
                        ToValor(ed_acrescimo.Text)+

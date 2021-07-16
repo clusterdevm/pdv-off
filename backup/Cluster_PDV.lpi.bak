@@ -358,6 +358,7 @@
         <Filename Value="view/filtros/view.filtros.produtos.selecao.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="f_produtosPesquisaSelecao"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit47>
       <Unit48>

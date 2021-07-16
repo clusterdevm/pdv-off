@@ -140,7 +140,7 @@ type
         Procedure SetResumo;
   public
       _valorBruto, _valorPromocao, _valorDesconto, _valorDescontoExtra,
-        _valorEntrada, _ValorRecebimento, _totalVenda, _totalCrediario : Currency;
+        _valorEntrada, _ValorRecebimento, _totalVenda, _totalCrediario : Extended;
 
       _vendaID, _vendaUUID : string;
   end;
@@ -507,7 +507,7 @@ begin
         for i := 1 to qPagamenton_parcelas.Value do
         Begin
             qCrediario.Append;
-            qCrediarioDocumento.Value:= n_venda;
+            qCrediarioDocumento.Value:= _vendaID;
             qCrediarioParcela.Value:= i;
             qCrediariovalor.Value:=_valor;
             qCrediarioVencimento.Value:= _vencimento;

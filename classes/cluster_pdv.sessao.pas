@@ -290,6 +290,7 @@ begin
   for i := 1 to DecimalUnitario do
      Result := Result + '0';
 
+  //result := '#,##0.'+Result; //+','
   result := '#0.'+Result+',';
 
   if _loadSimbolo then
@@ -325,7 +326,8 @@ begin
   for i := 1 to DecimalQuantidade do
      Result := Result + '0';
 
-  result := '#0.'+Result+',';
+  result := '#0.'+Result+','
+//result := '#,##0.'+Result; //+','
 
 end;
 

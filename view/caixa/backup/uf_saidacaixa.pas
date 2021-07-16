@@ -69,10 +69,14 @@ begin
        WCursor.SetWait;
       _api := TRequisicao.Create;
       _body := TJsonObject.Create;
-      _body.Put('pessoa_id',framePessoa.getID);
-      _body.Put('valor',GetFloat(ed_valor.Text));
-      _body.Put('obs',m_obs.Text);
-      _body.Put('empresa_id',sessao.empresalogada);
+      _body['pessoa_id'].AsInteger := framePessoa.getID;
+      _body['valor'].AsNumber := GetFloat(ed_valor.Text);
+      _body['obs'].AsString := m_obs.Text;
+      _body['empresa_id'].AsInteger:= sessao.empresalogada;
+
+      RegistraLogErro('envio');
+      RegistraLogErro(_body.Stringify);
+
       with _Api do
       Begin
           Metodo:='post';
@@ -82,6 +86,14 @@ begin
           rota:='financeiro/checkout';
           endpoint:=_caixaID+'/'+_endpoint;
           Execute;
+
+          //RegistraLogErro('retorno');
+          //RegistraLogErro(_api.response.Text);
+          //
+          //RegistraLogErro('objeto');
+          //RegistraLogErro(_api.Return['resultado'].AsObject.Stringify);
+
+          //ShowMessage(_api.return['resultado'].AsObject['valor'].AsString);
 
           if (ResponseCode in [200..207]) then
           Begin
@@ -94,7 +106,7 @@ begin
              self.Close;
           end
           else
-             messagedlg('#150 Contate suporte: '+_Api.response,mtError,[mbok],0);
+             messagedlg('#150 Contate suporte: '+_Api.response.Text,mtError,[mbok],0);
       end;
 
    finally

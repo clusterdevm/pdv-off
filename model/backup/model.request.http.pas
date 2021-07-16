@@ -360,6 +360,8 @@ try
         else
            fresponse.Text:= _response.DataString;
 
+        RegistraLogRequest(fresponse.Text);
+
        if copy(trim(fresponse.Text),1,1) = '{' then
          try
             return.Clear;

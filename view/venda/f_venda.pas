@@ -651,16 +651,21 @@ begin
               FinalizaProcesso('Valor Informado Identico valor atual');
 
            if _itens['valor_unitario'].AsNumber > ToValor(_newValor) then
-               _itens['vl_desconto'].AsNumber:= DecimalUnitario(_itens['valor_unitario'].AsNumber- ToValor(_newValor))
+           Begin
+               _itens['vl_desconto'].AsNumber:= DecimalUnitario(_itens['valor_unitario'].AsNumber- ToValor(_newValor));
+               _itens['aliq_desconto'].AsNumber := 0;
+           end
            else
+           Begin
               _itens['valor_unitario'].AsNumber:= ToValor(_newValor);
+              _itens['vl_desconto'].AsNumber := 0;
+              _itens['aliq_desconto'].AsNumber := 0;
+           end;
 
            _itens['promocional'].AsString:= 'true';
 
-
-           RegistraLogErro(_itens.Stringify);
            VendaGetItemRecalculo(_itens);
-           RegistraLogErro(_itens.Stringify);
+
            _db.updateSQl('venda_itens',_itens);
 
            SetVenda;

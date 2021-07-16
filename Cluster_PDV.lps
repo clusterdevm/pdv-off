@@ -2,7 +2,7 @@
 <CONFIG>
   <ProjectSession>
     <Version Value="11"/>
-    <BuildModes Count="2" Active="Debug">
+    <BuildModes Count="2" Active="Windows">
       <Item1 Name="Debug">
         <CompilerOptions>
           <Version Value="11"/>
@@ -82,13 +82,12 @@
         </CompilerOptions>
       </Item2>
     </BuildModes>
-    <Units Count="74">
+    <Units Count="59">
       <Unit0>
         <Filename Value="Cluster_PDV.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="2"/>
-        <CursorPos X="48" Y="6"/>
+        <CursorPos X="30" Y="18"/>
         <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit0>
@@ -98,10 +97,12 @@
         <ComponentName Value="frm_login"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="116"/>
-        <CursorPos X="59" Y="124"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="28"/>
+        <CursorPos X="15" Y="40"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit1>
       <Unit2>
@@ -119,8 +120,8 @@
         <Filename Value="model/model.request.http.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="343"/>
-        <CursorPos X="72" Y="363"/>
+        <TopLine Value="357"/>
+        <CursorPos Y="363"/>
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
           <Item0 Y="229" ID="3"/>
@@ -130,10 +131,9 @@
       <Unit4>
         <Filename Value="model/ems.conexao.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="1121"/>
-        <CursorPos X="56" Y="1145"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="1071"/>
+        <CursorPos X="46" Y="1074"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -141,11 +141,9 @@
       <Unit5>
         <Filename Value="classes/ems.utils.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="8"/>
-        <TopLine Value="287"/>
-        <CursorPos X="88" Y="296"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="20" Y="259"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
       <Unit6>
@@ -188,8 +186,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="48"/>
-        <CursorPos X="33" Y="87"/>
+        <TopLine Value="217"/>
+        <CursorPos X="63" Y="223"/>
         <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit9>
@@ -213,12 +211,9 @@
       <Unit12>
         <Filename Value="classes/model.sinc.down.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="58"/>
-        <CursorPos X="52" Y="71"/>
+        <TopLine Value="65"/>
+        <CursorPos X="15" Y="80"/>
         <UsageCount Value="200"/>
-        <Bookmarks Count="1">
-          <Item0 X="45" Y="70" ID="2"/>
-        </Bookmarks>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit12>
@@ -226,8 +221,8 @@
         <Filename Value="controller/controller.condicional.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="112"/>
-        <CursorPos Y="140"/>
+        <TopLine Value="78"/>
+        <CursorPos X="77" Y="83"/>
         <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit13>
@@ -254,12 +249,10 @@
         <ComponentName Value="frm_CondicionalFIltrar"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="86"/>
         <CursorPos X="20" Y="101"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit16>
       <Unit17>
@@ -323,12 +316,9 @@
         <Filename Value="classes/cluster_pdv.sessao.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="21"/>
-        <CursorPos X="60" Y="30"/>
+        <TopLine Value="285"/>
+        <CursorPos X="41" Y="293"/>
         <UsageCount Value="200"/>
-        <Bookmarks Count="1">
-          <Item0 Y="90" ID="2"/>
-        </Bookmarks>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit22>
       <Unit23>
@@ -396,25 +386,22 @@
         <ComponentName Value="form_venda"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="7"/>
-        <TopLine Value="704"/>
-        <CursorPos X="24" Y="729"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="155"/>
+        <CursorPos X="19" Y="153"/>
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
           <Item0 Y="164" ID="1"/>
         </Bookmarks>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit29>
       <Unit30>
         <Filename Value="controller/controller.venda.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="54"/>
-        <CursorPos X="58" Y="64"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="125"/>
+        <CursorPos X="72" Y="136"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit30>
       <Unit31>
@@ -425,8 +412,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uf_fechamentoCaixa"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="72"/>
-        <CursorPos X="28" Y="86"/>
+        <TopLine Value="4"/>
+        <CursorPos X="71" Y="19"/>
         <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit31>
@@ -437,10 +424,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uf_saidaCaixa"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="84"/>
-        <CursorPos X="68" Y="97"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="68"/>
+        <CursorPos Y="77"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit32>
       <Unit33>
@@ -520,10 +510,11 @@
         <ComponentName Value="f_sangriaReport"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="43"/>
-        <CursorPos X="9" Y="62"/>
+        <EditorIndex Value="4"/>
+        <CursorPos X="45" Y="18"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit39>
       <Unit40>
@@ -557,9 +548,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="189"/>
-        <CursorPos X="3" Y="182"/>
-        <UsageCount Value="192"/>
+        <TopLine Value="398"/>
+        <CursorPos X="43" Y="410"/>
+        <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit42>
       <Unit43>
@@ -571,16 +562,16 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="256"/>
         <CursorPos Y="281"/>
-        <UsageCount Value="185"/>
+        <UsageCount Value="229"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit43>
       <Unit44>
         <Filename Value="../api/microservicos/vendas/model/model.vendas.imposto.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="229"/>
-        <CursorPos X="60" Y="234"/>
-        <UsageCount Value="145"/>
+        <TopLine Value="300"/>
+        <CursorPos Y="323"/>
+        <UsageCount Value="194"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit44>
       <Unit45>
@@ -589,7 +580,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="37"/>
         <CursorPos X="31" Y="37"/>
-        <UsageCount Value="145"/>
+        <UsageCount Value="194"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit45>
       <Unit46>
@@ -598,23 +589,22 @@
         <ComponentName Value="f_produtosPesquisa"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="112"/>
-        <CursorPos X="89" Y="123"/>
-        <UsageCount Value="141"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="288"/>
+        <CursorPos X="41" Y="292"/>
+        <UsageCount Value="190"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit46>
       <Unit47>
         <Filename Value="view/filtros/view.filtros.produtos.selecao.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="f_produtosPesquisaSelecao"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="43"/>
-        <CursorPos X="49" Y="46"/>
-        <UsageCount Value="135"/>
+        <TopLine Value="53"/>
+        <CursorPos X="54" Y="61"/>
+        <UsageCount Value="184"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit47>
       <Unit48>
@@ -627,7 +617,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="38"/>
         <CursorPos X="40" Y="48"/>
-        <UsageCount Value="25"/>
+        <UsageCount Value="74"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit48>
       <Unit49>
@@ -636,320 +626,94 @@
         <ComponentName Value="f_pendente"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="22"/>
         <CursorPos X="68" Y="31"/>
-        <UsageCount Value="23"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="72"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit49>
       <Unit50>
         <Filename Value="../../componentes/ems/json4delphi/jsons.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1260"/>
-        <CursorPos X="17" Y="1289"/>
-        <UsageCount Value="6"/>
+        <TopLine Value="306"/>
+        <CursorPos X="32" Y="317"/>
+        <UsageCount Value="11"/>
+        <Bookmarks Count="3">
+          <Item0 X="11" Y="1319" ID="3"/>
+          <Item1 X="17" Y="1460" ID="2"/>
+          <Item2 X="5" Y="1122" ID="1"/>
+        </Bookmarks>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit50>
       <Unit51>
-        <Filename Value="/usr/share/lazarus/2.0.12/lcl/include/customform.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="2161"/>
-        <CursorPos X="33" Y="2167"/>
-        <UsageCount Value="4"/>
-      </Unit51>
-      <Unit52>
-        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLReport.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="61"/>
-        <CursorPos X="45" Y="14166"/>
-        <UsageCount Value="2"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit52>
-      <Unit53>
-        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLMetaVCL.pas"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="45" Y="13"/>
-        <UsageCount Value="2"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit53>
-      <Unit54>
-        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLPrinters.pas"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="27" Y="13"/>
-        <UsageCount Value="2"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit54>
-      <Unit55>
-        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLPreviewForm.pas"/>
-        <ComponentName Value="RLPreviewForm"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="2"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit55>
-      <Unit56>
-        <Filename Value="../../componentes/fortesreport-ce-master/Source/RLPreview.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="817"/>
-        <CursorPos X="53" Y="828"/>
-        <UsageCount Value="2"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit56>
-      <Unit57>
-        <Filename Value="/usr/share/lazarus/2.0.12/lcl/forms.pp"/>
-        <UnitName Value="Forms"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="382"/>
-        <CursorPos X="15" Y="390"/>
-        <UsageCount Value="2"/>
-      </Unit57>
-      <Unit58>
         <Filename Value="/usr/share/lazarus/2.0.12/lcl/include/wincontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="5683"/>
         <CursorPos Y="5701"/>
-        <UsageCount Value="1"/>
-      </Unit58>
-      <Unit59>
-        <Filename Value="/usr/share/lazarus/2.0.12/lcl/dbgrids.pas"/>
-        <UnitName Value="DBGrids"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1473"/>
-        <CursorPos Y="1484"/>
-        <UsageCount Value="3"/>
-      </Unit59>
-      <Unit60>
+        <UsageCount Value="6"/>
+      </Unit51>
+      <Unit52>
         <Filename Value="/usr/share/fpcsrc/3.2.0/rtl/objpas/sysutils/sysstrh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="176"/>
-        <CursorPos X="23" Y="189"/>
-        <UsageCount Value="8"/>
-      </Unit60>
-      <Unit61>
-        <Filename Value="/usr/share/fpcsrc/3.2.0/rtl/objpas/classes/classesh.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="286"/>
-        <CursorPos X="3" Y="298"/>
-        <UsageCount Value="4"/>
-      </Unit61>
-      <Unit62>
-        <Filename Value="/usr/share/lazarus/2.0.12/lcl/lcltype.pp"/>
-        <UnitName Value="LCLType"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="16"/>
-        <CursorPos X="13" Y="31"/>
-        <UsageCount Value="3"/>
-      </Unit62>
-      <Unit63>
-        <Filename Value="../../../dev-ems/.lazarus/onlinepackagemanager/packages/zeosdbo/src/dbc/ZDbcSqLiteUtils.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="229"/>
-        <CursorPos Y="241"/>
-        <UsageCount Value="4"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit63>
-      <Unit64>
-        <Filename Value="../api/microservicos/vendas/model/model.vendas.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1264"/>
-        <CursorPos Y="1264"/>
-        <UsageCount Value="3"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit64>
-      <Unit65>
-        <Filename Value="/usr/share/lazarus/2.0.12/lcl/lclmessageglue.pas"/>
-        <UnitName Value="LCLMessageGlue"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="102"/>
-        <CursorPos Y="114"/>
-        <UsageCount Value="3"/>
-      </Unit65>
-      <Unit66>
-        <Filename Value="/usr/share/lazarus/2.0.12/lcl/interfaces/gtk2/gtk2winapi.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="7508"/>
-        <CursorPos X="58" Y="7517"/>
-        <UsageCount Value="4"/>
-      </Unit66>
-      <Unit67>
+        <CursorPos X="10" Y="194"/>
+        <UsageCount Value="6"/>
+      </Unit52>
+      <Unit53>
         <Filename Value="../api/source/classes/ems.utils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="506"/>
         <CursorPos X="32" Y="513"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit67>
-      <Unit68>
+      </Unit53>
+      <Unit54>
         <Filename Value="/usr/share/fpcsrc/3.2.0/packages/fcl-db/src/sqldb/sqldb.pp"/>
         <UnitName Value="SQLDB"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="555"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="554"/>
         <CursorPos X="15" Y="571"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
-      </Unit68>
-      <Unit69>
+      </Unit54>
+      <Unit55>
         <Filename Value="/usr/share/fpcsrc/3.2.0/rtl/objpas/sysutils/sysutilh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="319"/>
         <CursorPos X="40" Y="329"/>
-        <UsageCount Value="5"/>
-      </Unit69>
-      <Unit70>
-        <Filename Value="../../componentes/ems/json4delphi/json.import.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="8"/>
-        <CursorPos X="24" Y="25"/>
-        <UsageCount Value="4"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit70>
-      <Unit71>
-        <Filename Value="../../componentes/acbr/Fontes/Terceiros/json4delphi/src/Jsons.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="22"/>
-        <CursorPos X="42" Y="30"/>
-        <UsageCount Value="4"/>
-      </Unit71>
-      <Unit72>
-        <Filename Value="../../componentes/acbr/Fontes/ACBrTCP/ACBrIBGE.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="262"/>
-        <CursorPos X="6" Y="275"/>
-        <UsageCount Value="4"/>
-      </Unit72>
-      <Unit73>
+        <UsageCount Value="0"/>
+      </Unit55>
+      <Unit56>
         <Filename Value="/usr/share/lazarus/2.0.12/lcl/customtimer.pas"/>
         <UnitName Value="CustomTimer"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="133"/>
         <CursorPos Y="151"/>
-        <UsageCount Value="8"/>
-      </Unit73>
+        <UsageCount Value="3"/>
+      </Unit56>
+      <Unit57>
+        <Filename Value="/usr/share/fpcsrc/3.2.0/rtl/objpas/sysutils/sysinth.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="52"/>
+        <CursorPos X="60" Y="60"/>
+        <UsageCount Value="6"/>
+      </Unit57>
+      <Unit58>
+        <Filename Value="/usr/share/fpcsrc/3.2.0/rtl/objpas/sysutils/sysstr.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1311"/>
+        <CursorPos X="26" Y="1316"/>
+        <UsageCount Value="6"/>
+      </Unit58>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="2" HistoryIndex="1">
       <Position1>
-        <Filename Value="classes/ems.utils.pas"/>
-        <Caret Line="304" TopLine="287"/>
+        <Filename Value="view/caixa/uf_saidacaixa.pas"/>
+        <Caret Line="78" Column="38" TopLine="71"/>
       </Position1>
       <Position2>
-        <Filename Value="classes/ems.utils.pas"/>
-        <Caret Line="305" TopLine="287"/>
+        <Filename Value="form.login.pas"/>
+        <Caret Line="138" Column="52" TopLine="116"/>
       </Position2>
-      <Position3>
-        <Filename Value="classes/ems.utils.pas"/>
-        <Caret Line="308" TopLine="287"/>
-      </Position3>
-      <Position4>
-        <Filename Value="classes/ems.utils.pas"/>
-        <Caret Line="309" TopLine="287"/>
-      </Position4>
-      <Position5>
-        <Filename Value="classes/ems.utils.pas"/>
-        <Caret Line="316" TopLine="287"/>
-      </Position5>
-      <Position6>
-        <Filename Value="classes/ems.utils.pas"/>
-        <Caret Line="318" TopLine="289"/>
-      </Position6>
-      <Position7>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="290" Column="69" TopLine="280"/>
-      </Position7>
-      <Position8>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="38" Column="24" TopLine="26"/>
-      </Position8>
-      <Position9>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="225" TopLine="220"/>
-      </Position9>
-      <Position10>
-        <Filename Value="model/ems.conexao.pas"/>
-        <Caret Line="61" Column="20" TopLine="44"/>
-      </Position10>
-      <Position11>
-        <Filename Value="model/ems.conexao.pas"/>
-        <Caret Line="830" Column="65" TopLine="813"/>
-      </Position11>
-      <Position12>
-        <Filename Value="controller/controller.venda.pas"/>
-        <Caret Line="209" TopLine="167"/>
-      </Position12>
-      <Position13>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="229" Column="43" TopLine="220"/>
-      </Position13>
-      <Position14>
-        <Filename Value="/usr/share/fpcsrc/3.2.0/packages/fcl-db/src/sqldb/sqldb.pp"/>
-        <Caret Line="184" Column="3" TopLine="173"/>
-      </Position14>
-      <Position15>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="100" Column="42" TopLine="83"/>
-      </Position15>
-      <Position16>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="92" Column="91" TopLine="83"/>
-      </Position16>
-      <Position17>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="100" Column="42" TopLine="83"/>
-      </Position17>
-      <Position18>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="93" Column="84" TopLine="83"/>
-      </Position18>
-      <Position19>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="100" Column="42" TopLine="83"/>
-      </Position19>
-      <Position20>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="94" Column="94" TopLine="83"/>
-      </Position20>
-      <Position21>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="68" Column="60" TopLine="53"/>
-      </Position21>
-      <Position22>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="47" Column="17" TopLine="18"/>
-      </Position22>
-      <Position23>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="488" Column="3" TopLine="495"/>
-      </Position23>
-      <Position24>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="40" Column="16" TopLine="24"/>
-      </Position24>
-      <Position25>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="272" Column="54" TopLine="256"/>
-      </Position25>
-      <Position26>
-        <Filename Value="model/ems.conexao.pas"/>
-        <Caret Line="33" Column="20" TopLine="15"/>
-      </Position26>
-      <Position27>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="271" Column="39" TopLine="247"/>
-      </Position27>
-      <Position28>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="35" Column="16" TopLine="24"/>
-      </Position28>
-      <Position29>
-        <Filename Value="classes/model.sinc.down.pas"/>
-        <Caret Line="71" Column="52" TopLine="58"/>
-      </Position29>
-      <Position30>
-        <Filename Value="model/ems.conexao.pas"/>
-        <Caret Line="55" Column="20" TopLine="39"/>
-      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

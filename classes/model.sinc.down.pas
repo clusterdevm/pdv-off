@@ -65,6 +65,7 @@ begin
 
    FMsg:='Checando Itens:'+_tabela;
    Synchronize(AtualizaLog);
+
    if _tabela <> 'financeiro_caixa' then
       _sqlLite.ChecaItensArrayToSQl(_tabela,_jsonvalue);
 
@@ -98,7 +99,6 @@ begin
                           Close;
                           Sql.Clear;
                           Sql.Add('delete from financeiro_caixa where id = '+QuotedStr(_jsonValue.Items[i].AsObject['id'].AsString));
-                          RegistraLogRequest('caixa: ' +sql.text);
                           ExecSQL;
                       end;
                  finally
@@ -134,8 +134,13 @@ try
         Synchronize(AtualizaLog);
 
         _api.Execute(false,true);
+
+
+        RegistraLogRequest(_api.response.Text);
+
         FMsg:= 'Download Realizado(' + FormatDateTime('hh:mm:ss',_HoraInicial - Now)+')';
         Synchronize(AtualizaLog);
+
 
         if not (_api.ResponseCode in [200..207]) then
         Begin
@@ -162,6 +167,8 @@ try
                 Begin
                    FResponse.Clear;
                    FResponse.Parse(_api.response.Text);
+
+                   FProtocolo:= FResponse['protocolo'].AsString;
                 end;
             end;
            _ok := true;
@@ -299,9 +306,12 @@ begin
          Synchronize(AtualizaLog());
          _api.Execute;
 
+         FMsg:= 'Analisando Retorno';
+         Synchronize(AtualizaLog());
+
          if _api.ResponseCode in [200..207] then
          Begin
-               ProcessarUpdate(_api.Return);
+             ProcessarUpdate(_api.Return);
          end else
            FFalhou:= true;
 
@@ -618,7 +628,6 @@ begin
   if FErro <> '' then
   Begin
      FHistorico.Add(ferro);
-     //RegistraLogRequest(FHistorico.Text);
      FErro:= '';
   end;
 
