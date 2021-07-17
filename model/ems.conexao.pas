@@ -49,7 +49,7 @@ Type
 
          procedure updateSQl(_tabela:String;_Json:TJsonObject);
          procedure updateSQlArray(_tabela:String;_JsonArray:TJsonArray; _forceUpdate : Boolean = false);
-         Procedure ProcessaSinc(_name : String ; _jArray  : TJsonArray);
+         Procedure ProcessaRetornoUpload(_name : String ; _jArray  : TJsonArray);
 
 
          Procedure ChecaItensArrayToSQl(_tabela:String;_JsonArray:TJsonArray);
@@ -607,9 +607,7 @@ begin
           // Checando UUID
           _find := true;
 
-          if (_tabela = 'financeiro_caixa') or (_tabela = 'financeiro') or
-             (_tabela = 'venda_itens') or (_tabela = 'vendas')
-          then
+          if (_tabela = 'financeiro_caixa') then
              _find := false;
 
 
@@ -630,29 +628,6 @@ begin
           if not _find then
              ExecutaSQL('alter table '+_tabela+' add uuid text;');
 
-
-          // checando uuid_venda
-
-          _find := true;
-          if (_tabela = 'venda_itens')  then
-             _find := false;
-
-          if _find = false then
-          Begin
-                first;
-                while not eof do
-                Begin
-                     if FieldByName('column_name').AsString = 'uuid_venda' then
-                     Begin
-                         _find := true;
-                         Break;
-                     end;
-                    Next;
-                end;
-          end;
-
-          if not _find then
-             ExecutaSQL('alter table '+_tabela+' add uuid_venda text;');
 
        end;
    finally
@@ -797,9 +772,8 @@ begin
                   ' '+_type+
                   ' '+ _notNull;
 
-         if (LowerCase(_item['column_name'].AsString) = 'id') and
-            (LowerCase(_tabelaName) = 'venda_itens') then
-            _line:= _line + ' PRIMARY KEY AUTOINCREMENT ';
+         if (LowerCase(_item['column_name'].AsString) = 'hibrido_id') then
+             _line:= _line + ' PRIMARY KEY AUTOINCREMENT ';
 
          _sql.Add(_line);
 
@@ -992,7 +966,7 @@ begin
        Sql.Add('update '+_tabela+ ' set ');
        Sql.Add(_value.text);
        if (_tabela = 'vendas') or (_tabela = 'venda_itens') then
-          Sql.add(' where uuid = '+QuotedStr(_Json['uuid'].AsString))
+          Sql.add(' where hibrido_id = '+QuotedStr(_Json['hibrido_id'].AsString))
        else
           Sql.add(' where id = '+QuotedStr(_Json['id'].AsString));
        ExecSQL;
@@ -1081,14 +1055,9 @@ begin
        end;
    end;
 
-   RegistraLogErro(_tabela+': '+ _script.Text);
-
     if (_count > 0) and (_processado = false) then
         if _script.Count > 0 then
-        Begin
-           ExecutaSql(_script.Text);
-           RegistraLogErro(_tabela+' update : '+ _script.Text);
-        end;
+          ExecutaSql(_script.Text);
 
 finally
    FreeAndNil(_value);
@@ -1097,7 +1066,7 @@ end;
 
 end;
 
-procedure TConexao.ProcessaSinc(_name: String; _jArray: TJsonArray);
+procedure TConexao.ProcessaRetornoUpload(_name: String; _jArray: TJsonArray);
 var i : integer;
     iSql : TSQLScript;
 begin
@@ -1111,13 +1080,17 @@ try
     for i := 0 to _jArray.Count-1 do
     Begin
          if _jArray.Items[i].AsObject['remover'].AsBoolean  then
-            isql.Script.Add('delete from '+_name+' where uuid = '+QuotedStr(_jArray.Items[i].AsObject['uuid'].AsString)+';')
+         Begin
+              isql.Script.Add('delete from '+_name+' where hibrido_id = '+QuotedStr(_jArray.Items[i].AsObject['hibrido_id'].AsString));
+              isql.Script.Add( 'and pdv_id = '+QuotedStr(_jArray.Items[i].AsObject['pdv_id'].AsString)+';');
+         end
          else
             with isql.Script do
             Begin
                 Add('update '+_name+' set sinc_pendente = ''N'' '+
                     ', id = '+QuotedStr(_jArray.Items[i].AsObject['id'].AsString)+
-                    ' where uuid = '+QuotedStr(_jArray.Items[i].AsObject['uuid'].AsString)+
+                    ' where hibrido_id = '+QuotedStr(_jArray.Items[i].AsObject['hibrido_id'].AsString)+
+                    ' and pdv_id = '+QuotedStr(_jArray.Items[i].AsObject['pdv_id'].AsString)+
                     ' and (sinc_pendente =''S'' or sinc_pendente is null); ');
             end;
     end;

@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, jsons, model.vendas.config, clipbrd;
 
-       Function RegistraItemVenda(_codigo : String; _vendaUUID: string; quantidade : double ) : Boolean;
+       Function RegistraItemVenda(_codigo : String; _HibridoVendaID: Integer; quantidade : double ) : Boolean;
        procedure VendaGetItemRecalculo(var _dados : TJsonObject);
 implementation
 
@@ -141,7 +141,7 @@ begin
   end;
 end;
 
-function RegistraItemVenda(_codigo: String; _vendaUUID: string; quantidade: double
+function RegistraItemVenda(_codigo: String; _HibridoVendaID: Integer ; quantidade: double
   ): Boolean;
 var _db  : TConexao;
     _tabelaPrecoID, _armazenamentoID : Integer;
@@ -160,7 +160,7 @@ begin
         Sql.Add('COALESCE(v.tabela_preco_id,0) AS tabela_preco_id,');
         Sql.Add('COALESCE(v.armazenamento_id,0) AS armazenamento_id');
         Sql.Add('from vendas v');
-        Sql.Add('where v.uuid = '+QuotedStr(_vendaUUID));
+        Sql.Add('where v.hibrido_id = '+QuotedStr(IntToStr(_HibridoVendaID)));
         Open;
 
         if IsEmpty then
@@ -244,9 +244,9 @@ begin
         _Produto := _db.ToObjectString('',true);
         _Produto['valor_unitario'].AsNumber:= DecimalUnitario(_produto['valor'].AsNumber);
         _produto['quantidade'].AsNumber:= quantidade;
-        _produto['uuid_venda'].AsString:= _vendaUUID;
-        _produto['uuid'].AsString:= GetUUID;
+        _produto['hibrido_venda_id'].AsInteger:= _HibridoVendaID;
         _produto['status'].AsString:= 'rascunho';
+        _produto['pdv_id'].AsInteger:= sessao.GetPDVID;
         VendaGetItemRecalculo(_Produto);
 
         if quantidade <= 0 then

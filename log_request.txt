@@ -1,0 +1,48 @@
+17-07-2021 14:04:52 
+17-07-2021 14:05:42 retorno
+17-07-2021 14:05:42 {"resultado":{"itens":{"vendas":[{"hibrido_id":1,"pdv_id":0,"remover":false,"id":73}],"venda_itens":[{"hibrido_id":1,"pdv_id":0,"remover":true,"id":1308},{"hibrido_id":2,"pdv_id":0,"remover":true,"id":1309}]}}}
+17-07-2021 14:05:48 
+17-07-2021 14:05:48 retorno
+17-07-2021 14:05:48 {"resultado":{"itens":{"vendas":[{"hibrido_id":1,"pdv_id":0,"remover":false,"id":73}],"venda_itens":[{"hibrido_id":1,"pdv_id":0,"remover":true,"id":1308},{"hibrido_id":2,"pdv_id":0,"remover":true,"id":1309}]}}}
+17-07-2021 14:11:28 
+17-07-2021 14:11:30 retorno
+17-07-2021 14:11:30 {"resultado":{"itens":{"vendas":[{"hibrido_id":1,"pdv_id":150,"remover":false,"id":74}],"venda_itens":[{"hibrido_id":1,"pdv_id":150,"remover":true,"id":1310},{"hibrido_id":2,"pdv_id":150,"remover":true,"id":1311}],"financeiro_caixa_venda":[{"hibrido_id":1,"pdv_id":150,"remover":true,"id":1}]}}}
+17-07-2021 14:11:35 
+17-07-2021 14:11:41 
+17-07-2021 14:11:47 
+17-07-2021 14:11:53 
+17-07-2021 14:11:59 
+17-07-2021 14:12:04 
+17-07-2021 14:12:06 retorno
+17-07-2021 14:12:06 {"resultado":{"itens":{"venda_itens":[{"hibrido_id":3,"pdv_id":150,"remover":false,"id":1312}]}}}
+17-07-2021 14:12:12 
+17-07-2021 14:12:18 
+17-07-2021 14:12:18 retorno
+17-07-2021 14:12:18 {"resultado":{"itens":{"venda_itens":[{"hibrido_id":3,"pdv_id":150,"remover":true,"id":1312}]}}}
+17-07-2021 14:17:17 
+17-07-2021 14:17:24 
+17-07-2021 14:17:24 retorno
+17-07-2021 14:17:24 {}
+17-07-2021 14:17:30 
+17-07-2021 14:17:30 retorno
+17-07-2021 14:17:30 {"resultado":{"itens":{"vendas":[{"hibrido_id":1,"pdv_id":150,"remover":true,"id":75}],"venda_itens":[{"hibrido_id":4,"pdv_id":150,"remover":true,"id":1313}],"financeiro_caixa_venda":[{"hibrido_id":2,"pdv_id":150,"remover":true,"id":2}]}}}
+17-07-2021 14:17:36 
+17-07-2021 14:17:42 
+17-07-2021 14:17:43 retorno
+17-07-2021 14:17:43 {"resultado":{"itens":{"vendas":[{"hibrido_id":2,"pdv_id":150,"remover":false,"id":76}],"venda_itens":[{"hibrido_id":5,"pdv_id":150,"remover":false,"id":1314}]}}}
+17-07-2021 14:17:49 
+17-07-2021 14:17:50 retorno
+17-07-2021 14:17:50 {"resultado":{"itens":{"venda_itens":[{"hibrido_id":6,"pdv_id":150,"remover":false,"id":1315},{"hibrido_id":7,"pdv_id":150,"remover":false,"id":1316}]}}}
+17-07-2021 14:17:56 
+17-07-2021 14:17:56 retorno
+17-07-2021 14:17:56 {"resultado":{"itens":{"venda_itens":[{"hibrido_id":8,"pdv_id":150,"remover":false,"id":1317}]}}}
+17-07-2021 14:18:02 
+17-07-2021 14:18:08 
+17-07-2021 14:18:14 
+17-07-2021 14:18:15 retorno
+17-07-2021 14:18:15 {"resultado":{"itens":{"vendas":[{"hibrido_id":2,"pdv_id":150,"remover":true,"id":76}],"venda_itens":[{"hibrido_id":5,"pdv_id":150,"remover":true,"id":1314},{"hibrido_id":6,"pdv_id":150,"remover":true,"id":1315},{"hibrido_id":7,"pdv_id":150,"remover":true,"id":1316},{"hibrido_id":8,"pdv_id":150,"remover":true,"id":1317}],"financeiro_caixa_venda":[{"hibrido_id":3,"pdv_id":150,"remover":true,"id":3}]}}}
+17-07-2021 14:46:06 
+17-07-2021 14:46:13 
+17-07-2021 14:46:19 
+17-07-2021 14:46:25 
+17-07-2021 14:46:31 

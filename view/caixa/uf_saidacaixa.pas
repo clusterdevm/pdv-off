@@ -74,8 +74,6 @@ begin
       _body['obs'].AsString := m_obs.Text;
       _body['empresa_id'].AsInteger:= sessao.empresalogada;
 
-      //RegistraLogErro('envio');
-      //RegistraLogErro(_body.Stringify);
 
       with _Api do
       Begin

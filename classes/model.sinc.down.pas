@@ -311,6 +311,8 @@ begin
 
          if _api.ResponseCode in [200..207] then
          Begin
+             RegistraLogRequest('retorno');
+             RegistraLogRequest(_api.Return.Stringify);
              ProcessarUpdate(_api.Return);
          end else
            FFalhou:= true;
@@ -365,6 +367,17 @@ begin
 
          if not IsEmpty then
             _upload['itens'].AsObject.Put('venda_itens',_sqlLite.ToArrayString);
+
+         Close;
+         Sql.Clear;
+         Sql.Add('select * from financeiro_caixa_venda ');
+         open;
+
+         if not IsEmpty then
+            _upload['itens'].AsObject.Put('financeiro_caixa_venda',_sqlLite.ToArrayString);
+
+
+         RegistraLogErro(_upload.Stringify);
     end;
 end;
 
@@ -384,7 +397,7 @@ begin
       FMsg:= _name;
       Synchronize(AtualizaLog);
 
-      _sqlLite.ProcessaSinc(_name, _return['itens'].AsObject[_name].AsArray);
+      _sqlLite.ProcessaRetornoUpload(_name, _return['itens'].AsObject[_name].AsArray);
    end;
 
 end;
@@ -476,6 +489,7 @@ begin
                 _sqlLite.ChecaEstrutura('vendas');
                 _sqlLite.ChecaEstrutura('financeiro');
                 _sqlLite.ChecaEstrutura('financeiro_caixa');
+                _sqlLite.ChecaEstrutura('financeiro_caixa_venda');
 
            end else
             RegistraLogRequest('Erro:' +_api.response.Text);
@@ -574,7 +588,11 @@ begin
                  PreparaUpload(_itensJson);
 
                  if _itensJson['itens'].AsObject.Count > 0 then
+                 Begin
+                    RegistraLogErro('teste');
+                    RegistraLogErro(_itensJson.Stringify);
                     SendUpload(_itensJson);
+                 end;
                  FreeAndNil(_itensJson);
 
                  FMsg := ('Tempo Sicronizacao' + FormatDateTime('hh:mm:ss',_HoraInicial - Now));

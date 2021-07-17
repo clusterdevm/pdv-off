@@ -74,8 +74,6 @@ begin
       _body['obs'].AsString := m_obs.Text;
       _body['empresa_id'].AsInteger:= sessao.empresalogada;
 
-      RegistraLogErro('envio');
-      RegistraLogErro(_body.Stringify);
 
       with _Api do
       Begin
@@ -87,11 +85,11 @@ begin
           endpoint:=_caixaID+'/'+_endpoint;
           Execute;
 
-          //RegistraLogErro('retorno');
-          //RegistraLogErro(_api.response.Text);
-          //
-          //RegistraLogErro('objeto');
-          //RegistraLogErro(_api.Return['resultado'].AsObject.Stringify);
+          RegistraLogErro('retorno');
+          RegistraLogErro(_api.response.Text);
+
+          RegistraLogErro('objeto');
+          RegistraLogErro(_api.Return['resultado'].AsObject.Stringify);
 
           //ShowMessage(_api.return['resultado'].AsObject['valor'].AsString);
 

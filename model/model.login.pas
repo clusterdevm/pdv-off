@@ -101,7 +101,7 @@ var _jsonBody : TjsonObject;
 begin
   try
     _api := TRequisicao.Create;
-    self.token_local := GetUUID;
+    self.token_local := Get_UUID;
 
     _jsonBody := TJSONObject.Create;
     _jsonBody.Put('origem','D');

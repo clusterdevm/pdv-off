@@ -23,7 +23,7 @@ type
     dsCrediario: TDataSource;
     pnlLabelCrediario: TPanel;
     qCrediario: TBufDataset;
-    CheckBox1: TCheckBox;
+    ck_receberEntrega: TCheckBox;
     gridCrediario: TDBGrid;
     DBGrid2: TDBGrid;
     dsPagamento: TDataSource;
@@ -108,7 +108,7 @@ type
     TabSheet2: TTabSheet;
     TabSheet3: TTabSheet;
     procedure ac_fecharExecute(Sender: TObject);
-    procedure CheckBox1Change(Sender: TObject);
+    procedure ck_receberEntregaChange(Sender: TObject);
     procedure ed_AliqDescontoEnter(Sender: TObject);
     procedure ed_AliqDescontoExit(Sender: TObject);
     procedure ed_entregaExit(Sender: TObject);
@@ -142,7 +142,7 @@ type
       _valorBruto, _valorPromocao, _valorDesconto, _valorDescontoExtra,
         _valorEntrada, _ValorRecebimento, _totalVenda, _totalCrediario : Extended;
 
-      _vendaID, _vendaUUID : string;
+      _vendaID: string;
   end;
 
 var
@@ -202,7 +202,7 @@ begin
    1 : Begin
        if _ValorRecebimento > 0 then
        Begin
-           if (CheckBox1.Checked) or (Frame.Quitado)  then
+           if (ck_receberEntrega.Checked) or (Frame.Quitado)  then
            Begin
                PageControl1.PageIndex:= 2;
                ac_fechar.Caption:= 'Concluir (F6)';
@@ -212,17 +212,17 @@ begin
    end;
    2 : Begin
        LoadShape(4);
-       SetVendaTotalizador(_vendaUUID,_vendaID, true);
+       SetVendaTotalizador(_vendaID, true, ck_receberEntrega.Checked);
        self.Close;
    end;
 end;
 end;
 
-procedure Tf_fechamento.CheckBox1Change(Sender: TObject);
+procedure Tf_fechamento.ck_receberEntregaChange(Sender: TObject);
 begin
-  frame.Visible:= not (CheckBox1.Checked);
+  frame.Visible:= not (ck_receberEntrega.Checked);
 
-  if CheckBox1.Checked = false then
+  if ck_receberEntrega.Checked = false then
      frame.ListBox1.SetFocus;
 end;
 

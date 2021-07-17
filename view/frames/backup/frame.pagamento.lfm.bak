@@ -116,7 +116,7 @@ object framePagamento: TframePagamento
           'Vale Crédito'
           'TEF'
         )
-        ItemHeight = 22
+        ItemHeight = 23
         OnSelectionChange = ListBox1SelectionChange
         ScrollWidth = 132
         TabOrder = 0
@@ -127,35 +127,35 @@ object framePagamento: TframePagamento
         Top = 3
         Width = 673
         TabStop = False
-        ActivePage = tabDebito
+        ActivePage = tabDinheiro
         Align = alClient
         BorderSpacing.Around = 3
-        TabIndex = 2
+        TabIndex = 0
         TabOrder = 1
         TabPosition = tpBottom
         object tabDinheiro: TTabSheet
           Caption = 'Dinheiro'
-          ClientHeight = 99
+          ClientHeight = 101
           ClientWidth = 663
           object Label1: TLabel
             Left = 6
-            Height = 14
+            Height = 15
             Top = 20
-            Width = 42
+            Width = 47
             Caption = 'Moeda'
             ParentColor = False
           end
           object Label2: TLabel
             Left = 8
-            Height = 14
+            Height = 15
             Top = 56
-            Width = 32
+            Width = 36
             Caption = 'Valor'
             ParentColor = False
           end
           object DBLookupComboBox1: TDBLookupComboBox
             Left = 64
-            Height = 32
+            Height = 33
             Top = 8
             Width = 280
             AutoComplete = True
@@ -173,11 +173,12 @@ object framePagamento: TframePagamento
           end
           object ed_valorDinheiro: TFloatSpinEditEx
             Left = 64
-            Height = 32
+            Height = 33
             Top = 48
             Width = 280
             MaxLength = 0
             TabOrder = 1
+            DecimalSeparator = ','
             MaxValue = 0
             MinRepeatValue = 0
             UpDownVisible = False
@@ -194,7 +195,7 @@ object framePagamento: TframePagamento
         end
         object tabCredito: TTabSheet
           Caption = 'Cartão Crédito'
-          ClientHeight = 99
+          ClientHeight = 101
           ClientWidth = 663
           object Label3: TLabel
             Left = 5
@@ -264,19 +265,19 @@ object framePagamento: TframePagamento
         end
         object tabDebito: TTabSheet
           Caption = 'Cartão Debito'
-          ClientHeight = 99
+          ClientHeight = 101
           ClientWidth = 663
           object Label5: TLabel
             Left = 5
-            Height = 14
+            Height = 15
             Top = 11
-            Width = 40
+            Width = 46
             Caption = 'Cartão'
             ParentColor = False
           end
           object cbDebito: TDBLookupComboBox
             Left = 78
-            Height = 31
+            Height = 33
             Top = 3
             Width = 266
             KeyField = 'id'
@@ -299,34 +300,35 @@ object framePagamento: TframePagamento
           end
           object ed_valorDebito: TFloatSpinEditEx
             Left = 78
-            Height = 32
+            Height = 33
             Top = 67
             Width = 176
             MaxLength = 0
             TabOrder = 2
+            DecimalSeparator = ','
             MaxValue = 0
             MinRepeatValue = 0
             UpDownVisible = False
           end
           object Label6: TLabel
             Left = 5
-            Height = 14
+            Height = 15
             Top = 75
-            Width = 32
+            Width = 36
             Caption = 'Valor'
             ParentColor = False
           end
           object Label9: TLabel
             Left = 5
-            Height = 14
+            Height = 15
             Top = 45
-            Width = 72
+            Width = 82
             Caption = 'Autorização'
             ParentColor = False
           end
           object ed_autorizacaoDebito: TEdit
             Left = 78
-            Height = 32
+            Height = 33
             Top = 35
             Width = 266
             TabOrder = 1
@@ -337,7 +339,7 @@ object framePagamento: TframePagamento
         end
         object tabValeCredito: TTabSheet
           Caption = 'Vale Crédito'
-          ClientHeight = 99
+          ClientHeight = 101
           ClientWidth = 663
           object Label10: TLabel
             Left = 2
@@ -366,7 +368,7 @@ object framePagamento: TframePagamento
         end
         object tabTEF: TTabSheet
           Caption = 'TEF'
-          ClientHeight = 99
+          ClientHeight = 101
           ClientWidth = 663
           object Label7: TLabel
             Left = 0

@@ -41,9 +41,8 @@ private
 
       Property caixa_id : Integer Read FCaixa_Id Write FCaixa_id;
       Function getCaixID : String;
-      Function GetPDVID : Integer;
     public
-
+      Function GetPDVID : Integer;
       property bearerems : String read fbearerems write fbearerems;
       property usuario : String read fusuario write fusuario;
       property senha : String read fsenha write fsenha;
@@ -90,7 +89,7 @@ private
 
 
       Function PDV_ConfBalanca : String;
-      Function GetCaixa : string;
+      Function GetCaixaID : Integer;
 
       Function CaixaAberto : Boolean;
 
@@ -218,7 +217,7 @@ end;
 
 function TSessao.GetUtcOFF: integer;
 begin
-   Result := -3;
+   Result := -3*60;
 end;
 
 function TSessao.datetimeformat: string;
@@ -255,7 +254,7 @@ begin
   for i := 1 to DecimalTotal do
      Result := Result + '0';
 
-  result := '#0.'+Result+',';
+  result := '#,##0.'+Result+',';
 
   if _loadSimbolo then
      result := Getsimbolo+' '+Result;
@@ -291,7 +290,7 @@ begin
      Result := Result + '0';
 
   //result := '#,##0.'+Result; //+','
-  result := '#0.'+Result+','
+  result := '#,##0.'+Result+',';
 
   if _loadSimbolo then
      result := Getsimbolo+' '+Result;
@@ -469,12 +468,12 @@ begin
    Result := '';
 end;
 
-function TSessao.GetCaixa: string;
+function TSessao.GetCaixaID: Integer;
 var _db : TConexao;
 begin
   try
       _db := TConexao.Create;
-      result := '';
+      result := -1;
 
       With _db.qrySelect do
       Begin
@@ -486,7 +485,7 @@ begin
          Open;
 
          if not IsEmpty then
-            Result := FieldByName('uuid').AsString;
+            Result := FieldByName('hibrido_id').AsInteger;
       end;
   finally
     FreeAndNil(_db);
@@ -517,7 +516,6 @@ begin
         _objeto['data_abertura'].AsString:= getDataUTC;
         _objeto['operador_id'].AsInteger:= self.usuario_id;
         _objeto['pdv_id'].AsInteger:= GetPDVID;
-        _objeto['uuid'].AsString:= GetUUID;
         _objeto['sinc_pendente'].AsString:= 'S';
         _objeto['empresa_id'].AsInteger:= sessao.empresalogada;
         _objeto['status'].AsString:= 'A';
