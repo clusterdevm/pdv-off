@@ -37,7 +37,7 @@ type
     gridPrazo: TDBGrid;
     GroupBox1: TGroupBox;
     Label1: TLabel;
-    Label10: TLabel;
+    lDescontoPadrao: TLabel;
     Label11: TLabel;
     Label12: TLabel;
     Label13: TLabel;
@@ -146,7 +146,7 @@ type
         Procedure UpdateVenda;
         Procedure LoadDadosVenda;
   public
-      _valorBruto, _valorPromocao, _valorDesconto, _valorDescontoExtra,
+      _valorBruto, _valorPromocao, _valorDesconto,
         _valorEntrada, _ValorRecebimento, _totalVenda, _totalCrediario : Extended;
 
       _vendaID: string;
@@ -223,6 +223,9 @@ begin
    2 : Begin
        LoadShape(4);
        UpdateVenda;
+       //
+       AplicarCalculos(_vendaID,(_valorDesconto+ToValor(ed_valorDesconto.Text)),
+                                  ToValor(ed_entrega.Text), ToValor(ed_acrescimo.Text));
        SetVendaTotalizador(_vendaID, true, ck_receberEntrega.Checked);
        self.Close;
    end;
@@ -282,7 +285,6 @@ end;
 procedure Tf_fechamento.FormShow(Sender: TObject);
 begin
     _valorEntrada:= 0;
-    _valorDescontoExtra:= 0;
 
     PageControl1.TabIndex:= 0;
     PageControl1.ShowTabs:= false;
@@ -425,6 +427,8 @@ begin
    ed_valorDesconto.Text:= FormatFloat(sessao.formatsubtotal(false),ToValor(ed_valorDesconto.Text));
    ed_valorEntrada.Text:= FormatFloat(sessao.formatsubtotal(false),ToValor(ed_valorEntrada.Text));
 
+   lDescontoPadrao.Caption:= FormatFloat(sessao.formatsubtotal(false),_valorDesconto);
+
 
    _totalCrediario := Decimal(Result +
                        ToValor(ed_acrescimo.Text)+
@@ -454,7 +458,7 @@ begin
                            );
 
    _totalVenda:= (_valorBruto+_valorPromocao) -
-                 (_valorDesconto+_valorDescontoExtra);
+                 (_valorDesconto+ToValor(ed_valorDesconto.Text));
 
 
 end;
@@ -519,7 +523,7 @@ begin
     lCPF.Caption:= form_venda.ed_cpf.Text;
 
     lTotal.Caption:= FormatFloat(sessao.formatsubtotal(),_valorBruto+_valorPromocao);
-    lDesconto.Caption:= FormatFloat(sessao.formatsubtotal(),_valorDesconto+_valorDescontoExtra);
+    lDesconto.Caption:= FormatFloat(sessao.formatsubtotal(),_valorDesconto+ToValor(ed_valorDesconto.Text));
     lAcrescimo.Caption:= FormatFloat(sessao.formatsubtotal(),0);
     lEntrega.Caption:= FormatFloat(sessao.formatsubtotal(),ToValor(ed_entrega.Text));
     lEntrada.Caption:=FormatFloat(sessao.formatsubtotal(),_valorEntrada);

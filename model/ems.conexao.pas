@@ -988,10 +988,8 @@ begin
        else
           Sql.add(' where id = '+QuotedStr(_Json['id'].AsString));
 
-
-
-       if _tabela='vendas' then
-          RegistraLogErro(sql.text,'update_venda');
+       //if _tabela='vendas' then
+       //   RegistraLogErro(sql.text,'update_venda');
        ExecSQL;
    end;
 
@@ -1054,7 +1052,13 @@ begin
                          end else
                             _script.add(' where id = '+QuotedStr(_item['id'].AsString)+';');
                    end else
-                     _script.add(' where id = '+QuotedStr(_item['id'].AsString)+';');
+                   if (_tabela = 'vendas') or
+                      (_tabela = 'venda_itens') or
+                      (_tabela = 'financeiro_caixa')
+                   then
+                      _script.add(' where hibrido_id = '+QuotedStr(_item['hibrido_id'].AsString)+';')
+                   else
+                      _script.add(' where id = '+QuotedStr(_item['id'].AsString)+';');
 
                    _script.Add('');
                end;
@@ -1081,6 +1085,8 @@ begin
     if (_count > 0) and (_processado = false) then
         if _script.Count > 0 then
           ExecutaSql(_script.Text);
+
+    RegistraLogErro(_script.Text,'update_itens');
 
 finally
    FreeAndNil(_value);

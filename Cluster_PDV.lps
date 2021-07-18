@@ -131,8 +131,8 @@
         <Filename Value="model/ems.conexao.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="598"/>
-        <CursorPos X="70" Y="604"/>
+        <TopLine Value="981"/>
+        <CursorPos X="28" Y="993"/>
         <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit4>
@@ -542,11 +542,13 @@
         <ComponentName Value="f_fechamento"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="130"/>
-        <CursorPos X="19" Y="147"/>
+        <TopLine Value="218"/>
+        <CursorPos X="38" Y="226"/>
         <UsageCount Value="200"/>
+        <Bookmarks Count="1">
+          <Item0 X="33" Y="227" ID="2"/>
+        </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -570,12 +572,9 @@
         <Filename Value="../api/microservicos/vendas/model/model.vendas.imposto.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="256"/>
-        <CursorPos X="71" Y="162"/>
+        <TopLine Value="399"/>
+        <CursorPos X="43" Y="410"/>
         <UsageCount Value="226"/>
-        <Bookmarks Count="1">
-          <Item0 X="71" Y="162" ID="2"/>
-        </Bookmarks>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit44>
       <Unit45>
@@ -621,7 +620,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="38"/>
         <CursorPos X="40" Y="48"/>
-        <UsageCount Value="122"/>
+        <UsageCount Value="127"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit48>
       <Unit49>
@@ -630,13 +629,16 @@
         <ComponentName Value="f_pendente"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
         <TopLine Value="135"/>
         <CursorPos X="68" Y="155"/>
-        <UsageCount Value="120"/>
+        <UsageCount Value="125"/>
         <Bookmarks Count="1">
           <Item0 X="74" Y="173"/>
         </Bookmarks>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit49>
       <Unit50>
@@ -648,7 +650,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="50"/>
         <CursorPos X="74" Y="52"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="37"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit50>
       <Unit51>
@@ -659,7 +661,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="125"/>
         <CursorPos X="60" Y="132"/>
-        <UsageCount Value="29"/>
+        <UsageCount Value="34"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit51>
       <Unit52>
@@ -733,63 +735,15 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit60>
     </Units>
-    <JumpHistory Count="14" HistoryIndex="13">
+    <JumpHistory Count="2" HistoryIndex="1">
       <Position1>
         <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="608" TopLine="595"/>
+        <Caret Line="222" Column="27" TopLine="218"/>
       </Position1>
       <Position2>
         <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="609" TopLine="595"/>
+        <Caret Line="232" Column="28" TopLine="218"/>
       </Position2>
-      <Position3>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="610" TopLine="595"/>
-      </Position3>
-      <Position4>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="612" TopLine="595"/>
-      </Position4>
-      <Position5>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="609" Column="72" TopLine="595"/>
-      </Position5>
-      <Position6>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="146" Column="19" TopLine="130"/>
-      </Position6>
-      <Position7>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="583" Column="42" TopLine="570"/>
-      </Position7>
-      <Position8>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="611" Column="35" TopLine="590"/>
-      </Position8>
-      <Position9>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="138" Column="19" TopLine="130"/>
-      </Position9>
-      <Position10>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="366" Column="63" TopLine="333"/>
-      </Position10>
-      <Position11>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="138" Column="19" TopLine="121"/>
-      </Position11>
-      <Position12>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="337" Column="3" TopLine="333"/>
-      </Position12>
-      <Position13>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="146" Column="19" TopLine="121"/>
-      </Position13>
-      <Position14>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="614" Column="72" TopLine="601"/>
-      </Position14>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

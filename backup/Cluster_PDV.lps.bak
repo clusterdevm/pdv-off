@@ -131,19 +131,18 @@
         <Filename Value="model/ems.conexao.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="598"/>
-        <CursorPos X="70" Y="604"/>
+        <TopLine Value="981"/>
+        <CursorPos X="28" Y="993"/>
         <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit4>
       <Unit5>
         <Filename Value="classes/ems.utils.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="193"/>
         <CursorPos X="3" Y="197"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
       <Unit6>
@@ -389,25 +388,22 @@
         <ComponentName Value="form_venda"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="300"/>
         <CursorPos X="23" Y="325"/>
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
           <Item0 Y="161" ID="1"/>
         </Bookmarks>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit29>
       <Unit30>
         <Filename Value="controller/controller.venda.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="7"/>
-        <CursorPos X="24" Y="24"/>
+        <CursorPos X="62" Y="24"/>
         <UsageCount Value="200"/>
-        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit30>
       <Unit31>
@@ -547,9 +543,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="601"/>
-        <CursorPos X="71" Y="602"/>
+        <TopLine Value="218"/>
+        <CursorPos X="38" Y="226"/>
         <UsageCount Value="200"/>
+        <Bookmarks Count="1">
+          <Item0 X="33" Y="227" ID="2"/>
+        </Bookmarks>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -572,15 +571,10 @@
       <Unit44>
         <Filename Value="../api/microservicos/vendas/model/model.vendas.imposto.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="256"/>
-        <CursorPos X="71" Y="162"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="399"/>
+        <CursorPos X="43" Y="410"/>
         <UsageCount Value="226"/>
-        <Bookmarks Count="1">
-          <Item0 X="71" Y="162" ID="2"/>
-        </Bookmarks>
-        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit44>
       <Unit45>
@@ -626,7 +620,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="38"/>
         <CursorPos X="40" Y="48"/>
-        <UsageCount Value="121"/>
+        <UsageCount Value="127"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit48>
       <Unit49>
@@ -635,13 +629,16 @@
         <ComponentName Value="f_pendente"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
         <TopLine Value="135"/>
         <CursorPos X="68" Y="155"/>
-        <UsageCount Value="119"/>
+        <UsageCount Value="125"/>
         <Bookmarks Count="1">
           <Item0 X="74" Y="173"/>
         </Bookmarks>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit49>
       <Unit50>
@@ -653,7 +650,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="50"/>
         <CursorPos X="74" Y="52"/>
-        <UsageCount Value="31"/>
+        <UsageCount Value="37"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit50>
       <Unit51>
@@ -664,7 +661,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="125"/>
         <CursorPos X="60" Y="132"/>
-        <UsageCount Value="28"/>
+        <UsageCount Value="34"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit51>
       <Unit52>
@@ -738,119 +735,15 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit60>
     </Units>
-    <JumpHistory Count="28" HistoryIndex="27">
+    <JumpHistory Count="2" HistoryIndex="1">
       <Position1>
         <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="608" TopLine="595"/>
+        <Caret Line="222" Column="27" TopLine="218"/>
       </Position1>
       <Position2>
         <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="609" TopLine="595"/>
+        <Caret Line="232" Column="28" TopLine="218"/>
       </Position2>
-      <Position3>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="610" TopLine="595"/>
-      </Position3>
-      <Position4>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="612" TopLine="595"/>
-      </Position4>
-      <Position5>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="609" Column="72" TopLine="595"/>
-      </Position5>
-      <Position6>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="146" Column="19" TopLine="130"/>
-      </Position6>
-      <Position7>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="583" Column="42" TopLine="570"/>
-      </Position7>
-      <Position8>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="611" Column="35" TopLine="590"/>
-      </Position8>
-      <Position9>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="138" Column="19" TopLine="130"/>
-      </Position9>
-      <Position10>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="366" Column="63" TopLine="333"/>
-      </Position10>
-      <Position11>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="138" Column="19" TopLine="121"/>
-      </Position11>
-      <Position12>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="337" Column="3" TopLine="333"/>
-      </Position12>
-      <Position13>
-        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
-        <Caret Line="146" Column="19" TopLine="121"/>
-      </Position13>
-      <Position14>
-        <Filename Value="view/venda/f_venda.pas"/>
-        <Caret Line="559" Column="63" TopLine="552"/>
-      </Position14>
-      <Position15>
-        <Filename Value="../api/microservicos/vendas/model/model.vendas.imposto.pas"/>
-        <Caret Line="10" Column="13"/>
-      </Position15>
-      <Position16>
-        <Filename Value="../api/microservicos/vendas/model/model.vendas.imposto.pas"/>
-        <Caret Line="25" Column="3" TopLine="23"/>
-      </Position16>
-      <Position17>
-        <Filename Value="classes/ems.utils.pas"/>
-        <Caret Line="71" Column="12" TopLine="53"/>
-      </Position17>
-      <Position18>
-        <Filename Value="view/venda/f_venda.pas"/>
-        <Caret Line="566" Column="40" TopLine="552"/>
-      </Position18>
-      <Position19>
-        <Filename Value="view/venda/f_venda.pas"/>
-        <Caret Line="154" Column="25" TopLine="149"/>
-      </Position19>
-      <Position20>
-        <Filename Value="view/venda/f_venda.pas"/>
-        <Caret Line="325" Column="23" TopLine="300"/>
-      </Position20>
-      <Position21>
-        <Filename Value="controller/controller.venda.pas"/>
-        <Caret Line="10" Column="17"/>
-      </Position21>
-      <Position22>
-        <Filename Value="controller/controller.venda.pas"/>
-        <Caret Line="182" Column="69" TopLine="222"/>
-      </Position22>
-      <Position23>
-        <Filename Value="controller/controller.venda.pas"/>
-        <Caret Line="24" Column="24" TopLine="7"/>
-      </Position23>
-      <Position24>
-        <Filename Value="../api/microservicos/vendas/model/model.vendas.imposto.pas"/>
-        <Caret Line="13" Column="21"/>
-      </Position24>
-      <Position25>
-        <Filename Value="../api/microservicos/vendas/model/model.vendas.imposto.pas"/>
-        <Caret Line="132" Column="3" TopLine="130"/>
-      </Position25>
-      <Position26>
-        <Filename Value="classes/ems.utils.pas"/>
-        <Caret Line="72" Column="12" TopLine="53"/>
-      </Position26>
-      <Position27>
-        <Filename Value="../api/microservicos/vendas/model/model.vendas.imposto.pas"/>
-        <Caret Line="162" Column="71" TopLine="137"/>
-      </Position27>
-      <Position28>
-        <Filename Value="classes/ems.utils.pas"/>
-        <Caret Line="71" Column="12" TopLine="54"/>
-      </Position28>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
