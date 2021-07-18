@@ -98,10 +98,12 @@
         <ComponentName Value="frm_login"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="2"/>
         <TopLine Value="236"/>
         <CursorPos X="55" Y="252"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit1>
       <Unit2>
@@ -139,9 +141,16 @@
       <Unit5>
         <Filename Value="classes/ems.utils.pas"/>
         <IsPartOfProject Value="True"/>
+<<<<<<< HEAD
         <EditorIndex Value="-1"/>
         <TopLine Value="193"/>
         <CursorPos X="3" Y="197"/>
+=======
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="384"/>
+        <CursorPos X="21" Y="392"/>
+>>>>>>> f13294e428edd27ee7eab2fe2d1a3705fff413ac
         <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
@@ -389,8 +398,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
+<<<<<<< HEAD
         <TopLine Value="300"/>
         <CursorPos X="23" Y="325"/>
+=======
+        <TopLine Value="618"/>
+        <CursorPos X="37" Y="626"/>
+>>>>>>> f13294e428edd27ee7eab2fe2d1a3705fff413ac
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
           <Item0 Y="161" ID="1"/>
@@ -401,8 +415,13 @@
         <Filename Value="controller/controller.venda.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
+<<<<<<< HEAD
         <TopLine Value="7"/>
         <CursorPos X="62" Y="24"/>
+=======
+        <TopLine Value="236"/>
+        <CursorPos X="53" Y="250"/>
+>>>>>>> f13294e428edd27ee7eab2fe2d1a3705fff413ac
         <UsageCount Value="200"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit30>
@@ -543,8 +562,18 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="1"/>
+<<<<<<< HEAD
         <TopLine Value="218"/>
         <CursorPos X="38" Y="226"/>
+=======
+<<<<<<< HEAD
+        <TopLine Value="218"/>
+        <CursorPos X="38" Y="226"/>
+=======
+        <TopLine Value="126"/>
+        <CursorPos X="38" Y="137"/>
+>>>>>>> parent of 6184b07... ajuste impostos
+>>>>>>> f13294e428edd27ee7eab2fe2d1a3705fff413ac
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
           <Item0 X="33" Y="227" ID="2"/>
@@ -559,21 +588,33 @@
         <ComponentName Value="framePagamento"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="5"/>
         <TopLine Value="119"/>
         <CursorPos X="13" Y="133"/>
         <UsageCount Value="229"/>
         <Bookmarks Count="1">
           <Item0 X="44" Y="451" ID="2"/>
         </Bookmarks>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit43>
       <Unit44>
         <Filename Value="../api/microservicos/vendas/model/model.vendas.imposto.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
+<<<<<<< HEAD
         <TopLine Value="399"/>
         <CursorPos X="43" Y="410"/>
+=======
+<<<<<<< HEAD
+        <TopLine Value="399"/>
+        <CursorPos X="43" Y="410"/>
+=======
+        <TopLine Value="325"/>
+        <CursorPos X="53" Y="332"/>
+>>>>>>> parent of 6184b07... ajuste impostos
+>>>>>>> f13294e428edd27ee7eab2fe2d1a3705fff413ac
         <UsageCount Value="226"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit44>
@@ -620,7 +661,15 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="38"/>
         <CursorPos X="40" Y="48"/>
+<<<<<<< HEAD
         <UsageCount Value="127"/>
+=======
+<<<<<<< HEAD
+        <UsageCount Value="127"/>
+=======
+        <UsageCount Value="120"/>
+>>>>>>> parent of 6184b07... ajuste impostos
+>>>>>>> f13294e428edd27ee7eab2fe2d1a3705fff413ac
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit48>
       <Unit49>
@@ -629,11 +678,24 @@
         <ComponentName Value="f_pendente"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f13294e428edd27ee7eab2fe2d1a3705fff413ac
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <TopLine Value="135"/>
         <CursorPos X="68" Y="155"/>
         <UsageCount Value="125"/>
+<<<<<<< HEAD
+=======
+=======
+        <EditorIndex Value="3"/>
+        <TopLine Value="87"/>
+        <CursorPos X="57" Y="96"/>
+        <UsageCount Value="118"/>
+>>>>>>> parent of 6184b07... ajuste impostos
+>>>>>>> f13294e428edd27ee7eab2fe2d1a3705fff413ac
         <Bookmarks Count="1">
           <Item0 X="74" Y="173"/>
         </Bookmarks>
@@ -650,7 +712,15 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="50"/>
         <CursorPos X="74" Y="52"/>
+<<<<<<< HEAD
         <UsageCount Value="37"/>
+=======
+<<<<<<< HEAD
+        <UsageCount Value="37"/>
+=======
+        <UsageCount Value="30"/>
+>>>>>>> parent of 6184b07... ajuste impostos
+>>>>>>> f13294e428edd27ee7eab2fe2d1a3705fff413ac
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit50>
       <Unit51>
@@ -661,7 +731,15 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="125"/>
         <CursorPos X="60" Y="132"/>
+<<<<<<< HEAD
         <UsageCount Value="34"/>
+=======
+<<<<<<< HEAD
+        <UsageCount Value="34"/>
+=======
+        <UsageCount Value="27"/>
+>>>>>>> parent of 6184b07... ajuste impostos
+>>>>>>> f13294e428edd27ee7eab2fe2d1a3705fff413ac
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit51>
       <Unit52>
@@ -735,6 +813,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit60>
     </Units>
+<<<<<<< HEAD
     <JumpHistory Count="2" HistoryIndex="1">
       <Position1>
         <Filename Value="view/venda/uf_venda.fechamento.pas"/>
@@ -744,6 +823,113 @@
         <Filename Value="view/venda/uf_venda.fechamento.pas"/>
         <Caret Line="232" Column="28" TopLine="218"/>
       </Position2>
+=======
+<<<<<<< HEAD
+    <JumpHistory Count="2" HistoryIndex="1">
+      <Position1>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="222" Column="27" TopLine="218"/>
+      </Position1>
+      <Position2>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="232" Column="28" TopLine="218"/>
+      </Position2>
+=======
+    <JumpHistory Count="23" HistoryIndex="22">
+      <Position1>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="243" Column="6" TopLine="221"/>
+      </Position1>
+      <Position2>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="240" Column="3" TopLine="221"/>
+      </Position2>
+      <Position3>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="215" Column="47" TopLine="203"/>
+      </Position3>
+      <Position4>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="200" Column="12" TopLine="187"/>
+      </Position4>
+      <Position5>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="199" Column="12" TopLine="187"/>
+      </Position5>
+      <Position6>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="198" Column="12" TopLine="187"/>
+      </Position6>
+      <Position7>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="179" Column="4" TopLine="167"/>
+      </Position7>
+      <Position8>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="178" Column="4" TopLine="167"/>
+      </Position8>
+      <Position9>
+        <Filename Value="view/venda/uf_venda.fechamento.pas"/>
+        <Caret Line="177" Column="4" TopLine="167"/>
+      </Position9>
+      <Position10>
+        <Filename Value="view/venda/view.pendentes.baixa.pas"/>
+        <Caret Line="151" Column="63" TopLine="139"/>
+      </Position10>
+      <Position11>
+        <Filename Value="view/venda/view.pendentes.baixa.pas"/>
+        <Caret Line="116" Column="14" TopLine="99"/>
+      </Position11>
+      <Position12>
+        <Filename Value="view/venda/view.pendentes.baixa.pas"/>
+        <Caret Line="39" Column="19" TopLine="26"/>
+      </Position12>
+      <Position13>
+        <Filename Value="view/venda/view.pendentes.baixa.pas"/>
+        <Caret Line="157" Column="71" TopLine="146"/>
+      </Position13>
+      <Position14>
+        <Filename Value="view/venda/view.pendentes.baixa.pas"/>
+        <Caret Line="211" Column="24" TopLine="191"/>
+      </Position14>
+      <Position15>
+        <Filename Value="view/venda/view.pendentes.baixa.pas"/>
+        <Caret Line="200" Column="10" TopLine="191"/>
+      </Position15>
+      <Position16>
+        <Filename Value="view/venda/view.pendentes.baixa.pas"/>
+        <Caret Line="164" Column="19" TopLine="152"/>
+      </Position16>
+      <Position17>
+        <Filename Value="view/venda/view.pendentes.baixa.pas"/>
+        <Caret Line="169" Column="46" TopLine="164"/>
+      </Position17>
+      <Position18>
+        <Filename Value="view/venda/view.pendentes.baixa.pas"/>
+        <Caret Line="100" Column="47" TopLine="92"/>
+      </Position18>
+      <Position19>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="35" Column="13" TopLine="22"/>
+      </Position19>
+      <Position20>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="394" Column="38" TopLine="384"/>
+      </Position20>
+      <Position21>
+        <Filename Value="view/frames/frame.pagamento.pas"/>
+        <Caret Line="133" Column="13" TopLine="119"/>
+      </Position21>
+      <Position22>
+        <Filename Value="view/venda/view.pendentes.baixa.pas"/>
+        <Caret Line="96" Column="57" TopLine="87"/>
+      </Position22>
+      <Position23>
+        <Filename Value="classes/ems.utils.pas"/>
+        <Caret Line="35" Column="13" TopLine="22"/>
+      </Position23>
+>>>>>>> parent of 6184b07... ajuste impostos
+>>>>>>> f13294e428edd27ee7eab2fe2d1a3705fff413ac
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

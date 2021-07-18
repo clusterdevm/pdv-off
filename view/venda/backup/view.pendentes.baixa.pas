@@ -16,7 +16,6 @@ type
     ac_sair: TAction;
     ac_liquidar: TAction;
     ActionList1: TActionList;
-    Button2: TButton;
     ds: TDataSource;
     qry: TBufDataset;
     Button1: TButton;
@@ -125,6 +124,8 @@ begin
        if ( _api.ResponseCode in [200..207]) then
           Listar;
        freeAndNIl(_api);
+    end;
+    finally
     end;
 end;
 

@@ -1,0 +1,178 @@
+17-07-2021 16:27:09 
+17-07-2021 16:27:20 
+17-07-2021 16:27:24 teste
+17-07-2021 16:27:24 [{ "tipo" : "efetivo", "valor" : 4.2000000000000000E+001, "display" : "Efetivo", "moeda_id" : 1, "cambio" : null, "valor_moeda" : null, "n_parcelas" : null, "n_autorizacao" : null, "codigo_vale" : null }]
+17-07-2021 16:27:24 baixa
+17-07-2021 16:27:24 {"liquidacoes":[{"tipo":"efetivo","valor":42,"display":"Efetivo","moeda_id":1,"cambio":null,"valor_moeda":null,"n_parcelas":null,"n_autorizacao":null,"codigo_vale":null}],"vendas":[75],"caixa_id":1}
+17-07-2021 16:27:25 
+17-07-2021 16:27:31 
+17-07-2021 16:28:06 
+17-07-2021 16:28:13 
+17-07-2021 16:28:18 
+17-07-2021 16:28:24 
+17-07-2021 16:28:30 
+17-07-2021 16:28:36 
+17-07-2021 16:28:36 teste
+17-07-2021 16:28:36 [{ "tipo" : "efetivo", "valor" : 4.2000000000000000E+001, "display" : "Efetivo", "moeda_id" : 1, "cambio" : null, "valor_moeda" : null, "n_parcelas" : null, "n_autorizacao" : null, "codigo_vale" : null }]
+17-07-2021 16:28:36 baixa
+17-07-2021 16:28:43 {"liquidacoes":[{"tipo":"efetivo","valor":42,"display":"Efetivo","moeda_id":1,"cambio":null,"valor_moeda":null,"n_parcelas":null,"n_autorizacao":null,"codigo_vale":null}],"vendas":[75],"caixa_id":1}
+17-07-2021 16:29:00 
+17-07-2021 16:30:22 
+17-07-2021 16:30:28 
+17-07-2021 16:30:31 teste
+17-07-2021 16:30:31 [{ "tipo" : "efetivo", "valor" : 4.2000000000000000E+001, "display" : "Efetivo", "moeda_id" : 1, "cambio" : null, "valor_moeda" : null, "n_parcelas" : null, "n_autorizacao" : null, "codigo_vale" : null }]
+17-07-2021 16:30:31 baixa
+17-07-2021 16:30:34 {"liquidacoes":[{"tipo":"efetivo","valor":42,"display":"Efetivo","moeda_id":1,"cambio":null,"valor_moeda":null,"n_parcelas":null,"n_autorizacao":null,"codigo_vale":null}],"vendas":[75],"caixa_id":1}
+17-07-2021 16:30:37 
+17-07-2021 16:30:43 
+17-07-2021 16:30:48 
+17-07-2021 16:30:54 
+17-07-2021 16:32:04 
+17-07-2021 16:32:11 
+17-07-2021 16:32:11 retorno
+17-07-2021 16:32:11 {"resultado":{"itens":{"vendas":[{"hibrido_id":3,"pdv_id":150,"remover":false,"id":77}],"venda_itens":[{"hibrido_id":9,"pdv_id":150,"remover":false,"id":1318}]}}}
+17-07-2021 16:32:17 
+17-07-2021 16:32:23 
+17-07-2021 16:32:23 retorno
+17-07-2021 16:32:23 {"resultado":{"itens":{"venda_itens":[{"hibrido_id":10,"pdv_id":150,"remover":false,"id":1319}]}}}
+17-07-2021 16:32:29 
+17-07-2021 16:32:30 retorno
+17-07-2021 16:32:30 {"resultado":{"itens":{"vendas":[{"hibrido_id":3,"pdv_id":150,"remover":true,"id":77}],"venda_itens":[{"hibrido_id":9,"pdv_id":150,"remover":true,"id":1318},{"hibrido_id":10,"pdv_id":150,"remover":true,"id":1319}],"financeiro_caixa_venda":[{"hibrido_id":4,"pdv_id":150,"remover":true,"id":4}]}}}
+17-07-2021 16:32:36 
+17-07-2021 16:32:42 
+17-07-2021 16:32:43 teste
+17-07-2021 16:32:43 [{ "tipo" : "efetivo", "valor" : 4.2000000000000000E+001, "display" : "Efetivo", "moeda_id" : 1, "cambio" : null, "valor_moeda" : null, "n_parcelas" : null, "n_autorizacao" : null, "codigo_vale" : null }]
+17-07-2021 16:32:43 baixa
+17-07-2021 16:32:43 {"liquidacoes":[{"tipo":"efetivo","valor":42,"display":"Efetivo","moeda_id":1,"cambio":null,"valor_moeda":null,"n_parcelas":null,"n_autorizacao":null,"codigo_vale":null}],"vendas":[75],"caixa_id":1}
+17-07-2021 16:32:47 
+17-07-2021 16:32:53 
+17-07-2021 16:32:59 
+17-07-2021 16:33:05 
+17-07-2021 16:33:11 
+17-07-2021 16:33:16 
+17-07-2021 16:33:22 
+17-07-2021 16:33:28 
+17-07-2021 16:33:34 
+17-07-2021 16:33:40 
+17-07-2021 16:33:46 
+17-07-2021 16:33:51 
+17-07-2021 16:33:57 
+17-07-2021 16:34:03 
+17-07-2021 16:34:09 
+17-07-2021 16:34:15 
+17-07-2021 16:34:21 
+17-07-2021 16:34:27 
+17-07-2021 16:34:33 
+17-07-2021 16:34:38 
+17-07-2021 16:34:44 
+17-07-2021 16:34:50 
+17-07-2021 16:34:56 
+17-07-2021 16:35:02 
+17-07-2021 16:35:08 
+17-07-2021 16:35:14 
+17-07-2021 16:35:20 
+17-07-2021 16:40:08 
+17-07-2021 16:40:15 
+17-07-2021 16:40:16 teste
+17-07-2021 16:40:16 [{ "tipo" : "efetivo", "valor" : 4.2000000000000000E+001, "display" : "Efetivo", "moeda_id" : 1, "cambio" : null, "valor_moeda" : null, "n_parcelas" : null, "n_autorizacao" : null, "codigo_vale" : null }]
+17-07-2021 16:40:16 baixa
+17-07-2021 16:40:16 {"liquidacoes":[{"tipo":"efetivo","valor":42,"display":"Efetivo","moeda_id":1,"cambio":null,"valor_moeda":null,"n_parcelas":null,"n_autorizacao":null,"codigo_vale":null}],"vendas":[75],"caixa_id":1}
+17-07-2021 16:40:21 
+17-07-2021 16:40:27 
+17-07-2021 16:40:33 
+17-07-2021 16:40:39 
+17-07-2021 16:40:44 
+17-07-2021 16:40:50 
+17-07-2021 16:40:56 
+17-07-2021 16:41:02 
+17-07-2021 16:41:08 
+17-07-2021 16:41:14 
+17-07-2021 16:41:20 
+17-07-2021 16:41:25 
+17-07-2021 16:41:31 
+17-07-2021 16:41:37 
+17-07-2021 16:41:43 
+17-07-2021 16:41:49 
+17-07-2021 16:41:55 
+17-07-2021 16:42:01 
+17-07-2021 16:42:06 
+17-07-2021 16:42:12 
+17-07-2021 16:42:18 
+17-07-2021 16:42:24 
+17-07-2021 16:42:29 
+17-07-2021 16:42:35 
+17-07-2021 16:42:41 
+17-07-2021 16:46:21 
+17-07-2021 16:46:28 
+17-07-2021 16:46:32 teste
+17-07-2021 16:46:32 [{ "tipo" : "efetivo", "valor" : 1.4697000000000000E+002, "display" : "Efetivo", "moeda_id" : 1, "cambio" : null, "valor_moeda" : null, "n_parcelas" : null, "n_autorizacao" : null, "codigo_vale" : null }]
+17-07-2021 16:46:32 baixa
+17-07-2021 16:46:32 {"liquidacoes":[{"tipo":"efetivo","valor":146.97,"display":"Efetivo","moeda_id":1,"cambio":null,"valor_moeda":null,"n_parcelas":null,"n_autorizacao":null,"codigo_vale":null}],"vendas":[76],"caixa_id":22}
+17-07-2021 16:46:34 
+17-07-2021 16:46:40 
+17-07-2021 16:46:45 
+17-07-2021 16:46:51 
+17-07-2021 16:46:57 
+17-07-2021 16:47:03 
+17-07-2021 16:47:09 
+17-07-2021 16:47:15 
+17-07-2021 16:47:21 
+17-07-2021 16:47:27 
+17-07-2021 16:47:33 
+17-07-2021 16:47:39 
+17-07-2021 16:47:45 
+17-07-2021 16:47:51 
+17-07-2021 16:47:57 
+17-07-2021 16:48:02 
+17-07-2021 16:48:08 
+17-07-2021 16:48:14 
+17-07-2021 16:48:20 
+17-07-2021 16:48:26 
+17-07-2021 16:48:32 
+17-07-2021 16:48:38 
+17-07-2021 16:48:44 
+17-07-2021 16:48:50 
+17-07-2021 16:48:56 
+17-07-2021 16:49:02 
+17-07-2021 16:49:08 
+17-07-2021 16:49:14 
+17-07-2021 16:49:20 
+17-07-2021 16:49:26 
+17-07-2021 16:49:31 
+17-07-2021 16:49:37 
+17-07-2021 16:49:43 
+17-07-2021 16:49:49 
+17-07-2021 16:49:54 
+17-07-2021 16:50:00 
+17-07-2021 16:50:06 
+17-07-2021 16:50:12 
+17-07-2021 16:50:18 
+17-07-2021 16:50:24 
+17-07-2021 16:50:30 
+17-07-2021 16:50:36 
+17-07-2021 16:50:41 
+17-07-2021 16:50:47 
+17-07-2021 16:50:53 
+17-07-2021 16:50:59 
+17-07-2021 16:51:04 
+17-07-2021 16:51:10 
+17-07-2021 16:51:16 
+17-07-2021 16:59:38 
+17-07-2021 16:59:45 
+17-07-2021 17:01:38 
+17-07-2021 17:01:45 
+17-07-2021 17:01:47 teste
+17-07-2021 17:01:47 [{ "tipo" : null, "valor" : 1.5297000000000000E+002, "display" : "Efetivo", "moeda_id" : 1, "cambio" : null, "valor_moeda" : null, "n_parcelas" : null, "n_autorizacao" : null, "codigo_vale" : null, "tipo_liquidacao" : "efetivo" }]
+17-07-2021 17:01:51 
+17-07-2021 17:06:59 
+17-07-2021 17:07:06 
+17-07-2021 17:07:12 
+17-07-2021 17:07:12 retorno
+17-07-2021 17:07:12 {"resultado":{"itens":{"vendas":[{"hibrido_id":4,"pdv_id":150,"remover":false,"id":78}],"venda_itens":[{"hibrido_id":11,"pdv_id":150,"remover":false,"id":1320}]}}}
+17-07-2021 17:07:18 
+17-07-2021 17:09:41 
+17-07-2021 17:09:48 
+17-07-2021 17:09:49 retorno
+17-07-2021 17:09:49 {"resultado":{"itens":{"vendas":[{"hibrido_id":4,"pdv_id":150,"remover":true,"id":78}],"venda_itens":[{"hibrido_id":11,"pdv_id":150,"remover":true,"id":1320}],"financeiro_caixa_venda":[{"hibrido_id":5,"pdv_id":150,"remover":true,"id":5}]}}}
+17-07-2021 17:09:55 
+17-07-2021 17:10:02 

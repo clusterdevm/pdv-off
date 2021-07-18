@@ -498,6 +498,7 @@ venda_id='0'
  where hibrido_id = '25';
 
 
+<<<<<<< HEAD
 18-07-2021 20:26:56 update venda_itens set 
 venda_id='0'
 ,sequencia='0'
@@ -748,3 +749,5 @@ venda_id='0'
  where hibrido_id = '27';
 
 
+=======
+>>>>>>> f13294e428edd27ee7eab2fe2d1a3705fff413ac
