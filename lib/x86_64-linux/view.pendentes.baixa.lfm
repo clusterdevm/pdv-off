@@ -22,11 +22,21 @@ object f_pendente: Tf_pendente
     object Button1: TButton
       Left = 822
       Height = 37
-      Top = 8
+      Top = 4
       Width = 108
       Action = ac_liquidar
       Anchors = [akRight, akBottom]
       TabOrder = 0
+    end
+    object Button2: TButton
+      Left = 704
+      Height = 37
+      Top = 4
+      Width = 108
+      Anchors = [akRight, akBottom]
+      Caption = 'Atualizar'
+      OnClick = Button2Click
+      TabOrder = 1
     end
   end
   object DBGrid1: TDBGrid
@@ -69,6 +79,7 @@ object f_pendente: Tf_pendente
         FieldName = 'valor'
       end>
     DataSource = ds
+    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
     Scrollbars = ssAutoVertical
     TabOrder = 1
     TabStop = False

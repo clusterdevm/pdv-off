@@ -8,6 +8,7 @@ object f_fechamento: Tf_fechamento
   ClientHeight = 591
   ClientWidth = 640
   Color = clWhite
+  OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
@@ -106,26 +107,26 @@ object f_fechamento: Tf_fechamento
     Height = 491
     Top = 50
     Width = 640
-    ActivePage = TabSheet3
+    ActivePage = TabSheet1
     Align = alClient
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 1
     OnChange = PageControl1Change
     OnChanging = PageControl1Changing
     OnExit = ed_entregaExit
     object TabSheet1: TTabSheet
       Caption = 'TabSheet1'
-      ClientHeight = 461
+      ClientHeight = 460
       ClientWidth = 630
       object Panel3: TPanel
         Left = 0
-        Height = 461
+        Height = 460
         Top = 0
         Width = 630
         Align = alClient
         BevelColor = clWhite
         BevelOuter = bvNone
-        ClientHeight = 461
+        ClientHeight = 460
         ClientWidth = 630
         Color = clWhite
         ParentColor = False
@@ -166,15 +167,15 @@ object f_fechamento: Tf_fechamento
           TabOrder = 1
           object Label1: TLabel
             Left = 4
-            Height = 14
+            Height = 15
             Top = 2
-            Width = 82
+            Width = 89
             Caption = 'Taxa Entrega '
             ParentColor = False
           end
           object ed_entrega: TEdit
             Left = 2
-            Height = 32
+            Height = 33
             Top = 16
             Width = 95
             Alignment = taRightJustify
@@ -184,15 +185,15 @@ object f_fechamento: Tf_fechamento
           end
           object Label2: TLabel
             Left = 215
-            Height = 14
+            Height = 15
             Top = 2
-            Width = 73
+            Width = 83
             Caption = 'Aliq. Desc.%'
             ParentColor = False
           end
           object ed_AliqDesconto: TEdit
             Left = 215
-            Height = 32
+            Height = 33
             Top = 16
             Width = 95
             Alignment = taRightJustify
@@ -203,15 +204,15 @@ object f_fechamento: Tf_fechamento
           end
           object Label3: TLabel
             Left = 322
-            Height = 14
+            Height = 15
             Top = 1
-            Width = 93
+            Width = 103
             Caption = 'Valor Desconto'
             ParentColor = False
           end
           object ed_acrescimo: TEdit
             Left = 105
-            Height = 32
+            Height = 33
             Top = 16
             Width = 100
             Alignment = taRightJustify
@@ -221,15 +222,15 @@ object f_fechamento: Tf_fechamento
           end
           object Label4: TLabel
             Left = 105
-            Height = 14
+            Height = 15
             Top = 1
-            Width = 61
+            Width = 71
             Caption = 'Acrescimo'
             ParentColor = False
           end
           object ed_valorDesconto: TEdit
             Left = 322
-            Height = 32
+            Height = 33
             Top = 17
             Width = 147
             Alignment = taRightJustify
@@ -240,7 +241,7 @@ object f_fechamento: Tf_fechamento
           end
           object ed_valorEntrada: TEdit
             Left = 481
-            Height = 32
+            Height = 33
             Top = 17
             Width = 147
             Alignment = taRightJustify
@@ -250,9 +251,9 @@ object f_fechamento: Tf_fechamento
           end
           object Label6: TLabel
             Left = 481
-            Height = 14
+            Height = 15
             Top = 0
-            Width = 83
+            Width = 92
             Caption = 'Valor Entrada'
             ParentColor = False
           end
@@ -287,7 +288,7 @@ object f_fechamento: Tf_fechamento
             TabOrder = 0
             object Label11: TLabel
               Left = 6
-              Height = 14
+              Height = 15
               Top = 1
               Width = 138
               Align = alTop
@@ -297,8 +298,8 @@ object f_fechamento: Tf_fechamento
             end
             object lTotalGeral: TLabel
               Left = 1
-              Height = 28
-              Top = 15
+              Height = 27
+              Top = 16
               Width = 138
               Align = alClient
               Alignment = taRightJustify
@@ -326,7 +327,7 @@ object f_fechamento: Tf_fechamento
             TabOrder = 1
             object Label5: TLabel
               Left = 6
-              Height = 14
+              Height = 15
               Top = 1
               Width = 138
               Align = alTop
@@ -336,8 +337,8 @@ object f_fechamento: Tf_fechamento
             end
             object lTotalPagar: TLabel
               Left = 1
-              Height = 28
-              Top = 15
+              Height = 27
+              Top = 16
               Width = 138
               Align = alClient
               Alignment = taRightJustify
@@ -366,7 +367,7 @@ object f_fechamento: Tf_fechamento
             TabOrder = 2
             object Label7: TLabel
               Left = 6
-              Height = 14
+              Height = 15
               Top = 1
               Width = 138
               Align = alTop
@@ -376,8 +377,8 @@ object f_fechamento: Tf_fechamento
             end
             object lPromocao: TLabel
               Left = 1
-              Height = 28
-              Top = 15
+              Height = 27
+              Top = 16
               Width = 138
               Align = alClient
               Alignment = taRightJustify
@@ -406,7 +407,7 @@ object f_fechamento: Tf_fechamento
             TabOrder = 3
             object Label9: TLabel
               Left = 6
-              Height = 14
+              Height = 15
               Top = 1
               Width = 138
               Align = alTop
@@ -416,8 +417,8 @@ object f_fechamento: Tf_fechamento
             end
             object Label10: TLabel
               Left = 1
-              Height = 28
-              Top = 15
+              Height = 27
+              Top = 16
               Width = 138
               Align = alClient
               Alignment = taRightJustify
@@ -430,18 +431,18 @@ object f_fechamento: Tf_fechamento
         end
         object GroupBox1: TGroupBox
           Left = 5
-          Height = 119
+          Height = 118
           Top = 337
           Width = 620
           Align = alClient
           BorderSpacing.Around = 5
           Caption = 'Observaçao'
-          ClientHeight = 102
+          ClientHeight = 100
           ClientWidth = 618
           TabOrder = 3
-          object Memo1: TMemo
+          object mObs: TMemo
             Left = 3
-            Height = 96
+            Height = 94
             Top = 3
             Width = 612
             Align = alClient
@@ -454,16 +455,16 @@ object f_fechamento: Tf_fechamento
     end
     object TabSheet3: TTabSheet
       Caption = 'TabSheet3'
-      ClientHeight = 461
+      ClientHeight = 460
       ClientWidth = 630
       object Panel10: TPanel
         Left = 0
-        Height = 461
+        Height = 460
         Top = 0
         Width = 630
         Align = alClient
         BevelOuter = bvNone
-        ClientHeight = 461
+        ClientHeight = 460
         ClientWidth = 630
         TabOrder = 0
         object Panel11: TPanel
@@ -482,7 +483,7 @@ object f_fechamento: Tf_fechamento
             Left = 8
             Height = 23
             Top = 4
-            Width = 145
+            Width = 158
             Caption = 'Receber Na Entrega'
             Color = 11247093
             OnChange = ck_receberEntregaChange
@@ -495,7 +496,7 @@ object f_fechamento: Tf_fechamento
     end
     object TabSheet2: TTabSheet
       Caption = 'TabSheet2'
-      ClientHeight = 461
+      ClientHeight = 460
       ClientWidth = 630
       object Shape1: TShape
         Left = -8
@@ -505,9 +506,9 @@ object f_fechamento: Tf_fechamento
       end
       object Label12: TLabel
         Left = 8
-        Height = 14
+        Height = 15
         Top = 40
-        Width = 68
+        Width = 77
         Caption = 'Condições: '
         ParentColor = False
       end
@@ -524,9 +525,9 @@ object f_fechamento: Tf_fechamento
       end
       object Label13: TLabel
         Left = 26
-        Height = 14
+        Height = 15
         Top = 16
-        Width = 45
+        Width = 51
         Caption = 'Cliente:'
         ParentColor = False
       end
@@ -543,9 +544,9 @@ object f_fechamento: Tf_fechamento
       end
       object Label14: TLabel
         Left = 355
-        Height = 14
+        Height = 15
         Top = 40
-        Width = 62
+        Width = 70
         Alignment = taRightJustify
         Caption = 'Vendedor:'
         ParentColor = False
@@ -563,9 +564,9 @@ object f_fechamento: Tf_fechamento
       end
       object Label15: TLabel
         Left = 391
-        Height = 14
+        Height = 15
         Top = 16
-        Width = 26
+        Width = 30
         Alignment = taRightJustify
         Caption = 'CPF:'
         ParentColor = False
@@ -628,18 +629,18 @@ object f_fechamento: Tf_fechamento
       end
       object Label16: TLabel
         Left = 36
-        Height = 14
+        Height = 15
         Top = 72
-        Width = 34
+        Width = 38
         Alignment = taRightJustify
         Caption = 'Total:'
         ParentColor = False
       end
       object Label17: TLabel
         Left = 184
-        Height = 14
+        Height = 15
         Top = 72
-        Width = 61
+        Width = 68
         Alignment = taRightJustify
         Caption = 'Desconto:'
         ParentColor = False
@@ -658,9 +659,9 @@ object f_fechamento: Tf_fechamento
       end
       object Label18: TLabel
         Left = 352
-        Height = 14
+        Height = 15
         Top = 72
-        Width = 64
+        Width = 75
         Alignment = taRightJustify
         Caption = 'Acrescimo:'
         ParentColor = False
@@ -691,18 +692,18 @@ object f_fechamento: Tf_fechamento
       end
       object Label19: TLabel
         Left = 19
-        Height = 14
+        Height = 15
         Top = 98
-        Width = 51
+        Width = 56
         Alignment = taRightJustify
         Caption = 'Entrega:'
         ParentColor = False
       end
       object Label20: TLabel
         Left = 194
-        Height = 14
+        Height = 15
         Top = 98
-        Width = 51
+        Width = 57
         Alignment = taRightJustify
         Caption = 'Entrada:'
         ParentColor = False
@@ -721,9 +722,9 @@ object f_fechamento: Tf_fechamento
       end
       object Label21: TLabel
         Left = 341
-        Height = 14
+        Height = 15
         Top = 98
-        Width = 75
+        Width = 83
         Alignment = taRightJustify
         Caption = 'Total Venda:'
         ParentColor = False
@@ -759,38 +760,11 @@ object f_fechamento: Tf_fechamento
       object Panel12: TPanel
         Left = 0
         Height = 101
-        Top = 360
+        Top = 359
         Width = 630
         Align = alBottom
         BevelOuter = bvNone
-        ClientHeight = 101
-        ClientWidth = 630
         TabOrder = 2
-        object GroupBox2: TGroupBox
-          Left = 5
-          Height = 91
-          Top = 5
-          Width = 620
-          Align = alClient
-          BorderSpacing.Around = 5
-          Caption = 'Observação'
-          ClientHeight = 74
-          ClientWidth = 618
-          TabOrder = 0
-          object mObs: TMemo
-            Left = 3
-            Height = 68
-            Top = 3
-            Width = 612
-            Align = alClient
-            BorderSpacing.Around = 3
-            BorderStyle = bsNone
-            Lines.Strings = (
-              'mObs'
-            )
-            TabOrder = 0
-          end
-        end
       end
     end
   end
@@ -1008,8 +982,8 @@ object f_fechamento: Tf_fechamento
   end
   object qCrediario: TBufDataset
     FieldDefs = <>
-    Left = 320
-    Top = 312
+    Left = 312
+    Top = 224
     object qCrediarioParcela: TLongintField
       FieldKind = fkData
       FieldName = 'Parcela'
@@ -1050,7 +1024,7 @@ object f_fechamento: Tf_fechamento
   end
   object dsCrediario: TDataSource
     DataSet = qCrediario
-    Left = 200
-    Top = 336
+    Left = 192
+    Top = 256
   end
 end

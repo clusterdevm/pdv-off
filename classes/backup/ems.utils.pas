@@ -397,7 +397,7 @@ begin
      {$IFDEF MSWINDOWS}
         _file := _diretorio+'\'+_fileName;
      {$else}
-        _file := _diretorio+'/'+_file;;
+        _file := _diretorio+'/'+_fileName;;
      {$ENDIF}
 
      if FileExists(_file) then

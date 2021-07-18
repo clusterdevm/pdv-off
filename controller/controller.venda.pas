@@ -17,8 +17,6 @@ uses ems.conexao, ems.utils, model.vendas.imposto,
 procedure VendaGetItemRecalculo(var _dados : TJsonObject);
 begin
 
-//      ValidaEdicao(_vendaID);
-
       defaultNumber(_dados,'aliq_desconto');
       defaultNumber(_dados,'aliq_outras_despesas');
 

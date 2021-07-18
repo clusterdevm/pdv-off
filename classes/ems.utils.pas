@@ -177,7 +177,7 @@ end;
 function DecimalUnitario(Value: Extended; Decimals: Integer): Extended;
 begin
   if Decimals =-1 then
-     Decimals := sessao.TotalCasasUnitario;
+     Decimals := 7;
 
   result :=  Decimal(Value, Decimals);
 end;

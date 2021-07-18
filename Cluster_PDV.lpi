@@ -418,7 +418,7 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="40">
+    <Exceptions Count="42">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -539,6 +539,12 @@
       <Item40>
         <Name Value="EThreadError"/>
       </Item40>
+      <Item41>
+        <Name Value="RunError(202)"/>
+      </Item41>
+      <Item42>
+        <Name Value="EStackOverflow"/>
+      </Item42>
     </Exceptions>
   </Debugging>
 </CONFIG>
