@@ -170,7 +170,7 @@ implementation
 
 {$R *.lfm}
 
-uses ems.utils, ems.conexao, controller.venda;
+uses ems.utils, ems.conexao, controller.venda, model.vendas.imposto;
 
 procedure Tform_venda.SpeedButton1Click(Sender: TObject);
 begin
@@ -189,7 +189,7 @@ begin
     ed_vendedor.Text:=  'Não Definido';
     ed_cpf.Text:= '';
     lblCodigo.Caption:= '';
-    pnlBase.Visible:= sessao.GetCaixaID > 0;
+    pnlBase.Visible:= sessao.GetCaixaID(false) > 0;
 
     TabControl1.Tabs.Clear;
     pnlCodigo.Visible:= false;
@@ -554,9 +554,7 @@ begin
 end;
 
 procedure Tform_venda.ac_cancelamentoExecute(Sender: TObject);
-var _db : TConexao;
-     _motivo : string;
-     _venda : TJsonObject;
+var  _motivo : string;
 begin
   if TabControl1.Tabs.Count > 0 then
   Begin
@@ -569,20 +567,8 @@ begin
             end;
             _motivo:= 'Cancelamento de venda em andamento Motivo > : '+_motivo;
 
-            try
-               _db := TConexao.Create;
-               _venda := TJsonObject.Create();
-               _venda['hibrido_id'].AsString:=GetVendaID;
-               _venda['dados_adicionais'].AsString:= _motivo;
-               _venda['sinc_pendente'].AsString:= 'S';
-               _venda['status'].AsString:= 'cancelado';
-               _db.updateSQl('vendas',_venda);
-
-               GetVendasAndamento;
-            finally
-                FreeAndNil(_db);
-                FreeAndNIl(_venda)
-            end;
+            SetVendaTotalizador(GetVendaID, false, false, true);
+            GetVendasAndamento;
        end;
   end;
 end;
@@ -624,10 +610,10 @@ begin
            Begin
               Close;
               Sql.Clear;
-              Sql.Add('select * from venda_itens where id ='+QuotedStr(qryItensid.AsString));
+              Sql.Add('select * from venda_itens where hibrido_id ='+QuotedStr(qryItensid.AsString));
               Open;
 
-              _itens := _db.ToObjectString('',true);
+              _itens := _db.ToObjectString;
            end;
 
            if _itens['valor_unitario'].AsNumber = ToValor(_newValor) then
@@ -744,7 +730,7 @@ begin
            _itens := TJsonObject.Create();
            _itens['status'].AsString:= 'R';
            _itens['sinc_pendente'].AsString:= 'S';
-           _itens['id'].AsInteger:=qryItensid.Value;
+           _itens['hibrido_id'].AsInteger:=qryItensid.Value;
            _db.updateSQl('venda_itens',_itens);
            SetVenda;
        finally
@@ -850,7 +836,7 @@ begin
                      qryItensquantidade.Value:= FieldByName('quantidade').AsFloat;
                      qryItensvalor_unitario.Value:= FieldByName('valor_final').AsFloat;
                      qryItenssub_total.Value:= FieldByName('vl_produtos').AsFloat;
-                     qryItensid.Value:= FieldBYName('id').AsInteger;
+                     qryItensid.Value:= FieldBYName('hibrido_id').AsInteger;
                      qryItenssequencia.Value:= qryItens.RecordCount+1;
                      qryItenspromocional.Value:= LowerCase(trim(FieldByName('promocional').AsString)) = 'true';
 

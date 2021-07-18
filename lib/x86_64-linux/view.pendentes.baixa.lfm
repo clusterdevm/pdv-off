@@ -73,12 +73,15 @@ object f_pendente: Tf_pendente
     TabOrder = 1
     TabStop = False
     TitleStyle = tsNative
+    OnCellClick = DBGrid1CellClick
+    OnColExit = DBGrid1ColExit
   end
   object ActionList1: TActionList
     Left = 176
     Top = 384
     object ac_sair: TAction
       Caption = 'Sair'
+      OnExecute = ac_sairExecute
       ShortCut = 27
     end
     object ac_liquidar: TAction

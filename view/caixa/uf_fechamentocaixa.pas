@@ -81,7 +81,7 @@ try
             Sql.Add(', saldo_fechamentocredito = '+QuotedStr(prepara_valor(GetFloat(ed_credito.text))));
             Sql.Add(', saldo_fechamentodebito = '+QuotedStr(prepara_valor(GetFloat(ed_debito.text))));
             Sql.Add(', saldo_fechamentovale = '+QuotedStr(prepara_valor(GetFloat(ed_vale.text))));
-            Sql.add(' where hibrido_id = '+QuotedStr(IntToStr(sessao.GetCaixaID)));
+            Sql.add(' where hibrido_id = '+QuotedStr(IntToStr(sessao.GetCaixaID(false))));
             ExecSQL;
 
             messagedlg('Caixa Fechado',mtInformation,[mbok],0);

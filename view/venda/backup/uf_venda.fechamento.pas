@@ -17,10 +17,14 @@ type
 
   Tf_fechamento = class(TForm)
     ACBrEnterTab1: TACBrEnterTab;
+    ac_sair: TAction;
     ac_fechar: TAction;
     ActionList1: TActionList;
     BCButton4: TBCButton;
     dsCrediario: TDataSource;
+    GroupBox2: TGroupBox;
+    mObs: TMemo;
+    Panel12: TPanel;
     pnlLabelCrediario: TPanel;
     qCrediario: TBufDataset;
     ck_receberEntrega: TCheckBox;
@@ -108,6 +112,7 @@ type
     TabSheet2: TTabSheet;
     TabSheet3: TTabSheet;
     procedure ac_fecharExecute(Sender: TObject);
+    procedure ac_sairExecute(Sender: TObject);
     procedure ck_receberEntregaChange(Sender: TObject);
     procedure ed_AliqDescontoEnter(Sender: TObject);
     procedure ed_AliqDescontoExit(Sender: TObject);
@@ -138,6 +143,8 @@ type
         Procedure LoadShape(posicao:integer);
 
         Procedure SetResumo;
+
+        Procedure UpdateVenda;
   public
       _valorBruto, _valorPromocao, _valorDesconto, _valorDescontoExtra,
         _valorEntrada, _ValorRecebimento, _totalVenda, _totalCrediario : Extended;
@@ -161,6 +168,9 @@ begin
 
    qCrediario.CreateDataset;
    qCrediario.Open;
+
+
+   mObs.Clear;
 
    _aliquota:= false;
 
@@ -212,10 +222,17 @@ begin
    end;
    2 : Begin
        LoadShape(4);
-       SetVendaTotalizador(_vendaID, true);
+       UpdateVenda;
+       SetVendaTotalizador(_vendaID, true, ck_receberEntrega.Checked);
        self.Close;
    end;
 end;
+end;
+
+procedure Tf_fechamento.ac_sairExecute(Sender: TObject);
+begin
+  //
+  self.close;
 end;
 
 procedure Tf_fechamento.ck_receberEntregaChange(Sender: TObject);
@@ -353,8 +370,22 @@ begin
 end;
 
 function Tf_fechamento.CalculaValor: Currency;
-
 begin
+
+  if trim(ed_entrega.Text) = '' then
+     ed_entrega.Text:= '0';
+
+  if trim(ed_acrescimo.Text) = '' then
+     ed_acrescimo.Text:= '0';
+
+  if trim(ed_AliqDesconto.Text) = '' then
+     ed_AliqDesconto.Text:= '0';
+
+  if trim(ed_valorDesconto.Text) = '' then
+     ed_valorDesconto.Text:= '0';
+
+  if trim(ed_valorEntrada.Text) = '' then
+     ed_valorDesconto.Text:= '0';
 
    if qPagamentoaliq_desconto.Value > 0 then
       _valorDesconto := ((_valorBruto * qPagamentoaliq_desconto.AsFloat)/100)
@@ -529,6 +560,22 @@ begin
         end;
 
     end;
+end;
+
+procedure Tf_fechamento.UpdateVenda;
+var _venda : TJsonObject;
+     _db : TConexao;
+begin
+   try
+      _db := TConexao.Create;
+      _venda := TJsonObject.Create();
+      _venda['dados_adicionais'].AsString:= mObs.Text;
+      _venda['hibrido_id'].AsInteger:= StrToInt(_vendaID);
+      _db.updateSQl('vendas',_venda);
+   finally
+     FreeAndNil(_db);
+     FreeAndNil(_venda);
+   end;
 end;
 
 end.

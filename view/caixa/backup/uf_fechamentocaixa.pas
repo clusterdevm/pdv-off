@@ -76,12 +76,12 @@ try
             Sql.Add('update financeiro_caixa set status = ''F'' ');
             Sql.add(', sinc_pendente = ''S'' ');
             Sql.Add(', data_fechamento = '+QuotedStr(getDataUTC));
-            Sql.Add(', inf_caixa = '+QuotedStr(mObsCaixa.Text));
+            Sql.Add(', inf_caixa = '+QuotedStr(mObsCaixa.Tet));
             Sql.Add(', saldo_fechamento = '+QuotedStr(prepara_valor(GetFloat(ed_efetivo.text))));
             Sql.Add(', saldo_fechamentocredito = '+QuotedStr(prepara_valor(GetFloat(ed_credito.text))));
             Sql.Add(', saldo_fechamentodebito = '+QuotedStr(prepara_valor(GetFloat(ed_debito.text))));
             Sql.Add(', saldo_fechamentovale = '+QuotedStr(prepara_valor(GetFloat(ed_vale.text))));
-            Sql.add(' where hibrido_id = '+QuotedStr(IntToStr(sessao.GetCaixa));
+            Sql.add(' where hibrido_id = '+QuotedStr(IntToStr(sessao.GetCaixaID(false))));
             ExecSQL;
 
             messagedlg('Caixa Fechado',mtInformation,[mbok],0);

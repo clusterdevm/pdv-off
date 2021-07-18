@@ -1,11 +1,11 @@
 object frm_login: Tfrm_login
   Left = 222
-  Height = 640
+  Height = 600
   Top = 114
-  Width = 1005
+  Width = 900
   BorderIcons = [biSystemMenu, biMinimize]
-  ClientHeight = 640
-  ClientWidth = 1005
+  ClientHeight = 600
+  ClientWidth = 900
   Color = clWhite
   DefaultMonitor = dmPrimary
   OnCloseQuery = FormCloseQuery
@@ -13,13 +13,13 @@ object frm_login: Tfrm_login
   OnShow = FormShow
   Position = poScreenCenter
   object Panel1: TPanel
-    Left = 650
-    Height = 640
+    Left = 544
+    Height = 600
     Top = 0
-    Width = 355
+    Width = 356
     Align = alClient
-    ClientHeight = 640
-    ClientWidth = 355
+    ClientHeight = 600
+    ClientWidth = 356
     TabOrder = 0
     object Image2: TImage
       Left = 40
@@ -1174,11 +1174,11 @@ object frm_login: Tfrm_login
     object Label4: TLabel
       Left = 1
       Height = 12
-      Top = 627
-      Width = 353
+      Top = 587
+      Width = 354
       Align = alBottom
       Alignment = taCenter
-      Caption = '1.7.7'
+      Caption = '1.7.4'
       Font.Height = -11
       Font.Name = 'Sans'
       ParentColor = False
@@ -1254,8 +1254,8 @@ object frm_login: Tfrm_login
     object pnlRegistro: TPanel
       Left = 1
       Height = 60
-      Top = 507
-      Width = 353
+      Top = 467
+      Width = 354
       Align = alBottom
       BorderSpacing.Top = 40
       BorderSpacing.Bottom = 60
@@ -1292,19 +1292,19 @@ object frm_login: Tfrm_login
   end
   object Panel3: TPanel
     Left = 0
-    Height = 640
+    Height = 600
     Top = 0
-    Width = 650
+    Width = 544
     Align = alLeft
     BevelOuter = bvNone
-    ClientHeight = 640
-    ClientWidth = 650
+    ClientHeight = 600
+    ClientWidth = 544
     TabOrder = 1
     object Image1: TImage
       Left = 0
-      Height = 640
+      Height = 600
       Top = 0
-      Width = 650
+      Width = 544
       Align = alClient
       Picture.Data = {
         1754506F727461626C654E6574776F726B47726170686963C500050089504E47
@@ -11560,9 +11560,9 @@ object frm_login: Tfrm_login
     end
     object mProcesso: TMemo
       Left = 0
-      Height = 640
+      Height = 600
       Top = 0
-      Width = 650
+      Width = 544
       Align = alClient
       Color = clBlack
       Font.Color = clLime

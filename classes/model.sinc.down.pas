@@ -135,9 +135,6 @@ try
 
         _api.Execute(false,true);
 
-
-        RegistraLogRequest(_api.response.Text);
-
         FMsg:= 'Download Realizado(' + FormatDateTime('hh:mm:ss',_HoraInicial - Now)+')';
         Synchronize(AtualizaLog);
 
@@ -311,8 +308,6 @@ begin
 
          if _api.ResponseCode in [200..207] then
          Begin
-             RegistraLogRequest('retorno');
-             RegistraLogRequest(_api.Return.Stringify);
              ProcessarUpdate(_api.Return);
          end else
            FFalhou:= true;
@@ -343,7 +338,7 @@ begin
          Close;
          Sql.Clear;
          Sql.Add('select * from financeiro_caixa ');
-         Sql.Add(' where (trim(sinc_pendente) = ''S'' or sinc_pendente is null) ');
+         Sql.Add(' where (trim(sinc_pendente) = ''S'' or sinc_pendente is null or finalizado = ''true'') ');
          open;
 
          if not IsEmpty then
@@ -353,7 +348,7 @@ begin
          Close;
          Sql.Clear;
          Sql.Add('select * from vendas ');
-         Sql.Add(' where (trim(sinc_pendente) = ''S'' or sinc_pendente is null) ');
+         Sql.Add(' where (trim(sinc_pendente) = ''S'' or sinc_pendente is null or finalizado = ''true'') ');
          open;
 
          if not IsEmpty then
@@ -362,11 +357,12 @@ begin
          Close;
          Sql.Clear;
          Sql.Add('select * from venda_itens ');
-         Sql.Add(' where (trim(sinc_pendente) = ''S'' or sinc_pendente is null) ');
+         Sql.Add(' where (trim(sinc_pendente) = ''S'' or sinc_pendente is null or finalizado = ''true'') ');
          open;
 
          if not IsEmpty then
             _upload['itens'].AsObject.Put('venda_itens',_sqlLite.ToArrayString);
+
 
          Close;
          Sql.Clear;
@@ -376,8 +372,6 @@ begin
          if not IsEmpty then
             _upload['itens'].AsObject.Put('financeiro_caixa_venda',_sqlLite.ToArrayString);
 
-
-         RegistraLogErro(_upload.Stringify);
     end;
 end;
 
@@ -589,8 +583,6 @@ begin
 
                  if _itensJson['itens'].AsObject.Count > 0 then
                  Begin
-                    RegistraLogErro('teste');
-                    RegistraLogErro(_itensJson.Stringify);
                     SendUpload(_itensJson);
                  end;
                  FreeAndNil(_itensJson);

@@ -127,15 +127,15 @@ object framePagamento: TframePagamento
         Top = 3
         Width = 673
         TabStop = False
-        ActivePage = tabDebito
+        ActivePage = tabDinheiro
         Align = alClient
         BorderSpacing.Around = 3
-        TabIndex = 2
+        TabIndex = 0
         TabOrder = 1
         TabPosition = tpBottom
         object tabDinheiro: TTabSheet
           Caption = 'Dinheiro'
-          ClientHeight = 99
+          ClientHeight = 102
           ClientWidth = 663
           object Label1: TLabel
             Left = 6
@@ -155,7 +155,7 @@ object framePagamento: TframePagamento
           end
           object DBLookupComboBox1: TDBLookupComboBox
             Left = 64
-            Height = 32
+            Height = 31
             Top = 8
             Width = 280
             AutoComplete = True
@@ -178,6 +178,7 @@ object framePagamento: TframePagamento
             Width = 280
             MaxLength = 0
             TabOrder = 1
+            DecimalSeparator = ','
             MaxValue = 0
             MinRepeatValue = 0
             UpDownVisible = False
@@ -194,7 +195,7 @@ object framePagamento: TframePagamento
         end
         object tabCredito: TTabSheet
           Caption = 'Cartão Crédito'
-          ClientHeight = 99
+          ClientHeight = 102
           ClientWidth = 663
           object Label3: TLabel
             Left = 5
@@ -234,6 +235,7 @@ object framePagamento: TframePagamento
             Width = 176
             MaxLength = 0
             TabOrder = 2
+            DecimalSeparator = ','
             MaxValue = 0
             MinRepeatValue = 0
             UpDownVisible = False
@@ -264,19 +266,19 @@ object framePagamento: TframePagamento
         end
         object tabDebito: TTabSheet
           Caption = 'Cartão Debito'
-          ClientHeight = 99
+          ClientHeight = 102
           ClientWidth = 663
           object Label5: TLabel
             Left = 5
-            Height = 14
+            Height = 15
             Top = 11
-            Width = 40
+            Width = 46
             Caption = 'Cartão'
             ParentColor = False
           end
           object cbDebito: TDBLookupComboBox
             Left = 78
-            Height = 31
+            Height = 33
             Top = 3
             Width = 266
             KeyField = 'id'
@@ -299,34 +301,35 @@ object framePagamento: TframePagamento
           end
           object ed_valorDebito: TFloatSpinEditEx
             Left = 78
-            Height = 32
+            Height = 33
             Top = 67
             Width = 176
             MaxLength = 0
             TabOrder = 2
+            DecimalSeparator = ','
             MaxValue = 0
             MinRepeatValue = 0
             UpDownVisible = False
           end
           object Label6: TLabel
             Left = 5
-            Height = 14
+            Height = 15
             Top = 75
-            Width = 32
+            Width = 36
             Caption = 'Valor'
             ParentColor = False
           end
           object Label9: TLabel
             Left = 5
-            Height = 14
+            Height = 15
             Top = 45
-            Width = 72
+            Width = 82
             Caption = 'Autorização'
             ParentColor = False
           end
           object ed_autorizacaoDebito: TEdit
             Left = 78
-            Height = 32
+            Height = 33
             Top = 35
             Width = 266
             TabOrder = 1
@@ -337,7 +340,7 @@ object framePagamento: TframePagamento
         end
         object tabValeCredito: TTabSheet
           Caption = 'Vale Crédito'
-          ClientHeight = 99
+          ClientHeight = 102
           ClientWidth = 663
           object Label10: TLabel
             Left = 2
@@ -366,7 +369,7 @@ object framePagamento: TframePagamento
         end
         object tabTEF: TTabSheet
           Caption = 'TEF'
-          ClientHeight = 99
+          ClientHeight = 102
           ClientWidth = 663
           object Label7: TLabel
             Left = 0
@@ -464,20 +467,10 @@ object framePagamento: TframePagamento
     FieldDefs = <>
     Left = 632
     Top = 240
-    object qQuitacaotipo: TStringField
-      FieldKind = fkData
-      FieldName = 'tipo'
-      Index = 0
-      LookupCache = False
-      ProviderFlags = [pfInUpdate, pfInWhere]
-      ReadOnly = False
-      Required = False
-      Size = 30
-    end
     object qQuitacaovalor: TFloatField
       FieldKind = fkData
       FieldName = 'valor'
-      Index = 1
+      Index = 0
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -486,7 +479,7 @@ object framePagamento: TframePagamento
     object qQuitacaodisplay: TStringField
       FieldKind = fkData
       FieldName = 'display'
-      Index = 2
+      Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -496,7 +489,7 @@ object framePagamento: TframePagamento
     object qQuitacaomoeda_id: TLongintField
       FieldKind = fkData
       FieldName = 'moeda_id'
-      Index = 3
+      Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -505,7 +498,7 @@ object framePagamento: TframePagamento
     object qQuitacaocambio: TFloatField
       FieldKind = fkData
       FieldName = 'cambio'
-      Index = 4
+      Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -514,7 +507,7 @@ object framePagamento: TframePagamento
     object qQuitacaovalor_moeda: TFloatField
       FieldKind = fkData
       FieldName = 'valor_moeda'
-      Index = 5
+      Index = 4
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -523,7 +516,7 @@ object framePagamento: TframePagamento
     object qQuitacaon_parcelas: TLongintField
       FieldKind = fkData
       FieldName = 'n_parcelas'
-      Index = 6
+      Index = 5
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -532,7 +525,7 @@ object framePagamento: TframePagamento
     object qQuitacaon_autorizacao: TStringField
       FieldKind = fkData
       FieldName = 'n_autorizacao'
-      Index = 7
+      Index = 6
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
@@ -542,11 +535,21 @@ object framePagamento: TframePagamento
     object qQuitacaocodigo_vale: TLongintField
       FieldKind = fkData
       FieldName = 'codigo_vale'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qQuitacaotipo_liquidacao: TStringField
+      FieldKind = fkData
+      FieldName = 'tipo_liquidacao'
       Index = 8
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
+      Size = 50
     end
   end
   object dsQuitacao: TDataSource
@@ -580,8 +583,8 @@ object framePagamento: TframePagamento
   end
   object qDebito: TBufDataset
     FieldDefs = <>
-    Left = 632
-    Top = 216
+    Left = 640
+    Top = 192
     object qDebitoid: TLongintField
       FieldKind = fkData
       FieldName = 'id'

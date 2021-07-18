@@ -32,7 +32,7 @@ var Sessao : TSessao;
   procedure OnEntrar(Sender: TObject);
   procedure OnSair(Sender: TObject);
   Function FlagBoolean(value:string):String;
-  Procedure RegistraLogErro(value:string);
+  Procedure RegistraLogErro(value:string; _fileName : string = '');
   Procedure RegistraLogRequest(value:string);
 
   function DownloadAtualizacao(var versao:string) :  boolean;
@@ -58,7 +58,7 @@ var Sessao : TSessao;
   function FormataCNPJ(CNPJ: string): string;
   function RemoveIfens(value: string): String;
 
-  Function GetUUID : String;
+  Function Get_UUID : String;
   Function GetFloat(value:string) : Extended;
   Function ToValor(value:string) : Extended;
   Procedure Limpa(aDataSet:TBufDataset);
@@ -251,7 +251,7 @@ begin
    Result := SubsString(Result,'/','');
 end;
 
-function GetUUID: String;
+function Get_UUID: String;
 var _out : TGuid;
     res : Integer;
 begin
@@ -381,7 +381,7 @@ begin
    result := trim(LowerCase(value));
 end;
 
-procedure RegistraLogErro(value: string);
+procedure RegistraLogErro(value: string; _fileName : string = '');
 var _text : TStringList;
     _diretorio,_file : String;
 begin
@@ -389,10 +389,15 @@ begin
      _text := TStringList.Create;
      _diretorio := extractfiledir(paramstr(0));// ExtractFileDir(ApplicationName);
 
+     if _fileName = '' then
+       _fileName := 'log.txt'
+     else
+        _fileName := _fileName+'.txt';
+
      {$IFDEF MSWINDOWS}
-        _file := _diretorio+'\log.txt';
+        _file := _diretorio+'\'+_fileName;
      {$else}
-        _file := _diretorio+'/log.txt';
+        _file := _diretorio+'/'+_file;;
      {$ENDIF}
 
      if FileExists(_file) then

@@ -478,14 +478,14 @@ object f_fechamento: Tf_fechamento
           Color = 11247093
           ParentColor = False
           TabOrder = 0
-          object CheckBox1: TCheckBox
+          object ck_receberEntrega: TCheckBox
             Left = 8
             Height = 23
             Top = 4
             Width = 145
             Caption = 'Receber Na Entrega'
             Color = 11247093
-            OnChange = CheckBox1Change
+            OnChange = ck_receberEntregaChange
             ParentColor = False
             TabOrder = 0
             TabStop = False
@@ -756,6 +756,42 @@ object f_fechamento: Tf_fechamento
         TabOrder = 1
         Visible = False
       end
+      object Panel12: TPanel
+        Left = 0
+        Height = 101
+        Top = 360
+        Width = 630
+        Align = alBottom
+        BevelOuter = bvNone
+        ClientHeight = 101
+        ClientWidth = 630
+        TabOrder = 2
+        object GroupBox2: TGroupBox
+          Left = 5
+          Height = 91
+          Top = 5
+          Width = 620
+          Align = alClient
+          BorderSpacing.Around = 5
+          Caption = 'Observação'
+          ClientHeight = 74
+          ClientWidth = 618
+          TabOrder = 0
+          object mObs: TMemo
+            Left = 3
+            Height = 68
+            Top = 3
+            Width = 612
+            Align = alClient
+            BorderSpacing.Around = 3
+            BorderStyle = bsNone
+            Lines.Strings = (
+              'mObs'
+            )
+            TabOrder = 0
+          end
+        end
+      end
     end
   end
   object Panel2: TPanel
@@ -958,6 +994,11 @@ object f_fechamento: Tf_fechamento
       Caption = 'Proximo (F6)'
       OnExecute = ac_fecharExecute
       ShortCut = 117
+    end
+    object ac_sair: TAction
+      Caption = 'Sair'
+      OnExecute = ac_sairExecute
+      ShortCut = 27
     end
   end
   object ACBrEnterTab1: TACBrEnterTab

@@ -18,7 +18,7 @@ uses
 
   view.condicional.criar, model.pessoa, cluster_pdv.sessao, uf_aguarde,
   view.devolucao.filtrar, view.devolucao.criar, thread.wait, wcursos,
-  view.condicional;
+  view.condicional, unit1;
 
 {$R *.res}
 

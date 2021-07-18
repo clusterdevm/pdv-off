@@ -241,7 +241,7 @@ begin
         if  Length(FieldByName('medida_descricao').AsString) < 2 then
            FinalizaProcesso('Unidade Medida informada Invalida');
 
-        _Produto := _db.ToObjectString('',true);
+        _Produto := _db.ToObjectString;
         _Produto['valor_unitario'].AsNumber:= DecimalUnitario(_produto['valor'].AsNumber);
         _produto['quantidade'].AsNumber:= quantidade;
         _produto['hibrido_venda_id'].AsInteger:= _HibridoVendaID;

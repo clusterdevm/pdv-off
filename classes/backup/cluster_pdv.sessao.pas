@@ -89,7 +89,7 @@ private
 
 
       Function PDV_ConfBalanca : String;
-      Function GetCaixaID : Integer;
+      Function GetCaixaID(remoto:boolean) : Integer;
 
       Function CaixaAberto : Boolean;
 
@@ -468,7 +468,7 @@ begin
    Result := '';
 end;
 
-function TSessao.GetCaixaID: Integer;
+function TSessao.GetCaixaID(remoto:boolean ): Integer;
 var _db : TConexao;
 begin
   try
@@ -485,7 +485,12 @@ begin
          Open;
 
          if not IsEmpty then
-            Result := FieldByName('hibrido_id').AsInteger;
+         Begin
+            if remoto then
+               Result := FieldByName('id').AsInteger
+            else
+               Result := FieldByName('hibrido_id').AsInteger;
+         end;
       end;
   finally
     FreeAndNil(_db);
@@ -494,7 +499,7 @@ end;
 
 function TSessao.CaixaAberto: Boolean;
 begin
-    result := trim(GetCaixa) <> '';
+    result := GetCaixaID > 0;
 
     if not result then
        Messagedlg('Não possui caixa Aberto !!!!' , mtError,[mbok],0);

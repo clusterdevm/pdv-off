@@ -9,6 +9,7 @@ object f_saidaCaixa: Tf_saidaCaixa
   KeyPreview = True
   OnShow = FormShow
   Position = poMainFormCenter
+  LCLVersion = '2.0.12.0'
   inline framePessoa: TframePessoaGet
     Left = 8
     Top = 8

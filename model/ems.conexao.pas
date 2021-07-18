@@ -3,7 +3,7 @@ unit ems.conexao;
 interface
 
 uses SysUtils, Variants, Classes, // ZConnection, ZDataset,
-     sqldb,
+     sqldb,   DataSet.Serialize,DataSet.Serialize.Config,
      jsons, db, BufDataset, typinfo, dialogs, md5  ;
 
 Type
@@ -45,7 +45,7 @@ Type
          function ToArrayString:TJsonArray;
 
          Function DataSetToArrayString(ADataset:TBufDataset; _nomeObjeto:String = ''): String;
-         function ToObjectString(_nomeObjeto:String ;_first : Boolean = false):TJsonObject;
+         function ToObjectString:TJsonObject;
 
          procedure updateSQl(_tabela:String;_Json:TJsonObject);
          procedure updateSQlArray(_tabela:String;_JsonArray:TJsonArray; _forceUpdate : Boolean = false);
@@ -166,6 +166,10 @@ begin
 
     GSincronizar := true;
 
+    TDataSetSerializeConfig.GetInstance.CaseNameDefinition := cndNone;
+    TDataSetSerializeConfig.GetInstance.DateInputIsUTC:=true;
+    TDataSetSerializeConfig.GetInstance.Export.FormatDateTime := 'yyyy-mm-dd hh:nn:ss.zzz';
+
   except
      on e:Exception do
      Begin
@@ -280,25 +284,10 @@ begin
 
 end;
 
-function TConexao.ToObjectString(_nomeObjeto:String ;_first : Boolean = false):TJsonObject;
-var _array : TJson;
-  _return : TJson;
+function TConexao.ToObjectString:TJsonObject;
 begin
-  if _first then
-  Begin
-     _array := TJson.Create;
-     _array.Parse(DataSetToJsonArray(qrySelect).Stringify);
-      Result := _array.Get(0).AsObject;
-  end else
-  Begin
-      _return := TJson.Create;
-
-      if _nomeObjeto <> '' then
-         _return.Put(_nomeObjeto,DataSetToJsonArray(qrySelect));
-
-      Result := _return.JsonObject;
-  end;
-
+  Result := TJsonObject.Create();
+  Result.Parse(qrySelect.ToJSONObjectString);
 end;
 
 procedure TConexao.InsertObjectToSQl(_tabela: String; _Json: TJsonObject;
@@ -604,9 +593,32 @@ begin
              ExecutaSQL('alter table '+_tabela+' add sinc_pendente text;');
 
 
+
+          _find := true;
+          if (_tabela = 'financeiro_caixa') or (_tabela = 'financeiro') or
+             (_tabela = 'venda_itens') or (_tabela = 'vendas')
+          then
+             _find := false;
+          if _find = false then
+          Begin
+                first;
+                while not eof do
+                Begin
+                     if FieldByName('column_name').AsString = 'finalizado' then
+                     Begin
+                         _find := true;
+                         Break;
+                     end;
+                    Next;
+                end;
+          end;
+
+          if not _find then
+             ExecutaSQL('alter table '+_tabela+' add finalizado text;');
+
+
           // Checando UUID
           _find := true;
-
           if (_tabela = 'financeiro_caixa') then
              _find := false;
 
@@ -781,9 +793,15 @@ begin
          _delimiter := ',';
     end;
 
+    if (_tabelaName = 'vendas') or
+       (_tabelaName = 'venda_itens') or
+       (_tabelaName = 'financeiro_caixa')
+    then
+    Begin
+        _sql.Add(', finalizado text');
+    end else
     if _tabelaName = 'produtos' then
     Begin
-
         _sql.Add(', gradeamento_id integer');
         _sql.Add(', gtin_grade text');
         _sql.Add(', gtin_interno text');
@@ -969,6 +987,11 @@ begin
           Sql.add(' where hibrido_id = '+QuotedStr(_Json['hibrido_id'].AsString))
        else
           Sql.add(' where id = '+QuotedStr(_Json['id'].AsString));
+
+
+
+       if _tabela='vendas' then
+          RegistraLogErro(sql.text,'update_venda');
        ExecSQL;
    end;
 

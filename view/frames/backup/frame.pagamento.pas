@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, BufDataset, DB, Forms, Controls, ExtCtrls, StdCtrls,
-  DBGrids, ComCtrls, DBCtrls, Dialogs, Spin, SpinEx, Grids, Graphics, LCLType;
+  DBGrids, ComCtrls, DBCtrls, Dialogs, Spin, SpinEx, Grids, Graphics, LCLType,
+  DataSet.Serialize,DataSet.Serialize.Config;
 
 type
 
@@ -67,7 +68,7 @@ type
     qQuitacaomoeda_id: TLongintField;
     qQuitacaon_autorizacao: TStringField;
     qQuitacaon_parcelas: TLongintField;
-    qQuitacaotipo: TStringField;
+    qQuitacaotipo_liquidacao: TStringField;
     qQuitacaovalor: TFloatField;
     qQuitacaovalor_moeda: TFloatField;
     tabDinheiro: TTabSheet;
@@ -81,6 +82,10 @@ type
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
+    procedure ed_valorDinheiroEnter(Sender: TObject);
+    procedure ed_valorDinheiroKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure ed_valorDinheiroKeyPress(Sender: TObject; var Key: char);
     procedure gridValoresDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure ListBox1SelectionChange(Sender: TObject; User: boolean);
@@ -93,8 +98,10 @@ type
         Procedure CarregaDebito;
         Procedure Calcula;
   public
-      Procedure Inicializa(_valorPagar : currency;n_parcelas:integer);
+      Procedure Inicializa(_valorPagar : Extended;n_parcelas:integer);
       function Quitado : boolean;
+
+      Function GetBaixa : String;
   end;
 
 implementation
@@ -119,6 +126,10 @@ end;
 
 procedure TframePagamento.Button1Click(Sender: TObject);
 begin
+
+    if StrToFloatDef(ed_valorDinheiro.Text,0) = 0 then
+       exit
+
      qQuitacao.Append;
      if sessao.GetmoedaPadrao = DBLookupComboBox1.KeyValue then
         qQuitacaodisplay.Value:= 'Efetivo'
@@ -128,7 +139,7 @@ begin
      end;
      qQuitacaovalor.Value:= ToValor(ed_valorDinheiro.Text);
      qQuitacaomoeda_id.Value:= DBLookupComboBox1.KeyValue;
-     qQuitacaotipo.Value:= 'efetivo';
+     qQuitacaotipo_liquidacao.Value:= 'efetivo';
      qQuitacao.Post;
 
      ed_valorDinheiro.Value:= 0;
@@ -145,7 +156,7 @@ begin
   qQuitacaovalor.Value:= ToValor(ed_valorCredito.Text);
   qQuitacaon_autorizacao.Value:= ed_autorizacaoCredito.Text ;
   qQuitacaon_parcelas.Value:= NumeroParcelas;
-  qQuitacaotipo.Value:= 'credito';
+  qQuitacaotipo_liquidacao.Value:= 'credito';
   qQuitacao.Post;
 
   ed_valorCredito.Value:= 0;
@@ -164,7 +175,7 @@ begin
   qQuitacaovalor.Value:= ToValor(ed_valorDebito.Text);
   qQuitacaon_autorizacao.Value:= ed_autorizacaoDebito.Text ;
   qQuitacaon_parcelas.Value:= NumeroParcelas;
-  qQuitacaotipo.Value:= 'debito';
+  qQuitacaotipo_liquidacao.Value:= 'debito';
   qQuitacao.Post;
 
   ed_valorDebito.Value:= 0;
@@ -208,7 +219,7 @@ begin
               qQuitacao.Append;
               qQuitacaodisplay.Value:= 'Vale Credito '+edtValeCredito.Text;
               qQuitacaovalor.Value:= _api.Return['resultado'].AsObject['valor'].AsNumber;
-              qQuitacaotipo.Value:= 'vale';
+              qQuitacaotipo_liquidacao.Value:= 'vale';
               qQuitacaocodigo_vale.Value := StrToIntDef(edtValeCredito.Text,0);
               qQuitacao.Post;
            end
@@ -223,6 +234,24 @@ begin
    finally
        FreeAndNil(_api);
    end;
+end;
+
+procedure TframePagamento.ed_valorDinheiroEnter(Sender: TObject);
+begin
+  ed_valorCredito.SelectAll;
+end;
+
+procedure TframePagamento.ed_valorDinheiroKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+  if key = VK_RETURN then
+     Button1Click(self);
+end;
+
+procedure TframePagamento.ed_valorDinheiroKeyPress(Sender: TObject;
+  var Key: char);
+begin
+
 end;
 
 procedure TframePagamento.gridValoresDrawColumnCell(Sender: TObject;
@@ -378,7 +407,7 @@ begin
 
 end;
 
-procedure TframePagamento.Inicializa(_valorPagar : currency;n_parcelas:integer);
+procedure TframePagamento.Inicializa(_valorPagar : Extended;n_parcelas:integer);
 begin
      PageControl1.ShowTabs:= false;
      PageControl1.TabIndex:= 6;
@@ -391,9 +420,13 @@ begin
      CarregaMoeda;
      CarregaCredito;
      CarregaDebito;
-     TotalPagar:= _valorPagar;
+     TotalPagar:= Decimal(_valorPagar,2);
      NumeroParcelas := n_parcelas;
      Calcula;
+
+     TDataSetSerializeConfig.GetInstance.CaseNameDefinition := cndNone;
+     TDataSetSerializeConfig.GetInstance.DateInputIsUTC:=true;
+     TDataSetSerializeConfig.GetInstance.Export.FormatDateTime := 'yyyy-mm-dd hh:nn:ss.zzz';
 end;
 
 function TframePagamento.Quitado: boolean;
@@ -402,6 +435,23 @@ begin
 
    if not result then
       messagedlg('Valor Pago Insuficiente',mtConfirmation,[mbok],0);
+end;
+
+function TframePagamento.GetBaixa: String;
+begin
+
+   if TotalPagar < TotalPago  then
+   Begin
+     qQuitacao.Append;
+     qQuitacaodisplay.Value:= 'troco';
+     qQuitacaovalor.Value:= Decimal(Decimal(TotalPagar,2)- Decimal(TotalPago,2),2);
+     qQuitacaotipo_liquidacao.Value:= 'troco';
+     qQuitacao.Post;
+   end;
+
+    result := qQuitacao.ToJSONArrayString();
+
+
 end;
 
 end.

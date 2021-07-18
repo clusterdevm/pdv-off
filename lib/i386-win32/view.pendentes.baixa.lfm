@@ -2,11 +2,11 @@ object f_pendente: Tf_pendente
   Left = 1920
   Height = 574
   Top = 250
-  Width = 798
+  Width = 938
   BorderIcons = [biSystemMenu]
   Caption = 'Cluster Sistemas : Vendas Pendentes de Pagamentos'
   ClientHeight = 574
-  ClientWidth = 798
+  ClientWidth = 938
   Color = clWhite
   OnShow = FormShow
   Position = poScreenCenter
@@ -14,13 +14,13 @@ object f_pendente: Tf_pendente
     Left = 0
     Height = 50
     Top = 524
-    Width = 798
+    Width = 938
     Align = alBottom
     ClientHeight = 50
-    ClientWidth = 798
+    ClientWidth = 938
     TabOrder = 0
     object Button1: TButton
-      Left = 682
+      Left = 822
       Height = 37
       Top = 8
       Width = 108
@@ -33,13 +33,14 @@ object f_pendente: Tf_pendente
     Left = 10
     Height = 504
     Top = 10
-    Width = 778
+    Width = 918
     Align = alClient
+    AlternateColor = 15393754
     BorderSpacing.Around = 10
     Color = clWindow
     Columns = <    
       item
-        Title.Caption = 'baixar'
+        Title.Caption = ''
         FieldName = 'baixar'
       end    
       item
@@ -49,7 +50,7 @@ object f_pendente: Tf_pendente
       end    
       item
         Title.Caption = 'Data Emissão'
-        Width = 120
+        Width = 150
         FieldName = 'data_emissao'
       end    
       item
@@ -72,16 +73,20 @@ object f_pendente: Tf_pendente
     TabOrder = 1
     TabStop = False
     TitleStyle = tsNative
+    OnCellClick = DBGrid1CellClick
+    OnColExit = DBGrid1ColExit
   end
   object ActionList1: TActionList
     Left = 176
     Top = 384
     object ac_sair: TAction
       Caption = 'Sair'
+      OnExecute = ac_sairExecute
       ShortCut = 27
     end
     object ac_liquidar: TAction
       Caption = 'Baixar'
+      OnExecute = ac_liquidarExecute
     end
   end
   object qry: TBufDataset
@@ -144,6 +149,36 @@ object f_pendente: Tf_pendente
       ReadOnly = False
       Required = False
       DisplayValues = 'True;False'
+    end
+    object qryn_meio_pagamento: TStringField
+      FieldKind = fkData
+      FieldName = 'n_meio_pagamento'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object qrymodelo: TStringField
+      FieldKind = fkData
+      FieldName = 'modelo'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
+    object qrydocumento: TStringField
+      FieldKind = fkData
+      FieldName = 'documento'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
     end
   end
   object ds: TDataSource
