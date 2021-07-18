@@ -22,6 +22,8 @@ type
     ActionList1: TActionList;
     BCButton4: TBCButton;
     dsCrediario: TDataSource;
+    GroupBox2: TGroupBox;
+    mObs: TMemo;
     Panel12: TPanel;
     pnlLabelCrediario: TPanel;
     qCrediario: TBufDataset;
@@ -37,7 +39,7 @@ type
     gridPrazo: TDBGrid;
     GroupBox1: TGroupBox;
     Label1: TLabel;
-    Label10: TLabel;
+    lDescontoPadrao: TLabel;
     Label11: TLabel;
     Label12: TLabel;
     Label13: TLabel;
@@ -72,7 +74,7 @@ type
     lEntrega: TLabel;
     lEntrada: TLabel;
     lTotalVenda: TLabel;
-    mObs: TMemo;
+    Memo1: TMemo;
     PageControl1: TPageControl;
     Panel1: TPanel;
     Panel10: TPanel;
@@ -117,7 +119,6 @@ type
     procedure ed_entregaExit(Sender: TObject);
     procedure ed_valorDescontoEnter(Sender: TObject);
     procedure ed_valorDescontoExit(Sender: TObject);
-    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure gridPrazoKeyDown(Sender: TObject; var Key: Word;
@@ -144,9 +145,8 @@ type
         Procedure SetResumo;
 
         Procedure UpdateVenda;
-        Procedure LoadDadosVenda;
   public
-      _valorBruto, _valorPromocao, _valorDesconto, _valorDescontoExtra,
+      _valorBruto, _valorPromocao, _valorDesconto,
         _valorEntrada, _ValorRecebimento, _totalVenda, _totalCrediario : Extended;
 
       _vendaID: string;
@@ -223,6 +223,9 @@ begin
    2 : Begin
        LoadShape(4);
        UpdateVenda;
+       //
+       AplicarCalculos(_vendaID,(_valorDesconto+ToValor(ed_valorDesconto.Text)),
+                                  ToValor(ed_entrega.Text), ToValor(ed_acrescimo.Text));
        SetVendaTotalizador(_vendaID, true, ck_receberEntrega.Checked);
        self.Close;
    end;
@@ -274,20 +277,13 @@ begin
   CalculaValor;
 end;
 
-procedure Tf_fechamento.FormCloseQuery(Sender: TObject; var CanClose: boolean);
-begin
-  UpdateVenda;
-end;
-
 procedure Tf_fechamento.FormShow(Sender: TObject);
 begin
     _valorEntrada:= 0;
-    _valorDescontoExtra:= 0;
 
     PageControl1.TabIndex:= 0;
     PageControl1.ShowTabs:= false;
     LoadPrazo;
-    LoadDadosVenda;
     LoadShape(1);
 end;
 
@@ -363,12 +359,11 @@ begin
               qPagamentovenciveis_de.Value:= FieldByName('venciveis_de').AsInteger;
               qPagamenton_parcelas.Value:= FieldByName('qtde_parcela').AsInteger;
               qPagamentoprimeiro_vencimento.Value:= FieldByName('primeiro_vencimento').AsInteger;
-              qPagamentoid.Value:= FieldByName('id').AsInteger;
               qPagamento.Post;
 
               Next;
          end;
-
+         qPagamento.First;
          gridPrazo.SetFocus;
      end;
   finally
@@ -425,6 +420,8 @@ begin
    ed_valorDesconto.Text:= FormatFloat(sessao.formatsubtotal(false),ToValor(ed_valorDesconto.Text));
    ed_valorEntrada.Text:= FormatFloat(sessao.formatsubtotal(false),ToValor(ed_valorEntrada.Text));
 
+   lDescontoPadrao.Caption:= FormatFloat(sessao.formatsubtotal(false),_valorDesconto);
+
 
    _totalCrediario := Decimal(Result +
                        ToValor(ed_acrescimo.Text)+
@@ -454,7 +451,7 @@ begin
                            );
 
    _totalVenda:= (_valorBruto+_valorPromocao) -
-                 (_valorDesconto+_valorDescontoExtra);
+                 (_valorDesconto+ToValor(ed_valorDesconto.Text));
 
 
 end;
@@ -577,58 +574,12 @@ begin
       _db := TConexao.Create;
       _venda := TJsonObject.Create();
       _venda['dados_adicionais'].AsString:= mObs.Text;
-      _venda['meio_pagamento_id'].AsInteger:= 1;
-      _venda['prazo_id'].AsInteger:= qPagamentoid.Value;
       _venda['hibrido_id'].AsInteger:= StrToInt(_vendaID);
       _db.updateSQl('vendas',_venda);
    finally
      FreeAndNil(_db);
      FreeAndNil(_venda);
    end;
-end;
-
-procedure Tf_fechamento.LoadDadosVenda;
-var _db : TConexao;
-     _find : boolean;
-begin
-  try
-      _db := TConexao.Create;
-      with _db.Query do
-      Begin
-          Close;
-          Sql.Clear;
-          Sql.Add('select * from vendas ');
-          Sql.add(' where hibrido_id  = '+QuotedStr(_vendaID));
-          open;
-
-          if IsEmpty then
-            FinalizaProcesso('Dados da Venda Invalido');
-
-          mObs.Text:= FieldByName('dados_adicionais').AsString;
-
-          qPagamento.DisableControls;
-          qPagamento.First;
-          _find:= false;
-
-          if FieldByName('prazo_id').AsInteger > 0 then
-              while not qPagamento.EOF do
-              Begin
-                   if qPagamentoid.Value = FieldByName('prazo_id').AsInteger  then
-                   Begin
-                         _find := true;
-                         Break;
-                   end;
-                   qPagamento.Next;
-              end;
-
-          if not _find then
-             qPagamento.First;
-
-          qPagamento.EnableControls;
-      end;
-  finally
-    FreeAndNil(_db);
-  end;
 end;
 
 end.

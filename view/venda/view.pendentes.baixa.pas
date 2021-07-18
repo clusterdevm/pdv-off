@@ -16,7 +16,6 @@ type
     ac_sair: TAction;
     ac_liquidar: TAction;
     ActionList1: TActionList;
-    Button2: TButton;
     ds: TDataSource;
     qry: TBufDataset;
     Button1: TButton;
@@ -33,7 +32,6 @@ type
     qryvenda_id: TLongintField;
     procedure ac_liquidarExecute(Sender: TObject);
     procedure ac_sairExecute(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
     procedure DBGrid1CellClick(Column: TColumn);
     procedure DBGrid1ColExit(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -131,11 +129,6 @@ end;
 procedure Tf_pendente.ac_sairExecute(Sender: TObject);
 begin
   self.Close;
-end;
-
-procedure Tf_pendente.Button2Click(Sender: TObject);
-begin
-    Listar;
 end;
 
 procedure Tf_pendente.DBGrid1CellClick(Column: TColumn);

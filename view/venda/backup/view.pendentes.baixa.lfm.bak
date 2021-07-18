@@ -22,12 +22,13 @@ object f_pendente: Tf_pendente
     object Button1: TButton
       Left = 822
       Height = 37
-      Top = 4
+      Top = 8
       Width = 108
       Action = ac_liquidar
       Anchors = [akRight, akBottom]
       TabOrder = 0
     end
+<<<<<<< HEAD
     object Button2: TButton
       Left = 704
       Height = 37
@@ -35,8 +36,11 @@ object f_pendente: Tf_pendente
       Width = 108
       Anchors = [akRight, akBottom]
       Caption = 'Atualizar'
+      OnClick = Button2Click
       TabOrder = 1
     end
+=======
+>>>>>>> parent of 6184b07... ajuste impostos
   end
   object DBGrid1: TDBGrid
     Left = 10
@@ -69,7 +73,7 @@ object f_pendente: Tf_pendente
       end    
       item
         Title.Caption = 'Vendedor'
-        Width = 120
+        Width = 170
         FieldName = 'n_vendedor'
       end    
       item
@@ -78,7 +82,6 @@ object f_pendente: Tf_pendente
         FieldName = 'valor'
       end>
     DataSource = ds
-    Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
     Scrollbars = ssAutoVertical
     TabOrder = 1
     TabStop = False
@@ -104,6 +107,7 @@ object f_pendente: Tf_pendente
     Left = 448
     Top = 328
     object qryvenda_id: TLongintField
+      Alignment = taLeftJustify
       FieldKind = fkData
       FieldName = 'venda_id'
       Index = 0

@@ -176,6 +176,3 @@
 17-07-2021 17:09:49 {"resultado":{"itens":{"vendas":[{"hibrido_id":4,"pdv_id":150,"remover":true,"id":78}],"venda_itens":[{"hibrido_id":11,"pdv_id":150,"remover":true,"id":1320}],"financeiro_caixa_venda":[{"hibrido_id":5,"pdv_id":150,"remover":true,"id":5}]}}}
 17-07-2021 17:09:55 
 17-07-2021 17:10:02 
-18-07-2021 09:34:42 Requisicao: 
-18-07-2021 09:35:35 Requisicao: 
-18-07-2021 09:35:45 Requisicao: 

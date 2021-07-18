@@ -146,15 +146,3 @@
 17-07-2021 17:07:06 {}
 17-07-2021 21:01:48  ExecutaSQL :  Access violation
 17-07-2021 21:01:48 PRAGMA journal_mode=WAL
-18-07-2021 09:34:42 ====================================
-18-07-2021 09:34:42 host https://api.clustererp.com.br/api/v1/cadastro/hibrido/download
-18-07-2021 09:34:42 Error Request : Host name resolution for "api.clustererp.com.br" failed.
-18-07-2021 09:34:42 teste 2: 
-18-07-2021 09:35:35 ====================================
-18-07-2021 09:35:35 host https://api.clustererp.com.br/api/v1/cadastro/hibrido/download
-18-07-2021 09:35:35 Error Request : Host name resolution for "api.clustererp.com.br" failed.
-18-07-2021 09:35:35 teste 2: 
-18-07-2021 09:35:45 ====================================
-18-07-2021 09:35:45 host https://api.clustererp.com.br/api/v1/cadastro/hibrido/download
-18-07-2021 09:35:45 Error Request : Host name resolution for "api.clustererp.com.br" failed.
-18-07-2021 09:35:45 teste 2: 
