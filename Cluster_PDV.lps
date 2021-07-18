@@ -542,9 +542,10 @@
         <ComponentName Value="f_fechamento"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="218"/>
-        <CursorPos X="38" Y="226"/>
+        <CursorPos X="38" Y="228"/>
         <UsageCount Value="200"/>
         <Bookmarks Count="1">
           <Item0 X="33" Y="227" ID="2"/>
@@ -629,16 +630,13 @@
         <ComponentName Value="f_pendente"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="135"/>
         <CursorPos X="68" Y="155"/>
         <UsageCount Value="125"/>
         <Bookmarks Count="1">
           <Item0 X="74" Y="173"/>
         </Bookmarks>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit49>
       <Unit50>
